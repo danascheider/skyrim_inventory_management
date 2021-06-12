@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe "HealthChecks", type: :request do
-  describe "GET /index" do
+RSpec.describe 'HealthChecks', type: :request do
+  describe 'GET /index' do
     subject(:index) { get '/' }
 
     it 'returns status 200' do
