@@ -28,5 +28,8 @@ skyrim_inventory_management.key
 skyrim_inventory_management.csr
 sim-api.danascheider.com.crt
 
+# Ignore environment variables defined in .envrc
+.envrc
+
 # Ignore vendored gems
 /vendor/bundle/
