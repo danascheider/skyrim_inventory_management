@@ -7,11 +7,9 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-allowed_origin = Rails.env.production? 'https://sim.danascheider.com' : ENV['FRONTEND_ORIGIN']
-
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins allowed_origin
+    origins configatron.client_origin
 
     resource '*',
       headers: :any,
