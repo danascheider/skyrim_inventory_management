@@ -23,5 +23,10 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore SSL cert stuff possibly stored in local repo
+skyrim_inventory_management.key
+skyrim_inventory_management.csr
+sim-api.danascheider.com.crt
+
 # Ignore vendored gems
 /vendor/bundle/
