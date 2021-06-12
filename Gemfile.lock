@@ -65,6 +65,7 @@ GEM
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.9)
+    configatron (4.5.1)
     crass (1.0.6)
     diff-lcs (1.4.4)
     erubi (1.10.0)
@@ -170,6 +171,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  configatron (~> 4.5.1)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
