@@ -13,6 +13,7 @@ gem 'puma', '~> 5.0'
 # Use Google OAuth for authentication
 gem 'omniauth-google-oauth2', '~> 1.0.0'
 gem 'devise_token_auth', '~> 1.1.5'
+gem 'httparty', '~> 0.18.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
