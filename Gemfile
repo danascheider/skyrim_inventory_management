@@ -9,8 +9,10 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+# Use Google OAuth for authentication
+gem 'omniauth-google-oauth2', '~> 1.0.0'
+gem 'devise_token_auth', '~> 1.1.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
