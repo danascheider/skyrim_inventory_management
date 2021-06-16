@@ -10,9 +10,7 @@ gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
-# Use Google OAuth for authentication
-gem 'omniauth-google-oauth2', '~> 1.0.0'
-gem 'devise_token_auth', '~> 1.1.5'
+# Use HTTParty to validate OAuth tokens
 gem 'httparty', '~> 0.18.1'
 
 # Reduces boot times through caching; required in config/boot.rb
