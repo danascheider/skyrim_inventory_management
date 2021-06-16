@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  # before_action :validate_google_oauth_token
+  before_action :validate_google_oauth_token
 
   private
 
@@ -9,22 +9,30 @@ class ApplicationController < ActionController::Base
     @_current_user ||= session[:current_user_uid] && User.find_by_uid(session[:current_user_uid])
   end
 
-  # def validate_google_oauth_token
-  #   resp = HTTParty.get(google_oauth_confirmation_endpoint)
+  def void_user
+    @_current_user = nil
+    session.delete(:current_user_uid)
+  end
 
-  #   unless resp.success?
-  #     Rails.logger.error("HTTParty returned error '#{resp.code}' for ID token '#{params[:id_token]}': '#{resp.body}'")
-  #     @_current_user = nil
-  #     session.delete(:current_user_uid)
+  def validate_google_oauth_token
+    validator = GoogleIDToken::Validator.new
+    payload = validator.check(params[:id_token], configatron.google_oauth_client_id)
 
-  #     render json: { error: 'Could not confirm OAuth token' }, status: :unauthorized
-  #   end
+    if current?(payload['exp'])
+      user = User.create_for_google(resp.parsed_response)
+      session[:current_user_uid] = user.uid
+    else
+      Rails.logger.error('User authenticated with expired token')
+      void_user
+      head :unauthorized
+    end
+  rescue GoogleIDToken::AudienceMismatchError => e
+    Rails.logger.error "Unsuccessful login attempt -- Could not verify OAuth token: #{e.message}"
+    void_user
+    render json: { error: 'Could not verify OAuth token' }, status: :unauthorized
+  end
 
-  #   user = User.create_for_google(resp.parsed_response)
-  #   session[:current_user_uid] = user.uid
-  # end
-
-  # def google_oauth_confirmation_endpoint
-  #   "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params[:id_token]}"
-  # end
+  def current?(seconds_since_unix_epoch)
+    Time.at(seconds_since_unix_epoch) >= Time.now
+  end
 end
