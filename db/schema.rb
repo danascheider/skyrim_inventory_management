@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2021_06_16_003758) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["uid"], name: "index_users_on_uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
 end
