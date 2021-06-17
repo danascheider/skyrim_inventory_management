@@ -28,10 +28,13 @@ gem 'configatron', '~> 4.5.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.1'
+  gem 'timecop', '~> 0.9.4'
+  gem 'database_cleaner-active_record', '~> 2.0.1'
+  gem 'factory_bot_rails', '~> 6.2.0'
 end
 
 group :development do
-  gem 'rspec-rails', '~> 5.0.1'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
