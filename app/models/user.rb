@@ -9,6 +9,7 @@ class User < ApplicationRecord
       user.uid = data['email']
       user.email = data['email']
       user.name = data['name']
+      user.image_url = data['picture']
       user.save!
     end
   end
