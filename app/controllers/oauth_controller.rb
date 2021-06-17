@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class OauthController < ApplicationController
-  skip_forgery_protection only: :sign_in
-
   def sign_in
     payload = validate_id_token
 
