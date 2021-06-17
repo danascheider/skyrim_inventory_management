@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :properties, dependent: :destroy
+  validates :uid, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   def self.create_for_google(data)
     where(uid: data['email']).first_or_initialize.tap do |user|
