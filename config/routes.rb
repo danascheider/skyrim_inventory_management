@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: 'health_checks#index'
 
-  post '/auth/sign_in', to: 'oauth#sign_in'
+  get '/users/logged_in', to: 'users#logged_in', as: 'logged_in_user'
 
   get '/privacy', to: 'utilities#privacy'
   get '/tos', to: 'utilities#tos'
