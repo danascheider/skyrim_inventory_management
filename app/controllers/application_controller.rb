@@ -3,20 +3,19 @@
 class ApplicationController < ActionController::API
   before_action :validate_google_oauth_token
 
+  attr_reader :current_user
+
   private
 
-  attr_accessor :current_user
-
   def validate_google_oauth_token
-    id_token = request.headers['Authorization'].gsub('Bearer ', '')
     validator = GoogleIDToken::Validator.new
     payload = validator.check(id_token, configatron.google_oauth_client_id)
 
-    if current?(payload['exp'].to_i)
-      current_user = User.create_for_google(payload)
+    if current?(payload['exp'])
+      @current_user = User.create_for_google(payload)
     else
       Rails.logger.error('User authenticated with expired token')
-      current_user = nil
+      @current_user = nil
       render json: { error: 'Expired authentication token. Try logging out and logging in again.' }, status: :unauthorized
     end
   rescue GoogleIDToken::AudienceMismatchError => e
