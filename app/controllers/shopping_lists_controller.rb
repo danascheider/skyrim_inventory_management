@@ -10,4 +10,12 @@ class ShoppingListsController < ApplicationController
       head :unprocessable_entity
     end
   end
+
+  def show
+    shopping_list = current_user.shopping_lists.find(params[:id])
+
+    render json: shopping_list, status: :ok
+  rescue ActiveRecord::RecordNotFound
+    head :not_found
+  end
 end
