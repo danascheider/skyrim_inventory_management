@@ -18,12 +18,12 @@ class ApplicationController < ActionController::API
       @current_user = nil
       render json: { error: 'Expired authentication token. Try logging out and logging in again.' }, status: :unauthorized
     end
-  rescue GoogleIDToken::AudienceMismatchError => e
-    Rails.logger.error "Unsuccessful login attempt -- OAuth token not authorized for audience: #{e.message}"
-    render json: { error: 'Could not verify OAuth token - bad audience' }, status: :unauthorized
-  rescue GoogleIDToken::SignatureError => e
-    Rails.logger.error "Unsuccessful login attempt -- Could not verify OAuth token: #{e.message}"
-    render json: { error: 'Could not verify OAuth token - bad token' }, status: :unauthorized
+  rescue GoogleIDToken::ValidationError => e
+    Rails.logger.error "Unsuccessful login attempt -- token validation failed: #{e.message}"
+    render json: { error: 'Google OAuth token validation failed' }, status: :unauthorized
+  rescue GoogleIDToken::CertificateError => e
+    Rails.logger.error "Unsuccessful login attempt -- problem with certificate: #{e.message}"
+    render json: { error: 'Invalid OAuth certificate' }, status: :unauthorized
   end
 
   def id_token
