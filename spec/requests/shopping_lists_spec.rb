@@ -170,4 +170,164 @@ RSpec.describe "ShoppingLists", type: :request do
       end
     end
   end
+
+  describe 'GET /shopping_lists' do
+    subject(:get_index) { get '/shopping_lists', headers: headers }
+
+    context 'when unauthenticated' do
+      before do
+        # create some data to not be returned
+        create_list(:shopping_list, 3)
+      end
+
+      it 'returns 401' do
+        get_index
+        expect(response.status).to eq 401
+      end
+
+      it 'does not return any user data' do
+        get_index
+        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+      end
+    end
+
+    context 'when authenticated' do
+      let(:authenticated_user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => authenticated_user.email,
+          'name' => authenticated_user.name
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+      
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+
+        create_list(:shopping_list, 3, user: authenticated_user)
+        unauthenticated_user = create(:user)
+        create_list(:shopping_list, 3, user: unauthenticated_user)
+      end
+
+      it 'returns all shopping lists belonging to the authenticated user' do
+        get_index
+        expect(response.body).to eq authenticated_user.shopping_lists.to_json
+      end
+
+      it 'returns status 200' do
+        get_index
+        expect(response.status).to eq 200
+      end
+    end
+  end
+
+  describe 'DELETE /shopping_lists/:id' do
+    subject(:delete_shopping_list) { delete "/shopping_lists/#{shopping_list_id}", headers: headers }
+
+    context 'when unauthenticated' do
+      let!(:shopping_list) { create(:shopping_list) }
+      let(:shopping_list_id) { shopping_list.id }
+
+      it 'returns 401' do
+        delete_shopping_list
+        expect(response.status).to eq 401
+      end
+
+      it 'does not delete the shopping list' do
+        expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+      end
+
+      it 'returns an error in the body' do
+        delete_shopping_list
+        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+      end
+    end
+
+    context 'when logged in as the wrong user' do
+      let(:user1) { create(:user) }
+      let(:user2) { create(:user) }
+      let!(:shopping_list) { create(:shopping_list, user: user2) }
+      let(:shopping_list_id) { shopping_list.id }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user1.email,
+          'name' => user1.name
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      it 'returns 404' do
+        delete_shopping_list
+        expect(response.status).to eq 404
+      end
+
+      it 'does not return any data' do
+        delete_shopping_list
+        expect(response.body).to be_empty
+      end
+
+      it 'does not delete any shopping lists' do
+        expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+      end
+    end
+
+    context 'when the shopping list does not exist' do
+      let(:user) { create(:user) }
+      let(:shopping_list_id) { 24 } # could be anything
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+      
+      it 'returns 404' do
+        delete_shopping_list
+        expect(response.status).to eq 404
+      end
+
+      it 'does not return any data' do
+        delete_shopping_list
+        expect(response.body).to be_empty
+      end
+    end
+
+    context 'when authenticated and the shopping list exists' do
+      let(:user) { create(:user) }
+      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list_id) { shopping_list.id }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      it 'deletes the shopping list' do
+        expect { delete_shopping_list }.to change(ShoppingList, :count).from(1).to(0)
+      end
+    end
+  end
 end
