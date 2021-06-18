@@ -27,7 +27,7 @@ class ApplicationController < ActionController::API
   end
 
   def id_token
-    request.headers['Authorization'].gsub('Bearer ', '')
+    request.headers['Authorization']&.gsub('Bearer ', '')
   end
 
   def oauth_audience
