@@ -36,6 +36,7 @@ RSpec.describe "Verifications", type: :request do
           'uid'        => 'foobar@gmail.com',
           'email'      => 'foobar@gmail.com',
           'name'       => 'Foo Bar',
+          'image_url'  => nil,
           'created_at' => Time.now,
           'updated_at' => Time.now
         }
@@ -56,6 +57,7 @@ RSpec.describe "Verifications", type: :request do
           'uid'        => 'foobar@gmail.com',
           'email'      => 'foobar@gmail.com',
           'name'       => 'Foo Bar',
+          'image_url'  => nil,
           'created_at' => Time.now,
           'updated_at' => Time.now
         }
@@ -74,7 +76,7 @@ RSpec.describe "Verifications", type: :request do
 
   context 'when the token is not authorised' do
     let(:validator_data) do
-      # I'm not sure this is a realistic payload - just something wee
+      # I'm not sure this is a realistic payload - just something we
       # don't expect
       { 'error' => 'something went wrong' }
     end
@@ -86,6 +88,8 @@ RSpec.describe "Verifications", type: :request do
   end
 
   context 'when the token does not match the given client ID' do
+    let(:validator_data) { {} }
+
     it 'returns 401' do
       allow(validator).to receive(:check).and_raise(GoogleIDToken::AudienceMismatchError)
       verify_token
