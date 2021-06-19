@@ -6,6 +6,7 @@ class ShoppingList < ApplicationRecord
 
   validate :one_master_list_per_user
 
+  before_create :set_default_title, if: :master_or_title_blank?
   after_create :ensure_master_list_present
 
   private
@@ -18,7 +19,20 @@ class ShoppingList < ApplicationRecord
 
   def ensure_master_list_present
     if user.master_shopping_list.nil?
-      user.shopping_lists.create!(master: true)
+      user.shopping_lists.create!(master: true, title: 'Master')
     end
+  end
+
+  def set_default_title
+    self.title = if master == true
+      'Master'
+    else
+      list_count = user.shopping_lists.where(master: false).count
+      "My List #{list_count + 1}"
+    end
+  end
+
+  def master_or_title_blank?
+    master == true || title.blank?
   end
 end
