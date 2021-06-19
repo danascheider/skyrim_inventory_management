@@ -9,7 +9,7 @@ class ShoppingListsController < ApplicationController
     shopping_list = current_user.shopping_lists.new
 
     if shopping_list.save
-      render json: shopping_list, status: :created
+      render json: { shopping_list: shopping_list, master_list: current_user.master_shopping_list }, status: :created
     else
       head :unprocessable_entity
     end

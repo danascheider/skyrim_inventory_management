@@ -31,7 +31,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
       context 'when all goes well' do
         it 'creates a new shopping list' do
-          expect { create_shopping_list }.to change(ShoppingList, :count).from(0).to(1)
+          expect { create_shopping_list }.to change(ShoppingList, :count).from(0).to(2) # because of the master list
         end
 
         it 'creates the list for the logged-in user' do
@@ -41,7 +41,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns the new list' do
           create_shopping_list
-          expect(response.body).to eq ShoppingList.last.to_json
+          expect(response.body).to eq({ shopping_list: user.shopping_lists.first, master_list: user.master_shopping_list }.to_json)
         end
 
         it 'returns status 201' do
@@ -326,7 +326,7 @@ RSpec.describe "ShoppingLists", type: :request do
       end
 
       it 'deletes the shopping list' do
-        expect { delete_shopping_list }.to change(ShoppingList, :count).from(1).to(0)
+        expect { delete_shopping_list }.to change(ShoppingList, :count).from(2).to(1) # will initially be 2 because master list
       end
     end
   end

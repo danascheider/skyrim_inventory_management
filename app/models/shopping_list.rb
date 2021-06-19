@@ -5,6 +5,7 @@ class ShoppingList < ApplicationRecord
   has_many :shopping_list_items, dependent: :destroy
 
   validate :one_master_list_per_user
+  validates :title, uniqueness: { scope: :user_id }
 
   before_create :set_default_title, if: :master_or_title_blank?
   after_create :ensure_master_list_present
@@ -27,8 +28,8 @@ class ShoppingList < ApplicationRecord
     self.title = if master == true
       'Master'
     else
-      list_count = user.shopping_lists.where(master: false).count
-      "My List #{list_count + 1}"
+      highest_number = user.shopping_lists.where("title like '%My List%'").pluck(:title).map { |title| title.gsub('My List ', '').to_i }.max || 0
+      "My List #{highest_number + 1}"
     end
   end
 
