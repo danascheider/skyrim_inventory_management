@@ -328,6 +328,16 @@ RSpec.describe "ShoppingLists", type: :request do
       it 'deletes the shopping list' do
         expect { delete_shopping_list }.to change(ShoppingList, :count).from(2).to(1) # will initially be 2 because master list
       end
+
+      it 'returns the master list' do
+        delete_shopping_list
+        expect(response.body).to eq({ master_list: user.master_shopping_list }.to_json)
+      end
+
+      it 'returns status 200' do
+        delete_shopping_list
+        expect(response.status).to eq 200
+      end
     end
   end
 end
