@@ -15,4 +15,8 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  def master_shopping_list
+    shopping_lists.find_by(master: true)
+  end
 end
