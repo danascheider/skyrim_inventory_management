@@ -35,7 +35,7 @@ class ShoppingListItem < ApplicationRecord
   private
 
   def add_to_master_list
-    new_attrs = self.attributes.reject { |key, value| ['shopping_list_id', :shopping_list_id, 'id', :id].include?(key) }
+    new_attrs = reject_non_public_attrs(self.attributes)
     ShoppingListItem.create_or_combine!(**new_attrs, shopping_list: master_list)
   end
 
@@ -114,5 +114,10 @@ class ShoppingListItem < ApplicationRecord
 
   def master_list
     @master_list ||= user.master_shopping_list
+  end
+
+  def reject_non_public_attrs(attrs)
+    non_public_attrs = [:id, 'id', :shopping_list_id, 'shopping_list_id', :created_at, 'created_at', :updated_at, 'updated_at']
+    attrs.reject { |key, value| non_public_attrs.include?(key) }
   end
 end
