@@ -60,7 +60,7 @@ class ShoppingListItem < ApplicationRecord
       item_on_master_list.destroy!
     else
       if notes.present?
-        new_notes = item_on_master_list.notes.gsub(/#{notes}/, '').gsub(/^ ?\-\- /, '').gsub(/ \-\- ?$/, '')
+        new_notes = item_on_master_list.notes.sub(/#{notes}/, '').gsub(/^ ?\-\- /, '').gsub(/ \-\- ?$/, '')
       end
 
       new_notes = nil unless defined?(new_notes) && new_notes.present?
