@@ -2,7 +2,7 @@
 
 class ShoppingListsController < ApplicationController
   def index
-    render json: current_user.shopping_lists.includes(:shopping_list_items), status: :ok
+    render json: current_user.shopping_lists.to_json(include: :shopping_list_items), status: :ok
   end
 
   def create
