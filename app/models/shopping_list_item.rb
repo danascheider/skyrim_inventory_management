@@ -56,20 +56,18 @@ class ShoppingListItem < ApplicationRecord
   def adjust_master_list_after_destroy
     item_on_master_list = master_list.shopping_list_items.find_by_description(description)
 
-    if item_on_master_list.quantity == quantity
-      item_on_master_list.destroy!
-    else
-      if notes.present?
-        new_notes = item_on_master_list.notes.sub(/#{notes}/, '').gsub(/^ ?\-\- /, '').gsub(/ \-\- ?$/, '')
-      end
+    item_on_master_list.destroy! && return if item_on_master_list.quantity == quantity
 
-      new_notes = nil unless defined?(new_notes) && new_notes.present?
-
-      item_on_master_list.update!(
-        quantity: item_on_master_list.quantity - quantity,
-        notes: new_notes || item_on_master_list.notes
-      )
+    if notes.present?
+      new_notes = item_on_master_list.notes.sub(/#{notes}/, '').gsub(/^ ?\-\- /, '').gsub(/ \-\- ?$/, '')
     end
+
+    new_notes = nil unless defined?(new_notes) && new_notes.present?
+
+    item_on_master_list.update!(
+      quantity: item_on_master_list.quantity - quantity,
+      notes: new_notes || item_on_master_list.notes
+    )
   end
 
   def prevent_changed_description
