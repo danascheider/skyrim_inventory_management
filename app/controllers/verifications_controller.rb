@@ -8,6 +8,6 @@ class VerificationsController < ApplicationController
   # token has been verified server-side and that there is
   # a corresponding user in the system.
   def verify_token
-    head :created
+    head :no_content
   end
 end

@@ -25,9 +25,9 @@ RSpec.describe "Verifications", type: :request do
       allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
     end
 
-    it 'returns status 201' do
+    it 'returns status 204' do
       verify_token
-      expect(response.status).to eq 201
+      expect(response.status).to eq 204
     end
 
     context 'when no existing user matches' do
