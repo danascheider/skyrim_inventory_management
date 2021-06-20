@@ -23,8 +23,12 @@ class ShoppingListItem < ApplicationRecord
       create!(attrs)
     else
       qty = attrs[:quantity] || attrs['quantity'] || 1
+      notes = attrs[:notes] || attrs['notes']
+
       new_quantity = existing_item.quantity + qty
-      existing_item.update!(quantity: new_quantity)
+      new_notes = [existing_item.notes, notes].join(' -- ')
+
+      existing_item.update!(quantity: new_quantity, notes: new_notes)
     end
   end
 
