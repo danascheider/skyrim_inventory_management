@@ -7,7 +7,7 @@ class ShoppingListItem < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   before_save :humanize_description
-  before_save :prevent_changed_description
+  before_update :prevent_changed_description
   after_create :add_to_master_list, unless: :shopping_list_is_master_list?
   after_update :adjust_master_list_after_update, unless: :shopping_list_is_master_list?
   after_destroy :adjust_master_list_after_destroy, unless: :shopping_list_is_master_list?

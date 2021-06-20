@@ -389,7 +389,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
       it 'returns all shopping lists belonging to the authenticated user' do
         get_index
-        expect(response.body).to eq authenticated_user.shopping_lists.to_json(include: :shopping_list_items)
+        expect(JSON.parse(response.body)).to eq JSON.parse(authenticated_user.shopping_lists.to_json(include: :shopping_list_items))
       end
 
       it 'returns status 200' do
