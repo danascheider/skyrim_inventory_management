@@ -17,18 +17,37 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '::create_or_combine!' do
     context 'when there is an existing item on the same list with the same description' do
-      subject(:create_item) { described_class.create_or_combine!(description: 'existing item', quantity: 1, shopping_list: shopping_list) }
+      subject(:create_or_combine) { described_class.create_or_combine!(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
 
       let!(:shopping_list) { create(:shopping_list) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list) }
+      let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
-        expect { create_item }.not_to change(shopping_list.shopping_list_items, :count)
+        expect { create_or_combine }.not_to change(shopping_list.shopping_list_items, :count)
       end
 
       it 'adds the quantity to the existing item' do
-        create_item
+        create_or_combine
         expect(existing_item.reload.quantity).to eq 3
+      end
+
+      it 'concatenates the notes for the two items' do
+        create_or_combine
+        expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
+      end
+    end
+
+    context 'when there is not an existing item on the same list with that description' do
+      subject(:create_or_combine) { described_class.create_or_combine!(description: 'new item', quantity: 1, shopping_list: shopping_list) }
+
+      let!(:shopping_list) { create(:shopping_list) }
+
+      it 'creates a new item on the list' do
+        expect { create_or_combine }.to change(shopping_list.shopping_list_items, :count).by(1)
+      end
+
+      it 'creates a new item on the master list' do
+        expect { create_or_combine }.to change(shopping_list.user.master_shopping_list.shopping_list_items, :count).by(1)
       end
     end
   end
