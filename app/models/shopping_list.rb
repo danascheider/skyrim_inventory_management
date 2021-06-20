@@ -9,6 +9,8 @@ class ShoppingList < ApplicationRecord
 
   before_create :set_default_title, if: :master_or_title_blank?
   after_create :ensure_master_list_present
+  before_destroy :ensure_not_master, if: :other_lists_present?
+  after_destroy :destroy_master_list, unless: :other_lists_present?
 
   private
 
@@ -35,5 +37,17 @@ class ShoppingList < ApplicationRecord
 
   def master_or_title_blank?
     master == true || title.blank?
+  end
+
+  def ensure_not_master
+    throw :abort if master == true
+  end
+
+  def destroy_master_list
+    user.master_shopping_list&.destroy!
+  end
+
+  def other_lists_present?
+    user.shopping_lists.where(master: false).count > 0
   end
 end

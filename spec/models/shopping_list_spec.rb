@@ -124,4 +124,58 @@ RSpec.describe ShoppingList, type: :model do
       end
     end
   end
+
+  describe 'before destroy hook' do
+    context 'when trying to destroy the master list' do
+      subject(:destroy_list) { shopping_list.destroy! }
+      let(:shopping_list) { create(:master_shopping_list) }
+
+      context 'when the user has regular lists' do
+        before do
+          create(:shopping_list, user: shopping_list.user)
+        end
+
+        it 'raises an error and does not destroy the list' do
+          expect { destroy_list }.to raise_error(ActiveRecord::RecordNotDestroyed)
+        end
+      end
+
+      context 'when the user has no regular lists' do
+        it 'destroys the master list' do
+          expect { destroy_list }.to change(shopping_list.user.shopping_lists, :count).from(1).to(0)
+        end
+      end
+    end
+  end
+
+  describe 'after destroy hook' do
+    subject(:destroy_list) { shopping_list.destroy! }
+
+    let!(:shopping_list) { create(:shopping_list, user: user) }
+    let(:user) { create(:user) }
+
+    context 'when the user has additional regular lists' do
+      before do
+        create(:shopping_list, user: user)
+      end
+
+      it "doesn't destroy the master list" do
+        expect { destroy_list }.not_to change(user, :master_shopping_list)
+      end
+    end
+
+    context 'when the user has no additional regular lists' do
+      it 'destroys the master list' do
+        expect { destroy_list }.to change(user.shopping_lists, :count).from(2).to(0)
+      end
+    end
+
+    context 'when the list is a master list' do
+      let(:shopping_list) { create(:master_shopping_list, user: user) }
+
+      it "doesn't raise an error" do
+        expect { destroy_list }.not_to raise_error
+      end
+    end
+  end
 end
