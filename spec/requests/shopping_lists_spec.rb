@@ -339,5 +339,55 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 200
       end
     end
+
+    context 'when properly authenticated and attempting to delete the master list' do
+      let(:user) { create(:user) }
+      let(:shopping_list_id) { shopping_list.id }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when no other list exists' do
+        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it 'deletes the master list' do
+          expect { delete_shopping_list }.to change(user.shopping_lists, :count).from(1).to(0)
+        end
+
+        it 'returns status 204' do
+          delete_shopping_list
+          expect(response.status).to eq 204
+        end
+      end
+
+      context 'when another list exists' do
+        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        before do
+          create(:shopping_list, user: user)
+        end
+
+        it 'does not delete anything' do
+          expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+        end
+
+        it 'returns status 405 (Method Not Allowed)' do
+          delete_shopping_list
+          expect(response.status).to eq 405
+        end
+      end
+    end
   end
 end

@@ -25,8 +25,18 @@ class ShoppingListsController < ApplicationController
 
   def destroy
     shopping_list = current_user.shopping_lists.find(params[:id])
-    shopping_list.destroy!
-    render json: { master_list: current_user.master_shopping_list }, status: :ok
+
+    if shopping_list.master
+      if current_user.shopping_lists.count == 1 # if they don't have other lists allow it
+        shopping_list.destroy!
+        head :no_content
+      else
+        head :method_not_allowed
+      end
+    else
+      shopping_list.destroy!
+      render json: { master_list: current_user.master_shopping_list }, status: :ok
+    end
   rescue ActiveRecord::RecordNotFound
     head :not_found
   end
