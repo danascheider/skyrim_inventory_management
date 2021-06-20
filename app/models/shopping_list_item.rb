@@ -57,7 +57,6 @@ class ShoppingListItem < ApplicationRecord
   end
 
   def prevent_changed_description
-    return true if new_record?
     throw :abort if description_changed?
   end
 
