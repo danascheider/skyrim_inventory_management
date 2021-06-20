@@ -57,7 +57,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def prevent_action_on_master_list
-    if @shopping_list&.master == true || params[:shopping_list]&.fetch(:master, nil) == true
+    if @shopping_list.master == true || params[:shopping_list]&.fetch(:master, nil) == true
       render json: { errors: { master: ['cannot create or update a master shopping list through API'] } }, status: :unprocessable_entity
     end
   end
