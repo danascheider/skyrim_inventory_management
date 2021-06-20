@@ -11,7 +11,7 @@ RSpec.describe "ShoppingLists", type: :request do
   end
 
   describe 'POST /shopping_lists' do
-    subject(:create_shopping_list) { post '/shopping_lists', params: {}, headers: headers }
+    subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": {} }', headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -51,13 +51,17 @@ RSpec.describe "ShoppingLists", type: :request do
       end
 
       context 'when something goes wrong' do
-        before do
-          allow_any_instance_of(ShoppingList).to receive(:save).and_return(nil)
-        end
+        subject(:create_shopping_list) { post '/shopping_lists', params: "{ \"shopping_list\": { \"title\": \"#{existing_list.title}\" } }", headers: headers }
+        let(:existing_list) { create(:shopping_list, user: user) }
 
         it 'returns status 422' do
           create_shopping_list
           expect(response.status).to eq 422
+        end
+
+        it "doesn't return any data" do
+          create_shopping_list
+          expect(response.body).to be_empty
         end
       end
     end

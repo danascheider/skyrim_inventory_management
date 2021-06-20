@@ -6,7 +6,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    shopping_list = current_user.shopping_lists.new
+    shopping_list = current_user.shopping_lists.new(shopping_list_params)
 
     if shopping_list.save
       render json: shopping_list, status: :created
@@ -43,5 +43,11 @@ class ShoppingListsController < ApplicationController
     end
   rescue ActiveRecord::RecordNotFound
     head :not_found
+  end
+
+  private
+
+  def shopping_list_params
+    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title) : {}
   end
 end
