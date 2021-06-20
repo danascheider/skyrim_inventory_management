@@ -325,18 +325,40 @@ RSpec.describe "ShoppingLists", type: :request do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
-      it 'deletes the shopping list' do
-        expect { delete_shopping_list }.to change(ShoppingList, :count).from(2).to(1) # will initially be 2 because master list
+      context "when this is the user's last regular shopping list" do
+        it 'deletes the shopping list' do
+          expect { delete_shopping_list }.to change(ShoppingList, :count).from(2).to(0)
+        end
+
+        it 'returns status 204' do
+          delete_shopping_list
+          expect(response.status).to eq 204
+        end
+
+        it "doesn't include any data" do
+          delete_shopping_list
+          expect(response.body).to be_empty
+        end
       end
 
-      it 'returns the master list' do
-        delete_shopping_list
-        expect(response.body).to eq({ master_list: user.master_shopping_list }.to_json)
-      end
+      context "when this is not the user's last regular shopping list" do
+        before do
+          create(:shopping_list, user: user)
+        end
 
-      it 'returns status 200' do
-        delete_shopping_list
-        expect(response.status).to eq 200
+        it 'deletes the shopping list' do
+          expect { delete_shopping_list }.to change(user.shopping_lists, :count).from(3).to(2)
+        end
+
+        it 'returns status 200' do
+          delete_shopping_list
+          expect(response.status).to eq 200
+        end
+
+        it 'returns the master list in the body' do
+          delete_shopping_list
+          expect(response.body).to eq({ master_list: user.master_shopping_list }.to_json)
+        end
       end
     end
 

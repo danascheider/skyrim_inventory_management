@@ -35,7 +35,11 @@ class ShoppingListsController < ApplicationController
       end
     else
       shopping_list.destroy!
-      render json: { master_list: current_user.master_shopping_list }, status: :ok
+      if current_user.master_shopping_list.present? # if this was their last regular list the master will have been destroyed
+        render json: { master_list: current_user.master_shopping_list }, status: :ok
+      else
+        head :no_content
+      end
     end
   rescue ActiveRecord::RecordNotFound
     head :not_found
