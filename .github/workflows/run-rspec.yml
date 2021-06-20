@@ -16,5 +16,9 @@ jobs:
         uses: ruby/setup-ruby@v1
       - name: Install dependencies
         run: bundle install
+      - name: Create database
+        run: bundle exec rails db:create
+      - name: Migrate database
+        run: bundle exec rails db:migrate
       - name: Run RSpec
         run: bundle exec rails spec
