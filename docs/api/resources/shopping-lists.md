@@ -231,7 +231,7 @@ If request attempts to create a master list:
 ```json
 {
   "errors": {
-    "master": ["cannot create or update a master shopping list through API"]
+    "master": ["cannot create or update a master shopping list through the API"]
   }
 }
 ```
@@ -320,7 +320,7 @@ Unprocessable entity due to attempting to update a master list or convert a regu
 ```json
 {
   "errors": {
-    "master": ["cannot create or update a master shopping list through API"]
+    "master": ["cannot create or update a master shopping list through the API"]
   }
 }
 ```
