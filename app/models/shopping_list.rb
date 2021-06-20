@@ -12,6 +12,11 @@ class ShoppingList < ApplicationRecord
   before_destroy :ensure_not_master, if: :other_lists_present?
   after_destroy :destroy_master_list, unless: :other_lists_present?
 
+  def to_json(opts = {})
+    opts.merge!({ include: :shopping_list_items }) unless opts.has_key?(:include)
+    super(opts)
+  end
+
   private
 
   def one_master_list_per_user

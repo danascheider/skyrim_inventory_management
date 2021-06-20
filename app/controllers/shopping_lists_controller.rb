@@ -16,9 +16,9 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
-    shopping_list = current_user.shopping_lists.find(params[:id])
+    shopping_list = current_user.shopping_lists.includes(:shopping_list_items).find(params[:id])
 
-    render json: shopping_list.to_json(include: :shopping_list_items), status: :ok
+    render json: shopping_list.to_json, status: :ok
   rescue ActiveRecord::RecordNotFound
     head :not_found
   end
