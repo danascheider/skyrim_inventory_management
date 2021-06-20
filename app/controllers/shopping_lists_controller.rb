@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ShoppingListsController < ApplicationController
+  before_action :set_shopping_list, only: %i[show update destroy]
+  before_action :prevent_action_on_master_list, only: %i[create update]
+  before_action :prevent_destroy_master_list, only: :destroy
+
   def index
     render json: current_user.shopping_lists.to_json(include: :shopping_list_items), status: :ok
   end
@@ -16,45 +20,24 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
-    shopping_list = current_user.shopping_lists.includes(:shopping_list_items).find(params[:id])
-
-    render json: shopping_list, status: :ok
-  rescue ActiveRecord::RecordNotFound
-    head :not_found
+    render json: @shopping_list, status: :ok
   end
 
   def update
-    shopping_list = current_user.shopping_lists.find(params[:id])
-
-    if shopping_list.update(shopping_list_update_params)
-      render json: shopping_list, status: :ok
+    if @shopping_list.update(shopping_list_update_params)
+      render json: @shopping_list, status: :ok
     else
-      render json: { errors: shopping_list.errors }, status: :unprocessable_entity
+      render json: { errors: @shopping_list.errors }, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound
-    head :not_found
   end
 
   def destroy
-    shopping_list = current_user.shopping_lists.find(params[:id])
-
-    if shopping_list.master
-      if current_user.shopping_lists.count == 1 # if they don't have other lists allow it
-        shopping_list.destroy!
-        head :no_content
-      else
-        head :method_not_allowed
-      end
+    @shopping_list.destroy!
+    if current_user.master_shopping_list.present? # if this was their last regular list the master will have been destroyed
+      render json: { master_list: current_user.master_shopping_list }, status: :ok
     else
-      shopping_list.destroy!
-      if current_user.master_shopping_list.present? # if this was their last regular list the master will have been destroyed
-        render json: { master_list: current_user.master_shopping_list }, status: :ok
-      else
-        head :no_content
-      end
+      head :no_content
     end
-  rescue ActiveRecord::RecordNotFound
-    head :not_found
   end
 
   private
@@ -65,5 +48,23 @@ class ShoppingListsController < ApplicationController
   
   def shopping_list_update_params
     params.require(:shopping_list).permit(:title)
+  end
+
+  def set_shopping_list
+    @shopping_list = current_user.shopping_lists.includes(:shopping_list_items).find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    head :not_found
+  end
+
+  def prevent_action_on_master_list
+    if @shopping_list&.master == true || params[:shopping_list]&.fetch(:master, nil) == true
+      render json: { errors: { master: ['cannot create or update a master shopping list through the API'] } }, status: :unprocessable_entity
+    end
+  end
+
+  def prevent_destroy_master_list
+    if @shopping_list.master == true
+      render json: { error: 'cannot destroy a master shopping list through the API' }, status: :method_not_allowed
+    end
   end
 end
