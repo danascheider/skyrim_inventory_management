@@ -64,6 +64,24 @@ RSpec.describe "ShoppingLists", type: :request do
           expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
         end
       end
+
+      context 'when the client attempts to create a master list' do
+        subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": { "master": true } }', headers: headers }
+
+        it "doesn't create a list" do
+          expect { create_shopping_list }.not_to change(ShoppingList, :count)
+        end
+
+        it 'returns an error' do
+          create_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          create_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+        end
+      end
     end
 
     context 'when unauthenticated' do
@@ -249,6 +267,50 @@ RSpec.describe "ShoppingLists", type: :request do
           expect(response.body).to be_empty
         end
       end
+
+      context 'when the client attempts to update a master list' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+
+        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it "doesn't update the list" do
+          update_shopping_list
+          expect(shopping_list.reload.title).to eq 'Master'
+        end
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+        end
+      end
+
+      context 'when the client attempts to change a regular list to a master list' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+        
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it "doesn't update the list" do
+          update_shopping_list
+          expect(shopping_list.reload.master).to eq false
+        end
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+        end
+      end
     end
 
     context 'when unauthenticated' do
@@ -333,6 +395,50 @@ RSpec.describe "ShoppingLists", type: :request do
         it "doesn't return data" do
           update_shopping_list
           expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the client attempts to update a master list' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+
+        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it "doesn't update the list" do
+          update_shopping_list
+          expect(shopping_list.reload.title).to eq 'Master'
+        end
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+        end
+      end
+
+      context 'when the client attempts to change a regular list to a master list' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+        
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it "doesn't update the list" do
+          update_shopping_list
+          expect(shopping_list.reload.master).to eq false
+        end
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
         end
       end
     end
@@ -555,27 +661,9 @@ RSpec.describe "ShoppingLists", type: :request do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
-      context 'when no other list exists' do
-        let!(:shopping_list) { create(:master_shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
-
-        it 'deletes the master list' do
-          expect { delete_shopping_list }.to change(user.shopping_lists, :count).from(1).to(0)
-        end
-
-        it 'returns status 204' do
-          delete_shopping_list
-          expect(response.status).to eq 204
-        end
-      end
-
       context 'when another list exists' do
         let!(:shopping_list) { create(:master_shopping_list, user: user) }
         let(:shopping_list_id) { shopping_list.id }
-
-        before do
-          create(:shopping_list, user: user)
-        end
 
         it 'does not delete anything' do
           expect { delete_shopping_list }.not_to change(ShoppingList, :count)
@@ -584,6 +672,11 @@ RSpec.describe "ShoppingLists", type: :request do
         it 'returns status 405 (Method Not Allowed)' do
           delete_shopping_list
           expect(response.status).to eq 405
+        end
+
+        it 'returns a helpful error body' do
+          delete_shopping_list
+          expect(response.body).to eq({ error: 'cannot destroy a master shopping list through the API' }.to_json)
         end
       end
     end
