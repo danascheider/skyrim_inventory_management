@@ -86,19 +86,24 @@ RSpec.describe ShoppingListItem, type: :model do
       end
 
       context 'when there is a matching item on the master list' do
-        subject(:create_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, shopping_list: shopping_list) }
+        subject(:create_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, notes: 'notes 2', shopping_list: shopping_list) }
 
-        let!(:item_on_master_list) { create(:shopping_list_item, description: 'Ebony sword', quantity: 1, shopping_list: master_list) }
+        let!(:item_on_master_list) { create(:shopping_list_item, description: 'Ebony sword', quantity: 1, notes: 'notes 1', shopping_list: master_list) }
 
         it 'updates the quantity on the master list' do
           create_item
           expect(item_on_master_list.reload.quantity).to eq 3
         end
+
+        it 'concatenates the notes fields' do
+          create_item
+          expect(item_on_master_list.reload.notes).to eq 'notes 1 -- notes 2'
+        end
       end
     end
 
     context 'when updating an existing list item' do
-      let!(:list_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, shopping_list: shopping_list) }
+      let!(:list_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, notes: 'notes 1', shopping_list: shopping_list) }
       
       context 'when incrementing the quantity' do
         subject(:update_item) { list_item.update!(quantity: 3) }
@@ -117,6 +122,58 @@ RSpec.describe ShoppingListItem, type: :model do
           expect(master_list.shopping_list_items.find_by(description: 'Ebony sword').quantity).to eq 1
         end
       end
+
+      context 'when changing the notes' do
+        subject(:update_item) { list_item.update!(notes: 'new notes') }
+
+        let(:master_list_item) { list_item.user.master_shopping_list.shopping_list_items.find_by_description('Ebony sword') }
+
+        context 'when the master list has a combined notes value from multiple items' do
+          before do
+            other_list = create(:shopping_list, user: list_item.user)
+            create(:shopping_list_item, description: 'Ebony sword', notes: 'notes 2', quantity: 1, shopping_list: other_list)
+          end
+
+          context 'when the new notes value is not empty' do
+            it 'changes the notes specified while leaving other notes intact' do
+              update_item
+              expect(master_list.shopping_list_items.find_by(description: 'Ebony sword').notes).to eq 'new notes -- notes 2'
+            end
+          end
+
+          context 'when the new notes value is empty' do
+            subject(:update_item) { list_item.update!(notes: nil) }
+
+            it 'removes the corresponding note from the master list' do
+              update_item
+              expect(master_list_item.reload.notes).to eq 'notes 2'
+            end 
+          end
+        end
+
+        context 'when the old notes value is nil' do
+          subject(:update_item) { list_item.update!(notes: 'new notes') }
+
+          let!(:list_item) { create(:shopping_list_item, description: 'Ebony sword', notes: nil) }
+
+          it 'updates the notes to the new notes value' do
+            update_item
+            expect(master_list_item.reload.notes).to eq 'new notes'
+          end
+        end
+
+        context 'when the master list matches the old notes value multiple times' do
+          before do
+            other_list = create(:shopping_list, user: list_item.user)
+            create(:shopping_list_item, shopping_list: other_list, description: 'Ebony sword', notes: list_item.notes)
+          end
+
+          it 'only changes one of the occurrences' do
+            update_item
+            expect(master_list_item.reload.notes).to eq 'new notes -- notes 1'
+          end
+        end
+      end
     end
 
     context 'when destroying a list item' do
@@ -126,7 +183,6 @@ RSpec.describe ShoppingListItem, type: :model do
       let(:master_list_item) { master_list.shopping_list_items.find_by_description('Ebony sword') }
 
       context 'when the new quantity on the master list is greater than 0' do
-
         before do
           master_list_item.update!(quantity: 3)
         end
@@ -140,6 +196,42 @@ RSpec.describe ShoppingListItem, type: :model do
       context 'when the new quantity on the master list is 0' do
         it 'removes the item from the master list' do
           expect { destroy_item }.to change(master_list.shopping_list_items, :count).from(1).to(0)
+        end
+      end
+
+      context 'when neither list item has notes' do
+        before do
+          # so the master list item doesn't get deleted too
+          master_list_item.update!(quantity: 3)
+        end
+
+        it "doesn't change the notes field on the master list" do
+          destroy_item
+          expect(master_list_item.reload.notes).to be nil
+        end
+      end
+
+      context 'when the master list item has notes but the item being destroyed does not' do
+        before do
+          list_item.update!(notes: nil)
+          master_list_item.update!(notes: 'some notes', quantity: 3)
+        end
+
+        it "doesn't change the notes value on the master list" do
+          destroy_item
+          expect(master_list_item.reload.notes).to eq 'some notes'
+        end
+      end
+
+      context 'when the destroyed item has notes and the master list has combined notes with other items' do
+        before do
+          list_item.update!(notes: 'other notes')
+          master_list_item.update!(notes: 'some notes -- other notes', quantity: 3)
+        end
+
+        it 'removes the notes from the master list along with any leading/trailing whitespace or dashes' do
+          destroy_item
+          expect(master_list_item.reload.notes).to eq 'some notes'
         end
       end
     end
