@@ -41,7 +41,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns the new list' do
           create_shopping_list
-          expect(response.body).to eq({ shopping_list: user.shopping_lists.first, master_list: user.master_shopping_list }.to_json)
+          expect(response.body).to eq(user.shopping_lists.first.to_json)
         end
 
         it 'returns status 201' do
