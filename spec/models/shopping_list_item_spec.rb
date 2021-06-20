@@ -86,13 +86,18 @@ RSpec.describe ShoppingListItem, type: :model do
       end
 
       context 'when there is a matching item on the master list' do
-        subject(:create_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, shopping_list: shopping_list) }
+        subject(:create_item) { create(:shopping_list_item, description: 'Ebony sword', quantity: 2, notes: 'notes 2', shopping_list: shopping_list) }
 
-        let!(:item_on_master_list) { create(:shopping_list_item, description: 'Ebony sword', quantity: 1, shopping_list: master_list) }
+        let!(:item_on_master_list) { create(:shopping_list_item, description: 'Ebony sword', quantity: 1, notes: 'notes 1', shopping_list: master_list) }
 
         it 'updates the quantity on the master list' do
           create_item
           expect(item_on_master_list.reload.quantity).to eq 3
+        end
+
+        it 'concatenates the notes fields' do
+          create_item
+          expect(item_on_master_list.reload.notes).to eq 'notes 1 -- notes 2'
         end
       end
     end
