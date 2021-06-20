@@ -1,6 +1,6 @@
 # Shopping Lists
 
-Shopping lists represent lists of items a user needs in the game. Users can have different lists corresponding to different property locations. Users with shopping lists also have a master list that includes the combined list items and quantities from all their other lists. Master lists are created, updated, and destroyed automatically. They cannot be directly interacted with via the API, except to retrieve them.
+Shopping lists represent lists of items a user needs in the game. Users can have different lists corresponding to different property locations. Users with shopping lists also have a master list that includes the combined list items and quantities from all their other lists. Master lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
 
 Each list contains list items, which are returned with each response that includes the list.
 
@@ -216,12 +216,22 @@ Content-Type: application/json
 
 422 Unprocessable Entity
 
-#### Example Body
+#### Example Bodies
 
+If duplicate title is given:
 ```json
 {
   "errors": {
     "title": ["has already been taken"]
+  }
+}
+```
+
+If request attempts to create a master list:
+```json
+{
+  "errors": {
+    "master": ["cannot create or update a master shopping list through API"]
   }
 }
 ```
@@ -297,11 +307,20 @@ Content-Type: application/json
 
 #### Example Bodies
 
-Unprocessable Entity:
+Unprocessable entity due to title uniqueness constraint:
 ```json
 {
   "errors": {
     "title": ["has already been taken"]
+  }
+}
+```
+
+Unprocessable entity due to attempting to update a master list or convert a regular list to a master list:
+```json
+{
+  "errors": {
+    "master": ["cannot create or update a master shopping list through API"]
   }
 }
 ```
@@ -362,3 +381,14 @@ If the specified list does not exist or does not belong to the authenticated use
 
 404 Not Found
 405 Method Not Allowed
+
+#### Example Body
+
+No response body will be returned with a 404 response.
+
+For a 405 response:
+```json
+{
+  "error": "cannot destroy a master shopping list through the API"
+}
+```

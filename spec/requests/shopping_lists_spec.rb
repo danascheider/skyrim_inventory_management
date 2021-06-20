@@ -79,7 +79,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns a helpful error body' do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through API'] } })
         end
       end
     end
@@ -286,7 +286,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through API'] } })
         end
       end
 
@@ -308,7 +308,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through API'] } })
         end
       end
     end
@@ -416,7 +416,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through API'] } })
         end
       end
 
@@ -438,7 +438,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot create or update a master shopping list through API' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through API'] } })
         end
       end
     end
