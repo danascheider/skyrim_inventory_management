@@ -59,9 +59,9 @@ RSpec.describe "ShoppingLists", type: :request do
           expect(response.status).to eq 422
         end
 
-        it "doesn't return any data" do
+        it "returns the errors" do
           create_shopping_list
-          expect(response.body).to be_empty
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
         end
       end
     end
@@ -171,6 +171,178 @@ RSpec.describe "ShoppingLists", type: :request do
       it 'returns the shopping list with its list items' do
         get_shopping_list
         expect(response.body).to eq shopping_list.to_json(include: :shopping_list_items)
+      end
+    end
+  end
+
+  describe 'PUT /shopping_lists/:id' do
+    subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+
+    context 'when authenticated' do
+      let!(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it 'updates the title' do
+          update_shopping_list
+          expect(shopping_list.reload.title).to eq 'Severin Manor'
+        end
+
+        it 'returns the updated list' do
+          update_shopping_list
+          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+          # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+          # it won't include the shopping_list_items. Ugly.
+          expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+        end
+
+        it 'returns status 200' do
+          update_shopping_list
+          expect(response.status).to eq 200
+        end
+      end
+
+      context 'when something goes wrong' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+        let(:other_list) { create(:shopping_list, user: user) }
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it "returns the errors" do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_empty
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:shopping_list_id) { 42 }
+
+      it 'returns 401' do
+        update_shopping_list
+        expect(response.status).to eq 401
+      end
+    end
+  end
+
+  describe 'PATCH /shopping_lists/:id' do
+    subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+
+    context 'when authenticated' do
+      let!(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it 'updates the title' do
+          update_shopping_list
+          expect(shopping_list.reload.title).to eq 'Severin Manor'
+        end
+
+        it 'returns the updated list' do
+          update_shopping_list
+          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+          # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+          # it won't include the shopping_list_items. Ugly.
+          expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+        end
+
+        it 'returns status 200' do
+          update_shopping_list
+          expect(response.status).to eq 200
+        end
+      end
+
+      context 'when something goes wrong' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+
+        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let(:shopping_list_id) { shopping_list.id }
+        let(:other_list) { create(:shopping_list, user: user) }
+
+        it 'returns status 422' do
+          update_shopping_list
+          expect(response.status).to eq 422
+        end
+
+        it "returns the errors" do
+          update_shopping_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:shopping_list_id) { shopping_list.id }
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_empty
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:shopping_list_id) { 42 }
+
+      it 'returns 401' do
+        update_shopping_list
+        expect(response.status).to eq 401
       end
     end
   end
