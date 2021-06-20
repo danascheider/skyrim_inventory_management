@@ -9,5 +9,15 @@ FactoryBot.define do
 
       title { 'Master' }
     end
+
+    factory :shopping_list_with_list_items do
+      transient do
+        list_item_count { 2 }
+      end
+
+      after(:build, :create) do |list, evaluator|
+        create_list(:shopping_list_item, evaluator.list_item_count, shopping_list: list)
+      end
+    end
   end
 end

@@ -148,7 +148,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
     context 'when authenticated and the shopping list exists' do
       let(:user) { create(:user) }
-      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list) { create(:shopping_list_with_list_items, list_item_count: 2, user: user) }
       let(:shopping_list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
@@ -164,9 +164,9 @@ RSpec.describe "ShoppingLists", type: :request do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
-      it 'returns the shopping list' do
+      it 'returns the shopping list with its list items' do
         get_shopping_list
-        expect(response.body).to eq shopping_list.to_json
+        expect(response.body).to eq shopping_list.to_json(include: :shopping_list_items)
       end
     end
   end
@@ -206,7 +206,7 @@ RSpec.describe "ShoppingLists", type: :request do
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
 
-        create_list(:shopping_list, 3, user: authenticated_user)
+        create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
         unauthenticated_user = create(:user)
         create_list(:shopping_list, 3, user: unauthenticated_user)
       end
