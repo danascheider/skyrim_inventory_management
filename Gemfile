@@ -25,7 +25,7 @@ gem 'rack-cors', '~> 1.1.1'
 # Use configatron for app config
 gem 'configatron', '~> 4.5.1'
 
-group :development, :test do
+group :development, :test, :ci do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.1'
