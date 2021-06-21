@@ -77,3 +77,97 @@ description: string, unique on each shopping list, not null
 quantity: integer, not null
 notes: string
 ```
+
+## Developer Info
+
+### Local Setup
+
+The Skyrim Inventory Management API is a basic Rails API running on Rails 6 and Ruby 3.0.1. You can set it up locally by cloning the repository, `cd`ing into it, and running:
+```bash
+bundle install
+bundle exec rails db:create
+bundle exec rails db:migrate
+```
+To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.
+
+Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will require the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
+
+### Running Tests
+
+The SIM API is tested using [RSpec](https://github.com/rspec/rspec) with [FactoryBot](https://github.com/thoughtbot/factory_bot_rails) for factories. Run specs on the command line using:
+```bash
+bundle exec rails spec
+```
+If you'd like to run only a specific subset of specs, these options are the way to go:
+```bash
+# runs only one directory of specs
+bundle exec rspec spec/models
+
+# runs only one spec file
+bundle exec rspec spec/requests/shopping_lists_spec.rb
+
+# runs a specific spec on line 42 of the specified file
+bundle exec rspec spec/models/shopping_list_item_spec.rb:42
+```
+
+### Workflows
+
+We use [Trello](https://trello.com/b/ZoVvVBJc/sim-project-board) to track work for both SIM applications. To work on an issue, first check out a branch for your dev work and do the work on that branch. Push to GitHub and open a pull request. The pull request should link to the Trello card as well as providing context, a summary of changes, and an explanation for any design choices you made or anything that might not make sense to a reviewer or future developer looking at Git history. Link to the PR in the Trello card and move the card to reviewing. Once your PR has been approved and CI has passed, you are free to merge.
+
+### CI
+
+Tests are run against all pull requests using [GitHub Actions](https://github.com/features/actions). Pull requests may not be merged if the build is broken. CI also runs any time changes are pushed or merged to `main`. Please wait for these builds to pass before deploying to Heroku.
+
+### Deployment
+
+The Skyrim Inventory Management API is deployed to Heroku under the app name `whispering-scrubland-92626`. Deployments are done manually from the command line using Git.
+
+To deploy, first run `heroku login --app=whispering-scrubland-92626` and press any key to be taken to the browser login screen. After following the prompts and getting logged in, return to your command line. If you haven't configured the Heroku Git remote yet, from the root directory of this repository, run:
+```
+heroku git:remote --app=whispering-scrubland-92626
+```
+Now, you will have a Git remote called `heroku` that you can use to deploy.
+
+Once the git remote is configured, you can run the following to deploy:
+```
+git push heroku main
+```
+You should only deploy from `main` and only after any running CI build has passed. **Do not deploy from any branch but `main` or if any steps are failing in CI.**
+
+Note that Heroku will not automatically run any migrations so if your deployment includes migrations, you will need to run them manually:
+```
+heroku run bundle exec rails db:migrate
+```
+
+### Troubleshooting in Production
+
+Heroku offers several tools to troubleshoot.
+
+#### Viewing Logs
+
+You can tail logs in Heroku by running:
+```
+heroku logs
+```
+If you would like to see more or less log output, you can specify the number of lines of output using the `-n` flag:
+```
+heroku logs -n 200
+```
+If you'd like to see the logs updating live, you can run the following for a similar effect to `tail -f` on Linux:
+```
+heroku logs --tail
+```
+
+#### Using the Rails Console
+
+Heroku gives you access to the Rails console as well through its command line tool:
+```
+heroku run rails console
+```
+
+#### Other Heroku Commands
+
+You can run arbitrary commands in Heroku using:
+```
+heroku run <command>
+```
