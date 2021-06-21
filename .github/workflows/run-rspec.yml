@@ -33,18 +33,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         env:
           ImageOS: ubuntu20
-      # - name: Install PostgreSQL client
-      #   run: sudo apt-get -yqq install libpq-dev
       - name: Install dependencies
         run: bundle install
-      - name: Create database
-        run: bundle exec rails db:create
-        env:
-          RAILS_ENV: ci
-      - name: Migrate database
-        run: bundle exec rails db:migrate
-        env:
-          RAILS_ENV: ci
+      - name: Set up database
+        run: |
+          cp config/database.github-actions.yml config/database.yml
+          bundle exec rails db:create
+          bundle exec rails db:migrate
       - name: Run RSpec
         run: |
           bundle exec rails db:prepare
@@ -53,4 +48,3 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
           PGPASSWORD: postgres
-          RAILS_ENV: ci

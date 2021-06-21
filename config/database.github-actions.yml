@@ -1,0 +1,9 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: skyrim_inventory_management_test
+  host: localhost
+  username: postgres
+  password: postgres
+  port: 5432
