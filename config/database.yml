@@ -62,6 +62,9 @@ test:
 ci:
   <<: *default
   database: skyrim_inventory_management_ci
+  host: localhost
+  username: skyrim
+  port: 5432
   password: skyrim
 
 # As with config/credentials.yml, you never want to store sensitive information,
