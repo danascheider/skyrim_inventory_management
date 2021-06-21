@@ -7,11 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  container-job:
     runs-on: ubuntu-latest
 
+    container: ruby:3.0.1-alpine
+
+    services:
+      postgres:
+        image: postgres
+      options: >-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository code
+        uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
       - name: Install dependencies
