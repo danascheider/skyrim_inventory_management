@@ -44,8 +44,8 @@ jobs:
         env:
           RAILS_ENV: ci
       - name: Run RSpec
-        run: bundle exec rails spec
+        run: |
+          bundle exec rails db:prepare
+          bundle exec rails spec
         env:
           RAILS_ENV: ci
-          POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: postgres
