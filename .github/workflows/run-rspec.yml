@@ -15,8 +15,8 @@ jobs:
         image: postgres:9.6
         env:
           POSTGRES_HOST: localhost
-          POSTGRES_USERNAME: skyrim
-          POSTGRES_PASSWORD: skyrim
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
