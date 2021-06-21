@@ -55,9 +55,7 @@ RSpec.describe "Verifications", type: :request do
           'uid'        => 'foobar@gmail.com',
           'email'      => 'foobar@gmail.com',
           'name'       => 'Foo Bar',
-          'image_url'  => nil,
-          'created_at' => Time.now,
-          'updated_at' => Time.now
+          'image_url'  => nil
         }
       end
 
@@ -67,7 +65,7 @@ RSpec.describe "Verifications", type: :request do
 
       it 'updates the attributes' do
         verify_token
-        expect(user.reload.attributes).to eq expected_user_attributes
+        expect(user.reload.attributes).to include(**expected_user_attributes)
       end
     end
   end
