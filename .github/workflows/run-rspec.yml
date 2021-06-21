@@ -7,14 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  container-job:
+  runner-job:
     runs-on: ubuntu-latest
-
-    container: ruby:3.0.1-alpine
 
     services:
       postgres:
         image: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
 
     steps:
       - name: Check out repository code
@@ -25,7 +31,13 @@ jobs:
         run: bundle install
       - name: Create database
         run: bundle exec rails db:create
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
       - name: Migrate database
         run: bundle exec rails db:migrate
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
       - name: Run RSpec
         run: bundle exec rails spec
