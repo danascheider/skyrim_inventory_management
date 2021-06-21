@@ -36,14 +36,10 @@ jobs:
       - name: Create database
         run: bundle exec rails db:create
         env:
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
           RAILS_ENV: ci
       - name: Migrate database
         run: bundle exec rails db:migrate
         env:
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432 
           RAILS_ENV: ci
       - name: Run RSpec
         run: bundle exec rails spec
