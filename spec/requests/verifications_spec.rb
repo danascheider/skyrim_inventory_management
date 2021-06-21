@@ -37,14 +37,12 @@ RSpec.describe "Verifications", type: :request do
           'email'      => 'foobar@gmail.com',
           'name'       => 'Foo Bar',
           'image_url'  => nil,
-          'created_at' => Time.now,
-          'updated_at' => Time.now
         }
       end
 
       it 'creates a new user with the data from the payload', :aggregate_failures do
         expect { verify_token }.to change(User, :count).from(0).to(1)
-        expect(User.last.attributes).to eq(expected_user_attributes.merge({ 'id' => User.last.id }))
+        expect(User.last.attributes).to include(**(expected_user_attributes.merge({ 'id' => User.last.id })))
       end
     end
 
