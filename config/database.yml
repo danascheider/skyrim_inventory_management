@@ -63,8 +63,8 @@ ci:
   <<: *default
   database: skyrim_inventory_management_ci
   host: localhost
-  username: postgres
-  password: postgres
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   port: 5432
 
 # As with config/credentials.yml, you never want to store sensitive information,
