@@ -3,6 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingList, type: :model do
+  describe 'scopes' do
+    describe '::master_first' do
+      subject(:master_first) { user.shopping_lists.master_first.to_a }
+
+      let!(:user) { create(:user) }
+      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user) }
+
+      it 'returns the shopping lists with the master list first' do
+        expect(master_first).to eq([master_list, shopping_list])
+      end
+    end
+  end
+
   describe 'validations' do
     describe 'master lists' do
       context 'when there are no master lists' do

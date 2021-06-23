@@ -16,7 +16,7 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 ## GET /shopping_lists
 
-Returns all shopping lists owned by the authenticated user.
+Returns all shopping lists owned by the authenticated user. The master shopping list will be returned first.
 
 ### Example Request
 
