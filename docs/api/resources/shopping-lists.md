@@ -315,7 +315,7 @@ Content-Type: application/json
 
 #### Example Bodies
 
-Unprocessable entity due to title uniqueness constraint:
+For a 422 response due to title uniqueness constraint:
 ```json
 {
   "errors": {
@@ -324,7 +324,7 @@ Unprocessable entity due to title uniqueness constraint:
 }
 ```
 
-Unprocessable entity due to attempting to update a master list or convert a regular list to a master list:
+For a 422 response due to attempting to update a master list or convert a regular list to a master list:
 ```json
 {
   "errors": {
@@ -333,7 +333,7 @@ Unprocessable entity due to attempting to update a master list or convert a regu
 }
 ```
 
-Not found:
+For a 404 response:
 ```json
 {
   "error": "Shopping list id=2385 not found"
