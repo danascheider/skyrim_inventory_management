@@ -134,9 +134,9 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'does not return any data' do
+      it 'returns an error message indicating the list was not found' do
         get_shopping_list
-        expect(response.body).to be_empty
+        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
       end
     end
 
@@ -162,9 +162,9 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'does not return any data' do
+      it 'returns an error message indicating the list was not found' do
         get_shopping_list
-        expect(response.body).to be_empty
+        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
       end
     end
 
@@ -264,7 +264,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(response.body).to be_empty
+          expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
         end
       end
 
@@ -394,7 +394,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(response.body).to be_empty
+          expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
         end
       end
 
@@ -467,7 +467,7 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 401
       end
 
-      it 'does not return any user data' do
+      it 'returns an error body indicating authorisation failed' do
         get_index
         expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
       end
@@ -495,7 +495,7 @@ RSpec.describe "ShoppingLists", type: :request do
 
       it 'returns all shopping lists belonging to the authenticated user' do
         get_index
-        expect(JSON.parse(response.body)).to eq JSON.parse(authenticated_user.shopping_lists.master_first.to_json(include: :shopping_list_items))
+        expect(JSON.parse(response.body)).to eq JSON.parse(authenticated_user.shopping_lists.master_first .to_json(include: :shopping_list_items))
       end
 
       it 'returns status 200' do
@@ -551,9 +551,9 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'does not return any data' do
+      it 'returns an error message indicating the list was not found' do
         delete_shopping_list
-        expect(response.body).to be_empty
+        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
       end
 
       it 'does not delete any shopping lists' do
@@ -583,9 +583,9 @@ RSpec.describe "ShoppingLists", type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'does not return any data' do
+      it 'returns an error message indicating the list was not found' do
         delete_shopping_list
-        expect(response.body).to be_empty
+        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
       end
     end
 

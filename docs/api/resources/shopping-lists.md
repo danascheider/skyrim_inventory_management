@@ -160,6 +160,14 @@ Authorization: Bearer xxxxxxxxxxxx
 
 404 Not Found
 
+#### Example Body
+
+```json
+{
+  "error": "Shopping list id=17264 not found"
+}
+```
+
 ## POST /shopping_lists
 
 Creates a new shopping list for the authenticated user. If the user does not already have a master list, a master list will also be created automatically. The response includes the newly created shopping list.
@@ -325,7 +333,12 @@ Unprocessable entity due to attempting to update a master list or convert a regu
 }
 ```
 
-No response body is returned for a 404 response.
+Not found:
+```json
+{
+  "error": "Shopping list id=2385 not found"
+}
+```
 
 ## DELETE /shopping_lists/:id
 
@@ -375,7 +388,7 @@ If the resource deleted was the user's last regular list, the master list will a
 
 ### Error Responses
 
-If the specified list does not exist or does not belong to the authenticated user, a 404 response will be returned. If the specified list is a master list, a 405 response will be returned. Error responses do not return data.
+If the specified list does not exist or does not belong to the authenticated user, a 404 response will be returned. If the specified list is a master list, a 405 response will be returned.
 
 #### Statuses
 
@@ -384,7 +397,12 @@ If the specified list does not exist or does not belong to the authenticated use
 
 #### Example Body
 
-No response body will be returned with a 404 response.
+For a 404 response:
+```json
+{
+  "error": "Shopping list id=8245 not found"
+}
+```
 
 For a 405 response:
 ```json

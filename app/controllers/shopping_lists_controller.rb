@@ -53,7 +53,7 @@ class ShoppingListsController < ApplicationController
   def set_shopping_list
     @shopping_list = current_user.shopping_lists.includes(:shopping_list_items).find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    head :not_found
+    render json: { error: "Shopping list id=#{params[:id]} not found"}, status: :not_found
   end
 
   def prevent_action_on_master_list
