@@ -4,6 +4,14 @@ Shopping lists represent lists of items a user needs in the game. Users can have
 
 Each list contains list items, which are returned with each response that includes the list.
 
+When making requests to update the title of a list, there are some validations and automatic transformations to keep in mind:
+
+* Titles must be unique per user - you cannot name two of your lists the same thing
+* Only a master list can be called "Master"
+* All master lists are called "Master" and there is no way to rename them something else
+* Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
+* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
+
 Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve shopping lists for any other user through the API.
 
 ## Endpoints
@@ -174,7 +182,13 @@ Creates a new shopping list for the authenticated user. If the user does not alr
 
 The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on the shopping list via request data. If you don't include a title, your list will be titled "My List n", where _n_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4", your new list will be titled "My List 5".
 
-Each list title must be unique for the authenticated user. So, multiple users can have lists called "My List 1", but if you have such a list and attempt to create a new list with the same title, the API will return an error.
+There are a few validations and automatic changes made to titles:
+
+* Titles must be unique per user - you cannot name two of your lists the same thing
+* Only a master list can be called "Master"
+* All master lists are called "Master" and there is no way to rename them something else
+* Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
+* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
 
 ### Example Requests
 
