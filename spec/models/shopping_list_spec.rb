@@ -80,7 +80,7 @@ RSpec.describe ShoppingList, type: :model do
           # Create lists for a different user to make sure the name of this user's
           # list isn't affected by them
           create_list(:shopping_list, 2)
-          create_list(:shopping_list, 2, user: user)
+          create_list(:shopping_list, 2, title: nil, user: user)
         end
 
         it 'sets the title based on how many regular lists the user has' do

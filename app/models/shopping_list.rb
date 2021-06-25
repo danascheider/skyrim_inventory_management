@@ -7,7 +7,7 @@ class ShoppingList < ApplicationRecord
   validate :one_master_list_per_user
   validates :title, uniqueness: { scope: :user_id }
 
-  before_create :set_default_title, if: :master_or_title_blank?
+  before_save :set_default_title, if: :master_or_title_blank?
   after_create :ensure_master_list_present
   before_destroy :ensure_not_master, if: :other_lists_present?
   after_destroy :destroy_master_list, unless: :other_lists_present?
