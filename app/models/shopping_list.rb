@@ -8,6 +8,11 @@ class ShoppingList < ApplicationRecord
 
   validate :one_master_list_per_user
   validate :only_master_list_named_master
+
+  # Titles have to be unique per user as described in the API docs. They also can only
+  # contain alphanumeric characters and spaces with no special characters or whitespace
+  # other than spaces. Leading or trailing whitespace is stripped anyway so the validation
+  # ignores any leading or trailing whitespace characters.
   validates :title, uniqueness: { scope: :user_id },
                     format: {
                       with: /\A\s*[a-z0-9 ]*\s*\z/i,
