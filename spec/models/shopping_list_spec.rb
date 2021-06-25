@@ -69,6 +69,13 @@ RSpec.describe ShoppingList, type: :model do
           expect(list.errors[:title]).to eq(['cannot be "master" for a regular shopping list'])
         end
       end
+
+      context 'when the title contains "master" as well as other characters' do
+        it 'is valid' do
+          list = build(:shopping_list, title: 'mASter of the house')
+          expect(list).to be_valid
+        end
+      end
     end
   end
 

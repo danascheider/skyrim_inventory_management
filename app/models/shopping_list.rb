@@ -33,7 +33,7 @@ class ShoppingList < ApplicationRecord
   end
 
   def only_master_list_named_master
-    errors.add(:title, "cannot be \"#{title}\" for a regular shopping list") if title =~ /master/i && !master
+    errors.add(:title, "cannot be \"#{title}\" for a regular shopping list") if title =~ /^master$/i && !master
   end
 
   def ensure_master_list_present
