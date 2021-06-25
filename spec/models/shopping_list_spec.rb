@@ -55,6 +55,21 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
     end
+
+    describe 'title validations' do
+      context 'when the title is "master"' do
+        it 'is allowed for a master list' do
+          list = build(:master_shopping_list, title: 'Master')
+          expect(list).to be_valid
+        end
+
+        it 'is not allowed for a regular list', :aggregate_failures do
+          list = build(:shopping_list, title: 'master')
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(['cannot be "master" for a regular shopping list'])
+        end
+      end
+    end
   end
 
   describe 'setting a default title' do
@@ -105,6 +120,13 @@ RSpec.describe ShoppingList, type: :model do
           expect(title).to eq 'Master'
         end
       end
+    end
+  end
+
+  describe 'title capitalisation' do
+    it 'uses intelligent title capitalisation' do
+      list = create(:shopping_list, title: 'lord oF thE rIngs')
+      expect(list.title).to eq 'Lord of the Rings'
     end
   end
 

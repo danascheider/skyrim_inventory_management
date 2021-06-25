@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
+require 'titlecase'
+
 class ShoppingList < ApplicationRecord
   belongs_to :user
   has_many :shopping_list_items, dependent: :destroy
 
   validate :one_master_list_per_user
+  validate :only_master_list_named_master
   validates :title, uniqueness: { scope: :user_id }
 
   before_save :set_default_title, if: :master_or_title_blank?
+  before_save :titleize_title
   after_create :ensure_master_list_present
   before_destroy :ensure_not_master, if: :other_lists_present?
   after_destroy :destroy_master_list, unless: :other_lists_present?
@@ -28,6 +32,10 @@ class ShoppingList < ApplicationRecord
     end
   end
 
+  def only_master_list_named_master
+    errors.add(:title, "cannot be \"#{title}\" for a regular shopping list") if title =~ /master/i && !master
+  end
+
   def ensure_master_list_present
     if user.master_shopping_list.nil?
       user.shopping_lists.create!(master: true, title: 'Master')
@@ -41,6 +49,10 @@ class ShoppingList < ApplicationRecord
       highest_number = user.shopping_lists.where("title like '%My List%'").pluck(:title).map { |title| title.gsub('My List ', '').to_i }.max || 0
       "My List #{highest_number + 1}"
     end
+  end
+  
+  def titleize_title
+    self.title = Titlecase.titleize(title)
   end
 
   def master_or_title_blank?
