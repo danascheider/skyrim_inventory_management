@@ -11,6 +11,8 @@ When making requests to update the title of a list, there are some validations a
 * All master lists are called "Master" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
 * If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
+* Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
+* Titles may only contain alphanumeric characters and spaces - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
 Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve shopping lists for any other user through the API.
 

@@ -76,66 +76,107 @@ RSpec.describe ShoppingList, type: :model do
           expect(list).to be_valid
         end
       end
-    end
-  end
 
-  describe 'setting a default title' do
-    let(:user) { create(:user) }
-
-    # I don't use FactoryBot to create the models in the subject blocks because
-    # it sets values for certain attributes and I don't want those to get in the way.
-    context 'when the list is not a master list' do
-      context 'when the user has set a title' do
-        subject(:title) { user.shopping_lists.create!(title: 'Heljarchen Hall').title }
-
-        let(:user) { create(:user) }
-
-        it 'keeps the title the user has set' do
-          expect(title).to eq 'Heljarchen Hall'
-        end
-      end
-
-      context 'when the user has not set a title' do
-        subject(:title) { user.shopping_lists.create!.title }
-
-        before do
-          # Create lists for a different user to make sure the name of this user's
-          # list isn't affected by them
-          create_list(:shopping_list, 2)
-          create_list(:shopping_list, 2, title: nil, user: user)
+      context 'allowed characters' do
+        it 'allows alphanumeric characters and spaces' do
+          list = build(:shopping_list, title: 'My List 1  ')
+          expect(list).to be_valid
         end
 
-        it 'sets the title based on how many regular lists the user has' do
-          expect(title).to eq 'My List 3'
+        it "doesn't allow newlines", :aggregate_failures do
+          list = build(:shopping_list, title: "My\nList 1  ")
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
         end
-      end
-    end
 
-    context 'when the list is a master list' do
-      context 'when the user has set a title' do
-        subject(:title) { user.shopping_lists.create!(master: true, title: 'Something other than master').title }
-        
-        it 'overrides the title the user has set' do
-          expect(title).to eq 'Master'
+        it "doesn't allow other non-space whitespace", :aggregate_failures do
+          list = build(:shopping_list, title: "My\tList 1")
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
         end
-      end
 
-      context 'when the user has not set a title' do
-        subject(:title) { user.shopping_lists.create!(master: true).title }
+        it "doesn't allow special characters", :aggregate_failures do
+          list = build(:shopping_list, title: 'My^List&1')
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
+        end
 
-        it 'sets the title to "Master"' do
-          expect(title).to eq 'Master'
+        # Leading and trailing whitespace characters will be stripped anyway so no need to validate
+        it 'ignores leading or trailing whitespace characters' do
+          list = build(:shopping_list, title: "My List 1\n\t")
+          expect(list).to be_valid
         end
       end
     end
   end
 
-  describe 'title capitalisation' do
-    it 'uses intelligent title capitalisation' do
-      list = create(:shopping_list, title: 'lord oF thE rIngs')
-      expect(list.title).to eq 'Lord of the Rings'
+  
+  describe 'title transformations' do
+    describe 'setting a default title' do
+      let(:user) { create(:user) }
+  
+      # I don't use FactoryBot to create the models in the subject blocks because
+      # it sets values for certain attributes and I don't want those to get in the way.
+      context 'when the list is not a master list' do
+        context 'when the user has set a title' do
+          subject(:title) { user.shopping_lists.create!(title: 'Heljarchen Hall').title }
+  
+          let(:user) { create(:user) }
+  
+          it 'keeps the title the user has set' do
+            expect(title).to eq 'Heljarchen Hall'
+          end
+        end
+  
+        context 'when the user has not set a title' do
+          subject(:title) { user.shopping_lists.create!.title }
+  
+          before do
+            # Create lists for a different user to make sure the name of this user's
+            # list isn't affected by them
+            create_list(:shopping_list, 2)
+            create_list(:shopping_list, 2, title: nil, user: user)
+          end
+  
+          it 'sets the title based on how many regular lists the user has' do
+            expect(title).to eq 'My List 3'
+          end
+        end
+      end
+  
+      context 'when the list is a master list' do
+        context 'when the user has set a title' do
+          subject(:title) { user.shopping_lists.create!(master: true, title: 'Something other than master').title }
+          
+          it 'overrides the title the user has set' do
+            expect(title).to eq 'Master'
+          end
+        end
+  
+        context 'when the user has not set a title' do
+          subject(:title) { user.shopping_lists.create!(master: true).title }
+  
+          it 'sets the title to "Master"' do
+            expect(title).to eq 'Master'
+          end
+        end
+      end
+    end
+
+    context 'when the request includes sloppy data' do
+      it 'uses intelligent title capitalisation' do
+        list = create(:shopping_list, title: 'lord oF thE rIngs')
+        expect(list.title).to eq 'Lord of the Rings'
+      end
+
+      it 'strips trailing and leading whitespace' do
+        list = create(:shopping_list, title: " lord oF tHe RiNgs\n")
+        expect(list.title).to eq 'Lord of the Rings'
+      end
     end
   end
+
+  describe 'tt'
 
   describe 'after create hook' do
     subject(:create_shopping_list) { create(:shopping_list, user: user) }

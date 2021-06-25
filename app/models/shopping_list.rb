@@ -8,7 +8,11 @@ class ShoppingList < ApplicationRecord
 
   validate :one_master_list_per_user
   validate :only_master_list_named_master
-  validates :title, uniqueness: { scope: :user_id }
+  validates :title, uniqueness: { scope: :user_id },
+                    format: {
+                      with: /\A\s*[a-z0-9 ]*\s*\z/i,
+                      message: 'can only include alphanumeric characters and spaces'
+                    }
 
   before_save :set_default_title, if: :master_or_title_blank?
   before_save :titleize_title
@@ -52,7 +56,7 @@ class ShoppingList < ApplicationRecord
   end
   
   def titleize_title
-    self.title = Titlecase.titleize(title)
+    self.title = Titlecase.titleize(title.strip)
   end
 
   def master_or_title_blank?
