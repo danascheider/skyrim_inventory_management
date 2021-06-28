@@ -14,6 +14,7 @@ When making requests to update the title of a list, there are some validations a
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
 * Titles may only contain alphanumeric characters and spaces - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
+
 Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve shopping lists for any other user through the API.
 
 ## Endpoints
@@ -180,9 +181,9 @@ Authorization: Bearer xxxxxxxxxxxx
 
 ## POST /shopping_lists
 
-Creates a new shopping list for the authenticated user. If the user does not already have a master list, a master list will also be created automatically. The response includes the newly created shopping list.
+Creates a new shopping list for the authenticated user. If the user does not already have a master list, a master list will also be created automatically. The response is an array that includes the newly created shopping list(s).
 
-The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on the shopping list via request data. If you don't include a title, your list will be titled "My List n", where _n_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4", your new list will be titled "My List 5".
+The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on the shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
@@ -211,7 +212,7 @@ Request not specifying a title (list will be given a default title as defined ab
 POST /shopping_lists
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
-{}
+{ "shopping_list": {} }
 ```
 
 ### Success Responses
@@ -220,18 +221,35 @@ Content-Type: application/json
 
 201 Created
 
-#### Example Body
+#### Example Bodies
 
+When there hasn't been a master list created:
 ```json
-{
-  "id": 4,
-  "user_id": 6,
-  "master": false,
-  "title": "My List 1",
-  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "shopping_list_items": []
-}
+[
+  {
+    "id": 4,
+    "user_id": 6,
+    "master": false,
+    "title": "My List 1",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "shopping_list_items": []
+  }
+]
+```
+
+When the master list has been created:
+```json
+[
+  {
+    "id": 5,
+    "user_id": 6,
+    "master": true,
+    "title": "Master",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  }
+]
 ```
 
 ### Error Responses

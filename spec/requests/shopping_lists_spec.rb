@@ -30,23 +30,33 @@ RSpec.describe "ShoppingLists", type: :request do
       end
 
       context 'when all goes well' do
-        it 'creates a new shopping list' do
-          expect { create_shopping_list }.to change(ShoppingList, :count).from(0).to(2) # because of the master list
+        context 'when a master list has also been created' do
+          it 'creates a new shopping list' do
+            expect { create_shopping_list }.to change(user.shopping_lists, :count).from(0).to(2) # because of the master list
+          end
+
+          it 'returns the master list as well as the new list' do
+            create_shopping_list
+            expect(response.body).to eq([user.master_shopping_list, user.shopping_lists.first].to_json)
+          end
+
+          it 'returns status 201' do
+            create_shopping_list
+            expect(response.status).to eq 201
+          end
         end
 
-        it 'creates the list for the logged-in user' do
-          create_shopping_list
-          expect(ShoppingList.last.user).to eq user
-        end
+        context 'when only the new shopping list has been created' do
+          let!(:master_list) { create(:master_shopping_list, user: user, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
 
-        it 'returns the new list' do
-          create_shopping_list
-          expect(response.body).to eq(user.shopping_lists.first.to_json)
-        end
+          it 'creates one list' do
+            expect{ create_shopping_list }.to change(user.shopping_lists, :count).from(1).to(2)
+          end
 
-        it 'returns status 201' do
-          create_shopping_list
-          expect(response.status).to eq 201
+          it 'returns only the newly created list' do
+            create_shopping_list
+            expect(response.body).to eq([user.shopping_lists.last].to_json)
+          end
         end
       end
 

@@ -13,7 +13,13 @@ class ShoppingListsController < ApplicationController
     shopping_list = current_user.shopping_lists.new(shopping_list_create_params)
 
     if shopping_list.save
-      render json: shopping_list, status: :created
+      resp_body = [shopping_list]
+
+      if (shopping_list.created_at - current_user.master_shopping_list.created_at).abs < 1.second
+        resp_body.unshift(current_user.master_shopping_list)
+      end
+
+      render json: resp_body, status: :created
     else
       render json: { errors: shopping_list.errors }, status: :unprocessable_entity
     end
