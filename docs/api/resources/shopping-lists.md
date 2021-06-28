@@ -14,7 +14,6 @@ When making requests to update the title of a list, there are some validations a
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
 * Titles may only contain alphanumeric characters and spaces - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
-
 Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve shopping lists for any other user through the API.
 
 ## Endpoints
