@@ -237,7 +237,7 @@ When there hasn't been a master list created:
 ]
 ```
 
-When the master list has been created:
+When the master list has also been created:
 ```json
 [
   {
@@ -247,6 +247,14 @@ When the master list has been created:
     "title": "Master",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  },
+  {
+    "id": 4,
+    "user_id": 6,
+    "master": false,
+    "title": "My List 1",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
   }
 ]
 ```
