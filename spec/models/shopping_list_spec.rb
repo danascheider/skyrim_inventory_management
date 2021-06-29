@@ -15,6 +15,24 @@ RSpec.describe ShoppingList, type: :model do
         expect(master_first).to eq([master_list, shopping_list])
       end
     end
+
+    describe '::index_order' do
+      subject(:index_order) { user.shopping_lists.index_order.to_a }
+
+      let!(:user) { create(:user) }
+      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:shopping_list1) { create(:shopping_list, user: user) }
+      let!(:shopping_list2) { create(:shopping_list, user: user) }
+      let!(:shopping_list3) { create(:shopping_list, user: user) }
+
+      before do
+        shopping_list2.update!(title: 'Windstad Manor')
+      end
+
+      it 'is in reverse chronological order with master before anything' do
+        expect(index_order).to eq([master_list, shopping_list2, shopping_list3, shopping_list1])
+      end
+    end
   end
 
   describe 'validations' do

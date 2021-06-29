@@ -6,7 +6,7 @@ class ShoppingListsController < ApplicationController
   before_action :prevent_destroy_master_list, only: :destroy
 
   def index
-    render json: current_user.shopping_lists.master_first.to_json(include: :shopping_list_items), status: :ok
+    render json: current_user.shopping_lists.index_order.to_json(include: :shopping_list_items), status: :ok
   end
 
   def create

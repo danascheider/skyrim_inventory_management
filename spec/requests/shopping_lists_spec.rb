@@ -498,14 +498,16 @@ RSpec.describe "ShoppingLists", type: :request do
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
 
-        create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
+        user_list = create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
         unauthenticated_user = create(:user)
         create_list(:shopping_list, 3, user: unauthenticated_user)
+
+        user_list[1].update!(title: 'New title')   
       end
 
       it 'returns all shopping lists belonging to the authenticated user' do
         get_index
-        expect(JSON.parse(response.body)).to eq JSON.parse(authenticated_user.shopping_lists.master_first .to_json(include: :shopping_list_items))
+        expect(JSON.parse(response.body)).to eq JSON.parse(authenticated_user.shopping_lists.index_order.to_json(include: :shopping_list_items))
       end
 
       it 'returns status 200' do

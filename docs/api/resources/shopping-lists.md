@@ -26,7 +26,7 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 ## GET /shopping_lists
 
-Returns all shopping lists owned by the authenticated user. The master shopping list will be returned first.
+Returns all shopping lists owned by the authenticated user. The master shopping list will be returned first, followed by the user's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
 
 ### Example Request
 

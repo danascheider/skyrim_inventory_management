@@ -26,6 +26,7 @@ class ShoppingList < ApplicationRecord
   after_destroy :destroy_master_list, unless: :other_lists_present?
 
   scope :master_first, -> { order(master: :desc) }
+  scope :index_order, -> { master_first.order(updated_at: :desc) }
 
 
   def to_json(opts = {})
