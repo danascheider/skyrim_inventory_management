@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "ShoppingLists", type: :request do
+RSpec.describe 'ShoppingLists', type: :request do
   let(:headers) do
     {
       'Content-Type' => 'application/json',

@@ -15,6 +15,24 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
+  describe 'scopes' do
+    describe '::index_order' do
+      let!(:list_item1) { create(:shopping_list_item) }
+      let!(:list_item2) { create(:shopping_list_item, shopping_list: list) }
+      let!(:list_item3) { create(:shopping_list_item, shopping_list: list) }
+
+      let(:list) { list_item1.shopping_list }
+
+      before do
+        list_item2.update!(quantity: 3)
+      end
+
+      it 'returns the list items in descending chronological order by updated_at' do
+        expect(list.shopping_list_items.index_order.to_a).to eq([list_item2, list_item3, list_item1])
+      end
+    end
+  end
+
   describe '::create_or_combine!' do
     context 'when there is an existing item on the same list with the same description' do
       subject(:create_or_combine) { described_class.create_or_combine!(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }

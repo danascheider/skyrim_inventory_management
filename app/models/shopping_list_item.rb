@@ -14,6 +14,8 @@ class ShoppingListItem < ApplicationRecord
 
   delegate :user, to: :shopping_list
 
+  scope :index_order, -> { order(updated_at: :desc) }
+
   def self.create_or_combine!(attrs)
     shopping_list = attrs[:shopping_list] || ShoppingList.find(attrs[:shopping_list_id])
     desc = (attrs[:description] || attrs['description'])&.humanize

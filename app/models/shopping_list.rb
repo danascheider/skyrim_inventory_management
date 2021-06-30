@@ -4,7 +4,7 @@ require 'titlecase'
 
 class ShoppingList < ApplicationRecord
   belongs_to :user
-  has_many :shopping_list_items, dependent: :destroy
+  has_many :shopping_list_items, ->{ index_order }, dependent: :destroy
 
   validate :one_master_list_per_user
   validate :only_master_list_named_master

@@ -194,7 +194,22 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  describe 'tt'
+  describe 'relations' do
+    subject(:items) { shopping_list.shopping_list_items }
+
+    let(:shopping_list) { create(:shopping_list) }
+    let!(:item1) { create(:shopping_list_item, shopping_list: shopping_list) }
+    let!(:item2) { create(:shopping_list_item, shopping_list: shopping_list) }
+    let!(:item3) { create(:shopping_list_item, shopping_list: shopping_list) }
+
+    before do
+      item2.update!(quantity: 2)
+    end
+
+    it 'keeps child models in descending order of updated_at' do
+      expect(shopping_list.shopping_list_items.to_a).to eq([item2, item3, item1])
+    end
+  end
 
   describe 'after create hook' do
     subject(:create_shopping_list) { create(:shopping_list, user: user) }
