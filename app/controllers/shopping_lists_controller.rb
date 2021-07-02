@@ -2,7 +2,8 @@
 
 class ShoppingListsController < ApplicationController
   before_action :set_shopping_list, only: %i[show update destroy]
-  before_action :prevent_action_on_master_list, only: %i[create update]
+  before_action :prevent_setting_master, only: %i[create update]
+  before_action :prevent_update_master_list, only: :update
   before_action :prevent_destroy_master_list, only: :destroy
 
   def index
@@ -10,7 +11,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    shopping_list = current_user.shopping_lists.new(shopping_list_create_params)
+    shopping_list = current_user.shopping_lists.new(shopping_list_params)
 
     if shopping_list.save
       resp_body = [shopping_list]
@@ -30,7 +31,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def update
-    if @shopping_list.update(shopping_list_update_params)
+    if @shopping_list.update(shopping_list_params)
       render json: @shopping_list, status: :ok
     else
       render json: { errors: @shopping_list.errors }, status: :unprocessable_entity
@@ -48,12 +49,8 @@ class ShoppingListsController < ApplicationController
 
   private
 
-  def shopping_list_create_params
-    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title) : {}
-  end
-  
-  def shopping_list_update_params
-    params.require(:shopping_list).permit(:title)
+  def shopping_list_params
+    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title, :master) : {}
   end
 
   def set_shopping_list
@@ -62,9 +59,15 @@ class ShoppingListsController < ApplicationController
     render json: { error: "Shopping list id=#{params[:id]} not found"}, status: :not_found
   end
 
-  def prevent_action_on_master_list
-    if @shopping_list&.master == true || params[:shopping_list]&.fetch(:master, nil) == true
+  def prevent_setting_master
+    if shopping_list_params.fetch(:master, nil) == true
       render json: { errors: { master: ['cannot create or update a master shopping list through the API'] } }, status: :unprocessable_entity
+    end
+  end
+
+  def prevent_update_master_list
+    if @shopping_list.master == true
+      render json: { error: 'cannot update a master shopping list through the API' }, status: :method_not_allowed
     end
   end
 

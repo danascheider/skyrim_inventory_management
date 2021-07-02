@@ -289,14 +289,14 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(shopping_list.reload.title).to eq 'Master'
         end
 
-        it 'returns status 422' do
+        it 'returns status 405 (method not allowed)' do
           update_shopping_list
-          expect(response.status).to eq 422
+          expect(response.status).to eq 405
         end
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through the API'] } })
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot update a master shopping list through the API' })
         end
       end
 
@@ -419,14 +419,14 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(shopping_list.reload.title).to eq 'Master'
         end
 
-        it 'returns status 422' do
+        it 'returns status 405' do
           update_shopping_list
-          expect(response.status).to eq 422
+          expect(response.status).to eq 405
         end
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through the API'] } })
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot update a master shopping list through the API' })
         end
       end
 
