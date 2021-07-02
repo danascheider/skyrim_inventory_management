@@ -18,7 +18,7 @@ If the client requests a new list item be created on a user's regular list, one 
 * If there is an item with the same (case-insensitive) `description` on the master list, then that item will be updated:
   * The description will not be changed
   * The quantity will be increased by the quantity of the new list item
-  * The notes will be aggregated: if the notes for the new item are not the same as the ones on the existing master list item, the new notes will be appended to the existing ones separated by ` -- `.
+  * The notes for the two items will be concatenated and separated by ` -- `
 
 ### Updating a List Item
 
