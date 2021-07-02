@@ -351,8 +351,9 @@ Content-Type: application/json
 
 #### Statuses
 
-422 Unprocessable Entity
-404 Not Found
+* 422 Unprocessable Entity
+* 405 Method Not Allowed
+* 404 Not Found
 
 #### Example Bodies
 
@@ -365,12 +366,10 @@ For a 422 response due to title uniqueness constraint:
 }
 ```
 
-For a 422 response due to attempting to update a master list or convert a regular list to a master list:
+For a 405 response due to attempting to update a master list or convert a regular list to a master list:
 ```json
 {
-  "errors": {
-    "master": ["cannot create or update a master shopping list through the API"]
-  }
+  "error": "cannot update a master shopping list through the API"
 }
 ```
 
@@ -383,7 +382,7 @@ For a 404 response:
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-master) shopping list, the master list will also be destroyed.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-master) shopping list, the master list will also be destroyed.
 
 ### Example Request
 
@@ -396,8 +395,8 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Statuses
 
-204 No Content
-200 OK
+* 204 No Content
+* 200 OK
 
 #### Example Body
 
@@ -433,8 +432,8 @@ If the specified list does not exist or does not belong to the authenticated use
 
 #### Statuses
 
-404 Not Found
-405 Method Not Allowed
+* 404 Not Found
+* 405 Method Not Allowed
 
 #### Example Body
 

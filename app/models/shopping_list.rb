@@ -4,7 +4,7 @@ require 'titlecase'
 
 class ShoppingList < ApplicationRecord
   belongs_to :user
-  has_many :shopping_list_items, dependent: :destroy
+  has_many :shopping_list_items, ->{ index_order }, dependent: :destroy
 
   validate :one_master_list_per_user
   validate :only_master_list_named_master
@@ -28,10 +28,13 @@ class ShoppingList < ApplicationRecord
   scope :master_first, -> { order(master: :desc) }
   scope :index_order, -> { master_first.order(updated_at: :desc) }
 
-
   def to_json(opts = {})
     opts.merge!({ include: :shopping_list_items }) unless opts.has_key?(:include)
     super(opts)
+  end
+
+  def master_list
+    user.master_shopping_list
   end
 
   private

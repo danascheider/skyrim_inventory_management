@@ -15,39 +15,85 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
-  describe '::create_or_combine!' do
+  describe 'scopes' do
+    describe '::index_order' do
+      let!(:list_item1) { create(:shopping_list_item) }
+      let!(:list_item2) { create(:shopping_list_item, shopping_list: list) }
+      let!(:list_item3) { create(:shopping_list_item, shopping_list: list) }
+
+      let(:list) { list_item1.shopping_list }
+
+      before do
+        list_item2.update!(quantity: 3)
+      end
+
+      it 'returns the list items in descending chronological order by updated_at' do
+        expect(list.shopping_list_items.index_order.to_a).to eq([list_item2, list_item3, list_item1])
+      end
+    end
+  end
+
+  describe '::combine_or_create!' do
     context 'when there is an existing item on the same list with the same description' do
-      subject(:create_or_combine) { described_class.create_or_combine!(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
+      subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
 
       let!(:shopping_list) { create(:shopping_list) }
       let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
-        expect { create_or_combine }.not_to change(shopping_list.shopping_list_items, :count)
+        expect { combine_or_create }.not_to change(shopping_list.shopping_list_items, :count)
       end
 
       it 'adds the quantity to the existing item' do
-        create_or_combine
+        combine_or_create
         expect(existing_item.reload.quantity).to eq 3
       end
 
       it 'concatenates the notes for the two items' do
-        create_or_combine
+        combine_or_create
         expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
+      end
+    end
+  end
+
+  describe '::combine_or_new' do
+    context 'when there is an existing item on the same list with the same description' do
+      subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
+
+      let!(:shopping_list) { create(:shopping_list) }
+      let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list, notes: 'notes 1') }
+
+      before do
+        allow(ShoppingListItem).to receive(:new)
+      end
+
+      it "doesn't instantiate a new item" do
+        combine_or_new
+        expect(ShoppingListItem).not_to have_received(:new)
+      end
+
+      it 'returns the existing item with the quantity updated', :aggregate_failures do
+        expect(combine_or_new).to eq existing_item
+        expect(combine_or_new.quantity).to eq 3
+      end
+
+      it 'concatenates the notes for the two items', :aggregate_failures do
+        expect(combine_or_new).to eq existing_item
+        expect(combine_or_new.notes).to eq 'notes 1 -- notes 2'
       end
     end
 
     context 'when there is not an existing item on the same list with that description' do
-      subject(:create_or_combine) { described_class.create_or_combine!(description: 'new item', quantity: 1, shopping_list: shopping_list) }
+      subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, shopping_list: shopping_list) }
 
       let!(:shopping_list) { create(:shopping_list) }
 
       it 'creates a new item on the list' do
-        expect { create_or_combine }.to change(shopping_list.shopping_list_items, :count).by(1)
+        expect { combine_or_create }.to change(shopping_list.shopping_list_items, :count).by(1)
       end
 
       it 'creates a new item on the master list' do
-        expect { create_or_combine }.to change(shopping_list.user.master_shopping_list.shopping_list_items, :count).by(1)
+        expect { combine_or_create }.to change(shopping_list.user.master_shopping_list.shopping_list_items, :count).by(1)
       end
     end
   end

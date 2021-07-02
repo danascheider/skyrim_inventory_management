@@ -128,7 +128,16 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  
+  describe '#master_list' do
+    let!(:user) { create(:user) }
+    let!(:master_list) { create(:master_shopping_list, user: user) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
+
+    it "returns the user's master list" do
+      expect(shopping_list.master_list).to eq master_list
+    end
+  end
+
   describe 'title transformations' do
     describe 'setting a default title' do
       let(:user) { create(:user) }
@@ -194,7 +203,22 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  describe 'tt'
+  describe 'relations' do
+    subject(:items) { shopping_list.shopping_list_items }
+
+    let(:shopping_list) { create(:shopping_list) }
+    let!(:item1) { create(:shopping_list_item, shopping_list: shopping_list) }
+    let!(:item2) { create(:shopping_list_item, shopping_list: shopping_list) }
+    let!(:item3) { create(:shopping_list_item, shopping_list: shopping_list) }
+
+    before do
+      item2.update!(quantity: 2)
+    end
+
+    it 'keeps child models in descending order of updated_at' do
+      expect(shopping_list.shopping_list_items.to_a).to eq([item2, item3, item1])
+    end
+  end
 
   describe 'after create hook' do
     subject(:create_shopping_list) { create(:shopping_list, user: user) }

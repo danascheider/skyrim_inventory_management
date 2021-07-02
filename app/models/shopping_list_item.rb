@@ -14,21 +14,28 @@ class ShoppingListItem < ApplicationRecord
 
   delegate :user, to: :shopping_list
 
-  def self.create_or_combine!(attrs)
+  scope :index_order, -> { order(updated_at: :desc) }
+
+  def self.combine_or_create!(attrs)
+    combine_or_new(attrs).save!
+  end
+
+  def self.combine_or_new(attrs)
     shopping_list = attrs[:shopping_list] || ShoppingList.find(attrs[:shopping_list_id])
     desc = (attrs[:description] || attrs['description'])&.humanize
     existing_item = shopping_list.shopping_list_items.find_by_description(desc)
 
     if existing_item.nil?
-      create!(attrs)
+      new attrs
     else
       qty = attrs[:quantity] || attrs['quantity'] || 1
-      notes = attrs[:notes] || attrs['notes']
+      notes = attrs[:notes] || attrs['notes'] || ''
 
       new_quantity = existing_item.quantity + qty
       new_notes = [existing_item.notes, notes].join(' -- ')
 
-      existing_item.update!(quantity: new_quantity, notes: new_notes)
+      existing_item.assign_attributes(quantity: new_quantity, notes: new_notes)
+      existing_item
     end
   end
 
@@ -36,7 +43,7 @@ class ShoppingListItem < ApplicationRecord
 
   def add_to_master_list
     new_attrs = reject_non_public_attrs(self.attributes)
-    ShoppingListItem.create_or_combine!(**new_attrs, shopping_list: master_list)
+    ShoppingListItem.combine_or_create!(**new_attrs, shopping_list: master_list)
   end
 
   def adjust_master_list_after_update
