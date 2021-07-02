@@ -140,6 +140,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
+      context 'when the shopping list is a master list' do
+        let(:shopping_list) { create(:master_shopping_list) }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+
+        it 'returns status 405' do
+          create_item
+          expect(response.status).to eq 405
+        end
+      end
+
       context 'when the params are invalid' do
         let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":\"foooo\",\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
 

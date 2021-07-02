@@ -3,21 +3,16 @@
 class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: %i[update destroy]
   before_action :set_shopping_list, only: %i[create]
-  # TODO: make sure list items are on lists belonging to the current user
+
   # TODO: prevent master list item from being edited or destroyed directly
-  # TODO: create_or_combine route?
+  # TODO: create_or_combine?
 
   # Error cases:
   #   * Shopping list doesn't exist
   #   * Shopping list is master list
   #   * Invalid attributes for shopping list item
-  #   * Error updating items on master list
-  #
-  # Stuff to figure out:
-  #   * What should we return data-wise to make sure the front end 
-  #     gets both the new item and the update to the item on the master
-  #     list? The easiest thing for the front end would be to just
-  #     replace both lists.
+  #   * Error updating items on master list (shouldn't happen if regular list item attrs are valid)
+
   def create
     item = @shopping_list.shopping_list_items.new(list_item_params)
 
@@ -43,6 +38,8 @@ class ShoppingListItemsController < ApplicationController
 
   def set_shopping_list
     @shopping_list ||= current_user.shopping_lists.find(params[:shopping_list_id])
+
+    render json: { error: 'Cannot manage master shopping list items directly.' }, status: :method_not_allowed if @shopping_list.master
   rescue ActiveRecord::RecordNotFound
     head :not_found
   end
