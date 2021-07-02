@@ -128,7 +128,16 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  
+  describe '#master_list' do
+    let!(:user) { create(:user) }
+    let!(:master_list) { create(:master_shopping_list, user: user) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
+
+    it "returns the user's master list" do
+      expect(shopping_list.master_list).to eq master_list
+    end
+  end
+
   describe 'title transformations' do
     describe 'setting a default title' do
       let(:user) { create(:user) }

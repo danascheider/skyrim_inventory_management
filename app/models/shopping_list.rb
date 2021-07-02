@@ -33,7 +33,6 @@ class ShoppingList < ApplicationRecord
     super(opts)
   end
 
-  # TODO: Tests
   def master_list
     user.master_shopping_list
   end
