@@ -61,19 +61,19 @@ class ShoppingListsController < ApplicationController
 
   def prevent_setting_master
     if shopping_list_params.fetch(:master, nil) == true
-      render json: { errors: { master: ['cannot create or update a master shopping list through the API'] } }, status: :unprocessable_entity
+      render json: { errors: { master: ['cannot manually create or update a master shopping list'] } }, status: :unprocessable_entity
     end
   end
 
   def prevent_update_master_list
     if @shopping_list.master == true
-      render json: { error: 'cannot update a master shopping list through the API' }, status: :method_not_allowed
+      render json: { error: 'Cannot manually update a master shopping list' }, status: :method_not_allowed
     end
   end
 
   def prevent_destroy_master_list
     if @shopping_list.master == true
-      render json: { error: 'cannot destroy a master shopping list through the API' }, status: :method_not_allowed
+      render json: { error: 'Cannot manually destroy a master shopping list' }, status: :method_not_allowed
     end
   end
 end

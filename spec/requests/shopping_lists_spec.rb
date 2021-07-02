@@ -89,7 +89,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through the API'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
         end
       end
     end
@@ -296,7 +296,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot update a master shopping list through the API' })
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'Cannot manually update a master shopping list' })
         end
       end
 
@@ -318,7 +318,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through the API'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
         end
       end
     end
@@ -426,7 +426,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'cannot update a master shopping list through the API' })
+          expect(JSON.parse(response.body)).to eq({ 'error' => 'Cannot manually update a master shopping list' })
         end
       end
 
@@ -448,7 +448,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot create or update a master shopping list through the API'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
         end
       end
     end
@@ -688,7 +688,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           delete_shopping_list
-          expect(response.body).to eq({ error: 'cannot destroy a master shopping list through the API' }.to_json)
+          expect(response.body).to eq({ error: 'Cannot manually destroy a master shopping list' }.to_json)
         end
       end
     end
