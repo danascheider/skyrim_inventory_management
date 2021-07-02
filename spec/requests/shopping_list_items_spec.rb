@@ -72,7 +72,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when the master list has a matching item' do
-          let(:master_list) { user.master_shopping_list }
+          let!(:master_list) { user.master_shopping_list }
 
           before do
             second_list = user.shopping_lists.create!(title: 'Proudspire Manor')
@@ -101,6 +101,20 @@ RSpec.describe 'ShoppingListItems', type: :request do
           it 'returns status 201' do
             create_item
             expect(response.status).to eq 201
+          end
+
+          it 'updates the regular list', :aggregate_failures do
+            t = Time.now + 3.days
+
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(shopping_list.reload.updated_at).to be_within(0.25.seconds).of(t)
+              expect(master_list.reload.updated_at).not_to be_within(0.25.seconds).of(t)
+            end
           end
         end
 

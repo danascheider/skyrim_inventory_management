@@ -9,6 +9,8 @@ class ShoppingListItemsController < ApplicationController
 
     if item.save
       master_list_item = @shopping_list.master_list.shopping_list_items.find_by_description(item.description)
+
+      @shopping_list.touch
       
       render json: [master_list_item, item], status: :created
     else
