@@ -103,6 +103,25 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 201
           end
         end
+
+        context 'when the new item matches an existing item on the list' do
+          before do
+            shopping_list.shopping_list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
+          end
+
+          it "doesn't create a new item" do
+            expect { create_item }.not_to change(shopping_list.shopping_list_items, :count)
+          end
+
+          it 'updates the existing item' do
+            create_item
+            expect(shopping_list.shopping_list_items.first.attributes).to include(
+              'description' => 'Corundum ingot',
+              'quantity' => 7,
+              'notes' => 'To make locks'
+            )
+          end
+        end
       end
 
       context 'when the shopping list belongs to a different user' do

@@ -382,7 +382,7 @@ For a 404 response:
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-master) shopping list, the master list will also be destroyed.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-master) shopping list, the master list will also be destroyed.
 
 ### Example Request
 
