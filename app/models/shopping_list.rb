@@ -28,10 +28,14 @@ class ShoppingList < ApplicationRecord
   scope :master_first, -> { order(master: :desc) }
   scope :index_order, -> { master_first.order(updated_at: :desc) }
 
-
   def to_json(opts = {})
     opts.merge!({ include: :shopping_list_items }) unless opts.has_key?(:include)
     super(opts)
+  end
+
+  # TODO: Tests
+  def master_list
+    user.master_shopping_list
   end
 
   private

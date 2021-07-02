@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/auth/verify_token', to: 'verifications#verify_token', as: 'verify_token'
   get '/users/current', to: 'users#current', as: 'current_user'
 
-  resources :shopping_lists
+  resources :shopping_lists do
+    resources :shopping_list_items, shallow: true, except: %i[index show]
+  end
 
   get '/privacy', to: 'utilities#privacy'
   get '/tos', to: 'utilities#tos'
