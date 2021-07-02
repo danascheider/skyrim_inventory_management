@@ -4,15 +4,6 @@ class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: %i[update destroy]
   before_action :set_shopping_list, only: %i[create]
 
-  # TODO: prevent master list item from being edited or destroyed directly
-
-  # Error cases:
-  #   * Shopping list doesn't exist
-  #   * Shopping list is master list
-  #   * Invalid attributes for shopping list item
-  #   * Error updating existing item on master list (won't happen if regular
-  #     list item attrs are valid)
-
   def create
     item = @shopping_list.shopping_list_items.combine_or_new(list_item_params)
 
