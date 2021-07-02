@@ -32,7 +32,7 @@ class ShoppingListItem < ApplicationRecord
       notes = attrs[:notes] || attrs['notes'] || ''
 
       new_quantity = existing_item.quantity + qty
-      new_notes = existing_item.notes =~ /#{notes}/i ? existing_item.notes : [existing_item.notes, notes].join(' -- ')
+      new_notes = [existing_item.notes, notes].join(' -- ')
 
       existing_item.assign_attributes(quantity: new_quantity, notes: new_notes)
       existing_item

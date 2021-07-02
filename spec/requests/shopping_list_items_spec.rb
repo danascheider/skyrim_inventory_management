@@ -118,7 +118,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(shopping_list.shopping_list_items.first.attributes).to include(
               'description' => 'Corundum ingot',
               'quantity' => 7,
-              'notes' => 'To make locks'
+              'notes' => 'To make locks -- To make locks'
             )
           end
         end

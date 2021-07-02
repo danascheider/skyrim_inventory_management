@@ -81,15 +81,6 @@ RSpec.describe ShoppingListItem, type: :model do
         expect(combine_or_new).to eq existing_item
         expect(combine_or_new.notes).to eq 'notes 1 -- notes 2'
       end
-
-      context 'when the notes are the same' do
-        subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 1') }
-
-        it "doesn't duplicate the notes field", :aggregate_failures do
-          expect(combine_or_new).to eq existing_item
-          expect(combine_or_new.notes).to eq 'notes 1'
-        end
-      end
     end
 
     context 'when there is not an existing item on the same list with that description' do
@@ -214,6 +205,18 @@ RSpec.describe ShoppingListItem, type: :model do
           it 'updates the notes to the new notes value' do
             update_item
             expect(master_list_item.reload.notes).to eq 'new notes'
+          end
+        end
+
+        context 'when the master list matches the old notes value multiple times' do
+          before do
+            other_list = create(:shopping_list, user: list_item.user)
+            create(:shopping_list_item, shopping_list: other_list, description: 'Ebony sword', notes: list_item.notes)
+          end
+
+          it 'only changes one of the occurrences' do
+            update_item
+            expect(master_list_item.reload.notes).to eq 'new notes -- notes 1'
           end
         end
       end
