@@ -6,6 +6,12 @@ RSpec.describe Service::Result do
   subject(:result) { described_class.new(options) }
 
   describe 'initialisation' do
+    let(:options) { { status: :unprocessable_entity, errors: ['Title is already taken'] } }
+
+    it 'sets the status' do
+      expect(result.status).to eq :unprocessable_entity
+    end
+
     context 'when a resource is given' do
       let(:options) do
         {
@@ -67,64 +73,6 @@ RSpec.describe Service::Result do
 
       it 'sets the errors to an empty array' do
         expect(result.errors).to eq []
-      end
-    end
-  end
-
-  describe 'instance methods' do
-    let(:options) { {} }
-
-    describe '#success?' do
-      it 'is false on the base class' do
-        expect(result.success?).to be false
-      end
-    end
-
-    describe '#failure?' do
-      it 'is false on the base class' do
-        expect(result.failure?).to be false
-      end
-    end
-
-    describe '#ok?' do
-      it 'is false on the base class' do
-        expect(result.ok?).to be false
-      end
-    end
-
-    describe '#created?' do
-      it 'is false on the base class' do
-        expect(result.created?).to be false
-      end
-    end
-
-    describe '#no_content?' do
-      it 'is false on the base class' do
-        expect(result.no_content?).to be false
-      end
-    end
-
-    describe '#unauthorized?' do
-      it 'is false on the base class' do
-        expect(result.unauthorized?).to be false
-      end
-    end
-
-    describe '#not_found?' do
-      it 'is false on the base class' do
-        expect(result.not_found?).to be false
-      end
-    end
-
-    describe '#method_not_allowed?' do
-      it 'is false on the base class' do
-        expect(result.method_not_allowed?).to be false
-      end
-    end
-
-    describe '#unprocessable_entity?' do
-      it 'is false on the base class' do
-        expect(result.unprocessable_entity?).to be false
       end
     end
   end

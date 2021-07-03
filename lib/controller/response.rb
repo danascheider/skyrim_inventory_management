@@ -9,20 +9,12 @@ module Controller
     end
 
     def execute
-      if result.unauthorized?
-        controller.head :unauthorized
-      elsif result.not_found?
-        controller.head :not_found
-      elsif result.method_not_allowed?
-        controller.render json: { errors: result.errors }, status: :method_not_allowed
-      elsif result.unprocessable_entity?
-        controller.render json: { errors: result.errors }, status: :unprocessable_entity
-      elsif result.ok?
-        controller.render json: result.resource, status: :ok
-      elsif result.created?
-        controller.render json: result.resource, status: :created
-      elsif result.no_content?
-        controller.head :no_content
+      if result.errors.blank? && result.resource.blank?
+        controller.head result.status
+      elsif result.errors.any?
+        controller.render json: { errors: result.errors }, status: result.status
+      else
+        controller.render json: result.resource, status: result.status
       end
     end
 
