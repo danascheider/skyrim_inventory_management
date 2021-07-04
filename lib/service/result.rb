@@ -4,7 +4,7 @@ module Service
   class Result
     attr_reader :errors, :resource, :status
 
-    def initialize(options)
+    def initialize(options = {})
       @errors = []
       @status = options[:status] || :ok
 

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'service/result'
 require 'service/ok_result'
 require 'service/no_content_result'
+require 'service/method_not_allowed_result'
+require 'service/unprocessable_entity_result'
 require 'controller/response'
 
 RSpec.describe Controller::Response do
@@ -46,13 +47,7 @@ RSpec.describe Controller::Response do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:errors) { ['Cannot manually update a master shopping list'] }
       let(:options) { {} }
-      let(:result) do
-        instance_double(Service::Result,
-          status: :method_not_allowed,
-          resource: nil,
-          errors: errors
-        )
-      end
+      let(:result) { Service::MethodNotAllowedResult.new(errors: errors) }
 
       it 'renders the errors with the result status' do
         execute
@@ -65,13 +60,7 @@ RSpec.describe Controller::Response do
         let(:controller) { instance_double(ShoppingListsController, render: nil) }
         let(:options) { {} }
         let(:errors) { ['Title is already taken', 'Cannot manually create or update a master list'] }
-        let(:result) do
-          instance_double(Service::Result,
-            status: :unprocessable_entity,
-            errors: errors,
-            resource: { foo: 'foo', bar: 'bar' }
-          )
-        end
+        let(:result) { Service::UnprocessableEntityResult.new(errors: errors, resource: { foo: 'bar' }) }
 
         it 'renders the errors' do
           execute
