@@ -261,9 +261,9 @@ When the master list has also been created:
 
 ### Error Responses
 
-#### Status
+#### Statuses
 
-422 Unprocessable Entity
+* 422 Unprocessable Entity
 
 #### Example Bodies
 
