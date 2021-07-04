@@ -26,7 +26,8 @@ class ShoppingList < ApplicationRecord
   after_destroy :destroy_master_list, unless: :other_lists_present?
 
   scope :master_first, -> { order(master: :desc) }
-  scope :index_order, -> { master_first.order(updated_at: :desc) }
+  scope :index_order, -> { includes_items.master_first.order(updated_at: :desc) }
+  scope :includes_items, -> { includes(:shopping_list_items) }
 
   def to_json(opts = {})
     opts.merge!({ include: :shopping_list_items }) unless opts.has_key?(:include)
