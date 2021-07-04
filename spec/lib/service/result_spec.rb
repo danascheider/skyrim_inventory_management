@@ -8,8 +8,10 @@ RSpec.describe Service::Result do
   describe 'initialisation' do
     let(:options) { { status: :unprocessable_entity, errors: ['Title is already taken'] } }
 
-    it 'sets the status' do
-      expect(result.status).to eq :unprocessable_entity
+    describe 'status' do
+      it 'raises a NotImplementedError on the base class' do
+        expect { result.status }.to raise_error NotImplementedError
+      end
     end
 
     context 'when a resource is given' do

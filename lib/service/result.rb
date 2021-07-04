@@ -16,5 +16,9 @@ module Service
         end
       end
     end
+
+    def status
+      raise NotImplementedError
+    end
   end
 end

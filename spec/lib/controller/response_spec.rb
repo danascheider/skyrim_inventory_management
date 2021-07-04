@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 require 'service/result'
+require 'service/ok_result'
+require 'service/no_content_result'
 require 'controller/response'
 
 RSpec.describe Controller::Response do
@@ -11,7 +13,7 @@ RSpec.describe Controller::Response do
     context 'when the result has no resource and the errors are empty' do
       let(:controller) { instance_double(VerificationsController, head: nil) }
       let(:options) { {} }
-      let(:result) { instance_double(Service::Result, status: :no_content, resource: nil, errors: []) }
+      let(:result) { Service::NoContentResult.new(resource: nil, errors: []) }
 
       it 'returns the status with no response body' do
         execute
@@ -22,13 +24,7 @@ RSpec.describe Controller::Response do
     context 'when there is a resource' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:options) { {} }
-      let(:result) do
-        instance_double(Service::Result,
-          resource: resource,
-          status: :ok,
-          errors: []
-        )
-      end
+      let(:result) { Service::OKResult.new(resource: resource) }
 
       let(:resource) do
         {
