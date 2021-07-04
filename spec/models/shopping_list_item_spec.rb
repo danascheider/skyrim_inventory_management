@@ -4,24 +4,31 @@ require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
   describe 'delegation' do
-    subject(:owner) { list_item.user }
+    subject(:user) { create(:user) }
 
-    let(:list_item) { create(:shopping_list_item) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
+    let(:list_item) { create(:shopping_list_item, shopping_list: shopping_list) }
+    
+    before do
+      create(:master_shopping_list, user: user)
+    end
 
     describe '#user' do
       it 'returns the owner of its ShoppingList' do
-        expect(owner).to eq(list_item.shopping_list.user)
+        expect(list_item.user).to eq(user)
       end
     end
   end
 
   describe 'scopes' do
     describe '::index_order' do
-      let!(:list_item1) { create(:shopping_list_item) }
+      let!(:master_list) { create(:master_shopping_list) }
+
+      let!(:list_item1) { create(:shopping_list_item, shopping_list: list) }
       let!(:list_item2) { create(:shopping_list_item, shopping_list: list) }
       let!(:list_item3) { create(:shopping_list_item, shopping_list: list) }
 
-      let(:list) { list_item1.shopping_list }
+      let(:list) { create(:shopping_list, user: master_list.user) }
 
       before do
         list_item2.update!(quantity: 3)
@@ -37,7 +44,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is an existing item on the same list with the same description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
 
-      let!(:shopping_list) { create(:shopping_list) }
+      let(:master_list) { create(:master_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
       let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
@@ -60,7 +68,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is an existing item on the same list with the same description' do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, shopping_list: shopping_list, notes: 'notes 2') }
 
-      let!(:shopping_list) { create(:shopping_list) }
+      let(:master_list) { create(:master_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
       let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, shopping_list: shopping_list, notes: 'notes 1') }
 
       before do
@@ -86,7 +95,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is not an existing item on the same list with that description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, shopping_list: shopping_list) }
 
-      let!(:shopping_list) { create(:shopping_list) }
+      let(:master_list) { create(:master_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
 
       it 'creates a new item on the list' do
         expect { combine_or_create }.to change(shopping_list.shopping_list_items, :count).by(1)
@@ -99,7 +109,9 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe '#update!' do
-    let!(:list_item) { create(:shopping_list_item, quantity: 1) }
+    let(:master_list) { create(:master_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
+    let!(:list_item) { create(:shopping_list_item, quantity: 1, shopping_list: shopping_list) }
 
     context 'when updating quantity' do
       subject(:update_item) { list_item.update!(quantity: 4) }
@@ -119,8 +131,8 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe 'updating the master list' do
-    let(:shopping_list) { create(:shopping_list) }
-    let(:master_list) { shopping_list.user.master_shopping_list }
+    let(:master_list) { create(:master_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
 
     context 'when creating a new list item' do
       subject(:create_item) { create(:shopping_list_item, shopping_list: shopping_list) }
@@ -200,7 +212,9 @@ RSpec.describe ShoppingListItem, type: :model do
         context 'when the old notes value is nil' do
           subject(:update_item) { list_item.update!(notes: 'new notes') }
 
-          let!(:list_item) { create(:shopping_list_item, description: 'Ebony sword', notes: nil) }
+          let(:master_list) { create(:master_shopping_list) }
+          let(:shopping_list) { create(:shopping_list, user: master_list.user) }
+          let!(:list_item) { create(:shopping_list_item, description: 'Ebony sword', notes: nil, shopping_list: shopping_list) }
 
           it 'updates the notes to the new notes value' do
             update_item

@@ -218,7 +218,8 @@ RSpec.describe ShoppingList, type: :model do
   describe 'relations' do
     subject(:items) { shopping_list.shopping_list_items }
 
-    let(:shopping_list) { create(:shopping_list) }
+    let!(:master_list) { create(:master_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
     let!(:item1) { create(:shopping_list_item, shopping_list: shopping_list) }
     let!(:item2) { create(:shopping_list_item, shopping_list: shopping_list) }
     let!(:item3) { create(:shopping_list_item, shopping_list: shopping_list) }
@@ -229,37 +230,6 @@ RSpec.describe ShoppingList, type: :model do
 
     it 'keeps child models in descending order of updated_at' do
       expect(shopping_list.shopping_list_items.to_a).to eq([item2, item3, item1])
-    end
-  end
-
-  describe 'after create hook' do
-    subject(:create_shopping_list) { create(:shopping_list, user: user) }
-
-    let(:user) { create(:user) }
-
-    context 'when the user has an existing master list' do
-      before do
-        create(:master_shopping_list, user: user)
-      end
-
-      it "doesn't raise a validation error" do
-        expect { create_shopping_list }.not_to raise_error
-      end
-  
-      it "doesn't create another master list" do
-        expect { create_shopping_list }.to change(user.shopping_lists, :count).from(1).to(2)
-      end
-    end
-
-    context "when the user doesn't have a master list yet" do
-      it 'creates two lists' do
-        expect { create_shopping_list }.to change(user.shopping_lists, :count).from(0).to(2)
-      end
-
-      it 'creates a master list' do
-        create_shopping_list
-        expect(user.master_shopping_list).not_to be nil
-      end
     end
   end
 
@@ -289,6 +259,7 @@ RSpec.describe ShoppingList, type: :model do
   describe 'after destroy hook' do
     subject(:destroy_list) { shopping_list.destroy! }
 
+    let!(:master_list) { create(:master_shopping_list, user: user) }
     let!(:shopping_list) { create(:shopping_list, user: user) }
     let(:user) { create(:user) }
 
@@ -305,14 +276,6 @@ RSpec.describe ShoppingList, type: :model do
     context 'when the user has no additional regular lists' do
       it 'destroys the master list' do
         expect { destroy_list }.to change(user.shopping_lists, :count).from(2).to(0)
-      end
-    end
-
-    context 'when the list is a master list' do
-      let(:shopping_list) { create(:master_shopping_list, user: user) }
-
-      it "doesn't raise an error" do
-        expect { destroy_list }.not_to raise_error
       end
     end
   end

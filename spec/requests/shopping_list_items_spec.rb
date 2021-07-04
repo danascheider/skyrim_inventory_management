@@ -17,10 +17,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
            headers: headers
     end
 
-    let(:shopping_list) { create(:shopping_list) }
+    let(:master_list) { create(:master_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
     
     context 'when authenticated' do
-      let!(:user) { shopping_list.user }
+      let!(:user) { master_list.user }
       
       let(:validation_data) do
         {
@@ -44,8 +45,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when the master list has no items on it' do
-          let(:master_list) { user.master_shopping_list }
-
           it 'adds the item to the master list' do
             expect { create_item }.to change(ShoppingListItem, :count).from(0).to(2)
           end
@@ -72,8 +71,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when the master list has a matching item' do
-          let!(:master_list) { user.master_shopping_list }
-
           before do
             second_list = user.shopping_lists.create!(title: 'Proudspire Manor')
             second_list.shopping_list_items.create!(
@@ -174,7 +171,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list is a master list' do
-        let(:shopping_list) { create(:master_shopping_list) }
+        let(:shopping_list) { master_list }
+
         let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
 
         it 'returns status 405' do

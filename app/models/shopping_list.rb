@@ -21,7 +21,6 @@ class ShoppingList < ApplicationRecord
 
   before_save :set_default_title, if: :master_or_title_blank?
   before_save :titleize_title
-  after_create :ensure_master_list_present
   before_destroy :ensure_not_master, if: :other_lists_present?
   after_destroy :destroy_master_list, unless: :other_lists_present?
 
@@ -48,12 +47,6 @@ class ShoppingList < ApplicationRecord
 
   def only_master_list_named_master
     errors.add(:title, "cannot be \"#{title}\" for a regular shopping list") if title =~ /^master$/i && !master
-  end
-
-  def ensure_master_list_present
-    if user.master_shopping_list.nil?
-      user.shopping_lists.create!(master: true, title: 'Master')
-    end
   end
 
   def set_default_title

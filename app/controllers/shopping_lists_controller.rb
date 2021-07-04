@@ -4,7 +4,7 @@ require 'controller/response'
 
 class ShoppingListsController < ApplicationController
   before_action :set_shopping_list, only: %i[show update destroy]
-  before_action :prevent_setting_master, only: %i[create update]
+  before_action :prevent_setting_master, only: %i[update]
   before_action :prevent_update_master_list, only: :update
   before_action :prevent_destroy_master_list, only: :destroy
 
@@ -15,19 +15,9 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    shopping_list = current_user.shopping_lists.new(shopping_list_params)
+    result = CreateService.new(current_user, shopping_list_params).perform
 
-    if shopping_list.save
-      resp_body = [shopping_list]
-
-      if (shopping_list.created_at - current_user.master_shopping_list.created_at).abs < 1.second
-        resp_body.unshift(current_user.master_shopping_list)
-      end
-
-      render json: resp_body, status: :created
-    else
-      render json: { errors: shopping_list.errors }, status: :unprocessable_entity
-    end
+    ::Controller::Response.new(self, result).execute
   end
 
   def show

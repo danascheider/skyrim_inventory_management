@@ -55,7 +55,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
           it 'returns only the newly created list' do
             create_shopping_list
-            expect(response.body).to eq([user.shopping_lists.last].to_json)
+            expect(response.body).to eq(user.shopping_lists.last.to_json)
           end
         end
       end
@@ -71,7 +71,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "returns the errors" do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
       end
 
@@ -89,7 +89,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually create a master shopping list'] })
         end
       end
     end
@@ -193,6 +193,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       before do
+        create(:master_shopping_list, user: user)
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
@@ -498,6 +499,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
 
+        create(:master_shopping_list, user: authenticated_user)
         user_list = create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
         unauthenticated_user = create(:user)
         create_list(:shopping_list, 3, user: unauthenticated_user)
@@ -603,6 +605,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when authenticated and the shopping list exists' do
       let(:user) { create(:user) }
+      let!(:master_list) { create(:master_shopping_list, user: user) }
       let!(:shopping_list) { create(:shopping_list, user: user) }
       let(:shopping_list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
