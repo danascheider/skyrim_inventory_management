@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'controller/response'
+
 class ShoppingListsController < ApplicationController
   before_action :set_shopping_list, only: %i[show update destroy]
   before_action :prevent_setting_master, only: %i[create update]
@@ -7,7 +9,9 @@ class ShoppingListsController < ApplicationController
   before_action :prevent_destroy_master_list, only: :destroy
 
   def index
-    render json: current_user.shopping_lists.index_order.to_json(include: :shopping_list_items), status: :ok
+    result = IndexService.new(current_user).perform
+
+    ::Controller::Response.new(self, result).execute
   end
 
   def create
