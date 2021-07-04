@@ -116,7 +116,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       it 'returns an error in the body' do
         get_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
 
@@ -479,7 +479,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       it 'returns an error body indicating authorisation failed' do
         get_index
-        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
 
@@ -535,7 +535,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       it 'returns an error in the body' do
         delete_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
 

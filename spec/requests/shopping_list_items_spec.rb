@@ -212,7 +212,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       it 'returns a helpful error' do
         create_item
-        expect(JSON.parse(response.body)).to eq({ 'error' => 'Google OAuth token validation failed' })
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
   end
