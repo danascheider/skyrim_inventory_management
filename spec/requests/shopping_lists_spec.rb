@@ -102,108 +102,6 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'GET /shopping_lists/:id' do
-    subject(:get_shopping_list) { get "/shopping_lists/#{shopping_list_id}", headers: headers }
-
-    context 'when unauthenticated' do
-      let(:shopping_list) { create(:shopping_list) }
-      let(:shopping_list_id) { shopping_list.id }
-
-      it 'returns 401' do
-        get_shopping_list
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error in the body' do
-        get_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
-
-    context 'when logged in as the wrong user' do
-      let(:user1) { create(:user) }
-      let(:user2) { create(:user) }
-      let(:shopping_list) { create(:shopping_list, user: user2) }
-      let(:shopping_list_id) { shopping_list.id }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp' => (Time.now + 1.year).to_i,
-          'email' => user1.email,
-          'name' => user1.name
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-
-      it 'returns 404' do
-        get_shopping_list
-        expect(response.status).to eq 404
-      end
-
-      it 'returns an error message indicating the list was not found' do
-        get_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
-      end
-    end
-
-    context 'when the shopping list does not exist' do
-      let(:user) { create(:user) }
-      let(:shopping_list_id) { 24 } # could be anything
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp' => (Time.now + 1.year).to_i,
-          'email' => user.email,
-          'name' => user.name
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-      
-      it 'returns 404' do
-        get_shopping_list
-        expect(response.status).to eq 404
-      end
-
-      it 'returns an error message indicating the list was not found' do
-        get_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
-      end
-    end
-
-    context 'when authenticated and the shopping list exists' do
-      let(:user) { create(:user) }
-      let(:shopping_list) { create(:shopping_list_with_list_items, list_item_count: 2, user: user) }
-      let(:shopping_list_id) { shopping_list.id }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp' => (Time.now + 1.year).to_i,
-          'email' => user.email,
-          'name' => user.name
-        }
-      end
-
-      before do
-        create(:master_shopping_list, user: user)
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-
-      it 'returns the shopping list with its list items' do
-        get_shopping_list
-        expect(response.body).to eq shopping_list.to_json(include: :shopping_list_items)
-      end
-    end
-  end
-
   describe 'PUT /shopping_lists/:id' do
     subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
 
@@ -260,7 +158,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "returns the errors" do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
       end
 
@@ -275,7 +173,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
+          expect(response.body).to be_empty
         end
       end
 
@@ -297,7 +195,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'Cannot manually update a master shopping list' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update a master shopping list'] })
         end
       end
 
@@ -319,7 +217,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list a master list'] })
         end
       end
     end
@@ -390,7 +288,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "returns the errors" do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'title' => ['has already been taken'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
       end
 
@@ -405,7 +303,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
+          expect(response.body).to be_empty
         end
       end
 
@@ -427,7 +325,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'error' => 'Cannot manually update a master shopping list' })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update a master shopping list'] })
         end
       end
 
@@ -449,7 +347,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => { 'master' => ['cannot manually create or update a master shopping list'] } })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list a master list'] })
         end
       end
     end

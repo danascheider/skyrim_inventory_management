@@ -3,9 +3,7 @@
 require 'controller/response'
 
 class ShoppingListsController < ApplicationController
-  before_action :set_shopping_list, only: %i[show update destroy]
-  before_action :prevent_setting_master, only: %i[update]
-  before_action :prevent_update_master_list, only: :update
+  before_action :set_shopping_list, only: %i[destroy]
   before_action :prevent_destroy_master_list, only: :destroy
 
   def index
@@ -20,16 +18,10 @@ class ShoppingListsController < ApplicationController
     ::Controller::Response.new(self, result).execute
   end
 
-  def show
-    render json: @shopping_list, status: :ok
-  end
-
   def update
-    if @shopping_list.update(shopping_list_params)
-      render json: @shopping_list, status: :ok
-    else
-      render json: { errors: @shopping_list.errors }, status: :unprocessable_entity
-    end
+    result = UpdateService.new(current_user, params[:id], shopping_list_params).perform
+    
+    ::Controller::Response.new(self, result).execute
   end
 
   def destroy
