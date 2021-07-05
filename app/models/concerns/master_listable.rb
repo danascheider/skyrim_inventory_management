@@ -46,13 +46,13 @@ module MasterListable
     validate :not_named_master,             unless: :is_master_list?
     validate :ensure_master_list_is_master, unless: :is_master_list?
 
-    before_create :create_master_list,            unless: :is_master_list?
-    before_validation :set_master_list,           unless: :is_master_list?
+    before_create :create_master_list,    unless: :is_master_list?
+    before_validation :set_master_list,   unless: :is_master_list?
     before_save :abort_if_master_changed
-    before_save :remove_master_list_id,           if: :is_master_list?
-    before_save :set_title_to_master,             if: :is_master_list?
-    before_destroy :abort_if_master,              if: :has_child_lists?
-    after_destroy :destroy_master_list,           unless: -> { is_master_list? || master_has_other_children? }
+    before_save :remove_master_list_id,   if: :is_master_list?
+    before_save :set_title_to_master,     if: :is_master_list?
+    before_destroy :abort_if_master,      if: :has_child_lists?
+    after_destroy :destroy_master_list,   unless: -> { is_master_list? || master_has_other_children? }
   end
 
   def add_item_from_child_list(item)
@@ -102,7 +102,7 @@ module MasterListable
   end
 
   def extract_notes(notes, existing)
-    return existing unless notes && existing =~ /#{notes}/
+    return existing unless notes && existing.to_s =~ /#{notes}/
 
     existing.sub(notes, '')
   end
