@@ -57,9 +57,9 @@ For a user with multiple lists:
     "title": "Master",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "shopping_list_items": [
+    "list_items": [
       {
-        "shopping_list_id": 43,
+        "list_id": 43,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
         "notes": "Need an unenchanted sword to start Companions questline",
@@ -67,7 +67,7 @@ For a user with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
-        "shopping_list_id": 43,
+        "list_id": 43,
         "description": "Iron ingot",
         "quantity": 4,
         "notes": "3 locks -- 2 hinges",
@@ -83,9 +83,9 @@ For a user with multiple lists:
     "title": "Lakeview Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "shopping_list_items": [
+    "list_items": [
       {
-        "shopping_list_id": 46,
+        "list_id": 46,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
         "notes": "Need an unenchanted sword to start Companions questline",
@@ -93,7 +93,7 @@ For a user with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
-        "shopping_list_id": 46,
+        "list_id": 46,
         "description": "Iron ingot",
         "quantity": 3,
         "notes": "3 locks",
@@ -109,9 +109,9 @@ For a user with multiple lists:
     "title": "Severin Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "shopping_list_items": [
+    "list_items": [
       {
-        "shopping_list_id": 52,
+        "list_id": 52,
         "description": "Iron ingot",
         "quantity": 1,
         "notes": "2 hinges",
@@ -150,10 +150,10 @@ Authorization: Bearer xxxxxxxxxxxx
   "title": "My List 1",
   "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "shopping_list_items": [
+  "list_items": [
     {
       "id": 1,
-      "shopping_list_id": 4,
+      "list_id": 4,
       "description": "Ebony sword",
       "quantity": 2,
       "notes": "One to enchant with Absorb Health, one to enchant with Soul Trap",
@@ -232,7 +232,7 @@ When there hasn't been a master list created:
     "title": "My List 1",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "shopping_list_items": []
+    "list_items": []
   }
 ]
 ```
@@ -333,10 +333,10 @@ Content-Type: application/json
   "title": "New List Title",
   "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
   "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "shopping_list_items": [
+  "list_items": [
     {
       "id": 32,
-      "shopping_list_id": 834,
+      "list_id": 834,
       "description": "Ebony sword",
       "quantity": 1,
       "notes": "To enchant with Soul Trap",
@@ -411,10 +411,10 @@ If the resource deleted was the user's last regular list, the master list will a
     "title": "Master",
     "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "shopping_list_items": [
+    "list_items": [
       {
         "id": 32,
-        "shopping_list_id": 834,
+        "list_id": 834,
         "description": "Ebony sword",
         "quantity": 1,
         "notes": "To enchant with Soul Trap",

@@ -76,7 +76,7 @@ Content-Type: application/json
 [
   {
     "id": 87,
-    "shopping_list_id": 238,
+    "list_id": 238,
     "description": "Ebony sword",
     "quantity": 9,
     "notes": "To sell -- To enchant with 'Absorb Health'",
@@ -85,7 +85,7 @@ Content-Type: application/json
   },
   {
     "id": 126,
-    "shopping_list_id": 237,
+    "list_id": 237,
     "description": "Ebony sword",
     "quantity": 7,
     "notes": "To enchant with 'Absorb Health'",
