@@ -17,7 +17,7 @@ GET /auth/verify_token
 Authorization: Bearer xxxxxxxxxxxxx
 ```
 
-### Successful Responses
+### Success Responses
 
 #### Status
 

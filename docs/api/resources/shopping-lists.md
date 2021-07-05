@@ -35,7 +35,7 @@ GET /shopping_lists
 Authorization: Bearer xxxxxxxxxxxxx
 ```
 
-### Successful Responses
+### Success Responses
 
 #### Statuses
 

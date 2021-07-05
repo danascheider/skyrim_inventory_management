@@ -17,7 +17,7 @@ GET /users/current
 Authorization: Bearer xxxxxxxxx
 ```
 
-### Successful Responses
+### Success Responses
 
 #### Status
 
