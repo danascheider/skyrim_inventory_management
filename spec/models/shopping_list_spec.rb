@@ -485,7 +485,7 @@ RSpec.describe ShoppingList, type: :model do
           master_list.list_items.create!(description: description, quantity: 3, notes: existing_notes)
         end
   
-        context 'replacing the middle notes' do
+        context 'when replacing the middle notes' do
           let(:old_notes) { 'notes 2' }
           let(:new_notes) { 'something else' }
 
@@ -495,7 +495,7 @@ RSpec.describe ShoppingList, type: :model do
           end
         end
 
-        context 'replacing the first notes with nil' do
+        context 'when replacing the first notes with nil' do
           let(:old_notes) { 'notes 1' }
           let(:new_notes) { nil }
 
@@ -505,7 +505,7 @@ RSpec.describe ShoppingList, type: :model do
           end
         end
 
-        context 'replacing two of the notes values' do
+        context 'when replacing two of the notes values' do
           let(:old_notes) { 'notes 2 -- notes 3' }
           let(:new_notes) { 'something else' }
 
@@ -515,7 +515,7 @@ RSpec.describe ShoppingList, type: :model do
           end
         end
 
-        context 'replacing all of a combined note value' do
+        context 'when replacing all of a combined note value' do
           let(:old_notes) { 'notes 1 -- notes 2 -- notes 3' }
           let(:new_notes) { nil }
 
@@ -533,6 +533,26 @@ RSpec.describe ShoppingList, type: :model do
           it 'only replaces one instance' do
             update_item
             expect(master_list.list_items.first.notes).to eq 'something else -- notes 1 -- notes 2'
+          end
+        end
+
+        context 'when introducing new notes' do
+          let(:old_notes) { 'notes 2' }
+          let(:new_notes) { 'notes 2 -- notes 4' }
+
+          it 'adds the new notes' do
+            update_item
+            expect(master_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 4 -- notes 3'
+          end
+        end
+
+        context 'when all the notes on the master list come from other items' do
+          let(:old_notes) { nil }
+          let(:new_notes) { 'notes 4' }
+
+          it 'adds the new notes' do
+            update_item
+            expect(master_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 3 -- notes 4'
           end
         end
       end

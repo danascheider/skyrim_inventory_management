@@ -37,9 +37,9 @@ Authorization: Bearer xxxxxxxxxxxxx
 
 ### Successful Responses
 
-#### Status
+#### Statuses
 
-200 OK
+* 200 OK
 
 #### Example Bodies
 
@@ -80,6 +80,7 @@ For a user with multiple lists:
     "id": 46,
     "user_id": 8234,
     "master": false,
+    "master_list_id": 43,
     "title": "Lakeview Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -106,6 +107,7 @@ For a user with multiple lists:
     "id": 52,
     "user_id": 8234,
     "master": false,
+    "master_list_id": 43,
     "title": "Severin Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -121,61 +123,6 @@ For a user with multiple lists:
     ]
   }
 ]
-```
-
-## GET /shopping_lists/:id
-
-Returns the shopping list with the given ID, if it exists and belongs to the authenticated user. The response includes any list items on the given shopping list. If the shopping list exists but does not belong to the authenticated user, a 404 error response will be returned.
-
-### Example Request
-
-```
-GET /shopping_lists/24
-Authorization: Bearer xxxxxxxxxxxx
-```
-
-### Successful Responses
-
-#### Status
-
-200 OK
-
-#### Example Body
-
-```json
-{
-  "id": 4,
-  "user_id": 6,
-  "master": false,
-  "title": "My List 1",
-  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "list_items": [
-    {
-      "id": 1,
-      "list_id": 4,
-      "description": "Ebony sword",
-      "quantity": 2,
-      "notes": "One to enchant with Absorb Health, one to enchant with Soul Trap",
-      "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-      "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-    }
-  ]
-}
-```
-
-### Error Responses
-
-#### Status
-
-404 Not Found
-
-#### Example Body
-
-```json
-{
-  "error": "Shopping list id=17264 not found"
-}
 ```
 
 ## POST /shopping_lists
@@ -216,9 +163,9 @@ Content-Type: application/json
 
 ### Success Responses
 
-#### Status
+#### Statuses
 
-201 Created
+* 201 Created
 
 #### Example Bodies
 
@@ -229,6 +176,7 @@ When there hasn't been a master list created:
     "id": 4,
     "user_id": 6,
     "master": false,
+    "master_list_id": 3,
     "title": "My List 1",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -241,7 +189,7 @@ When the master list has also been created:
 ```json
 [
   {
-    "id": 5,
+    "id": 4,
     "user_id": 6,
     "master": true,
     "title": "Master",
@@ -249,9 +197,10 @@ When the master list has also been created:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   },
   {
-    "id": 4,
+    "id": 5,
     "user_id": 6,
     "master": false,
+    "master_list_id": 4,
     "title": "My List 1",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -270,18 +219,18 @@ When the master list has also been created:
 If duplicate title is given:
 ```json
 {
-  "errors": {
-    "title": ["has already been taken"]
-  }
+  "errors": [
+    "Title has already been taken"
+  ]
 }
 ```
 
 If request attempts to create a master list:
 ```json
 {
-  "errors": {
-    "master": ["cannot create or update a master shopping list through the API"]
-  }
+  "errors": [
+    "Cannot manually create a master shopping list"
+  ]
 }
 ```
 
@@ -319,9 +268,9 @@ Content-Type: application/json
 
 ### Success Response
 
-#### Status
+#### Statuses
 
-200 OK
+* 200 OK
 
 #### Example Body
 
@@ -330,6 +279,7 @@ Content-Type: application/json
   "id": 834,
   "user_id": 16,
   "master": false,
+  "master_list_id": 833,
   "title": "New List Title",
   "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
   "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -360,25 +310,22 @@ Content-Type: application/json
 For a 422 response due to title uniqueness constraint:
 ```json
 {
-  "errors": {
-    "title": ["has already been taken"]
-  }
+  "errors": [
+    "Title has already been taken"
+  ]
 }
 ```
 
 For a 405 response due to attempting to update a master list or convert a regular list to a master list:
 ```json
 {
-  "error": "cannot update a master shopping list through the API"
+  "errors": [
+    "Cannot manually update a master shopping list"
+  ]
 }
 ```
 
-For a 404 response:
-```json
-{
-  "error": "Shopping list id=2385 not found"
-}
-```
+For a 404 response, no response body is returned.
 
 ## DELETE /shopping_lists/:id
 
@@ -435,18 +382,15 @@ If the specified list does not exist or does not belong to the authenticated use
 * 404 Not Found
 * 405 Method Not Allowed
 
-#### Example Body
+#### Example Bodies
 
-For a 404 response:
-```json
-{
-  "error": "Shopping list id=8245 not found"
-}
-```
+For a 404 response, no response body will be returned
 
 For a 405 response:
 ```json
 {
-  "error": "cannot destroy a master shopping list through the API"
+  "errors": [
+    "Cannot manually delete a master shopping list"
+  ]
 }
 ```
