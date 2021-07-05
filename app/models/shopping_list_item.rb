@@ -2,9 +2,8 @@
 
 class ShoppingListItem < ApplicationRecord
   belongs_to :list, class_name: 'ShoppingList'
-  
 
-  validates :description, presence: true
+  validates :description, presence: true, uniqueness: { scope: :list_id }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   before_save :humanize_description
@@ -16,7 +15,9 @@ class ShoppingListItem < ApplicationRecord
   scope :index_order, -> { order(updated_at: :desc) }
 
   def self.combine_or_create!(attrs)
-    combine_or_new(attrs).save!
+    obj = combine_or_new(attrs)
+    obj.save!
+    obj
   end
 
   def self.combine_or_new(attrs)

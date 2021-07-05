@@ -91,9 +91,22 @@ RSpec.describe 'ShoppingListItems', type: :request do
             )
           end
 
-          it 'returns the master list item and the regular list item' do
+          it 'returns the master list item and the regular list item', :aggregate_failures do
             create_item
-            expect(response.body).to eq([master_list.list_items.last, shopping_list.list_items.last].to_json)
+
+            # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
+            # string is correct as some attributes are out of order and the timestamps are serialized
+            # differently. Here we grab the individual items and then we'll filter out the timestamps to
+            # verify them.
+            master_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
+              item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
+            end
+
+            master_list_item_expected = master_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+            regular_list_item_expected = shopping_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+  
+            expect(master_list_item_actual).to eq(master_list_item_expected)
+            expect(regular_list_item_actual).to eq(regular_list_item_expected)
           end
 
           it 'returns status 201' do
@@ -192,11 +205,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns the validation errors' do
           create_item
-          expect(JSON.parse(response.body)).to eq({
-            'errors' => {
-              'quantity' => ['is not a number']
-            }
-          })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity is not a number'] })
         end
       end
     end

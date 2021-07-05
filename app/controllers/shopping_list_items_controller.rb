@@ -1,22 +1,14 @@
 # frozen_string_literal: true
 
+require 'controller/response'
+
 class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: %i[update destroy]
-  before_action :set_shopping_list, only: %i[create]
 
   def create
-    item = @shopping_list.list_items.combine_or_new(list_item_params)
+    result = CreateService.new(current_user, params[:shopping_list_id], list_item_params).perform
 
-    if item.save
-      @shopping_list.master_list.add_item_from_child_list(item)
-      master_list_item = @shopping_list.master_list.list_items.find_by(description: item.description)
-
-      @shopping_list.touch
-      
-      render json: [master_list_item, item], status: :created
-    else
-      render json: { errors: item.errors }, status: :unprocessable_entity
-    end
+    ::Controller::Response.new(self, result).execute
   end
 
   private
@@ -25,17 +17,8 @@ class ShoppingListItemsController < ApplicationController
     params.require(:shopping_list_item).permit(
       :description,
       :quantity,
-      :notes,
-      :list_id
+      :notes
     )
-  end
-
-  def set_shopping_list
-    @shopping_list ||= current_user.shopping_lists.find(params[:shopping_list_id])
-
-    render json: { error: 'Cannot manage master shopping list items directly.' }, status: :method_not_allowed if @shopping_list.master
-  rescue ActiveRecord::RecordNotFound
-    head :not_found
   end
 
   def set_shopping_list_item

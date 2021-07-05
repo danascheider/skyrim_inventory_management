@@ -77,6 +77,8 @@ module MasterListable
       existing_item.notes = extract_notes(attrs['notes'], existing_item.notes)
       existing_item.save!
     end
+
+    existing_item
   end
 
   def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
@@ -91,6 +93,7 @@ module MasterListable
     existing_item.quantity += delta_quantity
     existing_item.notes = existing_item.sub(old_notes, new_notes)
     existing_item.save!
+    existing_item
   end
 
   def extract_notes(notes, existing)
