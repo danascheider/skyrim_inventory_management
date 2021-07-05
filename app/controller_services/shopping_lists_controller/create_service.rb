@@ -30,9 +30,5 @@ class ShoppingListsController < ApplicationController
     private
 
     attr_reader :user, :params
-
-    def new_master_list
-      return user.shopping_lists.new(master: true, title: 'Master') if user.master_shopping_list.nil?
-    end
   end
 end
