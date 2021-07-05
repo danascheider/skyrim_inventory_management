@@ -60,7 +60,7 @@ RSpec.describe ShoppingListsController::CreateService do
 
         it 'creates a regular shopping list for the given user' do
           perform
-          expect(user.shopping_lists.first.title).to eq 'Proudspire Manor'
+          expect(user.shopping_lists.last.title).to eq 'Proudspire Manor'
         end
 
         it 'returns a Service::CreatedResult' do
@@ -68,7 +68,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to include both lists' do
-          expect(perform.resource).to eq([user.master_shopping_list, user.shopping_lists.first])
+          expect(perform.resource).to eq([user.master_shopping_list, user.shopping_lists.last])
         end
       end
     end

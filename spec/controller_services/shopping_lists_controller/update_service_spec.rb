@@ -14,7 +14,7 @@ RSpec.describe ShoppingListsController::UpdateService do
     let(:user) { create(:user) }
     
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list) { create(:shopping_list, user: user, master_list_id: master_list.id) }
       let(:params) { { title: 'My New Title' } }
 
       it 'updates the shopping list' do

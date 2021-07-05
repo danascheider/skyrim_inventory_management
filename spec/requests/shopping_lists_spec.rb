@@ -37,7 +37,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
           it 'returns the master list as well as the new list' do
             create_shopping_list
-            expect(response.body).to eq([user.master_shopping_list, user.shopping_lists.first].to_json)
+            expect(response.body).to eq([user.master_shopping_list, user.shopping_lists.last].to_json)
           end
 
           it 'returns status 201' do
@@ -103,7 +103,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PUT /shopping_lists/:id' do
-    subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+    subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -123,7 +123,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it 'updates the title' do
           update_shopping_list
@@ -134,7 +134,7 @@ RSpec.describe 'ShoppingLists', type: :request do
           update_shopping_list
           # This ugly hack is needed because if we don't parse the JSON, it'll make an error
           # if everything isn't in the exact same order, but if we just use shopping_list.attributes
-          # it won't include the shopping_list_items. Ugly.
+          # it won't include the list_items. Ugly.
           expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
         end
 
@@ -145,10 +145,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when something goes wrong' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
         let(:other_list) { create(:shopping_list, user: user) }
 
         it 'returns status 422' do
@@ -164,7 +164,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list belongs to a different user' do
         let!(:shopping_list) { create(:shopping_list) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it 'returns status 404' do
           update_shopping_list
@@ -178,10 +178,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to update a master list' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
 
         let!(:shopping_list) { create(:master_shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -200,10 +200,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to a master list' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
         
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -223,7 +223,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:shopping_list_id) { 42 }
+      let(:list_id) { 42 }
 
       it 'returns 401' do
         update_shopping_list
@@ -233,7 +233,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PATCH /shopping_lists/:id' do
-    subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+    subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -253,7 +253,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it 'updates the title' do
           update_shopping_list
@@ -264,7 +264,7 @@ RSpec.describe 'ShoppingLists', type: :request do
           update_shopping_list
           # This ugly hack is needed because if we don't parse the JSON, it'll make an error
           # if everything isn't in the exact same order, but if we just use shopping_list.attributes
-          # it won't include the shopping_list_items. Ugly.
+          # it won't include the list_items. Ugly.
           expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
         end
 
@@ -275,10 +275,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when something goes wrong' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
         let(:other_list) { create(:shopping_list, user: user) }
 
         it 'returns status 422' do
@@ -294,7 +294,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list belongs to a different user' do
         let!(:shopping_list) { create(:shopping_list) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it 'returns status 404' do
           update_shopping_list
@@ -308,10 +308,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to update a master list' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
 
         let!(:shopping_list) { create(:master_shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -330,10 +330,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to a master list' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
         
         let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -353,7 +353,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:shopping_list_id) { 42 }
+      let(:list_id) { 42 }
 
       it 'returns 401' do
         update_shopping_list
@@ -418,11 +418,11 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'DELETE /shopping_lists/:id' do
-    subject(:delete_shopping_list) { delete "/shopping_lists/#{shopping_list_id}", headers: headers }
+    subject(:delete_shopping_list) { delete "/shopping_lists/#{list_id}", headers: headers }
 
     context 'when unauthenticated' do
       let!(:shopping_list) { create(:shopping_list) }
-      let(:shopping_list_id) { shopping_list.id }
+      let(:list_id) { shopping_list.id }
 
       it 'returns 401' do
         delete_shopping_list
@@ -443,7 +443,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let(:user1) { create(:user) }
       let(:user2) { create(:user) }
       let!(:shopping_list) { create(:shopping_list, user: user2) }
-      let(:shopping_list_id) { shopping_list.id }
+      let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -463,9 +463,9 @@ RSpec.describe 'ShoppingLists', type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'returns an error message indicating the list was not found' do
+      it "doesn't return data" do
         delete_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
+        expect(response.body).to be_empty
       end
 
       it 'does not delete any shopping lists' do
@@ -475,7 +475,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when the shopping list does not exist' do
       let(:user) { create(:user) }
-      let(:shopping_list_id) { 24 } # could be anything
+      let(:list_id) { 24 } # could be anything
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -495,9 +495,9 @@ RSpec.describe 'ShoppingLists', type: :request do
         expect(response.status).to eq 404
       end
 
-      it 'returns an error message indicating the list was not found' do
+      it "doesn't return data" do
         delete_shopping_list
-        expect(JSON.parse(response.body)).to eq({ 'error' => "Shopping list id=#{shopping_list_id} not found" })
+        expect(response.body).to be_empty
       end
     end
 
@@ -505,7 +505,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let(:user) { create(:user) }
       let!(:master_list) { create(:master_shopping_list, user: user) }
       let!(:shopping_list) { create(:shopping_list, user: user) }
-      let(:shopping_list_id) { shopping_list.id }
+      let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -552,14 +552,14 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns the master list in the body' do
           delete_shopping_list
-          expect(response.body).to eq({ master_list: user.master_shopping_list }.to_json)
+          expect(response.body).to eq(user.master_shopping_list.to_json)
         end
       end
     end
 
     context 'when properly authenticated and attempting to delete the master list' do
       let(:user) { create(:user) }
-      let(:shopping_list_id) { shopping_list.id }
+      let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -576,7 +576,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when another list exists' do
         let!(:shopping_list) { create(:master_shopping_list, user: user) }
-        let(:shopping_list_id) { shopping_list.id }
+        let(:list_id) { shopping_list.id }
 
         it 'does not delete anything' do
           expect { delete_shopping_list }.not_to change(ShoppingList, :count)
@@ -589,7 +589,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           delete_shopping_list
-          expect(response.body).to eq({ error: 'Cannot manually destroy a master shopping list' }.to_json)
+          expect(response.body).to eq({ errors: ['Cannot manually delete a master shopping list'] }.to_json)
         end
       end
     end

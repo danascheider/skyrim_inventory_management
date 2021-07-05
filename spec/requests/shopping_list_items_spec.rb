@@ -10,15 +10,15 @@ RSpec.describe 'ShoppingListItems', type: :request do
     }
   end
 
-  describe 'POST /shopping_lists/:id/shopping_list_items' do
+  describe 'POST /shopping_lists/:shopping_list_id/shopping_list_items' do
     subject(:create_item) do
       post "/shopping_lists/#{shopping_list.id}/shopping_list_items",
            params: params,
            headers: headers
     end
 
-    let(:master_list) { create(:master_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
+    let!(:master_list) { create(:master_shopping_list) }
+    let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
     
     context 'when authenticated' do
       let!(:user) { master_list.user }
@@ -38,10 +38,10 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
       
       context 'when all goes well' do
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
         it 'creates a new shopping list item on the shopping list' do
-          expect { create_item }.to change(shopping_list.shopping_list_items, :count).from(0).to(1)
+          expect { create_item }.to change(shopping_list.list_items, :count).from(0).to(1)
         end
 
         context 'when the master list has no items on it' do
@@ -51,8 +51,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'assigns the right attributes' do
             create_item
-            item = shopping_list.shopping_list_items.last
-            expect(master_list.shopping_list_items.last.attributes).to include(
+            item = shopping_list.list_items.last
+            expect(master_list.list_items.last.attributes).to include(
               'description' => item.description,
               'quantity' => item.quantity,
               'notes' => item.notes
@@ -61,7 +61,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the master list item and the regular list item' do
             create_item
-            expect(response.body).to eq([master_list.shopping_list_items.last, shopping_list.shopping_list_items.last].to_json)
+            expect(response.body).to eq([master_list.list_items.last, shopping_list.list_items.last].to_json)
           end
 
           it 'returns status 201' do
@@ -72,18 +72,19 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when the master list has a matching item' do
           before do
-            second_list = user.shopping_lists.create!(title: 'Proudspire Manor')
-            second_list.shopping_list_items.create!(
+            second_list = user.shopping_lists.create!(title: 'Proudspire Manor', master_list: master_list)
+            second_list.list_items.create!(
               description: 'Corundum ingot',
               quantity: 1,
               notes: 'some other notes'
             )
+            master_list.add_item_from_child_list(second_list.list_items.last)
           end
 
           it 'updates the item on the master list', :aggregate_failures do
             create_item
-            expect(master_list.shopping_list_items.count).to eq 1
-            expect(master_list.shopping_list_items.last.attributes).to include(
+            expect(master_list.list_items.count).to eq 1
+            expect(master_list.list_items.last.attributes).to include(
               'description' => 'Corundum ingot',
               'quantity' => 6,
               'notes' => 'some other notes -- To make locks'
@@ -92,7 +93,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the master list item and the regular list item' do
             create_item
-            expect(response.body).to eq([master_list.shopping_list_items.last, shopping_list.shopping_list_items.last].to_json)
+            expect(response.body).to eq([master_list.list_items.last, shopping_list.list_items.last].to_json)
           end
 
           it 'returns status 201' do
@@ -117,16 +118,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when the new item matches an existing item on the list' do
           before do
-            shopping_list.shopping_list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
+            shopping_list.list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
           end
 
           it "doesn't create a new item" do
-            expect { create_item }.not_to change(shopping_list.shopping_list_items, :count)
+            expect { create_item }.not_to change(shopping_list.list_items, :count)
           end
 
           it 'updates the existing item' do
             create_item
-            expect(shopping_list.shopping_list_items.first.attributes).to include(
+            expect(shopping_list.list_items.first.attributes).to include(
               'description' => 'Corundum ingot',
               'quantity' => 7,
               'notes' => 'To make locks -- To make locks'
@@ -137,7 +138,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list belongs to a different user' do
         let(:user) { create(:user) }
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
         it 'returns 404' do
           create_item
@@ -157,7 +158,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
                headers: headers
         end
 
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
         it 'returns 404' do
           create_item
@@ -173,7 +174,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list is a master list' do
         let(:shopping_list) { master_list }
 
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
         it 'returns status 405' do
           create_item
@@ -182,7 +183,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the params are invalid' do
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":\"foooo\",\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":\"foooo\",\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
         it 'returns 422' do
           create_item
@@ -201,7 +202,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":4,\"notes\":\"To make locks\",\"shopping_list_id\":#{shopping_list.id}}}" }
+      let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":4,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
 
       it 'returns 401' do
         create_item

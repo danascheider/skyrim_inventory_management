@@ -16,9 +16,11 @@ class ShoppingListsController < ApplicationController
       return Service::UnprocessableEntityResult.new(errors: [MASTER_LIST_ERROR]) if params[:master]
 
       shopping_list = user.shopping_lists.new(params)
+      preexisting_master_list = user.master_shopping_list
 
       if shopping_list.save
-        resource = new_master_list&.save ? [user.master_shopping_list, shopping_list] : shopping_list
+        # Check if the master shopping list is newly created and return it too if so
+        resource = preexisting_master_list ? shopping_list : [user.master_shopping_list, shopping_list]
         Service::CreatedResult.new(resource: resource)
       else
         Service::UnprocessableEntityResult.new(errors: assemble_error_messages(shopping_list.errors))

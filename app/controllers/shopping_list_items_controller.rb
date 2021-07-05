@@ -5,10 +5,11 @@ class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list, only: %i[create]
 
   def create
-    item = @shopping_list.shopping_list_items.combine_or_new(list_item_params)
+    item = @shopping_list.list_items.combine_or_new(list_item_params)
 
     if item.save
-      master_list_item = @shopping_list.master_list.shopping_list_items.find_by_description(item.description)
+      @shopping_list.master_list.add_item_from_child_list(item)
+      master_list_item = @shopping_list.master_list.list_items.find_by(description: item.description)
 
       @shopping_list.touch
       
@@ -25,7 +26,7 @@ class ShoppingListItemsController < ApplicationController
       :description,
       :quantity,
       :notes,
-      :shopping_list_id
+      :list_id
     )
   end
 

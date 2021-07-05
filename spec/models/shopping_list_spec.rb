@@ -42,7 +42,7 @@ RSpec.describe ShoppingList, type: :model do
       let!(:lists) { create_list(:shopping_list_with_list_items, 2, user: user) }
 
       it 'includes the shopping list items' do
-        expect(includes_items).to eq user.shopping_lists.includes(:shopping_list_items)
+        expect(includes_items).to eq user.shopping_lists.includes(:list_items)
       end
     end
   end
@@ -81,7 +81,7 @@ RSpec.describe ShoppingList, type: :model do
 
         it 'is invalid', :aggregate_failures do
           expect(master_list).not_to be_valid
-          expect(master_list.errors[:master]).to eq ['user can only have one master shopping list']
+          expect(master_list.errors[:master]).to eq ['can only be one list per user']
         end
       end
     end
@@ -96,7 +96,7 @@ RSpec.describe ShoppingList, type: :model do
         it 'is not allowed for a regular list', :aggregate_failures do
           list = build(:shopping_list, title: 'master')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['cannot be "master" for a regular shopping list'])
+          expect(list.errors[:title]).to eq(['cannot be "Master"'])
         end
       end
 
@@ -216,20 +216,20 @@ RSpec.describe ShoppingList, type: :model do
   end
 
   describe 'relations' do
-    subject(:items) { shopping_list.shopping_list_items }
+    subject(:items) { shopping_list.list_items }
 
     let!(:master_list) { create(:master_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
-    let!(:item1) { create(:shopping_list_item, shopping_list: shopping_list) }
-    let!(:item2) { create(:shopping_list_item, shopping_list: shopping_list) }
-    let!(:item3) { create(:shopping_list_item, shopping_list: shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user, master_list_id: master_list.id) }
+    let!(:item1) { create(:shopping_list_item, list: shopping_list) }
+    let!(:item2) { create(:shopping_list_item, list: shopping_list) }
+    let!(:item3) { create(:shopping_list_item, list: shopping_list) }
 
     before do
       item2.update!(quantity: 2)
     end
 
     it 'keeps child models in descending order of updated_at' do
-      expect(shopping_list.shopping_list_items.to_a).to eq([item2, item3, item1])
+      expect(shopping_list.list_items.to_a).to eq([item2, item3, item1])
     end
   end
 
@@ -240,7 +240,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the user has regular lists' do
         before do
-          create(:shopping_list, user: shopping_list.user)
+          create(:shopping_list, user: shopping_list.user, master_list: shopping_list)
         end
 
         it 'raises an error and does not destroy the list' do

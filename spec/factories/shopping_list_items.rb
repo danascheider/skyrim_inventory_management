@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :shopping_list_item do
-    shopping_list
+    association :list, factory: :shopping_list
 
-    description { 'Necklace' }
+    sequence(:description) { |n| "Item #{n}" }
     quantity { 1 }
   end
 end
