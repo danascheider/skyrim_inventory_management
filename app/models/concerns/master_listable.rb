@@ -91,7 +91,7 @@ module MasterListable
     end
 
     existing_item.quantity += delta_quantity
-    existing_item.notes = existing_item.sub(old_notes, new_notes)
+    existing_item.notes = existing_item.notes&.sub(old_notes.to_s, new_notes.to_s).presence || new_notes
     existing_item.save!
     existing_item
   end

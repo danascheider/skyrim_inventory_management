@@ -29,10 +29,11 @@ class ShoppingListItem < ApplicationRecord
       new attrs
     else
       qty = attrs[:quantity] || attrs['quantity'] || 1
-      notes = attrs[:notes] || attrs['notes'] || ''
+      new_notes = attrs[:notes] || attrs['notes']
+      old_notes = existing_item.notes
 
       new_quantity = existing_item.quantity + qty
-      new_notes = [existing_item.notes, notes].join(' -- ')
+      new_notes = [old_notes, new_notes].compact.join(' -- ').presence
 
       existing_item.assign_attributes(quantity: new_quantity, notes: new_notes)
       existing_item

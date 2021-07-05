@@ -4,18 +4,6 @@ require 'rails_helper'
 
 RSpec.describe ShoppingList, type: :model do
   describe 'scopes' do
-    describe '::master_first' do
-      subject(:master_first) { user.shopping_lists.master_first.to_a }
-
-      let!(:user) { create(:user) }
-      let!(:master_list) { create(:master_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user) }
-
-      it 'returns the shopping lists with the master list first' do
-        expect(master_first).to eq([master_list, shopping_list])
-      end
-    end
-
     describe '::index_order' do
       subject(:index_order) { user.shopping_lists.index_order.to_a }
 
@@ -34,6 +22,7 @@ RSpec.describe ShoppingList, type: :model do
       end
     end
 
+    # MasterListable
     describe '::includes_items' do
       subject(:includes_items) { user.shopping_lists.includes_items }
 
@@ -45,9 +34,23 @@ RSpec.describe ShoppingList, type: :model do
         expect(includes_items).to eq user.shopping_lists.includes(:list_items)
       end
     end
+
+    # MasterListable
+    describe '::master_first' do
+      subject(:master_first) { user.shopping_lists.master_first.to_a }
+
+      let!(:user) { create(:user) }
+      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user) }
+
+      it 'returns the shopping lists with the master list first' do
+        expect(master_first).to eq([master_list, shopping_list])
+      end
+    end
   end
 
   describe 'validations' do
+    # MasterListable
     describe 'master lists' do
       context 'when there are no master lists' do
         let(:user) { create(:user) }
@@ -87,6 +90,7 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     describe 'title validations' do
+      # MasterListable
       context 'when the title is "master"' do
         it 'is allowed for a master list' do
           list = build(:master_shopping_list, title: 'Master')
@@ -140,12 +144,12 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  # MasterListable
   describe '#master_list' do
-    let!(:user) { create(:user) }
-    let!(:master_list) { create(:master_shopping_list, user: user) }
-    let(:shopping_list) { create(:shopping_list, user: user) }
+    let!(:master_list) { create(:master_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
 
-    it "returns the user's master list" do
+    it "returns the master list that tracks it" do
       expect(shopping_list.master_list).to eq master_list
     end
   end
@@ -173,7 +177,7 @@ RSpec.describe ShoppingList, type: :model do
           before do
             # Create lists for a different user to make sure the name of this user's
             # list isn't affected by them
-            create_list(:shopping_list, 2)
+            create_list(:shopping_list, 2, title: nil)
             create_list(:shopping_list, 2, title: nil, user: user)
           end
   
@@ -183,6 +187,7 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
   
+      # MasterListable
       context 'when the list is a master list' do
         context 'when the user has set a title' do
           subject(:title) { user.shopping_lists.create!(master: true, title: 'Something other than master').title }
@@ -234,6 +239,7 @@ RSpec.describe ShoppingList, type: :model do
   end
 
   describe 'before destroy hook' do
+    # MasterListable
     context 'when trying to destroy the master list' do
       subject(:destroy_list) { shopping_list.destroy! }
       let(:shopping_list) { create(:master_shopping_list) }
@@ -256,6 +262,7 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  # MasterListable
   describe 'after destroy hook' do
     subject(:destroy_list) { shopping_list.destroy! }
 
@@ -276,6 +283,291 @@ RSpec.describe ShoppingList, type: :model do
     context 'when the user has no additional regular lists' do
       it 'destroys the master list' do
         expect { destroy_list }.to change(user.shopping_lists, :count).from(2).to(0)
+      end
+    end
+  end
+
+  describe 'MasterListable methods' do
+    describe '#add_item_from_child_list' do
+      subject(:add_item) { master_list.add_item_from_child_list(list_item) }
+
+      let(:master_list) { create(:master_shopping_list) }
+
+      context 'when there is no matching item on the master list' do
+        let(:list_item) { create(:shopping_list_item) }
+
+        it 'creates a corresponding item on the master list' do
+          expect { add_item }.to change(master_list.list_items, :count).from(0).to(1)
+        end
+
+        it 'sets the correct attributes' do
+          add_item
+          expect(master_list.list_items.last.attributes).to include(
+                                                                     'description' => list_item.description,
+                                                                     'quantity' => list_item.quantity,
+                                                                     'notes' => list_item.notes
+                                                                    )
+        end
+      end
+
+      context 'when there is a matching item on the master list' do
+        let!(:existing_list_item) { create(:shopping_list_item, list: master_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+
+        context 'when both have notes' do
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
+
+          it 'combines the notes and quantities', :aggregate_failures do
+            add_item
+            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2 -- notes 3'
+            expect(existing_list_item.reload.quantity).to eq 5
+          end
+        end
+        
+        context 'when neither have notes' do
+          let!(:existing_list_item) { create(:shopping_list_item, list: master_list, quantity: 3, notes: nil) }
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
+
+          it 'combines the quantities and leaves the notes nil' do
+            add_item
+            expect(existing_list_item.reload.quantity).to eq 5
+            expect(existing_list_item.reload.notes). to be nil
+          end
+        end
+
+        context 'when one has notes and the other does not' do
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2) }
+
+          it 'combines the quantities and uses the existing notes value', :aggregate_failures do
+            add_item
+            expect(existing_list_item.reload.quantity).to eq 5
+            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2'
+          end
+        end
+      end
+
+      context 'when called on a non-master list' do
+        let(:master_list) { create(:shopping_list) }
+        let(:list_item) { create(:shopping_list_item) }
+
+        it 'raises a MasterListError' do
+          expect { add_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+    end
+
+    describe '#remove_item_from_child_list' do
+      subject(:remove_item) { master_list.remove_item_from_child_list(item_attrs) }
+
+      context 'when there is no matching item on the master list' do
+        let(:master_list) { create(:master_shopping_list) }
+        let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+
+        it 'raises an error' do
+          expect { remove_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+
+      context 'when the quantity is greater than the quantity on the master list' do
+        let(:master_list) { create(:master_shopping_list) }
+        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+
+        before do
+          master_list.list_items.create(description: 'Necklace', quantity: 2)
+        end
+
+        it 'raises an error' do
+          expect { remove_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+
+      context 'when the quantity is equal to the quantity on the master list' do
+        let(:master_list) { create(:master_shopping_list) }
+        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+
+        before do
+          master_list.list_items.create(description: 'Necklace', quantity: 3)
+        end
+
+        it 'removes the item from the master list' do
+          expect { remove_item }.to change(master_list.list_items, :count).from(1).to(0)
+        end
+      end
+
+      context 'when the quantity is less than the quantity on the master list' do
+        context 'complicated notes situations' do
+          # Cases to cover:
+          # notes 1 -- notes 2 -- notes 3 (remove notes 2 only)
+          # notes 1 -- notes 2 -- notes 3 (remove notes 1 only)
+          # notes 1 -- notes 2 -- notes 3 (remove notes 3 only)
+          # notes 1 -- notes 2 -- notes 3 (remove notes 1 -- notes 2)
+          # notes 1 -- notes 2 -- notes 3 (remove notes 2 -- notes 3)
+          # notes 1 -- notes 2 -- notes 3 (remove all)
+          # notes 1 -- notes 2 -- notes 3 (remove none)
+        end
+      end
+
+      context 'when called on a non-master list' do
+        let(:master_list) { create(:shopping_list) }
+        let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+
+        it 'raises an error' do
+          expect { remove_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+    end
+
+    describe '#update_item_from_child_list' do
+      subject(:update_item) { master_list.update_item_from_child_list(description, delta, old_notes, new_notes) }
+
+      let(:master_list) { create(:master_shopping_list) }
+      let(:description) { 'Corundum ingot' }
+
+      context 'when adjusting quantity up' do
+        let(:delta) { 2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'another thing' }
+
+        before do
+          master_list.list_items.create(description: description, quantity: 1, notes: "#{old_notes} -- something else")
+        end
+
+        it 'adds the quantity delta to the existing one' do
+          update_item
+          expect(master_list.list_items.first.quantity).to eq 3
+        end
+
+        it 'replaces the notes' do
+          update_item
+          expect(master_list.list_items.first.notes).to eq "#{new_notes} -- something else"
+        end
+      end
+
+      context 'when adjusting quantity down' do
+        let(:delta) { -2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'another thing' }
+
+        before do
+          master_list.list_items.create(description: description, quantity: 3, notes: old_notes)
+        end
+
+        it 'adds the negative quantity delta to the existing one' do
+          update_item
+          expect(master_list.list_items.first.quantity).to eq 1
+        end
+
+        it 'replaces the notes' do
+          update_item
+          expect(master_list.list_items.first.notes).to eq new_notes
+        end
+      end
+
+      context 'when the notes have not changed' do
+        let(:delta) { -2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'something' }
+
+        before do
+          master_list.list_items.create(description: description, quantity: 3, notes: "#{old_notes} -- something else")
+        end
+
+        it "doesn't mess with the notes" do
+          update_item
+          expect(master_list.list_items.first.notes).to eq 'something -- something else'  
+        end
+      end
+
+      context 'when there are edge cases with the notes' do
+        let(:delta) { 5 }
+        let(:existing_notes) { 'notes 1 -- notes 2 -- notes 3' }
+
+        before do
+          master_list.list_items.create!(description: description, quantity: 3, notes: existing_notes)
+        end
+  
+        context 'replacing the middle notes' do
+          let(:old_notes) { 'notes 2' }
+          let(:new_notes) { 'something else' }
+
+          it 'replaces the old notes on the list item' do
+            update_item
+            expect(master_list.list_items.first.notes).to eq 'notes 1 -- something else -- notes 3'
+          end
+        end
+
+        context 'replacing the first notes with nil' do
+          let(:old_notes) { 'notes 1' }
+          let(:new_notes) { nil }
+
+          it "doesn't leave leading whitespace or dashes" do
+            update_item
+            expect(master_list.list_items.first.notes).to eq 'notes 2 -- notes 3'
+          end
+        end
+
+        context 'replacing two of the notes values' do
+          let(:old_notes) { 'notes 2 -- notes 3' }
+          let(:new_notes) { 'something else' }
+
+          it "doesn't leave trailing whitespace or dashes" do
+            update_item
+            expect(master_list.list_items.first.notes).to eq 'notes 1 -- something else'
+          end
+        end
+
+        context 'replacing all of a combined note value' do
+          let(:old_notes) { 'notes 1 -- notes 2 -- notes 3' }
+          let(:new_notes) { nil }
+
+          it 'sets the value to nil' do
+            update_item
+            expect(master_list.list_items.first.notes).to be nil
+          end
+        end
+
+        context 'when there are multiple identical note values' do
+          let(:existing_notes) { 'notes 1 -- notes 1 -- notes 2' }
+          let(:old_notes) { 'notes 1' }
+          let(:new_notes) { 'something else' }
+
+          it 'only replaces one instance' do
+            update_item
+            expect(master_list.list_items.first.notes).to eq 'something else -- notes 1 -- notes 2'
+          end
+        end
+      end
+
+      context 'when the delta would bring the quantity below zero' do
+        let(:delta) { -20 }
+        let(:old_notes) { nil }
+        let(:new_notes) { 'something else' }
+
+        it 'raises an error' do
+          expect { update_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+
+      context 'when there is no matching item on the master list' do
+        let(:description) { 'Iron ore' }
+        let(:delta) { 2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'something else' }
+
+        it 'raises an error' do
+          expect { update_item }.to raise_error(MasterListable::MasterListError)
+        end
+      end
+
+      context 'when called on a regular list' do
+        let(:master_list) { create(:shopping_list) }
+        let(:description) { 'Corundum ingot' }
+        let(:delta) { 2 }
+        let(:old_notes) { 'to build things' }
+        let(:new_notes) { 'to make locks' }
+
+        it 'raises an error' do
+          expect { update_item }.to raise_error(MasterListable::MasterListError)
+        end
       end
     end
   end
