@@ -4,7 +4,7 @@
 
 * [Overview](#overview)
 * [Glossary](#glossary)
-* [Database Requirements](#database-requirements)
+* [Database and ORM Requirements](#database-and-orm-requirements)
 * [Master List Behaviour](#master-list-behaviour)
   * [Creation and Destruction of Master Lists](#creation-and-destruction-of-master-lists)
   * [Updating Master Lists](#updating-master-lists)
@@ -19,6 +19,7 @@
   * [Validations](#validations)
   * [Hooks](#hooks)
   * [Methods](#methods)
+  * [What's Automatic and What's Not](#whats-automatic-and-whats-not)
 
 ## Overview
 
@@ -46,27 +47,40 @@ end
 * **Should/Must:** Used in this document to describe things you will need to implement for models that include master list behaviour.
 * **Is/Does/Will:** Used in this document to describe behaviour provided out of the box by the `MasterListable` module.
 
-## Database Requirements
+## Database and ORM Requirements
 
 The database schema for all models that include the `MasterListable` module must meet certain requirements:
 
-| Column Name | Type | Constraints | Notes |
-| ----------- | ---- | ----------- | ----- |
-| `master`      | boolean | default: false | Indicates whether the list is a master list |
-| `master_list_id` | integer | | Reference to the master list (if this list is not a master list) |
-| `user_id` | integer | NOT NULL | Reference to the user whose lists these are |
-| `title` | string | NOT NULL | The title of the list (will be set to "Master" for master lists) |
+| Column Name      | Type    | Constraints | Default |
+| ---------------- | ------- | ----------- | ------- |
+| `master`         | boolean | NOT NULL    | false   |
+| `master_list_id` | integer |             |         |
+| `user_id`        | integer | NOT NULL    |         |
+| `title`          | string  | NOT NULL    |         |
 
-The database schema for all child models (i.e., list items for a given list type) must also meet certain requirements:
+The title for all master lists is "Master". The titles for other lists may be validated or set to a default value by the individual model if desired. Other than the title, these values should not be changed after initial creation.
 
-| Column Name | Type | Constraints | Notes |
-| ----------- | ---- | ----------- | ----- |
-| `list_id`      | integer | NOT NULL | The list to which the item belongs |
-| `description` | string | | The item's title or description |
-| `quantity` | integer | NOT NULL, default: 1 | The quantity of the item |
-| `notes` | string | | Any notes about the item |
+You do not need to define any relations in your parent class, and defining a relation to list items may interfere with `MasterListable`'s functionality.
 
-**The list item's description should be unique per list and not editable.** List items are uniquely identified on the master list by their descriptions. There should be a validation in place to make sure that descriptions cannot be changed.
+The database schema for all child models (i.e., the list items for a given list type) must also meet certain requirements:
+
+| Column Name   | Type    | Constraints   | Default |
+| ------------- | ------- | ------------- | ------- |
+| `list_id`     | integer | NOT NULL      |         |
+| `description` | string  | NOT NULL      |         |
+| `quantity`    | integer | NOT NULL, > 0 | 1       |
+| `notes`       | string  |               |         |
+
+**The list item's description should be unique per list and not editable.** List items are uniquely identified on the master list by their descriptions. There should be a validation in place to make sure that descriptions cannot be changed. You will want to make sure to define your child model's relation to the parent:
+```ruby
+# /app/models/shopping_list_item.rb
+
+class ShoppingListItem < ApplicationRecord
+  belongs_to :list, class_name: 'ShoppingList', foreign_key: :list_id
+end
+```
+
+Note that list items will be destroyed with their parent list.
 
 ## Master List Behaviour
 
@@ -176,7 +190,7 @@ In the future, these behaviours will probably also be extracted to an abstract c
 
 ## MasterListable
 
-The `MasterListable` module provides master list functionality to a list model. It adds the following out of the box.
+The `MasterListable` module provides master list functionality to a list model. 
 
 ### Associations
 
@@ -228,15 +242,15 @@ The `#destroy_master_list` hook ensures that master lists are destroyed when the
 
 #### `#add_item_from_child_list(item)`
 
-Should be called on a master list any time an item is added to one of its child lists. Handles logic for creating or combining list items on the master list. Raises a `MasterListError` if called on a regular list.
+Should be called on a master list any time an item is added to one of its child lists. Handles logic for creating or combining list items on the master list. Raises a `MasterListError` if called on a regular list. Returns the created or updated list item.
 
 #### `#remove_item_from_child_list(item)`
 
-Should be called on a master list any time an item is removed/destroyed from one of its child lists. Handles logic for removing or updating list items on the master list. Raises a `MasterListError` if called on a regular list.
+Should be called on a master list any time an item is removed/destroyed from one of its child lists. Handles logic for removing or updating list items on the master list. Raises a `MasterListError` if called on a regular list. Returns the updated item from the master list if its quantity is higher than that of the item removed and  otherwise `nil`.
 
 #### `update_item_from_child_list(description, delta_quantity, old_notes, new_notes)`
 
-Should be called on a master list any time an item is updated on a child list. Raises a `MasterListError` if called on a regular list. Handles logic for updating items that already exist on a child list.
+Should be called on a master list any time an item is updated on a child list. Raises a `MasterListError` if called on a regular list. Handles logic for updating items that already exist on a child list. Returns the updated list item from the master list.
 
 Arguments:
 
@@ -244,3 +258,15 @@ Arguments:
 * `delta_quantity`: The difference between the new and old quantity on the updated item. Should be negative if the new quantity is lower and positive if it is higher.
 * `old_notes`: The previous `notes` value of the item that has been changed
 * `new_notes`: Thee updated `notes` value of the item that has been changed
+
+#### `master_list`
+
+Returns the master list to which the shopping list belongs. Is `nil` on master lists.
+
+#### `child_lists`
+
+If called on a master list, returns all its the associated lists. Is empty on regular lists.
+
+### What's Automatic and What's Not
+
+`MasterListable` provides associations, validations, hooks, and scopes on the parent model out of the box. It doesn't provide an automatic mechanism to keep master list _items_ up-to-date with their child lists' models. You will need to use the `#add_item_from_child_list`, `#remove_item_from_child_list`, and `#update_item_from_child_list` methods to do that any time you add, remove, or edit a list item on one of the child lists.

@@ -14,7 +14,8 @@ class ApplicationController < ActionController::API
 
   def validate_google_oauth_token
     result = AuthorizationService.new(self, id_token).perform
-    ::Controller::Response.new(self, result).execute unless result.nil?
+
+    ::Controller::Response.new(self, result).execute if result.present?
   end
 
   def id_token

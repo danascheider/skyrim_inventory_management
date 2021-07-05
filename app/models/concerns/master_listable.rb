@@ -78,7 +78,7 @@ module MasterListable
       existing_item.save!
     end
 
-    existing_item
+    existing_item&.persisted? ? existing_item : nil
   end
 
   def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
@@ -157,7 +157,7 @@ module MasterListable
   end
 
   def list_item_class_name
-    raise NotImplementedError, 'Classes including MasterListable must implement a list_item_class_name method.'
+    raise NotImplementedError, 'Classes including MasterListable must implement a class method :list_item_class_name.'
   end
 
   def master_has_other_children?
