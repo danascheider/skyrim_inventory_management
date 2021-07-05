@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require 'service/created_result'
+require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
+require 'service/method_not_allowed_result'
+require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
   class CreateService
