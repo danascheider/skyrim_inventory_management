@@ -23,17 +23,13 @@ class ShoppingListsController < ApplicationController
         resource = preexisting_master_list ? shopping_list : [user.master_shopping_list, shopping_list]
         Service::CreatedResult.new(resource: resource)
       else
-        Service::UnprocessableEntityResult.new(errors: assemble_error_messages(shopping_list.errors))
+        Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
       end
     end
 
     private
 
     attr_reader :user, :params
-
-    def assemble_error_messages(data)
-      data.map { |error| "#{error.attribute.capitalize} #{error.message}" }
-    end
 
     def new_master_list
       return user.shopping_lists.new(master: true, title: 'Master') if user.master_shopping_list.nil?

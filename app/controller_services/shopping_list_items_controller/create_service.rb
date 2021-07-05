@@ -31,7 +31,7 @@ class ShoppingListItemsController < ApplicationController
           Service::OKResult.new(resource: [master_list_item, item])
         end
       else
-        Service::UnprocessableEntityResult.new(errors: assemble_error_messages(item.errors))
+        Service::UnprocessableEntityResult.new(errors: item.error_array)
       end
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
@@ -47,10 +47,6 @@ class ShoppingListItemsController < ApplicationController
 
     def master_list
       shopping_list.master_list
-    end
-
-    def assemble_error_messages(errors)
-      errors.map { |error| "#{error.attribute.capitalize} #{error.message}" }
     end
   end
 end

@@ -23,7 +23,7 @@ class ShoppingListsController < ApplicationController
       if shopping_list.update(params)
         Service::OKResult.new(resource: shopping_list)
       else
-        Service::UnprocessableEntityResult.new(errors: assemble_error_messages(shopping_list.errors))
+        Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
       end
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
@@ -32,11 +32,6 @@ class ShoppingListsController < ApplicationController
     private
 
     attr_reader :user, :list_id, :params
-
-    def assemble_error_messages(data)
-      data.map { |error| "#{error.attribute.capitalize} #{error.message}" }
-    end
-
 
     def shopping_list
       @shopping_list ||= user.shopping_lists.find(list_id)

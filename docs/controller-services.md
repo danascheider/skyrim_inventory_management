@@ -53,9 +53,4 @@ end
 
 ## Standardised Responses
 
-Now, all error responses from the API, if they have body content, will return a JSON object with a single key, `"errors"`, and a list of error messages. For ActiveRecord models, this means you will need to assemble the messages from validation errors. Existing controller services use a method that maps the messages properly:
-```ruby
-def assemble_error_messages(errors)
-  errors.map { |error| "#{error.attribute.capitalize} #{error.message}" }
-end
-```
+Now, all error responses from the API, if they have body content, will return a JSON object with a single key, `"errors"`, and a list of error messages. There is now an `#error_array` method defined on `ApplicationRecord` that assembles normal ActiveRecord validation errors into such an array.
