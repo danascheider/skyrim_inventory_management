@@ -3,8 +3,6 @@
 require 'controller/response'
 
 class ShoppingListItemsController < ApplicationController
-  before_action :set_shopping_list_item, only: %i[destroy]
-
   def create
     result = CreateService.new(current_user, params[:shopping_list_id], list_item_params).perform
 
@@ -17,6 +15,12 @@ class ShoppingListItemsController < ApplicationController
     ::Controller::Response.new(self, result).execute
   end
 
+  def destroy
+    result = DestroyService.new(current_user, params[:id]).perform
+
+    ::Controller::Response.new(self, result).execute
+  end
+
   private
 
   def list_item_params
@@ -25,9 +29,5 @@ class ShoppingListItemsController < ApplicationController
       :quantity,
       :notes
     )
-  end
-
-  def set_shopping_list_item
-    @shopping_list_item ||= ShoppingListItem.find(params[:id])
   end
 end
