@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def master_shopping_list
     shopping_lists.find_by(master: true)
   end
+
+  def shopping_list_items
+    ShoppingListItem.belonging_to_user(self)
+  end
 end

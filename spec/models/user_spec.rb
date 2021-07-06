@@ -61,4 +61,17 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#shopping_list_items' do
+    subject(:shopping_list_items) { user.shopping_list_items }
+
+    let(:user) { create(:user) }
+    let!(:list1) { create(:shopping_list_with_list_items, user: user) }
+    let!(:list2) { create(:shopping_list_with_list_items, user: user) }
+    let!(:list3) { create(:shopping_list_with_list_items) } # belongs to another user
+
+    it 'calls the ::belonging_to_user scope on ShoppingListItem' do
+      expect(shopping_list_items).to eq([list2.list_items.to_a.reverse, list1.list_items.to_a.reverse].flatten)
+    end
+  end
 end
