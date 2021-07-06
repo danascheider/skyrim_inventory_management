@@ -15,9 +15,10 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list_item.list.master == true
+      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
 
       shopping_list_item.destroy!
+      shopping_list.touch
       master_list_item = master_list.remove_item_from_child_list(shopping_list_item.attributes)
       master_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: master_list_item)
     rescue ActiveRecord::RecordNotFound
@@ -34,6 +35,10 @@ class ShoppingListItemsController < ApplicationController
 
     def master_list_item
       @master_list_item ||= master_list.list_items.find_by(description: shopping_list_item.description)
+    end
+
+    def shopping_list
+      @shopping_list = shopping_list_item.list
     end
 
     def shopping_list_item
