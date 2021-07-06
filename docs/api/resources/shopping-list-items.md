@@ -41,11 +41,13 @@ When a client destroys a list item on a user's regular shopping list, one of the
 
 The following endpoints are available to manage shopping list items:
 
-* [`POST /shopping_lists/:id/shopping_list_items`](#post-shoppinglistsidshoppinglistitems)
+* [`POST /shopping_lists/:shopping_list_id/shopping_list_items`](#post-shoppinglistsshoppinglistidshoppinglistitems)
+* [`PATCH /shopping_list_items/:id`](#patch-shoppinglistitemsid)
+* [`PUT /shopping_list_items/:id`](#put-shoppinglistitemsid)
 
 ## POST /shopping_lists/:shopping_list_id/shopping_list_items
 
-If the shopping list with the given ID exists, belongs to the authenticated user, is not a master shopping list, and does not have an existing shopping list item with the same (case-insensitive) description, Creates a shopping list item on the given list if the shopping list with the given ID:
+Creates a shopping list item on the given list if the shopping list with the given ID:
 
 1. Exists
 2. Belongs to the authenticated user
@@ -134,6 +136,251 @@ A 422 error, returned as a result of a validation error, includes whichever erro
     "Quantity must be a number",
     "Quantity must be greater than zero",
     "Description is required"
+  ]
+}
+```
+
+## PATCH /shopping_list_items/:id
+
+Updates a given shopping list item provided the list the item is on:
+
+1. Exists
+2. Belongs to the authenticated user AND
+3. Is not a master list
+
+When this happens, the corresponding list item on the master list is also automatically updated to stay synced with the other lists. When the master list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+
+Requests may specify two fields to update: `quantity` (integer, greater than 0) and `notes` (any string). Requests attempting to update `description` will result in a validation error.
+
+This route also supports `PUT` requests. Usage of the route with `PUT` is identical but has its own section below for the reader's convenience.
+
+### Example Request
+
+```
+PATCH /shopping_list_items/72
+Authorization: Bearer xxxxxxxxxxx
+Content-Type: application/json
+{
+  "quantity": 7,
+  "notes": "To enchant with 'Absorb Health'"
+}
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+
+#### Example Body
+
+```json
+[
+  {
+    "id": 87,
+    "list_id": 238,
+    "description": "Ebony sword",
+    "quantity": 9,
+    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  },
+  {
+    "id": 126,
+    "list_id": 237,
+    "description": "Ebony sword",
+    "quantity": 7,
+    "notes": "To enchant with 'Absorb Health'",
+    "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  }
+]
+```
+
+### Error Responses
+
+Three error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually update list items on a master shopping list"
+  ]
+}
+```
+
+A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+```json
+{
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero"
+  ]
+}
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+
+#### Example Body
+
+```json
+[
+  {
+    "id": 87,
+    "list_id": 238,
+    "description": "Ebony sword",
+    "quantity": 9,
+    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  },
+  {
+    "id": 126,
+    "list_id": 237,
+    "description": "Ebony sword",
+    "quantity": 7,
+    "notes": "To enchant with 'Absorb Health'",
+    "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  }
+]
+```
+
+### Error Responses
+
+Three error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually manage items on a master shopping list"
+  ]
+}
+```
+
+A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+```json
+{
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero",
+    "Description is required"
+  ]
+}
+```
+
+## PUT /shopping_list_items/:id
+
+Updates a given shopping list item provided the list the item is on:
+
+1. Exists
+2. Belongs to the authenticated user AND
+3. Is not a master list
+
+When this happens, the corresponding list item on the master list is also automatically updated to stay synced with the other lists. When the master list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+
+Requests may specify two fields to update: `quantity` (integer, greater than 0) and `notes` (any string). Requests attempting to update `description` will result in a validation error.
+
+This route also supports `PATCH` requests. Usage of the route with `PATCH` is identical but has its own section above for the reader's convenience.
+
+### Example Request
+
+```
+PUT /shopping_list_items/72
+Authorization: Bearer xxxxxxxxxxx
+Content-Type: application/json
+{
+  "quantity": 7,
+  "notes": "To enchant with 'Absorb Health'"
+}
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+
+#### Example Body
+
+```json
+[
+  {
+    "id": 87,
+    "list_id": 238,
+    "description": "Ebony sword",
+    "quantity": 9,
+    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  },
+  {
+    "id": 126,
+    "list_id": 237,
+    "description": "Ebony sword",
+    "quantity": 7,
+    "notes": "To enchant with 'Absorb Health'",
+    "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  }
+]
+```
+
+### Error Responses
+
+Three error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually update list items on a master shopping list"
+  ]
+}
+```
+
+A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+```json
+{
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero"
   ]
 }
 ```

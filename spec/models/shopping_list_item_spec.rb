@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
-  describe 'delegation' do
-    subject(:user) { create(:user) }
+  let(:user) { create(:user) }
 
+  describe 'delegation' do
     let(:shopping_list) { create(:shopping_list, user: user) }
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
     
@@ -36,6 +36,22 @@ RSpec.describe ShoppingListItem, type: :model do
 
       it 'returns the list items in descending chronological order by updated_at' do
         expect(list.list_items.index_order.to_a).to eq([list_item2, list_item3, list_item1])
+      end
+    end
+
+    describe '::belongs_to_user' do
+      let!(:list1) { create(:shopping_list_with_list_items, user: user) }
+      let!(:list2) { create(:shopping_list_with_list_items, user: user) }
+      let!(:list3) { create(:shopping_list_with_list_items, user: user) }
+
+      it "returns all list items from all the user's lists" do
+        # Reverse the arrays of list items because the index_only scope used in the ShoppingList
+        # class for :list_items will return them in descending order of `:updated_at`
+        expect(ShoppingListItem.belonging_to_user(user).to_a).to eq([
+                                                                      list3.list_items.to_a.reverse,
+                                                                      list2.list_items.to_a.reverse,
+                                                                      list1.list_items.to_a.reverse
+                                                                    ].flatten)
       end
     end
   end
@@ -121,7 +137,7 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:update_item) { list_item.update!(description: 'Something else') }
 
       it 'raises an error' do
-        expect { update_item }.to raise_error(ActiveRecord::RecordNotSaved)
+        expect { update_item }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
   end

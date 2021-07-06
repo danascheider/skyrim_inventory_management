@@ -5,14 +5,15 @@ class ShoppingListItem < ApplicationRecord
 
   validates :description, presence: true, uniqueness: { scope: :list_id }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validate :prevent_changed_description, on: :update
 
   before_save :humanize_description
   before_save :clean_up_notes
-  before_update :prevent_changed_description
 
   delegate :user, to: :list
 
   scope :index_order, -> { order(updated_at: :desc) }
+  scope :belonging_to_user, ->(user) { joins(:list).where('shopping_lists.user_id = ?', user.id).order('shopping_lists.updated_at DESC') }
 
   def self.combine_or_create!(attrs)
     obj = combine_or_new(attrs)
@@ -43,7 +44,7 @@ class ShoppingListItem < ApplicationRecord
   private
 
   def prevent_changed_description
-    throw :abort if description_changed?
+    errors.add(:description, 'cannot be updated on an existing list item') if description_changed?
   end
 
   def humanize_description
