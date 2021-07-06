@@ -18,7 +18,7 @@ class ShoppingListItemsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
 
-      delta_qty = params[:quantity] ? params[:quantity] - list_item.quantity : 0
+      delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
 
       if list_item.update(params)

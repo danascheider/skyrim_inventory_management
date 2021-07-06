@@ -3,10 +3,16 @@
 require 'controller/response'
 
 class ShoppingListItemsController < ApplicationController
-  before_action :set_shopping_list_item, only: %i[update destroy]
+  before_action :set_shopping_list_item, only: %i[destroy]
 
   def create
     result = CreateService.new(current_user, params[:shopping_list_id], list_item_params).perform
+
+    ::Controller::Response.new(self, result).execute
+  end
+
+  def update
+    result = UpdateService.new(current_user, params[:id], list_item_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
