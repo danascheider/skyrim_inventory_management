@@ -44,6 +44,7 @@ The following endpoints are available to manage shopping list items:
 * [`POST /shopping_lists/:shopping_list_id/shopping_list_items`](#post-shoppinglistsshoppinglistidshoppinglistitems)
 * [`PATCH /shopping_list_items/:id`](#patch-shoppinglistitemsid)
 * [`PUT /shopping_list_items/:id`](#put-shoppinglistitemsid)
+* [`DELETE /shopping_list_items/:id`](#delete-shoppinglistitemsid)
 
 ## POST /shopping_lists/:shopping_list_id/shopping_list_items
 
@@ -275,7 +276,7 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
 ```json
 {
   "errors": [
@@ -366,11 +367,83 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
 ```json
 {
   "errors": [
     "Cannot manually update list items on a master shopping list"
+  ]
+}
+```
+
+A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+```json
+{
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero"
+  ]
+}
+```
+
+## DELETE /shopping_list_items/:id
+
+Deletes the given shopping list item provided the item exists and the list it is on:
+
+1. Belongs to the authenticated user AND
+2. Is not a master list
+
+When this happens, the corresponding list item on the master list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the master list is greater) to stay synced with the other lists. When the master list is synced, the `quantity` will be reduced and the `notes` value may be shortened or set to `nil`, depending on the existing `notes` value on the master list and whether there are notes on that list other than the ones from the deleted item.
+
+### Example Request
+
+```
+DELETE /shopping_list_items/5651
+Authorization: Bearer xxxxxxxxxxx
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+* 204 No Content
+
+#### Example Body
+
+The API will return a 204 response if the list item has been destroyed along with the corresponding item on the master list. This responsee does not include a body. On the other hand, if the master list item has been updated, it will be returned and the status code will be 200.
+
+Example 200 response body:
+```json
+{
+  "id": 87,
+  "list_id": 238,
+  "description": "Ebony sword",
+  "quantity": 9,
+  "notes": "To sell -- To enchant with 'Absorb Health'",
+  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+}
+```
+
+### Error Responses
+
+Two error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually delete a master shopping list"
   ]
 }
 ```

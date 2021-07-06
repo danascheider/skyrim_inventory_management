@@ -616,4 +616,139 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
     end
   end
+
+  describe 'DELETE /shopping_list_items/:id' do
+    subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: headers }
+
+    context 'when authenticated' do
+      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
+      
+      let(:user) { create(:user) }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+      
+      
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 3, notes: 'foo') }
+        
+        before do
+          master_list.add_item_from_child_list(list_item)
+        end
+
+        context 'when the quantity on the regular list equals that on the master list' do
+          it 'destroys the item on the regular list' do
+            destroy_item
+            expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          end
+
+          it 'destroys the item on the master list' do
+            destroy_item
+            expect(master_list.list_items).to be_empty
+          end
+
+          it 'returns an empty response' do
+            destroy_item
+            expect(response.body).to be_empty
+          end
+
+          it 'returns status 204' do
+            destroy_item
+            expect(response.status).to eq 204
+          end
+        end
+
+        context 'when the quantity on the master list exceeds that on the regular list' do
+          let(:second_list) { create(:shopping_list, user: user) }
+          let(:second_item) { create(:shopping_list_item, list: second_list, description: list_item.description, quantity: 2, notes: 'bar') }
+
+          before do
+            master_list.add_item_from_child_list(second_item)
+          end
+
+          it 'destroys the item on the regular list' do
+            destroy_item
+            expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          end
+
+          it 'updates the quantity of the item on the master list' do
+            destroy_item
+            expect(master_list.list_items.first.quantity).to eq 2
+          end
+
+          it 'updates the notes of the item on the master list', :aggregate_failures do
+            destroy_item
+            expect(master_list.list_items.first.notes).to match /bar/
+            expect(master_list.list_items.first.notes).not_to match /foo/
+          end
+        end
+      end
+
+      context "when the specified list item doesn't exist" do
+        let(:list_item) { double("this doesn't exist", id: 772) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any error messages" do
+          destroy_item
+          expect(response.body).to be_empty
+        end
+      end
+
+      context "when the specified list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:shopping_list_item) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it 'returns an empty response body' do
+          destroy_item
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the specified list item is on a master list' do
+        let(:list_item) { create(:shopping_list_item, list: master_list) }
+
+        it 'returns status 405' do
+          destroy_item
+          expect(response.status).to eq 405
+        end
+        
+        it 'returns a helpful error message' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from master shopping list'] })
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:list_item) { create(:shopping_list_item) }
+
+      it 'returns a 401' do
+        destroy_item
+        expect(response.status).to eq 401
+      end
+
+      it "indicates the request was unauthenticated" do
+        destroy_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
+  end
 end
