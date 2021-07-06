@@ -52,6 +52,10 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       it 'updates the updated_at timestamp on the list' do
         Timecop.freeze do
           perform
+          # This is another case of a rounding error in the CI environment. The server where
+          # GitHub Actions run seems to truncate the last few digits of the timestamp, resulting
+          # in things being not quite equal in that environment. Since it's not that important
+          # that it be that exact, I'm just using the `be_within` matcher.
           expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(Time.now.utc)
         end
       end
