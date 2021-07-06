@@ -17,7 +17,12 @@ class UtilitiesController < ApplicationController
     Thank you for using Skyrim Inventory Management. This app was intended
     for my personal use and offers no guarantees of security, privacy, or
     fitness for any purpose. We do not share your data with any third
-    parties except Google as needed for authentication.
+    parties except Google as needed for authentication. (More accurately,
+    Google shares information with us.) The personal information we keep
+    about you is your name, your email, and your Google profile image, all
+    of which we get from Google when you log in. That means the name, email,
+    and profile image we have on file for you will be the ones associated
+    with the Google account you use to log in. 
   HEREDOC
 
   TOS = <<~HEREDOC

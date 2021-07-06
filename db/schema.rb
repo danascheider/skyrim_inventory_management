@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_19_225944) do
+ActiveRecord::Schema.define(version: 2021_07_05_020129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "shopping_list_items", force: :cascade do |t|
-    t.integer "shopping_list_id", null: false
+    t.integer "list_id", null: false
     t.string "description", null: false
     t.string "notes"
     t.integer "quantity", default: 1, null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_19_225944) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "master", default: false
     t.string "title", null: false
+    t.integer "master_list_id"
     t.index ["user_id", "title"], name: "index_shopping_lists_on_user_id_and_title", unique: true
   end
 

@@ -10,6 +10,8 @@ FactoryBot.define do
       master { true }
 
       title { 'Master' }
+      master_list_id { nil }
+
     end
 
     factory :shopping_list_with_list_items do
@@ -17,8 +19,8 @@ FactoryBot.define do
         list_item_count { 2 }
       end
 
-      after(:build, :create) do |list, evaluator|
-        create_list(:shopping_list_item, evaluator.list_item_count, shopping_list: list)
+      after(:create) do |list, evaluator|
+        create_list(:shopping_list_item, evaluator.list_item_count, list: list)
       end
     end
   end

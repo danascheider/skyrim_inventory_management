@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :shopping_lists, dependent: :destroy
 
-  def self.create_for_google(data)
+  def self.create_or_update_for_google(data)
     where(uid: data['email']).first_or_initialize.tap do |user|
       user.uid = data['email']
       user.email = data['email']

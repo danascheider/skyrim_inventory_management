@@ -72,7 +72,7 @@ Shopping list items have three properties: a text `description`, an integer `qua
 
 ```
 id: integer, primary key, unique, not null
-shopping_list_id: integer, foreign key, not null
+list_id: integer, foreign key, not null
 description: string, unique on each shopping list, not null
 quantity: integer, not null
 notes: string

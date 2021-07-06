@@ -10,23 +10,25 @@ All requests to shopping list item endpoints must be [authenticated](/docs/api/r
 
 Skyrim Inventory Management makes use of automatically managed master lists to help users track an aggregate of what items they need for different properties. The master list is created automatically when the client creates a user's first regular shopping list, and is destroyed automatically when the client deletes the user's last regular shopping list. When items are added, updated, or destroyed from any of a user's regular lists, master list items are updated as described in this section.
 
+(Ensuring automatic management of master lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`MasterListable` docs](/docs/master-lists.md).)
+
 ### Creating a New List Item
 
 If the client requests a new list item be created on a user's regular list, one of the following things will happen:
 
 * If there is not an item with the same (case-insensitive) `description` on the master list, then an item with the same `description`, `quantity`, and `notes` will be created on the master list.
 * If there is an item with the same (case-insensitive) `description` on the master list, then that item will be updated:
-  * The description will not be changed
-  * The quantity will be increased by the quantity of the new list item
-  * The notes for the two items will be concatenated and separated by ` -- `
+  * The `description` will not be changed
+  * The `quantity` will be increased by the quantity of the new list item
+  * The `notes` for the two items, if any, will be concatenated and separated by ` -- `
 
 ### Updating a List Item
 
 When a client updates a list item on a user's regular list, one or more of the following things will happen:
 
-* If the quantity is increased, the quantity of the item on the master list will be increased by the same amount
-* If the quantity is decreased, the quantity of the item on the master list will be decreased by the same amount
-* If the notes are changed, SIM will ensure that the new notes are reflected in the master list item
+* If the `quantity` is increased, the `quantity` of the item on the master list will be increased by the same amount
+* If the `quantity` is decreased, the `quantity` of the item on the master list will be decreased by the same amount
+* If the `notes` are changed, SIM will ensure that the new (or added or removed) `notes` are reflected in the master list item
 
 ### Destroying a List Item
 
@@ -41,11 +43,18 @@ The following endpoints are available to manage shopping list items:
 
 * [`POST /shopping_lists/:id/shopping_list_items`](#post-shoppinglistsidshoppinglistitems)
 
-## POST /shopping_lists/:id/shopping_list_items
+## POST /shopping_lists/:shopping_list_id/shopping_list_items
 
-If the shopping list with the given ID exists, belongs to the authenticated user, is not a master shopping list, and does not have an existing shopping list item with the same (case-insensitive) description, creates a shopping list item on the given list. If all these conditions are met but the list does have an existing shopping list item with a matching description, it updates the quantity and notes on the existing item.
+If the shopping list with the given ID exists, belongs to the authenticated user, is not a master shopping list, and does not have an existing shopping list item with the same (case-insensitive) description, Creates a shopping list item on the given list if the shopping list with the given ID:
 
-In both cases, the user's master list is also updated to reflect the new quantity and notes.
+1. Exists
+2. Belongs to the authenticated user
+3. Is not a master list AND
+4. Does not have an existing shopping list item with the same description
+
+If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values.
+
+In both cases, the user's master list is also updated to reflect the new `quantity` and `notes`.
 
 Requests must specify a `description` and an integer `quantity` greater than 0. The optional `notes` field is an arbitrary string where users can keep any reminders of what the item will be used for or other useful notes.
 
@@ -76,7 +85,7 @@ Content-Type: application/json
 [
   {
     "id": 87,
-    "shopping_list_id": 238,
+    "list_id": 238,
     "description": "Ebony sword",
     "quantity": 9,
     "notes": "To sell -- To enchant with 'Absorb Health'",
@@ -85,7 +94,7 @@ Content-Type: application/json
   },
   {
     "id": 126,
-    "shopping_list_id": 237,
+    "list_id": 237,
     "description": "Ebony sword",
     "quantity": 7,
     "notes": "To enchant with 'Absorb Health'",
@@ -97,7 +106,7 @@ Content-Type: application/json
 
 ### Error Responses
 
-Several error responses are posssible.
+Three error responses are possible.
 
 #### Statuses
 
@@ -112,16 +121,19 @@ No body will be returned with a 404 error, which is returned if the specified sh
 A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
 ```json
 {
-  "error": "Cannot manage master shopping list items directly."
+  "errors": [
+    "Cannot manually manage items on a master shopping list"
+  ]
 }
 ```
 
 A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
 ```json
 {
-  "errors": {
-    "quantity": ["must be a number", "must be greater than zero"],
-    "description": ["is required"]
-  }
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero",
+    "Description is required"
+  ]
 }
 ```
