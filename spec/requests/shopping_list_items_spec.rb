@@ -13,7 +13,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
   describe 'POST /shopping_lists/:shopping_list_id/shopping_list_items' do
     subject(:create_item) do
       post "/shopping_lists/#{shopping_list.id}/shopping_list_items",
-           params: params,
+           params: params.to_json,
            headers: headers
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
       
       context 'when all goes well' do
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'creates a new shopping list item on the shopping list' do
           expect { create_item }.to change(shopping_list.list_items, :count).from(0).to(1)
@@ -151,7 +151,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list belongs to a different user' do
         let(:user) { create(:user) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns 404' do
           create_item
@@ -167,11 +167,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list does not exist' do
         subject(:create_item) do
           post '/shopping_lists/838934/shopping_list_items',
-               params: params,
+               params: params.to_json,
                headers: headers
         end
 
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns 404' do
           create_item
@@ -187,7 +187,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list is a master list' do
         let(:shopping_list) { master_list }
 
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":5,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns status 405' do
           create_item
@@ -196,7 +196,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the params are invalid' do
-        let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":\"foooo\",\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'fooooo', notes: 'To make locks' } } }
 
         it 'returns 422' do
           create_item
@@ -211,7 +211,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:params) { "{\"shopping_list_item\":{\"description\":\"Corundum ingot\",\"quantity\":4,\"notes\":\"To make locks\",\"list_id\":#{shopping_list.id}}}" }
+      let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
       it 'returns 401' do
         create_item
