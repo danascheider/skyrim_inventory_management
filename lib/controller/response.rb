@@ -9,7 +9,7 @@ module Controller
     end
 
     def execute
-      if result.errors.blank? && result.resource.blank?
+      if result.errors.blank? && !result.resource
         controller.head result.status
       elsif result.errors.any?
         controller.render json: { errors: result.errors }, status: result.status

@@ -171,18 +171,16 @@ Content-Type: application/json
 
 When there hasn't been a master list created:
 ```json
-[
-  {
-    "id": 4,
-    "user_id": 6,
-    "master": false,
-    "master_list_id": 3,
-    "title": "My List 1",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": []
-  }
-]
+{
+  "id": 4,
+  "user_id": 6,
+  "master": false,
+  "master_list_id": 3,
+  "title": "My List 1",
+  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "list_items": []
+}
 ```
 
 When the master list has also been created:

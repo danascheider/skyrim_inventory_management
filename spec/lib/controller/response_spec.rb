@@ -22,6 +22,17 @@ RSpec.describe Controller::Response do
       end
     end
 
+    context 'when the resource is present but empty' do
+      let(:controller) { instance_double(ShoppingListsController, render: nil) }
+      let(:options) { {} }
+      let(:result) { Service::OKResult.new(resource: []) }
+
+      it 'returns the empty resource' do
+        execute
+        expect(controller).to have_received(:render).with(json: [], status: :ok)
+      end
+    end
+
     context 'when there is a resource' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:options) { {} }

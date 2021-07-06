@@ -19,29 +19,29 @@ Authorization: Bearer xxxxxxxxxxxxx
 
 ### Success Responses
 
-#### Status
+#### Statuses
 
-204 No Content
+* 204 No Content
 
 ### Error Responses
 
-#### Status
+#### Statuses
 
-401 Unauthorized
+* 401 Unauthorized
 
 #### Example Bodies
 
 OAuth token validation failure:
 ```json
 {
-  "error": "Google OAuth token validation failed"
+  "errors": ["Google OAuth token validation failed"]
 }
 ```
 
 Failed certificate validation:
 ```json
 {
-  "error": "Invalid OAuth certificate"
+  "errors": ["Invalid OAuth certificate"]
 }
 ```
 
