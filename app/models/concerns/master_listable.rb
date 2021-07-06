@@ -39,6 +39,8 @@ module MasterListable
     belongs_to :master_list, class_name: self.to_s, foreign_key: :master_list_id, optional: true
     has_many :child_lists, class_name: self.to_s, foreign_key: :master_list_id, inverse_of: :master_list
 
+    serialize :list_items, class_name: 'Array'
+
     scope :master_first, -> { order(master: :desc) }
     scope :includes_items, -> { includes(:list_items) }
 
