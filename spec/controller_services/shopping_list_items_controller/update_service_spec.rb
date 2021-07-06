@@ -52,7 +52,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       it 'updates the updated_at timestamp on the list' do
         Timecop.freeze do
           perform
-          expect(shopping_list.reload.updated_at).to eq Time.now.utc
+          expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(Time.now.utc)
         end
       end
     end
