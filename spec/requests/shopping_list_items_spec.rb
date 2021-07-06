@@ -320,7 +320,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list belongs to a different user' do
         let(:user) { create(:user) }
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
-        let(:list_item) { create(:shopping_list_item) }
+        let(:list_item) { create(:shopping_list_item, description: 'Corundum ingot', notes: nil) }
+
+        it 'does not updatte the list item' do
+          update_item
+          expect(list_item.quantity).to eq 1
+          expect(list_item.notes).to be nil
+        end
 
         it 'returns 404' do
           update_item
