@@ -33,10 +33,6 @@ class ShoppingListItemsController < ApplicationController
       @master_list ||= shopping_list_item.list.master_list
     end
 
-    def master_list_item
-      @master_list_item ||= master_list.list_items.find_by(description: shopping_list_item.description)
-    end
-
     def shopping_list
       @shopping_list = shopping_list_item.list
     end

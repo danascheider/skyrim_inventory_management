@@ -428,7 +428,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:new_notes) { 'another thing' }
 
         before do
-          master_list.list_items.create(description: description, quantity: 1, notes: "#{old_notes} -- something else")
+          # upcase the description to test that the comparison is case insensitive
+          master_list.list_items.create(description: description.upcase, quantity: 1, notes: "#{old_notes} -- something else")
         end
 
         it 'adds the quantity delta to the existing one' do

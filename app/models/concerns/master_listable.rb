@@ -66,7 +66,7 @@ module MasterListable
   def remove_item_from_child_list(attrs)
     raise MasterListError, 'remove_item_from_child_list method only available on master lists' unless is_master_list?
 
-    existing_item = list_items.find_by(description: attrs['description'])
+    existing_item = list_items.find_by('description ILIKE ?', attrs['description'])
 
     if existing_item.nil? || existing_item.quantity < attrs['quantity']
       raise MasterListError, 'item passed to remove_item_from_child_list method is not represented on the master list'
@@ -86,7 +86,7 @@ module MasterListable
   def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
     raise MasterListError, 'update_item_from_child_list method only available on master lists' unless is_master_list?
 
-    existing_item = list_items.find_by(description: description)
+    existing_item = list_items.find_by('description ILIKE ?', description)
 
     if existing_item.nil? || delta_quantity < (-existing_item.quantity)
       raise MasterListError, 'invalid data to update master list item'

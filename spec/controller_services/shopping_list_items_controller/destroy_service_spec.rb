@@ -54,12 +54,12 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
       end
 
-      context 'when the quantity on the master list exceed the quantity on the regular list' do
+      context 'when the quantity on the master list exceeds the quantity on the regular list' do
         let(:second_list) { create(:shopping_list, user: user, master_list: master_list) }
         let(:second_list_item) do
           create(:shopping_list_item,
                   list: second_list,
-                  description: list_item.description,
+                  description: list_item.description.upcase, # make sure comparison is case insensitive
                   quantity: 2,
                   notes: 'some other notes'
                 )
