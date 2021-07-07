@@ -57,7 +57,7 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe '::combine_or_create!' do
-    context 'when there is an existing item on the same list with the same description' do
+    context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
       let(:master_list) { create(:master_shopping_list) }
@@ -81,7 +81,7 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe '::combine_or_new' do
-    context 'when there is an existing item on the same list with the same description' do
+    context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
       let(:master_list) { create(:master_shopping_list) }
