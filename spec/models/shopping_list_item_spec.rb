@@ -62,7 +62,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
       let(:master_list) { create(:master_shopping_list) }
       let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }.not_to change(shopping_list.list_items, :count)
@@ -86,7 +86,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
       let(:master_list) { create(:master_shopping_list) }
       let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'Existing item', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       before do
         allow(ShoppingListItem).to receive(:new)
