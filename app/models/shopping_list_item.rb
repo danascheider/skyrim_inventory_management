@@ -3,11 +3,10 @@
 class ShoppingListItem < ApplicationRecord
   belongs_to :list, class_name: 'ShoppingList'
 
-  validates :description, presence: true, uniqueness: { scope: :list_id }
+  validates :description, presence: true, uniqueness: { scope: :list_id, case_sensitive: false }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :prevent_changed_description, on: :update
 
-  before_save :humanize_description
   before_save :clean_up_notes
 
   delegate :user, to: :list
@@ -23,8 +22,8 @@ class ShoppingListItem < ApplicationRecord
 
   def self.combine_or_new(attrs)
     shopping_list = attrs[:list] || attrs['list'] || ShoppingList.find(attrs[:list_id] || attrs['list_id'])
-    desc = (attrs[:description] || attrs['description'])&.humanize
-    existing_item = shopping_list.list_items.find_by_description(desc)
+    desc = (attrs[:description] || attrs['description'])
+    existing_item = shopping_list.list_items.find_by('description ILIKE ?', desc)
 
     if existing_item.nil?
       new attrs
@@ -45,10 +44,6 @@ class ShoppingListItem < ApplicationRecord
 
   def prevent_changed_description
     errors.add(:description, 'cannot be updated on an existing list item') if description_changed?
-  end
-
-  def humanize_description
-    self.description = description.humanize
   end
 
   def clean_up_notes
