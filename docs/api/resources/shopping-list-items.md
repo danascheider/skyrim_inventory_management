@@ -41,10 +41,10 @@ When a client destroys a list item on a user's regular shopping list, one of the
 
 The following endpoints are available to manage shopping list items:
 
-* [`POST /shopping_lists/:shopping_list_id/shopping_list_items`](#post-shoppinglistsshoppinglistidshoppinglistitems)
-* [`PATCH /shopping_list_items/:id`](#patch-shoppinglistitemsid)
-* [`PUT /shopping_list_items/:id`](#put-shoppinglistitemsid)
-* [`DELETE /shopping_list_items/:id`](#delete-shoppinglistitemsid)
+* [`POST /shopping_lists/:shopping_list_id/shopping_list_items`](#post-shopping_listsshopping_list_idshopping_list_items)
+* [`PATCH /shopping_list_items/:id`](#patch-shopping_list_itemsid)
+* [`PUT /shopping_list_items/:id`](#put-shopping_list_itemsid)
+* [`DELETE /shopping_list_items/:id`](#delete-shopping_list_itemsid)
 
 ## POST /shopping_lists/:shopping_list_id/shopping_list_items
 

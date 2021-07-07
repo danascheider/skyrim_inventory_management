@@ -18,11 +18,11 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 ## Endpoints
 
-* [`GET /shopping_lists`](#get-shoppinglists)
-* [`GET /shopping_lists/:id`](#get-shoppinglistsid)
-* [`POST /shopping_lists`](#post-shoppinglists)
-* [`PUT|PATCH /shopping_lists/:id`](#patch-shoppinglistsid)
-* [`DELETE /shopping_lists/:id`](#delete-shoppinglistsid)
+* [`GET /shopping_lists`](#get-shopping_lists)
+* [`GET /shopping_lists/:id`](#get-shopping_listsid)
+* [`POST /shopping_lists`](#post-shopping_lists)
+* [`PUT|PATCH /shopping_lists/:id`](#patch-shopping_listsid)
+* [`DELETE /shopping_lists/:id`](#delete-shopping_listsid)
 
 ## GET /shopping_lists
 
