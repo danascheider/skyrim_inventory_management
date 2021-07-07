@@ -16,34 +16,63 @@ RSpec.describe ShoppingListItemsController::CreateService do
     context 'when all goes well' do
       let!(:master_list) { create(:master_shopping_list, user: user) }
       let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
-      let(:params) { { 'description' => 'Necklace', 'quantity' => 2, 'notes' => 'Hello world' } }
+      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         allow(user.shopping_lists).to receive(:find).and_return(shopping_list)
         allow(shopping_list).to receive(:master_list).and_return(master_list)
-        allow(master_list).to receive(:add_item_from_child_list)
       end
 
-      it 'adds a list item to the given list', :aggregate_failures do
-        expect { perform }.to change(shopping_list.list_items, :count).from(0).to(1)
+      context 'when there is no matching item on the regular list' do
+        before do
+          allow(master_list).to receive(:add_item_from_child_list)
+        end
+
+        it 'adds a list item to the given list' do
+          expect { perform }.to change(shopping_list.list_items, :count).from(0).to(1)
+        end
+
+        it 'assigns the correct values' do
+          params_with_string_keys = {}
+          params.each { |key, value| params_with_string_keys[key.to_s] = value }
+
+          perform
+          expect(shopping_list.list_items.last.attributes).to include(**params_with_string_keys)
+        end
+
+        it 'updates the master list' do
+          perform
+          expect(master_list).to have_received(:add_item_from_child_list).with(shopping_list.list_items.last)
+        end
+
+        it 'returns a Service::CreatedResult' do
+          expect(perform).to be_a(Service::CreatedResult)
+        end
+
+        it 'returns both the created list item and master list item' do
+          expect(perform.resource).to eq([master_list.list_items.last, shopping_list.list_items.last])
+        end
       end
 
-      it 'assigns the correct values' do
-        perform
-        expect(shopping_list.list_items.last.attributes).to include(**params)
-      end
+      context 'when there is a matching item on the regular list' do
+        before do
+          existing_item = create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 2, notes: 'to enchant')
+          master_list.add_item_from_child_list(existing_item)
+          allow(master_list).to receive(:update_item_from_child_list)
+        end
 
-      it 'updates the master list', :aggregate_failures do
-        perform
-        expect(master_list).to have_received(:add_item_from_child_list)
-      end
+        it "doesn't create a new item on the regular list" do
+          expect { perform }.not_to change(shopping_list.list_items, :count)
+        end
 
-      it 'returns a Service::CreatedResult' do
-        expect(perform).to be_a(Service::CreatedResult)
-      end
+        it "doesn't create a new item on the master list" do
+          expect { perform }.not_to change(master_list.list_items, :count)
+        end
 
-      it 'returns both the created list item and master list item' do
-        expect(perform.resource).to eq([master_list.list_items.last, shopping_list.list_items.last])
+        it 'updates the master list correctly' do
+          perform
+          expect(master_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, 'Hello world')
+        end
       end
     end
 
