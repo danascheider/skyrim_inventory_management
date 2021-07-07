@@ -84,6 +84,7 @@ Content-Type: application/json
 
 #### Example Body
 
+Body contains the updated item from the master list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -175,6 +176,7 @@ Content-Type: application/json
 
 #### Example Body
 
+Body contains the item from the master list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -239,6 +241,7 @@ A 422 error, returned as a result of a validation error, includes whichever erro
 
 #### Example Body
 
+Body contains the item from the master list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -330,6 +333,8 @@ Content-Type: application/json
 
 #### Example Body
 
+Body contains the item from the master list first and the item from the regular list that you requested second.
+
 ```json
 [
   {
@@ -413,7 +418,7 @@ Authorization: Bearer xxxxxxxxxxx
 
 The API will return a 204 response if the list item has been destroyed along with the corresponding item on the master list. This responsee does not include a body. On the other hand, if the master list item has been updated, it will be returned and the status code will be 200.
 
-Example 200 response body:
+Example 200 response body containing the updated master list item:
 ```json
 {
   "id": 87,
