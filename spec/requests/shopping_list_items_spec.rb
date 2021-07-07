@@ -70,7 +70,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
         end
 
-        context 'when the master list has a matching item' do
+        context 'when the master list has a matching item from a different list' do
           before do
             second_list = user.shopping_lists.create!(title: 'Proudspire Manor', master_list: master_list)
             second_list.list_items.create!(
@@ -129,13 +129,18 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
         end
 
-        context 'when the new item matches an existing item on the list' do
+        context 'when the new item matches an existing item on the same list' do
           before do
-            shopping_list.list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
+            item = shopping_list.list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
+            master_list.add_item_from_child_list(item)
           end
 
           it "doesn't create a new item" do
             expect { create_item }.not_to change(shopping_list.list_items, :count)
+          end
+
+          it "doesn't create a new item on the master list" do
+            expect { create_item }.not_to change(master_list.list_items, :count)
           end
 
           it 'updates the existing item' do
@@ -145,6 +150,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
               'quantity' => 7,
               'notes' => 'To make locks -- To make locks'
             )
+          end
+
+          it 'updates the master list', :aggregate_failures do
+            create_item
+            expect(master_list.list_items.first.quantity).to eq 7
+            expect(master_list.list_items.first.notes).to eq 'To make locks -- To make locks'
           end
         end
       end

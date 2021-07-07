@@ -19,15 +19,16 @@ class ShoppingListItemsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
 
-      preexisting_item = shopping_list.list_items.find_by(description: params[:description])
+      preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
       item = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
 
       if item.save
         shopping_list.touch
-        master_list_item = master_list.add_item_from_child_list(item)
         if preexisting_item.blank?
+          master_list_item = master_list.add_item_from_child_list(item)
           Service::CreatedResult.new(resource: [master_list_item, item])
         else
+          master_list_item = master_list.update_item_from_child_list(params[:description], params[:quantity], nil, params[:notes])
           Service::OKResult.new(resource: [master_list_item, item])
         end
       else
