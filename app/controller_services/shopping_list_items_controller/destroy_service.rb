@@ -17,9 +17,14 @@ class ShoppingListItemsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
 
-      shopping_list_item.destroy!
-      shopping_list.touch
-      master_list_item = master_list.remove_item_from_child_list(shopping_list_item.attributes)
+      master_list_item = nil
+
+      ActiveRecord::Base.transaction do
+        shopping_list_item.destroy!
+        shopping_list.touch
+        master_list_item = master_list.remove_item_from_child_list(shopping_list_item.attributes)
+      end
+      
       master_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: master_list_item)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
