@@ -22,8 +22,10 @@ class ShoppingListItemsController < ApplicationController
       preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
       item = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
 
-      if item.save
+      ActiveRecord::Base.transaction do
+        item.save!
         shopping_list.touch
+
         if preexisting_item.blank?
           master_list_item = master_list.add_item_from_child_list(item)
           Service::CreatedResult.new(resource: [master_list_item, item])
@@ -31,9 +33,9 @@ class ShoppingListItemsController < ApplicationController
           master_list_item = master_list.update_item_from_child_list(params[:description], params[:quantity], nil, params[:notes])
           Service::OKResult.new(resource: [master_list_item, item])
         end
-      else
-        Service::UnprocessableEntityResult.new(errors: item.error_array)
       end
+    rescue ActiveRecord::RecordInvalid => e
+      Service::UnprocessableEntityResult.new(errors: item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     end
