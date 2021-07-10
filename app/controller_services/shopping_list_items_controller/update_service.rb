@@ -21,13 +21,17 @@ class ShoppingListItemsController < ApplicationController
       delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
 
-      if list_item.update(params)
+      master_list_item = nil
+      ActiveRecord::Base.transaction do
+        list_item.update!(params)
         shopping_list.touch
+        
         master_list_item = master_list.update_item_from_child_list(list_item.description, delta_qty, old_notes, params[:notes])
-        Service::OKResult.new(resource: [master_list_item, list_item])
-      else
-        Service::UnprocessableEntityResult.new(errors: list_item.error_array)
       end
+
+      Service::OKResult.new(resource: [master_list_item, list_item])
+    rescue ActiveRecord::RecordInvalid
+      Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     end
