@@ -36,13 +36,15 @@ class ShoppingListsController < ApplicationController
 
       list_items = shopping_list.list_items.map(&:attributes)
 
-      # If shopping_list is the user's last regular shopping list, this will also
-      # destroy their master list
-      shopping_list.destroy!
-      
-      if master_list&.persisted?
-        list_items.each { |item_attributes| master_list.remove_item_from_child_list(item_attributes) }
-        master_list
+      ActiveRecord::Base.transaction do
+        # If shopping_list is the user's last regular shopping list, this will also
+        # destroy their master list
+        shopping_list.destroy!
+        
+        if master_list&.persisted?
+          list_items.each { |item_attributes| master_list.remove_item_from_child_list(item_attributes) }
+          master_list
+        end
       end
     end
   end
