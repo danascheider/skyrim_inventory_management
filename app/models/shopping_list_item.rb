@@ -48,6 +48,6 @@ class ShoppingListItem < ApplicationRecord
 
   def clean_up_notes
     return true unless notes
-    self.notes = notes.strip.gsub(/^(\-\- )*/, '').gsub(/( \-\-)*$/, '').gsub(/( \-\- ){2,}/, ' -- ')
+    self.notes = notes.strip.gsub(/^(\-\- ?)*/, '').gsub(/( ?\-\-)*$/, '').gsub(/( \-\- ){2,}/, ' -- ').presence
   end
 end

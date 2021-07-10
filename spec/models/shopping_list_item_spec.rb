@@ -141,4 +141,16 @@ RSpec.describe ShoppingListItem, type: :model do
       end
     end
   end
+
+  describe 'notes field' do
+    it 'cleans up leading and trailing dashes or whitespace' do
+      shopping_list_item = build(:shopping_list_item, notes: ' -- some notes --')
+      expect { shopping_list_item.save }.to change(shopping_list_item, :notes).to('some notes')
+    end
+
+    it 'saves as nil if it consists only of dashes' do
+      shopping_list_item = build(:shopping_list_item, notes: '--')
+      expect { shopping_list_item.save }.to change(shopping_list_item, :notes).to(nil)
+    end
+  end
 end
