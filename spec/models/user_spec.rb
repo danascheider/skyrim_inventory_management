@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
   describe '#aggregate_shopping_list' do
     subject(:user) { create(:user) }
 
-    context 'when the user has a master shopping list' do
+    context 'when the user has an aggregate shopping list' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
 
       it 'returns the aggregate list' do

@@ -17,7 +17,7 @@ RSpec.describe ShoppingList, type: :model do
         shopping_list2.update!(title: 'Windstad Manor')
       end
 
-      it 'is in reverse chronological order by updated_at with master before anything' do
+      it 'is in reverse chronological order by updated_at with aggregate before anything' do
         expect(index_order).to eq([aggregate_list, shopping_list2, shopping_list3, shopping_list1])
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
 
-      context 'when the user already has a master list' do
+      context 'when the user already has an aggregate list' do
         let(:user) { create(:user) }
         let(:aggregate_list) { build(:aggregate_shopping_list, user: user) }
 
@@ -281,7 +281,7 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     context 'when the user has no additional regular lists' do
-      it 'destroys the master list' do
+      it 'destroys the aggregate list' do
         expect { destroy_list }.to change(user.shopping_lists, :count).from(2).to(0)
       end
     end
@@ -349,7 +349,7 @@ RSpec.describe ShoppingList, type: :model do
         let(:aggregate_list) { create(:shopping_list) }
         let(:list_item) { create(:shopping_list_item) }
 
-        it 'raises a MasterListError' do
+        it 'raises an AggregateListError' do
           expect { add_item }.to raise_error(Aggregatable::AggregateListError)
         end
       end

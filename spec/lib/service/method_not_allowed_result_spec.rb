@@ -3,7 +3,7 @@
 require 'service/method_not_allowed_result'
 
 RSpec.describe Service::MethodNotAllowedResult do
-  subject(:result) { described_class.new(errors: ['Cannot manually update a master list']) }
+  subject(:result) { described_class.new(errors: ['Cannot manually update an aggregate list']) }
 
   describe '#status' do
     it 'is :method_not_allowed' do

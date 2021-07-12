@@ -56,7 +56,7 @@ RSpec.describe Controller::Response do
 
     context 'when there are errors' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
-      let(:errors) { ['Cannot manually update a master shopping list'] }
+      let(:errors) { ['Cannot manually update an aggregate shopping list'] }
       let(:options) { {} }
       let(:result) { Service::MethodNotAllowedResult.new(errors: errors) }
 
@@ -70,7 +70,7 @@ RSpec.describe Controller::Response do
       context 'when there is a resource and errors' do
         let(:controller) { instance_double(ShoppingListsController, render: nil) }
         let(:options) { {} }
-        let(:errors) { ['Title is already taken', 'Cannot manually create or update a master list'] }
+        let(:errors) { ['Title is already taken', 'Cannot manually create or update an aggregate shopping list'] }
         let(:result) { Service::UnprocessableEntityResult.new(errors: errors, resource: { foo: 'bar' }) }
 
         it 'renders the errors' do

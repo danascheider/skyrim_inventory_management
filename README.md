@@ -45,21 +45,21 @@ Shopping lists provide a flexible way to track which items you need. The only pr
 ```
 id: integer, primary key, unique, not null
 user_id: integer, foreign key, not null
-master: boolean, only one master allowed per user
-title: string, unique per user, default value of 'Master' if master and 'My List n' otherwise
+aggregate: boolean, only one aggregate allowed per user
+title: string, unique per user, default value of 'All Items' if aggregate and 'My List n' otherwise
 ```
 
-#### Master Shopping Lists
+#### Aggregate Shopping Lists
 
 Users can have multiple shopping lists. In the future, each list will correspond to a location or property where the items are needed. For example, a user might need 10 iron ingots at Heljarchen Hall and 4 iron ingots at Lakeview Manor. In this case, the user might have a shopping list for Heljarchen Hall including 10 iron ingots and another list for Lakeview Manor including 4 iron ingots.
 
-It is also useful to know the total quantity of an item that a user needs. For this reason, every user also has a master list that is created when the user creates their first shopping list. This list is automatically updated to include all shopping list items on any of the user's other lists. If there are items with the same (case-insensitive) `description` on multiple lists, those items will be combined into a single item on the master list with the `quantity` being the sum of the quantities specified on each other list where the item occurs. Every time an item is added, updated, or removed from another list, the master list is automatically updated to reflect changes to the items or quantities.
+It is also useful to know the total quantity of an item that a user needs. For this reason, every user also has an aggregate list that is created when the user creates their first shopping list. This list is automatically updated to include all shopping list items on any of the user's other lists. If there are items with the same (case-insensitive) `description` on multiple lists, those items will be combined into a single item on the aggregate list with the `quantity` being the sum of the quantities specified on each other list where the item occurs. Every time an item is added, updated, or removed from another list, the aggregate list is automatically updated to reflect changes to the items or quantities.
 
-The title of all master shopping lists is "Master". Master lists can be retrieved through the API but cannot be created, updated, or destroyed, including adding or removing items, as these functions are all handled automatically.
+The title of all aggregate shopping lists is "All Items". Aggregate lists can be retrieved through the API but cannot be created, updated, or destroyed, including adding or removing items, as these functions are all handled automatically.
 
 ### Shopping List Items
 
-Shopping list items have three properties: a text `description`, an integer `quantity`, and text `notes`. To provide maximum flexibility, there are no restrictions on the `description` field - it can be any description of an item needed and doesn't have to be in terms that are specific or meaningful to the game. Examples could be:
+Shopping list items have three properties: a text `description`, an integer `quantity`, and text `notes`. To provide maximum flexibility, there are no restrictions on the `description` field - it can be any description of an item needed and doesn't have to be in terms that are specific or meaningful to the game as long as it is unique on the list it's on. Examples could be:
 
 * "Unenchanted ebony sword"
 * "Item with Fortify Carry Weight enchantment"

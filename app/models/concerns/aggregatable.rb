@@ -3,7 +3,7 @@
 # There is always a risk with concerns that they will not ultimately provide
 # the flexibility that is needed in a complex application. However, there are
 # going to be a few models - InventoryList would be another one coming up - that
-# will require master list behaviour, which is pretty complex logically, and it
+# will require aggregate list behaviour, which is pretty complex logically, and it
 # seems reasonable not to duplicate that logic too much (or split it across too
 # many classes or modules).
 #
