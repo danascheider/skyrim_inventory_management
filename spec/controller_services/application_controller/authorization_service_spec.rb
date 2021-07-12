@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/unauthorized_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe ApplicationController::AuthorizationService do
   describe '#perform' do
@@ -114,6 +115,22 @@ RSpec.describe ApplicationController::AuthorizationService do
 
       it 'returns an UnauthorizedResult' do
         expect(perform).to be_a(Service::UnauthorizedResult)
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let(:payload) { {} }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
       end
     end
   end
