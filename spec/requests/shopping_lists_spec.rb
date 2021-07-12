@@ -30,14 +30,14 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when all goes well' do
-        context 'when a master list has also been created' do
+        context 'when an aggregate list has also been created' do
           it 'creates a new shopping list' do
-            expect { create_shopping_list }.to change(user.shopping_lists, :count).from(0).to(2) # because of the master list
+            expect { create_shopping_list }.to change(user.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
-          it 'returns the master list as well as the new list' do
+          it 'returns the aggregate list as well as the new list' do
             create_shopping_list
-            expect(response.body).to eq([user.master_shopping_list, user.shopping_lists.last].to_json)
+            expect(response.body).to eq([user.aggregate_shopping_list, user.shopping_lists.last].to_json)
           end
 
           it 'returns status 201' do
@@ -47,7 +47,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when only the new shopping list has been created' do
-          let!(:master_list) { create(:master_shopping_list, user: user, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
+          let!(:aggregate_list) { create(:aggregate_shopping_list, user: user, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
 
           it 'creates one list' do
             expect{ create_shopping_list }.to change(user.shopping_lists, :count).from(1).to(2)
@@ -75,8 +75,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when the client attempts to create a master list' do
-        subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": { "master": true } }', headers: headers }
+      context 'when the client attempts to create an aggregate list' do
+        subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
 
         it "doesn't create a list" do
           expect { create_shopping_list }.not_to change(ShoppingList, :count)
@@ -89,7 +89,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually create a master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually create an aggregate shopping list'] })
         end
       end
     end
@@ -177,15 +177,15 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when the client attempts to update a master list' do
+      context 'when the client attempts to update an aggregate list' do
         subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
 
-        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
         let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
-          expect(shopping_list.reload.title).to eq 'Master'
+          expect(shopping_list.reload.title).to eq 'All Items'
         end
 
         it 'returns status 405 (method not allowed)' do
@@ -195,19 +195,19 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update a master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update an aggregate shopping list'] })
         end
       end
 
-      context 'when the client attempts to change a regular list to a master list' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+      context 'when the client attempts to change a regular list to an aggregate list' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
         
         let!(:shopping_list) { create(:shopping_list, user: user) }
         let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
-          expect(shopping_list.reload.master).to eq false
+          expect(shopping_list.reload.aggregate).to eq false
         end
 
         it 'returns status 422' do
@@ -217,7 +217,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list a master list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list an aggregate list'] })
         end
       end
     end
@@ -307,15 +307,15 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when the client attempts to update a master list' do
+      context 'when the client attempts to update an aggregate list' do
         subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
 
-        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
         let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
-          expect(shopping_list.reload.title).to eq 'Master'
+          expect(shopping_list.reload.title).to eq 'All Items'
         end
 
         it 'returns status 405' do
@@ -325,19 +325,19 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update a master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update an aggregate shopping list'] })
         end
       end
 
-      context 'when the client attempts to change a regular list to a master list' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "master": true } }', headers: headers }
+      context 'when the client attempts to change a regular list to an aggregate list' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
         
         let!(:shopping_list) { create(:shopping_list, user: user) }
         let(:list_id) { shopping_list.id }
 
         it "doesn't update the list" do
           update_shopping_list
-          expect(shopping_list.reload.master).to eq false
+          expect(shopping_list.reload.aggregate).to eq false
         end
 
         it 'returns status 422' do
@@ -347,7 +347,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list a master list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list an aggregate list'] })
         end
       end
     end
@@ -397,7 +397,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
 
-        create(:master_shopping_list, user: authenticated_user)
+        create(:aggregate_shopping_list, user: authenticated_user)
         user_list = create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
         unauthenticated_user = create(:user)
         create_list(:shopping_list, 3, user: unauthenticated_user)
@@ -503,7 +503,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when authenticated and the shopping list exists' do
       let(:user) { create(:user) }
-      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
       let!(:shopping_list) { create(:shopping_list, user: user) }
       let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
@@ -550,14 +550,14 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(response.status).to eq 200
         end
 
-        it 'returns the master list in the body' do
+        it 'returns the aggregate list in the body' do
           delete_shopping_list
-          expect(response.body).to eq(user.master_shopping_list.to_json)
+          expect(response.body).to eq(user.aggregate_shopping_list.to_json)
         end
       end
     end
 
-    context 'when properly authenticated and attempting to delete the master list' do
+    context 'when properly authenticated and attempting to delete the aggregate list' do
       let(:user) { create(:user) }
       let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
@@ -575,7 +575,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when another list exists' do
-        let!(:shopping_list) { create(:master_shopping_list, user: user) }
+        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
         let(:list_id) { shopping_list.id }
 
         it 'does not delete anything' do
@@ -589,7 +589,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns a helpful error body' do
           delete_shopping_list
-          expect(response.body).to eq({ errors: ['Cannot manually delete a master shopping list'] }.to_json)
+          expect(response.body).to eq({ errors: ['Cannot manually delete an aggregate shopping list'] }.to_json)
         end
       end
     end

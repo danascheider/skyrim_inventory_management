@@ -7,7 +7,7 @@ require 'service/method_not_allowed_result'
 
 class ShoppingListItemsController < ApplicationController
   class UpdateService
-    MASTER_LIST_ERROR = 'Cannot manually update list items on a master shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate shopping list'
 
     def initialize(user, item_id, params)
       @user = user
@@ -16,20 +16,20 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
       delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
 
-      master_list_item = nil
+      aggregate_list_item = nil
       ActiveRecord::Base.transaction do
         list_item.update!(params)
         shopping_list.touch
         
-        master_list_item = master_list.update_item_from_child_list(list_item.description, delta_qty, old_notes, params[:notes])
+        aggregate_list_item = aggregate_list.update_item_from_child_list(list_item.description, delta_qty, old_notes, params[:notes])
       end
 
-      Service::OKResult.new(resource: [master_list_item, list_item])
+      Service::OKResult.new(resource: [aggregate_list_item, list_item])
     rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
@@ -40,8 +40,8 @@ class ShoppingListItemsController < ApplicationController
 
     attr_reader :user, :item_id, :params
 
-    def master_list
-      @master_list ||= list_item.list.master_list
+    def aggregate_list
+      @aggregate_list ||= list_item.list.aggregate_list
     end
 
     def shopping_list

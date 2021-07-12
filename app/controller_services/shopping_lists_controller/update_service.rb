@@ -7,8 +7,8 @@ require 'service/unprocessable_entity_result'
 
 class ShoppingListsController < ApplicationController
   class UpdateService
-    MASTER_LIST_ERROR = 'Cannot manually update a master shopping list'
-    DISALLOWED_UPDATE_ERROR = 'Cannot make a regular shopping list a master list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update an aggregate shopping list'
+    DISALLOWED_UPDATE_ERROR = 'Cannot make a regular shopping list an aggregate list'
 
     def initialize(user, list_id, params)
       @user = user
@@ -17,8 +17,8 @@ class ShoppingListsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
-      return Service::UnprocessableEntityResult.new(errors: [DISALLOWED_UPDATE_ERROR]) if params[:master] == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::UnprocessableEntityResult.new(errors: [DISALLOWED_UPDATE_ERROR]) if params[:aggregate] == true
 
       if shopping_list.update(params)
         Service::OKResult.new(resource: shopping_list)

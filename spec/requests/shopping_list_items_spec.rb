@@ -17,11 +17,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
            headers: headers
     end
 
-    let!(:master_list) { create(:master_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list) }
+    let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
     
     context 'when authenticated' do
-      let!(:user) { master_list.user }
+      let!(:user) { aggregate_list.user }
       
       let(:validation_data) do
         {
@@ -44,24 +44,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect { create_item }.to change(shopping_list.list_items, :count).from(0).to(1)
         end
 
-        context 'when the master list has no items on it' do
-          it 'adds the item to the master list' do
+        context 'when the aggregate list has no items on it' do
+          it 'adds the item to the aggregate list' do
             expect { create_item }.to change(ShoppingListItem, :count).from(0).to(2)
           end
 
           it 'assigns the right attributes' do
             create_item
             item = shopping_list.list_items.last
-            expect(master_list.list_items.last.attributes).to include(
+            expect(aggregate_list.list_items.last.attributes).to include(
               'description' => item.description,
               'quantity' => item.quantity,
               'notes' => item.notes
             )
           end
 
-          it 'returns the master list item and the regular list item' do
+          it 'returns the aggregate list item and the regular list item' do
             create_item
-            expect(response.body).to eq([master_list.list_items.last, shopping_list.list_items.last].to_json)
+            expect(response.body).to eq([aggregate_list.list_items.last, shopping_list.list_items.last].to_json)
           end
 
           it 'returns status 201' do
@@ -70,42 +70,42 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
         end
 
-        context 'when the master list has a matching item from a different list' do
+        context 'when the aggregate list has a matching item from a different list' do
           before do
-            second_list = user.shopping_lists.create!(title: 'Proudspire Manor', master_list: master_list)
+            second_list = user.shopping_lists.create!(title: 'Proudspire Manor', aggregate_list: aggregate_list)
             second_list.list_items.create!(
               description: 'Corundum ingot',
               quantity: 1,
               notes: 'some other notes'
             )
-            master_list.add_item_from_child_list(second_list.list_items.last)
+            aggregate_list.add_item_from_child_list(second_list.list_items.last)
           end
 
-          it 'updates the item on the master list', :aggregate_failures do
+          it 'updates the item on the aggregate list', :aggregate_failures do
             create_item
-            expect(master_list.list_items.count).to eq 1
-            expect(master_list.list_items.last.attributes).to include(
+            expect(aggregate_list.list_items.count).to eq 1
+            expect(aggregate_list.list_items.last.attributes).to include(
               'description' => 'Corundum ingot',
               'quantity' => 6,
               'notes' => 'some other notes -- To make locks'
             )
           end
 
-          it 'returns the master list item and the regular list item', :aggregate_failures do
+          it 'returns the aggregate list item and the regular list item', :aggregate_failures do
             create_item
 
             # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
             # string is correct as some attributes are out of order and the timestamps are serialized
             # differently. Here we grab the individual items and then we'll filter out the timestamps to
             # verify them.
-            master_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
+            aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
               item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
             end
 
-            master_list_item_expected = master_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+            aggregate_list_item_expected = aggregate_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
             regular_list_item_expected = shopping_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
   
-            expect(master_list_item_actual).to eq(master_list_item_expected)
+            expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
             expect(regular_list_item_actual).to eq(regular_list_item_expected)
           end
 
@@ -124,7 +124,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               # the timestamp to 0, which was breaking stuff in CI (but somehow not
               # in dev).
               expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-              expect(master_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+              expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
             end
           end
         end
@@ -132,15 +132,15 @@ RSpec.describe 'ShoppingListItems', type: :request do
         context 'when the new item matches an existing item on the same list' do
           before do
             item = shopping_list.list_items.create!(description: 'Corundum ingot', quantity: 2, notes: 'To make locks')
-            master_list.add_item_from_child_list(item)
+            aggregate_list.add_item_from_child_list(item)
           end
 
           it "doesn't create a new item" do
             expect { create_item }.not_to change(shopping_list.list_items, :count)
           end
 
-          it "doesn't create a new item on the master list" do
-            expect { create_item }.not_to change(master_list.list_items, :count)
+          it "doesn't create a new item on the aggregate list" do
+            expect { create_item }.not_to change(aggregate_list.list_items, :count)
           end
 
           it 'updates the existing item' do
@@ -152,10 +152,10 @@ RSpec.describe 'ShoppingListItems', type: :request do
             )
           end
 
-          it 'updates the master list', :aggregate_failures do
+          it 'updates the aggregate list', :aggregate_failures do
             create_item
-            expect(master_list.list_items.first.quantity).to eq 7
-            expect(master_list.list_items.first.notes).to eq 'To make locks -- To make locks'
+            expect(aggregate_list.list_items.first.quantity).to eq 7
+            expect(aggregate_list.list_items.first.notes).to eq 'To make locks -- To make locks'
           end
         end
       end
@@ -195,8 +195,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the shopping list is a master list' do
-        let(:shopping_list) { master_list }
+      context 'when the shopping list is an aggregate list' do
+        let(:shopping_list) { aggregate_list }
 
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
@@ -241,11 +241,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       patch "/shopping_list_items/#{list_item.id}", params: params.to_json, headers: headers
     end
 
-    let!(:master_list) { create(:master_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, user: master_list.user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list) }
+    let!(:shopping_list) { create(:shopping_list_with_list_items, user: aggregate_list.user) }
     
     context 'when authenticated' do
-      let!(:user) { master_list.user }
+      let!(:user) { aggregate_list.user }
       
       let(:validation_data) do
         {
@@ -266,11 +266,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:list_item) { shopping_list.list_items.first }
 
         before do
-          second_list = create(:shopping_list, user: user, master_list: master_list)
+          second_list = create(:shopping_list, user: user, aggregate_list: aggregate_list)
           second_list.list_items.create!(description: list_item.description, quantity: 2)
-          master_list.add_item_from_child_list(shopping_list.list_items.first)
-          master_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          master_list.add_item_from_child_list(second_list.list_items.first) 
+          aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
+          aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
+          aggregate_list.add_item_from_child_list(second_list.list_items.first) 
         end
 
         it 'updates the regular list item' do
@@ -281,9 +281,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                                                         )
         end
 
-        it 'updates the item on the master list' do
+        it 'updates the item on the aggregate list' do
           update_item
-          expect(master_list.list_items.first.attributes).to include(
+          expect(aggregate_list.list_items.first.attributes).to include(
                                                                       'description' => list_item.description,
                                                                       'quantity' => 7,
                                                                       'notes' => 'To make locks'
@@ -300,25 +300,25 @@ RSpec.describe 'ShoppingListItems', type: :request do
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
             expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(master_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
           end
         end
 
-        it 'returns the master list item and the regular list item', :aggregate_failures do
+        it 'returns the aggregate list item and the regular list item', :aggregate_failures do
           update_item
 
           # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
           # string is correct as some attributes are out of order and the timestamps are serialized
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
-          master_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
+          aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
             item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
           end
 
-          master_list_item_expected = master_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
           regular_list_item_expected = shopping_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
 
-          expect(master_list_item_actual).to eq(master_list_item_expected)
+          expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)
         end
 
@@ -366,8 +366,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the shopping list is a master list' do
-        let(:shopping_list) { user.master_shopping_list }
+      context 'when the shopping list is an aggregate list' do
+        let(:shopping_list) { user.aggregate_shopping_list }
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
         let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
@@ -385,7 +385,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns a helpful error' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on a master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
         end
       end
 
@@ -394,13 +394,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes:'To make locks' } } }
 
         before do
-          master_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(list_item)
         end
 
-        it 'does not update the master list', :aggregate_failures do
+        it 'does not update the aggregate list', :aggregate_failures do
           update_item
-          expect(master_list.list_items.first.quantity).to eq 1
-          expect(master_list.list_items.first.notes).to be nil
+          expect(aggregate_list.list_items.first.quantity).to eq 1
+          expect(aggregate_list.list_items.first.notes).to be nil
         end
 
         it 'returns 422' do
@@ -437,11 +437,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       put "/shopping_list_items/#{list_item.id}", params: params.to_json, headers: headers
     end
 
-    let!(:master_list) { create(:master_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, user: master_list.user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list) }
+    let!(:shopping_list) { create(:shopping_list_with_list_items, user: aggregate_list.user) }
     
     context 'when authenticated' do
-      let!(:user) { master_list.user }
+      let!(:user) { aggregate_list.user }
       
       let(:validation_data) do
         {
@@ -462,11 +462,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:list_item) { shopping_list.list_items.first }
 
         before do
-          second_list = create(:shopping_list, user: user, master_list: master_list)
+          second_list = create(:shopping_list, user: user, aggregate_list: aggregate_list)
           second_list.list_items.create!(description: list_item.description, quantity: 2)
-          master_list.add_item_from_child_list(shopping_list.list_items.first)
-          master_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          master_list.add_item_from_child_list(second_list.list_items.first) 
+          aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
+          aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
+          aggregate_list.add_item_from_child_list(second_list.list_items.first) 
         end
 
         it 'updates the regular list item' do
@@ -477,9 +477,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                                                         )
         end
 
-        it 'updates the item on the master list' do
+        it 'updates the item on the aggregate list' do
           update_item
-          expect(master_list.list_items.first.attributes).to include(
+          expect(aggregate_list.list_items.first.attributes).to include(
                                                                       'description' => list_item.description,
                                                                       'quantity' => 7,
                                                                       'notes' => 'To make locks'
@@ -496,25 +496,25 @@ RSpec.describe 'ShoppingListItems', type: :request do
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
             expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(master_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
           end
         end
 
-        it 'returns the master list item and the regular list item', :aggregate_failures do
+        it 'returns the aggregate list item and the regular list item', :aggregate_failures do
           update_item
 
           # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
           # string is correct as some attributes are out of order and the timestamps are serialized
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
-          master_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
+          aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
             item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
           end
 
-          master_list_item_expected = master_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
           regular_list_item_expected = shopping_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
 
-          expect(master_list_item_actual).to eq(master_list_item_expected)
+          expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)
         end
 
@@ -562,8 +562,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the shopping list is a master list' do
-        let(:shopping_list) { user.master_shopping_list }
+      context 'when the shopping list is an aggregate list' do
+        let(:shopping_list) { user.aggregate_shopping_list }
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
         let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
@@ -581,7 +581,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns a helpful error' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on a master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
         end
       end
 
@@ -590,13 +590,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes:'To make locks' } } }
 
         before do
-          master_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(list_item)
         end
 
-        it 'does not update the master list', :aggregate_failures do
+        it 'does not update the aggregate list', :aggregate_failures do
           update_item
-          expect(master_list.list_items.first.quantity).to eq 1
-          expect(master_list.list_items.first.notes).to be nil
+          expect(aggregate_list.list_items.first.quantity).to eq 1
+          expect(aggregate_list.list_items.first.notes).to be nil
         end
 
         it 'returns 422' do
@@ -632,8 +632,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
     subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: headers }
 
     context 'when authenticated' do
-      let!(:master_list) { create(:master_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
       
       let(:user) { create(:user) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
@@ -654,18 +654,18 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 3, notes: 'foo') }
         
         before do
-          master_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(list_item)
         end
 
-        context 'when the quantity on the regular list equals that on the master list' do
+        context 'when the quantity on the regular list equals that on the aggregate list' do
           it 'destroys the item on the regular list' do
             destroy_item
             expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
           end
 
-          it 'destroys the item on the master list' do
+          it 'destroys the item on the aggregate list' do
             destroy_item
-            expect(master_list.list_items).to be_empty
+            expect(aggregate_list.list_items).to be_empty
           end
 
           it 'returns an empty response' do
@@ -679,12 +679,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
         end
 
-        context 'when the quantity on the master list exceeds that on the regular list' do
+        context 'when the quantity on the aggregate list exceeds that on the regular list' do
           let(:second_list) { create(:shopping_list, user: user) }
           let(:second_item) { create(:shopping_list_item, list: second_list, description: list_item.description, quantity: 2, notes: 'bar') }
 
           before do
-            master_list.add_item_from_child_list(second_item)
+            aggregate_list.add_item_from_child_list(second_item)
           end
 
           it 'destroys the item on the regular list' do
@@ -692,15 +692,15 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
           end
 
-          it 'updates the quantity of the item on the master list' do
+          it 'updates the quantity of the item on the aggregate list' do
             destroy_item
-            expect(master_list.list_items.first.quantity).to eq 2
+            expect(aggregate_list.list_items.first.quantity).to eq 2
           end
 
-          it 'updates the notes of the item on the master list', :aggregate_failures do
+          it 'updates the notes of the item on the aggregate list', :aggregate_failures do
             destroy_item
-            expect(master_list.list_items.first.notes).to match /bar/
-            expect(master_list.list_items.first.notes).not_to match /foo/
+            expect(aggregate_list.list_items.first.notes).to match /bar/
+            expect(aggregate_list.list_items.first.notes).not_to match /foo/
           end
         end
       end
@@ -733,8 +733,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the specified list item is on a master list' do
-        let(:list_item) { create(:shopping_list_item, list: master_list) }
+      context 'when the specified list item is on an aggregate list' do
+        let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
 
         it 'returns status 405' do
           destroy_item
@@ -743,7 +743,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         
         it 'returns a helpful error message' do
           destroy_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from master shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate shopping list'] })
         end
       end
     end

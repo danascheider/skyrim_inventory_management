@@ -8,7 +8,7 @@ require 'service/ok_result'
 
 class ShoppingListItemsController < ApplicationController
   class CreateService
-    MASTER_LIST_ERROR = 'Cannot manually manage items on a master shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate shopping list'
 
     def initialize(user, list_id, params)
       @user = user
@@ -17,7 +17,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
       preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
       item = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
@@ -27,11 +27,11 @@ class ShoppingListItemsController < ApplicationController
         shopping_list.touch
 
         if preexisting_item.blank?
-          master_list_item = master_list.add_item_from_child_list(item)
-          Service::CreatedResult.new(resource: [master_list_item, item])
+          aggregate_list_item = aggregate_list.add_item_from_child_list(item)
+          Service::CreatedResult.new(resource: [aggregate_list_item, item])
         else
-          master_list_item = master_list.update_item_from_child_list(params[:description], params[:quantity], nil, params[:notes])
-          Service::OKResult.new(resource: [master_list_item, item])
+          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], nil, params[:notes])
+          Service::OKResult.new(resource: [aggregate_list_item, item])
         end
       end
     rescue ActiveRecord::RecordInvalid => e
@@ -48,8 +48,8 @@ class ShoppingListItemsController < ApplicationController
       @shopping_list ||= user.shopping_lists.find(list_id)
     end
 
-    def master_list
-      shopping_list.master_list
+    def aggregate_list
+      shopping_list.aggregate_list
     end
   end
 end

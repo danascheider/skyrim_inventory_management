@@ -7,7 +7,7 @@ require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
   class DestroyService
-    MASTER_LIST_ERROR = 'Cannot manually delete a master shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate shopping list'
 
     def initialize(user, list_id)
       @user = user
@@ -15,10 +15,10 @@ class ShoppingListsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      master_list = destroy_and_update_master_list_items
-      master_list.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: master_list)
+      aggregate_list = destroy_and_update_aggregate_list_items
+      aggregate_list.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     end
@@ -31,19 +31,19 @@ class ShoppingListsController < ApplicationController
       @shopping_list ||= user.shopping_lists.find(list_id)
     end
 
-    def destroy_and_update_master_list_items
-      master_list = shopping_list.master_list
+    def destroy_and_update_aggregate_list_items
+      aggregate_list = shopping_list.aggregate_list
 
       list_items = shopping_list.list_items.map(&:attributes)
 
       ActiveRecord::Base.transaction do
         # If shopping_list is the user's last regular shopping list, this will also
-        # destroy their master list
+        # destroy their aggregate list
         shopping_list.destroy!
         
-        if master_list&.persisted?
-          list_items.each { |item_attributes| master_list.remove_item_from_child_list(item_attributes) }
-          master_list
+        if aggregate_list&.persisted?
+          list_items.each { |item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) }
+          aggregate_list
         end
       end
     end
