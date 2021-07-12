@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_020129) do
+ActiveRecord::Schema.define(version: 2021_07_12_200541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2021_07_05_020129) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "master", default: false
+    t.boolean "aggregate", default: false
     t.string "title", null: false
-    t.integer "master_list_id"
+    t.integer "aggregate_list_id"
     t.index ["user_id", "title"], name: "index_shopping_lists_on_user_id_and_title", unique: true
   end
 
