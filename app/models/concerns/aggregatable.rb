@@ -52,7 +52,7 @@ module Aggregatable
     before_validation :set_aggregate_list,   unless: :is_aggregate_list?
     before_save :abort_if_aggregate_changed
     before_save :remove_aggregate_list_id,   if: :is_aggregate_list?
-    before_save :set_title_to_aggregate,     if: :is_aggregate_list?
+    before_save :set_title_to_all_items,     if: :is_aggregate_list?
     before_destroy :abort_if_aggregate,      if: :has_child_lists?
     after_destroy :destroy_aggregate_list,   unless: -> { is_aggregate_list? || aggregate_has_other_children? }
   end
@@ -123,7 +123,7 @@ module Aggregatable
     self.class.find_or_create_by!(user: user, aggregate: true)
   end
 
-  def set_title_to_aggregate
+  def set_title_to_all_items
     self.title = 'All Items'
   end
 
