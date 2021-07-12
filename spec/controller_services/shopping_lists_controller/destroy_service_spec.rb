@@ -105,5 +105,21 @@ RSpec.describe ShoppingListsController::DestroyService do
         expect(perform).to be_a(Service::NotFoundResult)
       end
     end
+
+    context 'when something unexpected goes wrong' do
+      let!(:shopping_list) { create(:shopping_list, user: user) }
+
+      before do
+        allow_any_instance_of(ShoppingList).to receive(:aggregate_list).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
+      end
+    end
   end
 end
