@@ -11,24 +11,24 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
     let(:user) { create(:user) }
-    let!(:master_list) { create(:master_shopping_list, user: user) }
-    let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
+    let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
 
     context 'when all goes well' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
 
       before do
-        master_list.add_item_from_child_list(list_item)
+        aggregate_list.add_item_from_child_list(list_item)
       end
 
-      context 'when the quantity on the master list equals the quantity on the regular list' do
+      context 'when the quantity on the aggregate list equals the quantity on the regular list' do
         it 'destroys the list item' do
           perform
           expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
         end
 
-        it 'destroys the item on the master list' do
-          expect { perform }.to change(master_list.list_items, :count).from(1).to(0)
+        it 'destroys the item on the aggregate list' do
+          expect { perform }.to change(aggregate_list.list_items, :count).from(1).to(0)
         end
 
         it 'returns a Service::NoContentResult' do
@@ -49,13 +49,13 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
             expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(master_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
           end
         end
       end
 
-      context 'when the quantity on the master list exceeds the quantity on the regular list' do
-        let(:second_list) { create(:shopping_list, user: user, master_list: master_list) }
+      context 'when the quantity on the aggregate list exceeds the quantity on the regular list' do
+        let(:second_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
         let(:second_list_item) do
           create(:shopping_list_item,
                   list: second_list,
@@ -66,7 +66,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
 
         before do
-          master_list.add_item_from_child_list(second_list_item)
+          aggregate_list.add_item_from_child_list(second_list_item)
         end
 
         it 'destroys the list item' do
@@ -74,15 +74,15 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
         end
         
-        it 'changes the quantity of the master list item' do
+        it 'changes the quantity of the aggregate list item' do
           perform
-          expect(master_list.list_items.first.quantity).to eq 2
+          expect(aggregate_list.list_items.first.quantity).to eq 2
         end
 
-        it 'changes the notes of the master list item', :aggregate_failures do
+        it 'changes the notes of the aggregate list item', :aggregate_failures do
           perform
-          expect(master_list.list_items.first.notes).to match /some other notes/
-          expect(master_list.list_items.first.notes).not_to match /some notes/
+          expect(aggregate_list.list_items.first.notes).to match /some other notes/
+          expect(aggregate_list.list_items.first.notes).not_to match /some notes/
         end
 
         it 'sets the updated_at timestamp on the shopping list', :aggregate_failures do
@@ -95,7 +95,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
             expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(master_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
           end
         end
 
@@ -103,8 +103,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform).to be_a Service::OKResult
         end
 
-        it 'returns the updated master list item' do
-          expect(perform.resource).to eq master_list.list_items.first
+        it 'returns the updated aggregate list item' do
+          expect(perform.resource).to eq aggregate_list.list_items.first
         end
       end
     end
@@ -133,8 +133,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       end
     end
 
-    context 'when the specified list item is on a master list' do
-      let(:list_item) { create(:shopping_list_item, list: master_list) }
+    context 'when the specified list item is on an aggregate list' do
+      let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
 
       it "doesn't destroy the list item" do
         perform
@@ -146,7 +146,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       end
 
       it 'includes a helpful error message' do
-        expect(perform.errors).to eq ['Cannot manually delete list item from master shopping list']
+        expect(perform.errors).to eq ['Cannot manually delete list item from aggregate shopping list']
       end
     end
   end

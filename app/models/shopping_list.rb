@@ -15,20 +15,20 @@ class ShoppingList < ApplicationRecord
 
   before_save :format_title
 
-  # This has to be defined before including MasterListable because its `included` block
+  # This has to be defined before including AggregateListable because its `included` block
   # calls this method.
   def self.list_item_class_name
     'ShoppingListItem'
   end
 
-  include MasterListable
+  include Aggregatable
 
-  scope :index_order, -> { includes_items.master_first.order(updated_at: :desc) }
+  scope :index_order, -> { includes_items.aggregate_first.order(updated_at: :desc) }
 
   private
 
   def format_title
-    return if master
+    return if aggregate
 
     if title.blank?
       highest_number = user.shopping_lists.where("title like '%My List%'").pluck(:title).map { |title| title.gsub('My List ', '').to_i }.max || 0

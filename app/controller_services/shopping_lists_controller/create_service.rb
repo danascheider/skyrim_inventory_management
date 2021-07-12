@@ -7,7 +7,7 @@ require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
   class CreateService
-    MASTER_LIST_ERROR = 'Cannot manually create a master shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate shopping list'
 
     def initialize(user, params)
       @user = user
@@ -15,14 +15,14 @@ class ShoppingListsController < ApplicationController
     end
 
     def perform
-      return Service::UnprocessableEntityResult.new(errors: [MASTER_LIST_ERROR]) if params[:master]
+      return Service::UnprocessableEntityResult.new(errors: [AGGREGATE_LIST_ERROR]) if params[:aggregate]
 
       shopping_list = user.shopping_lists.new(params)
-      preexisting_master_list = user.master_shopping_list
+      preexisting_aggregate_list = user.aggregate_shopping_list
 
       if shopping_list.save
-        # Check if the master shopping list is newly created and return it too if so
-        resource = preexisting_master_list ? shopping_list : [user.master_shopping_list, shopping_list]
+        # Check if the aggregate shopping list is newly created and return it too if so
+        resource = preexisting_aggregate_list ? shopping_list : [user.aggregate_shopping_list, shopping_list]
         Service::CreatedResult.new(resource: resource)
       else
         Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)

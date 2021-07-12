@@ -10,11 +10,11 @@ RSpec.describe ShoppingListsController::CreateService do
     
     let(:user) { create(:user) }
 
-    context 'when the request tries to create a master list' do
+    context 'when the request tries to create an aggregate list' do
       let(:params) do
         {
-          title: 'Master',
-          master: true
+          title: 'All Items',
+          aggregate: true
         }
       end
 
@@ -23,16 +23,16 @@ RSpec.describe ShoppingListsController::CreateService do
       end
 
       it 'sets an error' do
-        expect(perform.errors).to eq(['Cannot manually create a master shopping list'])
+        expect(perform.errors).to eq(['Cannot manually create an aggregate shopping list'])
       end
     end
 
     context 'when params are valid' do
       let(:params) { { title: 'Proudspire Manor' } }
 
-      context 'when the user has a master shopping list' do
+      context 'when the user has an aggregate shopping list' do
         before do
-          create(:master_shopping_list, user: user)
+          create(:aggregate_shopping_list, user: user)
         end
 
         it 'creates a shopping list for the given user' do
@@ -48,14 +48,14 @@ RSpec.describe ShoppingListsController::CreateService do
         end
       end
 
-      context "when the user doesn't have a master shopping list" do
+      context "when the user doesn't have an aggregate shopping list" do
         it 'creates two lists' do
           expect { perform }.to change(user.shopping_lists, :count).from(0).to(2)
         end
 
-        it 'creates a master shopping list for the given user' do
+        it 'creates an aggregate shopping list for the given user' do
           perform
-          expect(user.master_shopping_list).to be_present
+          expect(user.aggregate_shopping_list).to be_present
         end
 
         it 'creates a regular shopping list for the given user' do
@@ -68,7 +68,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to include both lists' do
-          expect(perform.resource).to eq([user.master_shopping_list, user.shopping_lists.last])
+          expect(perform.resource).to eq([user.aggregate_shopping_list, user.shopping_lists.last])
         end
       end
     end

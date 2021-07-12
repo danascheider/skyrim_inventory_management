@@ -1,14 +1,14 @@
 # Shopping Lists
 
-Shopping lists represent lists of items a user needs in the game. Users can have different lists corresponding to different property locations. Users with shopping lists also have a master list that includes the combined list items and quantities from all their other lists. Master lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
+Shopping lists represent lists of items a user needs in the game. Users can have different lists corresponding to different property locations. Users with shopping lists also have an aggregate list that includes the combined list items and quantities from all their other lists. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
 
 Each list contains list items, which are returned with each response that includes the list.
 
 When making requests to update the title of a list, there are some validations and automatic transformations to keep in mind:
 
 * Titles must be unique per user - you cannot name two of your lists the same thing
-* Only a master list can be called "Master"
-* All master lists are called "Master" and there is no way to rename them something else
+* Only an aggregate list can be called "All Items"
+* All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
 * If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
@@ -26,7 +26,7 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 ## GET /shopping_lists
 
-Returns all shopping lists owned by the authenticated user. The master shopping list will be returned first, followed by the user's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
+Returns all shopping lists owned by the authenticated user. The aggregate shopping list will be returned first, followed by the user's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
 
 ### Example Request
 
@@ -53,8 +53,8 @@ For a user with multiple lists:
   {
     "id": 43,
     "user_id": 8234,
-    "master": true,
-    "title": "Master",
+    "aggregate": true,
+    "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
@@ -79,8 +79,8 @@ For a user with multiple lists:
   {
     "id": 46,
     "user_id": 8234,
-    "master": false,
-    "master_list_id": 43,
+    "aggregate": false,
+    "aggregate_list_id": 43,
     "title": "Lakeview Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -106,8 +106,8 @@ For a user with multiple lists:
   {
     "id": 52,
     "user_id": 8234,
-    "master": false,
-    "master_list_id": 43,
+    "aggregate": false,
+    "aggregate_list_id": 43,
     "title": "Severin Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -127,15 +127,15 @@ For a user with multiple lists:
 
 ## POST /shopping_lists
 
-Creates a new shopping list for the authenticated user. If the user does not already have a master list, a master list will also be created automatically. The response is an array that includes the newly created shopping list(s).
+Creates a new shopping list for the authenticated user. If the user does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes the newly created shopping list(s).
 
 The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on the shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
 * Titles must be unique per user - you cannot name two of your lists the same thing
-* Only a master list can be called "Master"
-* All master lists are called "Master" and there is no way to rename them something else
+* Only an aggregate list can be called "All Items"
+* All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
 * If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
 
@@ -169,13 +169,13 @@ Content-Type: application/json
 
 #### Example Bodies
 
-When there hasn't been a master list created:
+When there hasn't been an aggregate list created:
 ```json
 {
   "id": 4,
   "user_id": 6,
-  "master": false,
-  "master_list_id": 3,
+  "aggregate": false,
+  "aggregate_list_id": 3,
   "title": "My List 1",
   "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -183,22 +183,22 @@ When there hasn't been a master list created:
 }
 ```
 
-When the master list has also been created:
+When the aggregate list has also been created:
 ```json
 [
   {
     "id": 4,
     "user_id": 6,
-    "master": true,
-    "title": "Master",
+    "aggregate": true,
+    "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   },
   {
     "id": 5,
     "user_id": 6,
-    "master": false,
-    "master_list_id": 4,
+    "aggregate": false,
+    "aggregate_list_id": 4,
     "title": "My List 1",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -223,18 +223,18 @@ If duplicate title is given:
 }
 ```
 
-If request attempts to create a master list:
+If request attempts to create an aggregate list:
 ```json
 {
   "errors": [
-    "Cannot manually create a master shopping list"
+    "Cannot manually create an aggregate shopping list"
   ]
 }
 ```
 
 ## PATCH /shopping_lists/:id
 
-If the specified shopping list exists, belongs to the authenticated user, and is not a master list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
+If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
 
 ### Example Requests
 
@@ -276,8 +276,8 @@ Content-Type: application/json
 {
   "id": 834,
   "user_id": 16,
-  "master": false,
-  "master_list_id": 833,
+  "aggregate": false,
+  "aggregate_list_id": 833,
   "title": "New List Title",
   "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
   "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -314,11 +314,11 @@ For a 422 response due to title uniqueness constraint:
 }
 ```
 
-For a 405 response due to attempting to update a master list or convert a regular list to a master list:
+For a 405 response due to attempting to update an aggregate list or convert a regular list to an aggregate list:
 ```json
 {
   "errors": [
-    "Cannot manually update a master shopping list"
+    "Cannot manually update an aggregate shopping list"
   ]
 }
 ```
@@ -327,7 +327,7 @@ For a 404 response, no response body is returned.
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-master) shopping list, the master list will also be destroyed.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed.
 
 ### Example Request
 
@@ -345,15 +345,15 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Example Body
 
-If the resource deleted was the user's last regular list, the master list will also be destroyed and no content will be returned in the response. If the user had at least one other regular list (as well as a master list), then the master list will be returned with its values updated to reflect removal of the items on the list that was deleted.
+If the resource deleted was the user's last regular list, the aggregate list will also be destroyed and no content will be returned in the response. If the user had at least one other regular list (as well as an aggregate list), then the aggregate list will be returned with its values updated to reflect removal of the items on the list that was deleted.
 
 ```json
 {
-  "master_list": {
+  "aggregate_list": {
     "id": 834,
     "user_id": 16,
-    "master": true,
-    "title": "Master",
+    "aggregate": true,
+    "title": "All Items",
     "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
@@ -373,7 +373,7 @@ If the resource deleted was the user's last regular list, the master list will a
 
 ### Error Responses
 
-If the specified list does not exist or does not belong to the authenticated user, a 404 response will be returned. If the specified list is a master list, a 405 response will be returned.
+If the specified list does not exist or does not belong to the authenticated user, a 404 response will be returned. If the specified list is an aggregate list, a 405 response will be returned.
 
 #### Statuses
 
@@ -388,7 +388,7 @@ For a 405 response:
 ```json
 {
   "errors": [
-    "Cannot manually delete a master shopping list"
+    "Cannot manually delete an aggregate shopping list"
   ]
 }
 ```

@@ -10,11 +10,11 @@ RSpec.describe ShoppingListsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
     
-    let!(:master_list) { create(:master_shopping_list, user: user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
     let(:user) { create(:user) }
     
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, user: user, master_list_id: master_list.id) }
+      let(:shopping_list) { create(:shopping_list, user: user, aggregate_list_id: aggregate_list.id) }
       let(:params) { { title: 'My New Title' } }
 
       it 'updates the shopping list' do
@@ -53,8 +53,8 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context 'when the shopping list is a master shopping list' do
-      let(:shopping_list) { master_list }
+    context 'when the shopping list is an aggregate shopping list' do
+      let(:shopping_list) { aggregate_list }
       let(:params) { { title: 'New Title' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -62,20 +62,20 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot manually update a master shopping list'])
+        expect(perform.errors).to eq(['Cannot manually update an aggregate shopping list'])
       end
     end
 
-    context 'when the request tries to set master to true' do
+    context 'when the request tries to set aggregate to true' do
       let(:shopping_list) { create(:shopping_list, user: user) }
-      let(:params) { { master: true } }
+      let(:params) { { aggregate: true } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot make a regular shopping list a master list'])
+        expect(perform.errors).to eq(['Cannot make a regular shopping list an aggregate list'])
       end
     end
   end

@@ -14,18 +14,18 @@ RSpec.describe ShoppingListItemsController::CreateService do
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let!(:master_list) { create(:master_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         allow(user.shopping_lists).to receive(:find).and_return(shopping_list)
-        allow(shopping_list).to receive(:master_list).and_return(master_list)
+        allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
       end
 
       context 'when there is no matching item on the regular list' do
         before do
-          allow(master_list).to receive(:add_item_from_child_list)
+          allow(aggregate_list).to receive(:add_item_from_child_list)
         end
 
         it 'adds a list item to the given list' do
@@ -40,38 +40,38 @@ RSpec.describe ShoppingListItemsController::CreateService do
           expect(shopping_list.list_items.last.attributes).to include(**params_with_string_keys)
         end
 
-        it 'updates the master list' do
+        it 'updates the aggregate list' do
           perform
-          expect(master_list).to have_received(:add_item_from_child_list).with(shopping_list.list_items.last)
+          expect(aggregate_list).to have_received(:add_item_from_child_list).with(shopping_list.list_items.last)
         end
 
         it 'returns a Service::CreatedResult' do
           expect(perform).to be_a(Service::CreatedResult)
         end
 
-        it 'returns both the created list item and master list item' do
-          expect(perform.resource).to eq([master_list.list_items.last, shopping_list.list_items.last])
+        it 'returns both the created list item and aggregate list item' do
+          expect(perform.resource).to eq([aggregate_list.list_items.last, shopping_list.list_items.last])
         end
       end
 
       context 'when there is a matching item on the regular list' do
         before do
           existing_item = create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 2, notes: 'to enchant')
-          master_list.add_item_from_child_list(existing_item)
-          allow(master_list).to receive(:update_item_from_child_list)
+          aggregate_list.add_item_from_child_list(existing_item)
+          allow(aggregate_list).to receive(:update_item_from_child_list)
         end
 
         it "doesn't create a new item on the regular list" do
           expect { perform }.not_to change(shopping_list.list_items, :count)
         end
 
-        it "doesn't create a new item on the master list" do
-          expect { perform }.not_to change(master_list.list_items, :count)
+        it "doesn't create a new item on the aggregate list" do
+          expect { perform }.not_to change(aggregate_list.list_items, :count)
         end
 
-        it 'updates the master list correctly' do
+        it 'updates the aggregate list correctly' do
           perform
-          expect(master_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, 'Hello world')
+          expect(aggregate_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, 'Hello world')
         end
       end
     end
@@ -95,13 +95,13 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when there is a duplicate description' do
-      let!(:master_list) { create(:master_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, master_list: master_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         shopping_list.list_items.create!(description: 'Necklace', quantity: 1, notes: 'To enchant')
-        master_list.add_item_from_child_list(shopping_list.list_items.last)
+        aggregate_list.add_item_from_child_list(shopping_list.list_items.last)
       end
 
       it 'combines the item with an existing one' do
@@ -113,7 +113,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'sets the list items' do
-        expect(perform.resource).to eq([master_list.list_items.last, shopping_list.list_items.last])
+        expect(perform.resource).to eq([aggregate_list.list_items.last, shopping_list.list_items.last])
       end
     end
 
@@ -130,8 +130,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
     end
 
-    context 'when the list is a master list' do
-      let!(:shopping_list) { create(:master_shopping_list, user: user) }
+    context 'when the list is an aggregate list' do
+      let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
       let(:params) { { description: 'Necklace', quantity: 1, notes: 'this should not work' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -139,7 +139,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq(['Cannot manually manage items on a master shopping list'])
+        expect(perform.errors).to eq(['Cannot manually manage items on an aggregate shopping list'])
       end
     end
   end

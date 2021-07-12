@@ -20,7 +20,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when the user has shopping lists' do
-      let!(:master_list) { create(:master_shopping_list, user: user) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
       let!(:lists) { create_list(:shopping_list_with_list_items, 2, user: user) }
 
       it 'returns a Service::OKResult' do

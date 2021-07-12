@@ -10,7 +10,7 @@ RSpec.describe ShoppingListItem, type: :model do
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
     
     before do
-      create(:master_shopping_list, user: user)
+      create(:aggregate_shopping_list, user: user)
     end
 
     describe '#user' do
@@ -22,13 +22,13 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe 'scopes' do
     describe '::index_order' do
-      let!(:master_list) { create(:master_shopping_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list) }
 
       let!(:list_item1) { create(:shopping_list_item, list: list) }
       let!(:list_item2) { create(:shopping_list_item, list: list) }
       let!(:list_item3) { create(:shopping_list_item, list: list) }
 
-      let(:list) { create(:shopping_list, user: master_list.user) }
+      let(:list) { create(:shopping_list, user: aggregate_list.user) }
 
       before do
         list_item2.update!(quantity: 3)
@@ -60,8 +60,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
-      let(:master_list) { create(:master_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
+      let(:aggregate_list) { create(:aggregate_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
@@ -84,8 +84,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
-      let(:master_list) { create(:master_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
+      let(:aggregate_list) { create(:aggregate_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       before do
@@ -111,8 +111,8 @@ RSpec.describe ShoppingListItem, type: :model do
     context 'when there is not an existing item on the same list with that description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, list: shopping_list) }
 
-      let(:master_list) { create(:master_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: master_list.user) }
+      let(:aggregate_list) { create(:aggregate_shopping_list) }
+      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
 
       it 'creates a new item on the list' do
         expect { combine_or_create }.to change(shopping_list.list_items, :count).by(1)
@@ -121,8 +121,8 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe '#update!' do
-    let(:master_list) { create(:master_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: master_list.user) }
+    let(:aggregate_list) { create(:aggregate_shopping_list) }
+    let(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
     let!(:list_item) { create(:shopping_list_item, quantity: 1, list: shopping_list) }
 
     context 'when updating quantity' do

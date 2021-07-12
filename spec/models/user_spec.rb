@@ -44,20 +44,20 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#master_shopping_list' do
+  describe '#aggregate_shopping_list' do
     subject(:user) { create(:user) }
 
-    context 'when the user has a master shopping list' do
-      let!(:master_list) { create(:master_shopping_list, user: user) }
+    context 'when the user has an aggregate shopping list' do
+      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
 
-      it 'returns the master list' do
-        expect(user.master_shopping_list).to eq master_list
+      it 'returns the aggregate list' do
+        expect(user.aggregate_shopping_list).to eq aggregate_list
       end
     end
 
-    context 'when the user has no master shopping list' do
+    context 'when the user has no aggregate shopping list' do
       it 'returns nil' do
-        expect(user.master_shopping_list).to be nil
+        expect(user.aggregate_shopping_list).to be nil
       end
     end
   end

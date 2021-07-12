@@ -7,7 +7,7 @@ require 'service/method_not_allowed_result'
 
 class ShoppingListItemsController < ApplicationController
   class DestroyService
-    MASTER_LIST_ERROR = 'Cannot manually delete list item from master shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate shopping list'
 
     def initialize(user, item_id)
       @user = user
@@ -15,17 +15,17 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [MASTER_LIST_ERROR]) if shopping_list.master == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      master_list_item = nil
+      aggregate_list_item = nil
 
       ActiveRecord::Base.transaction do
         shopping_list_item.destroy!
         shopping_list.touch
-        master_list_item = master_list.remove_item_from_child_list(shopping_list_item.attributes)
+        aggregate_list_item = aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
       end
       
-      master_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: master_list_item)
+      aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     end
@@ -34,8 +34,8 @@ class ShoppingListItemsController < ApplicationController
 
     attr_reader :user, :item_id
 
-    def master_list
-      @master_list ||= shopping_list_item.list.master_list
+    def aggregate_list
+      @aggregate_list ||= shopping_list_item.list.aggregate_list
     end
 
     def shopping_list

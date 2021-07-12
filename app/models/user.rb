@@ -16,8 +16,8 @@ class User < ApplicationRecord
     end
   end
 
-  def master_shopping_list
-    shopping_lists.find_by(master: true)
+  def aggregate_shopping_list
+    shopping_lists.find_by(aggregate: true)
   end
 
   def shopping_list_items

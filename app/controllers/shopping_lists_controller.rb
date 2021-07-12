@@ -30,6 +30,6 @@ class ShoppingListsController < ApplicationController
   private
 
   def shopping_list_params
-    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title, :master) : {}
+    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title, :aggregate) : {}
   end
 end

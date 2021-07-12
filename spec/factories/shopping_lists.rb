@@ -6,12 +6,11 @@ FactoryBot.define do
 
     sequence(:title) { |n| "My List #{n}" }
 
-    factory :master_shopping_list do
-      master { true }
+    factory :aggregate_shopping_list do
+      aggregate { true }
 
-      title { 'Master' }
-      master_list_id { nil }
-
+      title { 'All Items' }
+      aggregate_list_id { nil }
     end
 
     factory :shopping_list_with_list_items do

@@ -1,23 +1,23 @@
 # Shopping List Items
 
-Shopping list items represent the items on a user's [shopping lists](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on the user's master shopping list are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
+Shopping list items represent the items on a user's [shopping lists](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on the user's aggregate shopping list are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
 
 There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
 
 All requests to shopping list item endpoints must be [authenticated](/docs/api/resources/authorization.md).
 
-## Automatically Managed Master Lists
+## Automatically Managed Aggregate Lists
 
-Skyrim Inventory Management makes use of automatically managed master lists to help users track an aggregate of what items they need for different properties. The master list is created automatically when the client creates a user's first regular shopping list, and is destroyed automatically when the client deletes the user's last regular shopping list. When items are added, updated, or destroyed from any of a user's regular lists, master list items are updated as described in this section.
+Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties. The aggregate list is created automatically when the client creates a user's first regular shopping list, and is destroyed automatically when the client deletes the user's last regular shopping list. When items are added, updated, or destroyed from any of a user's regular lists, aggregate list items are updated as described in this section.
 
-(Ensuring automatic management of master lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`MasterListable` docs](/docs/master-lists.md).)
+(Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`Aggregatable` docs](/docs/aggregate-lists.md).)
 
 ### Creating a New List Item
 
 If the client requests a new list item be created on a user's regular list, one of the following things will happen:
 
-* If there is not an item with the same (case-insensitive) `description` on the master list, then an item with the same `description`, `quantity`, and `notes` will be created on the master list.
-* If there is an item with the same (case-insensitive) `description` on the master list, then that item will be updated:
+* If there is not an item with the same (case-insensitive) `description` on the aggregate list, then an item with the same `description`, `quantity`, and `notes` will be created on the aggregate list.
+* If there is an item with the same (case-insensitive) `description` on the aggregate list, then that item will be updated:
   * The `description` will not be changed
   * The `quantity` will be increased by the quantity of the new list item
   * The `notes` for the two items, if any, will be concatenated and separated by ` -- `
@@ -26,16 +26,16 @@ If the client requests a new list item be created on a user's regular list, one 
 
 When a client updates a list item on a user's regular list, one or more of the following things will happen:
 
-* If the `quantity` is increased, the `quantity` of the item on the master list will be increased by the same amount
-* If the `quantity` is decreased, the `quantity` of the item on the master list will be decreased by the same amount
-* If the `notes` are changed, SIM will ensure that the new (or added or removed) `notes` are reflected in the master list item
+* If the `quantity` is increased, the `quantity` of the item on the aggregate list will be increased by the same amount
+* If the `quantity` is decreased, the `quantity` of the item on the aggregate list will be decreased by the same amount
+* If the `notes` are changed, SIM will ensure that the new (or added or removed) `notes` are reflected in the aggregate list item
 
 ### Destroying a List Item
 
 When a client destroys a list item on a user's regular shopping list, one of the following things will happen:
 
-* If the quantity of the item on the user's master shopping list is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the master list item's quantity will be decreased by the amount of the quantity of the deleted item.
-* If the quantity on the user's master shopping list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the master shopping list will be deleted as well.
+* If the quantity of the item on the user's aggregate shopping list is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the aggregate list item's quantity will be decreased by the amount of the quantity of the deleted item.
+* If the quantity on the user's aggregate shopping list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the aggregate shopping list will be deleted as well.
 
 ## Endpoints
 
@@ -52,16 +52,16 @@ Creates a shopping list item on the given list if the shopping list with the giv
 
 1. Exists
 2. Belongs to the authenticated user
-3. Is not a master list AND
+3. Is not an aggregate list AND
 4. Does not have an existing shopping list item with the same description
 
 If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values.
 
-In both cases, the user's master list is also updated to reflect the new `quantity` and `notes`.
+In both cases, the user's aggregate list is also updated to reflect the new `quantity` and `notes`.
 
 Requests must specify a `description` and an integer `quantity` greater than 0. The optional `notes` field is an arbitrary string where users can keep any reminders of what the item will be used for or other useful notes.
 
-A successful response will return a JSON array of two items. The first item is the item from the user's master list that has been added or updated as a result of the request. The second item is the item created or updated from the client's request.
+A successful response will return a JSON array of two items. The first item is the item from the user's aggregate list that has been added or updated as a result of the request. The second item is the item created or updated from the client's request.
 
 ### Example Request
 
@@ -84,7 +84,7 @@ Content-Type: application/json
 
 #### Example Body
 
-Body contains the updated item from the master list first and the item from the regular list that you requested second.
+Body contains the updated item from the aggregate list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -122,11 +122,11 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list is an aggregate shopping list, comes with the following body:
 ```json
 {
   "errors": [
-    "Cannot manually manage items on a master shopping list"
+    "Cannot manually manage items on an aggregate shopping list"
   ]
 }
 ```
@@ -148,9 +148,9 @@ Updates a given shopping list item provided the list the item is on:
 
 1. Exists
 2. Belongs to the authenticated user AND
-3. Is not a master list
+3. Is not an aggregate list
 
-When this happens, the corresponding list item on the master list is also automatically updated to stay synced with the other lists. When the master list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
 
 Requests may specify two fields to update: `quantity` (integer, greater than 0) and `notes` (any string). Requests attempting to update `description` will result in a validation error.
 
@@ -176,7 +176,7 @@ Content-Type: application/json
 
 #### Example Body
 
-Body contains the item from the master list first and the item from the regular list that you requested second.
+Body contains the item from the aggregate list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -214,11 +214,11 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list is a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list is an aggregate shopping list, comes with the following body:
 ```json
 {
   "errors": [
-    "Cannot manually update list items on a master shopping list"
+    "Cannot manually update list items on an aggregate shopping list"
   ]
 }
 ```
@@ -241,7 +241,7 @@ A 422 error, returned as a result of a validation error, includes whichever erro
 
 #### Example Body
 
-Body contains the item from the master list first and the item from the regular list that you requested second.
+Body contains the item from the aggregate list first and the item from the regular list that you requested second.
 ```json
 [
   {
@@ -279,11 +279,11 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
 ```json
 {
   "errors": [
-    "Cannot manually manage items on a master shopping list"
+    "Cannot manually manage items on an aggregate shopping list"
   ]
 }
 ```
@@ -305,9 +305,9 @@ Updates a given shopping list item provided the list the item is on:
 
 1. Exists
 2. Belongs to the authenticated user AND
-3. Is not a master list
+3. Is not an aggregate list
 
-When this happens, the corresponding list item on the master list is also automatically updated to stay synced with the other lists. When the master list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
 
 Requests may specify two fields to update: `quantity` (integer, greater than 0) and `notes` (any string). Requests attempting to update `description` will result in a validation error.
 
@@ -333,7 +333,7 @@ Content-Type: application/json
 
 #### Example Body
 
-Body contains the item from the master list first and the item from the regular list that you requested second.
+Body contains the item from the aggregate list first and the item from the regular list that you requested second.
 
 ```json
 [
@@ -372,11 +372,11 @@ Three error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
 ```json
 {
   "errors": [
-    "Cannot manually update list items on a master shopping list"
+    "Cannot manually update list items on an aggregate shopping list"
   ]
 }
 ```
@@ -396,9 +396,9 @@ A 422 error, returned as a result of a validation error, includes whichever erro
 Deletes the given shopping list item provided the item exists and the list it is on:
 
 1. Belongs to the authenticated user AND
-2. Is not a master list
+2. Is not an aggregate list
 
-When this happens, the corresponding list item on the master list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the master list is greater) to stay synced with the other lists. When the master list is synced, the `quantity` will be reduced and the `notes` value may be shortened or set to `nil`, depending on the existing `notes` value on the master list and whether there are notes on that list other than the ones from the deleted item.
+When this happens, the corresponding list item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced and the `notes` value may be shortened or set to `nil`, depending on the existing `notes` value on the aggregate list and whether there are notes on that list other than the ones from the deleted item.
 
 ### Example Request
 
@@ -416,9 +416,9 @@ Authorization: Bearer xxxxxxxxxxx
 
 #### Example Body
 
-The API will return a 204 response if the list item has been destroyed along with the corresponding item on the master list. This responsee does not include a body. On the other hand, if the master list item has been updated, it will be returned and the status code will be 200.
+The API will return a 204 response if the list item has been destroyed along with the corresponding item on the aggregate list. This responsee does not include a body. On the other hand, if the aggregate list item has been updated, it will be returned and the status code will be 200.
 
-Example 200 response body containing the updated master list item:
+Example 200 response body containing the updated aggregate list item:
 ```json
 {
   "id": 87,
@@ -444,11 +444,11 @@ Two error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list item is on a master shopping list, comes with the following body:
+A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
 ```json
 {
   "errors": [
-    "Cannot manually delete a master shopping list"
+    "Cannot manually delete an aggregate shopping list"
   ]
 }
 ```
