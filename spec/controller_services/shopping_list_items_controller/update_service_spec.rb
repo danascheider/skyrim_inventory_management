@@ -5,6 +5,7 @@ require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/unprocessable_entity_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListItemsController::UpdateService do
   describe '#perform' do
@@ -142,6 +143,24 @@ RSpec.describe ShoppingListItemsController::UpdateService do
 
       it 'sets the errors' do
         expect(perform.errors).to eq ['Cannot manually update list items on an aggregate shopping list']
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:params) { { quantity: 4 } }
+
+      before do
+        allow_any_instance_of(ShoppingListItem).to receive(:save!).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
       end
     end
   end

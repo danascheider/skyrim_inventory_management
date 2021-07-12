@@ -3,6 +3,7 @@
 require 'service/created_result'
 require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
