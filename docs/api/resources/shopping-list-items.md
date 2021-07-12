@@ -10,7 +10,7 @@ All requests to shopping list item endpoints must be [authenticated](/docs/api/r
 
 Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties. The aggregate list is created automatically when the client creates a user's first regular shopping list, and is destroyed automatically when the client deletes the user's last regular shopping list. When items are added, updated, or destroyed from any of a user's regular lists, aggregate list items are updated as described in this section.
 
-(Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`AggregateListable` docs](/docs/aggregate-lists.md).)
+(Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`Aggregatable` docs](/docs/aggregate-lists.md).)
 
 ### Creating a New List Item
 
