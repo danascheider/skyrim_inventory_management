@@ -27,6 +27,8 @@ class ShoppingListsController < ApplicationController
       else
         Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
       end
+    rescue => e
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

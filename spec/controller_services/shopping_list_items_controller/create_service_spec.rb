@@ -5,6 +5,7 @@ require 'service/created_result'
 require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 require 'service/ok_result'
 
 RSpec.describe ShoppingListItemsController::CreateService do
@@ -140,6 +141,23 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
       it 'sets the errors' do
         expect(perform.errors).to eq(['Cannot manually manage items on an aggregate shopping list'])
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let(:params) { { description: 'Necklace', quantity: 1, notes: 'hello world' } }
+
+      before do
+        allow_any_instance_of(ShoppingListItem).to receive(:save!).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a 500 response' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the error message' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
       end
     end
   end
