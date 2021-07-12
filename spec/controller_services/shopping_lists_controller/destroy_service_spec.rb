@@ -16,12 +16,12 @@ RSpec.describe ShoppingListsController::DestroyService do
       let!(:shopping_list) { create(:shopping_list_with_list_items, user: user) }
 
       context 'when the user has additional regular lists' do
-        let!(:master_list) { user.master_shopping_list }
-        let!(:third_list) { create(:shopping_list, user: user, master_list: master_list) }
+        let!(:aggregate_list) { user.aggregate_shopping_list }
+        let!(:third_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
 
         before do
           shopping_list.list_items.each do |list_item|
-            master_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(list_item)
           end
         end
 
@@ -33,29 +33,29 @@ RSpec.describe ShoppingListsController::DestroyService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'sets the resource as the master list' do
-          expect(perform.resource).to eq master_list
+        it 'sets the resource as the aggregate list' do
+          expect(perform.resource).to eq aggregate_list
         end
 
-        describe 'updating the master list' do
+        describe 'updating the aggregate list' do
           before do
             items = create_list(:shopping_list_item, 2, list: third_list)
-            items.each { |item| master_list.add_item_from_child_list(item) }
+            items.each { |item| aggregate_list.add_item_from_child_list(item) }
 
-            # Because in the code it finds the shopping list by ID and then gets the master list
-            # off that instance, the tests don't have access to the instance of the master list that
+            # Because in the code it finds the shopping list by ID and then gets the aggregate list
+            # off that instance, the tests don't have access to the instance of the aggregate list that
             # the method is actually being called on, so we have to resort to this hack.
             allow(user.shopping_lists).to receive(:find).and_return(shopping_list)
-            allow(shopping_list).to receive(:master_list).and_return(master_list)
-            allow(master_list).to receive(:remove_item_from_child_list).twice
+            allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
+            allow(aggregate_list).to receive(:remove_item_from_child_list).twice
           end
 
           it 'calls #remove_item_from_child_list for each item', :aggregate_failures do
             perform
 
             shopping_list.list_items.each do |item|
-              puts master_list.inspect
-              expect(master_list).to have_received(:remove_item_from_child_list).with(item.attributes)
+              puts aggregate_list.inspect
+              expect(aggregate_list).to have_received(:remove_item_from_child_list).with(item.attributes)
             end
           end
         end
@@ -64,11 +64,11 @@ RSpec.describe ShoppingListsController::DestroyService do
       context "when this is the user's last regular list" do
         before do
           shopping_list.list_items.each do |item|
-            shopping_list.master_list.add_item_from_child_list(item)
+            shopping_list.aggregate_list.add_item_from_child_list(item)
           end
         end
 
-        it 'destroys the master list too' do
+        it 'destroys the aggregate list too' do
           expect { perform }.to change(user.shopping_lists, :count).from(2).to(0)
         end
 
@@ -78,15 +78,15 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
     end
 
-    context 'when the list is a master list' do
-      let!(:shopping_list) { create(:master_shopping_list, user: user) }
+    context 'when the list is an aggregate list' do
+      let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq(['Cannot manually delete a master shopping list'])
+        expect(perform.errors).to eq(['Cannot manually delete an aggregate shopping list'])
       end
     end
 

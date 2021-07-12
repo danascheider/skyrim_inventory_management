@@ -16,11 +16,11 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     context 'when all goes well' do
       let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
       let(:params) { { quantity: 3 } }
-      let(:master_list) { user.master_shopping_list }
+      let(:aggregate_list) { user.aggregate_shopping_list }
       let(:scope) { ShoppingListItem.belonging_to_user(user) }
 
       before do
-        master_list.add_item_from_child_list(list_item)
+        aggregate_list.add_item_from_child_list(list_item)
       end
 
       it 'updates the shopping list item', :aggregate_failures do
@@ -29,23 +29,23 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         expect(list_item.reload.notes).to be nil
       end
 
-      it 'updates the item on the master list' do
+      it 'updates the item on the aggregate list' do
         # Put the mocks in here because I don't want this much mocking in the other specs
         allow(ShoppingListItem).to receive(:belonging_to_user).with(user).and_return(scope)
         allow(scope).to receive(:find).and_return(list_item)
         allow(list_item).to receive(:list).and_return(shopping_list)
-        allow(shopping_list).to receive(:master_list).and_return(master_list)
-        allow(master_list).to receive(:update_item_from_child_list)
+        allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
+        allow(aggregate_list).to receive(:update_item_from_child_list)
         perform
-        expect(master_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+        expect(aggregate_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
       end
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
 
-      it 'sets the resource to include both the regular and master list item' do
-        expect(perform.resource).to eq([master_list.list_items.first, list_item])
+      it 'sets the resource to include both the regular and aggregate list item' do
+        expect(perform.resource).to eq([aggregate_list.list_items.first, list_item])
       end
 
       it 'updates the updated_at timestamp on the list' do
@@ -89,18 +89,18 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     context 'when the params are invalid' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
       let(:params) { { description: 'This is not allowed' } }
-      let(:master_list) { shopping_list.master_list }
+      let(:aggregate_list) { shopping_list.aggregate_list }
       let(:scope) { ShoppingListItem.belonging_to_user(user) }
 
-      it 'does not update the master list' do
+      it 'does not update the aggregate list' do
         # Put the mocks in here because I don't want this much mocking in the other specs
         allow(ShoppingListItem).to receive(:belonging_to_user).with(user).and_return(scope)
         allow(scope).to receive(:find).and_return(list_item)
         allow(list_item).to receive(:list).and_return(shopping_list)
-        allow(shopping_list).to receive(:master_list).and_return(master_list)
-        allow(master_list).to receive(:update_item_from_child_list)
+        allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
+        allow(aggregate_list).to receive(:update_item_from_child_list)
         perform
-        expect(master_list).not_to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+        expect(aggregate_list).not_to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
       end
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -126,8 +126,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
     end
 
-    context 'when the list item is on a master list' do
-      let(:shopping_list) { create(:master_shopping_list, user: user) }
+    context 'when the list item is on an aggregate list' do
+      let(:shopping_list) { create(:aggregate_shopping_list, user: user) }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
       let(:params) { { quantity: 4 } }
 
@@ -141,7 +141,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq ['Cannot manually update list items on a master shopping list']
+        expect(perform.errors).to eq ['Cannot manually update list items on an aggregate shopping list']
       end
     end
   end
