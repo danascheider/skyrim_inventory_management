@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'service/unauthorized_result'
+require 'service/internal_server_error_result'
 
 class ApplicationController < ActionController::API
   class AuthorizationService
@@ -25,6 +26,9 @@ class ApplicationController < ActionController::API
     rescue GoogleIDToken::CertificateError => e
       Rails.logger.error "Problem with OAuth certificate -- #{e.message}"
       Service::UnauthorizedResult.new(errors: ['Invalid OAuth certificate'])
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

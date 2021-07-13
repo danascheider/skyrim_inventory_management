@@ -34,10 +34,13 @@ class ShoppingListItemsController < ApplicationController
           Service::OKResult.new(resource: [aggregate_list_item, item])
         end
       end
-    rescue ActiveRecord::RecordInvalid => e
+    rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

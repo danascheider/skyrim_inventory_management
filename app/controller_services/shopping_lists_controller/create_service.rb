@@ -3,6 +3,7 @@
 require 'service/created_result'
 require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
@@ -27,6 +28,9 @@ class ShoppingListsController < ApplicationController
       else
         Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
       end
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

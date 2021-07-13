@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'service/ok_result'
+require 'service/internal_server_error_result'
 
 class ShoppingListsController < ApplicationController
   class IndexService
@@ -10,6 +11,9 @@ class ShoppingListsController < ApplicationController
 
     def perform
       Service::OKResult.new(resource: user.shopping_lists.index_order)
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

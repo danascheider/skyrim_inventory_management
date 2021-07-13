@@ -3,6 +3,7 @@
 require 'rails_helper'
 require 'service/created_result'
 require 'service/unprocessable_entity_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListsController::CreateService do
   describe '#perform' do
@@ -86,6 +87,21 @@ RSpec.describe ShoppingListsController::CreateService do
 
       it 'sets the errors' do
         expect(perform.errors).to eq(['Title can only include alphanumeric characters and spaces'])
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let(:params) { { title: 'Foobar' } }
+      before do
+        allow_any_instance_of(ShoppingList).to receive(:save).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq ['Something went horribly wrong']
       end
     end
   end

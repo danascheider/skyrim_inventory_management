@@ -31,5 +31,19 @@ RSpec.describe ShoppingListsController::IndexService do
         expect(perform.resource).to eq user.shopping_lists.index_order
       end
     end
+
+    context 'when something unexpected goes wrong' do
+      before do
+        allow_any_instance_of(User).to receive(:shopping_lists).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
+      end
+    end
   end
 end

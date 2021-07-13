@@ -4,6 +4,7 @@ require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 
 class ShoppingListItemsController < ApplicationController
   class UpdateService
@@ -34,6 +35,9 @@ class ShoppingListItemsController < ApplicationController
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
     
     private

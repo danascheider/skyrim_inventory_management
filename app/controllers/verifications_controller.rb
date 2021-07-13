@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'service/no_content_result'
+require 'controller/response'
+
 class VerificationsController < ApplicationController
   # The token will be verified in the before_action defined
   # in the ApplicationController class. If it gets to this
@@ -8,6 +11,8 @@ class VerificationsController < ApplicationController
   # token has been verified server-side and that there is
   # a corresponding user in the system.
   def verify_token
-    head :no_content
+    result = Service::NoContentResult.new
+
+    ::Controller::Response.new(self, result).execute
   end
 end

@@ -4,6 +4,7 @@ require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 
 class ShoppingListItemsController < ApplicationController
   class DestroyService
@@ -28,6 +29,9 @@ class ShoppingListItemsController < ApplicationController
       aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
+    rescue => e
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

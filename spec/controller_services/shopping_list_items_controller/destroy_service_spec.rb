@@ -5,6 +5,7 @@ require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListItemsController::DestroyService do
   describe '#perform' do
@@ -147,6 +148,22 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
       it 'includes a helpful error message' do
         expect(perform.errors).to eq ['Cannot manually delete list item from aggregate shopping list']
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+
+      before do
+        allow_any_instance_of(ShoppingListItem).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Something went horribly wrong'])
       end
     end
   end

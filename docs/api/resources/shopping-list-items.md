@@ -110,13 +110,14 @@ Body contains the updated item from the aggregate list first and the item from t
 
 ### Error Responses
 
-Three error responses are possible.
+Four error responses are possible.
 
 #### Statuses
 
 * 404 Not Found
 * 405 Method Not Allowed
 * 422 Unprocessable Entity
+* 500 Internal Server Error
 
 #### Example Bodies
 
@@ -139,6 +140,13 @@ A 422 error, returned as a result of a validation error, includes whichever erro
     "Quantity must be greater than zero",
     "Description is required"
   ]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
 }
 ```
 
@@ -202,13 +210,14 @@ Body contains the item from the aggregate list first and the item from the regul
 
 ### Error Responses
 
-Three error responses are possible.
+Four error responses are possible.
 
 #### Statuses
 
 * 404 Not Found
 * 405 Method Not Allowed
 * 422 Unprocessable Entity
+* 500 Internal Server Error
 
 #### Example Bodies
 
@@ -233,69 +242,10 @@ A 422 error, returned as a result of a validation error, includes whichever erro
 }
 ```
 
-### Success Responses
-
-#### Statuses
-
-* 200 OK
-
-#### Example Body
-
-Body contains the item from the aggregate list first and the item from the regular list that you requested second.
-```json
-[
-  {
-    "id": 87,
-    "list_id": 238,
-    "description": "Ebony sword",
-    "quantity": 9,
-    "notes": "To sell -- To enchant with 'Absorb Health'",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
-  },
-  {
-    "id": 126,
-    "list_id": 237,
-    "description": "Ebony sword",
-    "quantity": 7,
-    "notes": "To enchant with 'Absorb Health'",
-    "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
-  }
-]
-```
-
-### Error Responses
-
-Three error responses are possible.
-
-#### Statuses
-
-* 404 Not Found
-* 405 Method Not Allowed
-* 422 Unprocessable Entity
-
-#### Example Bodies
-
-No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
-
-A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
 ```json
 {
-  "errors": [
-    "Cannot manually manage items on an aggregate shopping list"
-  ]
-}
-```
-
-A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
-```json
-{
-  "errors": [
-    "Quantity must be a number",
-    "Quantity must be greater than zero",
-    "Description is required"
-  ]
+  "errors": ["Something went horribly wrong"]
 }
 ```
 
@@ -360,13 +310,14 @@ Body contains the item from the aggregate list first and the item from the regul
 
 ### Error Responses
 
-Three error responses are possible.
+Four error responses are possible.
 
 #### Statuses
 
 * 404 Not Found
 * 405 Method Not Allowed
 * 422 Unprocessable Entity
+* 500 Internal Server Error
 
 #### Example Bodies
 
@@ -388,6 +339,13 @@ A 422 error, returned as a result of a validation error, includes whichever erro
     "Quantity must be a number",
     "Quantity must be greater than zero"
   ]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
 }
 ```
 
@@ -433,12 +391,13 @@ Example 200 response body containing the updated aggregate list item:
 
 ### Error Responses
 
-Two error responses are possible.
+Three error responses are possible.
 
 #### Statuses
 
 * 404 Not Found
 * 405 Method Not Allowed
+* 500 Internal Server Error
 
 #### Example Bodies
 
@@ -460,5 +419,12 @@ A 422 error, returned as a result of a validation error, includes whichever erro
     "Quantity must be a number",
     "Quantity must be greater than zero"
   ]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
 }
 ```
