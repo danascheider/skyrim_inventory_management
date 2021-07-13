@@ -19,9 +19,9 @@ Authorization: Bearer xxxxxxxxx
 
 ### Success Responses
 
-#### Status
+#### Statuses
 
-200 OK
+* 200 OK
 
 #### Example Body
 
@@ -34,3 +34,7 @@ Authorization: Bearer xxxxxxxxx
   "name": "Jane Doe"
 }
 ```
+
+### Error Responses
+
+No errors are expected from this endpoint, however, it can still result in errors during the authorisation phase, returning the same errors as the [authorisation endpoint](/docs/api/authorization.md).

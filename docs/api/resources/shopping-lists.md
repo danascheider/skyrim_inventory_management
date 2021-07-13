@@ -125,6 +125,23 @@ For a user with multiple lists:
 ]
 ```
 
+### Error Responses
+
+In general, no errors are expected to be returned from this endpoint. However, unanticipated problems can always come up.
+
+#### Statuses
+
+* 500 Internal Server Error
+
+#### Example Bodies
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
+
 ## POST /shopping_lists
 
 Creates a new shopping list for the authenticated user. If the user does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes the newly created shopping list(s).
@@ -211,24 +228,28 @@ When the aggregate list has also been created:
 #### Statuses
 
 * 422 Unprocessable Entity
+* 500 Internal Server Error
 
 #### Example Bodies
 
 If duplicate title is given:
 ```json
 {
-  "errors": [
-    "Title has already been taken"
-  ]
+  "errors": ["Title has already been taken"]
 }
 ```
 
 If request attempts to create an aggregate list:
 ```json
 {
-  "errors": [
-    "Cannot manually create an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually create an aggregate shopping list"]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
 }
 ```
 
@@ -302,28 +323,33 @@ Content-Type: application/json
 * 422 Unprocessable Entity
 * 405 Method Not Allowed
 * 404 Not Found
+* 500 Internal Server Error
 
 #### Example Bodies
+
+
+For a 404 response, no response body is returned.
 
 For a 422 response due to title uniqueness constraint:
 ```json
 {
-  "errors": [
-    "Title has already been taken"
-  ]
+  "errors": ["Title has already been taken"]
 }
 ```
 
 For a 405 response due to attempting to update an aggregate list or convert a regular list to an aggregate list:
 ```json
 {
-  "errors": [
-    "Cannot manually update an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually update an aggregate shopping list"]
 }
 ```
 
-For a 404 response, no response body is returned.
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
 
 ## DELETE /shopping_lists/:id
 
@@ -379,16 +405,22 @@ If the specified list does not exist or does not belong to the authenticated use
 
 * 404 Not Found
 * 405 Method Not Allowed
+* 500 Internal Server Error
 
 #### Example Bodies
 
-For a 404 response, no response body will be returned
+For a 404 response, no response body will be returned.
 
 For a 405 response:
 ```json
 {
-  "errors": [
-    "Cannot manually delete an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually delete an aggregate shopping list"]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
 }
 ```

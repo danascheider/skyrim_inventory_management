@@ -28,6 +28,7 @@ Authorization: Bearer xxxxxxxxxxxxx
 #### Statuses
 
 * 401 Unauthorized
+* 500 Internal Server Error
 
 #### Example Bodies
 
@@ -45,3 +46,9 @@ Failed certificate validation:
 }
 ```
 
+Internal server error (this is an unexpected error but could occur if there is a bug):
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
