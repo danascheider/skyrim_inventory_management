@@ -397,12 +397,12 @@ RSpec.describe ShoppingList, type: :model do
         let(:aggregate_list) { create(:aggregate_shopping_list) }
 
         context 'complicated notes situations' do
+          before do
+            aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
+          end
+
           context 'removing the middle note value' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2' } }
-            
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
 
             it 'cleans up extra separators' do
               remove_item
@@ -413,10 +413,6 @@ RSpec.describe ShoppingList, type: :model do
           context 'removing the end note value' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 3' } }
 
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
-
             it 'cleans up the trailing separator' do
               remove_item
               expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 2'
@@ -425,10 +421,6 @@ RSpec.describe ShoppingList, type: :model do
 
           context 'removing the first note value' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1' } }
-
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
 
             it 'cleans up the trailing separator' do
               remove_item
@@ -439,10 +431,6 @@ RSpec.describe ShoppingList, type: :model do
           context 'removing the first two notes values' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2' } }
 
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
-
             it 'cleans up the separators' do
               remove_item
               expect(aggregate_list.list_items.first.notes).to eq 'notes 3'
@@ -451,10 +439,6 @@ RSpec.describe ShoppingList, type: :model do
 
           context 'removing the last two notes values' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2 -- notes 3' } }
-
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
 
             it 'cleans up separators' do
               remove_item
@@ -465,10 +449,6 @@ RSpec.describe ShoppingList, type: :model do
           context 'removing all notes' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2 -- notes 3' } }
 
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
-
             it 'cleans up the trailing separator' do
               remove_item
               expect(aggregate_list.list_items.first.notes).to be nil
@@ -477,10 +457,6 @@ RSpec.describe ShoppingList, type: :model do
 
           context 'removing an item without notes' do
             let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3 } }
-
-            before do
-              aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-            end
 
             it 'leaves the notes on the aggregate list alone' do
               remove_item
