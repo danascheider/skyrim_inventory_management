@@ -1,6 +1,6 @@
 # Shopping Lists
 
-Shopping lists represent lists of items a user needs in the game. Users can have different lists corresponding to different property locations. Users with shopping lists also have an aggregate list that includes the combined list items and quantities from all their other lists. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
+Shopping lists represent lists of items a user needs in a given game. Users can have different lists corresponding to different property locations within each game. Games with shopping lists also have an aggregate list that includes the combined list items and quantities from all the other lists for that game. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
 
 Each list contains list items, which are returned with each response that includes the list.
 
@@ -18,15 +18,15 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 ## Endpoints
 
-* [`GET /shopping_lists`](#get-shopping_lists)
+* [`GET /games/:game_id/shopping_lists`](#get-gamesgame_idshopping_lists)
 * [`GET /shopping_lists/:id`](#get-shopping_listsid)
 * [`POST /shopping_lists`](#post-shopping_lists)
 * [`PUT|PATCH /shopping_lists/:id`](#patch-shopping_listsid)
 * [`DELETE /shopping_lists/:id`](#delete-shopping_listsid)
 
-## GET /shopping_lists
+## GET /games/:game_id/shopping_lists
 
-Returns all shopping lists owned by the authenticated user. The aggregate shopping list will be returned first, followed by the user's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
+Returns all shopping lists for the game indicated by the `:game_id` param, provided the game is owned by the authenticated user. The aggregate shopping list will be returned first, followed by the game's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
 
 ### Example Request
 
@@ -43,16 +43,16 @@ Authorization: Bearer xxxxxxxxxxxxx
 
 #### Example Bodies
 
-For a user with no lists:
+For a game with no lists:
 ```json
 []
 ```
-For a user with multiple lists:
+For a game with multiple lists:
 ```json
 [
   {
     "id": 43,
-    "user_id": 8234,
+    "game_id": 8234,
     "aggregate": true,
     "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
@@ -78,7 +78,7 @@ For a user with multiple lists:
   },
   {
     "id": 46,
-    "user_id": 8234,
+    "game_id": 8234,
     "aggregate": false,
     "aggregate_list_id": 43,
     "title": "Lakeview Manor",
@@ -105,7 +105,7 @@ For a user with multiple lists:
   },
   {
     "id": 52,
-    "user_id": 8234,
+    "game_id": 8234,
     "aggregate": false,
     "aggregate_list_id": 43,
     "title": "Severin Manor",
@@ -131,9 +131,12 @@ In general, no errors are expected to be returned from this endpoint. However, u
 
 #### Statuses
 
+* 404 Not Found
 * 500 Internal Server Error
 
 #### Example Bodies
+
+A 404 error is the result of the game not being found or not belonging to the authenticated user. It does not include a response body.
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
 ```json
