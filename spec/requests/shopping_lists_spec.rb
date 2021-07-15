@@ -60,6 +60,26 @@ RSpec.describe 'ShoppingLists', type: :request do
             expect(response.body).to eq(game.shopping_lists.last.to_json)
           end
         end
+
+        context 'when the request does not include a body' do
+          subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", headers: headers }
+
+          before do
+            # let's not have this request create an aggregate list too
+            create(:aggregate_shopping_list, game: game)
+          end
+          
+          it 'returns status 201' do
+            create_shopping_list
+            expect(response.status).to eq 201
+          end
+
+          it 'creates the shopping list with a default title' do
+            create_shopping_list
+            list_attributes = JSON.parse(response.body)
+            expect(list_attributes['title']).to eq 'My List 1'
+          end
+        end
       end
 
       context 'when the game is not found' do
