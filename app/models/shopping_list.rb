@@ -7,7 +7,7 @@ class ShoppingList < ApplicationRecord
   # contain alphanumeric characters and spaces with no special characters or whitespace
   # other than spaces. Leading or trailing whitespace is stripped anyway so the validation
   # ignores any leading or trailing whitespace characters.
-  validates :title, uniqueness: { scope: :user_id },
+  validates :title, uniqueness: { scope: :game_id },
                     format: {
                       with: /\A\s*[a-z0-9 ]*\s*\z/i,
                       message: 'can only include alphanumeric characters and spaces'
@@ -31,7 +31,7 @@ class ShoppingList < ApplicationRecord
     return if aggregate
 
     if title.blank?
-      highest_number = user.shopping_lists.where("title like '%My List%'").pluck(:title).map { |t| t.gsub('My List ', '').to_i }.max || 0
+      highest_number = game.shopping_lists.where("title like '%My List%'").pluck(:title).map { |t| t.gsub('My List ', '').to_i }.max || 0
       self.title = "My List #{highest_number + 1}"
     else
       self.title = Titlecase.titleize(title.strip)

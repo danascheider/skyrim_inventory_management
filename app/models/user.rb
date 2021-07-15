@@ -15,12 +15,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
-  def aggregate_shopping_list
-    shopping_lists.find_by(aggregate: true)
-  end
-
-  def shopping_list_items
-    ShoppingListItem.belonging_to_user(self)
-  end
 end

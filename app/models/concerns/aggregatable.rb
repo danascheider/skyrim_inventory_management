@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 # There is always a risk with concerns that they will not ultimately provide
@@ -34,7 +35,7 @@ module Aggregatable
   class AggregateListError < StandardError; end
   
   included do
-    belongs_to :game, dependent: destroy
+    belongs_to :game, touch: true
     has_many :list_items, -> { index_order }, class_name: self.list_item_class_name, dependent: :destroy, foreign_key: :list_id
     belongs_to :aggregate_list, class_name: self.to_s, foreign_key: :aggregate_list_id, optional: true
     has_many :child_lists, class_name: self.to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list

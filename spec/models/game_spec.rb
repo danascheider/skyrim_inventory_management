@@ -66,4 +66,19 @@ RSpec.describe Game, type: :model do
       end
     end
   end
+
+  describe '#aggregate_shopping_list' do
+    subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
+
+    let(:game) { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+
+    before do
+      create_list(:shopping_list, 2, game: game)
+    end
+
+    it "returns that game's aggregate shopping list" do
+      expect(aggregate_shopping_list).to eq aggregate_list
+    end
+  end
 end
