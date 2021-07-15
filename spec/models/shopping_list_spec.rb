@@ -47,6 +47,35 @@ RSpec.describe ShoppingList, type: :model do
         expect(aggregate_first).to eq([aggregate_list, shopping_list])
       end
     end
+
+    describe '::belongs_to_user' do
+      let(:user) { create(:user) }
+      let!(:game1) { create(:game_with_shopping_lists, user: user) }
+      let!(:game2) { create(:game_with_shopping_lists, user: user) }
+      let!(:game3) { create(:game_with_shopping_lists, user: user) }
+
+      it "returns all list items from all the user's lists" do
+        # These are going to be rearranged in the output since game.shopping_lists
+        # comes back aggregate list first and the scope will return them in descending
+        # updated_at order. There was no easy programmatic way to rearrange them so
+        # I just have to pull them all out and reorder them in the expectation.
+        agg_list1, game1_list1, game1_list2 = game1.shopping_lists.to_a
+        agg_list2, game2_list1, game2_list2 = game2.shopping_lists.to_a
+        agg_list3, game3_list1, game3_list2 = game3.shopping_lists.to_a
+
+        expect(ShoppingList.belonging_to_user(user).to_a).to eq([
+                                                                  game3_list1,
+                                                                  game3_list2,
+                                                                  agg_list3,
+                                                                  game2_list1,
+                                                                  game2_list2,
+                                                                  agg_list2,
+                                                                  game1_list1,
+                                                                  game1_list2,
+                                                                  agg_list1
+                                                                ])
+      end
+    end
   end
 
   describe 'validations' do

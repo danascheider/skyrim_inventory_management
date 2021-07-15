@@ -24,6 +24,7 @@ class ShoppingList < ApplicationRecord
   include Aggregatable
 
   scope :index_order, -> { includes_items.aggregate_first.order(updated_at: :desc) }
+  scope :belonging_to_user, ->(user) { joins(:game).where('games.user_id = ?', user.id).order('shopping_lists.updated_at DESC') }
 
   private
 

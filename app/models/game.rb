@@ -4,7 +4,7 @@ require 'titlecase'
 
 class Game < ApplicationRecord
   belongs_to :user
-  has_many :shopping_lists, dependent: :destroy
+  has_many :shopping_lists, -> { index_order }, dependent: :destroy
 
   validates :name, uniqueness: { scope: :user_id },
                    format: {
@@ -13,6 +13,8 @@ class Game < ApplicationRecord
                    }
 
   before_save :format_name
+
+  scope :index_order, -> { order(updated_at: :desc) }
 
   def aggregate_shopping_list
     shopping_lists.find_by(aggregate: true)

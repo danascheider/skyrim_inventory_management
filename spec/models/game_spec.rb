@@ -30,6 +30,25 @@ RSpec.describe Game, type: :model do
     end
   end
 
+  describe 'scopes' do
+    describe '::index_order' do
+      subject(:index_order) { described_class.index_order }
+
+      let!(:game1) { create(:game) }
+      let!(:game2) { create(:game) }
+      let!(:game3) { create(:game) }
+
+      before do
+        # make sure the last updated game is first, not the last created
+        game2.update!(name: 'New Name')
+      end
+
+      it 'returns the games in descending order of updated_at' do
+        expect(index_order.to_a).to eq([game2, game3, game1])
+      end
+    end
+  end
+
   describe 'name transformations' do
     context 'when the user has set a name' do
       subject(:name) { user.games.create!(name: 'Skyrim, Baby').name }
