@@ -31,6 +31,14 @@ RSpec.describe ShoppingListsController::UpdateService do
       it 'sets the resource to the updated shopping list' do
         expect(perform.resource).to eq shopping_list
       end
+
+      it 'updates the game' do
+        t = Time.now + 3.days
+        Timecop.freeze(t) do
+          perform
+          expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+        end
+      end
     end
 
     context 'when the params are invalid' do
