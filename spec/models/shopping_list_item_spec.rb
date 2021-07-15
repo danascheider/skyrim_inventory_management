@@ -3,19 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
-  let(:user) { create(:user) }
+  let(:game) { create(:game) }
 
   describe 'delegation' do
-    let(:shopping_list) { create(:shopping_list, user: user) }
+    let(:shopping_list) { create(:shopping_list, game: game) }
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
     
     before do
-      create(:aggregate_shopping_list, user: user)
+      create(:aggregate_shopping_list, game: game)
     end
 
-    describe '#user' do
+    describe '#game' do
       it 'returns the owner of its ShoppingList' do
-        expect(list_item.user).to eq(user)
+        expect(list_item.game).to eq(game)
       end
     end
   end
@@ -28,7 +28,7 @@ RSpec.describe ShoppingListItem, type: :model do
       let!(:list_item2) { create(:shopping_list_item, list: list) }
       let!(:list_item3) { create(:shopping_list_item, list: list) }
 
-      let(:list) { create(:shopping_list, user: aggregate_list.user) }
+      let(:list) { create(:shopping_list, game: aggregate_list.game) }
 
       before do
         list_item2.update!(quantity: 3)
@@ -40,14 +40,14 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     describe '::belongs_to_user' do
-      let!(:list1) { create(:shopping_list_with_list_items, user: user) }
-      let!(:list2) { create(:shopping_list_with_list_items, user: user) }
-      let!(:list3) { create(:shopping_list_with_list_items, user: user) }
+      let!(:list1) { create(:shopping_list_with_list_items, game: game) }
+      let!(:list2) { create(:shopping_list_with_list_items, game: game) }
+      let!(:list3) { create(:shopping_list_with_list_items, game: game) }
 
       it "returns all list items from all the user's lists" do
         # Reverse the arrays of list items because the index_only scope used in the ShoppingList
         # class for :list_items will return them in descending order of `:updated_at`
-        expect(ShoppingListItem.belonging_to_user(user).to_a).to eq([
+        expect(ShoppingListItem.belonging_to_game(game).to_a).to eq([
                                                                       list3.list_items.to_a.reverse,
                                                                       list2.list_items.to_a.reverse,
                                                                       list1.list_items.to_a.reverse
@@ -61,7 +61,7 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
@@ -85,7 +85,7 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       before do
@@ -112,7 +112,7 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, list: shopping_list) }
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
 
       it 'creates a new item on the list' do
         expect { combine_or_create }.to change(shopping_list.list_items, :count).by(1)
@@ -122,7 +122,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '#update!' do
     let(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
     let!(:list_item) { create(:shopping_list_item, quantity: 1, list: shopping_list) }
 
     context 'when updating quantity' do
