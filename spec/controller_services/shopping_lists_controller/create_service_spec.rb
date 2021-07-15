@@ -8,12 +8,12 @@ require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListsController::CreateService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, game_id, params).perform }
+    subject(:perform) { described_class.new(user, game.id, params).perform }
     
     let(:user) { create(:user) }
 
     context 'when the game is not found' do
-      let(:game_id) { 898243 }
+      let(:game) { double(id: 898243) }
       let(:params) { { title: 'My Shopping List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -27,7 +27,6 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context "when the game doesn't belong to the given user" do
       let(:game) { create(:game) }
-      let(:game_id) { game.id }
       let(:params) { { title: 'My Shopping List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -41,7 +40,6 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context 'when the request tries to create an aggregate list' do
       let(:game) { create(:game, user: user) }
-      let(:game_id) { game.id }
       let(:params) do
         {
           title: 'All Items',
@@ -60,7 +58,6 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context 'when params are valid' do
       let(:game) { create(:game, user: user) }
-      let(:game_id) { game.id }
       let(:params) { { title: 'Proudspire Manor' } }
 
       context 'when the game has an aggregate shopping list' do
@@ -126,7 +123,6 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context 'when something unexpected goes wrong' do
       let(:game) { create(:game, user: user) }
-      let(:game_id) { game.id }
       let(:params) { { title: 'Foobar' } }
 
       before do
