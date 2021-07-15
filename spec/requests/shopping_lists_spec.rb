@@ -363,12 +363,15 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'GET /shopping_lists' do
-    subject(:get_index) { get '/shopping_lists', headers: headers }
+    subject(:get_index) { get "/games/#{game.id}/shopping_lists", headers: headers }
 
+    
     context 'when unauthenticated' do
+      let(:game) { create(:game) }
+
       before do
         # create some data to not be returned
-        create_list(:shopping_list, 3)
+        create_list(:shopping_list, 3, game: game)
       end
 
       it 'returns 401' do
@@ -396,23 +399,62 @@ RSpec.describe 'ShoppingLists', type: :request do
       
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-
-        create(:aggregate_shopping_list, user: authenticated_user)
-        user_list = create_list(:shopping_list_with_list_items, 3, list_item_count: 2, user: authenticated_user)
-        unauthenticated_user = create(:user)
-        create_list(:shopping_list, 3, user: unauthenticated_user)
-
-        user_list[1].update!(title: 'New title')   
       end
 
-      it 'returns all shopping lists belonging to the authenticated user' do
-        get_index
-        expect(response.body).to eq authenticated_user.shopping_lists.index_order.to_json
+      context 'when the game is not found' do
+        let(:game) { double(id: 491349759) }
+
+        it 'returns status 404' do
+          get_index
+          expect(response.status).to eq 404
+        end
+
+        it 'returns no data' do
+          get_index
+          expect(response.body).to be_empty
+        end
       end
 
-      it 'returns status 200' do
-        get_index
-        expect(response.status).to eq 200
+      context "when the game doesn't belong to the authenticated user" do
+        let(:game) { create(:game) }
+
+        it 'returns status 404' do
+          get_index
+          expect(response.status).to eq 404
+        end
+
+        it 'returns no data' do
+          get_index
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when there are no shopping lists for that game' do
+        let(:game) { create(:game, user: authenticated_user) }
+
+        it 'returns status 200' do
+          get_index
+          expect(response.status).to eq 200
+        end
+
+        it 'returns an empty array' do
+          get_index
+          expect(JSON.parse(response.body)).to eq []
+        end
+      end
+
+      context 'when there are shopping lists for that game' do
+        let(:game) { create(:game_with_shopping_lists, user: authenticated_user) }
+        
+        it 'returns status 200' do
+          get_index
+          expect(response.status).to eq 200
+        end
+
+        it 'returns the shopping lists in index order' do
+          get_index
+          expect(response.body).to eq game.shopping_lists.index_order.to_json
+        end
       end
     end
   end
