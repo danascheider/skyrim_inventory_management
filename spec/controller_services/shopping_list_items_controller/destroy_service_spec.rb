@@ -92,7 +92,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
 
