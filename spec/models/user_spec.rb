@@ -43,35 +43,4 @@ RSpec.describe User, type: :model do
       end
     end
   end
-
-  describe '#aggregate_shopping_list' do
-    subject(:user) { create(:user) }
-
-    context 'when the user has an aggregate shopping list' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-
-      it 'returns the aggregate list' do
-        expect(user.aggregate_shopping_list).to eq aggregate_list
-      end
-    end
-
-    context 'when the user has no aggregate shopping list' do
-      it 'returns nil' do
-        expect(user.aggregate_shopping_list).to be nil
-      end
-    end
-  end
-
-  describe '#shopping_list_items' do
-    subject(:shopping_list_items) { user.shopping_list_items }
-
-    let(:user) { create(:user) }
-    let!(:list1) { create(:shopping_list_with_list_items, user: user) }
-    let!(:list2) { create(:shopping_list_with_list_items, user: user) }
-    let!(:list3) { create(:shopping_list_with_list_items) } # belongs to another user
-
-    it 'calls the ::belonging_to_user scope on ShoppingListItem' do
-      expect(shopping_list_items).to eq([list2.list_items.to_a.reverse, list1.list_items.to_a.reverse].flatten)
-    end
-  end
 end

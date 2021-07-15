@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :shopping_list do
-    user
+    game
 
     sequence(:title) { |n| "My List #{n}" }
 

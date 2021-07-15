@@ -5,13 +5,13 @@ require 'rails_helper'
 RSpec.describe ShoppingList, type: :model do
   describe 'scopes' do
     describe '::index_order' do
-      subject(:index_order) { user.shopping_lists.index_order.to_a }
+      subject(:index_order) { game.shopping_lists.index_order.to_a }
 
-      let!(:user) { create(:user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list1) { create(:shopping_list, user: user) }
-      let!(:shopping_list2) { create(:shopping_list, user: user) }
-      let!(:shopping_list3) { create(:shopping_list, user: user) }
+      let!(:game) { create(:game) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list1) { create(:shopping_list, game: game) }
+      let!(:shopping_list2) { create(:shopping_list, game: game) }
+      let!(:shopping_list3) { create(:shopping_list, game: game) }
 
       before do
         shopping_list2.update!(title: 'Windstad Manor')
@@ -24,24 +24,24 @@ RSpec.describe ShoppingList, type: :model do
 
     # Aggregatable
     describe '::includes_items' do
-      subject(:includes_items) { user.shopping_lists.includes_items }
+      subject(:includes_items) { game.shopping_lists.includes_items }
 
-      let!(:user) { create(:user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:lists) { create_list(:shopping_list_with_list_items, 2, user: user) }
+      let!(:game) { create(:game) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:lists) { create_list(:shopping_list_with_list_items, 2, game: game) }
 
       it 'includes the shopping list items' do
-        expect(includes_items).to eq user.shopping_lists.includes(:list_items)
+        expect(includes_items).to eq game.shopping_lists.includes(:list_items)
       end
     end
 
     # Aggregatable
     describe '::aggregates_first' do
-      subject(:aggregate_first) { user.shopping_lists.aggregate_first.to_a }
+      subject(:aggregate_first) { game.shopping_lists.aggregate_first.to_a }
 
-      let!(:user) { create(:user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let!(:game) { create(:game) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
 
       it 'returns the shopping lists with the aggregate list first' do
         expect(aggregate_first).to eq([aggregate_list, shopping_list])
@@ -53,8 +53,8 @@ RSpec.describe ShoppingList, type: :model do
     # Aggregatable
     describe 'aggregate lists' do
       context 'when there are no aggregate lists' do
-        let(:user) { create(:user) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, user: user) }
+        let(:game) { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
 
         it 'is valid' do
           expect(aggregate_list).to be_valid
@@ -62,8 +62,8 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when there is an existing aggregate list belonging to another user' do
-        let(:user) { create(:user) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, user: user) }
+        let(:game) { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
 
         before do
           create(:aggregate_shopping_list)
@@ -75,16 +75,16 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the user already has an aggregate list' do
-        let(:user) { create(:user) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, user: user) }
+        let(:game) { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
 
         before do
-          create(:aggregate_shopping_list, user: user)
+          create(:aggregate_shopping_list, game: game)
         end
 
         it 'is invalid', :aggregate_failures do
           expect(aggregate_list).not_to be_valid
-          expect(aggregate_list.errors[:aggregate]).to eq ['can only be one list per user']
+          expect(aggregate_list.errors[:aggregate]).to eq ['can only be one list per game']
         end
       end
     end
@@ -147,7 +147,7 @@ RSpec.describe ShoppingList, type: :model do
   # Aggregatable
   describe '#aggregate_list' do
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
 
     it "returns the aggregate list that tracks it" do
       expect(shopping_list.aggregate_list).to eq aggregate_list
@@ -156,15 +156,15 @@ RSpec.describe ShoppingList, type: :model do
 
   describe 'title transformations' do
     describe 'setting a default title' do
-      let(:user) { create(:user) }
+      let(:game) { create(:game) }
   
       # I don't use FactoryBot to create the models in the subject blocks because
       # it sets values for certain attributes and I don't want those to get in the way.
       context 'when the list is not an aggregate list' do
         context 'when the user has set a title' do
-          subject(:title) { user.shopping_lists.create!(title: 'Heljarchen Hall').title }
+          subject(:title) { game.shopping_lists.create!(title: 'Heljarchen Hall').title }
   
-          let(:user) { create(:user) }
+          let(:game) { create(:game) }
   
           it 'keeps the title the user has set' do
             expect(title).to eq 'Heljarchen Hall'
@@ -172,13 +172,13 @@ RSpec.describe ShoppingList, type: :model do
         end
   
         context 'when the user has not set a title' do
-          subject(:title) { user.shopping_lists.create!.title }
+          subject(:title) { game.shopping_lists.create!.title }
   
           before do
-            # Create lists for a different user to make sure the name of this user's
+            # Create lists for a different gamee to make sure the name of this game's
             # list isn't affected by them
             create_list(:shopping_list, 2, title: nil)
-            create_list(:shopping_list, 2, title: nil, user: user)
+            create_list(:shopping_list, 2, title: nil, game: game)
           end
   
           it 'sets the title based on how many regular lists the user has' do
@@ -190,7 +190,7 @@ RSpec.describe ShoppingList, type: :model do
       # Aggregatable
       context 'when the list is an aggregate list' do
         context 'when the user has set a title' do
-          subject(:title) { user.shopping_lists.create!(aggregate: true, title: 'Something other than all items').title }
+          subject(:title) { game.shopping_lists.create!(aggregate: true, title: 'Something other than all items').title }
           
           it 'overrides the title the user has set' do
             expect(title).to eq 'All Items'
@@ -198,7 +198,7 @@ RSpec.describe ShoppingList, type: :model do
         end
   
         context 'when the user has not set a title' do
-          subject(:title) { user.shopping_lists.create!(aggregate: true).title }
+          subject(:title) { game.shopping_lists.create!(aggregate: true).title }
   
           it 'sets the title to "All Items"' do
             expect(title).to eq 'All Items'
@@ -224,7 +224,7 @@ RSpec.describe ShoppingList, type: :model do
     subject(:items) { shopping_list.list_items }
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, user: aggregate_list.user, aggregate_list_id: aggregate_list.id) }
+    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
     let!(:item1) { create(:shopping_list_item, list: shopping_list) }
     let!(:item2) { create(:shopping_list_item, list: shopping_list) }
     let!(:item3) { create(:shopping_list_item, list: shopping_list) }
@@ -244,9 +244,9 @@ RSpec.describe ShoppingList, type: :model do
       subject(:destroy_list) { shopping_list.destroy! }
       let(:shopping_list) { create(:aggregate_shopping_list) }
 
-      context 'when the user has regular lists' do
+      context 'when the game has regular lists' do
         before do
-          create(:shopping_list, user: shopping_list.user, aggregate_list: shopping_list)
+          create(:shopping_list, game: shopping_list.game, aggregate_list: shopping_list)
         end
 
         it 'raises an error and does not destroy the list' do
@@ -254,9 +254,9 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
 
-      context 'when the user has no regular lists' do
+      context 'when the game has no regular lists' do
         it 'destroys the aggregate list' do
-          expect { destroy_list }.to change(shopping_list.user.shopping_lists, :count).from(1).to(0)
+          expect { destroy_list }.to change(shopping_list.game.shopping_lists, :count).from(1).to(0)
         end
       end
     end
@@ -266,23 +266,23 @@ RSpec.describe ShoppingList, type: :model do
   describe 'after destroy hook' do
     subject(:destroy_list) { shopping_list.destroy! }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-    let!(:shopping_list) { create(:shopping_list, user: user) }
-    let(:user) { create(:user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:shopping_list) { create(:shopping_list, game: game) }
+    let(:game) { create(:game) }
 
     context 'when the user has additional regular lists' do
       before do
-        create(:shopping_list, user: user)
+        create(:shopping_list, game: game)
       end
 
       it "doesn't destroy the aggregate list" do
-        expect { destroy_list }.not_to change(user, :aggregate_shopping_list)
+        expect { destroy_list }.not_to change(game, :aggregate_shopping_list)
       end
     end
 
     context 'when the user has no additional regular lists' do
       it 'destroys the aggregate list' do
-        expect { destroy_list }.to change(user.shopping_lists, :count).from(2).to(0)
+        expect { destroy_list }.to change(game.shopping_lists, :count).from(2).to(0)
       end
     end
   end
