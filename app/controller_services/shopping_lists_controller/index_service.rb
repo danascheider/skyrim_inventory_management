@@ -5,12 +5,12 @@ require 'service/internal_server_error_result'
 
 class ShoppingListsController < ApplicationController
   class IndexService
-    def initialize(user)
-      @user = user
+    def initialize(game)
+      @game = game
     end
 
     def perform
-      Service::OKResult.new(resource: user.shopping_lists.index_order)
+      Service::OKResult.new(resource: game.shopping_lists.index_order)
     rescue => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
@@ -18,6 +18,6 @@ class ShoppingListsController < ApplicationController
 
     private
 
-    attr_reader :user
+    attr_reader :game
   end
 end
