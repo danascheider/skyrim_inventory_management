@@ -101,6 +101,14 @@ RSpec.describe ShoppingListsController::CreateService do
           expect(game.shopping_lists.last.title).to eq 'Proudspire Manor'
         end
 
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
+
         it 'returns a Service::CreatedResult' do
           expect(perform).to be_a(Service::CreatedResult)
         end
