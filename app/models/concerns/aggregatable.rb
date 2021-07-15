@@ -19,7 +19,7 @@
 #    | title             | string  | null: false                 |
 #    | aggregate         | boolean | null: false, default: false |
 #    | aggregate_list_id | integer |                             |
-#    | user_id           | integer | null: false                 |
+#    | game_id           | integer | null: false                 |
 #
 # There are a few other assumptions made:
 # - There is a `#list_item_class_name` method defined. For the `ShoppingList` model,
@@ -34,7 +34,7 @@ module Aggregatable
   class AggregateListError < StandardError; end
   
   included do
-    belongs_to :user
+    belongs_to :game, dependent: destroy
     has_many :list_items, -> { index_order }, class_name: self.list_item_class_name, dependent: :destroy, foreign_key: :list_id
     belongs_to :aggregate_list, class_name: self.to_s, foreign_key: :aggregate_list_id, optional: true
     has_many :child_lists, class_name: self.to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
@@ -44,7 +44,7 @@ module Aggregatable
     scope :aggregate_first, -> { order(aggregate: :desc) }
     scope :includes_items, -> { includes(:list_items) }
 
-    validate :one_aggregate_list_per_user,        if: :is_aggregate_list?
+    validate :one_aggregate_list_per_game,        if: :is_aggregate_list?
     validate :not_named_all_items,                unless: :is_aggregate_list?
     validate :ensure_aggregate_list_is_aggregate, unless: :is_aggregate_list?
 
@@ -116,11 +116,11 @@ module Aggregatable
   end
 
   def set_aggregate_list
-    self.aggregate_list ||= self.class.find_or_create_by!(user: user, aggregate: true)
+    self.aggregate_list ||= self.class.find_or_create_by!(game: game, aggregate: true)
   end
 
   def create_aggregate_list
-    self.class.find_or_create_by!(user: user, aggregate: true)
+    self.class.find_or_create_by!(game: game, aggregate: true)
   end
 
   def set_title_to_all_items
@@ -146,11 +146,11 @@ module Aggregatable
     errors.add(:title, 'cannot be "All Items"') if title&.downcase == 'all items'
   end
 
-  def one_aggregate_list_per_user
-    scope = self.class.where(user: user, aggregate: true)
+  def one_aggregate_list_per_game
+    scope = self.class.where(game: game, aggregate: true)
 
     if scope.count > 1 || (scope.count > 0 && !scope.include?(self))
-      errors.add(:aggregate, 'can only be one list per user')
+      errors.add(:aggregate, 'can only be one list per game')
     end
   end
 
