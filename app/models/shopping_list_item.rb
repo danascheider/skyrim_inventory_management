@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShoppingListItem < ApplicationRecord
-  belongs_to :list, class_name: 'ShoppingList'
+  belongs_to :list, class_name: 'ShoppingList', touch: true
 
   validates :description, presence: true, uniqueness: { scope: :list_id, case_sensitive: false }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }

@@ -25,7 +25,6 @@ class ShoppingListItemsController < ApplicationController
       aggregate_list_item = nil
       ActiveRecord::Base.transaction do
         list_item.update!(params)
-        shopping_list.touch
         
         aggregate_list_item = aggregate_list.update_item_from_child_list(list_item.description, delta_qty, old_notes, params[:notes])
       end

@@ -24,7 +24,6 @@ class ShoppingListItemsController < ApplicationController
 
       ActiveRecord::Base.transaction do
         item.save!
-        shopping_list.touch
 
         if preexisting_item.blank?
           aggregate_list_item = aggregate_list.add_item_from_child_list(item)

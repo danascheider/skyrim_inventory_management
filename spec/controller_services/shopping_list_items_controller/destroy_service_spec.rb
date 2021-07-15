@@ -40,17 +40,15 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform.resource).to be nil
         end
 
-        it 'sets the updated_at timestamp on the shopping list', :aggregate_failures do
+        it 'sets the updated_at timestamp on the shopping list', do
           t = Time.now + 3.days
-
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
       end
@@ -86,9 +84,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(aggregate_list.list_items.first.notes).not_to match /some notes/
         end
 
-        it 'sets the updated_at timestamp on the shopping list', :aggregate_failures do
+        it 'sets the updated_at timestamp on the shopping list' do
           t = Time.now + 3.days
-
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop
@@ -96,7 +93,6 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
             expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
           end
         end
 
