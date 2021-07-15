@@ -4,7 +4,7 @@ require 'controller/response'
 
 class ShoppingListsController < ApplicationController
   def index
-    result = IndexService.new(current_user).perform
+    result = IndexService.new(current_user, params[:game_id]).perform
 
     ::Controller::Response.new(self, result).execute
   end

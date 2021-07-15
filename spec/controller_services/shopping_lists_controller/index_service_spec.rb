@@ -2,14 +2,43 @@
 
 require 'rails_helper'
 require 'service/ok_result'
+require 'service/not_found_result'
 
 RSpec.describe ShoppingListsController::IndexService do
   describe '#perform' do
-    subject(:perform) { described_class.new(game).perform }
+    subject(:perform) { described_class.new(user, game_id).perform }
 
-    let(:game) { create(:game) }
+    let(:user) { create(:user) }
+
+    context 'when the game is not found' do
+      let(:game_id) { 455315 }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any error messages" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
+    context 'when the game does not belong to the user' do
+      let(:game) { create(:game) }
+      let(:game_id) { game.id }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any error messages" do
+        expect(perform.errors).to be_empty
+      end
+    end
 
     context 'when there are no shopping lists for that game' do
+      let(:game) { create(:game, user: user) }
+      let(:game_id) { game.id }
+
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
@@ -20,8 +49,8 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when there are shopping lists for that game' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:lists) { create_list(:shopping_list_with_list_items, 2, game: game) }
+      let(:game) { create(:game_with_shopping_lists, user: user) }
+      let(:game_id) { game.id }
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
@@ -33,6 +62,9 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when something unexpected goes wrong' do
+      let(:game) { create(:game, user: user) }
+      let(:game_id) { game.id }
+
       before do
         allow_any_instance_of(Game).to receive(:shopping_lists).and_raise(StandardError, 'Something went horribly wrong')
       end
