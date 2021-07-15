@@ -10,7 +10,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    result = CreateService.new(current_user, shopping_list_params).perform
+    result = CreateService.new(current_user, params[:game_id], shopping_list_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
