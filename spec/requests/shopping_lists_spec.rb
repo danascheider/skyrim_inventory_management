@@ -11,7 +11,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'POST /shopping_lists' do
-    subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: '{ "shopping_list": {} }', headers: headers }
+    subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: {} }.to_json, headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -111,7 +111,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the params are invalid' do
-        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: "{ \"shopping_list\": { \"title\": \"#{existing_list.title}\" } }", headers: headers }
+        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: { title: existing_list.title } }.to_json, headers: headers }
         let(:game) { create(:game, user: user) }
         let(:existing_list) { create(:shopping_list, game: game) }
 
@@ -127,7 +127,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to create an aggregate list' do
-        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
+        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
         let(:game) { create(:game, user: user) }
 
         it "doesn't create a list" do
