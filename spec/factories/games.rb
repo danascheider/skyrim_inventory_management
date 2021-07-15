@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :game do
     user
     
-    sequence(:name) { |n| "My Game #{n}" }
+    sequence(:name) { |n| "Skyrim Game #{n}" }
 
     factory :game_with_shopping_lists do
       transient do
