@@ -11,11 +11,12 @@ RSpec.describe ShoppingListsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
     
-    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
     let(:user) { create(:user) }
     
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, user: user, aggregate_list_id: aggregate_list.id) }
+      let(:shopping_list) { create(:shopping_list, game: game, aggregate_list_id: aggregate_list.id) }
+      let(:game) { create(:game, user: user) }
       let(:params) { { title: 'My New Title' } }
 
       it 'updates the shopping list' do
@@ -33,7 +34,8 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list) { create(:shopping_list, game: game) }
+      let(:game) { create(:game, user: user) }
       let(:params) { { title: '|nvalid Tit|e' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -46,7 +48,8 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when the shopping list does not belong to the user' do
-      let(:shopping_list) { create(:shopping_list) }
+      let(:shopping_list) { create(:shopping_list, game: game) }
+      let(:game) { create(:game) }
       let(:params) { { title: 'Valid New Title' } }
       
       it 'returns a Service::NotFoundResult' do
@@ -56,6 +59,7 @@ RSpec.describe ShoppingListsController::UpdateService do
 
     context 'when the shopping list is an aggregate shopping list' do
       let(:shopping_list) { aggregate_list }
+      let(:game) { create(:game, user: user) }
       let(:params) { { title: 'New Title' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -68,7 +72,8 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when the request tries to set aggregate to true' do
-      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list) { create(:shopping_list, game: game) }
+      let(:game) { create(:game, user: user) }
       let(:params) { { aggregate: true } }
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -81,7 +86,8 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
+      let(:game) { create(:game, user: user) }
       let(:params) { { title: 'New Title' } }
 
       before do

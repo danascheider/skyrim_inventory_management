@@ -157,7 +157,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PUT /shopping_lists/:id' do
-    subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+    subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -176,7 +176,8 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when all goes well' do
-        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
         let(:list_id) { shopping_list.id }
 
         it 'updates the title' do
@@ -198,12 +199,13 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when something goes wrong' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+      context 'when the params are invalid' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: { shopping_list: { title: other_list.title } }.to_json, headers: headers }
 
-        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
         let(:list_id) { shopping_list.id }
-        let(:other_list) { create(:shopping_list, user: user) }
+        let(:other_list) { create(:shopping_list, game: game) }
 
         it 'returns status 422' do
           update_shopping_list
@@ -232,10 +234,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to update an aggregate list' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Foo' } }.to_json, headers: headers }
 
-        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
-        let(:list_id) { shopping_list.id }
+        let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -254,10 +256,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to an aggregate list' do
-        subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
         
-        let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:list_id) { shopping_list.id }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -274,6 +276,27 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list an aggregate list'] })
         end
       end
+
+      context 'when something unexpected goes wrong' do
+        subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
+        
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
+
+        before do
+          allow_any_instance_of(User).to receive(:shopping_lists).and_raise(StandardError, 'Something went catastrophically wrong')
+        end
+
+        it 'returns status 500' do
+          update_shopping_list
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error in the body' do
+          update_shopping_list
+          expect(response.body).to eq({ errors: ['Something went catastrophically wrong'] }.to_json)
+        end
+      end
     end
 
     context 'when unauthenticated' do
@@ -287,7 +310,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PATCH /shopping_lists/:id' do
-    subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Severin Manor" } }', headers: headers }
+    subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -306,7 +329,8 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when all goes well' do
-        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
         let(:list_id) { shopping_list.id }
 
         it 'updates the title' do
@@ -328,12 +352,13 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when something goes wrong' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: "{ \"shopping_list\": { \"title\": \"#{other_list.title}\" } }", headers: headers }
+      context 'when the params are invalid' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: { shopping_list: { title: other_list.title } }.to_json, headers: headers }
 
-        let!(:shopping_list) { create(:shopping_list, user: user) }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
         let(:list_id) { shopping_list.id }
-        let(:other_list) { create(:shopping_list, user: user) }
+        let(:other_list) { create(:shopping_list, game: game) }
 
         it 'returns status 422' do
           update_shopping_list
@@ -362,17 +387,17 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to update an aggregate list' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "title": "Foo" } }', headers: headers }
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Foo' } }.to_json, headers: headers }
 
-        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
-        let(:list_id) { shopping_list.id }
+        let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
           expect(shopping_list.reload.title).to eq 'All Items'
         end
 
-        it 'returns status 405' do
+        it 'returns status 405 (method not allowed)' do
           update_shopping_list
           expect(response.status).to eq 405
         end
@@ -384,10 +409,10 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to an aggregate list' do
-        subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
         
-        let!(:shopping_list) { create(:shopping_list, user: user) }
-        let(:list_id) { shopping_list.id }
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -402,6 +427,27 @@ RSpec.describe 'ShoppingLists', type: :request do
         it 'returns a helpful error body' do
           update_shopping_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular shopping list an aggregate list'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
+        
+        let!(:shopping_list) { create(:shopping_list, game: game) }
+        let(:game) { create(:game, user: user) }
+
+        before do
+          allow_any_instance_of(User).to receive(:shopping_lists).and_raise(StandardError, 'Something went catastrophically wrong')
+        end
+
+        it 'returns status 500' do
+          update_shopping_list
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error in the body' do
+          update_shopping_list
+          expect(response.body).to eq({ errors: ['Something went catastrophically wrong'] }.to_json)
         end
       end
     end
