@@ -20,13 +20,13 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 
 * [`GET /games/:game_id/shopping_lists`](#get-gamesgame_idshopping_lists)
 * [`GET /shopping_lists/:id`](#get-shopping_listsid)
-* [`POST /shopping_lists`](#post-shopping_lists)
+* [`POST /games/:game_id/shopping_lists`](#post-gamesgame_idshopping_lists)
 * [`PUT|PATCH /shopping_lists/:id`](#patch-shopping_listsid)
 * [`DELETE /shopping_lists/:id`](#delete-shopping_listsid)
 
 ## GET /games/:game_id/shopping_lists
 
-Returns all shopping lists for the game indicated by the `:game_id` param, provided the game is owned by the authenticated user. The aggregate shopping list will be returned first, followed by the game's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
+Returns all shopping lists for the game indicated by the `:game_id` param, provided the game exists and is owned by the authenticated user. The aggregate shopping list will be returned first, followed by the game's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
 
 ### Example Request
 
@@ -145,25 +145,25 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## POST /shopping_lists
+## POST /games/:game_id/shopping_lists
 
-Creates a new shopping list for the authenticated user. If the user does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes the newly created shopping list(s).
+Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes the newly created shopping list(s).
 
-The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on the shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
+The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
-* Titles must be unique per user - you cannot name two of your lists the same thing
+* Titles must be unique per game - you cannot name two of one game's lists the same thing
 * Only an aggregate list can be called "All Items"
 * All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
-* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
+* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time the client creates a list without a title, it will be called "My List 4")
 
 ### Example Requests
 
 Request specifying a title:
 ```
-POST /shopping_lists
+POST games/1455/shopping_lists
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
@@ -175,10 +175,16 @@ Content-Type: application/json
 
 Request not specifying a title (list will be given a default title as defined above):
 ```
-POST /shopping_lists
+POST /games/8928/shopping_lists
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 { "shopping_list": {} }
+```
+
+Request with no request body (the list will be given a default title as defined above):
+```
+POST /games/8928/shopping_lists
+Authorization: Bearer xxxxxxxxxx
 ```
 
 ### Success Responses
@@ -230,10 +236,13 @@ When the aggregate list has also been created:
 
 #### Statuses
 
+* 404 Not Found
 * 422 Unprocessable Entity
 * 500 Internal Server Error
 
 #### Example Bodies
+
+If the game with the given `game_id` is not found or does not belong to the authenticated user, a 404 response will be returned. This response will have no body.
 
 If duplicate title is given:
 ```json
