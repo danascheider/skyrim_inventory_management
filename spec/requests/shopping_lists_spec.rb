@@ -11,7 +11,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'POST /shopping_lists' do
-    subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": {} }', headers: headers }
+    subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: {} }.to_json, headers: headers }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -30,14 +30,16 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when all goes well' do
+        let(:game) { create(:game, user: user) }
+
         context 'when an aggregate list has also been created' do
           it 'creates a new shopping list' do
-            expect { create_shopping_list }.to change(user.shopping_lists, :count).from(0).to(2) # because of the aggregate list
+            expect { create_shopping_list }.to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
           it 'returns the aggregate list as well as the new list' do
             create_shopping_list
-            expect(response.body).to eq([user.aggregate_shopping_list, user.shopping_lists.last].to_json)
+            expect(response.body).to eq([game.aggregate_shopping_list, game.shopping_lists.last].to_json)
           end
 
           it 'returns status 201' do
@@ -47,22 +49,71 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when only the new shopping list has been created' do
-          let!(:aggregate_list) { create(:aggregate_shopping_list, user: user, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
+          let!(:aggregate_list) { create(:aggregate_shopping_list, game: game, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
 
           it 'creates one list' do
-            expect{ create_shopping_list }.to change(user.shopping_lists, :count).from(1).to(2)
+            expect{ create_shopping_list }.to change(game.shopping_lists, :count).from(1).to(2)
           end
 
           it 'returns only the newly created list' do
             create_shopping_list
-            expect(response.body).to eq(user.shopping_lists.last.to_json)
+            expect(response.body).to eq(game.shopping_lists.last.to_json)
+          end
+        end
+
+        context 'when the request does not include a body' do
+          subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", headers: headers }
+
+          before do
+            # let's not have this request create an aggregate list too
+            create(:aggregate_shopping_list, game: game)
+          end
+          
+          it 'returns status 201' do
+            create_shopping_list
+            expect(response.status).to eq 201
+          end
+
+          it 'creates the shopping list with a default title' do
+            create_shopping_list
+            list_attributes = JSON.parse(response.body)
+            expect(list_attributes['title']).to eq 'My List 1'
           end
         end
       end
 
-      context 'when something goes wrong' do
-        subject(:create_shopping_list) { post '/shopping_lists', params: "{ \"shopping_list\": { \"title\": \"#{existing_list.title}\" } }", headers: headers }
-        let(:existing_list) { create(:shopping_list, user: user) }
+      context 'when the game is not found' do
+        let(:game) { double(id: 84968294) }
+
+        it 'returns status 404' do
+          create_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          create_shopping_list
+          expect(response.body).to be_empty
+        end
+      end
+
+      context "when the game doesn't belong to the authenticated user" do
+        let(:game) { create(:game) }
+
+        it 'returns status 404' do
+          create_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          create_shopping_list
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the params are invalid' do
+        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: { title: existing_list.title } }.to_json, headers: headers }
+        let(:game) { create(:game, user: user) }
+        let(:existing_list) { create(:shopping_list, game: game) }
 
         it 'returns status 422' do
           create_shopping_list
@@ -76,10 +127,11 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the client attempts to create an aggregate list' do
-        subject(:create_shopping_list) { post '/shopping_lists', params: '{ "shopping_list": { "aggregate": true } }', headers: headers }
+        subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
+        let(:game) { create(:game, user: user) }
 
         it "doesn't create a list" do
-          expect { create_shopping_list }.not_to change(ShoppingList, :count)
+          expect { create_shopping_list }.not_to change(game.shopping_lists, :count)
         end
 
         it 'returns an error' do
@@ -95,6 +147,8 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     context 'when unauthenticated' do
+      let(:game) { create(:game) }
+
       it 'returns 401' do
         create_shopping_list
         expect(response.status).to eq 401
