@@ -40,7 +40,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform.resource).to be nil
         end
 
-        it 'sets the updated_at timestamp on the shopping list', do
+        it 'sets the updated_at timestamp on the shopping list' do
           t = Time.now + 3.days
           Timecop.freeze(t) do
             perform
