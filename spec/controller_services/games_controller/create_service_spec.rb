@@ -38,7 +38,7 @@ RSpec.describe GamesController::CreateService do
     end
 
     it 'sets the errors' do
-      expect(perform.errors).to eq(["Name can only contain alphanumeric characters, spaces, commas (,), and apostrophes (')"])
+      expect(perform.errors).to eq(["Name can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
     end
   end
 

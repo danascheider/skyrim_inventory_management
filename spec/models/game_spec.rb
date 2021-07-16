@@ -22,9 +22,12 @@ RSpec.describe Game, type: :model do
       end
 
       describe 'format' do
-        it 'only contains alphanumeric characters, spaces, commas, and apostrophes' do
-          game = build(:game, name: "#\t&\n^")
-          expect(game).not_to be_valid
+        it 'only contains alphanumeric characters, spaces, commas, hyphens, and apostrophes', :aggregate_failures do
+          invalid_game = build(:game, name: "#\t&\n^")
+          expect(invalid_game).not_to be_valid
+
+          valid_game = build(:game, name: "bA1 ,-'")
+          expect(valid_game).to be_valid
         end
       end
     end
