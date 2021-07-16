@@ -52,7 +52,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def list_item
-      @list_item ||= ShoppingListItem.belonging_to_user(user).find(item_id)
+      @list_item ||= user.shopping_list_items.find(item_id)
     end
   end
 end
