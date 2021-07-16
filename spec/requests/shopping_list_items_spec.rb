@@ -18,7 +18,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list, user: aggregate_list.user) }
+    let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
     
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
@@ -59,6 +59,30 @@ RSpec.describe 'ShoppingListItems', type: :request do
             )
           end
 
+          it 'updates the regular list' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(aggregate_list.game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
           it 'returns the aggregate list item and the regular list item' do
             create_item
             expect(response.body).to eq([aggregate_list.list_items.last, shopping_list.list_items.last].to_json)
@@ -72,7 +96,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when the aggregate list has a matching item from a different list' do
           before do
-            second_list = user.shopping_lists.create!(title: 'Proudspire Manor', aggregate_list: aggregate_list)
+            second_list = aggregate_list.game.shopping_lists.create!(title: 'Proudspire Manor', aggregate_list: aggregate_list)
             second_list.list_items.create!(
               description: 'Corundum ingot',
               quantity: 1,
@@ -125,6 +149,30 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
+
+          it 'updates the game' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(aggregate_list.game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
         end
 
         context 'when the new item matches an existing item on the same list' do
@@ -155,6 +203,44 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(aggregate_list.list_items.first.quantity).to eq 7
             expect(aggregate_list.list_items.first.notes).to eq 'To make locks -- To make locks'
           end
+
+          it 'updates the regular list' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'returns the aggregate list item and the regular list item' do
+            create_item
+
+            # We have to go through this whole rigamarole because the timestamps are being serialised/deserialised
+            # wrong and if I check equality between JSON.parse(response.body) and [agg_list_item, reg_list_item] it
+            # fails wrongly. Likewise, response.body != [agg_list_item, reg_list_item].to_json because the JSON ends
+            # up being in a different order.
+            agg_list_item, reg_list_item = JSON.parse(response.body).map { |attrs| attrs.except('created_at', 'updated_at') }
+            agg_list_item_attributes = aggregate_list.list_items.last.attributes.except('created_at', 'updated_at')
+            reg_list_item_attributes = shopping_list.list_items.last.attributes.except('created_at', 'updated_at')
+
+            expect([agg_list_item, reg_list_item]).to eq ([agg_list_item_attributes, reg_list_item_attributes])
+          end
+
+          it 'updates the game' do
+            t = Time.now + 3.days
+            Timecop.freeze(t) do
+              create_item
+              # use `be_within` even though the time will be set to the time Timecop
+              # has frozen because Rails (Postgres?) sets the last three digits of
+              # the timestamp to 0, which was breaking stuff in CI (but somehow not
+              # in dev).
+              expect(aggregate_list.game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
         end
       end
 
@@ -169,7 +255,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'does not return content' do
           create_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
@@ -187,9 +273,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect(response.status).to eq 404
         end
 
-        it 'returns no body' do
+        it 'does not return content' do
           create_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
@@ -201,6 +287,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
         it 'returns status 405' do
           create_item
           expect(response.status).to eq 405
+        end
+
+        it 'returns an error message' do
+          create_item
+          expect(response.body).to eq({ errors: ['Cannot manually manage items on an aggregate shopping list'] }.to_json)
         end
       end
 
