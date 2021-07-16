@@ -1,12 +1,74 @@
 # Games
 
-Each user in Skyrim Inventory Management can have many games. The game is the base resource that owns other resources a user may create, such as shopping lists and shopping list items. All game routes are scoped to the currently authenticated user. There are no admin routes or any way to access, create, remove, or modify data from a user that is not currently authenticated.
+Each user in Skyrim Inventory Management can have many games. The game is the base resource that owns other resources a user may create, such as shopping lists and shopping list items. All game routes are scoped to the currently authenticated user. There are no admin routes or any way to access, create, remove, or modify data for a user that is not currently authenticated.
 
 ## Endpoints
 
 There is currently one endpoint available:
 
+* [`GET /games`](#get-games)
 * [`POST /games`](#post-games)
+
+## GET /games
+
+Retrieves all the games belonging to the authenticated user and returns them as an array.
+
+### Example Requests
+
+```
+GET /games
+Authorization: Bearer xxxxxxxx
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+
+#### Example Bodies
+
+Success response when the user has no games:
+```json
+[]
+```
+
+Success response when the user has games:
+```json
+[
+  {
+    "id": 335,
+    "user_id": 2301,
+    "name": "My Game 1",
+    "description": "My first game",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+  },
+  {
+    "id": 822,
+    "user_id": 2301,
+    "name": "My Game 2",
+    "description": "My second game",
+    "created_at": "Mon, 21 Jun 2021 02:36:27.173881000 UTC +00:00",
+    "updated_at": "Mon, 21 Jun 2021 02:36:27.173881000 UTC +00:00"
+  }
+]
+```
+
+### Error Responses
+
+#### Statuses
+
+* 500 Internal Server Error
+
+#### Example Bodies
+
+A 500 response is returned only when an unexpected error has occurred. It returns an array with one or more error messages.
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
 
 ## POST /games
 
