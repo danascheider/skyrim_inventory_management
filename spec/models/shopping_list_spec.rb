@@ -249,7 +249,7 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  describe 'relations' do
+  describe 'associations' do
     subject(:items) { shopping_list.list_items }
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
@@ -678,6 +678,14 @@ RSpec.describe ShoppingList, type: :model do
         it 'raises an error' do
           expect { update_item }.to raise_error(Aggregatable::AggregateListError)
         end
+      end
+    end
+
+    describe '#user' do
+      let(:shopping_list) { create(:shopping_list) }
+
+      it 'delegates to the game' do
+        expect(shopping_list.user).to eq (shopping_list.game.user)
       end
     end
   end

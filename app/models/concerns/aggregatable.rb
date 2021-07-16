@@ -42,9 +42,6 @@ module Aggregatable
 
     serialize :list_items, class_name: 'Array'
 
-    scope :aggregate_first, -> { order(aggregate: :desc) }
-    scope :includes_items, -> { includes(:list_items) }
-
     validate :one_aggregate_list_per_game,        if: :is_aggregate_list?
     validate :not_named_all_items,                unless: :is_aggregate_list?
     validate :ensure_aggregate_list_is_aggregate, unless: :is_aggregate_list?
@@ -56,6 +53,11 @@ module Aggregatable
     before_save :set_title_to_all_items,     if: :is_aggregate_list?
     before_destroy :abort_if_aggregate,      if: :has_child_lists?
     after_destroy :destroy_aggregate_list,   unless: -> { is_aggregate_list? || aggregate_has_other_children? }
+
+    scope :aggregate_first, -> { order(aggregate: :desc) }
+    scope :includes_items, -> { includes(:list_items) }
+
+    delegate :user, to: :game
   end
 
   def add_item_from_child_list(item)
