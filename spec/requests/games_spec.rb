@@ -84,6 +84,18 @@ RSpec.describe 'Games', type: :request do
       end
     end
 
-    context 'when unauthenticated'
+    context 'when unauthenticated' do
+      let(:params) { { game: { name: 'My Game' } } }
+
+      it 'returns status 401' do
+        create_game
+        expect(response.status).to eq 401
+      end
+
+      it 'returns an error message' do
+        create_game
+        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
+      end
+    end
   end
 end
