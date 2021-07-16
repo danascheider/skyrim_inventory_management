@@ -1,6 +1,6 @@
 # Shopping List Items
 
-Shopping list items represent the items on a user's [shopping lists](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on the user's aggregate shopping list are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
+Shopping list items represent the items on a [shopping list](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on aggregate shopping lists are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
 
 There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
 
@@ -8,13 +8,13 @@ All requests to shopping list item endpoints must be [authenticated](/docs/api/r
 
 ## Automatically Managed Aggregate Lists
 
-Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties. The aggregate list is created automatically when the client creates a user's first regular shopping list, and is destroyed automatically when the client deletes the user's last regular shopping list. When items are added, updated, or destroyed from any of a user's regular lists, aggregate list items are updated as described in this section.
+Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties in each game. The aggregate list is created automatically when the client creates a the first regular shopping list for a game, and is destroyed automatically when the client deletes the game's last regular shopping list. When items are added, updated, or destroyed from any of a game's regular lists, aggregate list items are updated as described in this section.
 
 (Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`Aggregatable` docs](/docs/aggregate-lists.md).)
 
 ### Creating a New List Item
 
-If the client requests a new list item be created on a user's regular list, one of the following things will happen:
+If the client requests a new list item be created on a regular list, one of the following things will happen:
 
 * If there is not an item with the same (case-insensitive) `description` on the aggregate list, then an item with the same `description`, `quantity`, and `notes` will be created on the aggregate list.
 * If there is an item with the same (case-insensitive) `description` on the aggregate list, then that item will be updated:
@@ -24,18 +24,19 @@ If the client requests a new list item be created on a user's regular list, one 
 
 ### Updating a List Item
 
-When a client updates a list item on a user's regular list, one or more of the following things will happen:
+When a client updates a list item on a regular list for a given game, one (or two) of the following things will happen:
 
 * If the `quantity` is increased, the `quantity` of the item on the aggregate list will be increased by the same amount
 * If the `quantity` is decreased, the `quantity` of the item on the aggregate list will be decreased by the same amount
+* If the `quantity` has not changed, the `quantity` of the item on the aggregate list will also be unchanged
 * If the `notes` are changed, SIM will ensure that the new (or added or removed) `notes` are reflected in the aggregate list item
 
 ### Destroying a List Item
 
-When a client destroys a list item on a user's regular shopping list, one of the following things will happen:
+When a client destroys a list item on a regular shopping list, one of the following things will happen:
 
-* If the quantity of the item on the user's aggregate shopping list is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the aggregate list item's quantity will be decreased by the amount of the quantity of the deleted item.
-* If the quantity on the user's aggregate shopping list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the aggregate shopping list will be deleted as well.
+* If the quantity of the item on the aggregate shopping list for the same game is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the aggregate list item's quantity will be decreased by the amount of the quantity of the deleted item.
+* If the quantity on the aggregate shopping list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the aggregate shopping list will be deleted as well.
 
 ## Endpoints
 
@@ -57,7 +58,7 @@ Creates a shopping list item on the given list if the shopping list with the giv
 
 If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values.
 
-In both cases, the user's aggregate list is also updated to reflect the new `quantity` and `notes`.
+In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `notes`.
 
 Requests must specify a `description` and an integer `quantity` greater than 0. The optional `notes` field is an arbitrary string where users can keep any reminders of what the item will be used for or other useful notes.
 
