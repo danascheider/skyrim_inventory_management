@@ -560,11 +560,10 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'DELETE /shopping_lists/:id' do
-    subject(:delete_shopping_list) { delete "/shopping_lists/#{list_id}", headers: headers }
+    subject(:delete_shopping_list) { delete "/shopping_lists/#{shopping_list.id}", headers: headers }
 
     context 'when unauthenticated' do
       let!(:shopping_list) { create(:shopping_list) }
-      let(:list_id) { shopping_list.id }
 
       it 'returns 401' do
         delete_shopping_list
@@ -584,8 +583,8 @@ RSpec.describe 'ShoppingLists', type: :request do
     context 'when logged in as the wrong user' do
       let(:user1) { create(:user) }
       let(:user2) { create(:user) }
-      let!(:shopping_list) { create(:shopping_list, user: user2) }
-      let(:list_id) { shopping_list.id }
+      let(:game) { create(:game, user: user2) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -617,7 +616,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when the shopping list does not exist' do
       let(:user) { create(:user) }
-      let(:list_id) { 24 } # could be anything
+      let(:shopping_list) { double(id: 982498) } # could be anything
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -645,8 +644,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when authenticated and the shopping list exists' do
       let(:user) { create(:user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let(:game) { create(:game, user: user) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
       let(:list_id) { shopping_list.id }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
@@ -662,9 +662,9 @@ RSpec.describe 'ShoppingLists', type: :request do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
-      context "when this is the user's last regular shopping list" do
+      context "when this is the game's last regular shopping list" do
         it 'deletes the shopping list' do
-          expect { delete_shopping_list }.to change(ShoppingList, :count).from(2).to(0)
+          expect { delete_shopping_list }.to change(game.shopping_lists, :count).from(2).to(0)
         end
 
         it 'returns status 204' do
@@ -679,12 +679,14 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context "when this is not the user's last regular shopping list" do
+        let(:game) { create(:game, user: user) }
+
         before do
-          create(:shopping_list, user: user)
+          create(:shopping_list, game: game)
         end
 
         it 'deletes the shopping list' do
-          expect { delete_shopping_list }.to change(user.shopping_lists, :count).from(3).to(2)
+          expect { delete_shopping_list }.to change(game.shopping_lists, :count).from(3).to(2)
         end
 
         it 'returns status 200' do
@@ -694,14 +696,14 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns the aggregate list in the body' do
           delete_shopping_list
-          expect(response.body).to eq(user.aggregate_shopping_list.to_json)
+          expect(response.body).to eq(game.aggregate_shopping_list.to_json)
         end
       end
     end
 
     context 'when properly authenticated and attempting to delete the aggregate list' do
       let(:user) { create(:user) }
-      let(:list_id) { shopping_list.id }
+      let(:game) { create(:game, user: user) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -717,7 +719,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when another list exists' do
-        let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
+        let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
         let(:list_id) { shopping_list.id }
 
         it 'does not delete anything' do

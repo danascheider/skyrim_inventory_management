@@ -13,11 +13,12 @@ RSpec.describe ShoppingListsController::DestroyService do
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let!(:shopping_list) { create(:shopping_list_with_list_items, user: user) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list_with_list_items, game: game) }
+      let(:game) { create(:game, user: user) }
 
-      context 'when the user has additional regular lists' do
-        let!(:aggregate_list) { user.aggregate_shopping_list }
-        let!(:third_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+      context 'when the game has additional regular lists' do
+        let!(:third_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
 
         before do
           shopping_list.list_items.each do |list_item|
@@ -26,7 +27,15 @@ RSpec.describe ShoppingListsController::DestroyService do
         end
 
         it 'destroys the shopping list' do
-          expect { perform }.to change(user.shopping_lists, :count).from(3).to(2)
+          expect { perform }.to change(game.shopping_lists, :count).from(3).to(2)
+        end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'returns a Service::OKResult' do
@@ -45,7 +54,9 @@ RSpec.describe ShoppingListsController::DestroyService do
             # Because in the code it finds the shopping list by ID and then gets the aggregate list
             # off that instance, the tests don't have access to the instance of the aggregate list that
             # the method is actually being called on, so we have to resort to this hack.
-            allow(user.shopping_lists).to receive(:find).and_return(shopping_list)
+            user_lists = user.shopping_lists
+            allow(user).to receive(:shopping_lists).and_return(user_lists)
+            allow(user_lists).to receive(:find).and_return(shopping_list)
             allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
             allow(aggregate_list).to receive(:remove_item_from_child_list).twice
           end
@@ -54,14 +65,13 @@ RSpec.describe ShoppingListsController::DestroyService do
             perform
 
             shopping_list.list_items.each do |item|
-              puts aggregate_list.inspect
               expect(aggregate_list).to have_received(:remove_item_from_child_list).with(item.attributes)
             end
           end
         end
       end
 
-      context "when this is the user's last regular list" do
+      context "when this is the game's last regular list" do
         before do
           shopping_list.list_items.each do |item|
             shopping_list.aggregate_list.add_item_from_child_list(item)
@@ -69,7 +79,15 @@ RSpec.describe ShoppingListsController::DestroyService do
         end
 
         it 'destroys the aggregate list too' do
-          expect { perform }.to change(user.shopping_lists, :count).from(2).to(0)
+          expect { perform }.to change(game.shopping_lists, :count).from(2).to(0)
+        end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'returns a Service::NoContentResult' do
@@ -79,7 +97,8 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when the list is an aggregate list' do
-      let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
+      let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
+      let(:game) { create(:game, user: user) }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -107,7 +126,8 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
+      let(:game) { create(:game, user: user) }
 
       before do
         allow_any_instance_of(ShoppingList).to receive(:aggregate_list).and_raise(StandardError, 'Something went horribly wrong')
