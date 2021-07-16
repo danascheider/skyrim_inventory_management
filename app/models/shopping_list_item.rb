@@ -9,10 +9,15 @@ class ShoppingListItem < ApplicationRecord
 
   before_save :clean_up_notes
 
-  delegate :game, to: :list
+  delegate :game, :user, to: :list
 
   scope :index_order, -> { order(updated_at: :desc) }
   scope :belonging_to_game, ->(game) { joins(:list).where('shopping_lists.game_id = ?', game.id).order('shopping_lists.updated_at DESC') }
+
+  def self.belonging_to_user(user)
+    shopping_list_ids = ShoppingList.belonging_to_user(user).pluck(:id)
+    joins(:list).where('shopping_lists.id IN (?)', shopping_list_ids).order('shopping_lists.updated_at DESC')
+  end
 
   def self.combine_or_create!(attrs)
     obj = combine_or_new(attrs)

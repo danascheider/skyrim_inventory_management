@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
-  let(:game) { create(:game) }
+  let!(:game) { create(:game) }
 
   describe 'delegation' do
     let(:shopping_list) { create(:shopping_list, game: game) }
@@ -14,8 +14,14 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     describe '#game' do
-      it 'returns the owner of its ShoppingList' do
+      it 'returns game its ShoppingList belongs to' do
         expect(list_item.game).to eq(game)
+      end
+    end
+
+    describe '#user' do
+      it 'returns the user the game belongs to' do
+        expect(list_item.user).to eq game.user
       end
     end
   end
@@ -39,12 +45,12 @@ RSpec.describe ShoppingListItem, type: :model do
       end
     end
 
-    describe '::belongs_to_user' do
+    describe '::belonging_to_game' do
       let!(:list1) { create(:shopping_list_with_list_items, game: game) }
       let!(:list2) { create(:shopping_list_with_list_items, game: game) }
       let!(:list3) { create(:shopping_list_with_list_items, game: game) }
 
-      it "returns all list items from all the user's lists" do
+      it 'returns all list items from all the lists for the given game' do
         # Reverse the arrays of list items because the index_only scope used in the ShoppingList
         # class for :list_items will return them in descending order of `:updated_at`
         expect(ShoppingListItem.belonging_to_game(game).to_a).to eq([
@@ -52,6 +58,28 @@ RSpec.describe ShoppingListItem, type: :model do
                                                                       list2.list_items.to_a.reverse,
                                                                       list1.list_items.to_a.reverse
                                                                     ].flatten)
+      end
+    end
+
+    describe '::belonging_to_user' do
+      # We're going to sort these because we don't actually care what order they're in
+      subject(:belonging_to_user) { described_class.belonging_to_user(user).to_a.sort }
+
+      let(:user) { game.user }
+
+      before do
+        create(:shopping_list_with_list_items, game: game)
+        create(:game_with_shopping_lists_and_items, user: user)
+        create(:game_with_shopping_lists_and_items, user: user)
+        create(:shopping_list_with_list_items) # one from a different user
+      end
+
+      it 'returns all the list items belonging to the user', :aggregate_failures do
+        all_items = []
+        user.shopping_lists.each { |list| all_items << list.list_items }
+        all_items.flatten!.sort!
+
+        expect(belonging_to_user).to eq all_items
       end
     end
   end
