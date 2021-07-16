@@ -43,4 +43,27 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#shopping_lists' do
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+
+    let(:game1) { create(:game, user: user1) }
+    let(:game2) { create(:game, user: user1) }
+    let(:game3) { create(:game_with_shopping_lists, user: user2) }
+
+    let!(:shopping_list1) { create(:aggregate_shopping_list, game: game1) }
+    let!(:shopping_list2) { create(:shopping_list, game: game1) }
+    let!(:shopping_list3) { create(:aggregate_shopping_list, game: game2) }
+    let!(:shopping_list4) { create(:shopping_list, game: game2) }
+
+    it "returns all the shopping lists for the user's games" do
+      expect(user1.shopping_lists).to eq([
+                                           shopping_list4,
+                                           shopping_list3,
+                                           shopping_list2,
+                                           shopping_list1
+                                         ])
+    end
+  end
 end

@@ -50,13 +50,14 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'updates the updated_at timestamp on the list' do
-        Timecop.freeze do
+        t = Time.now + 3.days
+        Timecop.freeze(t) do
           perform
           # This is another case of a rounding error in the CI environment. The server where
           # GitHub Actions run seems to truncate the last few digits of the timestamp, resulting
           # in things being not quite equal in that environment. Since it's not that important
           # that it be that exact, I'm just using the `be_within` matcher.
-          expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(Time.now.utc)
+          expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
         end
       end
     end
@@ -102,6 +103,14 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         allow(aggregate_list).to receive(:update_item_from_child_list)
         perform
         expect(aggregate_list).not_to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+      end
+
+      it 'does not update the shopping list itself' do
+        t = Time.now + 3.days
+        Timecop.freeze(t) do
+          perform
+          expect(shopping_list.reload.updated_at).not_to be_within(71.hours).of(t)
+        end
       end
 
       it 'returns a Service::UnprocessableEntityResult' do

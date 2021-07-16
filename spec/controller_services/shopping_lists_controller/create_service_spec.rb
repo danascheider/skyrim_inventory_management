@@ -57,7 +57,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are valid' do
-      let(:game) { create(:game, user: user) }
+      let!(:game) { create(:game, user: user) }
       let(:params) { { title: 'Proudspire Manor' } }
 
       context 'when the game has an aggregate shopping list' do
@@ -76,6 +76,14 @@ RSpec.describe ShoppingListsController::CreateService do
         it 'sets the resource to the created list' do
           expect(perform.resource).to eq game.shopping_lists.last
         end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
       end
 
       context "when the game doesn't have an aggregate shopping list" do
@@ -91,6 +99,14 @@ RSpec.describe ShoppingListsController::CreateService do
         it 'creates a regular shopping list for the given game' do
           perform
           expect(game.shopping_lists.last.title).to eq 'Proudspire Manor'
+        end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'returns a Service::CreatedResult' do

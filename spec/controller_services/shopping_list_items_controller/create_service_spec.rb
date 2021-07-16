@@ -46,6 +46,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
           expect(aggregate_list).to have_received(:add_item_from_child_list).with(shopping_list.list_items.last)
         end
 
+        it 'updates the list model itself' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
+
         it 'returns a Service::CreatedResult' do
           expect(perform).to be_a(Service::CreatedResult)
         end
@@ -68,6 +76,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
         it "doesn't create a new item on the aggregate list" do
           expect { perform }.not_to change(aggregate_list.list_items, :count)
+        end
+
+        it 'updates the list itself' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'updates the aggregate list correctly' do
@@ -107,6 +123,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
       it 'combines the item with an existing one' do
         expect { perform }.not_to change(shopping_list.list_items, :count)
+      end
+
+      it 'updates the shopping list' do
+        t = Time.now + 3.days
+        Timecop.freeze(t) do
+          perform
+          expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+        end
       end
 
       it 'returns a Service::OKResult' do

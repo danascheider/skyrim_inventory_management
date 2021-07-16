@@ -22,7 +22,6 @@ class ShoppingListItemsController < ApplicationController
 
       ActiveRecord::Base.transaction do
         shopping_list_item.destroy!
-        shopping_list.touch
         aggregate_list_item = aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
       end
       

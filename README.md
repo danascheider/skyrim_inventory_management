@@ -92,7 +92,7 @@ To run the server, simply run `bundle exec rails s` and your server will start o
 
 Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will require the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
 
-### Running Tests
+### Testing
 
 The SIM API is tested using [RSpec](https://github.com/rspec/rspec) with [FactoryBot](https://github.com/thoughtbot/factory_bot_rails) for factories. Run specs on the command line using:
 ```bash
@@ -108,6 +108,19 @@ bundle exec rspec spec/requests/shopping_lists_spec.rb
 
 # runs a specific spec on line 42 of the specified file
 bundle exec rspec spec/models/shopping_list_item_spec.rb:42
+```
+
+All pull requests should include whatever test updates are required to ensure the new code is thoroughly covered by quality, passing tests.
+
+#### Testing Timestamps
+
+One caveat in testing is that timestamps may be treated differently in [GitHub Actions](#ci) than they are in your development environment. Specifically, the last four digits of timestamps are truncated in the GitHub Actions environment. That means that you will not be able to use the `eq` matcher for timestamp tests, even with Timecop. Instead, you should use the `be_within` timestamp, using Timecop and keeping the tolerance as small as possible (0.005 seconds is usually plenty):
+```ruby
+t = Time.now + 3.days
+Timecop.freeze(t) do
+  perform
+  expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+end
 ```
 
 ### Workflows

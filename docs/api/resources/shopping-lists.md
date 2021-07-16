@@ -21,7 +21,7 @@ Like other resources in SIM, shopping lists are scoped to the authenticated user
 * [`GET /games/:game_id/shopping_lists`](#get-gamesgame_idshopping_lists)
 * [`GET /shopping_lists/:id`](#get-shopping_listsid)
 * [`POST /games/:game_id/shopping_lists`](#post-gamesgame_idshopping_lists)
-* [`PUT|PATCH /shopping_lists/:id`](#patch-shopping_listsid)
+* [`PATCH|PUT /shopping_lists/:id`](#patchput-shopping_listsid)
 * [`DELETE /shopping_lists/:id`](#delete-shopping_listsid)
 
 ## GET /games/:game_id/shopping_lists
@@ -265,7 +265,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## PATCH /shopping_lists/:id
+## PATCH|PUT /shopping_lists/:id
 
 If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
 
@@ -332,9 +332,9 @@ Content-Type: application/json
 
 #### Statuses
 
-* 422 Unprocessable Entity
-* 405 Method Not Allowed
 * 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
 * 500 Internal Server Error
 
 #### Example Bodies

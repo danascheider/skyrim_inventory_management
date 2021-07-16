@@ -15,4 +15,8 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  def shopping_lists
+    ShoppingList.belonging_to_user(self)
+  end
 end
