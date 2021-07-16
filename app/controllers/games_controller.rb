@@ -15,6 +15,12 @@ class GamesController < ApplicationController
     ::Controller::Response.new(self, result).execute
   end
 
+  def update
+    result = UpdateService.new(current_user, params[:id], game_params).perform
+
+    ::Controller::Response.new(self, result).execute
+  end
+
   private
 
   def game_params
