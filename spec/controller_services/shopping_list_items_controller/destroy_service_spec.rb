@@ -11,12 +11,13 @@ RSpec.describe ShoppingListItemsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
-    let(:user) { create(:user) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-    let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+    let(:game) { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when all goes well' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
+      let(:user) { game.user }
 
       before do
         aggregate_list.add_item_from_child_list(list_item)
@@ -54,7 +55,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       end
 
       context 'when the quantity on the aggregate list exceeds the quantity on the regular list' do
-        let(:second_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+        let(:user) { game.user }
+        let(:second_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
         let(:second_list_item) do
           create(:shopping_list_item,
                   list: second_list,
@@ -107,7 +109,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context "when the specified list item doesn't exist" do
-      let(:list_item) { double("this item doesn't exist", id: 389) }
+      let(:user) { game.user }
+      let(:list_item) { double(id: 389) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -119,6 +122,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context "when the specified list item doesn't belong to the authenticated user" do
+      let(:user) { create(:user) }
       let(:list_item) { create(:shopping_list_item) }
 
       it 'returns a Service::NotFoundResult' do
@@ -131,6 +135,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context 'when the specified list item is on an aggregate list' do
+      let(:user) { list_item.user }
       let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
 
       it "doesn't destroy the list item" do
@@ -148,6 +153,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
+      let(:user) { list_item.user }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
       before do
