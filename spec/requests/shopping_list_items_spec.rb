@@ -723,25 +723,25 @@ RSpec.describe 'ShoppingListItems', type: :request do
     subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: headers }
 
     context 'when authenticated' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
       
-      let(:user) { create(:user) }
+      let(:game) { create(:game) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
       let(:validation_data) do
         {
           'exp' => (Time.now + 1.year).to_i,
-          'email' => user.email,
-          'name' => user.name
+          'email' => game.user.email,
+          'name' => game.user.name
         }
       end
-      
       
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
       context 'when all goes well' do
+        let(:user) { list_item.user }
         let(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 3, notes: 'foo') }
         
         before do
@@ -771,7 +771,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when the quantity on the aggregate list exceeds that on the regular list' do
-          let(:second_list) { create(:shopping_list, user: user) }
+          let(:second_list) { create(:shopping_list, game: game) }
           let(:second_item) { create(:shopping_list_item, list: second_list, description: list_item.description, quantity: 2, notes: 'bar') }
 
           before do
