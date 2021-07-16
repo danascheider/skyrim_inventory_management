@@ -10,6 +10,84 @@ RSpec.describe 'Games', type: :request do
     }
   end
 
+  describe 'GET /games' do
+    subject(:get_games) { get '/games', headers: { 'Authorization' => 'Bearer xxxxxxx' } }
+
+    context 'when authenticated' do
+      let(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when the user has no games' do
+        it 'returns status 200' do
+          get_games
+          expect(response.status).to eq 200
+        end
+
+        it 'returns an empty array' do
+          get_games
+          expect(response.body).to eq('[]')
+        end
+      end
+
+      context 'when the user has games' do
+        before do
+          create_list(:game, 2, user: user)
+          create(:game) # for another user, shouldn't be returned
+        end
+
+        it 'returns status 200' do
+          get_games
+          expect(response.status).to eq 200
+        end
+
+        it "returns the authenticated user's games" do
+          get_games
+          expect(response.body).to eq(user.games.to_json)
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        before do
+          allow_any_instance_of(User).to receive(:games).and_raise(StandardError, 'Something went horribly wrong')
+        end
+
+        it 'returns status 500' do
+          get_games
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error message' do
+          get_games
+          expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      it 'returns status 401' do
+        get_games
+        expect(response.status).to eq 401
+      end
+
+      it 'returns an error message' do
+        get_games
+        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
+      end
+    end
+  end
+
   describe 'POST /games' do
     subject(:create_game) { post '/games', headers: headers, params: params.to_json }
 
