@@ -13,14 +13,17 @@ RSpec.describe ShoppingListItemsController::CreateService do
     subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
 
     let(:user) { create(:user) }
+    let(:game) { create(:game, user: user) }
 
     context 'when all goes well' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
-        allow(user.shopping_lists).to receive(:find).and_return(shopping_list)
+        user_lists = user.shopping_lists
+        allow(user).to receive(:shopping_lists).and_return(user_lists)
+        allow(user_lists).to receive(:find).and_return(shopping_list)
         allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
       end
 
@@ -51,6 +54,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
           Timecop.freeze(t) do
             perform
             expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
 
@@ -86,6 +97,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
           end
         end
 
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
+
         it 'updates the aggregate list correctly' do
           perform
           expect(aggregate_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, 'Hello world')
@@ -94,11 +113,16 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list does not exist' do
-      let(:shopping_list) { double("list that doesn't exist", id: 348) }
+      let(:shopping_list) { double(id: 348) }
       let(:params) { { 'description' => 'Necklace', 'quantity' => 2, 'notes' => 'Hello world' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.errors).to be_blank
+        expect(perform.resource).to be_blank
       end
     end
 
@@ -109,11 +133,16 @@ RSpec.describe ShoppingListItemsController::CreateService do
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
       end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.errors).to be_blank
+        expect(perform.resource).to be_blank
+      end
     end
 
     context 'when there is a duplicate description' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-      let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+      let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
@@ -133,6 +162,14 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
       end
 
+      it 'updates the game' do
+        t = Time.now + 3.days
+        Timecop.freeze(t) do
+          perform
+          expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+        end
+      end
+
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
@@ -143,7 +180,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the params are invalid' do
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
       let(:params) { { description: 'Necklace', quantity: -1, notes: 'invalid quantity' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -156,7 +193,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list is an aggregate list' do
-      let!(:shopping_list) { create(:aggregate_shopping_list, user: user) }
+      let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
       let(:params) { { description: 'Necklace', quantity: 1, notes: 'this should not work' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -169,7 +206,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, user: user) }
+      let!(:shopping_list) { create(:shopping_list, game: game) }
       let(:params) { { description: 'Necklace', quantity: 1, notes: 'hello world' } }
 
       before do
