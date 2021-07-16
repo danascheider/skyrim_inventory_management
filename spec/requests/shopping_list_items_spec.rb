@@ -331,7 +331,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, user: aggregate_list.user) }
+    let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
     
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
@@ -352,10 +352,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
+        let(:game) { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
         before do
-          second_list = create(:shopping_list, user: user, aggregate_list: aggregate_list)
+          second_list = create(:shopping_list, game: game, aggregate_list: aggregate_list)
           second_list.list_items.create!(description: list_item.description, quantity: 2)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
@@ -438,7 +439,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list does not exist' do
-        let(:user) { create(:user) }
+        let(:game) { create(:game_with_shopping_lists) }
+        let(:user) { game.user }
         let(:list_item) { double("this item doesn't exist", id: 8942) }
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
@@ -454,7 +456,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list is an aggregate list' do
-        let(:shopping_list) { user.aggregate_shopping_list }
+        let(:game) { create(:game_with_shopping_lists, user: user) }
+        let(:shopping_list) { game.aggregate_shopping_list }
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
         let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
@@ -525,7 +528,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, user: aggregate_list.user) }
+    let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
     
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
@@ -546,10 +549,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
+        let(:game) { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
         before do
-          second_list = create(:shopping_list, user: user, aggregate_list: aggregate_list)
+          second_list = create(:shopping_list, game: game, aggregate_list: aggregate_list)
           second_list.list_items.create!(description: list_item.description, quantity: 2)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
@@ -632,7 +636,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list does not exist' do
-        let(:user) { create(:user) }
+        let(:game) { create(:game_with_shopping_lists) }
+        let(:user) { game.user }
         let(:list_item) { double("this item doesn't exist", id: 8942) }
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
@@ -648,7 +653,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list is an aggregate list' do
-        let(:shopping_list) { user.aggregate_shopping_list }
+        let(:game) { create(:game_with_shopping_lists, user: user) }
+        let(:shopping_list) { game.aggregate_shopping_list }
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
         let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }

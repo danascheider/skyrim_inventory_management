@@ -12,12 +12,13 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     subject(:perform) { described_class.new(user, list_item.id, params).perform }
 
     let(:user) { create(:user) }
-    let(:shopping_list) { user.shopping_lists.create! }
-    
+    let!(:shopping_list) { game.shopping_lists.find_by(aggregate: false) }
+
     context 'when all goes well' do
+      let(:game) { create(:game_with_shopping_lists, user: user) }
+      let(:aggregate_list) { game.aggregate_shopping_list }
       let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
       let(:params) { { quantity: 3 } }
-      let(:aggregate_list) { user.aggregate_shopping_list }
       let(:scope) { ShoppingListItem.belonging_to_user(user) }
 
       before do
@@ -46,7 +47,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'sets the resource to include both the regular and aggregate list item' do
-        expect(perform.resource).to eq([aggregate_list.list_items.first, list_item])
+        expect(perform.resource).to eq([aggregate_list.list_items.reload.first, list_item])
       end
 
       it 'updates the updated_at timestamp on the list' do
@@ -63,6 +64,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the shopping list item is not found' do
+      let(:game) { create(:game_with_shopping_lists) }
       let(:list_item) { double("the item that doesn't exist", id: 838) }
       let(:params) { { quantity: 3 } }
 
@@ -76,6 +78,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the shopping list item does not belong to the user' do
+      let(:game) { create(:game_with_shopping_lists) }
       let(:list_item) { create(:shopping_list_item) }
       let(:params) { { quantity: 3 } }
 
@@ -89,7 +92,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let(:game) { create(:game_with_shopping_lists, user: user) }
       let(:params) { { description: 'This is not allowed' } }
       let(:aggregate_list) { shopping_list.aggregate_list }
       let(:scope) { ShoppingListItem.belonging_to_user(user) }
@@ -137,7 +141,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the list item is on an aggregate list' do
-      let(:shopping_list) { create(:aggregate_shopping_list, user: user) }
+      let(:game) { create(:game_with_shopping_lists, user: user) }
+      let(:shopping_list) { game.aggregate_shopping_list }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
       let(:params) { { quantity: 4 } }
 
@@ -156,8 +161,9 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
+      let(:game) { create(:game_with_shopping_lists, user: user) }
       let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:shopping_list) { create(:shopping_list, user: user) }
+      let(:shopping_list) { create(:shopping_list, game: game) }
       let(:params) { { quantity: 4 } }
 
       before do
