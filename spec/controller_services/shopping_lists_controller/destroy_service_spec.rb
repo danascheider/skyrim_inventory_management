@@ -30,6 +30,14 @@ RSpec.describe ShoppingListsController::DestroyService do
           expect { perform }.to change(game.shopping_lists, :count).from(3).to(2)
         end
 
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
+        end
+
         it 'returns a Service::OKResult' do
           expect(perform).to be_a(Service::OKResult)
         end
@@ -72,6 +80,14 @@ RSpec.describe ShoppingListsController::DestroyService do
 
         it 'destroys the aggregate list too' do
           expect { perform }.to change(game.shopping_lists, :count).from(2).to(0)
+        end
+
+        it 'updates the game' do
+          t = Time.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'returns a Service::NoContentResult' do
