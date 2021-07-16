@@ -68,7 +68,6 @@ A 500 response is returned only when an unexpected error has occurred. It return
 ```json
 {
   "errors": ["Something went horribly wrong"]
-
 }
 ```
 
