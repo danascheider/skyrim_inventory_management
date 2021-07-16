@@ -44,6 +44,7 @@ class ShoppingListsController < ApplicationController
         # If shopping_list is the user's last regular shopping list, this will also
         # destroy their aggregate list
         shopping_list.destroy!
+
         if aggregate_list&.persisted?
           list_items.each { |item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) }
           aggregate_list
