@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def shopping_lists
     ShoppingList.belonging_to_user(self)
   end
+
+  def shopping_list_items
+    ShoppingListItem.belonging_to_user(self)
+  end
 end

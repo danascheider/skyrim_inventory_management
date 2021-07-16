@@ -100,4 +100,21 @@ RSpec.describe Game, type: :model do
       expect(aggregate_shopping_list).to eq aggregate_list
     end
   end
+
+  describe '#shopping_list_items' do
+    subject(:shopping_list_items) { game.shopping_list_items.to_a.sort }
+
+    let(:game) { create(:game, user: user) }
+
+    before do
+      create_list(:shopping_list_with_list_items, 2, game: game)
+      create(:game_with_shopping_lists_and_items, user: user) # one that shouldn't be included
+    end
+
+    it 'returns all list items belonging to the game' do
+      items = game.shopping_lists.map { |list| list.list_items.to_a }.flatten.sort
+
+      expect(shopping_list_items).to eq items
+    end
+  end
 end
