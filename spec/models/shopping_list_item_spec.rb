@@ -14,7 +14,7 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     describe '#game' do
-      it 'returns the owner of its ShoppingList' do
+      it 'returns game its ShoppingList belongs to' do
         expect(list_item.game).to eq(game)
       end
     end
@@ -39,12 +39,12 @@ RSpec.describe ShoppingListItem, type: :model do
       end
     end
 
-    describe '::belongs_to_user' do
+    describe '::belonging_to_game' do
       let!(:list1) { create(:shopping_list_with_list_items, game: game) }
       let!(:list2) { create(:shopping_list_with_list_items, game: game) }
       let!(:list3) { create(:shopping_list_with_list_items, game: game) }
 
-      it "returns all list items from all the user's lists" do
+      it 'returns all list items from all the lists for the given game' do
         # Reverse the arrays of list items because the index_only scope used in the ShoppingList
         # class for :list_items will return them in descending order of `:updated_at`
         expect(ShoppingListItem.belonging_to_game(game).to_a).to eq([
