@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
-  let(:game) { create(:game) }
+  let!(:game) { create(:game) }
 
   describe 'delegation' do
     let(:shopping_list) { create(:shopping_list, game: game) }
@@ -58,6 +58,28 @@ RSpec.describe ShoppingListItem, type: :model do
                                                                       list2.list_items.to_a.reverse,
                                                                       list1.list_items.to_a.reverse
                                                                     ].flatten)
+      end
+    end
+
+    describe '::belonging_to_user' do
+      # We're going to sort these because we don't actually care what order they're in
+      subject(:belonging_to_user) { described_class.belonging_to_user(user).to_a.sort }
+
+      let(:user) { game.user }
+
+      before do
+        create(:shopping_list_with_list_items, game: game)
+        create(:game_with_shopping_lists_and_items, user: user)
+        create(:game_with_shopping_lists_and_items, user: user)
+        create(:shopping_list_with_list_items) # one from a different user
+      end
+
+      it 'returns all the list items belonging to the user', :aggregate_failures do
+        all_items = []
+        user.shopping_lists.each { |list| all_items << list.list_items }
+        all_items.flatten!.sort!
+
+        expect(belonging_to_user).to eq all_items
       end
     end
   end
