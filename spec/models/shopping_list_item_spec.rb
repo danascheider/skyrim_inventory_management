@@ -18,6 +18,12 @@ RSpec.describe ShoppingListItem, type: :model do
         expect(list_item.game).to eq(game)
       end
     end
+
+    describe '#user' do
+      it 'returns the user the game belongs to' do
+        expect(list_item.user).to eq game.user
+      end
+    end
   end
 
   describe 'scopes' do
