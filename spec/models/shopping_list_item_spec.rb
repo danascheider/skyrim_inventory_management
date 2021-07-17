@@ -8,7 +8,7 @@ RSpec.describe ShoppingListItem, type: :model do
   describe 'delegation' do
     let(:shopping_list) { create(:shopping_list, game: game) }
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
-    
+
     before do
       create(:aggregate_shopping_list, game: game)
     end
@@ -76,7 +76,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
       it 'returns all the list items belonging to the user', :aggregate_failures do
         all_items = []
-        user.shopping_lists.each { |list| all_items << list.list_items }
+        user.shopping_lists.each {|list| all_items << list.list_items }
         all_items.flatten!.sort!
 
         expect(belonging_to_user).to eq all_items
@@ -93,7 +93,8 @@ RSpec.describe ShoppingListItem, type: :model do
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
-        expect { combine_or_create }.not_to change(shopping_list.list_items, :count)
+        expect { combine_or_create }
+          .not_to change(shopping_list.list_items, :count)
       end
 
       it 'adds the quantity to the existing item' do
@@ -143,7 +144,8 @@ RSpec.describe ShoppingListItem, type: :model do
       let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
 
       it 'creates a new item on the list' do
-        expect { combine_or_create }.to change(shopping_list.list_items, :count).by(1)
+        expect { combine_or_create }
+          .to change(shopping_list.list_items, :count).by(1)
       end
     end
   end
@@ -157,7 +159,8 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:update_item) { list_item.update!(quantity: 4) }
 
       it 'updates as normal' do
-        expect { update_item }.to change(list_item, :quantity).from(1).to(4)
+        expect { update_item }
+          .to change(list_item, :quantity).from(1).to(4)
       end
     end
 
@@ -165,7 +168,8 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:update_item) { list_item.update!(description: 'Something else') }
 
       it 'raises an error' do
-        expect { update_item }.to raise_error(ActiveRecord::RecordInvalid)
+        expect { update_item }
+          .to raise_error(ActiveRecord::RecordInvalid)
       end
     end
   end
@@ -173,12 +177,14 @@ RSpec.describe ShoppingListItem, type: :model do
   describe 'notes field' do
     it 'cleans up leading and trailing dashes or whitespace' do
       shopping_list_item = build(:shopping_list_item, notes: ' -- some notes --')
-      expect { shopping_list_item.save }.to change(shopping_list_item, :notes).to('some notes')
+      expect { shopping_list_item.save }
+        .to change(shopping_list_item, :notes).to('some notes')
     end
 
     it 'saves as nil if it consists only of dashes' do
       shopping_list_item = build(:shopping_list_item, notes: '--')
-      expect { shopping_list_item.save }.to change(shopping_list_item, :notes).to(nil)
+      expect { shopping_list_item.save }
+        .to change(shopping_list_item, :notes).to(nil)
     end
   end
 end

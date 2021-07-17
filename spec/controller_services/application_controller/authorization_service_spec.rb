@@ -19,9 +19,9 @@ RSpec.describe ApplicationController::AuthorizationService do
       let(:user) { create(:user, name: 'Jane Doe', email: 'jane.doe@gmail.com', uid: 'jane.doe@gmail.com') }
       let(:payload) do
         {
-          'exp' => (Time.now + 1.day).to_i,
-          'email' => 'jane.doe@gmail.com',
-          'name' => 'Jane Doe',
+          'exp'     => (Time.now + 1.day).to_i,
+          'email'   => 'jane.doe@gmail.com',
+          'name'    => 'Jane Doe',
           'picture' => nil
         }
       end
@@ -49,9 +49,9 @@ RSpec.describe ApplicationController::AuthorizationService do
     context 'when the token is invalid' do
       let(:payload) do
         {
-          'exp' => (Time.now - 1.day).to_i,
-          'email' => 'jane.doe@gmail.com',
-          'name' => 'Jane Doe',
+          'exp'     => (Time.now - 1.day).to_i,
+          'email'   => 'jane.doe@gmail.com',
+          'name'    => 'Jane Doe',
           'picture' => nil
         }
       end

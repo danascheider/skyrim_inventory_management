@@ -27,7 +27,8 @@ RSpec.describe ShoppingListsController::DestroyService do
         end
 
         it 'destroys the shopping list' do
-          expect { perform }.to change(game.shopping_lists, :count).from(3).to(2)
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(3).to(2)
         end
 
         it 'updates the game' do
@@ -49,7 +50,7 @@ RSpec.describe ShoppingListsController::DestroyService do
         describe 'updating the aggregate list' do
           before do
             items = create_list(:shopping_list_item, 2, list: third_list)
-            items.each { |item| aggregate_list.add_item_from_child_list(item) }
+            items.each {|item| aggregate_list.add_item_from_child_list(item) }
 
             # Because in the code it finds the shopping list by ID and then gets the aggregate list
             # off that instance, the tests don't have access to the instance of the aggregate list that
@@ -79,7 +80,8 @@ RSpec.describe ShoppingListsController::DestroyService do
         end
 
         it 'destroys the aggregate list too' do
-          expect { perform }.to change(game.shopping_lists, :count).from(2).to(0)
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(2).to(0)
         end
 
         it 'updates the game' do

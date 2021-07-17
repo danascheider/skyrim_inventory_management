@@ -26,11 +26,13 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       context 'when the quantity on the aggregate list equals the quantity on the regular list' do
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          expect { ShoppingListItem.find(list_item.id) }
+            .to raise_error ActiveRecord::RecordNotFound
         end
 
         it 'destroys the item on the aggregate list' do
-          expect { perform }.to change(aggregate_list.list_items, :count).from(1).to(0)
+          expect { perform }
+            .to change(aggregate_list.list_items, :count).from(1).to(0)
         end
 
         it 'returns a Service::NoContentResult' do
@@ -59,11 +61,10 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         let(:second_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
         let(:second_list_item) do
           create(:shopping_list_item,
-                  list: second_list,
-                  description: list_item.description.upcase, # make sure comparison is case insensitive
-                  quantity: 2,
-                  notes: 'some other notes'
-                )
+                 list:        second_list,
+                 description: list_item.description.upcase, # make sure comparison is case insensitive
+                 quantity:    2,
+                 notes:       'some other notes')
         end
 
         before do
@@ -72,9 +73,10 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          expect { ShoppingListItem.find(list_item.id) }
+            .to raise_error ActiveRecord::RecordNotFound
         end
-        
+
         it 'changes the quantity of the aggregate list item' do
           perform
           expect(aggregate_list.list_items.first.quantity).to eq 2

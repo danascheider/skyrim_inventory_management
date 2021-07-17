@@ -27,18 +27,18 @@ class ShoppingListItem < ApplicationRecord
 
   def self.combine_or_new(attrs)
     shopping_list = attrs[:list] || attrs['list'] || ShoppingList.find(attrs[:list_id] || attrs['list_id'])
-    desc = (attrs[:description] || attrs['description'])
+    desc          = (attrs[:description] || attrs['description'])
     existing_item = shopping_list.list_items.find_by('description ILIKE ?', desc)
 
     if existing_item.nil?
       new attrs
     else
-      qty = attrs[:quantity] || attrs['quantity'] || 1
+      qty       = attrs[:quantity] || attrs['quantity'] || 1
       new_notes = attrs[:notes] || attrs['notes']
       old_notes = existing_item.notes
 
       new_quantity = existing_item.quantity + qty
-      new_notes = [old_notes, new_notes].compact.join(' -- ').presence
+      new_notes    = [old_notes, new_notes].compact.join(' -- ').presence
 
       existing_item.assign_attributes(quantity: new_quantity, notes: new_notes)
       existing_item
@@ -53,6 +53,7 @@ class ShoppingListItem < ApplicationRecord
 
   def clean_up_notes
     return true unless notes
+
     self.notes = notes.strip.gsub(/^(\-\- ?)*/, '').gsub(/( ?\-\-)*$/, '').gsub(/( \-\- ){2,}/, ' -- ').presence
   end
 end

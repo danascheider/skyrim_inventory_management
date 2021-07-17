@@ -11,16 +11,16 @@ class ShoppingListItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate shopping list'
 
     def initialize(user, list_id, params)
-      @user = user
+      @user    = user
       @list_id = list_id
-      @params = params
+      @params  = params
     end
 
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
       preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
-      item = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
+      item             = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
 
       ActiveRecord::Base.transaction do
         item.save!

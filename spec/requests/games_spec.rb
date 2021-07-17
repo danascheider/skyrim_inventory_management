@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
-      'Content-Type' => 'application/json',
+      'Content-Type'  => 'application/json',
       'Authorization' => 'Bearer xxxxxxx'
     }
   end
@@ -17,9 +17,9 @@ RSpec.describe 'Games', type: :request do
       let(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -95,9 +95,9 @@ RSpec.describe 'Games', type: :request do
       let(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -111,7 +111,8 @@ RSpec.describe 'Games', type: :request do
         let(:params) { { game: { name: 'My Game' } } }
 
         it 'creates a game' do
-          expect { create_game }.to change(user.games, :count).by(1)
+          expect { create_game }
+            .to change(user.games, :count).by(1)
         end
 
         it 'returns status 201' do
@@ -129,7 +130,8 @@ RSpec.describe 'Games', type: :request do
         let(:params) { { game: { name: '@#*!)&' } } }
 
         it "doesn't create a game" do
-          expect { create_game }.not_to change(user.games, :count)
+          expect { create_game }
+            .not_to change(user.games, :count)
         end
 
         it 'returns status 422' do
@@ -184,9 +186,9 @@ RSpec.describe 'Games', type: :request do
       let(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -217,7 +219,7 @@ RSpec.describe 'Games', type: :request do
           # on the deserialised response body differs from those on the model by '+0000' This is
           # the only way I've found to fix the tests.
           game_attributes_without_timestamps = game.reload.attributes.except('created_at', 'updated_at')
-          response_body_without_timestamps = JSON.parse(response.body).except('created_at', 'updated_at')
+          response_body_without_timestamps   = JSON.parse(response.body).except('created_at', 'updated_at')
 
           expect(response_body_without_timestamps).to eq game_attributes_without_timestamps
         end
@@ -313,9 +315,9 @@ RSpec.describe 'Games', type: :request do
       let(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -346,7 +348,7 @@ RSpec.describe 'Games', type: :request do
           # on the deserialised response body differs from those on the model by '+0000' This is
           # the only way I've found to fix the tests.
           game_attributes_without_timestamps = game.reload.attributes.except('created_at', 'updated_at')
-          response_body_without_timestamps = JSON.parse(response.body).except('created_at', 'updated_at')
+          response_body_without_timestamps   = JSON.parse(response.body).except('created_at', 'updated_at')
 
           expect(response_body_without_timestamps).to eq game_attributes_without_timestamps
         end
@@ -442,9 +444,9 @@ RSpec.describe 'Games', type: :request do
       let(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -458,7 +460,8 @@ RSpec.describe 'Games', type: :request do
         let!(:game) { create(:game, user: user) }
 
         it 'destroys the game' do
-          expect { destroy_game }.to change(user.games, :count).from(1).to(0)
+          expect { destroy_game }
+            .to change(user.games, :count).from(1).to(0)
         end
 
         it 'returns status 204' do

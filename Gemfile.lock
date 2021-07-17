@@ -232,7 +232,7 @@ DEPENDENCIES
   rack-cors (~> 1.1.1)
   rails (~> 6.1.3, >= 6.1.3.2)
   rspec-rails (~> 5.0.1)
-  rubocop-performance
+  rubocop-performance (~> 1.11.4)
   rubocop-rails (~> 2.11.3)
   rubocop-rspec (~> 2.4.0)
   spring (~> 2.1)

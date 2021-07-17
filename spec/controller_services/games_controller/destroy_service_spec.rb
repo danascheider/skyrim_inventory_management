@@ -13,7 +13,8 @@ RSpec.describe GamesController::DestroyService do
       let!(:user) { game.user }
 
       it 'destroys the game' do
-        expect { perform }.to change(user.games, :count).from(1).to(0)
+        expect { perform }
+          .to change(user.games, :count).from(1).to(0)
       end
 
       it 'returns a Service::NoContentResult' do

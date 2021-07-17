@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'ShoppingListItems', type: :request do
   let(:headers) do
     {
-      'Content-Type' => 'application/json',
+      'Content-Type'  => 'application/json',
       'Authorization' => 'Bearer xxxxxxx'
     }
   end
@@ -13,50 +13,52 @@ RSpec.describe 'ShoppingListItems', type: :request do
   describe 'POST /shopping_lists/:shopping_list_id/shopping_list_items' do
     subject(:create_item) do
       post "/shopping_lists/#{shopping_list.id}/shopping_list_items",
-           params: params.to_json,
+           params:  params.to_json,
            headers: headers
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
     let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-    
+
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
-      
+
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
-      
+
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-      
+
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
-      
+
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'creates a new shopping list item on the shopping list' do
-          expect { create_item }.to change(shopping_list.list_items, :count).from(0).to(1)
+          expect { create_item }
+            .to change(shopping_list.list_items, :count).from(0).to(1)
         end
 
         context 'when the aggregate list has no items on it' do
           it 'adds the item to the aggregate list' do
-            expect { create_item }.to change(ShoppingListItem, :count).from(0).to(2)
+            expect { create_item }
+              .to change(ShoppingListItem, :count).from(0).to(2)
           end
 
           it 'assigns the right attributes' do
             create_item
             item = shopping_list.list_items.last
             expect(aggregate_list.list_items.last.attributes).to include(
-              'description' => item.description,
-              'quantity' => item.quantity,
-              'notes' => item.notes
-            )
+                                                                   'description' => item.description,
+                                                                   'quantity'    => item.quantity,
+                                                                   'notes'       => item.notes
+                                                                 )
           end
 
           it 'updates the regular list' do
@@ -99,8 +101,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
             second_list = aggregate_list.game.shopping_lists.create!(title: 'Proudspire Manor', aggregate_list: aggregate_list)
             second_list.list_items.create!(
               description: 'Corundum ingot',
-              quantity: 1,
-              notes: 'some other notes'
+              quantity:    1,
+              notes:       'some other notes'
             )
             aggregate_list.add_item_from_child_list(second_list.list_items.last)
           end
@@ -109,10 +111,10 @@ RSpec.describe 'ShoppingListItems', type: :request do
             create_item
             expect(aggregate_list.list_items.count).to eq 1
             expect(aggregate_list.list_items.last.attributes).to include(
-              'description' => 'Corundum ingot',
-              'quantity' => 6,
-              'notes' => 'some other notes -- To make locks'
-            )
+                                                                   'description' => 'Corundum ingot',
+                                                                   'quantity'    => 6,
+                                                                   'notes'       => 'some other notes -- To make locks'
+                                                                 )
           end
 
           it 'returns the aggregate list item and the regular list item', :aggregate_failures do
@@ -123,12 +125,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
             # differently. Here we grab the individual items and then we'll filter out the timestamps to
             # verify them.
             aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-              item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
+              item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
             end
 
-            aggregate_list_item_expected = aggregate_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
-            regular_list_item_expected = shopping_list.list_items.last.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
-  
+            aggregate_list_item_expected = aggregate_list.list_items.last.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+            regular_list_item_expected   = shopping_list.list_items.last.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+
             expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
             expect(regular_list_item_actual).to eq(regular_list_item_expected)
           end
@@ -182,20 +184,22 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it "doesn't create a new item" do
-            expect { create_item }.not_to change(shopping_list.list_items, :count)
+            expect { create_item }
+              .not_to change(shopping_list.list_items, :count)
           end
 
           it "doesn't create a new item on the aggregate list" do
-            expect { create_item }.not_to change(aggregate_list.list_items, :count)
+            expect { create_item }
+              .not_to change(aggregate_list.list_items, :count)
           end
 
           it 'updates the existing item' do
             create_item
             expect(shopping_list.list_items.first.attributes).to include(
-              'description' => 'Corundum ingot',
-              'quantity' => 7,
-              'notes' => 'To make locks -- To make locks'
-            )
+                                                                   'description' => 'Corundum ingot',
+                                                                   'quantity'    => 7,
+                                                                   'notes'       => 'To make locks -- To make locks'
+                                                                 )
           end
 
           it 'updates the aggregate list', :aggregate_failures do
@@ -223,9 +227,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             # wrong and if I check equality between JSON.parse(response.body) and [agg_list_item, reg_list_item] it
             # fails wrongly. Likewise, response.body != [agg_list_item, reg_list_item].to_json because the JSON ends
             # up being in a different order.
-            agg_list_item, reg_list_item = JSON.parse(response.body).map { |attrs| attrs.except('created_at', 'updated_at') }
-            agg_list_item_attributes = aggregate_list.list_items.last.attributes.except('created_at', 'updated_at')
-            reg_list_item_attributes = shopping_list.list_items.last.attributes.except('created_at', 'updated_at')
+            agg_list_item, reg_list_item = JSON.parse(response.body).map {|attrs| attrs.except('created_at', 'updated_at') }
+            agg_list_item_attributes     = aggregate_list.list_items.last.attributes.except('created_at', 'updated_at')
+            reg_list_item_attributes     = shopping_list.list_items.last.attributes.except('created_at', 'updated_at')
 
             expect([agg_list_item, reg_list_item]).to eq ([agg_list_item_attributes, reg_list_item_attributes])
           end
@@ -262,7 +266,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list does not exist' do
         subject(:create_item) do
           post '/shopping_lists/838934/shopping_list_items',
-               params: params.to_json,
+               params:  params.to_json,
                headers: headers
         end
 
@@ -332,24 +336,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
     let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
-    
+
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
-      
+
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
-      
+
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-      
+
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
-      
+
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
         let(:game) { aggregate_list.game }
@@ -360,24 +364,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
           second_list.list_items.create!(description: list_item.description, quantity: 2)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          aggregate_list.add_item_from_child_list(second_list.list_items.first) 
+          aggregate_list.add_item_from_child_list(second_list.list_items.first)
         end
 
         it 'updates the regular list item' do
           update_item
           expect(list_item.reload.attributes).to include(
-                                                          'quantity' => 5,
-                                                          'notes' => 'To make locks'
-                                                        )
+                                                   'quantity' => 5,
+                                                   'notes'    => 'To make locks'
+                                                 )
         end
 
         it 'updates the item on the aggregate list' do
           update_item
           expect(aggregate_list.list_items.first.attributes).to include(
-                                                                      'description' => list_item.description,
-                                                                      'quantity' => 7,
-                                                                      'notes' => 'To make locks'
-                                                                    )
+                                                                  'description' => list_item.description,
+                                                                  'quantity'    => 7,
+                                                                  'notes'       => 'To make locks'
+                                                                )
         end
 
         it 'updates the regular list' do
@@ -400,11 +404,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
           aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
+            item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
-          regular_list_item_expected = shopping_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+          regular_list_item_expected   = shopping_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
 
           expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)
@@ -481,7 +485,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the params are invalid' do
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes:'To make locks' } } }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -529,24 +533,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
     let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
-    
+
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
-      
+
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
-      
+
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-      
+
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
-      
+
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
         let(:game) { aggregate_list.game }
@@ -557,24 +561,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
           second_list.list_items.create!(description: list_item.description, quantity: 2)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
           aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          aggregate_list.add_item_from_child_list(second_list.list_items.first) 
+          aggregate_list.add_item_from_child_list(second_list.list_items.first)
         end
 
         it 'updates the regular list item' do
           update_item
           expect(list_item.reload.attributes).to include(
-                                                          'quantity' => 5,
-                                                          'notes' => 'To make locks'
-                                                        )
+                                                   'quantity' => 5,
+                                                   'notes'    => 'To make locks'
+                                                 )
         end
 
         it 'updates the item on the aggregate list' do
           update_item
           expect(aggregate_list.list_items.first.attributes).to include(
-                                                                      'description' => list_item.description,
-                                                                      'quantity' => 7,
-                                                                      'notes' => 'To make locks'
-                                                                    )
+                                                                  'description' => list_item.description,
+                                                                  'quantity'    => 7,
+                                                                  'notes'       => 'To make locks'
+                                                                )
         end
 
         it 'updates the regular list' do
@@ -597,11 +601,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
           aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.reject { |key, value| %w[created_at updated_at].include?(key) }
+            item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
-          regular_list_item_expected = shopping_list.list_items.first.attributes.reject { |k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+          regular_list_item_expected   = shopping_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
 
           expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)
@@ -678,7 +682,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the params are invalid' do
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes:'To make locks' } } }
+        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -725,17 +729,17 @@ RSpec.describe 'ShoppingListItems', type: :request do
     context 'when authenticated' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
       let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      
+
       let(:game) { create(:game) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => game.user.email,
-          'name' => game.user.name
+          'name'  => game.user.name
         }
       end
-      
+
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
@@ -743,7 +747,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when all goes well' do
         let(:user) { list_item.user }
         let(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 3, notes: 'foo') }
-        
+
         before do
           aggregate_list.add_item_from_child_list(list_item)
         end
@@ -751,7 +755,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         context 'when the quantity on the regular list equals that on the aggregate list' do
           it 'destroys the item on the regular list' do
             destroy_item
-            expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+            expect { ShoppingListItem.find(list_item.id) }
+              .to raise_error ActiveRecord::RecordNotFound
           end
 
           it 'destroys the item on the aggregate list' do
@@ -780,7 +785,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'destroys the item on the regular list' do
             destroy_item
-            expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+            expect { ShoppingListItem.find(list_item.id) }
+              .to raise_error ActiveRecord::RecordNotFound
           end
 
           it 'updates the quantity of the item on the aggregate list' do
@@ -831,7 +837,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           destroy_item
           expect(response.status).to eq 405
         end
-        
+
         it 'returns a helpful error message' do
           destroy_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate shopping list'] })

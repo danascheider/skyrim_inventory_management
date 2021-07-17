@@ -17,7 +17,7 @@ class ShoppingListsController < ApplicationController
 
   def update
     result = UpdateService.new(current_user, params[:id], shopping_list_params).perform
-    
+
     ::Controller::Response.new(self, result).execute
   end
 

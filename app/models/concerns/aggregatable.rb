@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 # There is always a risk with concerns that they will not ultimately provide
@@ -14,7 +13,7 @@
 #
 # The database schema for a Aggregatable model has a few requirements. It must
 # contain the following columns:
-# 
+#
 #    | Column            | Type    | Constraints                 |
 #    | ----------------- | ------- | --------------------------- |
 #    | title             | string  | null: false                 |
@@ -33,7 +32,7 @@ module Aggregatable
   extend ActiveSupport::Concern
 
   class AggregateListError < StandardError; end
-  
+
   included do
     belongs_to :game, touch: true
     has_many :list_items, -> { index_order }, class_name: self.list_item_class_name, dependent: :destroy, foreign_key: :list_id
@@ -79,7 +78,7 @@ module Aggregatable
       existing_item.destroy!
     else
       existing_item.quantity -= attrs['quantity']
-      existing_item.notes = extract_notes(attrs['notes'], existing_item.notes)
+      existing_item.notes     = extract_notes(attrs['notes'], existing_item.notes)
       existing_item.save!
     end
 
@@ -96,11 +95,11 @@ module Aggregatable
     end
 
     existing_item.quantity += delta_quantity
-    existing_item.notes = if old_notes.nil? && new_notes.present?
-                            [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
-                          else
-                            existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
-                          end
+    existing_item.notes     = if old_notes.nil? && new_notes.present?
+                                [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
+                              else
+                                existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
+                              end
 
     existing_item.save!
     existing_item
@@ -138,7 +137,7 @@ module Aggregatable
   def public_list_item_attrs(item)
     private_attrs = [:id, 'id', :created_at, 'created_at', :updated_at, 'updated_at']
 
-    item.attributes.reject { |key, value| private_attrs.include?(key) }
+    item.attributes.reject {|key, value| private_attrs.include?(key) }
   end
 
   def abort_if_aggregate
