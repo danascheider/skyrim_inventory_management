@@ -84,13 +84,13 @@ notes: string
 
 The Skyrim Inventory Management API is a basic Rails API running on Rails 6 and Ruby 3.0.1. You can set it up locally by cloning the repository, `cd`ing into it, and running:
 ```bash
-bundle install
-bundle exec rails db:create
-bundle exec rails db:migrate
+./script/setup.sh
 ```
+Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#rubocop). **Running the setup script will overwrite any existing precommit hooks you have in the repo.** Since these are not saved in Git, they are not recoverable if you overwrite them (unless you've committed them to Git somewhere outside this repo). 
+
 To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.
 
-Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will require the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
+Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will expect the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
 
 ### Testing
 
@@ -116,12 +116,18 @@ All pull requests should include whatever test updates are required to ensure th
 
 One caveat in testing is that timestamps may be treated differently in [GitHub Actions](#ci) than they are in your development environment. Specifically, the last four digits of timestamps are truncated in the GitHub Actions environment. That means that you will not be able to use the `eq` matcher for timestamp tests, even with Timecop. Instead, you should use the `be_within` timestamp, using Timecop and keeping the tolerance as small as possible (0.005 seconds is usually plenty):
 ```ruby
-t = Time.now + 3.days
+t = Time.zone.now + 3.days
 Timecop.freeze(t) do
   perform
   expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
 end
 ```
+
+### Rubocop
+
+SIM uses [Rubocop](https://github.com/rubocop/rubocop) for linting and style purposes. The [rubocop-rails](https://github.com/rubocop/rubocop-rails), [rubocop-rspec](https://github.com/rubocop/rubocop-rspec), and [rubocop-performance](https://github.com/rubocop/rubocop-performance) plugins are also used to add additional relevant cops. We are restrictive in which cops we enable and all are disabled by default. The rule for disabling cops is three broken builds without meaningful changes and we disable the cop by removing it from the `.rubocop.yml` file. We strongly avoid `rubocop:disable` comments in the code.
+
+When you run the setup script, it installs a precommit hook that runs Rubocop against any changed Ruby files. This hook can be skipped with `--no-verify` if you absolutely need to commit something that breaks Rubocop, although you should be aware that Rubocop also runs in [CI](#ci). Additionally, if you would rather run Rubocop manually, you can run `rm .git/hooks/pre-commit` to remove the hook.
 
 ### Workflows
 
@@ -129,7 +135,7 @@ We use [Trello](https://trello.com/b/ZoVvVBJc/sim-project-board) to track work f
 
 ### CI
 
-Tests are run against all pull requests using [GitHub Actions](https://github.com/features/actions). Pull requests may not be merged if the build is broken. CI also runs any time changes are pushed or merged to `main`. Please wait for these builds to pass before deploying to Heroku.
+Rubocop and RSpec are run against all pull requests using [GitHub Actions](https://github.com/features/actions). Pull requests may not be merged if the build is broken. CI also runs any time changes are pushed or merged to `main`. Please wait for these builds to pass before deploying to Heroku.
 
 ### Deployment
 

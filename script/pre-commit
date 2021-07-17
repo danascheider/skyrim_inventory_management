@@ -7,9 +7,10 @@ function xargs-r() {
     { echo "$path"; cat; } | xargs $@
   fi
 }
-git diff --diff-filter=d --name-only --cached --relative -- '*.rb' 'Gemfile' '*.rake' ':(exclude)db/schema.rb' | xargs-r -E '' -t "bundle exec rails rubocop:auto_correct"
+git diff --diff-filter=d --name-only --cached --relative -- '*.rb' 'Gemfile' '*.rake' ':(exclude)db/schema.rb' | xargs-r -E '' -t "bundle exec rubocop -A"
 if [[ $? -ne 0 ]]; then
   echo 'Aborting commit because Rubocop offenses were detected.'
   echo 'Run `bundle exec rubocop -A <files>` to correct.'
+  echo 'To commit without running Rubocop, run `git commit --no-verify`. This will cause the build to break in CI.'
   exit 1
 fi
