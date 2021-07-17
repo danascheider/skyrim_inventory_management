@@ -61,18 +61,65 @@ RSpec.describe Game, type: :model do
       end
     end
 
-    context 'wheen the name has a default value' do
+    context 'when the name has a default value' do
       subject(:name) { user.games.create!.name }
 
-      before do
-        # create games for a different user to makee sure the name of the
-        # game isn't affected by them
-        create_list(:game, 2, name: nil)
-        create_list(:game, 2, name: nil, user: user)
+      context 'when the user has all default-named games' do
+        before do
+          # Create games for a different user to make sure the name of this game's
+          # name isn't affected by them
+          create_list(:game, 2, name: nil)
+          create_list(:game, 2, name: nil, user: user)
+        end
+
+        it 'sets the title based on the highest numbered default title' do
+          expect(name).to eq 'My Game 3'
+        end
       end
 
-      it 'sets the name based on how many default-named games the user has' do
-        expect(name).to eq 'My Game 3'
+      context 'when the user has differently titled games' do
+        before do
+          create(:game, name: nil)
+          create(:game, user: user, name: nil)
+          create(:game, user: user, name: 'New Game')
+          create(:game, user: user, name: nil)
+        end
+
+        it 'uses the next highest number in default-named games' do
+          expect(name).to eq 'My Game 3'
+        end
+      end
+
+      context 'when the user has a game with a similar name' do
+        before do
+          create(:game, user: user, name: 'This Game is Called My Game 4')
+          create_list(:game, 2, user: user, name: nil)
+        end
+
+        it 'sets the name based on the highest numbered game called "My Game N"' do
+          expect(name).to eq 'My Game 3'
+        end
+      end
+
+      context 'when there is a game called "My Game <non-integer>"' do
+        before do
+          create(:game, user: user, name: "My Game Is the Best Game")
+          create_list(:game, 2, user: user, name: nil)
+        end
+
+        it 'sets the name based on the highest numbered game called "My Game N"' do
+          expect(name).to eq 'My Game 3'
+        end
+      end
+
+      context 'when there is a game called "My Game <negative integer>"' do
+        before do
+          create(:game, user: user, name: 'My Game -4')
+        end
+
+        it 'ignores the game name with the negative integer' do
+          expect(name).to eq 'My Game 1'
+        end
       end
     end
 
