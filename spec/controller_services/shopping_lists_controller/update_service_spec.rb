@@ -51,7 +51,7 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq(['Title can only include alphanumeric characters and spaces'])
+        expect(perform.errors).to eq(["Title can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
       end
     end
 

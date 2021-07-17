@@ -111,6 +111,16 @@ RSpec.describe Game, type: :model do
           expect(name).to eq 'My Game 3'
         end
       end
+
+      context 'when there is a game called "My Game <negative integer>"' do
+        before do
+          create(:game, user: user, name: 'My Game -4')
+        end
+
+        it 'ignores the game name with the negative integer' do
+          expect(name).to eq 'My Game 1'
+        end
+      end
     end
 
     context 'when the request includes sloppy data' do

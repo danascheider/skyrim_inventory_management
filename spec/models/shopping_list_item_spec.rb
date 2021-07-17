@@ -51,13 +51,13 @@ RSpec.describe ShoppingListItem, type: :model do
       let!(:list3) { create(:shopping_list_with_list_items, game: game) }
 
       it 'returns all list items from all the lists for the given game' do
-        # Reverse the arrays of list items because the index_only scope used in the ShoppingList
-        # class for :list_items will return them in descending order of `:updated_at`
-        expect(ShoppingListItem.belonging_to_game(game).to_a).to eq([
-                                                                      list3.list_items.to_a.reverse,
-                                                                      list2.list_items.to_a.reverse,
-                                                                      list1.list_items.to_a.reverse
-                                                                    ].flatten)
+        # We don't actually care what order these are in since we currently only use this
+        # scope to determine whether a given item belongs to a particular game
+        expect(ShoppingListItem.belonging_to_game(game).to_a.sort).to eq([
+                                                                           list1.list_items.to_a,
+                                                                           list2.list_items.to_a,
+                                                                           list3.list_items.to_a
+                                                                         ].flatten.sort)
       end
     end
 

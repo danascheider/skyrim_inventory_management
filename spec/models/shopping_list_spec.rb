@@ -141,27 +141,27 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'allowed characters' do
-        it 'allows alphanumeric characters and spaces' do
-          list = build(:shopping_list, title: 'My List 1  ')
+        it 'allows alphanumeric characters, spaces, commas, apostrophes, and hyphens' do
+          list = build(:shopping_list, title: "aB 61 ,'-")
           expect(list).to be_valid
         end
 
         it "doesn't allow newlines", :aggregate_failures do
           list = build(:shopping_list, title: "My\nList 1  ")
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
         end
 
         it "doesn't allow other non-space whitespace", :aggregate_failures do
           list = build(:shopping_list, title: "My\tList 1")
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
         end
 
         it "doesn't allow special characters", :aggregate_failures do
           list = build(:shopping_list, title: 'My^List&1')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['can only include alphanumeric characters and spaces'])
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
         end
 
         # Leading and trailing whitespace characters will be stripped anyway so no need to validate
@@ -248,6 +248,16 @@ RSpec.describe ShoppingList, type: :model do
 
             it 'sets the title based on the highest numbered list called "My List N"' do
               expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when there is a shopping list called "My List <negative integer>"' do
+            before do
+              create(:shopping_list, game: game, title: 'My List -4')
+            end
+
+            it 'ignores the list title with the negative integer' do
+              expect(title).to eq 'My List 1'
             end
           end
         end
