@@ -25,7 +25,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -62,7 +62,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the regular list' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -74,7 +74,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the game' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -141,7 +141,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the regular list' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -153,7 +153,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the game' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -165,7 +165,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the game' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -209,7 +209,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the regular list' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -235,7 +235,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           it 'updates the game' do
-            t = Time.now + 3.days
+            t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               create_item
               # use `be_within` even though the time will be set to the time Timecop
@@ -342,7 +342,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -385,7 +385,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         it 'updates the regular list' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             update_item
             # use `be_within` even though the time will be set to the time Timecop
@@ -539,7 +539,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -582,7 +582,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         it 'updates the regular list' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             update_item
             # use `be_within` even though the time will be set to the time Timecop
@@ -734,7 +734,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => game.user.email,
           'name'  => game.user.name,
         }

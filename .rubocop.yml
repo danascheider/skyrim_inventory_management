@@ -1276,6 +1276,8 @@ Rails/FindEach:
   Enabled: true
 Rails/HasManyOrHasOneDependent:
   Enabled: true
+  Exclude:
+    - 'app/models/concerns/aggregatable.rb'
 Rails/HttpPositionalArguments:
   Enabled: true
 Rails/HttpStatus:
@@ -1327,8 +1329,6 @@ Rails/RedundantForeignKey:
   Enabled: true
 Rails/RedundantReceiverInWithOptions:
   Enabled: true
-Rails/ReflectionClassName:
-  Enabled: true
 Rails/RelativeDateConstant:
   Enabled: true
 Rails/RenderPlainText:
@@ -1375,7 +1375,7 @@ Rails/WhereNot:
 ### RSpec Requirements ###
 ##########################
 
-RSpec/AlignLetLeftBrace:
+RSpec/AlignLeftLetBrace:
   Enabled: true
 RSpec/AroundBlock:
   Enabled: true

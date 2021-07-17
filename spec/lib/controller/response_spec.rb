@@ -43,8 +43,8 @@ RSpec.describe Controller::Response do
           id:         927,
           user_id:    72,
           title:      'My List 2',
-          created_at: Time.now - 2.days,
-          updated_at: Time.now,
+          created_at: Time.zone.now - 2.days,
+          updated_at: Time.zone.now,
         }
       end
 

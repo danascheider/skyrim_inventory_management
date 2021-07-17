@@ -44,7 +44,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
 
         it 'sets the updated_at timestamp on the shopping list' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop
@@ -89,7 +89,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
 
         it 'sets the updated_at timestamp on the shopping list' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop

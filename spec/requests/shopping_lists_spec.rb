@@ -17,7 +17,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -166,7 +166,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -319,7 +319,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -491,7 +491,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       let(:authenticated_user) { create(:user) }
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => authenticated_user.email,
           'name'  => authenticated_user.name,
         }
@@ -592,7 +592,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user1.email,
           'name'  => user1.name,
         }
@@ -625,7 +625,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -656,7 +656,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }
@@ -714,7 +714,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp'   => (Time.now + 1.year).to_i,
+          'exp'   => (Time.zone.now + 1.year).to_i,
           'email' => user.email,
           'name'  => user.name,
         }

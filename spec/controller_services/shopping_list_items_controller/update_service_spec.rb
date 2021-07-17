@@ -51,7 +51,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'updates the updated_at timestamp on the list' do
-        t = Time.now + 3.days
+        t = Time.zone.now + 3.days
         Timecop.freeze(t) do
           perform
           # This is another case of a rounding error in the CI environment. The server where
@@ -110,7 +110,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'does not update the shopping list itself' do
-        t = Time.now + 3.days
+        t = Time.zone.now + 3.days
         Timecop.freeze(t) do
           perform
           expect(shopping_list.reload.updated_at).not_to be_within(71.hours).of(t)

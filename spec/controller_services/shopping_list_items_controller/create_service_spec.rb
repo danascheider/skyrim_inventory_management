@@ -51,7 +51,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'updates the list model itself' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
@@ -59,7 +59,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'updates the game' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
@@ -93,7 +93,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'updates the list itself' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
@@ -101,7 +101,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'updates the game' do
-          t = Time.now + 3.days
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
@@ -159,7 +159,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'updates the shopping list' do
-        t = Time.now + 3.days
+        t = Time.zone.now + 3.days
         Timecop.freeze(t) do
           perform
           expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
@@ -167,7 +167,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'updates the game' do
-        t = Time.now + 3.days
+        t = Time.zone.now + 3.days
         Timecop.freeze(t) do
           perform
           expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
