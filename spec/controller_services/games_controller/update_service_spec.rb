@@ -30,7 +30,7 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let!(:game) { create(:game) }
+      let!(:game)       { create(:game) }
       let!(:other_game) { create(:game, user: user) }
       let(:user)        { game.user }
       let(:params)      { { name: other_game.name } }
@@ -50,7 +50,7 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't exist" do
-      let(:game) { double(id: 823_589) }
+      let(:game)   { double(id: 823_589) }
       let(:user)   { create(:user) }
       let(:params) { { description: 'New description' } }
 
@@ -65,7 +65,7 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't belong to the user" do
-      let(:game) { create(:game) }
+      let(:game)   { create(:game) }
       let(:user)   { create(:user) }
       let(:params) { { description: 'New description' } }
 
@@ -80,7 +80,7 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game) { create(:game) }
+      let(:game)   { create(:game) }
       let(:user)   { game.user }
       let(:params) { { description: 'New description' } }
 
