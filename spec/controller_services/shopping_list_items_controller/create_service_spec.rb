@@ -18,7 +18,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
     context 'when all goes well' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
       let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let(:params)         { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         user_lists = user.shopping_lists
@@ -146,7 +146,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
     context 'when there is a duplicate description' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
       let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let(:params)         { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         shopping_list.list_items.create!(description: 'Necklace', quantity: 1, notes: 'To enchant')

@@ -13,8 +13,8 @@ RSpec.describe Controller::Response do
 
     context 'when the result has no resource and the errors are empty' do
       let(:controller) { instance_double(VerificationsController, head: nil) }
-      let(:options) { {} }
-      let(:result) { Service::NoContentResult.new(resource: nil, errors: []) }
+      let(:options)    { {} }
+      let(:result)     { Service::NoContentResult.new(resource: nil, errors: []) }
 
       it 'returns the status with no response body' do
         execute
@@ -25,7 +25,7 @@ RSpec.describe Controller::Response do
     context 'when the resource is present but empty' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:options) { {} }
-      let(:result) { Service::OKResult.new(resource: []) }
+      let(:result)  { Service::OKResult.new(resource: []) }
 
       it 'returns the empty resource' do
         execute
@@ -36,7 +36,7 @@ RSpec.describe Controller::Response do
     context 'when there is a resource' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:options) { {} }
-      let(:result) { Service::OKResult.new(resource: resource) }
+      let(:result)  { Service::OKResult.new(resource: resource) }
 
       let(:resource) do
         {
@@ -56,9 +56,9 @@ RSpec.describe Controller::Response do
 
     context 'when there are errors' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
-      let(:errors) { ['Cannot manually update an aggregate shopping list'] }
+      let(:errors)  { ['Cannot manually update an aggregate shopping list'] }
       let(:options) { {} }
-      let(:result) { Service::MethodNotAllowedResult.new(errors: errors) }
+      let(:result)  { Service::MethodNotAllowedResult.new(errors: errors) }
 
       it 'renders the errors with the result status' do
         execute
@@ -70,8 +70,8 @@ RSpec.describe Controller::Response do
       context 'when there is a resource and errors' do
         let(:controller) { instance_double(ShoppingListsController, render: nil) }
         let(:options) { {} }
-        let(:errors) { ['Title is already taken', 'Cannot manually create or update an aggregate shopping list'] }
-        let(:result) { Service::UnprocessableEntityResult.new(errors: errors, resource: { foo: 'bar' }) }
+        let(:errors)  { ['Title is already taken', 'Cannot manually create or update an aggregate shopping list'] }
+        let(:result)  { Service::UnprocessableEntityResult.new(errors: errors, resource: { foo: 'bar' }) }
 
         it 'renders the errors' do
           execute

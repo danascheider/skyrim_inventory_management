@@ -57,7 +57,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are valid' do
-      let!(:game) { create(:game, user: user) }
+      let!(:game)  { create(:game, user: user) }
       let(:params) { { title: 'Proudspire Manor' } }
 
       context 'when the game has an aggregate shopping list' do
@@ -124,7 +124,7 @@ RSpec.describe ShoppingListsController::CreateService do
     context 'when params are invalid' do
       let(:game) { create(:game, user: user) }
       let(:game_id) { game.id }
-      let(:params) { { title: '|nvalid Tit|e' } }
+      let(:params)  { { title: '|nvalid Tit|e' } }
 
       it 'does not create a shopping list' do
         expect { perform }

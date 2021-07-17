@@ -9,7 +9,7 @@ RSpec.describe ApplicationController::AuthorizationService do
     subject(:perform) { described_class.new(controller, 'xxxxxxxxxxxxxx').perform }
 
     let(:controller) { instance_double(ApplicationController) }
-    let(:validator) { instance_double(GoogleIDToken::Validator, check: payload) }
+    let(:validator)  { instance_double(GoogleIDToken::Validator, check: payload) }
 
     before do
       allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)

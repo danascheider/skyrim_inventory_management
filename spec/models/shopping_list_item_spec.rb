@@ -53,11 +53,11 @@ RSpec.describe ShoppingListItem, type: :model do
       it 'returns all list items from all the lists for the given game' do
         # We don't actually care what order these are in since we currently only use this
         # scope to determine whether a given item belongs to a particular game
-        expect(ShoppingListItem.belonging_to_game(game).to_a.sort).to eq([
-                                                                           list1.list_items.to_a,
-                                                                           list2.list_items.to_a,
-                                                                           list3.list_items.to_a,
-                                                                         ].flatten.sort)
+        expect(described_class.belonging_to_game(game).to_a.sort).to eq([
+                                                                          list1.list_items.to_a,
+                                                                          list2.list_items.to_a,
+                                                                          list3.list_items.to_a,
+                                                                        ].flatten.sort)
       end
     end
 
@@ -118,12 +118,12 @@ RSpec.describe ShoppingListItem, type: :model do
       let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
 
       before do
-        allow(ShoppingListItem).to receive(:new)
+        allow(described_class).to receive(:new)
       end
 
       it "doesn't instantiate a new item" do
         combine_or_new
-        expect(ShoppingListItem).not_to have_received(:new)
+        expect(described_class).not_to have_received(:new)
       end
 
       it 'returns the existing item with the quantity updated', :aggregate_failures do
@@ -153,7 +153,7 @@ RSpec.describe ShoppingListItem, type: :model do
   describe '#update!' do
     let(:aggregate_list) { create(:aggregate_shopping_list) }
     let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-    let!(:list_item) { create(:shopping_list_item, quantity: 1, list: shopping_list) }
+    let!(:list_item)    { create(:shopping_list_item, quantity: 1, list: shopping_list) }
 
     context 'when updating quantity' do
       subject(:update_item) { list_item.update!(quantity: 4) }

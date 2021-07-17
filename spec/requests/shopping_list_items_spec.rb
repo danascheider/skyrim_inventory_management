@@ -18,7 +18,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
+    let!(:shopping_list)  { create(:shopping_list, game: aggregate_list.game) }
 
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
@@ -140,6 +140,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 201
           end
 
+          # Rubocop swears up and down this is a duplicate example within the same
+          # example group but I'd say it depends on what it considers an example group
+          # to be. This is definitely not testing the same thing as the other similar
+          # specs.
+
+          # rubocop:disable RSpec/RepeatedExample
           it 'updates the regular list' do
             t = Time.zone.now + 3.days
             Timecop.freeze(t) do
@@ -160,21 +166,10 @@ RSpec.describe 'ShoppingListItems', type: :request do
               # has frozen because Rails (Postgres?) sets the last three digits of
               # the timestamp to 0, which was breaking stuff in CI (but somehow not
               # in dev).
-              expect(aggregate_list.game.reload.updated_at).to be_within(0.005.seconds).of(t)
-            end
-          end
-
-          it 'updates the game' do
-            t = Time.zone.now + 3.days
-            Timecop.freeze(t) do
-              create_item
-              # use `be_within` even though the time will be set to the time Timecop
-              # has frozen because Rails (Postgres?) sets the last three digits of
-              # the timestamp to 0, which was breaking stuff in CI (but somehow not
-              # in dev).
               expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
+          # rubocop:enable RSpec/RepeatedExample
         end
 
         context 'when the new item matches an existing item on the same list' do
@@ -249,7 +244,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list belongs to a different user' do
-        let(:user) { create(:user) }
+        let(:user)   { create(:user) }
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns 404' do
@@ -335,7 +330,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
+    let!(:shopping_list)  { create(:shopping_list_with_list_items, game: aggregate_list.game) }
 
     context 'when authenticated' do
       let!(:user) { aggregate_list.user }
@@ -356,7 +351,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
-        let(:game) { aggregate_list.game }
+        let(:game)      { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
         before do
@@ -422,7 +417,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list belongs to a different user' do
         let(:user) { create(:user) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
         let(:list_item) { create(:shopping_list_item, description: 'Corundum ingot', notes: nil) }
 
         it 'does not updatte the list item' do
@@ -444,9 +439,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list does not exist' do
         let(:game) { create(:game_with_shopping_lists) }
-        let(:user) { game.user }
+        let(:user)      { game.user }
         let(:list_item) { double("this item doesn't exist", id: 8942) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns 404' do
           update_item
@@ -462,9 +457,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list is an aggregate list' do
         let(:game) { create(:game_with_shopping_lists, user: user) }
         let(:shopping_list) { game.aggregate_shopping_list }
-        let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
+        let(:list_item)     { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
-        let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
+        let(:params) { { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
 
         it 'does not update the list', :aggregate_failures do
           update_item
@@ -485,7 +480,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the params are invalid' do
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -511,7 +506,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     context 'when unauthenticated' do
       let(:user) { create(:user) }
-      let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
+      let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
       it 'returns 401' do
@@ -553,7 +548,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
-        let(:game) { aggregate_list.game }
+        let(:game)      { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
         before do
@@ -619,7 +614,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list belongs to a different user' do
         let(:user) { create(:user) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
         let(:list_item) { create(:shopping_list_item, description: 'Corundum ingot', notes: nil) }
 
         it 'does not updatte the list item' do
@@ -641,9 +636,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the shopping list does not exist' do
         let(:game) { create(:game_with_shopping_lists) }
-        let(:user) { game.user }
+        let(:user)      { game.user }
         let(:list_item) { double("this item doesn't exist", id: 8942) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
 
         it 'returns 404' do
           update_item
@@ -659,9 +654,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
       context 'when the shopping list is an aggregate list' do
         let(:game) { create(:game_with_shopping_lists, user: user) }
         let(:shopping_list) { game.aggregate_shopping_list }
-        let(:list_item) { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
+        let(:list_item)     { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
 
-        let(:params) {  { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
+        let(:params) { { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
 
         it 'does not update the list', :aggregate_failures do
           update_item
@@ -682,7 +677,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the params are invalid' do
         let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -708,7 +703,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     context 'when unauthenticated' do
       let(:user) { create(:user) }
-      let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
+      let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
       it 'returns 401' do
