@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_003004) do
+ActiveRecord::Schema.define(version: 2021_07_17_103734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_003004) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "user_id"], name: "index_games_on_name_and_user_id", unique: true
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_003004) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "list_id", null: false
+    t.index ["description", "list_id"], name: "index_shopping_list_items_on_description_and_list_id", unique: true
     t.index ["list_id"], name: "index_shopping_list_items_on_list_id"
   end
 
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_003004) do
     t.bigint "aggregate_list_id"
     t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_shopping_lists_on_game_id"
+    t.index ["title", "game_id"], name: "index_shopping_lists_on_title_and_game_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
