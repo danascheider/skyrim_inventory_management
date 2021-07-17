@@ -18,7 +18,7 @@ class GamesController < ApplicationController
       else
         Service::UnprocessableEntityResult.new(errors: game.error_array)
       end
-    rescue => e
+    rescue StandardError => e
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
 

@@ -37,7 +37,7 @@ class ShoppingListItemsController < ApplicationController
       Service::UnprocessableEntityResult.new(errors: item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end

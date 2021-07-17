@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Verifications", type: :request do
+RSpec.describe 'Verifications', type: :request do
   subject(:verify_token) { get '/auth/verify_token', headers: { 'Authorization' => "Bearer #{token}" } }
 
   let(:token) { 'xxxxxxxx' }
@@ -17,7 +17,7 @@ RSpec.describe "Verifications", type: :request do
       {
         'exp'   => (Time.now + 1.year).to_i,
         'email' => 'foobar@gmail.com',
-        'name'  => 'Foo Bar'
+        'name'  => 'Foo Bar',
       }
     end
 
@@ -43,7 +43,7 @@ RSpec.describe "Verifications", type: :request do
       it 'creates a new user with the data from the payload', :aggregate_failures do
         expect { verify_token }
           .to change(User, :count).from(0).to(1)
-        expect(User.last.attributes).to include(**(expected_user_attributes.merge({ 'id' => User.last.id })))
+        expect(User.last.attributes).to include(**expected_user_attributes.merge({ 'id' => User.last.id }))
       end
     end
 
@@ -56,7 +56,7 @@ RSpec.describe "Verifications", type: :request do
           'uid'       => 'foobar@gmail.com',
           'email'     => 'foobar@gmail.com',
           'name'      => 'Foo Bar',
-          'image_url' => nil
+          'image_url' => nil,
         }
       end
 

@@ -27,7 +27,7 @@ class ShoppingListItemsController < ApplicationController
     params.require(:shopping_list_item).permit(
       :description,
       :quantity,
-      :notes
+      :notes,
     )
   end
 end

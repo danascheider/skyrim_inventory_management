@@ -64,7 +64,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
                  list:        second_list,
                  description: list_item.description.upcase, # make sure comparison is case insensitive
                  quantity:    2,
-                 notes:       'some other notes')
+                 notes:       'some other notes',)
         end
 
         before do

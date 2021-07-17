@@ -11,7 +11,7 @@ RSpec.describe ShoppingListsController::IndexService do
     let(:user) { create(:user) }
 
     context 'when the game is not found' do
-      let(:game_id) { 455315 }
+      let(:game_id) { 455_315 }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

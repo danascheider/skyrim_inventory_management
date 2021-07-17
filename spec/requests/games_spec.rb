@@ -6,7 +6,7 @@ RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
       'Content-Type'  => 'application/json',
-      'Authorization' => 'Bearer xxxxxxx'
+      'Authorization' => 'Bearer xxxxxxx',
     }
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'Games', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -97,7 +97,7 @@ RSpec.describe 'Games', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -188,7 +188,7 @@ RSpec.describe 'Games', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -242,7 +242,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not exist' do
-        let(:game) { double(id: 829315) }
+        let(:game) { double(id: 829_315) }
         let(:user) { create(:user) }
         let(:params) { { game: { name: 'New Name' } } }
 
@@ -317,7 +317,7 @@ RSpec.describe 'Games', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -371,7 +371,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not exist' do
-        let(:game) { double(id: 829315) }
+        let(:game) { double(id: 829_315) }
         let(:user) { create(:user) }
         let(:params) { { game: { name: 'New Name' } } }
 
@@ -446,7 +446,7 @@ RSpec.describe 'Games', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -476,7 +476,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not exist' do
-        let(:game) { double(id: 752809) }
+        let(:game) { double(id: 752_809) }
 
         it 'returns status 404' do
           destroy_game

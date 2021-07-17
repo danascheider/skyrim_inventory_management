@@ -13,7 +13,7 @@ RSpec.describe ShoppingListsController::CreateService do
     let(:user) { create(:user) }
 
     context 'when the game is not found' do
-      let(:game) { double(id: 898243) }
+      let(:game) { double(id: 898_243) }
       let(:params) { { title: 'My Shopping List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -43,7 +43,7 @@ RSpec.describe ShoppingListsController::CreateService do
       let(:params) do
         {
           title:     'All Items',
-          aggregate: true
+          aggregate: true,
         }
       end
 

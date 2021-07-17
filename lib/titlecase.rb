@@ -71,7 +71,7 @@ module Titlecase
                       on
                       without
                       within
-                    ]
+                    ].freeze
 
   module_function
 

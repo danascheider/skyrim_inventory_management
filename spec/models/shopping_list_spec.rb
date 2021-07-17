@@ -72,7 +72,7 @@ RSpec.describe ShoppingList, type: :model do
                                                                   agg_list2,
                                                                   game1_list1,
                                                                   game1_list2,
-                                                                  agg_list1
+                                                                  agg_list1,
                                                                 ])
       end
     end
@@ -178,7 +178,7 @@ RSpec.describe ShoppingList, type: :model do
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
     let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
 
-    it "returns the aggregate list that tracks it" do
+    it 'returns the aggregate list that tracks it' do
       expect(shopping_list.aggregate_list).to eq aggregate_list
     end
   end
@@ -242,7 +242,7 @@ RSpec.describe ShoppingList, type: :model do
 
           context 'when there is a shopping list called "My List <non-integer>"' do
             before do
-              create(:shopping_list, game: game, title: "My List Is the Best List")
+              create(:shopping_list, game: game, title: 'My List Is the Best List')
               create_list(:shopping_list, 2, game: game, title: nil)
             end
 
@@ -386,7 +386,7 @@ RSpec.describe ShoppingList, type: :model do
           expect(aggregate_list.list_items.last.attributes).to include(
                                                                  'description' => list_item.description,
                                                                  'quantity'    => list_item.quantity,
-                                                                 'notes'       => list_item.notes
+                                                                 'notes'       => list_item.notes,
                                                                )
         end
       end

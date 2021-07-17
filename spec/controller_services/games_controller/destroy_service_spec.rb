@@ -28,7 +28,7 @@ RSpec.describe GamesController::DestroyService do
     end
 
     context 'when the game does not exist' do
-      let(:game) { double(id: 43598) }
+      let(:game) { double(id: 43_598) }
       let(:user) { create(:user) }
 
       it 'returns a Service::NotFoundResult' do

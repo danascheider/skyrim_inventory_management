@@ -35,9 +35,9 @@ module Aggregatable
 
   included do
     belongs_to :game, touch: true
-    has_many :list_items, -> { index_order }, class_name: self.list_item_class_name, dependent: :destroy, foreign_key: :list_id
-    belongs_to :aggregate_list, class_name: self.to_s, foreign_key: :aggregate_list_id, optional: true
-    has_many :child_lists, class_name: self.to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
+    has_many :list_items, -> { index_order }, class_name: list_item_class_name, dependent: :destroy, foreign_key: :list_id
+    belongs_to :aggregate_list, class_name: to_s, foreign_key: :aggregate_list_id, optional: true
+    has_many :child_lists, class_name: to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
 
     serialize :list_items, class_name: 'Array'
 
@@ -60,19 +60,17 @@ module Aggregatable
   end
 
   def add_item_from_child_list(item)
-    raise AggregateListError, 'add_item_from_child_list method only available on aggregate lists' unless aggregate_list?
+    raise AggregateListError.new('add_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     list_items.combine_or_create!(public_list_item_attrs(item).merge('list_id' => id))
   end
 
   def remove_item_from_child_list(attrs)
-    raise AggregateListError, 'remove_item_from_child_list method only available on aggregate lists' unless aggregate_list?
+    raise AggregateListError.new('remove_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', attrs['description'])
 
-    if existing_item.nil? || existing_item.quantity < attrs['quantity']
-      raise AggregateListError, 'item passed to remove_item_from_child_list method is not represented on the aggregate list'
-    end
+    raise AggregateListError.new('item passed to remove_item_from_child_list method is not represented on the aggregate list') if existing_item.nil? || existing_item.quantity < attrs['quantity']
 
     if existing_item.quantity == attrs['quantity']
       existing_item.destroy!
@@ -86,13 +84,11 @@ module Aggregatable
   end
 
   def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
-    raise AggregateListError, 'update_item_from_child_list method only available on aggregate lists' unless aggregate_list?
+    raise AggregateListError.new('update_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
-    if existing_item.nil? || delta_quantity < (-existing_item.quantity)
-      raise AggregateListError, 'invalid data to update aggregate list item'
-    end
+    raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity)
 
     existing_item.quantity += delta_quantity
     existing_item.notes     = if old_notes.nil? && new_notes.present?
@@ -112,9 +108,7 @@ module Aggregatable
   end
 
   def ensure_aggregate_list_is_aggregate
-    if aggregate_list&.aggregate != true
-      errors.add(:aggregate_list, 'must be an aggregate list')
-    end
+    errors.add(:aggregate_list, 'must be an aggregate list') if aggregate_list&.aggregate != true
   end
 
   def set_aggregate_list
@@ -151,9 +145,7 @@ module Aggregatable
   def one_aggregate_list_per_game
     scope = self.class.where(game: game, aggregate: true)
 
-    if scope.count > 1 || (scope.count > 0 && !scope.include?(self))
-      errors.add(:aggregate, 'can only be one list per game')
-    end
+    errors.add(:aggregate, 'can only be one list per game') if scope.count > 1 || (scope.count > 0 && !scope.include?(self))
   end
 
   def remove_aggregate_list_id
@@ -166,7 +158,7 @@ module Aggregatable
   end
 
   def list_item_class_name
-    raise NotImplementedError, 'Classes including Aggregatable must implement a class method :list_item_class_name.'
+    raise NotImplementedError.new('Classes including Aggregatable must implement a class method :list_item_class_name.')
   end
 
   def aggregate_has_other_children?

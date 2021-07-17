@@ -22,7 +22,7 @@ RSpec.describe ApplicationController::AuthorizationService do
           'exp'     => (Time.now + 1.day).to_i,
           'email'   => 'jane.doe@gmail.com',
           'name'    => 'Jane Doe',
-          'picture' => nil
+          'picture' => nil,
         }
       end
 
@@ -52,7 +52,7 @@ RSpec.describe ApplicationController::AuthorizationService do
           'exp'     => (Time.now - 1.day).to_i,
           'email'   => 'jane.doe@gmail.com',
           'name'    => 'Jane Doe',
-          'picture' => nil
+          'picture' => nil,
         }
       end
 

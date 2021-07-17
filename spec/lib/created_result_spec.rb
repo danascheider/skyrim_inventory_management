@@ -7,7 +7,7 @@ RSpec.describe Service::CreatedResult do
 
   let(:options) do
     {
-      resource: { foo: 'bar' }
+      resource: { foo: 'bar' },
     }
   end
 
