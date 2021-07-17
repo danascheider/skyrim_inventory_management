@@ -208,9 +208,9 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: { shopping_list: { title: other_list.title } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game)       { create(:game, user: user) }
-        let(:list_id)    { shopping_list.id }
-        let(:other_list) { create(:shopping_list, game: game) }
+        let(:game)           { create(:game, user: user) }
+        let(:list_id)        { shopping_list.id }
+        let(:other_list)     { create(:shopping_list, game: game) }
 
         it 'returns status 422' do
           update_shopping_list
@@ -242,7 +242,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Foo' } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -264,7 +264,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -286,7 +286,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         before do
           allow_any_instance_of(User).to receive(:shopping_lists).and_raise(StandardError, 'Something went catastrophically wrong')
@@ -361,9 +361,9 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: { shopping_list: { title: other_list.title } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game)       { create(:game, user: user) }
-        let(:list_id)    { shopping_list.id }
-        let(:other_list) { create(:shopping_list, game: game) }
+        let(:game)           { create(:game, user: user) }
+        let(:list_id)        { shopping_list.id }
+        let(:other_list)     { create(:shopping_list, game: game) }
 
         it 'returns status 422' do
           update_shopping_list
@@ -395,7 +395,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Foo' } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -417,7 +417,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         it "doesn't update the list" do
           update_shopping_list
@@ -439,7 +439,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
 
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game) { create(:game, user: user) }
+        let(:game)           { create(:game, user: user) }
 
         before do
           allow_any_instance_of(User).to receive(:shopping_lists).and_raise(StandardError, 'Something went catastrophically wrong')
@@ -621,7 +621,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     context 'when the shopping list does not exist' do
-      let(:user) { create(:user) }
+      let(:user)          { create(:user) }
       let(:shopping_list) { double(id: 982_498) } # could be anything
       let(:validator)     { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
@@ -649,7 +649,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
 
     context 'when authenticated and the shopping list exists' do
-      let(:user) { create(:user) }
+      let(:user)            { create(:user) }
       let(:game)            { create(:game, user: user) }
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
       let!(:shopping_list)  { create(:shopping_list, game: game) }
@@ -728,7 +728,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when another list exists' do
         let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-        let(:list_id) { shopping_list.id }
+        let(:list_id)        { shopping_list.id }
 
         it 'does not delete anything' do
           expect { delete_shopping_list }

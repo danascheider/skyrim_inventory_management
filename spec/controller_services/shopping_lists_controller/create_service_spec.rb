@@ -13,7 +13,7 @@ RSpec.describe ShoppingListsController::CreateService do
     let(:user) { create(:user) }
 
     context 'when the game is not found' do
-      let(:game) { double(id: 898_243) }
+      let(:game)   { double(id: 898_243) }
       let(:params) { { title: 'My Shopping List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -26,7 +26,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context "when the game doesn't belong to the given user" do
-      let(:game) { create(:game) }
+      let(:game)   { create(:game) }
       let(:params) { { title: 'My Shopping List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -122,7 +122,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are invalid' do
-      let(:game) { create(:game, user: user) }
+      let(:game)    { create(:game, user: user) }
       let(:game_id) { game.id }
       let(:params)  { { title: '|nvalid Tit|e' } }
 
@@ -141,7 +141,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game) { create(:game, user: user) }
+      let(:game)   { create(:game, user: user) }
       let(:params) { { title: 'Foobar' } }
 
       before do
