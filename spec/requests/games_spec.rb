@@ -199,7 +199,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when all goes well' do
-        let(:game) { create(:game, user: user) }
+        let(:game)   { create(:game, user: user) }
         let(:params) { { game: { name: 'New Name' } } }
 
         it 'updates the game' do
@@ -228,7 +228,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the params are invalid' do
         let!(:game) { create(:game, user: user) }
         let!(:other_game) { create(:game, user: user) }
-        let(:params) { { game: { name: other_game.name } } }
+        let(:params)      { { game: { name: other_game.name } } }
 
         it 'returns status 422' do
           update_game
@@ -243,7 +243,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game) { double(id: 829_315) }
-        let(:user) { create(:user) }
+        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } } }
 
         it 'returns status 404' do
@@ -357,7 +357,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the params are invalid' do
         let!(:game) { create(:game, user: user) }
         let!(:other_game) { create(:game, user: user) }
-        let(:params) { { game: { name: other_game.name } } }
+        let(:params)      { { game: { name: other_game.name } } }
 
         it 'returns status 422' do
           update_game
@@ -372,7 +372,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game) { double(id: 829_315) }
-        let(:user) { create(:user) }
+        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } } }
 
         it 'returns status 404' do

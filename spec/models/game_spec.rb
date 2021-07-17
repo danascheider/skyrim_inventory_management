@@ -163,7 +163,8 @@ RSpec.describe Game, type: :model do
 
     it 'returns all list items belonging to the game' do
       items = game.shopping_lists.map {|list| list.list_items.to_a }
-                .flatten.sort
+      items.flatten!
+      items.sort!
 
       expect(shopping_list_items).to eq items
     end

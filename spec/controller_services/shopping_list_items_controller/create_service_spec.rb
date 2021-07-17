@@ -17,8 +17,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when all goes well' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+      let(:params)          { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         user_lists = user.shopping_lists
@@ -38,7 +38,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'assigns the correct values' do
-          params_with_string_keys                                     = {}
+          params_with_string_keys = {}
+
           params.each {|key, value| params_with_string_keys[key.to_s] = value }
 
           perform
@@ -117,7 +118,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when the list does not exist' do
       let(:shopping_list) { double(id: 348) }
-      let(:params) { { 'description' => 'Necklace', 'quantity' => 2, 'notes' => 'Hello world' } }
+      let(:params)        { { 'description' => 'Necklace', 'quantity' => 2, 'notes' => 'Hello world' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -131,7 +132,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when the list does not belong to the user' do
       let!(:shopping_list) { create(:shopping_list) }
-      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let(:params)         { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -145,8 +146,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when there is a duplicate description' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+      let(:params)          { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       before do
         shopping_list.list_items.create!(description: 'Necklace', quantity: 1, notes: 'To enchant')
@@ -185,7 +186,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when the params are invalid' do
       let!(:shopping_list) { create(:shopping_list, game: game) }
-      let(:params) { { description: 'Necklace', quantity: -1, notes: 'invalid quantity' } }
+      let(:params)         { { description: 'Necklace', quantity: -1, notes: 'invalid quantity' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
@@ -198,7 +199,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when the list is an aggregate list' do
       let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-      let(:params) { { description: 'Necklace', quantity: 1, notes: 'this should not work' } }
+      let(:params)         { { description: 'Necklace', quantity: 1, notes: 'this should not work' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -211,7 +212,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context 'when something unexpected goes wrong' do
       let!(:shopping_list) { create(:shopping_list, game: game) }
-      let(:params) { { description: 'Necklace', quantity: 1, notes: 'hello world' } }
+      let(:params)         { { description: 'Necklace', quantity: 1, notes: 'hello world' } }
 
       before do
         allow_any_instance_of(ShoppingListItem).to receive(:save!).and_raise(StandardError, 'Something went horribly wrong')

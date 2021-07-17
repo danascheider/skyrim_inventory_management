@@ -23,7 +23,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when the game does not belong to the user' do
-      let(:game) { create(:game) }
+      let(:game)    { create(:game) }
       let(:game_id) { game.id }
 
       it 'returns a Service::NotFoundResult' do

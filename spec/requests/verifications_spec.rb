@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Verifications', type: :request do
   subject(:verify_token) { get '/auth/verify_token', headers: { 'Authorization' => "Bearer #{token}" } }
 
-  let(:token) { 'xxxxxxxx' }
+  let(:token)     { 'xxxxxxxx' }
   let(:validator) { instance_double(GoogleIDToken::Validator, check: validator_data) }
 
   around do |example|

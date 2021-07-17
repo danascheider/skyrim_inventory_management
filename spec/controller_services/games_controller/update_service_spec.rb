@@ -11,8 +11,8 @@ RSpec.describe GamesController::UpdateService do
     subject(:perform) { described_class.new(user, game.id, params).perform }
 
     context 'when all goes well' do
-      let!(:game) { create(:game) }
-      let(:user) { game.user }
+      let!(:game)  { create(:game) }
+      let(:user)   { game.user }
       let(:params) { { description: 'New description' } }
 
       it 'updates the game' do
@@ -30,10 +30,10 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let!(:game) { create(:game) }
+      let!(:game)       { create(:game) }
       let!(:other_game) { create(:game, user: user) }
-      let(:user) { game.user }
-      let(:params) { { name: other_game.name } }
+      let(:user)        { game.user }
+      let(:params)      { { name: other_game.name } }
 
       it "doesn't update the game" do
         perform
@@ -50,8 +50,8 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't exist" do
-      let(:game) { double(id: 823_589) }
-      let(:user) { create(:user) }
+      let(:game)   { double(id: 823_589) }
+      let(:user)   { create(:user) }
       let(:params) { { description: 'New description' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -65,8 +65,8 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't belong to the user" do
-      let(:game) { create(:game) }
-      let(:user) { create(:user) }
+      let(:game)   { create(:game) }
+      let(:user)   { create(:user) }
       let(:params) { { description: 'New description' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -80,8 +80,8 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game) { create(:game) }
-      let(:user) { game.user }
+      let(:game)   { create(:game) }
+      let(:user)   { game.user }
       let(:params) { { description: 'New description' } }
 
       before do
