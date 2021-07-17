@@ -349,7 +349,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when all goes well' do
-        let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
         let(:game)      { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
@@ -545,7 +545,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when all goes well' do
-        let(:params) { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
+        let(:params)    { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
         let(:game)      { aggregate_list.game }
         let(:list_item) { shopping_list.list_items.first }
 
