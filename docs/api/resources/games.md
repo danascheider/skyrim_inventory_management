@@ -9,6 +9,7 @@ There is currently one endpoint available:
 * [`GET /games`](#get-games)
 * [`POST /games`](#post-games)
 * [`PATCH|PUT /games/:id`](#patchput-gamesid)
+* [`DELETE /games/:id`](#delete-gamesid)
 
 ## GET /games
 
@@ -211,6 +212,45 @@ A 422 response returns the validation errors that prevented the record from bein
 ```
 
 A 500 response, which is returned when an unexpected error is returned, returns an error message:
+```json
+{
+  "errors": ["Mistakes were made"]
+}
+```
+
+## DELETE /games/:id
+
+Deletes the given game if it exists and belongs to the authenticated user.
+
+### Example Request
+
+```
+DELETE /games/4754
+Authorization: Bearer xxxxxxxx
+```
+
+### Success Responses
+
+#### Statuses
+
+* 204 No Content
+
+#### Example Bodies
+
+A successful response will not include a body.
+
+### Error Responses
+
+#### Statuses
+
+* 404 Not Found
+* 500 Internal Server Error
+
+#### Example Bodies
+
+A 404 response, returned if the game is not found or does not belong to the authenticated user, does not include a response body.
+
+A 500 response, returned if an unexpected error occurs, includes the error message in the body:
 ```json
 {
   "errors": ["Mistakes were made"]
