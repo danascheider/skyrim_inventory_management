@@ -40,6 +40,7 @@ require:
   - rubocop-performance
 AllCops:
   Exclude:
+    - 'bin/**/*'
     - 'db/schema.rb'
     - 'vendor/bundle/**/*'
   DisabledByDefault: true
