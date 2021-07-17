@@ -4,7 +4,7 @@ require 'titlecase'
 
 class Game < ApplicationRecord
   belongs_to :user
-  has_many :shopping_lists, -> { index_order }, dependent: :destroy
+  has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
   validates :name,
             uniqueness: { scope: :user_id, message: 'must be unique' },

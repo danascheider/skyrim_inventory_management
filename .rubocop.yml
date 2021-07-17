@@ -1291,6 +1291,8 @@ Rails/IndexWith:
   Enabled: true
 Rails/Inquiry:
   Enabled: true
+Rails/InverseOf:
+  Enabled: true
 Rails/LexicallyScopedActionFilter:
   Enabled: true
 Rails/MatchRoute:
@@ -1373,7 +1375,7 @@ Rails/WhereNot:
 ### RSpec Requirements ###
 ##########################
 
-RSpec/AlignLetLeftBrace:
+RSpec/AlignLeftLetBrace:
   Enabled: true
 RSpec/AroundBlock:
   Enabled: true
