@@ -532,7 +532,7 @@ RSpec.describe 'Games', type: :request do
 
       it 'returns an error in the body' do
         destroy_game
-        expect(response.body).to eq ({ errors: ['Google OAuth token validation failed'] }.to_json)
+        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
       end
     end
   end

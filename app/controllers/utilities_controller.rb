@@ -11,8 +11,6 @@ class UtilitiesController < ApplicationController
     render plain: TOS, status: :ok
   end
 
-  private
-
   PRIVACY = <<~HEREDOC
     Thank you for using Skyrim Inventory Management. This app was intended
     for my personal use and offers no guarantees of security, privacy, or

@@ -137,7 +137,7 @@ module Aggregatable
   def public_list_item_attrs(item)
     private_attrs = [:id, 'id', :created_at, 'created_at', :updated_at, 'updated_at']
 
-    item.attributes.reject {|key, value| private_attrs.include?(key) }
+    item.attributes.reject {|key, _value| private_attrs.include?(key) }
   end
 
   def abort_if_aggregate

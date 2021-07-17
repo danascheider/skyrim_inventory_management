@@ -2,11 +2,10 @@
 
 module Service
   class Result
-    attr_reader :errors, :resource, :status
+    attr_reader :errors, :resource
 
     def initialize(options = {})
       @errors = []
-      @status = options[:status] || :ok
 
       options.each do |key, value|
         if [:error, 'error', :errors, 'errors'].include?(key)

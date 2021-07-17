@@ -745,7 +745,7 @@ RSpec.describe ShoppingList, type: :model do
       let(:shopping_list) { create(:shopping_list) }
 
       it 'delegates to the game' do
-        expect(shopping_list.user).to eq (shopping_list.game.user)
+        expect(shopping_list.user).to eq(shopping_list.game.user)
       end
     end
   end
