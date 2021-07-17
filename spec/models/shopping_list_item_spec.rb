@@ -56,7 +56,7 @@ RSpec.describe ShoppingListItem, type: :model do
         expect(ShoppingListItem.belonging_to_game(game).to_a.sort).to eq([
                                                                            list1.list_items.to_a,
                                                                            list2.list_items.to_a,
-                                                                           list3.list_items.to_a
+                                                                           list3.list_items.to_a,
                                                                          ].flatten.sort)
       end
     end

@@ -6,7 +6,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
   let(:headers) do
     {
       'Content-Type'  => 'application/json',
-      'Authorization' => 'Bearer xxxxxxx'
+      'Authorization' => 'Bearer xxxxxxx',
     }
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -57,7 +57,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(aggregate_list.list_items.last.attributes).to include(
                                                                    'description' => item.description,
                                                                    'quantity'    => item.quantity,
-                                                                   'notes'       => item.notes
+                                                                   'notes'       => item.notes,
                                                                  )
           end
 
@@ -102,7 +102,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             second_list.list_items.create!(
               description: 'Corundum ingot',
               quantity:    1,
-              notes:       'some other notes'
+              notes:       'some other notes',
             )
             aggregate_list.add_item_from_child_list(second_list.list_items.last)
           end
@@ -113,7 +113,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(aggregate_list.list_items.last.attributes).to include(
                                                                    'description' => 'Corundum ingot',
                                                                    'quantity'    => 6,
-                                                                   'notes'       => 'some other notes -- To make locks'
+                                                                   'notes'       => 'some other notes -- To make locks',
                                                                  )
           end
 
@@ -198,7 +198,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(shopping_list.list_items.first.attributes).to include(
                                                                    'description' => 'Corundum ingot',
                                                                    'quantity'    => 7,
-                                                                   'notes'       => 'To make locks -- To make locks'
+                                                                   'notes'       => 'To make locks -- To make locks',
                                                                  )
           end
 
@@ -344,7 +344,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -371,7 +371,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           update_item
           expect(list_item.reload.attributes).to include(
                                                    'quantity' => 5,
-                                                   'notes'    => 'To make locks'
+                                                   'notes'    => 'To make locks',
                                                  )
         end
 
@@ -380,7 +380,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect(aggregate_list.list_items.first.attributes).to include(
                                                                   'description' => list_item.description,
                                                                   'quantity'    => 7,
-                                                                  'notes'       => 'To make locks'
+                                                                  'notes'       => 'To make locks',
                                                                 )
         end
 
@@ -541,7 +541,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -568,7 +568,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           update_item
           expect(list_item.reload.attributes).to include(
                                                    'quantity' => 5,
-                                                   'notes'    => 'To make locks'
+                                                   'notes'    => 'To make locks',
                                                  )
         end
 
@@ -577,7 +577,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect(aggregate_list.list_items.first.attributes).to include(
                                                                   'description' => list_item.description,
                                                                   'quantity'    => 7,
-                                                                  'notes'       => 'To make locks'
+                                                                  'notes'       => 'To make locks',
                                                                 )
         end
 
@@ -736,7 +736,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => game.user.email,
-          'name'  => game.user.name
+          'name'  => game.user.name,
         }
       end
 
@@ -853,7 +853,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         expect(response.status).to eq 401
       end
 
-      it "indicates the request was unauthenticated" do
+      it 'indicates the request was unauthenticated' do
         destroy_item
         expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end

@@ -23,8 +23,8 @@ RSpec.describe Service::Result do
                       uid:       'jane.doe@gmail.com',
                       email:     'jane.doe@gmail.com',
                       name:      'Jane Doe',
-                      image_url: nil
-                    }
+                      image_url: nil,
+                    },
         }
       end
 
@@ -34,7 +34,7 @@ RSpec.describe Service::Result do
                                         uid:       'jane.doe@gmail.com',
                                         email:     'jane.doe@gmail.com',
                                         name:      'Jane Doe',
-                                        image_url: nil
+                                        image_url: nil,
                                       })
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe Service::Result do
     context 'when there are errors' do
       let(:options) do
         {
-          errors: ['foo', ['bar', ['baz', 'qux']]]
+          errors: ['foo', ['bar', %w[baz qux]]],
         }
       end
 
@@ -62,7 +62,7 @@ RSpec.describe Service::Result do
     context 'when there is one error' do
       let(:options) do
         {
-          error: 'foobar'
+          error: 'foobar',
         }
       end
 

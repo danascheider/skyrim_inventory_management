@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
     def perform
       Service::OKResult.new(resource: user.games)
-    rescue => e
+    rescue StandardError => e
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
 

@@ -22,7 +22,7 @@ class ShoppingListsController < ApplicationController
       aggregate_list.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end

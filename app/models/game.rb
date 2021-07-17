@@ -9,8 +9,8 @@ class Game < ApplicationRecord
   validates :name,
             uniqueness: { scope: :user_id, message: 'must be unique' },
             format:     {
-                          with:    /\A\s*[a-z0-9 \-'\,]*\s*\z/i,
-                          message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
+                          with:    /\A\s*[a-z0-9 \-',]*\s*\z/i,
+                          message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')",
                         }
 
   before_save :format_name

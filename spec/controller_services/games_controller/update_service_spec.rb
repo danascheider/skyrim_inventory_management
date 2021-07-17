@@ -50,7 +50,7 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't exist" do
-      let(:game) { double(id: 823589) }
+      let(:game) { double(id: 823_589) }
       let(:user) { create(:user) }
       let(:params) { { description: 'New description' } }
 

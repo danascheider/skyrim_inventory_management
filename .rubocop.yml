@@ -554,58 +554,14 @@ Naming/ClassAndModuleCamelCase:
   Enabled: true
 Naming/ConstantName:
   Enabled: true
-Naming/FileName:
-  Enabled: true
-  ExpectMatchingDefinition: true # might be redundant w/Zeitwerk
-  CheckDefinitionPathHierarchy: true
-  IgnoreExecutableScripts: true
-  AllowedAcronyms:
-    - CLI
-    - DSL
-    - ACL
-    - API
-    - ASCII
-    - CPU
-    - CSS
-    - CSV
-    - DNS
-    - EOF
-    - GUID
-    - HTML
-    - HTTP
-    - HTTPS
-    - ID
-    - IP
-    - JSON
-    - LHS
-    - QPS
-    - RAM
-    - RHS
-    - RPC
-    - SLA
-    - SMTP
-    - SQL
-    - SSH
-    - TCP
-    - TLS
-    - TTL
-    - UDP
-    - UI
-    - UID
-    - UUID
-    - URI
-    - URL
-    - UTF8
-    - VM
-    - XML
-    - XMPP
-    - XSRF
-    - XSS
 Naming/HeredocDelimiterCase:
   Enabled: true
   EnforcedStyle: uppercase
 Naming/InclusiveLanguage:
   Enabled: true
+  Exclude:
+    - 'db/migrate/**/*' # migrations include the word 'master'
+    - 'config/environments/production.rb' # requires RAILS_MASTER_KEY env variable
   CheckIdentifiers: true
   CheckConstants: true
   CheckVariables: true
@@ -656,8 +612,6 @@ Naming/MethodParameterName:
     - os
     - pp
     - to
-Naming/PredicateName:
-  Enabled: true
 Naming/PredicateName:
   Enabled: true
   NamePrefix:
@@ -1044,7 +998,7 @@ Style/Not:
   Enabled: true
 Style/NumericLiteralPrefix:
   Enabled: true
-  EnforcedStyle: zero_with_o
+  EnforcedOctalStyle: zero_with_o
 Style/NumericLiterals:
   Enabled: true
   MinDigits: 5
@@ -1059,7 +1013,7 @@ Style/ParallelAssignment:
 Style/ParenthesesAroundCondition:
   Enabled: true
   AllowSafeAssignment: false
-  AllowInMultilineConditionals: false
+  AllowInMultilineConditions: false
 Style/PercentLiteralDelimiters:
   Enabled: true
   PreferredDelimiters:

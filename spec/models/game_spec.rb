@@ -103,7 +103,7 @@ RSpec.describe Game, type: :model do
 
       context 'when there is a game called "My Game <non-integer>"' do
         before do
-          create(:game, user: user, name: "My Game Is the Best Game")
+          create(:game, user: user, name: 'My Game Is the Best Game')
           create_list(:game, 2, user: user, name: nil)
         end
 

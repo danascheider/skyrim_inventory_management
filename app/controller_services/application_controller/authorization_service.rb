@@ -26,7 +26,7 @@ class ApplicationController < ActionController::API
     rescue GoogleIDToken::CertificateError => e
       Rails.logger.error "Problem with OAuth certificate -- #{e.message}"
       Service::UnauthorizedResult.new(errors: ['Invalid OAuth certificate'])
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end

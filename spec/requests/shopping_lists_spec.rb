@@ -6,7 +6,7 @@ RSpec.describe 'ShoppingLists', type: :request do
   let(:headers) do
     {
       'Content-Type'  => 'application/json',
-      'Authorization' => 'Bearer xxxxxxx'
+      'Authorization' => 'Bearer xxxxxxx',
     }
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -85,7 +85,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the game is not found' do
-        let(:game) { double(id: 84968294) }
+        let(:game) { double(id: 84_968_294) }
 
         it 'returns status 404' do
           create_shopping_list
@@ -122,7 +122,7 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(response.status).to eq 422
         end
 
-        it "returns the errors" do
+        it 'returns the errors' do
           create_shopping_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
@@ -168,7 +168,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -215,7 +215,7 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(response.status).to eq 422
         end
 
-        it "returns the errors" do
+        it 'returns the errors' do
           update_shopping_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
@@ -321,7 +321,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -368,7 +368,7 @@ RSpec.describe 'ShoppingLists', type: :request do
           expect(response.status).to eq 422
         end
 
-        it "returns the errors" do
+        it 'returns the errors' do
           update_shopping_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
         end
@@ -493,7 +493,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => authenticated_user.email,
-          'name'  => authenticated_user.name
+          'name'  => authenticated_user.name,
         }
       end
 
@@ -504,7 +504,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when the game is not found' do
-        let(:game) { double(id: 491349759) }
+        let(:game) { double(id: 491_349_759) }
 
         it 'returns status 404' do
           get_index
@@ -594,7 +594,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user1.email,
-          'name'  => user1.name
+          'name'  => user1.name,
         }
       end
 
@@ -620,14 +620,14 @@ RSpec.describe 'ShoppingLists', type: :request do
 
     context 'when the shopping list does not exist' do
       let(:user) { create(:user) }
-      let(:shopping_list) { double(id: 982498) } # could be anything
+      let(:shopping_list) { double(id: 982_498) } # could be anything
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -658,7 +658,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 
@@ -716,7 +716,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         {
           'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name'  => user.name
+          'name'  => user.name,
         }
       end
 

@@ -20,7 +20,7 @@ class GamesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
 

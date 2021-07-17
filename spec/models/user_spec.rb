@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
         'exp'     => (Time.now + 2.days).to_i,
         'email'   => 'jane.doe@gmail.com',
         'name'    => 'Jane Doe',
-        'picture' => 'https://example.com/user_images/89'
+        'picture' => 'https://example.com/user_images/89',
       }
     end
 
@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
                                           'uid'       => 'jane.doe@gmail.com',
                                           'email'     => 'jane.doe@gmail.com',
                                           'name'      => 'Jane Doe',
-                                          'image_url' => 'https://example.com/user_images/89'
+                                          'image_url' => 'https://example.com/user_images/89',
                                         )
       end
     end
@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
                                            shopping_list4,
                                            shopping_list3,
                                            shopping_list2,
-                                           shopping_list1
+                                           shopping_list1,
                                          ])
     end
   end
