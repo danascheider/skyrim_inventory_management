@@ -435,4 +435,102 @@ RSpec.describe 'Games', type: :request do
     end
   end
 
+  describe 'DELETE /games/:id' do
+    subject(:destroy_game) { delete "/games/#{game.id}", headers: headers }
+
+    context 'when authenticated' do
+      let(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp' => (Time.now + 1.year).to_i,
+          'email' => user.email,
+          'name' => user.name
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let!(:game) { create(:game, user: user) }
+
+        it 'destroys the game' do
+          expect { destroy_game }.to change(user.games, :count).from(1).to(0)
+        end
+
+        it 'returns status 204' do
+          destroy_game
+          expect(response.status).to eq 204
+        end
+
+        it "doesn't return any data" do
+          destroy_game
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the game does not exist' do
+        let(:game) { double(id: 752809) }
+
+        it 'returns status 404' do
+          destroy_game
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_game
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the game does not belong to the authenticated user' do
+        let(:game) { create(:game) }
+
+        it 'returns status 404' do
+          destroy_game
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_game
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        let(:game) { create(:game, user: user) }
+
+        before do
+          allow_any_instance_of(Game).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')
+        end
+
+        it 'returns status 500' do
+          destroy_game
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error in the body' do
+          destroy_game
+          expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:game) { create(:game) }
+
+      it 'returns status 401' do
+        destroy_game
+        expect(response.status).to eq 401
+      end
+
+      it 'returns an error in the body' do
+        destroy_game
+        expect(response.body).to eq ({ errors: ['Google OAuth token validation failed'] }.to_json)
+      end
+    end
+  end
 end
