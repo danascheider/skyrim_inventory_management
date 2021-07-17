@@ -21,10 +21,10 @@ bundle exec rails db:setup
 echo "+++ Installing Git precommit hook......."
 
 # Make sure the `.git` directory has a `hooks` subdirectory
-mkdir -p ../.git/hooks
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+mkdir -p "$SCRIPT_DIR/../.git/hooks"
 
 # Copy the pre-commit hook in this directory to that directory
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-cp "$SCRIPT_DIR/pre-commit" ../.git/hooks
+cp "$SCRIPT_DIR/pre-commit" "$SCRIPT_DIR/../.git/hooks"
 
 echo "Done!"
