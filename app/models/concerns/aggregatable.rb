@@ -41,17 +41,17 @@ module Aggregatable
 
     serialize :list_items, class_name: 'Array'
 
-    validate :one_aggregate_list_per_game,        if: :is_aggregate_list?
-    validate :not_named_all_items,                unless: :is_aggregate_list?
-    validate :ensure_aggregate_list_is_aggregate, unless: :is_aggregate_list?
+    validate :one_aggregate_list_per_game,        if: :aggregate_list?
+    validate :not_named_all_items,                unless: :aggregate_list?
+    validate :ensure_aggregate_list_is_aggregate, unless: :aggregate_list?
 
-    before_create :create_aggregate_list,    unless: :is_aggregate_list?
-    before_validation :set_aggregate_list,   unless: :is_aggregate_list?
+    before_create :create_aggregate_list,    unless: :aggregate_list?
+    before_validation :set_aggregate_list,   unless: :aggregate_list?
     before_save :abort_if_aggregate_changed
-    before_save :remove_aggregate_list_id,   if: :is_aggregate_list?
-    before_save :set_title_to_all_items,     if: :is_aggregate_list?
+    before_save :remove_aggregate_list_id,   if: :aggregate_list?
+    before_save :set_title_to_all_items,     if: :aggregate_list?
     before_destroy :abort_if_aggregate,      if: :has_child_lists?
-    after_destroy :destroy_aggregate_list,   unless: -> { is_aggregate_list? || aggregate_has_other_children? }
+    after_destroy :destroy_aggregate_list,   unless: -> { aggregate_list? || aggregate_has_other_children? }
 
     scope :aggregate_first, -> { order(aggregate: :desc) }
     scope :includes_items, -> { includes(:list_items) }
@@ -60,13 +60,13 @@ module Aggregatable
   end
 
   def add_item_from_child_list(item)
-    raise AggregateListError, 'add_item_from_child_list method only available on aggregate lists' unless is_aggregate_list?
+    raise AggregateListError, 'add_item_from_child_list method only available on aggregate lists' unless aggregate_list?
 
     list_items.combine_or_create!(public_list_item_attrs(item).merge('list_id' => id))
   end
 
   def remove_item_from_child_list(attrs)
-    raise AggregateListError, 'remove_item_from_child_list method only available on aggregate lists' unless is_aggregate_list?
+    raise AggregateListError, 'remove_item_from_child_list method only available on aggregate lists' unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', attrs['description'])
 
@@ -86,7 +86,7 @@ module Aggregatable
   end
 
   def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
-    raise AggregateListError, 'update_item_from_child_list method only available on aggregate lists' unless is_aggregate_list?
+    raise AggregateListError, 'update_item_from_child_list method only available on aggregate lists' unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
@@ -141,7 +141,7 @@ module Aggregatable
   end
 
   def abort_if_aggregate
-    throw :abort if is_aggregate_list?
+    throw :abort if aggregate_list?
   end
 
   def not_named_all_items
@@ -175,7 +175,7 @@ module Aggregatable
     aggregate_list.child_lists.any?
   end
 
-  def is_aggregate_list?
+  def aggregate_list?
     aggregate == true
   end
 
