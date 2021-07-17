@@ -186,23 +186,23 @@ RSpec.describe ShoppingList, type: :model do
   describe 'title transformations' do
     describe 'setting a default title' do
       let(:game) { create(:game) }
-  
+
       # I don't use FactoryBot to create the models in the subject blocks because
       # it sets values for certain attributes and I don't want those to get in the way.
       context 'when the list is not an aggregate list' do
         context 'when the user has set a title' do
           subject(:title) { game.shopping_lists.create!(title: 'Heljarchen Hall').title }
-  
+
           let(:game) { create(:game) }
-  
+
           it 'keeps the title the user has set' do
             expect(title).to eq 'Heljarchen Hall'
           end
         end
-  
+
         context 'when the user has not set a title' do
           subject(:title) { game.shopping_lists.create!.title }
-  
+
           context 'when the game has all default-titled regular lists' do
             before do
               # Create lists for a different game to make sure the name of this game's
@@ -210,7 +210,7 @@ RSpec.describe ShoppingList, type: :model do
               create_list(:shopping_list, 2, title: nil)
               create_list(:shopping_list, 2, title: nil, game: game)
             end
-    
+
             it 'sets the title based on the highest numbered default title' do
               expect(title).to eq 'My List 3'
             end
@@ -262,20 +262,20 @@ RSpec.describe ShoppingList, type: :model do
           end
         end
       end
-  
+
       # Aggregatable
       context 'when the list is an aggregate list' do
         context 'when the user has set a title' do
           subject(:title) { game.shopping_lists.create!(aggregate: true, title: 'Something other than all items').title }
-          
+
           it 'overrides the title the user has set' do
             expect(title).to eq 'All Items'
           end
         end
-  
+
         context 'when the user has not set a title' do
           subject(:title) { game.shopping_lists.create!(aggregate: true).title }
-  
+
           it 'sets the title to "All Items"' do
             expect(title).to eq 'All Items'
           end
@@ -326,13 +326,15 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         it 'raises an error and does not destroy the list' do
-          expect { destroy_list }.to raise_error(ActiveRecord::RecordNotDestroyed)
+          expect { destroy_list }
+            .to raise_error(ActiveRecord::RecordNotDestroyed)
         end
       end
 
       context 'when the game has no regular lists' do
         it 'destroys the aggregate list' do
-          expect { destroy_list }.to change(shopping_list.game.shopping_lists, :count).from(1).to(0)
+          expect { destroy_list }
+            .to change(shopping_list.game.shopping_lists, :count).from(1).to(0)
         end
       end
     end
@@ -352,13 +354,15 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       it "doesn't destroy the aggregate list" do
-        expect { destroy_list }.not_to change(game, :aggregate_shopping_list)
+        expect { destroy_list }
+          .not_to change(game, :aggregate_shopping_list)
       end
     end
 
     context 'when the user has no additional regular lists' do
       it 'destroys the aggregate list' do
-        expect { destroy_list }.to change(game.shopping_lists, :count).from(2).to(0)
+        expect { destroy_list }
+          .to change(game.shopping_lists, :count).from(2).to(0)
       end
     end
   end
@@ -373,16 +377,17 @@ RSpec.describe ShoppingList, type: :model do
         let(:list_item) { create(:shopping_list_item) }
 
         it 'creates a corresponding item on the aggregate list' do
-          expect { add_item }.to change(aggregate_list.list_items, :count).from(0).to(1)
+          expect { add_item }
+            .to change(aggregate_list.list_items, :count).from(0).to(1)
         end
 
         it 'sets the correct attributes' do
           add_item
           expect(aggregate_list.list_items.last.attributes).to include(
-                                                                     'description' => list_item.description,
-                                                                     'quantity' => list_item.quantity,
-                                                                     'notes' => list_item.notes
-                                                                    )
+                                                                 'description' => list_item.description,
+                                                                 'quantity'    => list_item.quantity,
+                                                                 'notes'       => list_item.notes
+                                                               )
         end
       end
 
@@ -398,7 +403,7 @@ RSpec.describe ShoppingList, type: :model do
             expect(existing_list_item.reload.quantity).to eq 5
           end
         end
-        
+
         context 'when neither have notes' do
           let!(:existing_list_item) { create(:shopping_list_item, list: aggregate_list, quantity: 3, notes: nil) }
           let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
@@ -406,7 +411,7 @@ RSpec.describe ShoppingList, type: :model do
           it 'combines the quantities and leaves the notes nil' do
             add_item
             expect(existing_list_item.reload.quantity).to eq 5
-            expect(existing_list_item.reload.notes). to be nil
+            expect(existing_list_item.reload.notes).to be nil
           end
         end
 
@@ -426,7 +431,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:list_item) { create(:shopping_list_item) }
 
         it 'raises an AggregateListError' do
-          expect { add_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { add_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
     end
@@ -439,7 +445,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
-          expect { remove_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
 
@@ -452,7 +459,8 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         it 'raises an error' do
-          expect { remove_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
 
@@ -465,7 +473,8 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         it 'removes the item from the aggregate list' do
-          expect { remove_item }.to change(aggregate_list.list_items, :count).from(1).to(0)
+          expect { remove_item }
+            .to change(aggregate_list.list_items, :count).from(1).to(0)
         end
       end
 
@@ -547,7 +556,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
-          expect { remove_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
     end
@@ -610,7 +620,7 @@ RSpec.describe ShoppingList, type: :model do
 
         it "doesn't mess with the notes" do
           update_item
-          expect(aggregate_list.list_items.first.notes).to eq 'something -- something else'  
+          expect(aggregate_list.list_items.first.notes).to eq 'something -- something else'
         end
       end
 
@@ -621,7 +631,7 @@ RSpec.describe ShoppingList, type: :model do
         before do
           aggregate_list.list_items.create!(description: description, quantity: 3, notes: existing_notes)
         end
-  
+
         context 'when replacing the middle notes' do
           let(:old_notes) { 'notes 2' }
           let(:new_notes) { 'something else' }
@@ -700,7 +710,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:new_notes) { 'something else' }
 
         it 'raises an error' do
-          expect { update_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
 
@@ -711,7 +722,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:new_notes) { 'something else' }
 
         it 'raises an error' do
-          expect { update_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
 
@@ -723,7 +735,8 @@ RSpec.describe ShoppingList, type: :model do
         let(:new_notes) { 'to make locks' }
 
         it 'raises an error' do
-          expect { update_item }.to raise_error(Aggregatable::AggregateListError)
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
         end
       end
     end

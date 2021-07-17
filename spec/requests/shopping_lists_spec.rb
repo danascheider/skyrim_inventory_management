@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'ShoppingLists', type: :request do
   let(:headers) do
     {
-      'Content-Type' => 'application/json',
+      'Content-Type'  => 'application/json',
       'Authorization' => 'Bearer xxxxxxx'
     }
   end
@@ -17,9 +17,9 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -34,7 +34,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         context 'when an aggregate list has also been created' do
           it 'creates a new shopping list' do
-            expect { create_shopping_list }.to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
+            expect { create_shopping_list }
+              .to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
           it 'returns the aggregate list as well as the new list' do
@@ -52,7 +53,8 @@ RSpec.describe 'ShoppingLists', type: :request do
           let!(:aggregate_list) { create(:aggregate_shopping_list, game: game, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
 
           it 'creates one list' do
-            expect{ create_shopping_list }.to change(game.shopping_lists, :count).from(1).to(2)
+            expect { create_shopping_list }
+              .to change(game.shopping_lists, :count).from(1).to(2)
           end
 
           it 'returns only the newly created list' do
@@ -68,7 +70,7 @@ RSpec.describe 'ShoppingLists', type: :request do
             # let's not have this request create an aggregate list too
             create(:aggregate_shopping_list, game: game)
           end
-          
+
           it 'returns status 201' do
             create_shopping_list
             expect(response.status).to eq 201
@@ -131,7 +133,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         let(:game) { create(:game, user: user) }
 
         it "doesn't create a list" do
-          expect { create_shopping_list }.not_to change(game.shopping_lists, :count)
+          expect { create_shopping_list }
+            .not_to change(game.shopping_lists, :count)
         end
 
         it 'returns an error' do
@@ -163,9 +166,9 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -257,7 +260,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to change a regular list to an aggregate list' do
         subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
-        
+
         let!(:shopping_list) { create(:shopping_list, game: game) }
         let(:game) { create(:game, user: user) }
 
@@ -279,7 +282,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when something unexpected goes wrong' do
         subject(:update_shopping_list) { put "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
-        
+
         let!(:shopping_list) { create(:shopping_list, game: game) }
         let(:game) { create(:game, user: user) }
 
@@ -316,9 +319,9 @@ RSpec.describe 'ShoppingLists', type: :request do
       let!(:user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -410,7 +413,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to change a regular list to an aggregate list' do
         subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { aggregate: true } }.to_json, headers: headers }
-        
+
         let!(:shopping_list) { create(:shopping_list, game: game) }
         let(:game) { create(:game, user: user) }
 
@@ -432,7 +435,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when something unexpected goes wrong' do
         subject(:update_shopping_list) { patch "/shopping_lists/#{shopping_list.id}", params: { shopping_list: { title: 'Some New Title' } }.to_json, headers: headers }
-        
+
         let!(:shopping_list) { create(:shopping_list, game: game) }
         let(:game) { create(:game, user: user) }
 
@@ -465,7 +468,6 @@ RSpec.describe 'ShoppingLists', type: :request do
   describe 'GET /shopping_lists' do
     subject(:get_index) { get "/games/#{game.id}/shopping_lists", headers: headers }
 
-    
     context 'when unauthenticated' do
       let(:game) { create(:game) }
 
@@ -489,14 +491,14 @@ RSpec.describe 'ShoppingLists', type: :request do
       let(:authenticated_user) { create(:user) }
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => authenticated_user.email,
-          'name' => authenticated_user.name
+          'name'  => authenticated_user.name
         }
       end
 
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-      
+
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
@@ -545,7 +547,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when there are shopping lists for that game' do
         let(:game) { create(:game_with_shopping_lists, user: authenticated_user) }
-        
+
         it 'returns status 200' do
           get_index
           expect(response.status).to eq 200
@@ -571,7 +573,8 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       it 'does not delete the shopping list' do
-        expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+        expect { delete_shopping_list }
+          .not_to change(ShoppingList, :count)
       end
 
       it 'returns an error in the body' do
@@ -589,9 +592,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user1.email,
-          'name' => user1.name
+          'name'  => user1.name
         }
       end
 
@@ -610,7 +613,8 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       it 'does not delete any shopping lists' do
-        expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+        expect { delete_shopping_list }
+          .not_to change(ShoppingList, :count)
       end
     end
 
@@ -621,16 +625,16 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
-      
+
       it 'returns 404' do
         delete_shopping_list
         expect(response.status).to eq 404
@@ -652,9 +656,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -664,7 +668,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context "when this is the game's last regular shopping list" do
         it 'deletes the shopping list' do
-          expect { delete_shopping_list }.to change(game.shopping_lists, :count).from(2).to(0)
+          expect { delete_shopping_list }
+            .to change(game.shopping_lists, :count).from(2).to(0)
         end
 
         it 'returns status 204' do
@@ -686,7 +691,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         it 'deletes the shopping list' do
-          expect { delete_shopping_list }.to change(game.shopping_lists, :count).from(3).to(2)
+          expect { delete_shopping_list }
+            .to change(game.shopping_lists, :count).from(3).to(2)
         end
 
         it 'returns status 200' do
@@ -708,9 +714,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       let(:validation_data) do
         {
-          'exp' => (Time.now + 1.year).to_i,
+          'exp'   => (Time.now + 1.year).to_i,
           'email' => user.email,
-          'name' => user.name
+          'name'  => user.name
         }
       end
 
@@ -723,7 +729,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         let(:list_id) { shopping_list.id }
 
         it 'does not delete anything' do
-          expect { delete_shopping_list }.not_to change(ShoppingList, :count)
+          expect { delete_shopping_list }
+            .not_to change(ShoppingList, :count)
         end
 
         it 'returns status 405 (Method Not Allowed)' do

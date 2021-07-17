@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
@@ -30,7 +30,7 @@ gem 'configatron', '~> 4.5.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1', platforms: [:mri, :mingw, :x64_mingw]
-  
+
   # Use RSpec for unit and integration testing
   gem 'rspec-rails', '~> 5.0.1'
 

@@ -11,7 +11,7 @@ class ShoppingListItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate shopping list'
 
     def initialize(user, item_id)
-      @user = user
+      @user    = user
       @item_id = item_id
     end
 
@@ -24,7 +24,7 @@ class ShoppingListItemsController < ApplicationController
         shopping_list_item.destroy!
         aggregate_list_item = aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
       end
-      
+
       aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new

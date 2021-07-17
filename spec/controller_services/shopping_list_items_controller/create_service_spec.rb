@@ -33,12 +33,13 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it 'adds a list item to the given list' do
-          expect { perform }.to change(shopping_list.list_items, :count).from(0).to(1)
+          expect { perform }
+            .to change(shopping_list.list_items, :count).from(0).to(1)
         end
 
         it 'assigns the correct values' do
-          params_with_string_keys = {}
-          params.each { |key, value| params_with_string_keys[key.to_s] = value }
+          params_with_string_keys                                     = {}
+          params.each {|key, value| params_with_string_keys[key.to_s] = value }
 
           perform
           expect(shopping_list.list_items.last.attributes).to include(**params_with_string_keys)
@@ -82,11 +83,13 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         it "doesn't create a new item on the regular list" do
-          expect { perform }.not_to change(shopping_list.list_items, :count)
+          expect { perform }
+            .not_to change(shopping_list.list_items, :count)
         end
 
         it "doesn't create a new item on the aggregate list" do
-          expect { perform }.not_to change(aggregate_list.list_items, :count)
+          expect { perform }
+            .not_to change(aggregate_list.list_items, :count)
         end
 
         it 'updates the list itself' do
@@ -151,7 +154,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'combines the item with an existing one' do
-        expect { perform }.not_to change(shopping_list.list_items, :count)
+        expect { perform }
+          .not_to change(shopping_list.list_items, :count)
       end
 
       it 'updates the shopping list' do

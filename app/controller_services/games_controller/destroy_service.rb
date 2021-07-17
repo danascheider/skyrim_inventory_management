@@ -7,7 +7,7 @@ require 'service/internal_server_error_result'
 class GamesController < ApplicationController
   class DestroyService
     def initialize(user, game_id)
-      @user = user
+      @user    = user
       @game_id = game_id
     end
 

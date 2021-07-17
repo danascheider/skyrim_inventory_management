@@ -9,7 +9,7 @@ require 'service/internal_server_error_result'
 RSpec.describe ShoppingListsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, game.id, params).perform }
-    
+
     let(:user) { create(:user) }
 
     context 'when the game is not found' do
@@ -42,7 +42,7 @@ RSpec.describe ShoppingListsController::CreateService do
       let(:game) { create(:game, user: user) }
       let(:params) do
         {
-          title: 'All Items',
+          title:     'All Items',
           aggregate: true
         }
       end
@@ -66,7 +66,8 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'creates a shopping list for the given game' do
-          expect { perform }.to change(game.shopping_lists, :count).from(1).to(2)
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(1).to(2)
         end
 
         it 'returns a Service::CreatedResult' do
@@ -88,7 +89,8 @@ RSpec.describe ShoppingListsController::CreateService do
 
       context "when the game doesn't have an aggregate shopping list" do
         it 'creates two lists' do
-          expect { perform }.to change(game.shopping_lists, :count).from(0).to(2)
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(0).to(2)
         end
 
         it 'creates an aggregate shopping list for the given game' do
@@ -125,7 +127,8 @@ RSpec.describe ShoppingListsController::CreateService do
       let(:params) { { title: '|nvalid Tit|e' } }
 
       it 'does not create a shopping list' do
-        expect { perform }.not_to change(game.shopping_lists, :count)
+        expect { perform }
+          .not_to change(game.shopping_lists, :count)
       end
 
       it 'returns a Service::UnprocessableEntityResult' do

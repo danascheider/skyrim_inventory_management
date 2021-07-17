@@ -14,7 +14,8 @@ RSpec.describe GamesController::CreateService do
     let(:params) { { name: 'Skyrim, Baby' } }
 
     it 'creates a new game' do
-      expect { perform }.to change(user.games, :count).from(0).to(1)
+      expect { perform }
+        .to change(user.games, :count).from(0).to(1)
     end
 
     it 'returns a Service::CreatedResult' do
@@ -30,7 +31,8 @@ RSpec.describe GamesController::CreateService do
     let(:params) { { name: '$@#*$&' } }
 
     it "doesn't create a new game" do
-      expect { perform }.not_to change(Game, :count)
+      expect { perform }
+        .not_to change(Game, :count)
     end
 
     it 'returns a Service::UnprocessableEntityResult' do

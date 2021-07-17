@@ -40,6 +40,7 @@ require:
   - rubocop-performance
 AllCops:
   Exclude:
+    - 'bin/**/*'
     - 'db/schema.rb'
     - 'vendor/bundle/**/*'
   DisabledByDefault: true
@@ -138,8 +139,6 @@ Layout/EmptyLineBetweenDefs:
 Layout/EmptyLines:
   Enabled: true
 Layout/EmptyLinesAroundAccessModifier:
-  Enabled: true
-Layout/EmptyLinesAroundArguments:
   Enabled: true
 Layout/EmptyLinesAroundArguments:
   Enabled: true
@@ -257,7 +256,7 @@ Layout/SpaceAfterSemicolon:
   Enabled: true
 Layout/SpaceAroundBlockParameters:
   Enabled: true
-  EnforcedStyle: no_space
+  EnforcedStyleInsidePipes: no_space
 Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
   EnforcedStyle: space
@@ -312,9 +311,6 @@ Layout/SpaceInsideReferenceBrackets:
   Enabled: true
   EnforcedStyle: no_space
   EnforcedStyleForEmptyBrackets: no_space
-Layout/SpaceInsideReferenceBrackets:
-  Enabled: true
-  EnforcedStyle: no_space
 Layout/TrailingEmptyLines:
   Enabled: true
   EnforcedStyle: final_newline

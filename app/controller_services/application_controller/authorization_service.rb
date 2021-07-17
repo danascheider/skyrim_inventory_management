@@ -7,12 +7,12 @@ class ApplicationController < ActionController::API
   class AuthorizationService
     def initialize(controller, token)
       @controller = controller
-      @token = token
+      @token      = token
     end
 
     def perform
       validator = GoogleIDToken::Validator.new
-      payload = validator.check(token, configatron.google_oauth_client_id)
+      payload   = validator.check(token, configatron.google_oauth_client_id)
 
       if current?(payload['exp'])
         controller.current_user = User.create_or_update_for_google(payload)

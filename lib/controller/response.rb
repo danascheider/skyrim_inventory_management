@@ -4,8 +4,8 @@ module Controller
   class Response
     def initialize(controller, result, options = {})
       @controller = controller
-      @result = result
-      @options = options
+      @result     = result
+      @options    = options
     end
 
     def execute

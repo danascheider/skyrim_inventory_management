@@ -7,9 +7,9 @@ require 'service/not_found_result'
 class GamesController < ApplicationController
   class UpdateService
     def initialize(user, game_id, params)
-      @user = user
+      @user    = user
       @game_id = game_id
-      @params = params
+      @params  = params
     end
 
     def perform

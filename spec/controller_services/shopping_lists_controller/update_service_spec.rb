@@ -10,10 +10,10 @@ require 'service/internal_server_error_result'
 RSpec.describe ShoppingListsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
-    
+
     let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
     let(:user) { create(:user) }
-    
+
     context 'when all goes well' do
       let(:shopping_list) { create(:shopping_list, game: game, aggregate_list_id: aggregate_list.id) }
       let(:game) { create(:game, user: user) }
@@ -59,7 +59,7 @@ RSpec.describe ShoppingListsController::UpdateService do
       let(:shopping_list) { create(:shopping_list, game: game) }
       let(:game) { create(:game) }
       let(:params) { { title: 'Valid New Title' } }
-      
+
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
       end
