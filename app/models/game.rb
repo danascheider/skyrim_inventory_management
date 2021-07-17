@@ -28,7 +28,7 @@ class Game < ApplicationRecord
 
   def format_name
     if name.blank?
-      highest_number = user.games.where("name like '%My Game%'").pluck(:name).map { |n| n.gsub('My Game ', '').to_i }.max || 0
+      highest_number = user.games.where("name LIKE 'My Game %'").pluck(:name).map { |n| n.gsub('My Game ', '').to_i }.max || 0
       self.name = "My Game #{highest_number + 1}"
     else
       self.name = Titlecase.titleize(name.strip)

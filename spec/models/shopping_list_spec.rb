@@ -203,15 +203,52 @@ RSpec.describe ShoppingList, type: :model do
         context 'when the user has not set a title' do
           subject(:title) { game.shopping_lists.create!.title }
   
-          before do
-            # Create lists for a different gamee to make sure the name of this game's
-            # list isn't affected by them
-            create_list(:shopping_list, 2, title: nil)
-            create_list(:shopping_list, 2, title: nil, game: game)
+          context 'when the game has all default-titled regular lists' do
+            before do
+              # Create lists for a different game to make sure the name of this game's
+              # list isn't affected by them
+              create_list(:shopping_list, 2, title: nil)
+              create_list(:shopping_list, 2, title: nil, game: game)
+            end
+    
+            it 'sets the title based on the highest numbered default title' do
+              expect(title).to eq 'My List 3'
+            end
           end
-  
-          it 'sets the title based on how many regular lists the user has' do
-            expect(title).to eq 'My List 3'
+
+          context 'when the game has differently titled regular lists' do
+            before do
+              create(:shopping_list, title: nil)
+              create(:shopping_list, game: game, title: nil)
+              create(:shopping_list, game: game, title: 'Windstad Manor')
+              create(:shopping_list, game: game, title: nil)
+            end
+
+            it 'uses the next highest number in default lists' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when the game has a shopping list with a similar title' do
+            before do
+              create(:shopping_list, game: game, title: 'This List is Called My List 4')
+              create_list(:shopping_list, 2, game: game, title: nil)
+            end
+
+            it 'sets the title based on the highest numbered list called "My List N"' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when there is a shopping list called "My List <non-integer>"' do
+            before do
+              create(:shopping_list, game: game, title: "My List Is the Best List")
+              create_list(:shopping_list, 2, game: game, title: nil)
+            end
+
+            it 'sets the title based on the highest numbered list called "My List N"' do
+              expect(title).to eq 'My List 3'
+            end
           end
         end
       end

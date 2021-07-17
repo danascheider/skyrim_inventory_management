@@ -32,7 +32,7 @@ class ShoppingList < ApplicationRecord
     return if aggregate
 
     if title.blank?
-      highest_number = game.shopping_lists.where("title like '%My List%'").pluck(:title).map { |t| t.gsub('My List ', '').to_i }.max || 0
+      highest_number = game.shopping_lists.where("title LIKE 'My List %'").pluck(:title).map { |t| t.gsub('My List ', '').to_i }.max || 0
       self.title = "My List #{highest_number + 1}"
     else
       self.title = Titlecase.titleize(title.strip)
