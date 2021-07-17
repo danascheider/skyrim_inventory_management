@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_001919) do
+ActiveRecord::Schema.define(version: 2021_07_17_003004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 2021_07_17_001919) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "aggregate", default: false
     t.string "title", null: false
-    t.integer "aggregate_list_id"
     t.bigint "game_id", null: false
+    t.bigint "aggregate_list_id"
+    t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_shopping_lists_on_game_id"
   end
 
@@ -58,4 +59,5 @@ ActiveRecord::Schema.define(version: 2021_07_17_001919) do
   add_foreign_key "games", "users"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
+  add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
 end
