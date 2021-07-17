@@ -125,11 +125,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
             # differently. Here we grab the individual items and then we'll filter out the timestamps to
             # verify them.
             aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-              item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
+              item_attrs.except('created_at', 'updated_at')
             end
 
-            aggregate_list_item_expected = aggregate_list.list_items.last.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
-            regular_list_item_expected   = shopping_list.list_items.last.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+            aggregate_list_item_expected = aggregate_list.list_items.last.attributes.except('created_at', 'updated_at')
+            regular_list_item_expected   = shopping_list.list_items.last.attributes.except('created_at', 'updated_at')
 
             expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
             expect(regular_list_item_actual).to eq(regular_list_item_expected)
@@ -231,7 +231,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             agg_list_item_attributes     = aggregate_list.list_items.last.attributes.except('created_at', 'updated_at')
             reg_list_item_attributes     = shopping_list.list_items.last.attributes.except('created_at', 'updated_at')
 
-            expect([agg_list_item, reg_list_item]).to eq ([agg_list_item_attributes, reg_list_item_attributes])
+            expect([agg_list_item, reg_list_item]).to eq([agg_list_item_attributes, reg_list_item_attributes])
           end
 
           it 'updates the game' do
@@ -404,11 +404,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
           aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
+            item_attrs.except('created_at', 'updated_at')
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
-          regular_list_item_expected   = shopping_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.except('created_at', 'updated_at')
+          regular_list_item_expected   = shopping_list.list_items.first.attributes.except('created_at', 'updated_at')
 
           expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)
@@ -601,11 +601,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
           # differently. Here we grab the individual items and then we'll filter out the timestamps to
           # verify them.
           aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.reject {|key, value| %w[created_at updated_at].include?(key) }
+            item_attrs.except('created_at', 'updated_at')
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
-          regular_list_item_expected   = shopping_list.list_items.first.attributes.reject {|k, v| %w[created_at updated_at].include?(k) }
+          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.except('created_at', 'updated_at')
+          regular_list_item_expected   = shopping_list.list_items.first.attributes.except('created_at', 'updated_at')
 
           expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
           expect(regular_list_item_actual).to eq(regular_list_item_expected)

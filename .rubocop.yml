@@ -89,9 +89,6 @@ Layout/BlockEndNewline:
 Layout/CaseIndentation:
   Enabled: true
   EnforcedStyle: case
-
-# TODO: See if this one breaks model classes, especially those that
-#       use Aggregatable
 Layout/ClassStructure:
   Description: 'Enforces a configured order of definitions within a class body.'
   StyleGuide: '#consistent-classes'

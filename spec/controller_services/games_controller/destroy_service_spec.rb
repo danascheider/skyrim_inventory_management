@@ -22,9 +22,8 @@ RSpec.describe GamesController::DestroyService do
       end
 
       it "doesn't return any data", :aggregate_failures do
-        result = perform
-        expect(result.resource).to be_blank
-        expect(result.errors).to be_blank
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 
@@ -37,7 +36,6 @@ RSpec.describe GamesController::DestroyService do
       end
 
       it "doesn't set data", :aggregate_failures do
-        result = perform
         expect(perform.resource).to be_blank
         expect(perform.errors).to be_blank
       end
@@ -52,7 +50,6 @@ RSpec.describe GamesController::DestroyService do
       end
 
       it "doesn't set data", :aggregate_failures do
-        result = perform
         expect(perform.resource).to be_blank
         expect(perform.errors).to be_blank
       end

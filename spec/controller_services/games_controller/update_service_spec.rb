@@ -59,9 +59,8 @@ RSpec.describe GamesController::UpdateService do
       end
 
       it "doesn't set a response body", :aggregate_failures do
-        result = perform
-        expect(result.resource).to be_blank
-        expect(result.errors).to be_blank
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 
@@ -75,9 +74,8 @@ RSpec.describe GamesController::UpdateService do
       end
 
       it "doesn't set a response body", :aggregate_failures do
-        result = perform
-        expect(result.resource).to be_blank
-        expect(result.errors).to be_blank
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 
