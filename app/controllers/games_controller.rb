@@ -21,6 +21,12 @@ class GamesController < ApplicationController
     ::Controller::Response.new(self, result).execute
   end
 
+  def destroy
+    result = DestroyService.new(current_user, params[:id]).perform
+
+    ::Controller::Response.new(self, result).execute
+  end
+
   private
 
   def game_params
