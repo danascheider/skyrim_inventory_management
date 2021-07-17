@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     subject(:create_or_update) { described_class.create_or_update_for_google(payload) }
     let(:payload) do
       {
-        'exp'     => (Time.now + 2.days).to_i,
+        'exp'     => (Time.zone.now + 2.days).to_i,
         'email'   => 'jane.doe@gmail.com',
         'name'    => 'Jane Doe',
         'picture' => 'https://example.com/user_images/89',

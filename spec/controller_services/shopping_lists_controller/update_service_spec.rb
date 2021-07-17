@@ -33,7 +33,7 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'updates the game' do
-        t = Time.now + 3.days
+        t = Time.zone.now + 3.days
         Timecop.freeze(t) do
           perform
           expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)

@@ -34,7 +34,7 @@ class ApplicationController < ActionController::API
     private
 
     def current?(seconds_since_unix_epoch)
-      Time.at(seconds_since_unix_epoch) >= Time.now
+      Time.zone.at(seconds_since_unix_epoch) >= Time.zone.now
     end
 
     attr_reader :controller, :token

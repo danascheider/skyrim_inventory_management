@@ -9,13 +9,13 @@ RSpec.describe 'Verifications', type: :request do
   let(:validator) { instance_double(GoogleIDToken::Validator, check: validator_data) }
 
   around do |example|
-    Timecop.freeze(Time.now) { example.run }
+    Timecop.freeze(Time.zone.now) { example.run }
   end
 
   context 'when the token is valid and verified' do
     let(:validator_data) do
       {
-        'exp'   => (Time.now + 1.year).to_i,
+        'exp'   => (Time.zone.now + 1.year).to_i,
         'email' => 'foobar@gmail.com',
         'name'  => 'Foo Bar',
       }

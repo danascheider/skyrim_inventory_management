@@ -79,7 +79,7 @@ module Titlecase
     words = string.downcase.split(' ')
 
     words.map.with_index(1) do |word, index|
-      LOWERCASE_WORDS.include?(word) && ![1, words.length].include?(index) ? word : word.capitalize
+      LOWERCASE_WORDS.include?(word) && [1, words.length].exclude?(index) ? word : word.capitalize
     end.join(' ')
   end
 end

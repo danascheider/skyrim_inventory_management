@@ -36,7 +36,7 @@ module Aggregatable
   included do
     belongs_to :game, touch: true
     has_many :list_items, -> { index_order }, class_name: list_item_class_name, dependent: :destroy, foreign_key: :list_id
-    belongs_to :aggregate_list, class_name: to_s, foreign_key: :aggregate_list_id, optional: true
+    belongs_to :aggregate_list, class_name: to_s, optional: true
     has_many :child_lists, class_name: to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
 
     serialize :list_items, class_name: 'Array'
@@ -145,7 +145,7 @@ module Aggregatable
   def one_aggregate_list_per_game
     scope = self.class.where(game: game, aggregate: true)
 
-    errors.add(:aggregate, 'can only be one list per game') if scope.count > 1 || (scope.count > 0 && !scope.include?(self))
+    errors.add(:aggregate, 'can only be one list per game') if scope.count > 1 || (scope.count > 0 && scope.exclude?(self))
   end
 
   def remove_aggregate_list_id
