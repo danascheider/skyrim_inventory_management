@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
   validates :name,
-            uniqueness: { scope: :user_id, message: 'must be unique' },
+            uniqueness: { scope: :user_id, message: 'must be unique', case_sensitive: false },
             format:     {
                           with:    /\A\s*[a-z0-9 \-',]*\s*\z/i,
                           message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')",
