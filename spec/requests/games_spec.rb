@@ -54,7 +54,7 @@ RSpec.describe 'Games', type: :request do
 
         it "returns the authenticated user's games" do
           get_games
-          expect(response.body).to eq(user.games.to_json)
+          expect(response.body).to eq(user.games.index_order.to_json)
         end
       end
 

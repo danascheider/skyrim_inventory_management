@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     end
 
     def perform
-      Service::OKResult.new(resource: user.games)
+      Service::OKResult.new(resource: user.games.index_order)
     rescue StandardError => e
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
