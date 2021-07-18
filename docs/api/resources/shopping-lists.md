@@ -247,7 +247,7 @@ If the game with the given `game_id` is not found or does not belong to the auth
 If duplicate title is given:
 ```json
 {
-  "errors": ["Title has already been taken"]
+  "errors": ["Title must be unique per game"]
 }
 ```
 
@@ -345,7 +345,7 @@ For a 404 response, no response body is returned.
 For a 422 response due to title uniqueness constraint:
 ```json
 {
-  "errors": ["Title has already been taken"]
+  "errors": ["Title must be unique per game"]
 }
 ```
 

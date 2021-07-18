@@ -125,7 +125,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns the errors' do
           create_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title must be unique per game'] })
         end
       end
 
@@ -219,7 +219,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns the errors' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title must be unique per game'] })
         end
       end
 
@@ -372,7 +372,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it 'returns the errors' do
           update_shopping_list
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title has already been taken'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title must be unique per game'] })
         end
       end
 
