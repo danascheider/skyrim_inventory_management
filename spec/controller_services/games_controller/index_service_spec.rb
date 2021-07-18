@@ -32,7 +32,7 @@ RSpec.describe GamesController::IndexService do
       end
 
       it 'sets the resource to the games' do
-        expect(perform.resource).to eq(user.games)
+        expect(perform.resource).to eq(user.games.index_order)
       end
     end
 
