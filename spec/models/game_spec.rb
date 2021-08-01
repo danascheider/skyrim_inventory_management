@@ -62,12 +62,12 @@ RSpec.describe Game, type: :model do
     # However, since the index_order scope puts the aggregate list first, it is
     # the first list the game attempts to destroy.
 
-    it 'destroys all shopping lists' do
+    it "destroys all the game's shopping lists" do
       expect { game.destroy! }
         .to change(ShoppingList, :count).from(3).to(0)
     end
 
-    it 'destroys all shopping list items' do
+    it "destroys all the game's shopping list items" do
       expect { game.destroy! }
         .to change(ShoppingListItem, :count).from(8).to(0)
     end
