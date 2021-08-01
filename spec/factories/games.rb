@@ -23,12 +23,11 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        aggregate_list = create(:aggregate_shopping_list, game: game)
         shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game: game)
 
         shopping_lists.each do |list|
           list.list_items.each do |item|
-            aggregate_list.add_item_from_child_list(item)
+            list.aggregate_list.add_item_from_child_list(item)
           end
         end
       end
