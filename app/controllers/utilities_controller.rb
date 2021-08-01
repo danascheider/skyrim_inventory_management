@@ -20,7 +20,7 @@ class UtilitiesController < ApplicationController
     about you is your name, your email, and your Google profile image, all
     of which we get from Google when you log in. That means the name, email,
     and profile image we have on file for you will be the ones associated
-    with the Google account you use to log in.#{' '}
+    with the Google account you use to log in.
   HEREDOC
 
   TOS = <<~HEREDOC
