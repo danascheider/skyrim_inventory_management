@@ -60,7 +60,9 @@ RSpec.describe Game, type: :model do
     # aggregate list wasn't necessarily destroyed last. The Aggregatable concern
     # prevents aggregate lists from being destroyed if they have child lists.
     # However, since the index_order scope puts the aggregate list first, it is
-    # the first list the game attempts to destroy.
+    # the first list the game attempts to destroy. We had to implement another
+    # `before_destroy` callback to ensure this behaviour didn't make it impossible
+    # to destroy a game with shopping lists.
 
     it "destroys all the game's shopping lists" do
       expect { game.destroy! }
