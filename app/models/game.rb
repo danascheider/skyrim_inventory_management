@@ -4,6 +4,20 @@ require 'titlecase'
 
 class Game < ApplicationRecord
   belongs_to :user
+
+  # `before_save` callbacks need to be defined before
+  # `before_destroy` callbacks, which need to be defined here
+  # (see comment below).
+  before_save :format_name
+
+  # Relations to `Aggregatable` child models have to be defined
+  # after this `before_destroy` callback. `dependent: :destroy`
+  # is implemented as a `before_destroy` callback itself and,
+  # since callbacks of the same type run in the order they're
+  # defined, any `before_destroy` callbacks that need to be run
+  # before `dependent: :destroy` need to be defined before the
+  # association is defined.
+  before_destroy :destroy_aggregatable_child_models
   has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
   validates :name,
@@ -12,8 +26,6 @@ class Game < ApplicationRecord
                           with:    /\A\s*[a-z0-9 \-',]*\s*\z/i,
                           message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')",
                         }
-
-  before_save :format_name
 
   scope :index_order, -> { order(updated_at: :desc) }
 
@@ -36,5 +48,14 @@ class Game < ApplicationRecord
     else
       self.name = Titlecase.titleize(name.strip)
     end
+  end
+
+  # This is necessary because `dependent: :destroy` will destroy the child
+  # models in `index_order`, which is aggregate list first. Aggregate lists
+  # can't be destroyed until after all their child lists have been destroyed.
+  # Since there is no way to change the order in which the child models are
+  # deleted, it's necessary to do it in a before hook.
+  def destroy_aggregatable_child_models
+    shopping_lists.reverse.each(&:destroy)
   end
 end

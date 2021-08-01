@@ -52,6 +52,29 @@ RSpec.describe Game, type: :model do
     end
   end
 
+  describe 'relations' do
+    let!(:game) { create(:game_with_shopping_lists_and_items, user: user) }
+
+    # This is a regression test. Games were failing to be destroyed because, when
+    # destroying their child models (i.e., shopping lists, at this point), the
+    # aggregate list wasn't necessarily destroyed last. The Aggregatable concern
+    # prevents aggregate lists from being destroyed if they have child lists.
+    # However, since the index_order scope puts the aggregate list first, it is
+    # the first list the game attempts to destroy. We had to implement another
+    # `before_destroy` callback to ensure this behaviour didn't make it impossible
+    # to destroy a game with shopping lists.
+
+    it "destroys all the game's shopping lists" do
+      expect { game.destroy! }
+        .to change(ShoppingList, :count).from(3).to(0)
+    end
+
+    it "destroys all the game's shopping list items" do
+      expect { game.destroy! }
+        .to change(ShoppingListItem, :count).from(8).to(0)
+    end
+  end
+
   describe 'name transformations' do
     context 'when the user has set a name' do
       subject(:name) { user.games.create!(name: 'Skyrim, Baby').name }
@@ -139,7 +162,7 @@ RSpec.describe Game, type: :model do
   describe '#aggregate_shopping_list' do
     subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
 
-    let(:game) { create(:game) }
+    let(:game)            { create(:game) }
     let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
 
     before do
