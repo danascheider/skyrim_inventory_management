@@ -11,12 +11,13 @@ RSpec.describe ShoppingListItemsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
-    let(:user) { create(:user) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, user: user) }
-    let!(:shopping_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when all goes well' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
+      let(:user) { game.user }
 
       before do
         aggregate_list.add_item_from_child_list(list_item)
@@ -25,11 +26,13 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       context 'when the quantity on the aggregate list equals the quantity on the regular list' do
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          expect { ShoppingListItem.find(list_item.id) }
+            .to raise_error ActiveRecord::RecordNotFound
         end
 
         it 'destroys the item on the aggregate list' do
-          expect { perform }.to change(aggregate_list.list_items, :count).from(1).to(0)
+          expect { perform }
+            .to change(aggregate_list.list_items, :count).from(1).to(0)
         end
 
         it 'returns a Service::NoContentResult' do
@@ -40,30 +43,28 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform.resource).to be nil
         end
 
-        it 'sets the updated_at timestamp on the shopping list', :aggregate_failures do
-          t = Time.now + 3.days
-
+        it 'sets the updated_at timestamp on the shopping list' do
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
       end
 
       context 'when the quantity on the aggregate list exceeds the quantity on the regular list' do
-        let(:second_list) { create(:shopping_list, user: user, aggregate_list: aggregate_list) }
+        let(:user) { game.user }
+        let(:second_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
         let(:second_list_item) do
           create(:shopping_list_item,
-                  list: second_list,
-                  description: list_item.description.upcase, # make sure comparison is case insensitive
-                  quantity: 2,
-                  notes: 'some other notes'
-                )
+                 list:        second_list,
+                 description: list_item.description.upcase, # make sure comparison is case insensitive
+                 quantity:    2,
+                 notes:       'some other notes',)
         end
 
         before do
@@ -72,9 +73,10 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }.to raise_error ActiveRecord::RecordNotFound
+          expect { ShoppingListItem.find(list_item.id) }
+            .to raise_error ActiveRecord::RecordNotFound
         end
-        
+
         it 'changes the quantity of the aggregate list item' do
           perform
           expect(aggregate_list.list_items.first.quantity).to eq 2
@@ -86,17 +88,15 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(aggregate_list.list_items.first.notes).not_to match /some notes/
         end
 
-        it 'sets the updated_at timestamp on the shopping list', :aggregate_failures do
-          t = Time.now + 3.days
-
+        it 'sets the updated_at timestamp on the shopping list' do
+          t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
             # use `be_within` even though the time will be set to the time Timecop
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(t)
-            expect(aggregate_list.reload.updated_at).not_to be_within(0.05.seconds).of(t)
+            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
 
@@ -111,7 +111,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context "when the specified list item doesn't exist" do
-      let(:list_item) { double("this item doesn't exist", id: 389) }
+      let(:user) { game.user }
+      let(:list_item) { double(id: 389) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -123,6 +124,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context "when the specified list item doesn't belong to the authenticated user" do
+      let(:user) { create(:user) }
       let(:list_item) { create(:shopping_list_item) }
 
       it 'returns a Service::NotFoundResult' do
@@ -135,6 +137,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context 'when the specified list item is on an aggregate list' do
+      let(:user) { list_item.user }
       let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
 
       it "doesn't destroy the list item" do
@@ -152,6 +155,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
+      let(:user) { list_item.user }
       let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
       before do

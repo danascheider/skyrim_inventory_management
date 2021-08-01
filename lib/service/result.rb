@@ -2,16 +2,18 @@
 
 module Service
   class Result
-    attr_reader :errors, :resource, :status
+    ERROR_KEYS    = [:error, 'error', :errors, 'errors'].freeze
+    RESOURCE_KEYS = [:resource, 'resource'].freeze
+
+    attr_reader :errors, :resource
 
     def initialize(options = {})
       @errors = []
-      @status = options[:status] || :ok
 
       options.each do |key, value|
-        if [:error, 'error', :errors, 'errors'].include?(key)
+        if ERROR_KEYS.include?(key)
           @errors = [value].flatten
-        elsif [:resource, 'resource'].include?(key)
+        elsif RESOURCE_KEYS.include?(key)
           @resource = value
         end
       end

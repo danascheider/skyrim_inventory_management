@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function xargs-r() {
+  # Portable version of "xargs -r". The -r flag is a GNU extension that
+  # prevents xargs from running if there are no input files.
+  if IFS= read -r -d $'\n' path; then
+    { echo "$path"; cat; } | xargs $@
+  fi
+}
+git diff --diff-filter=d --name-only --cached --relative -- '*.rb' 'Gemfile' '*.rake' ':(exclude)db/schema.rb' | xargs-r -E '' -t "bundle exec rubocop"
+if [[ $? -ne 0 ]]; then
+  echo 'Aborting commit because Rubocop offenses were detected.'
+  echo 'Run `bundle exec rubocop -A <files>` to correct.'
+  echo 'To commit without running Rubocop, run `git commit --no-verify`. This will cause the build to break in CI.'
+  exit 1
+fi

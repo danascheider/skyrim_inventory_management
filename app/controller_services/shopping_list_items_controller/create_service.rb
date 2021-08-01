@@ -11,20 +11,19 @@ class ShoppingListItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate shopping list'
 
     def initialize(user, list_id, params)
-      @user = user
+      @user    = user
       @list_id = list_id
-      @params = params
+      @params  = params
     end
 
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
       preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
-      item = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
+      item             = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
 
       ActiveRecord::Base.transaction do
         item.save!
-        shopping_list.touch
 
         if preexisting_item.blank?
           aggregate_list_item = aggregate_list.add_item_from_child_list(item)
@@ -38,7 +37,7 @@ class ShoppingListItemsController < ApplicationController
       Service::UnprocessableEntityResult.new(errors: item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end

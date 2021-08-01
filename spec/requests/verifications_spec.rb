@@ -2,22 +2,22 @@
 
 require 'rails_helper'
 
-RSpec.describe "Verifications", type: :request do
+RSpec.describe 'Verifications', type: :request do
   subject(:verify_token) { get '/auth/verify_token', headers: { 'Authorization' => "Bearer #{token}" } }
 
-  let(:token) { 'xxxxxxxx' }
+  let(:token)     { 'xxxxxxxx' }
   let(:validator) { instance_double(GoogleIDToken::Validator, check: validator_data) }
 
   around do |example|
-    Timecop.freeze(Time.now) { example.run }
+    Timecop.freeze(Time.zone.now) { example.run }
   end
 
   context 'when the token is valid and verified' do
     let(:validator_data) do
       {
-        'exp'   => (Time.now + 1.year).to_i,
+        'exp'   => (Time.zone.now + 1.year).to_i,
         'email' => 'foobar@gmail.com',
-        'name'  => 'Foo Bar'
+        'name'  => 'Foo Bar',
       }
     end
 
@@ -33,16 +33,17 @@ RSpec.describe "Verifications", type: :request do
     context 'when no existing user matches' do
       let(:expected_user_attributes) do
         {
-          'uid'        => 'foobar@gmail.com',
-          'email'      => 'foobar@gmail.com',
-          'name'       => 'Foo Bar',
-          'image_url'  => nil,
+          'uid'       => 'foobar@gmail.com',
+          'email'     => 'foobar@gmail.com',
+          'name'      => 'Foo Bar',
+          'image_url' => nil,
         }
       end
 
       it 'creates a new user with the data from the payload', :aggregate_failures do
-        expect { verify_token }.to change(User, :count).from(0).to(1)
-        expect(User.last.attributes).to include(**(expected_user_attributes.merge({ 'id' => User.last.id })))
+        expect { verify_token }
+          .to change(User, :count).from(0).to(1)
+        expect(User.last.attributes).to include(**expected_user_attributes.merge({ 'id' => User.last.id }))
       end
     end
 
@@ -51,16 +52,17 @@ RSpec.describe "Verifications", type: :request do
 
       let(:expected_user_attributes) do
         {
-          'id'         => user.id,
-          'uid'        => 'foobar@gmail.com',
-          'email'      => 'foobar@gmail.com',
-          'name'       => 'Foo Bar',
-          'image_url'  => nil
+          'id'        => user.id,
+          'uid'       => 'foobar@gmail.com',
+          'email'     => 'foobar@gmail.com',
+          'name'      => 'Foo Bar',
+          'image_url' => nil,
         }
       end
 
       it "doesn't create a new user" do
-        expect { verify_token }.not_to change(User, :count)
+        expect { verify_token }
+          .not_to change(User, :count)
       end
 
       it 'updates the attributes' do

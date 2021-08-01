@@ -7,12 +7,12 @@ class ApplicationController < ActionController::API
   class AuthorizationService
     def initialize(controller, token)
       @controller = controller
-      @token = token
+      @token      = token
     end
 
     def perform
       validator = GoogleIDToken::Validator.new
-      payload = validator.check(token, configatron.google_oauth_client_id)
+      payload   = validator.check(token, configatron.google_oauth_client_id)
 
       if current?(payload['exp'])
         controller.current_user = User.create_or_update_for_google(payload)
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::API
     rescue GoogleIDToken::CertificateError => e
       Rails.logger.error "Problem with OAuth certificate -- #{e.message}"
       Service::UnauthorizedResult.new(errors: ['Invalid OAuth certificate'])
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::API
     private
 
     def current?(seconds_since_unix_epoch)
-      Time.at(seconds_since_unix_epoch) >= Time.now
+      Time.zone.at(seconds_since_unix_epoch) >= Time.zone.now
     end
 
     attr_reader :controller, :token

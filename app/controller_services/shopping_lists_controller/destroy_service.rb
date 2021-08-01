@@ -11,7 +11,7 @@ class ShoppingListsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate shopping list'
 
     def initialize(user, list_id)
-      @user = user
+      @user    = user
       @list_id = list_id
     end
 
@@ -22,7 +22,7 @@ class ShoppingListsController < ApplicationController
       aggregate_list.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
@@ -44,9 +44,9 @@ class ShoppingListsController < ApplicationController
         # If shopping_list is the user's last regular shopping list, this will also
         # destroy their aggregate list
         shopping_list.destroy!
-        
+
         if aggregate_list&.persisted?
-          list_items.each { |item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) }
+          list_items.each {|item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) }
           aggregate_list
         end
       end

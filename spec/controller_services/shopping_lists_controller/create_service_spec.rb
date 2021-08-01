@@ -2,20 +2,48 @@
 
 require 'rails_helper'
 require 'service/created_result'
+require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListsController::CreateService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, params).perform }
-    
+    subject(:perform) { described_class.new(user, game.id, params).perform }
+
     let(:user) { create(:user) }
 
+    context 'when the game is not found' do
+      let(:game)   { double(id: 898_243) }
+      let(:params) { { title: 'My Shopping List' } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
+    context "when the game doesn't belong to the given user" do
+      let(:game)   { create(:game) }
+      let(:params) { { title: 'My Shopping List' } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
     context 'when the request tries to create an aggregate list' do
+      let(:game) { create(:game, user: user) }
       let(:params) do
         {
-          title: 'All Items',
-          aggregate: true
+          title:     'All Items',
+          aggregate: true,
         }
       end
 
@@ -29,15 +57,17 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are valid' do
+      let!(:game)  { create(:game, user: user) }
       let(:params) { { title: 'Proudspire Manor' } }
 
-      context 'when the user has an aggregate shopping list' do
+      context 'when the game has an aggregate shopping list' do
         before do
-          create(:aggregate_shopping_list, user: user)
+          create(:aggregate_shopping_list, game: game)
         end
 
-        it 'creates a shopping list for the given user' do
-          expect { perform }.to change(user.shopping_lists, :count).from(1).to(2)
+        it 'creates a shopping list for the given game' do
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(1).to(2)
         end
 
         it 'returns a Service::CreatedResult' do
@@ -45,23 +75,40 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to the created list' do
-          expect(perform.resource).to eq user.shopping_lists.last
+          expect(perform.resource).to eq game.shopping_lists.last
+        end
+
+        it 'updates the game' do
+          t = Time.zone.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
       end
 
-      context "when the user doesn't have an aggregate shopping list" do
+      context "when the game doesn't have an aggregate shopping list" do
         it 'creates two lists' do
-          expect { perform }.to change(user.shopping_lists, :count).from(0).to(2)
+          expect { perform }
+            .to change(game.shopping_lists, :count).from(0).to(2)
         end
 
-        it 'creates an aggregate shopping list for the given user' do
+        it 'creates an aggregate shopping list for the given game' do
           perform
-          expect(user.aggregate_shopping_list).to be_present
+          expect(game.aggregate_shopping_list).to be_present
         end
 
-        it 'creates a regular shopping list for the given user' do
+        it 'creates a regular shopping list for the given game' do
           perform
-          expect(user.shopping_lists.last.title).to eq 'Proudspire Manor'
+          expect(game.shopping_lists.last.title).to eq 'Proudspire Manor'
+        end
+
+        it 'updates the game' do
+          t = Time.zone.now + 3.days
+          Timecop.freeze(t) do
+            perform
+            expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+          end
         end
 
         it 'returns a Service::CreatedResult' do
@@ -69,16 +116,19 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to include both lists' do
-          expect(perform.resource).to eq([user.aggregate_shopping_list, user.shopping_lists.last])
+          expect(perform.resource).to eq([game.aggregate_shopping_list, game.shopping_lists.last])
         end
       end
     end
 
     context 'when params are invalid' do
-      let(:params) { { title: '|nvalid Tit|e' } }
+      let(:game)    { create(:game, user: user) }
+      let(:game_id) { game.id }
+      let(:params)  { { title: '|nvalid Tit|e' } }
 
       it 'does not create a shopping list' do
-        expect { perform }.not_to change(user.shopping_lists, :count)
+        expect { perform }
+          .not_to change(game.shopping_lists, :count)
       end
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -86,12 +136,14 @@ RSpec.describe ShoppingListsController::CreateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq(['Title can only include alphanumeric characters and spaces'])
+        expect(perform.errors).to eq(["Title can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
       end
     end
 
     context 'when something unexpected goes wrong' do
+      let(:game)   { create(:game, user: user) }
       let(:params) { { title: 'Foobar' } }
+
       before do
         allow_any_instance_of(ShoppingList).to receive(:save).and_raise(StandardError, 'Something went horribly wrong')
       end

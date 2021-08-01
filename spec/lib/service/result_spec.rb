@@ -10,7 +10,8 @@ RSpec.describe Service::Result do
 
     describe 'status' do
       it 'raises a NotImplementedError on the base class' do
-        expect { result.status }.to raise_error NotImplementedError
+        expect { result.status }
+          .to raise_error NotImplementedError
       end
     end
 
@@ -18,22 +19,22 @@ RSpec.describe Service::Result do
       let(:options) do
         {
           resource: {
-            id: 32,
-            uid: 'jane.doe@gmail.com',
-            email: 'jane.doe@gmail.com',
-            name: 'Jane Doe',
-            image_url: nil
-          }
+                      id:        32,
+                      uid:       'jane.doe@gmail.com',
+                      email:     'jane.doe@gmail.com',
+                      name:      'Jane Doe',
+                      image_url: nil,
+                    },
         }
       end
 
       it 'sets the resource if one is given' do
         expect(result.resource).to eq({
-                                        id: 32,
-                                        uid: 'jane.doe@gmail.com',
-                                        email: 'jane.doe@gmail.com',
-                                        name: 'Jane Doe',
-                                        image_url: nil
+                                        id:        32,
+                                        uid:       'jane.doe@gmail.com',
+                                        email:     'jane.doe@gmail.com',
+                                        name:      'Jane Doe',
+                                        image_url: nil,
                                       })
       end
     end
@@ -49,7 +50,7 @@ RSpec.describe Service::Result do
     context 'when there are errors' do
       let(:options) do
         {
-          errors: ['foo', ['bar', ['baz', 'qux']]]
+          errors: ['foo', ['bar', %w[baz qux]]],
         }
       end
 
@@ -61,7 +62,7 @@ RSpec.describe Service::Result do
     context 'when there is one error' do
       let(:options) do
         {
-          error: 'foobar'
+          error: 'foobar',
         }
       end
 

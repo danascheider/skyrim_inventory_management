@@ -4,20 +4,20 @@ require 'controller/response'
 
 class ShoppingListsController < ApplicationController
   def index
-    result = IndexService.new(current_user).perform
+    result = IndexService.new(current_user, params[:game_id]).perform
 
     ::Controller::Response.new(self, result).execute
   end
 
   def create
-    result = CreateService.new(current_user, shopping_list_params).perform
+    result = CreateService.new(current_user, params[:game_id], shopping_list_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
 
   def update
     result = UpdateService.new(current_user, params[:id], shopping_list_params).perform
-    
+
     ::Controller::Response.new(self, result).execute
   end
 

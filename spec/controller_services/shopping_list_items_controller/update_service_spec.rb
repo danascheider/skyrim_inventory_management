@@ -11,14 +11,15 @@ RSpec.describe ShoppingListItemsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id, params).perform }
 
-    let(:user) { create(:user) }
-    let(:shopping_list) { user.shopping_lists.create! }
-    
+    let(:user)           { create(:user) }
+    let!(:shopping_list) { game.shopping_lists.find_by(aggregate: false) }
+
     context 'when all goes well' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-      let(:params) { { quantity: 3 } }
-      let(:aggregate_list) { user.aggregate_shopping_list }
-      let(:scope) { ShoppingListItem.belonging_to_user(user) }
+      let(:game)           { create(:game_with_shopping_lists, user: user) }
+      let(:aggregate_list) { game.aggregate_shopping_list }
+      let!(:list_item)     { create(:shopping_list_item, list: shopping_list, quantity: 2) }
+      let(:params)         { { quantity: 3 } }
+      let(:scope)          { ShoppingListItem.belonging_to_user(user) }
 
       before do
         aggregate_list.add_item_from_child_list(list_item)
@@ -46,24 +47,26 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'sets the resource to include both the regular and aggregate list item' do
-        expect(perform.resource).to eq([aggregate_list.list_items.first, list_item])
+        expect(perform.resource).to eq([aggregate_list.list_items.reload.first, list_item])
       end
 
       it 'updates the updated_at timestamp on the list' do
-        Timecop.freeze do
+        t = Time.zone.now + 3.days
+        Timecop.freeze(t) do
           perform
           # This is another case of a rounding error in the CI environment. The server where
           # GitHub Actions run seems to truncate the last few digits of the timestamp, resulting
           # in things being not quite equal in that environment. Since it's not that important
           # that it be that exact, I'm just using the `be_within` matcher.
-          expect(shopping_list.reload.updated_at).to be_within(0.05.seconds).of(Time.now.utc)
+          expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
         end
       end
     end
 
     context 'when the shopping list item is not found' do
+      let(:game)      { create(:game_with_shopping_lists) }
       let(:list_item) { double("the item that doesn't exist", id: 838) }
-      let(:params) { { quantity: 3 } }
+      let(:params)    { { quantity: 3 } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -75,8 +78,9 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the shopping list item does not belong to the user' do
+      let(:game)      { create(:game_with_shopping_lists) }
       let(:list_item) { create(:shopping_list_item) }
-      let(:params) { { quantity: 3 } }
+      let(:params)    { { quantity: 3 } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -88,10 +92,11 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:params) { { description: 'This is not allowed' } }
+      let!(:list_item)     { create(:shopping_list_item, list: shopping_list) }
+      let(:game)           { create(:game_with_shopping_lists, user: user) }
+      let(:params)         { { description: 'This is not allowed' } }
       let(:aggregate_list) { shopping_list.aggregate_list }
-      let(:scope) { ShoppingListItem.belonging_to_user(user) }
+      let(:scope)          { ShoppingListItem.belonging_to_user(user) }
 
       it 'does not update the aggregate list' do
         # Put the mocks in here because I don't want this much mocking in the other specs
@@ -102,6 +107,14 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         allow(aggregate_list).to receive(:update_item_from_child_list)
         perform
         expect(aggregate_list).not_to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+      end
+
+      it 'does not update the shopping list itself' do
+        t = Time.zone.now + 3.days
+        Timecop.freeze(t) do
+          perform
+          expect(shopping_list.reload.updated_at).not_to be_within(71.hours).of(t)
+        end
       end
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -115,8 +128,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
 
     context "when the shopping list item doesn't belong to the authenticated user" do
       let(:shopping_list) { create(:shopping_list) }
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:params) { { quantity: 4 } }
+      let(:list_item)     { create(:shopping_list_item, list: shopping_list) }
+      let(:params)        { { quantity: 4 } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a Service::NotFoundResult
@@ -128,9 +141,10 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the list item is on an aggregate list' do
-      let(:shopping_list) { create(:aggregate_shopping_list, user: user) }
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:params) { { quantity: 4 } }
+      let(:game)          { create(:game_with_shopping_lists, user: user) }
+      let(:shopping_list) { game.aggregate_shopping_list }
+      let(:list_item)     { create(:shopping_list_item, list: shopping_list) }
+      let(:params)        { { quantity: 4 } }
 
       it 'does not update the item' do
         perform
@@ -147,9 +161,10 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:shopping_list) { create(:shopping_list, user: user) }
-      let(:params) { { quantity: 4 } }
+      let(:game)          { create(:game_with_shopping_lists, user: user) }
+      let!(:list_item)    { create(:shopping_list_item, list: shopping_list) }
+      let(:shopping_list) { create(:shopping_list, game: game) }
+      let(:params)        { { quantity: 4 } }
 
       before do
         allow_any_instance_of(ShoppingListItem).to receive(:save!).and_raise(StandardError, 'Something went horribly wrong')

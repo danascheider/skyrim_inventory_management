@@ -1,4 +1,4 @@
-# frozen_string_ligeral: true
+# frozen_string_literal: true
 
 class AddImageUrlToUsers < ActiveRecord::Migration[6.1]
   def change

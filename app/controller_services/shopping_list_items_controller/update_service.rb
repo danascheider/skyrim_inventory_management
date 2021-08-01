@@ -11,9 +11,9 @@ class ShoppingListItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate shopping list'
 
     def initialize(user, item_id, params)
-      @user = user
+      @user    = user
       @item_id = item_id
-      @params = params
+      @params  = params
     end
 
     def perform
@@ -25,8 +25,7 @@ class ShoppingListItemsController < ApplicationController
       aggregate_list_item = nil
       ActiveRecord::Base.transaction do
         list_item.update!(params)
-        shopping_list.touch
-        
+
         aggregate_list_item = aggregate_list.update_item_from_child_list(list_item.description, delta_qty, old_notes, params[:notes])
       end
 
@@ -35,11 +34,11 @@ class ShoppingListItemsController < ApplicationController
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
-    
+
     private
 
     attr_reader :user, :item_id, :params
@@ -53,7 +52,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def list_item
-      @list_item ||= ShoppingListItem.belonging_to_user(user).find(item_id)
+      @list_item ||= user.shopping_list_items.find(item_id)
     end
   end
 end

@@ -53,25 +53,25 @@
 
 module Titlecase
   LOWERCASE_WORDS = %w[
-    a
-    an
-    the
-    and
-    but
-    for
-    at
-    by
-    from
-    with
-    to
-    in
-    of
-    into
-    onto
-    on
-    without
-    within
-  ]
+                      a
+                      an
+                      the
+                      and
+                      but
+                      for
+                      at
+                      by
+                      from
+                      with
+                      to
+                      in
+                      of
+                      into
+                      onto
+                      on
+                      without
+                      within
+                    ].freeze
 
   module_function
 
@@ -79,7 +79,7 @@ module Titlecase
     words = string.downcase.split(' ')
 
     words.map.with_index(1) do |word, index|
-      LOWERCASE_WORDS.include?(word) && ![1, words.length].include?(index) ? word : word.capitalize
+      LOWERCASE_WORDS.include?(word) && [1, words.length].exclude?(index) ? word : word.capitalize
     end.join(' ')
   end
 end
