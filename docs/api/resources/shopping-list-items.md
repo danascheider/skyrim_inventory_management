@@ -81,11 +81,14 @@ Content-Type: application/json
 
 #### Statuses
 
+* 201 Created
 * 200 OK
 
 #### Example Body
 
-Body contains the updated item from the aggregate list first and the item from the regular list that you requested second.
+If there is no item with a matching description on the requested shopping list, a new item will be created and the server will return a 201 response. If there is an item with a matching description, its notes and quantity will be combined with the notes and quantity in the client request and a 200 response will be returned.
+
+The body for both responses contains the updated item from the aggregate list first and the requested regular list item second.
 ```json
 [
   {
