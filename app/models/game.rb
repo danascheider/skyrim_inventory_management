@@ -19,6 +19,7 @@ class Game < ApplicationRecord
   # association is defined.
   before_destroy :destroy_aggregatable_child_models
   has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
+  has_many :inventory_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
   validates :name,
             uniqueness: { scope: :user_id, message: 'must be unique', case_sensitive: false },
@@ -57,5 +58,6 @@ class Game < ApplicationRecord
   # deleted, it's necessary to do it in a before hook.
   def destroy_aggregatable_child_models
     shopping_lists.reverse.each(&:destroy)
+    inventory_lists.reverse.each(&:destroy)
   end
 end

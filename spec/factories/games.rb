@@ -32,5 +32,32 @@ FactoryBot.define do
         end
       end
     end
+
+    factory :game_with_inventory_lists do
+      transient do
+        inventory_list_count { 2 }
+      end
+
+      after(:create) do |game, evaluator|
+        create(:aggregate_inventory_list, game: game)
+        create_list(:inventory_list, evaluator.inventory_list_count, game: game)
+      end
+    end
+
+    factory :game_with_inventory_lists_and_items do
+      transient do
+        inventory_list_count { 2 }
+      end
+
+      after(:create) do |game, evaluator|
+        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game: game)
+
+        inventory_lists.each do |list|
+          list.list_items.each do |item|
+            list.aggregate_list.add_item_from_child_list(item)
+          end
+        end
+      end
+    end
   end
 end

@@ -54,7 +54,7 @@ RSpec.describe ShoppingList, type: :model do
       let!(:game2) { create(:game_with_shopping_lists, user: user) }
       let!(:game3) { create(:game_with_shopping_lists, user: user) }
 
-      it "returns all list items from all the user's lists" do
+      it "returns all the shopping lists from all the user's games" do
         # These are going to be rearranged in the output since game.shopping_lists
         # comes back aggregate list first and the scope will return them in descending
         # updated_at order. There was no easy programmatic way to rearrange them so

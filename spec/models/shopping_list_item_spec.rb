@@ -7,7 +7,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe 'delegation' do
     let(:shopping_list) { create(:shopping_list, game: game) }
-    let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+    let(:list_item)     { create(:shopping_list_item, list: shopping_list) }
 
     before do
       create(:aggregate_shopping_list, game: game)
