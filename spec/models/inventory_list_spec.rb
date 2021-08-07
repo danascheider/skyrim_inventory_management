@@ -296,6 +296,24 @@ RSpec.describe InventoryList, type: :model do
     end
   end
 
+  describe 'associations' do
+    subject(:items) { inventory_list.list_items }
+
+    let!(:aggregate_list) { create(:aggregate_inventory_list) }
+    let(:inventory_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
+    let!(:item1)          { create(:inventory_list_item, list: inventory_list) }
+    let!(:item2)          { create(:inventory_list_item, list: inventory_list) }
+    let!(:item3)          { create(:inventory_list_item, list: inventory_list) }
+
+    before do
+      item2.update!(quantity: 2)
+    end
+
+    it 'keeps child models in descending order of updated_at' do
+      expect(inventory_list.list_items.to_a).to eq([item2, item3, item1])
+    end
+  end
+
   describe 'Aggregatable methods' do
     describe '#user' do
       let(:inventory_list) { create(:inventory_list) }
