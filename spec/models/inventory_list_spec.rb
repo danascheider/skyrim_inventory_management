@@ -314,8 +314,8 @@ RSpec.describe InventoryList, type: :model do
     end
   end
 
+  # Aggregatable
   describe 'before destroy hook' do
-    # Aggregatable
     context 'when trying to destroy the aggregate list' do
       subject(:destroy_list) { inventory_list.destroy! }
 
@@ -337,6 +337,33 @@ RSpec.describe InventoryList, type: :model do
           expect { destroy_list }
             .to change(inventory_list.game.inventory_lists, :count).from(1).to(0)
         end
+      end
+    end
+  end
+
+  # Aggregatable
+  describe 'after destroy hook' do
+    subject(:destroy_list) { inventory_list.destroy! }
+
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game) }
+    let(:game)            { create(:game) }
+
+    context 'when the user has additional regular lists' do
+      before do
+        create(:inventory_list, game: game)
+      end
+
+      it "doesn't destroy the aggregate list" do
+        expect { destroy_list }
+          .not_to change(game, :aggregate_inventory_list)
+      end
+    end
+
+    context 'when the user has no additional regular lists' do
+      it 'destroys the aggregate list' do
+        expect { destroy_list }
+          .to change(game.inventory_lists, :count).from(2).to(0)
       end
     end
   end

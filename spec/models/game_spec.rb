@@ -174,6 +174,21 @@ RSpec.describe Game, type: :model do
     end
   end
 
+  describe '#aggregate_inventory_list' do
+    subject(:aggregate_inventory_list) { game.aggregate_inventory_list }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+
+    before do
+      create_list(:inventory_list, 2, game: game)
+    end
+
+    it "returns that game's aggregate inventory list" do
+      expect(aggregate_inventory_list).to eq aggregate_list
+    end
+  end
+
   describe '#shopping_list_items' do
     subject(:shopping_list_items) { game.shopping_list_items.to_a.sort }
 

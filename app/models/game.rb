@@ -34,6 +34,10 @@ class Game < ApplicationRecord
     shopping_lists.find_by(aggregate: true)
   end
 
+  def aggregate_inventory_list
+    inventory_lists.find_by(aggregate: true)
+  end
+
   def shopping_list_items
     ShoppingListItem.belonging_to_game(self)
   end
