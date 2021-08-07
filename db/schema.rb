@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_224149) do
     t.bigint "list_id", null: false
     t.string "description", null: false
     t.string "notes"
+    t.integer "quantity", default: 1, null: false
     t.decimal "weight", precision: 5, scale: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
