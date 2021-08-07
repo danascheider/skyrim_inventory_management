@@ -173,6 +173,129 @@ RSpec.describe InventoryList, type: :model do
     end
   end
 
+  # Aggregatable
+  describe '#aggregate_list' do
+    let!(:aggregate_list) { create(:aggregate_inventory_list) }
+    let(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+
+    it 'returns the aggregate list that tracks it' do
+      expect(inventory_list.aggregate_list).to eq aggregate_list
+    end
+  end
+
+  describe 'title transformations' do
+    describe 'setting a default title' do
+      let(:game) { create(:game) }
+
+      # I don't use FactoryBot to create the models in the subject blocks because
+      # it sets values for certain attributes and I don't want those to get in the way.
+      context 'when the list is not an aggregate list' do
+        context 'when the user has set a title' do
+          subject(:title) { game.inventory_lists.create!(title: 'Heljarchen Hall').title }
+
+          let(:game) { create(:game) }
+
+          it 'keeps the title the user has set' do
+            expect(title).to eq 'Heljarchen Hall'
+          end
+        end
+
+        context 'when the user has not set a title' do
+          subject(:title) { game.inventory_lists.create!.title }
+
+          context 'when the game has all default-titled regular lists' do
+            before do
+              # Create lists for a different game to make sure the name of this game's
+              # list isn't affected by them
+              create_list(:inventory_list, 2, title: nil)
+              create_list(:inventory_list, 2, title: nil, game: game)
+            end
+
+            it 'sets the title based on the highest numbered default title' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when the game has differently titled regular lists' do
+            before do
+              create(:inventory_list, title: nil)
+              create(:inventory_list, game: game, title: nil)
+              create(:inventory_list, game: game, title: 'Windstad Manor')
+              create(:inventory_list, game: game, title: nil)
+            end
+
+            it 'uses the next highest number in default lists' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when the game has an inventory list with a similar title' do
+            before do
+              create(:inventory_list, game: game, title: 'This List is Called My List 4')
+              create_list(:inventory_list, 2, game: game, title: nil)
+            end
+
+            it 'sets the title based on the highest numbered list called "My List N"' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when there is an inventory list called "My List <non-integer>"' do
+            before do
+              create(:inventory_list, game: game, title: 'My List Is the Best List')
+              create_list(:inventory_list, 2, game: game, title: nil)
+            end
+
+            it 'sets the title based on the highest numbered list called "My List N"' do
+              expect(title).to eq 'My List 3'
+            end
+          end
+
+          context 'when there is an inventory list called "My List <negative integer>"' do
+            before do
+              create(:inventory_list, game: game, title: 'My List -4')
+            end
+
+            it 'ignores the list title with the negative integer' do
+              expect(title).to eq 'My List 1'
+            end
+          end
+        end
+      end
+
+      # Aggregatable
+      context 'when the list is an aggregate list' do
+        context 'when the user has set a title' do
+          subject(:title) { game.inventory_lists.create!(aggregate: true, title: 'Something other than all items').title }
+
+          it 'overrides the title the user has set' do
+            expect(title).to eq 'All Items'
+          end
+        end
+
+        context 'when the user has not set a title' do
+          subject(:title) { game.inventory_lists.create!(aggregate: true).title }
+
+          it 'sets the title to "All Items"' do
+            expect(title).to eq 'All Items'
+          end
+        end
+      end
+    end
+
+    context 'when the request includes sloppy data' do
+      it 'uses intelligent title capitalisation' do
+        list = create(:inventory_list, title: 'lord oF thE rIngs')
+        expect(list.title).to eq 'Lord of the Rings'
+      end
+
+      it 'strips trailing and leading whitespace' do
+        list = create(:inventory_list, title: " lord oF tHe RiNgs\n")
+        expect(list.title).to eq 'Lord of the Rings'
+      end
+    end
+  end
+
   describe 'Aggregatable methods' do
     describe '#user' do
       let(:inventory_list) { create(:inventory_list) }
