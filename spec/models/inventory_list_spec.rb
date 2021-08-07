@@ -78,6 +78,101 @@ RSpec.describe InventoryList, type: :model do
     end
   end
 
+  describe 'validations' do
+    # Aggregatable
+    describe 'aggregate lists' do
+      context 'when there are no aggregate lists' do
+        let(:game)           { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+
+        it 'is valid' do
+          expect(aggregate_list).to be_valid
+        end
+      end
+
+      context 'when there is an existing aggregate list belonging to another user' do
+        let(:game)           { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+
+        before do
+          create(:aggregate_shopping_list)
+        end
+
+        it 'is valid' do
+          expect(aggregate_list).to be_valid
+        end
+      end
+
+      context 'when the user already has an aggregate list' do
+        let(:game)           { create(:game) }
+        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+
+        before do
+          create(:aggregate_shopping_list, game: game)
+        end
+
+        it 'is invalid', :aggregate_failures do
+          expect(aggregate_list).not_to be_valid
+          expect(aggregate_list.errors[:aggregate]).to eq ['can only be one list per game']
+        end
+      end
+    end
+
+    describe 'title validations' do
+      # Aggregatable
+      context 'when the title is "all items"' do
+        it 'is allowed for an aggregate list' do
+          list = build(:aggregate_inventory_list, title: 'All Items')
+          expect(list).to be_valid
+        end
+
+        it 'is not allowed for a regular list', :aggregate_failures do
+          list = build(:inventory_list, title: 'all items')
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(['cannot be "All Items"'])
+        end
+      end
+
+      context 'when the title contains "all items" as well as other characters' do
+        it 'is valid' do
+          list = build(:inventory_list, title: 'aLL iTems the seQUel')
+          expect(list).to be_valid
+        end
+      end
+
+      describe 'allowed characters' do
+        it 'allows alphanumeric characters, spaces, commas, apostrophes, and hyphens' do
+          list = build(:inventory_list, title: "aB 61 ,'-")
+          expect(list).to be_valid
+        end
+
+        it "doesn't allow newlines", :aggregate_failures do
+          list = build(:inventory_list, title: "My\nList 1  ")
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+        end
+
+        it "doesn't allow other non-space whitespace", :aggregate_failures do
+          list = build(:inventory_list, title: "My\tList 1")
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+        end
+
+        it "doesn't allow special characters", :aggregate_failures do
+          list = build(:inventory_list, title: 'My^List&1')
+          expect(list).not_to be_valid
+          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+        end
+
+        # Leading and trailing whitespace characters will be stripped anyway so no need to validate
+        it 'ignores leading or trailing whitespace characters' do
+          list = build(:inventory_list, title: "My List 1\n\t")
+          expect(list).to be_valid
+        end
+      end
+    end
+  end
+
   describe 'Aggregatable methods' do
     describe '#user' do
       let(:inventory_list) { create(:inventory_list) }
