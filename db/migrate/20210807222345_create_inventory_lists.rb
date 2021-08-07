@@ -11,6 +11,6 @@ class CreateInventoryLists < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :inventory_lists, %i[title game_id]
+    add_index :inventory_lists, %i[title game_id], unique: true
   end
 end
