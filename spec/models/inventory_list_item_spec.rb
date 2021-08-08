@@ -152,6 +152,30 @@ RSpec.describe InventoryListItem, type: :model do
     end
   end
 
+  describe '#update!' do
+    let(:aggregate_list) { create(:aggregate_inventory_list) }
+    let(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+    let!(:list_item)     { create(:inventory_list_item, quantity: 1, list: inventory_list) }
+
+    context 'when updating quantity' do
+      subject(:update_item) { list_item.update!(quantity: 4) }
+
+      it 'updates as normal' do
+        expect { update_item }
+          .to change(list_item, :quantity).from(1).to(4)
+      end
+    end
+
+    context 'when updating description' do
+      subject(:update_item) { list_item.update!(description: 'Something else') }
+
+      it 'raises an error' do
+        expect { update_item }
+          .to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+  end
+
   describe 'notes field' do
     it 'cleans up leading and trailing dashes or whitespace' do
       inventory_list_item = build(:inventory_list_item, notes: ' -- some notes --')
