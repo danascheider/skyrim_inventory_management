@@ -92,7 +92,7 @@ RSpec.describe InventoryListItem, type: :model do
 
       let(:aggregate_list)  { create(:aggregate_inventory_list) }
       let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
-      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -133,7 +133,7 @@ RSpec.describe InventoryListItem, type: :model do
 
       let(:aggregate_list) { create(:aggregate_inventory_list) }
       let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
-      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       before do
         allow(described_class).to receive(:new)
