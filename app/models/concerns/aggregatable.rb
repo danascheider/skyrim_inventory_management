@@ -67,6 +67,15 @@ module Aggregatable
   def add_item_from_child_list(item)
     raise AggregateListError.new('add_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
+    if item.unit_weight
+      other_items = child_lists.map(&:list_items)
+      other_items.flatten!
+
+      other_items.each do |list_item|
+        list_item.update!(unit_weight: item.unit_weight) if list_item.description.casecmp(item.description).zero?
+      end
+    end
+
     list_items.combine_or_create!(public_list_item_attrs(item).merge('list_id' => id))
   end
 
@@ -88,19 +97,28 @@ module Aggregatable
     existing_item&.persisted? ? existing_item : nil
   end
 
-  def update_item_from_child_list(description, delta_quantity, old_notes, new_notes)
+  def update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes)
     raise AggregateListError.new('update_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
-    raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity)
+    raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
 
-    existing_item.quantity += delta_quantity
-    existing_item.notes     = if old_notes.nil? && new_notes.present?
-                                [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
-                              else
-                                existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
-                              end
+    existing_item.quantity   += delta_quantity
+    existing_item.notes       = if old_notes.nil? && new_notes.present?
+                                  [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
+                                else
+                                  existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
+                                end
+
+    unless unit_weight.nil?
+      existing_item.unit_weight = unit_weight
+
+      other_items = child_lists.map(&:list_items)
+      other_items.flatten!
+
+      other_items.each {|item| item.update!(unit_weight: unit_weight) }
+    end
 
     existing_item.save!
     existing_item

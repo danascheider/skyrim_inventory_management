@@ -27,10 +27,24 @@ class ShoppingListItemsController < ApplicationController
 
         if preexisting_item.blank?
           aggregate_list_item = aggregate_list.add_item_from_child_list(item)
-          Service::CreatedResult.new(resource: [aggregate_list_item, item])
+
+          resource = if params[:unit_weight]
+                       aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
+                     else
+                       [aggregate_list_item, item]
+                     end
+
+          Service::CreatedResult.new(resource: resource)
         else
-          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], nil, params[:notes])
-          Service::OKResult.new(resource: [aggregate_list_item, item])
+          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
+
+          resource = if params[:unit_weight]
+                       aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
+                     else
+                       [aggregate_list_item, item]
+                     end
+
+          Service::OKResult.new(resource: resource)
         end
       end
     rescue ActiveRecord::RecordInvalid

@@ -29,7 +29,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
       context 'when there is no matching item on the regular list' do
         before do
-          allow(aggregate_list).to receive(:add_item_from_child_list)
+          allow(aggregate_list).to receive(:add_item_from_child_list).and_call_original
         end
 
         it 'adds a list item to the given list' do
@@ -74,6 +74,43 @@ RSpec.describe ShoppingListItemsController::CreateService do
         it 'returns both the created list item and aggregate list item' do
           expect(perform.resource).to eq([aggregate_list.list_items.last, shopping_list.list_items.last])
         end
+
+        context 'when there is a matching item on the aggregate list' do
+          context 'when unit weight is specified' do
+            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 1, notes: 'Hello world' } }
+
+            let(:other_list)              { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+            let!(:item_on_other_list)     { create(:shopping_list_item, list: other_list, unit_weight: 2, description: 'Necklace', quantity: 1) }
+            let!(:item_on_aggregate_list) { create(:shopping_list_item, list: aggregate_list, unit_weight: 2, description: 'Necklace', quantity: 1) }
+
+            before do
+              # Make sure that the response only returns matching list items belonging to
+              # the same game
+              other_list.list_items.create!(description: 'Dwarven metal ingot', quantity: 1)
+              create(:shopping_list_item, description: 'Necklace', quantity: 1)
+            end
+
+            it 'updates the unit weight on existing matching list items', :aggregate_failures do
+              perform
+              expect(item_on_other_list.reload.unit_weight).to eq 1
+              expect(item_on_aggregate_list.reload.unit_weight).to eq 1
+            end
+
+            it 'returns all the list items that were updated' do
+              expect(perform.resource.sort).to eq [item_on_aggregate_list, item_on_other_list, shopping_list.list_items.last].sort
+            end
+          end
+
+          context 'when unit weight is not specified' do
+            let(:other_list)              { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+            let!(:item_on_other_list)     { create(:shopping_list_item, list: other_list, unit_weight: 2, description: 'Necklace', quantity: 1) }
+            let!(:item_on_aggregate_list) { create(:shopping_list_item, list: aggregate_list, unit_weight: 2, description: 'Necklace', quantity: 1) }
+
+            it 'returns the regular list item and the aggregate list item' do
+              expect(perform.resource).to eq [item_on_aggregate_list, shopping_list.list_items.last]
+            end
+          end
+        end
       end
 
       context 'when there is a matching item on the regular list' do
@@ -111,8 +148,12 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
         it 'updates the aggregate list correctly' do
           perform
-          expect(aggregate_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, 'Hello world')
+          expect(aggregate_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, nil, 'Hello world')
         end
+
+        context 'when no unit weight is specified'
+
+        context 'when a unit weight is specified'
       end
     end
 

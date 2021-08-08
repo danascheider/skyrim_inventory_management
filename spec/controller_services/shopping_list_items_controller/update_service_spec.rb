@@ -39,7 +39,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
         allow(aggregate_list).to receive(:update_item_from_child_list)
         perform
-        expect(aggregate_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+        expect(aggregate_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil, nil)
       end
 
       it 'returns a Service::OKResult' do
