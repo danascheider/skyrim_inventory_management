@@ -5,6 +5,7 @@ class InventoryListItem < ApplicationRecord
 
   validates :description, presence: true, uniqueness: { scope: :list_id, case_sensitive: false }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validate :prevent_changed_description, on: :update
 
   before_save :clean_up_notes
