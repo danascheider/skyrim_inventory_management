@@ -349,7 +349,7 @@ RSpec.describe InventoryList, type: :model do
     let!(:inventory_list) { create(:inventory_list, game: game) }
     let(:game)            { create(:game) }
 
-    context 'when the user has additional regular lists' do
+    context 'when the game has additional regular lists' do
       before do
         create(:inventory_list, game: game)
       end
@@ -360,7 +360,7 @@ RSpec.describe InventoryList, type: :model do
       end
     end
 
-    context 'when the user has no additional regular lists' do
+    context 'when the game has no additional regular lists' do
       it 'destroys the aggregate list' do
         expect { destroy_list }
           .to change(game.inventory_lists, :count).from(2).to(0)
