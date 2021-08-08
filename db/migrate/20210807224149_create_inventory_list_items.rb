@@ -7,7 +7,7 @@ class CreateInventoryListItems < ActiveRecord::Migration[6.1]
       t.string :description, null: false
       t.string :notes
       t.integer :quantity, null: false, default: 1
-      t.decimal :weight, precision: 5, scale: 1
+      t.decimal :unit_weight, precision: 5, scale: 1
 
       t.timestamps
     end

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_224149) do
     t.string "description", null: false
     t.string "notes"
     t.integer "quantity", default: 1, null: false
-    t.decimal "weight", precision: 5, scale: 1
+    t.decimal "unit_weight", precision: 5, scale: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["description", "list_id"], name: "index_inventory_list_items_on_description_and_list_id", unique: true
