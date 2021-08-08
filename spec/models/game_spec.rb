@@ -53,7 +53,7 @@ RSpec.describe Game, type: :model do
   end
 
   describe 'relations' do
-    let!(:game) { create(:game_with_shopping_lists_and_items, user: user) }
+    let!(:game) { create(:game_with_everything, user: user) }
 
     # This is a regression test. Games were failing to be destroyed because, when
     # destroying their child models (i.e., shopping lists, at this point), the
@@ -72,6 +72,16 @@ RSpec.describe Game, type: :model do
     it "destroys all the game's shopping list items" do
       expect { game.destroy! }
         .to change(ShoppingListItem, :count).from(8).to(0)
+    end
+
+    it "destroys all the game's inventory lists" do
+      expect { game.destroy! }
+        .to change(InventoryList, :count).from(3).to(0)
+    end
+
+    it "destroys all the game's inventory list items" do
+      expect { game.destroy! }
+        .to change(InventoryListItem, :count).from(8).to(0)
     end
   end
 

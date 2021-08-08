@@ -59,5 +59,30 @@ FactoryBot.define do
         end
       end
     end
+
+    factory :game_with_everything do
+      transient do
+        shopping_list_count { 2 }
+        inventory_list_count { 2 }
+      end
+
+      after(:create) do |game, evaluator|
+        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game: game)
+
+        inventory_lists.each do |list|
+          list.list_items.each do |item|
+            list.aggregate_list.add_item_from_child_list(item)
+          end
+        end
+
+        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game: game)
+
+        shopping_lists.each do |list|
+          list.list_items.each do |item|
+            list.aggregate_list.add_item_from_child_list(item)
+          end
+        end
+      end
+    end
   end
 end
