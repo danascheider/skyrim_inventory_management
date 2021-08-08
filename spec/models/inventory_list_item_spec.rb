@@ -108,6 +108,22 @@ RSpec.describe InventoryListItem, type: :model do
         combine_or_create
         expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
       end
+
+      context "when the new item doesn't have a unit_weight" do
+        it 'leaves the unit_weight as-is' do
+          combine_or_create
+          expect(existing_item.reload.unit_weight).to eq 0.3
+        end
+      end
+
+      context 'when the new item has a unit_weight' do
+        subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, unit_weight: 0.2, notes: 'notes 2') }
+
+        it 'uses the unit_weight from the new item' do
+          combine_or_create
+          expect(existing_item.reload.unit_weight).to eq 0.2
+        end
+      end
     end
   end
 
@@ -136,6 +152,20 @@ RSpec.describe InventoryListItem, type: :model do
       it 'concatenates the notes for the two items', :aggregate_failures do
         expect(combine_or_new).to eq existing_item
         expect(combine_or_new.notes).to eq 'notes 1 -- notes 2'
+      end
+
+      context "when the new item doesn't have a unit_weight" do
+        it 'leaves the unit_weight as-is' do
+          expect(combine_or_new.unit_weight).to eq 0.3
+        end
+      end
+
+      context 'when the new item has a unit_weight' do
+        subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, unit_weight: 0.2, list: inventory_list, notes: 'notes 2') }
+
+        it 'updates the unit_weight' do
+          expect(combine_or_new.unit_weight).to eq 0.2
+        end
       end
     end
 

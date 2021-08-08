@@ -91,8 +91,8 @@ RSpec.describe ShoppingListItem, type: :model do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: shopping_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -108,6 +108,22 @@ RSpec.describe ShoppingListItem, type: :model do
         combine_or_create
         expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
       end
+
+      context "when the new item doesn't have a unit_weight" do
+        it 'leaves the unit_weight as-is' do
+          combine_or_create
+          expect(existing_item.reload.unit_weight).to eq 0.3
+        end
+      end
+
+      context 'when the new item has a unit_weight' do
+        subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, unit_weight: 0.2, notes: 'notes 2') }
+
+        it 'uses the unit_weight from the new item' do
+          combine_or_create
+          expect(existing_item.reload.unit_weight).to eq 0.2
+        end
+      end
     end
   end
 
@@ -117,7 +133,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
       let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: shopping_list, notes: 'notes 1') }
 
       before do
         allow(described_class).to receive(:new)
@@ -128,14 +144,30 @@ RSpec.describe ShoppingListItem, type: :model do
         expect(described_class).not_to have_received(:new)
       end
 
-      it 'returns the existing item with the quantity updated', :aggregate_failures do
+      it 'returns the existing item' do
         expect(combine_or_new).to eq existing_item
+      end
+
+      it 'updates the quantity', :aggregate_failures do
         expect(combine_or_new.quantity).to eq 3
       end
 
       it 'concatenates the notes for the two items', :aggregate_failures do
-        expect(combine_or_new).to eq existing_item
         expect(combine_or_new.notes).to eq 'notes 1 -- notes 2'
+      end
+
+      context "when the new item doesn't have a unit_weight" do
+        it 'leaves the unit_weight as-is' do
+          expect(combine_or_new.unit_weight).to eq 0.3
+        end
+      end
+
+      context 'when the new item has a unit_weight' do
+        subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, unit_weight: 0.2, list: shopping_list, notes: 'notes 2') }
+
+        it 'updates the unit_weight' do
+          expect(combine_or_new.unit_weight).to eq 0.2
+        end
       end
     end
 

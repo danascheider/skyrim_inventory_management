@@ -393,9 +393,11 @@ RSpec.describe InventoryList, type: :model do
       end
 
       context 'when there is a matching item on the aggregate list' do
-        let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+        let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+        let!(:item_on_other_list) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
+          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
           let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
 
           it 'combines the notes and quantities', :aggregate_failures do
@@ -417,12 +419,42 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when one has notes and the other does not' do
+          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
           let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2) }
 
           it 'combines the quantities and uses the existing notes value', :aggregate_failures do
             add_item
             expect(existing_list_item.reload.quantity).to eq 5
             expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2'
+          end
+        end
+
+        context "when the new item doesn't have a unit weight" do
+          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
+          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
+
+          it 'leaves the unit weight as-is on the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.3
+          end
+
+          it 'leaves the unit weight as-is on the other regular list item' do
+            add_item
+            expect(item_on_other_list.reload.unit_weight).to eq 0.3
+          end
+        end
+
+        context 'when the new item has a unit weight' do
+          let!(:existing_list_item) { create(:inventory_list_item, description: item_on_other_list.description, list: aggregate_list) }
+          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: 0.2) }
+
+          it 'updates the unit weight of the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.2
+          end
+
+          it 'updates the unit weight of the item on the other list' do
+            #
           end
         end
       end
