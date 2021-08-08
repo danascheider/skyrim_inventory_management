@@ -207,4 +207,23 @@ RSpec.describe Game, type: :model do
       expect(shopping_list_items).to eq items
     end
   end
+
+  describe '#inventory_list_items' do
+    subject(:inventory_list_items) { game.inventory_list_items.to_a.sort }
+
+    let(:game) { create(:game, user: user) }
+
+    before do
+      create_list(:inventory_list_with_list_items, 2, game: game)
+      create(:game_with_inventory_lists_and_items, user: user) # one that shouldn't be included
+    end
+
+    it 'returns all list items belonging to the game' do
+      items = game.inventory_lists.map {|list| list.list_items.to_a }
+      items.flatten!
+      items.sort!
+
+      expect(inventory_list_items).to eq items
+    end
+  end
 end

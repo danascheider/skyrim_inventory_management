@@ -369,6 +369,379 @@ RSpec.describe InventoryList, type: :model do
   end
 
   describe 'Aggregatable methods' do
+    describe '#add_item_from_child_list' do
+      subject(:add_item) { aggregate_list.add_item_from_child_list(list_item) }
+
+      let(:aggregate_list) { create(:aggregate_inventory_list) }
+
+      context 'when there is no matching item on the aggregate list' do
+        let(:list_item) { create(:inventory_list_item) }
+
+        it 'creates a corresponding item on the aggregate list' do
+          expect { add_item }
+            .to change(aggregate_list.list_items, :count).from(0).to(1)
+        end
+
+        it 'sets the correct attributes' do
+          add_item
+          expect(aggregate_list.list_items.last.attributes).to include(
+                                                                 'description' => list_item.description,
+                                                                 'quantity'    => list_item.quantity,
+                                                                 'notes'       => list_item.notes,
+                                                               )
+        end
+      end
+
+      context 'when there is a matching item on the aggregate list' do
+        let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+
+        context 'when both have notes' do
+          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
+
+          it 'combines the notes and quantities', :aggregate_failures do
+            add_item
+            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2 -- notes 3'
+            expect(existing_list_item.reload.quantity).to eq 5
+          end
+        end
+
+        context 'when neither have notes' do
+          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: nil) }
+          let(:list_item)           { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
+
+          it 'combines the quantities and leaves the notes nil' do
+            add_item
+            expect(existing_list_item.reload.quantity).to eq 5
+            expect(existing_list_item.reload.notes).to be nil
+          end
+        end
+
+        context 'when one has notes and the other does not' do
+          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2) }
+
+          it 'combines the quantities and uses the existing notes value', :aggregate_failures do
+            add_item
+            expect(existing_list_item.reload.quantity).to eq 5
+            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2'
+          end
+        end
+      end
+
+      context 'when called on a non-aggregate list' do
+        let(:aggregate_list) { create(:inventory_list) }
+        let(:list_item)      { create(:inventory_list_item) }
+
+        it 'raises an AggregateListError' do
+          expect { add_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+    end
+
+    describe '#remove_item_from_child_list' do
+      subject(:remove_item) { aggregate_list.remove_item_from_child_list(item_attrs) }
+
+      context 'when there is no matching item on the aggregate list' do
+        let(:aggregate_list) { create(:aggregate_inventory_list) }
+        let(:item_attrs)     { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+
+        it 'raises an error' do
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when the quantity is greater than the quantity on the aggregate list' do
+        let(:aggregate_list) { create(:aggregate_inventory_list) }
+        let(:item_attrs)     { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+
+        before do
+          aggregate_list.list_items.create(description: 'Necklace', quantity: 2)
+        end
+
+        it 'raises an error' do
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when the quantity is equal to the quantity on the aggregate list' do
+        let(:aggregate_list) { create(:aggregate_inventory_list) }
+        let(:item_attrs)     { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+
+        before do
+          aggregate_list.list_items.create(description: 'Necklace', quantity: 3)
+        end
+
+        it 'removes the item from the aggregate list' do
+          expect { remove_item }
+            .to change(aggregate_list.list_items, :count).from(1).to(0)
+        end
+      end
+
+      context 'when the quantity is less than the quantity on the aggregate list' do
+        let(:aggregate_list) { create(:aggregate_inventory_list) }
+
+        context 'with complicated notes situations' do
+          before do
+            aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
+          end
+
+          context 'when removing the middle note value' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2' } }
+
+            it 'cleans up extra separators' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 3'
+            end
+          end
+
+          context 'when removing the end note value' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 3' } }
+
+            it 'cleans up the trailing separator' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 2'
+            end
+          end
+
+          context 'when removing the first note value' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1' } }
+
+            it 'cleans up the trailing separator' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 2 -- notes 3'
+            end
+          end
+
+          context 'when removing the first two notes values' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2' } }
+
+            it 'cleans up the separators' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 3'
+            end
+          end
+
+          context 'when removing the last two notes values' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2 -- notes 3' } }
+
+            it 'cleans up separators' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 1'
+            end
+          end
+
+          context 'when removing all notes' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2 -- notes 3' } }
+
+            it 'cleans up the trailing separator' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to be nil
+            end
+          end
+
+          context 'when removing an item without notes' do
+            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3 } }
+
+            it 'leaves the notes on the aggregate list alone' do
+              remove_item
+              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 2 -- notes 3'
+            end
+          end
+        end
+      end
+
+      context 'when called on a non-aggregate list' do
+        let(:aggregate_list) { create(:inventory_list) }
+        let(:item_attrs)     { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+
+        it 'raises an error' do
+          expect { remove_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+    end
+
+    describe '#update_item_from_child_list' do
+      subject(:update_item) { aggregate_list.update_item_from_child_list(description, delta, old_notes, new_notes) }
+
+      let(:aggregate_list) { create(:aggregate_inventory_list) }
+      let(:description)    { 'Corundum ingot' }
+
+      context 'when adjusting quantity up' do
+        let(:delta)     { 2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'another thing' }
+
+        before do
+          # upcase the description to test that the comparison is case insensitive
+          aggregate_list.list_items.create(description: description.upcase, quantity: 1, notes: "#{old_notes} -- something else")
+        end
+
+        it 'adds the quantity delta to the existing one' do
+          update_item
+          expect(aggregate_list.list_items.first.quantity).to eq 3
+        end
+
+        it 'replaces the notes' do
+          update_item
+          expect(aggregate_list.list_items.first.notes).to eq "#{new_notes} -- something else"
+        end
+      end
+
+      context 'when adjusting quantity down' do
+        let(:delta)     { -2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'another thing' }
+
+        before do
+          aggregate_list.list_items.create(description: description, quantity: 3, notes: old_notes)
+        end
+
+        it 'adds the negative quantity delta to the existing one' do
+          update_item
+          expect(aggregate_list.list_items.first.quantity).to eq 1
+        end
+
+        it 'replaces the notes' do
+          update_item
+          expect(aggregate_list.list_items.first.notes).to eq new_notes
+        end
+      end
+
+      context 'when the notes have not changed' do
+        let(:delta)     { -2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'something' }
+
+        before do
+          aggregate_list.list_items.create(description: description, quantity: 3, notes: "#{old_notes} -- something else")
+        end
+
+        it "doesn't mess with the notes" do
+          update_item
+          expect(aggregate_list.list_items.first.notes).to eq 'something -- something else'
+        end
+      end
+
+      context 'when there are edge cases with the notes' do
+        let(:delta)          { 5 }
+        let(:existing_notes) { 'notes 1 -- notes 2 -- notes 3' }
+
+        before do
+          aggregate_list.list_items.create!(description: description, quantity: 3, notes: existing_notes)
+        end
+
+        context 'when replacing the middle notes' do
+          let(:old_notes) { 'notes 2' }
+          let(:new_notes) { 'something else' }
+
+          it 'replaces the old notes on the list item' do
+            update_item
+            expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- something else -- notes 3'
+          end
+        end
+
+        context 'when replacing the first notes with nil' do
+          let(:old_notes) { 'notes 1' }
+          let(:new_notes) { nil }
+
+          it "doesn't leave leading whitespace or dashes" do
+            update_item
+            expect(aggregate_list.list_items.first.notes).to eq 'notes 2 -- notes 3'
+          end
+        end
+
+        context 'when replacing two of the notes values' do
+          let(:old_notes) { 'notes 2 -- notes 3' }
+          let(:new_notes) { 'something else' }
+
+          it "doesn't leave trailing whitespace or dashes" do
+            update_item
+            expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- something else'
+          end
+        end
+
+        context 'when replacing all of a combined note value' do
+          let(:old_notes) { 'notes 1 -- notes 2 -- notes 3' }
+          let(:new_notes) { nil }
+
+          it 'sets the value to nil' do
+            update_item
+            expect(aggregate_list.list_items.first.notes).to be nil
+          end
+        end
+
+        context 'when there are multiple identical note values' do
+          let(:existing_notes) { 'notes 1 -- notes 1 -- notes 2' }
+          let(:old_notes)      { 'notes 1' }
+          let(:new_notes)      { 'something else' }
+
+          it 'only replaces one instance' do
+            update_item
+            expect(aggregate_list.list_items.first.notes).to eq 'something else -- notes 1 -- notes 2'
+          end
+        end
+
+        context 'when introducing new notes' do
+          let(:old_notes) { 'notes 2' }
+          let(:new_notes) { 'notes 2 -- notes 4' }
+
+          it 'adds the new notes' do
+            update_item
+            expect(aggregate_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 4 -- notes 3'
+          end
+        end
+
+        context 'when all the notes on the aggregate list come from other items' do
+          let(:old_notes) { nil }
+          let(:new_notes) { 'notes 4' }
+
+          it 'adds the new notes' do
+            update_item
+            expect(aggregate_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 3 -- notes 4'
+          end
+        end
+      end
+
+      context 'when the delta would bring the quantity below zero' do
+        let(:delta)     { -20 }
+        let(:old_notes) { nil }
+        let(:new_notes) { 'something else' }
+
+        it 'raises an error' do
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when there is no matching item on the aggregate list' do
+        let(:description) { 'Iron ore' }
+        let(:delta)       { 2 }
+        let(:old_notes)   { 'something' }
+        let(:new_notes)   { 'something else' }
+
+        it 'raises an error' do
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when called on a regular list' do
+        let(:aggregate_list) { create(:inventory_list) }
+        let(:description)    { 'Corundum ingot' }
+        let(:delta)          { 2 }
+        let(:old_notes)      { 'to build things' }
+        let(:new_notes)      { 'to make locks' }
+
+        it 'raises an error' do
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+    end
+
     describe '#user' do
       let(:inventory_list) { create(:inventory_list) }
 

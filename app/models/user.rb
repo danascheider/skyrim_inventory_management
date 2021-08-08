@@ -20,7 +20,15 @@ class User < ApplicationRecord
     ShoppingList.belonging_to_user(self)
   end
 
+  def inventory_lists
+    InventoryList.belonging_to_user(self)
+  end
+
   def shopping_list_items
     ShoppingListItem.belonging_to_user(self)
+  end
+
+  def inventory_list_items
+    InventoryListItem.belonging_to_user(self)
   end
 end

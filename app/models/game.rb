@@ -42,6 +42,10 @@ class Game < ApplicationRecord
     ShoppingListItem.belonging_to_game(self)
   end
 
+  def inventory_list_items
+    InventoryListItem.belonging_to_game(self)
+  end
+
   private
 
   def format_name
