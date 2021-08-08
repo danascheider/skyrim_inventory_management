@@ -70,6 +70,29 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#inventory_lists' do
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+
+    let(:game1) { create(:game, user: user1) }
+    let(:game2) { create(:game, user: user1) }
+    let(:game3) { create(:game_with_inventory_lists, user: user2) }
+
+    let!(:inventory_list1) { create(:aggregate_inventory_list, game: game1) }
+    let!(:inventory_list2) { create(:inventory_list, game: game1) }
+    let!(:inventory_list3) { create(:aggregate_inventory_list, game: game2) }
+    let!(:inventory_list4) { create(:inventory_list, game: game2) }
+
+    it "returns all the inventory lists for the user's games" do
+      expect(user1.inventory_lists).to eq([
+                                            inventory_list4,
+                                            inventory_list3,
+                                            inventory_list2,
+                                            inventory_list1,
+                                          ])
+    end
+  end
+
   describe '#shopping_list_items' do
     subject(:shopping_list_items) { user1.shopping_list_items.to_a.sort }
 
@@ -85,6 +108,24 @@ RSpec.describe User, type: :model do
       user1_list_items.sort!
 
       expect(shopping_list_items).to eq user1_list_items
+    end
+  end
+
+  describe '#inventory_list_items' do
+    subject(:inventory_list_items) { user1.inventory_list_items.to_a.sort }
+
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+
+    let(:game1) { create(:game_with_inventory_lists_and_items, user: user1) }
+    let(:game2) { create(:game_with_inventory_lists_and_items, user: user1) }
+    let(:game3) { create(:game_with_inventory_lists_and_items, user: user2) }
+
+    it 'includes the inventory list items belonging to that user' do
+      user1_list_items = game1.inventory_list_items.to_a + game2.inventory_list_items.to_a
+      user1_list_items.sort!
+
+      expect(inventory_list_items).to eq user1_list_items
     end
   end
 end

@@ -2,26 +2,26 @@
 
 require 'rails_helper'
 
-RSpec.describe ShoppingListItem, type: :model do
+RSpec.describe InventoryListItem, type: :model do
   let!(:game) { create(:game) }
 
   describe 'delegation' do
-    let(:shopping_list) { create(:shopping_list, game: game) }
-    let(:list_item)     { create(:shopping_list_item, list: shopping_list) }
+    let(:inventory_list) { create(:inventory_list, game: game) }
+    let(:list_item)      { create(:inventory_list_item, list: inventory_list) }
 
     before do
-      create(:aggregate_shopping_list, game: game)
+      create(:aggregate_inventory_list, game: game)
     end
 
     describe '#game' do
-      it 'returns game its ShoppingList belongs to' do
+      it 'returns the game its InventoryList belongs to' do
         expect(list_item.game).to eq(game)
       end
     end
 
     describe '#user' do
-      it 'returns the user the game belongs to' do
-        expect(list_item.user).to eq game.user
+      it 'returns the user its game belongs to' do
+        expect(list_item.user).to eq(game.user)
       end
     end
   end
@@ -46,9 +46,9 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     describe '::belonging_to_game' do
-      let!(:list1) { create(:shopping_list_with_list_items, game: game) }
-      let!(:list2) { create(:shopping_list_with_list_items, game: game) }
-      let!(:list3) { create(:shopping_list_with_list_items, game: game) }
+      let!(:list1) { create(:inventory_list_with_list_items, game: game) }
+      let!(:list2) { create(:inventory_list_with_list_items, game: game) }
+      let!(:list3) { create(:inventory_list_with_list_items, game: game) }
 
       it 'returns all list items from all the lists for the given game' do
         # We don't actually care what order these are in since we currently only use this
@@ -70,15 +70,15 @@ RSpec.describe ShoppingListItem, type: :model do
       let(:user) { game.user }
 
       before do
-        create(:shopping_list_with_list_items, game: game)
-        create(:game_with_shopping_lists_and_items, user: user)
-        create(:game_with_shopping_lists_and_items, user: user)
-        create(:shopping_list_with_list_items) # one from a different user
+        create(:inventory_list_with_list_items, game: game)
+        create(:game_with_inventory_lists_and_items, user: user)
+        create(:game_with_inventory_lists_and_items, user: user)
+        create(:inventory_list_with_list_items) # one from a different user
       end
 
       it 'returns all the list items belonging to the user', :aggregate_failures do
         all_items = []
-        user.shopping_lists.each {|list| all_items << list.list_items }
+        user.inventory_lists.each {|list| all_items << list.list_items }
         all_items.flatten!.sort!
 
         expect(belonging_to_user).to eq all_items
@@ -88,15 +88,15 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '::combine_or_create!' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
+      subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let(:aggregate_list)  { create(:aggregate_inventory_list) }
+      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: inventory_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
-          .not_to change(shopping_list.list_items, :count)
+          .not_to change(inventory_list.list_items, :count)
       end
 
       it 'adds the quantity to the existing item' do
@@ -113,11 +113,11 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '::combine_or_new' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
-      subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
+      subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: shopping_list, notes: 'notes 1') }
+      let(:aggregate_list) { create(:aggregate_inventory_list) }
+      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, list: inventory_list, notes: 'notes 1') }
 
       before do
         allow(described_class).to receive(:new)
@@ -140,22 +140,22 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     context 'when there is not an existing item on the same list with that description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, list: shopping_list) }
+      subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, list: inventory_list) }
 
-      let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let!(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
+      let(:aggregate_list) { create(:aggregate_inventory_list) }
+      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
 
       it 'creates a new item on the list' do
         expect { combine_or_create }
-          .to change(shopping_list.list_items, :count).by(1)
+          .to change(inventory_list.list_items, :count).by(1)
       end
     end
   end
 
   describe '#update!' do
-    let(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
-    let!(:list_item)    { create(:shopping_list_item, quantity: 1, list: shopping_list) }
+    let(:aggregate_list) { create(:aggregate_inventory_list) }
+    let(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+    let!(:list_item)     { create(:inventory_list_item, quantity: 1, list: inventory_list) }
 
     context 'when updating quantity' do
       subject(:update_item) { list_item.update!(quantity: 4) }
@@ -178,15 +178,15 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe 'notes field' do
     it 'cleans up leading and trailing dashes or whitespace' do
-      shopping_list_item = build(:shopping_list_item, notes: ' -- some notes --')
-      expect { shopping_list_item.save }
-        .to change(shopping_list_item, :notes).to('some notes')
+      inventory_list_item = build(:inventory_list_item, notes: ' -- some notes --')
+      expect { inventory_list_item.save }
+        .to change(inventory_list_item, :notes).to('some notes')
     end
 
     it 'saves as nil if it consists only of dashes' do
-      shopping_list_item = build(:shopping_list_item, notes: '--')
-      expect { shopping_list_item.save }
-        .to change(shopping_list_item, :notes).to(nil)
+      inventory_list_item = build(:inventory_list_item, notes: '--')
+      expect { inventory_list_item.save }
+        .to change(inventory_list_item, :notes).to(nil)
     end
   end
 end

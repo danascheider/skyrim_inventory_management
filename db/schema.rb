@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_103734) do
+ActiveRecord::Schema.define(version: 2021_08_07_224149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,30 @@ ActiveRecord::Schema.define(version: 2021_07_17_103734) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "user_id"], name: "index_games_on_name_and_user_id", unique: true
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "inventory_list_items", force: :cascade do |t|
+    t.bigint "list_id", null: false
+    t.string "description", null: false
+    t.string "notes"
+    t.integer "quantity", default: 1, null: false
+    t.decimal "unit_weight", precision: 5, scale: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["description", "list_id"], name: "index_inventory_list_items_on_description_and_list_id", unique: true
+    t.index ["list_id"], name: "index_inventory_list_items_on_list_id"
+  end
+
+  create_table "inventory_lists", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "aggregate_list_id"
+    t.string "title", null: false
+    t.boolean "aggregate", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aggregate_list_id"], name: "index_inventory_lists_on_aggregate_list_id"
+    t.index ["game_id"], name: "index_inventory_lists_on_game_id"
+    t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
   end
 
   create_table "shopping_list_items", force: :cascade do |t|
@@ -60,6 +84,9 @@ ActiveRecord::Schema.define(version: 2021_07_17_103734) do
   end
 
   add_foreign_key "games", "users"
+  add_foreign_key "inventory_list_items", "inventory_lists", column: "list_id"
+  add_foreign_key "inventory_lists", "games"
+  add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"

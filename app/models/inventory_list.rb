@@ -2,7 +2,7 @@
 
 require 'titlecase'
 
-class ShoppingList < ApplicationRecord
+class InventoryList < ApplicationRecord
   # Titles have to be unique per game as described in the API docs. They also can only
   # contain alphanumeric characters and spaces with no special characters or whitespace
   # other than spaces. Leading or trailing whitespace is stripped anyway so the validation
@@ -19,13 +19,13 @@ class ShoppingList < ApplicationRecord
   # This has to be defined before including AggregateListable because its `included` block
   # calls this method.
   def self.list_item_class_name
-    'ShoppingListItem'
+    'InventoryListItem'
   end
 
   include Aggregatable
 
   scope :index_order, -> { includes_items.aggregate_first.order(updated_at: :desc) }
-  scope :belonging_to_user, ->(user) { joins(:game).where(games: { user_id: user.id }).order('shopping_lists.updated_at DESC') }
+  scope :belonging_to_user, ->(user) { joins(:game).where(games: { user_id: user.id }).order('inventory_lists.updated_at DESC') }
 
   private
 
@@ -33,7 +33,7 @@ class ShoppingList < ApplicationRecord
     return if aggregate
 
     if title.blank?
-      max_existing_number = game.shopping_lists.where("title LIKE 'My List %'").pluck(:title).map {|t| t.gsub('My List ', '').to_i }
+      max_existing_number = game.inventory_lists.where("title LIKE 'My List %'").pluck(:title).map {|t| t.gsub('My List ', '').to_i }
                               .max || 0
       next_number         = max_existing_number >= 0 ? max_existing_number + 1 : 1
       self.title          = "My List #{next_number}"
