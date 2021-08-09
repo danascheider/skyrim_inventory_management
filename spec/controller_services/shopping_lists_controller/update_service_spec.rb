@@ -15,7 +15,7 @@ RSpec.describe ShoppingListsController::UpdateService do
     let(:user)            { create(:user) }
 
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, game: game, aggregate_list_id: aggregate_list.id) }
+      let(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
       let(:game)   { create(:game, user: user) }
       let(:params) { { title: 'My New Title' } }
 
