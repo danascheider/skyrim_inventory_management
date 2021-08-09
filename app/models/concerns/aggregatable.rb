@@ -104,12 +104,12 @@ module Aggregatable
 
     raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
 
-    existing_item.quantity   += delta_quantity
-    existing_item.notes       = if old_notes.nil? && new_notes.present?
-                                  [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
-                                else
-                                  existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
-                                end
+    existing_item.quantity += delta_quantity
+    existing_item.notes     = if old_notes.nil? && new_notes.present?
+                                [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
+                              else
+                                existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
+                              end
 
     unless unit_weight.nil?
       existing_item.unit_weight = unit_weight
