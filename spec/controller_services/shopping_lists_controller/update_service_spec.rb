@@ -55,13 +55,37 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
+    context "when the shopping list doesn't exist" do
+      let(:shopping_list) { double(id: 23_859) }
+      let(:params)        { { title: 'Valid New Title' } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the shopping list does not belong to the user' do
       let(:shopping_list) { create(:shopping_list, game: game) }
       let(:game)          { create(:game) }
       let(:params)        { { title: 'Valid New Title' } }
 
+      it "doesn't update the list" do
+        perform
+        expect(shopping_list.reload.title).not_to eq 'Valid New Title'
+      end
+
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 
