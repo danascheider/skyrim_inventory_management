@@ -6,7 +6,7 @@ Each list contains [inventory list items](/docs/api/resources/inventory-list-ite
 
 When making requests to update the title of an inventory list, there are some validations and automatic transformations to keep in mind.
 
-* Titles must be unique per game - you cannot namee two lists the same thing within the same game
+* Titles must be unique per game - you cannot name two lists the same thing within the same game
 * Only an aggregate list can be called "All Items"
 * All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
