@@ -10,7 +10,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     }
   end
 
-  describe 'POST /shopping_lists' do
+  describe 'POST games/:game_id/shopping_lists' do
     subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: {} }.to_json, headers: headers }
 
     context 'when authenticated' do
@@ -467,7 +467,7 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'GET /shopping_lists' do
+  describe 'GET games/:game_id/shopping_lists' do
     subject(:get_index) { get "/games/#{game.id}/shopping_lists", headers: headers }
 
     context 'when unauthenticated' do
