@@ -14,6 +14,8 @@ class InventoryListsController < ApplicationController
       Service::OKResult.new(resource: game.inventory_lists)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
+    rescue StandardError => e
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private

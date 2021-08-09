@@ -47,8 +47,32 @@ RSpec.describe InventoryListsController::IndexService do
       end
     end
 
-    context "when the game doesn't belong to the user"
+    context "when the game doesn't belong to the user" do
+      let(:game) { create(:game) }
 
-    context 'when something unexpected goes wrong'
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any error messages" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let(:game) { create(:game, user: user) }
+
+      before do
+        allow(user.games).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'returns an array with the error message' do
+        expect(perform.errors).to eq ['Something went horribly wrong']
+      end
+    end
   end
 end
