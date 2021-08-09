@@ -16,10 +16,11 @@ See docs:
 
 ## Resources
 
-* [Users](/docs/api/resources/users.md)
 * [Games](/docs/api/resources/games.md)
+* [Inventory Lists](/docs/api/resources/inventory-lists.md)
 * [Shopping Lists](/docs/api/resources/shopping-lists.md)
 * [Shopping List Items](/docs/api/resources/shopping-list-items.md)
+* [Users](/docs/api/resources/users.md)
 
 ### Object Modelling Hierarchy
 
