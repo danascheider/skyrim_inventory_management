@@ -68,7 +68,7 @@ module Aggregatable
     raise AggregateListError.new('add_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     if item.unit_weight
-      other_items = child_lists.map(&:list_items)
+      other_items = child_lists.all.map(&:list_items)
       other_items.flatten!
 
       other_items.each do |list_item|
