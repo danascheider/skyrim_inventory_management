@@ -10,7 +10,7 @@ When making requests to update the title of an inventory list, there are some va
 * Only an aggregate list can be called "All Items"
 * All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
-* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest nonnegative integer used in an existing "My List" title (so if the game has "My List -4" and "My List 3", the next time the user tries to save a list without a title it will be called "My List 4")
+* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest nonnegative integer used in an existing "My List" title (so if the game has "My List -4" and "My List 3", the next time the user tries to save a list for that game without a title it will be called "My List 4")
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
 * Titles may only contain alphanumeric characters, spaces, hyphens, apostrophes, and commas - any other characters (other than leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
