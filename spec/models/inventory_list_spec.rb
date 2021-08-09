@@ -55,7 +55,7 @@ RSpec.describe InventoryList, type: :model do
       let!(:game3) { create(:game_with_inventory_lists, user: user) }
 
       it "returns all the inventory lists from all the user's games" do
-        # These are going to be rearranged in the output since game.shopping_lists
+        # These are going to be rearranged in the output since game.inventory_lists
         # comes back aggregate list first and the scope will return them in descending
         # updated_at order. There was no easy programmatic way to rearrange them so
         # I just have to pull them all out and reorder them in the expectation.
@@ -83,7 +83,7 @@ RSpec.describe InventoryList, type: :model do
     describe 'aggregate lists' do
       context 'when there are no aggregate lists' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
 
         it 'is valid' do
           expect(aggregate_list).to be_valid
@@ -92,10 +92,10 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when there is an existing aggregate list belonging to another user' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
 
         before do
-          create(:aggregate_shopping_list)
+          create(:aggregate_inventory_list)
         end
 
         it 'is valid' do
@@ -105,10 +105,10 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when the user already has an aggregate list' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
 
         before do
-          create(:aggregate_shopping_list, game: game)
+          create(:aggregate_inventory_list, game: game)
         end
 
         it 'is invalid', :aggregate_failures do
@@ -393,9 +393,11 @@ RSpec.describe InventoryList, type: :model do
       end
 
       context 'when there is a matching item on the aggregate list' do
-        let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+        let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+        let!(:item_on_other_list) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
+          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
           let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
 
           it 'combines the notes and quantities', :aggregate_failures do
@@ -409,7 +411,7 @@ RSpec.describe InventoryList, type: :model do
           let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: nil) }
           let(:list_item)           { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
 
-          it 'combines the quantities and leaves the notes nil' do
+          it 'combines the quantities and leaves the notes nil', :aggregate_failures do
             add_item
             expect(existing_list_item.reload.quantity).to eq 5
             expect(existing_list_item.reload.notes).to be nil
@@ -417,12 +419,43 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when one has notes and the other does not' do
+          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
           let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2) }
 
           it 'combines the quantities and uses the existing notes value', :aggregate_failures do
             add_item
             expect(existing_list_item.reload.quantity).to eq 5
             expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2'
+          end
+        end
+
+        context "when the new item doesn't have a unit weight" do
+          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
+          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
+
+          it 'leaves the unit weight as-is on the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.3
+          end
+
+          it 'leaves the unit weight as-is on the other regular list item' do
+            add_item
+            expect(item_on_other_list.reload.unit_weight).to eq 0.3
+          end
+        end
+
+        context 'when the new item has a unit weight' do
+          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', unit_weight: 0.3, list: aggregate_list) }
+          let(:list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: nil, unit_weight: 0.2) }
+
+          it 'updates the unit weight of the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.2
+          end
+
+          it 'updates the unit weight of the item on the other list' do
+            add_item
+            expect(item_on_other_list.reload.unit_weight).to eq 0.2
           end
         end
       end
@@ -564,10 +597,11 @@ RSpec.describe InventoryList, type: :model do
     end
 
     describe '#update_item_from_child_list' do
-      subject(:update_item) { aggregate_list.update_item_from_child_list(description, delta, old_notes, new_notes) }
+      subject(:update_item) { aggregate_list.update_item_from_child_list(description, delta, unit_weight, old_notes, new_notes) }
 
       let(:aggregate_list) { create(:aggregate_inventory_list) }
       let(:description)    { 'Corundum ingot' }
+      let(:unit_weight)    { 1 }
 
       context 'when adjusting quantity up' do
         let(:delta)     { 2 }
@@ -607,6 +641,54 @@ RSpec.describe InventoryList, type: :model do
         it 'replaces the notes' do
           update_item
           expect(aggregate_list.list_items.first.notes).to eq new_notes
+        end
+      end
+
+      context "when quantity doesn't change" do
+        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 0, unit_weight, 'something', 'another thing') }
+
+        before do
+          aggregate_list.list_items.create(description: description, quantity: 3, notes: 'something')
+        end
+
+        it "doesn't change the quantity" do
+          update_item
+          expect(aggregate_list.list_items.first.quantity).to eq 3
+        end
+      end
+
+      context 'when there is no unit_weight given' do
+        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'another thing') }
+
+        before do
+          aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
+        end
+
+        it 'leaves the existing unit_weight as-is' do
+          update_item
+          expect(aggregate_list.list_items.first.unit_weight).to eq 1
+        end
+      end
+
+      context 'when there is a unit_weight given' do
+        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
+
+        let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+        let!(:item_on_other_list)  { create(:inventory_list_item, list: other_list, description: description, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:inventory_list_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
+
+        before do
+          aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
+        end
+
+        it 'updates the unit_weight on the aggregate list' do
+          update_item
+          expect(aggregate_list_item.reload.unit_weight).to eq 2
+        end
+
+        it 'updates the other matching list item' do
+          update_item
+          expect(item_on_other_list.reload.unit_weight).to eq 2
         end
       end
 
@@ -709,6 +791,38 @@ RSpec.describe InventoryList, type: :model do
         let(:delta)     { -20 }
         let(:old_notes) { nil }
         let(:new_notes) { 'something else' }
+
+        it 'raises an error' do
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when the unit_weight is not a number' do
+        let(:unit_weight) { 'carrot' }
+        let(:delta)       { 1 }
+        let(:old_notes)   { nil }
+        let(:new_notes)   { nil }
+
+        before do
+          aggregate_list.list_items.create!(description: description)
+        end
+
+        it 'raises an error' do
+          expect { update_item }
+            .to raise_error(Aggregatable::AggregateListError)
+        end
+      end
+
+      context 'when the unit_weight value is invalid' do
+        let(:unit_weight) { -0.3 }
+        let(:delta)       { 1 }
+        let(:old_notes)   { nil }
+        let(:new_notes)   { nil }
+
+        before do
+          aggregate_list.list_items.create!(description: description, quantity: 1)
+        end
 
         it 'raises an error' do
           expect { update_item }

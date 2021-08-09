@@ -17,7 +17,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     context 'when all goes well' do
       let(:game)           { create(:game_with_shopping_lists, user: user) }
       let(:aggregate_list) { game.aggregate_shopping_list }
-      let!(:list_item)     { create(:shopping_list_item, list: shopping_list, quantity: 2) }
+      let!(:list_item)     { create(:shopping_list_item, list: shopping_list, quantity: 2, unit_weight: 2) }
       let(:params)         { { quantity: 3 } }
       let(:scope)          { ShoppingListItem.belonging_to_user(user) }
 
@@ -37,9 +37,9 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         allow(scope).to receive(:find).and_return(list_item)
         allow(list_item).to receive(:list).and_return(shopping_list)
         allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
-        allow(aggregate_list).to receive(:update_item_from_child_list)
+        allow(aggregate_list).to receive(:update_item_from_child_list).and_call_original
         perform
-        expect(aggregate_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil)
+        expect(aggregate_list).to have_received(:update_item_from_child_list).with(list_item.description, 1, nil, nil, nil)
       end
 
       it 'returns a Service::OKResult' do
@@ -59,6 +59,25 @@ RSpec.describe ShoppingListItemsController::UpdateService do
           # in things being not quite equal in that environment. Since it's not that important
           # that it be that exact, I'm just using the `be_within` matcher.
           expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+        end
+      end
+
+      context 'when updating the unit_weight' do
+        let(:params) { { unit_weight: 1 } }
+        let(:other_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+        let!(:other_item) { create(:shopping_list_item, description: list_item.description, list: other_list, unit_weight: 2) }
+
+        before do
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        it 'updates the other item' do
+          perform
+          expect(other_item.reload.unit_weight).to eq 1
+        end
+
+        it 'returns all the items that were updated' do
+          expect(perform.resource.sort).to eq [aggregate_list.list_items.reload.first, list_item, other_item].sort
         end
       end
     end

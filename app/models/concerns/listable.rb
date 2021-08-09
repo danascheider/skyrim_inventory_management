@@ -37,14 +37,15 @@ module Listable
       if existing_item.nil?
         new attrs
       else
-        qty       = attrs[:quantity] || attrs['quantity'] || 1
-        new_notes = attrs[:notes] || attrs['notes']
-        old_notes = existing_item.notes
+        qty        = attrs[:quantity] || attrs['quantity'] || 1
+        new_notes  = attrs[:notes] || attrs['notes']
+        new_weight = attrs[:unit_weight] || attrs['unit_weight'] || existing_item.unit_weight
+        old_notes  = existing_item.notes
 
         new_quantity = existing_item.quantity + qty
         new_notes    = [old_notes, new_notes].compact.join(' -- ').presence
 
-        existing_item.assign_attributes(quantity: new_quantity, notes: new_notes)
+        existing_item.assign_attributes(quantity: new_quantity, notes: new_notes, unit_weight: new_weight)
         existing_item
       end
     end

@@ -136,7 +136,12 @@ If there is an item with the same description on the aggregate list already, tha
 1. The `quantity` of the item on the aggregate list will be increased by the quantity of the item being added.
 2. The `notes` of the item on the aggregate list will be concatenated with the new item's notes, separated with ` -- `
 
-Currently, there is no intentional logic around `unit_weight`. There is planned work to implement this logic. Existing code has the `unit_weight` of an item never change unless it is directly updated on that item. That means that there is potential for `unit_weight` to get out of sync between a regular list and an aggregate list.
+One of two things will happen with the `unit_weight` value:
+
+1. If the new `unit_weight` is `nil`, nothing will happen. This implies that, once a unit weight is set, it can be changed but not unset and any new matching items added will have the same unit weight as existing items.
+2. If the new `unit_weight` is not `nil`, `unit_weight` will be updated on all list items that belong to the same game and have the same description, not just the aggregate list item.
+
+Setting an invalid `quantity` or `unit_weight` will result in an `Aggregatable::AggregateListError`.
 
 #### Removing an Item from a Child List
 
@@ -164,10 +169,11 @@ The quantity of the aggregate list item is reduced by the amount of the quantity
 
 #### Editing an Item on a Child List
 
-There are three values that can be edited on a child list item: `notes`, `quantity`, and `unit_weight`. Any or all may be updated at a given time. The aggregate list values can be updated using the `#update_item_from_child_list` method (with the caveat that the correct logic around `unit_weight` has not been implemented yet). In order to call this method, you'll need to know four things:
+There are three values that can be edited on a child list item: `notes`, `quantity`, and `unit_weight`. Any or all may be updated at a given time. The aggregate list values can be updated using the `#update_item_from_child_list` method. In order to call this method, you'll need to know four things:
 
 * The `description` of the item being edited (to find on the aggregate list - remember that description should not be editable)
 * The change in quantity, if any (should be negative if the quantity was reduced, positive if it was increased, and zero if it did not change)
+* The new `unit_weight` (can be set to either `nil` or the old `unit_weight` value if the value hasn't changed)
 * The old `notes` value
 * The new `notes` value
 
@@ -183,7 +189,9 @@ Once the item is found on the aggregate list, its `notes` value will be updated 
 
 ##### Updating the Unit Weight
 
-The desired logic around updating `unit_weight` has not been implemented yet. There is planned work to implement it.
+If the unit weight has been updated and the new value is `nil`, nothing will happen. Once set, `unit_weight` can be changed to another valid value but not unset.
+
+If the unit weight value has been updated and the new value is numeric and greater than or equal to zero, the unit weight will be updated not only on the requested list item and corresponding aggregate list item, but on all items that match the description and belong to the same game. This is to make sure that list items don't get out of sync with the aggregate list while still enabling `unit_weight` to be edited.
 
 ## List Model Requirements
 
@@ -318,6 +326,4 @@ For example:
 
 ### Methods
 
-The `Listable` concern implements `::combine_or_new` and `::combine_or_create!` class methods. These methods look for a model on the same list matching the description passed in as an attribute. If no item on the same list matches that description, a new one is instantiated (or created). If there is a matching item on the same list, the quantity passed in should be added to the existing item's quantities and the notes fields on the existing and new items should be updated to aggregate the notes for both items.
-
-In the future, `::combine_or_new` will also handle `unit_weight` values. For now, however, logic around unit weight has not been implemented and should not be assumed to work in a particular way. There is planned work to build this logic out.
+The `Listable` concern implements `::combine_or_new` and `::combine_or_create!` class methods. These methods look for a model on the same list matching the description passed in as an attribute. If no item on the same list matches that description, a new one is instantiated (or created). If there is a matching item on the same list, the quantity passed in will be added to the existing item's quantities and the notes fields on the existing and new items will be updated to aggregate the notes for both items. The `unit_weight` will be set to the value set in the attributes passed into `::combine_or_new`, if that value is defined and not `nil`.
