@@ -114,10 +114,11 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       context 'when there is a matching item on the regular list' do
+        let!(:existing_item) { create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 2, unit_weight: 0.5, notes: 'to enchant') }
+
         before do
-          existing_item = create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 2, notes: 'to enchant')
           aggregate_list.add_item_from_child_list(existing_item)
-          allow(aggregate_list).to receive(:update_item_from_child_list)
+          allow(aggregate_list).to receive(:update_item_from_child_list).and_call_original
         end
 
         it "doesn't create a new item on the regular list" do
@@ -151,9 +152,64 @@ RSpec.describe ShoppingListItemsController::CreateService do
           expect(aggregate_list).to have_received(:update_item_from_child_list).with('Necklace', 2, nil, nil, 'Hello world')
         end
 
-        context 'when no unit weight is specified'
+        context 'when no unit weight is specified' do
+          it 'leaves unit weight as-is for the existing item' do
+            perform
+            expect(existing_item.reload.unit_weight).to eq 0.5
+          end
 
-        context 'when a unit weight is specified'
+          context 'when there is a matching item on another list' do
+            let(:other_list)          { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+            let!(:other_item)         { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 1, unit_weight: 0.5) }
+            let(:aggregate_list_item) { aggregate_list.list_items.find_by(description: 'Necklace') }
+
+            before do
+              aggregate_list.add_item_from_child_list(other_item)
+            end
+
+            it 'leaves unit weight as-is for the item on the other list' do
+              perform
+              expect(other_item.reload.unit_weight).to eq 0.5
+            end
+
+            it 'returns the regular list item and the aggregate list item' do
+              perform
+              expect(perform.resource).to eq [aggregate_list_item, shopping_list.list_items.last]
+            end
+          end
+        end
+
+        context 'when a unit weight is specified' do
+          let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 1, notes: 'Hello world' } }
+
+          it 'updates the unit weight on the list item' do
+            perform
+            expect(existing_item.reload.unit_weight).to eq 1
+          end
+
+          it 'updates the unit weight on the aggregate list item' do
+            perform
+            expect(aggregate_list.list_items.last.unit_weight).to eq 1
+          end
+
+          context 'when there is a matching item on another list as well' do
+            let(:other_list)  { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+            let!(:other_item) { create(:shopping_list_item, unit_weight: 0.5, quantity: 1, description: 'Necklace', list: other_list) }
+
+            before do
+              aggregate_list.add_item_from_child_list(other_item)
+            end
+
+            it 'updates the unit weight on the other list item' do
+              perform
+              expect(other_item.reload.unit_weight).to eq 1
+            end
+
+            it 'returns all the items that were updated' do
+              expect(perform.resource.sort).to eq [aggregate_list.list_items.last, existing_item, other_item].sort
+            end
+          end
+        end
       end
     end
 

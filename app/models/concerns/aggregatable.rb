@@ -114,10 +114,10 @@ module Aggregatable
     unless unit_weight.nil?
       existing_item.unit_weight = unit_weight
 
-      other_items = child_lists.map(&:list_items)
+      other_items = child_lists.all.map(&:list_items)
       other_items.flatten!
 
-      other_items.each {|item| item.update!(unit_weight: unit_weight) }
+      other_items.each {|item| item.update!(unit_weight: unit_weight) if item.description.casecmp(description).zero? }
     end
 
     existing_item.save!
