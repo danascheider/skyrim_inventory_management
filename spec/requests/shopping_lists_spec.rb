@@ -623,131 +623,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
     end
 
-    context 'when logged in as the wrong user' do
-      let(:user1)          { create(:user) }
-      let(:user2)          { create(:user) }
-      let(:game)           { create(:game, user: user2) }
-      let!(:shopping_list) { create(:shopping_list, game: game) }
-      let(:validator)      { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user1.email,
-          'name'  => user1.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-
-      it 'returns 404' do
-        delete_shopping_list
-        expect(response.status).to eq 404
-      end
-
-      it "doesn't return data" do
-        delete_shopping_list
-        expect(response.body).to be_empty
-      end
-
-      it 'does not delete any shopping lists' do
-        expect { delete_shopping_list }
-          .not_to change(ShoppingList, :count)
-      end
-    end
-
-    context 'when the shopping list does not exist' do
-      let(:user)          { create(:user) }
-      let(:shopping_list) { double(id: 982_498) } # could be anything
-      let(:validator)     { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-
-      it 'returns 404' do
-        delete_shopping_list
-        expect(response.status).to eq 404
-      end
-
-      it "doesn't return data" do
-        delete_shopping_list
-        expect(response.body).to be_empty
-      end
-    end
-
-    context 'when authenticated and the shopping list exists' do
-      let(:user)            { create(:user) }
-      let(:game)            { create(:game, user: user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:shopping_list)  { create(:shopping_list, game: game) }
-      let(:list_id)         { shopping_list.id }
-      let(:validator)       { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
-
-      context "when this is the game's last regular shopping list" do
-        it 'deletes the shopping list' do
-          expect { delete_shopping_list }
-            .to change(game.shopping_lists, :count).from(2).to(0)
-        end
-
-        it 'returns status 204' do
-          delete_shopping_list
-          expect(response.status).to eq 204
-        end
-
-        it "doesn't include any data" do
-          delete_shopping_list
-          expect(response.body).to be_empty
-        end
-      end
-
-      context "when this is not the user's last regular shopping list" do
-        let(:game) { create(:game, user: user) }
-
-        before do
-          create(:shopping_list, game: game)
-        end
-
-        it 'deletes the shopping list' do
-          expect { delete_shopping_list }
-            .to change(game.shopping_lists, :count).from(3).to(2)
-        end
-
-        it 'returns status 200' do
-          delete_shopping_list
-          expect(response.status).to eq 200
-        end
-
-        it 'returns the aggregate list in the body' do
-          delete_shopping_list
-          expect(response.body).to eq(game.aggregate_shopping_list.to_json)
-        end
-      end
-    end
-
-    context 'when properly authenticated and attempting to delete the aggregate list' do
+    context 'when authenticated' do
       let(:user)      { create(:user) }
       let(:game)      { create(:game, user: user) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
@@ -764,23 +640,97 @@ RSpec.describe 'ShoppingLists', type: :request do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
-      context 'when another list exists' do
-        let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-        let(:list_id)        { shopping_list.id }
+      context 'when the shopping list exists' do
+        let!(:shopping_list) { create(:shopping_list, game: game) }
 
-        it 'does not delete anything' do
+        context "when this is the game's last regular shopping list" do
+          it 'deletes the shopping list and the aggregate list' do
+            expect { delete_shopping_list }
+              .to change(game.shopping_lists, :count).from(2).to(0)
+          end
+
+          it 'returns status 204' do
+            delete_shopping_list
+            expect(response.status).to eq 204
+          end
+
+          it "doesn't return any data" do
+            delete_shopping_list
+            expect(response.body).to be_blank
+          end
+        end
+
+        context "when this is not the game's last regular shopping list" do
+          before do
+            create(:shopping_list, game: game, aggregate_list: game.aggregate_shopping_list)
+          end
+
+          it 'deletes the requested shopping list' do
+            expect { delete_shopping_list }
+              .to change(game.shopping_lists, :count).from(3).to(2)
+          end
+
+          it 'returns status 200' do
+            delete_shopping_list
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the aggregate list in the body' do
+            delete_shopping_list
+            expect(response.body).to eq(game.aggregate_shopping_list.to_json)
+          end
+        end
+      end
+
+      context 'when the shopping list does not exist' do
+        let(:shopping_list) { double(id: 24_588) }
+
+        it 'returns 404' do
+          delete_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_shopping_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the shopping list belongs to a different user' do
+        let!(:shopping_list) { create(:shopping_list) }
+
+        it "doesn't delete the list" do
           expect { delete_shopping_list }
             .not_to change(ShoppingList, :count)
         end
 
-        it 'returns status 405 (Method Not Allowed)' do
+        it 'returns status 404' do
+          delete_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_shopping_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when attempting to delete the aggregate list' do
+        let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
+
+        it "doesn't delete the list" do
+          expect { delete_shopping_list }
+            .not_to change(ShoppingList, :count)
+        end
+
+        it 'returns status 405' do
           delete_shopping_list
           expect(response.status).to eq 405
         end
 
-        it 'returns a helpful error body' do
+        it 'returns an "errors" array' do
           delete_shopping_list
-          expect(response.body).to eq({ errors: ['Cannot manually delete an aggregate shopping list'] }.to_json)
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete an aggregate shopping list'] })
         end
       end
     end
