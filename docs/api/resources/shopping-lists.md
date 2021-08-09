@@ -338,7 +338,6 @@ Content-Type: application/json
 
 #### Example Bodies
 
-
 For a 404 response, no response body is returned.
 
 For a 422 response due to title uniqueness constraint:
