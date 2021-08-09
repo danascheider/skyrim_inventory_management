@@ -182,8 +182,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game)    { create(:game, user: user) }
-        let(:list_id) { shopping_list.id }
+        let(:game)           { create(:game, user: user) }
+        let(:list_id)        { shopping_list.id }
 
         it 'updates the title' do
           update_shopping_list
@@ -225,7 +225,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list belongs to a different user' do
         let!(:shopping_list) { create(:shopping_list) }
-        let(:list_id) { shopping_list.id }
+        let(:list_id)        { shopping_list.id }
 
         it 'returns status 404' do
           update_shopping_list
@@ -378,7 +378,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list belongs to a different user' do
         let!(:shopping_list) { create(:shopping_list) }
-        let(:list_id) { shopping_list.id }
+        let(:list_id)        { shopping_list.id }
 
         it 'returns status 404' do
           update_shopping_list
