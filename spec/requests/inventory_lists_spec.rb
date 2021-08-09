@@ -206,6 +206,11 @@ RSpec.describe 'InventoryLists', type: :request do
           create_inventory_list
           expect(response.body).to be_empty
         end
+
+        it "doesn't create an inventory list" do
+          expect { create_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
       end
 
       context 'when the params are invalid' do
