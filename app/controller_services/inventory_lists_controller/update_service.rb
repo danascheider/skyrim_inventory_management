@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'service/ok_result'
+require 'service/unprocessable_entity_result'
 
 class InventoryListsController < ApplicationController
   class UpdateService
@@ -11,8 +12,11 @@ class InventoryListsController < ApplicationController
     end
 
     def perform
-      inventory_list.update!(params)
-      Service::OKResult.new(resource: inventory_list)
+      if inventory_list.update(params)
+        Service::OKResult.new(resource: inventory_list)
+      else
+        Service::UnprocessableEntityResult.new(errors: inventory_list.error_array)
+      end
     end
 
     private

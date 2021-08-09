@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/ok_result'
+require 'service/unprocessable_entity_result'
 
 RSpec.describe InventoryListsController::UpdateService do
   describe '#perform' do
@@ -34,6 +35,19 @@ RSpec.describe InventoryListsController::UpdateService do
           perform
           expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
         end
+      end
+    end
+
+    context 'when the params are invalid' do
+      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:params)         { { title: '|nvalid Tit|e' } }
+
+      it 'returns a Service::UnprocessableEntityResult' do
+        expect(perform).to be_a(Service::UnprocessableEntityResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(["Title can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
       end
     end
   end
