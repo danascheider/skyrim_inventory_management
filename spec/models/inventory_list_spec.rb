@@ -411,7 +411,7 @@ RSpec.describe InventoryList, type: :model do
           let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: nil) }
           let(:list_item)           { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
 
-          it 'combines the quantities and leaves the notes nil' do
+          it 'combines the quantities and leaves the notes nil', :aggregate_failures do
             add_item
             expect(existing_list_item.reload.quantity).to eq 5
             expect(existing_list_item.reload.notes).to be nil

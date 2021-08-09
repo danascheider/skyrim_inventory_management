@@ -28,21 +28,13 @@ class ShoppingListItemsController < ApplicationController
         if preexisting_item.blank?
           aggregate_list_item = aggregate_list.add_item_from_child_list(item)
 
-          resource = if params[:unit_weight]
-                       aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
-                     else
-                       [aggregate_list_item, item]
-                     end
+          resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 
           Service::CreatedResult.new(resource: resource)
         else
           aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
 
-          resource = if params[:unit_weight]
-                       aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
-                     else
-                       [aggregate_list_item, item]
-                     end
+          resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 
           Service::OKResult.new(resource: resource)
         end
@@ -66,6 +58,10 @@ class ShoppingListItemsController < ApplicationController
 
     def aggregate_list
       shopping_list.aggregate_list
+    end
+
+    def all_matching_list_items
+      aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
     end
   end
 end
