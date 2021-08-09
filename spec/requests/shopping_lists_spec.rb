@@ -182,8 +182,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, game: game) }
-        let(:game)    { create(:game, user: user) }
-        let(:list_id) { shopping_list.id }
+        let(:game)           { create(:game, user: user) }
+        let(:list_id)        { shopping_list.id }
 
         it 'updates the title' do
           update_shopping_list
@@ -223,9 +223,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when the list belongs to a different user' do
-        let!(:shopping_list) { create(:shopping_list) }
-        let(:list_id) { shopping_list.id }
+      context 'when the list does not exist' do
+        let(:list_id) { 245_285 }
 
         it 'returns status 404' do
           update_shopping_list
@@ -234,7 +233,27 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:list_id)        { shopping_list.id }
+
+        it "doesn't update the shopping list" do
+          update_shopping_list
+          expect(shopping_list.reload.title).not_to eq 'Severin Manor'
+        end
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_blank
         end
       end
 
@@ -376,9 +395,8 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
-      context 'when the list belongs to a different user' do
-        let!(:shopping_list) { create(:shopping_list) }
-        let(:list_id) { shopping_list.id }
+      context 'when the list does not exist' do
+        let(:list_id) { 245_285 }
 
         it 'returns status 404' do
           update_shopping_list
@@ -387,7 +405,27 @@ RSpec.describe 'ShoppingLists', type: :request do
 
         it "doesn't return data" do
           update_shopping_list
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:list_id)        { shopping_list.id }
+
+        it "doesn't update the shopping list" do
+          update_shopping_list
+          expect(shopping_list.reload.title).not_to eq 'Severin Manor'
+        end
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_blank
         end
       end
 

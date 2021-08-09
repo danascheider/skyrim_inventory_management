@@ -2,34 +2,34 @@
 
 require 'rails_helper'
 require 'service/ok_result'
-require 'service/method_not_allowed_result'
-require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
+require 'service/not_found_result'
+require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe ShoppingListsController::UpdateService do
+RSpec.describe InventoryListsController::UpdateService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
+    subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
     let(:user)            { create(:user) }
+    let(:game)            { create(:game, user: user) }
 
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
-      let(:game)   { create(:game, user: user) }
-      let(:params) { { title: 'My New Title' } }
+      let(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+      let(:params)         { { title: 'My New Title' } }
 
-      it 'updates the shopping list' do
+      it 'updates the inventory list' do
         perform
-        expect(shopping_list.reload.title).to eq 'My New Title'
+        expect(inventory_list.reload.title).to eq 'My New Title'
       end
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
 
-      it 'sets the resource to the updated shopping list' do
-        expect(perform.resource).to eq shopping_list
+      it 'sets the resource to the updated inventory list' do
+        expect(perform.resource).to eq inventory_list
       end
 
       it 'updates the game' do
@@ -42,9 +42,8 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:shopping_list) { create(:shopping_list, game: game) }
-      let(:game)          { create(:game, user: user) }
-      let(:params)        { { title: '|nvalid Tit|e' } }
+      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:params)         { { title: '|nvalid Tit|e' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
@@ -55,10 +54,9 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context "when the shopping list doesn't exist" do
-      let(:shopping_list) { double(id: 23_859) }
-      let(:game)          { create(:game) }
-      let(:params)        { { title: 'Valid New Title' } }
+    context "when the inventory list doesn't exist" do
+      let(:inventory_list) { double(id: 23_859) }
+      let(:params)         { { title: 'Valid New Title' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -70,14 +68,14 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context 'when the shopping list does not belong to the user' do
-      let(:shopping_list) { create(:shopping_list, game: game) }
-      let(:game)          { create(:game) }
-      let(:params)        { { title: 'Valid New Title' } }
+    context "when the inventory list doesn't belong to the user" do
+      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:game)           { create(:game) }
+      let(:params)         { { title: 'Valid New Title' } }
 
       it "doesn't update the list" do
         perform
-        expect(shopping_list.reload.title).not_to eq 'Valid New Title'
+        expect(inventory_list.reload.title).not_to eq 'Valid New Title'
       end
 
       it 'returns a Service::NotFoundResult' do
@@ -90,41 +88,38 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context 'when the shopping list is an aggregate shopping list' do
-      let(:shopping_list) { aggregate_list }
-      let(:game)          { create(:game, user: user) }
-      let(:params)        { { title: 'New Title' } }
+    context 'when the inventory list is an aggregate list' do
+      let(:inventory_list) { aggregate_list }
+      let(:params)         { { title: 'New Title' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot manually update an aggregate shopping list'])
+        expect(perform.errors).to eq(['Cannot manually update an aggregate inventory list'])
       end
     end
 
     context 'when the request tries to set aggregate to true' do
-      let(:shopping_list) { create(:shopping_list, game: game) }
-      let(:game)          { create(:game, user: user) }
-      let(:params)        { { aggregate: true } }
+      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:params)         { { aggregate: true } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot make a regular shopping list an aggregate list'])
+        expect(perform.errors).to eq(['Cannot make a regular inventory list an aggregate list'])
       end
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, game: game) }
-      let(:game)           { create(:game, user: user) }
+      let(:inventory_list) { create(:inventory_list, game: game) }
       let(:params)         { { title: 'New Title' } }
 
       before do
-        allow_any_instance_of(ShoppingList).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')
+        allow_any_instance_of(InventoryList).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')
       end
 
       it 'returns a Service::InternalServerErrorResult' do
@@ -132,7 +127,7 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq(['Something went horribly wrong'])
+        expect(perform.errors).to eq ['Something went horribly wrong']
       end
     end
   end

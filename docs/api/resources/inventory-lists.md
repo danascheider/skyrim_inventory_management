@@ -266,3 +266,101 @@ A 500 error response, which is always a result of an unforeseen problem, include
   "errors": ["Something went horribly wrong"]
 }
 ```
+
+## PATCH|PUT /inventory_lists/:id
+
+If the specified inventory list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the inventory list. Title is the only inventory list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
+
+### Example Requests
+
+Requests must include a `"inventory_list"` object with a `"title"` key.
+
+Using a `PATCH` request:
+```
+PATCH /inventory_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "inventory_list": {
+    "title": "New List Title"
+  }
+}
+```
+
+Using a `PUT` request:
+```
+PUT /inventory_lists/3
+Authorization: Bearer xxxxxxxxxxx
+Content-Type: application/json
+{
+  "inventory_list": {
+    "title": "New List Title"
+  }
+}
+```
+
+### Success Response
+
+#### Statuses
+
+* 200 OK
+
+#### Example Body
+
+```json
+{
+  "id": 834,
+  "user_id": 16,
+  "aggregate": false,
+  "aggregate_list_id": 833,
+  "title": "New List Title",
+  "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "list_items": [
+    {
+      "id": 32,
+      "list_id": 834,
+      "description": "Ebony sword",
+      "quantity": 1,
+      "notes": "To enchant with Soul Trap",
+      "unit_weight": 14,
+      "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+      "updated_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00"
+    }
+  ]
+}
+```
+
+### Error Responses
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
+* 500 Internal Server Error
+
+#### Example Bodies
+
+For a 404 response, no response body is returned.
+
+For a 422 response due to title uniqueness constraint:
+```json
+{
+  "errors": ["Title must be unique per game"]
+}
+```
+
+For a 405 response due to attempting to update an aggregate list or convert a regular list to an aggregate list:
+```json
+{
+  "errors": ["Cannot manually update an aggregate inventory list"]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
