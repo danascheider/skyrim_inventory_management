@@ -57,6 +57,7 @@ RSpec.describe ShoppingListsController::UpdateService do
 
     context "when the shopping list doesn't exist" do
       let(:shopping_list) { double(id: 23_859) }
+      let(:game)          { create(:game) }
       let(:params)        { { title: 'Valid New Title' } }
 
       it 'returns a Service::NotFoundResult' do
