@@ -324,9 +324,8 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
-      context 'when the list belongs to a different user' do
-        let!(:inventory_list) { create(:inventory_list) }
-        let(:list_id)         { inventory_list.id }
+      context 'when the list does not exist' do
+        let(:list_id) { 245_285 }
 
         it 'returns status 404' do
           update_inventory_list
@@ -335,7 +334,27 @@ RSpec.describe 'InventoryLists', type: :request do
 
         it "doesn't return data" do
           update_inventory_list
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          update_inventory_list
+          expect(inventory_list.reload.title).not_to eq 'Severin Manor'
+        end
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_blank
         end
       end
 
@@ -477,9 +496,8 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
-      context 'when the list belongs to a different user' do
-        let!(:inventory_list) { create(:inventory_list) }
-        let(:list_id)         { inventory_list.id }
+      context 'when the list does not exist' do
+        let(:list_id) { 245_285 }
 
         it 'returns status 404' do
           update_inventory_list
@@ -488,7 +506,27 @@ RSpec.describe 'InventoryLists', type: :request do
 
         it "doesn't return data" do
           update_inventory_list
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          update_inventory_list
+          expect(inventory_list.reload.title).not_to eq 'Severin Manor'
+        end
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_blank
         end
       end
 
