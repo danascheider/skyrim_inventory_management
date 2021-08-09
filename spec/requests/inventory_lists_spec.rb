@@ -261,4 +261,310 @@ RSpec.describe 'InventoryLists', type: :request do
       end
     end
   end
+
+  describe 'PATCH /inventory_lists/:id' do
+    subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: headers }
+
+    context 'when authenticated' do
+      let!(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+        let(:list_id)         { inventory_list.id }
+
+        it 'updates the title' do
+          update_inventory_list
+          expect(inventory_list.reload.title).to eq 'Severin Manor'
+        end
+
+        it 'returns the updated list' do
+          update_inventory_list
+          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+          # if everything isn't in the exact same order, but if we just use inventory_list.attributes
+          # it won't include the list_items. Ugly.
+          expect(JSON.parse(response.body)).to eq(JSON.parse(inventory_list.reload.to_json))
+        end
+
+        it 'returns status 200' do
+          update_inventory_list
+          expect(response.status).to eq 200
+        end
+      end
+
+      context 'when the params are invalid' do
+        subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+        let(:list_id)         { inventory_list.id }
+        let(:other_list)      { create(:inventory_list, game: game) }
+
+        it 'returns status 422' do
+          update_inventory_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns the errors' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title must be unique per game'] })
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the client attempts to update an aggregate list' do
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        it "doesn't update the list" do
+          update_inventory_list
+          expect(inventory_list.reload.title).to eq 'All Items'
+        end
+
+        it 'returns status 405 (method not allowed)' do
+          update_inventory_list
+          expect(response.status).to eq 405
+        end
+
+        it 'returns a helpful error body' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update an aggregate inventory list'] })
+        end
+      end
+
+      context 'when the client attempts to change a regular list to an aggregate list' do
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        it "doesn't update the list" do
+          update_inventory_list
+          expect(inventory_list.reload.aggregate).to eq false
+        end
+
+        it 'returns status 422' do
+          update_inventory_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular inventory list an aggregate list'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        before do
+          allow_any_instance_of(User).to receive(:inventory_lists).and_raise(StandardError, 'Something went catastrophically wrong')
+        end
+
+        it 'returns status 500' do
+          update_inventory_list
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error in the body' do
+          update_inventory_list
+          expect(response.body).to eq({ errors: ['Something went catastrophically wrong'] }.to_json)
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:list_id) { 42 }
+
+      it 'returns 401' do
+        update_inventory_list
+        expect(response.status).to eq 401
+      end
+    end
+  end
+
+  describe 'PUT /inventory_lists/:id' do
+    subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: headers }
+
+    context 'when authenticated' do
+      let!(:user) { create(:user) }
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+        let(:list_id)         { inventory_list.id }
+
+        it 'updates the title' do
+          update_inventory_list
+          expect(inventory_list.reload.title).to eq 'Severin Manor'
+        end
+
+        it 'returns the updated list' do
+          update_inventory_list
+          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+          # if everything isn't in the exact same order, but if we just use inventory_list.attributes
+          # it won't include the list_items. Ugly.
+          expect(JSON.parse(response.body)).to eq(JSON.parse(inventory_list.reload.to_json))
+        end
+
+        it 'returns status 200' do
+          update_inventory_list
+          expect(response.status).to eq 200
+        end
+      end
+
+      context 'when the params are invalid' do
+        subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+        let(:list_id)         { inventory_list.id }
+        let(:other_list)      { create(:inventory_list, game: game) }
+
+        it 'returns status 422' do
+          update_inventory_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns the errors' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Title must be unique per game'] })
+        end
+      end
+
+      context 'when the list belongs to a different user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the client attempts to update an aggregate list' do
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        it "doesn't update the list" do
+          update_inventory_list
+          expect(inventory_list.reload.title).to eq 'All Items'
+        end
+
+        it 'returns status 405 (method not allowed)' do
+          update_inventory_list
+          expect(response.status).to eq 405
+        end
+
+        it 'returns a helpful error body' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update an aggregate inventory list'] })
+        end
+      end
+
+      context 'when the client attempts to change a regular list to an aggregate list' do
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        it "doesn't update the list" do
+          update_inventory_list
+          expect(inventory_list.reload.aggregate).to eq false
+        end
+
+        it 'returns status 422' do
+          update_inventory_list
+          expect(response.status).to eq 422
+        end
+
+        it 'returns a helpful error body' do
+          update_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot make a regular inventory list an aggregate list'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: headers }
+
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let(:game)            { create(:game, user: user) }
+
+        before do
+          allow_any_instance_of(User).to receive(:inventory_lists).and_raise(StandardError, 'Something went catastrophically wrong')
+        end
+
+        it 'returns status 500' do
+          update_inventory_list
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error in the body' do
+          update_inventory_list
+          expect(response.body).to eq({ errors: ['Something went catastrophically wrong'] }.to_json)
+        end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let(:list_id) { 42 }
+
+      it 'returns 401' do
+        update_inventory_list
+        expect(response.status).to eq 401
+      end
+    end
+  end
 end
