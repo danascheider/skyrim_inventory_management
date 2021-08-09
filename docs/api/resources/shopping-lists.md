@@ -2,19 +2,19 @@
 
 Shopping lists represent lists of items a user needs in a given game. Users can have different lists corresponding to different property locations within each game. Games with shopping lists also have an aggregate list that includes the combined list items and quantities from all the other lists for that game. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
 
-Each list contains list items, which are returned with each response that includes the list.
+Each list contains [shopping list items](/docs/api/resources/shopping-list-items.md), which are returned with each response that includes the list.
 
-When making requests to update the title of a list, there are some validations and automatic transformations to keep in mind:
+When making requests to update the title of a shopping list, there are some validations and automatic transformations to keep in mind:
 
-* Titles must be unique per user - you cannot name two of your lists the same thing
+* Titles must be unique per game - you cannot name two lists the same thing within the same game
 * Only an aggregate list can be called "All Items"
 * All aggregate lists are called "All Items" and there is no way to rename them something else
 * Titles are saved with headline casing regardless of the case submitted in the request (for example, "lOrd of the rINgS" will be saved as "Lord of the Rings")
-* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest integer used in an existing "My List" title (so if the user has "My List 1" and "My List 3", the next time they try to save a list without a title it will be called "My List 4")
+* If the request includes a blank title, then the title will be saved as "My List N", where N is the integer above the highest nonnegative integer used in an existing "My List" title (so if the game has "My List 1" and "My List 3", the next time the user tries to save a list without a title it will be called "My List 4")
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
-* Titles may only contain alphanumeric characters and spaces - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
+* Titles may only contain alphanumeric characters, spaces, hyphens, apostrophes, and commas - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
-Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve shopping lists for any other user through the API.
+Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve or manage shopping lists for any other user through the API.
 
 ## Endpoints
 
