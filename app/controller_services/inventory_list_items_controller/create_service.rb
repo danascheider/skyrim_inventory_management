@@ -44,8 +44,8 @@ class InventoryListItemsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
-      Rails.logger.error("Internal Server Error: #{e.message}")
-      Service::InternalServerErrorResult.new(errors: e.message)
+      Rails.logger.error "Internal Server Error: #{e.message}"
+      Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
     private
