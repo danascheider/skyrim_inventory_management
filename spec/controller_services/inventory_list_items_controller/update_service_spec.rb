@@ -42,6 +42,40 @@ RSpec.describe InventoryListItemsController::UpdateService do
           expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
         end
       end
+
+      context 'when there is a matching item on another list' do
+        let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 4) }
+        let(:other_list)          { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+        let!(:other_item)         { create(:inventory_list_item, description: list_item.description, list: other_list, quantity: 3) }
+        let(:aggregate_list_item) { aggregate_list.list_items.first }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        context 'when the unit weight is not changed' do
+          let(:params) { { quantity: 12 } }
+
+          it 'updates the list item' do
+            perform
+            expect(list_item.reload.quantity).to eq 12
+          end
+
+          it 'updates the aggregate list item' do
+            perform
+            expect(aggregate_list.reload.list_items.first.quantity).to eq 15
+          end
+
+          it 'returns a Service::OKResult' do
+            expect(perform).to be_a(Service::OKResult)
+          end
+
+          it 'sets the resource to the aggregate list item and the regular list item' do
+            expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
+          end
+        end
+      end
     end
   end
 end
