@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/created_result'
+require 'service/ok_result'
 
 RSpec.describe InventoryListItemsController::CreateService do
   describe '#perform' do
@@ -33,6 +34,137 @@ RSpec.describe InventoryListItemsController::CreateService do
 
           it 'sets the new and aggregate list items as the resource' do
             expect(perform.resource).to eq [aggregate_list.list_items.last, inventory_list.list_items.last]
+          end
+        end
+
+        context 'when there is an existing matching item on another list' do
+          let(:other_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 1) }
+
+          before do
+            aggregate_list.add_item_from_child_list(other_item)
+          end
+
+          context 'when the unit_weight is not set' do
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(inventory_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'updates the item on the aggregate list', :aggregate_failures do
+              perform
+              expect(aggregate_list.list_items.first.quantity).to eq 3
+              expect(aggregate_list.list_items.first.notes).to eq 'Hello world'
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource as the aggregate list item and the regular list item' do
+              expect(perform.resource).to eq([aggregate_list.list_items.first, inventory_list.list_items.first])
+            end
+          end
+
+          context 'when the unit_weight is set' do
+            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5, notes: 'Hello world' } }
+
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(inventory_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'updates the item on the aggregate list', :aggregate_failures do
+              perform
+              expect(aggregate_list.list_items.first.quantity).to eq 3
+              expect(aggregate_list.list_items.first.notes).to eq 'Hello world'
+              expect(aggregate_list.list_items.first.unit_weight).to eq 0.5
+            end
+
+            it "updates the other item's unit_weight", :aggregate_failures do
+              perform
+              expect(other_item.reload.quantity).to eq 1
+              expect(other_item.reload.unit_weight).to eq 0.5
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource as the all created or changed list items' do
+              expect(perform.resource).to eq([aggregate_list.list_items.first, other_item, inventory_list.list_items.first])
+            end
+          end
+        end
+
+        context 'when there is an existing matching item on the same list' do
+          let(:other_list)  { create(:inventory_list, game: game) }
+          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
+          let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
+
+          before do
+            aggregate_list.add_item_from_child_list(other_item)
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          context "when unit weight isn't updated" do
+            it "doesn't create a new item" do
+              expect { perform }
+                .not_to change(InventoryListItem, :count)
+            end
+
+            it 'combines with the existing item' do
+              perform
+              expect(list_item.reload.quantity).to eq 3
+            end
+
+            it 'updates the item on the aggregate list' do
+              perform
+              expect(aggregate_list.list_items.first.quantity).to eq 5
+            end
+
+            it 'returns a Service::OKResult' do
+              expect(perform).to be_a(Service::OKResult)
+            end
+
+            it 'returns the requested item and the aggregate list item' do
+              expect(perform.resource).to eq([aggregate_list.list_items.first, list_item.reload])
+            end
+          end
+
+          context 'when unit weight is updated' do
+            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 } }
+
+            it "doesn't create a new list item" do
+              expect { perform }
+                .not_to change(InventoryListItem, :count)
+            end
+
+            it 'combines the items', :aggregate_failures do
+              perform
+              expect(list_item.reload.quantity).to eq 3
+              expect(list_item.unit_weight).to eq 0.5
+            end
+
+            it 'updates the item on the aggregate list', :aggregate_failures do
+              perform
+              expect(aggregate_list.list_items.first.quantity).to eq 5
+              expect(aggregate_list.list_items.first.unit_weight).to eq 0.5
+            end
+
+            it 'updates only the unit_weight on the other item', :aggregate_failures do
+              perform
+              expect(other_item.reload.unit_weight).to eq 0.5
+              expect(other_item.quantity).to eq 2
+            end
+
+            it 'returns a Service::OKResult' do
+              expect(perform).to be_a(Service::OKResult)
+            end
+
+            it 'returns all the items that have been updated' do
+              expect(perform.resource).to eq [aggregate_list.list_items.first, other_item.reload, list_item.reload]
+            end
           end
         end
       end

@@ -63,53 +63,142 @@ RSpec.describe 'InventoryListItems', type: :request do
           end
 
           context 'when there is an existing matching item on another list' do
+            let(:other_list)  { create(:inventory_list, game: aggregate_list.game) }
+            let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
+
+            before do
+              aggregate_list.add_item_from_child_list(other_item)
+            end
+
             context "when unit weight isn't set" do
-              it 'creates a new item on the requested list'
+              let(:params) { { inventory_list_item: { description: 'Corundum ingot', quantity: 5 } } }
 
-              it 'updates the item on the aggregate list'
+              it 'creates a new item on the requested list' do
+                expect { create_item }
+                  .to change(inventory_list.list_items, :count).from(0).to(1)
+              end
 
-              it 'returns status 201'
+              it 'updates the item on the aggregate list' do
+                create_item
+                expect(aggregate_list.list_items.first.quantity).to eq 7
+              end
 
-              it 'returns the aggregate list item and the regular list item'
+              it 'returns status 201' do
+                create_item
+                expect(response.status).to eq 201
+              end
+
+              it 'returns the aggregate list item and the regular list item' do
+                create_item
+                expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, inventory_list.list_items.first].to_json))
+              end
             end
 
             context 'when unit weight is set' do
-              it 'creates a new item on the requested list'
+              let(:params) { { inventory_list_item: { description: 'Corundum ingot', quantity: 5, unit_weight: 1 } } }
 
-              it 'updates the item on the aggregate list'
+              it 'creates a new item on the requested list' do
+                expect { create_item }
+                  .to change(inventory_list.list_items, :count).from(0).to(1)
+              end
 
-              it 'updates the unit weight of the other regular-list item'
+              it 'updates the item on the aggregate list', :aggregate_failures do
+                create_item
+                expect(aggregate_list.list_items.first.quantity).to eq 7
+                expect(aggregate_list.list_items.first.unit_weight).to eq 1
+              end
 
-              it 'returns status 201'
+              it 'updates the unit weight of the other regular-list item', :aggregate_failures do
+                create_item
+                expect(other_item.reload.unit_weight).to eq 1
+                expect(other_item.reload.quantity).to eq 2
+              end
 
-              it 'returns all items that were created or updated'
+              it 'returns status 201' do
+                create_item
+                expect(response.status).to eq 201
+              end
+
+              it 'returns all items that were created or updated' do
+                create_item
+                expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, other_item.reload, inventory_list.list_items.first].to_json))
+              end
             end
           end
         end
 
         context 'when there is an existing matching item on the same list' do
+          let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
+          let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Corundum ingot', quantity: 3) }
+
+          before do
+            aggregate_list.add_item_from_child_list(other_item)
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
           context "when unit weight isn't updated" do
-            it 'combines the requested item with the existing item'
+            it "doesn't create a new item" do
+              expect { create_item }
+                .not_to change(InventoryListItem, :count)
+            end
 
-            it 'updates the item on the aggregate list'
+            it 'combines with the existing item' do
+              create_item
+              expect(list_item.reload.quantity).to eq 8
+            end
 
-            it "doesn't change matching items on other regular lists"
+            it 'updates the item on the aggregate list' do
+              create_item
+              expect(aggregate_list.list_items.first.quantity).to eq 10
+            end
 
-            it 'returns status 200'
+            it 'returns status 200' do
+              create_item
+              expect(response.status).to eq 200
+            end
 
-            it 'returns the requested item and the aggregate list item'
+            it 'returns the requested item and the aggregate list item' do
+              create_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, list_item.reload].to_json))
+            end
           end
 
           context 'when unit weight is updated' do
-            it 'combines the requested item with the existing item'
+            let(:params) { { inventory_list_item: { description: 'Corundum ingot', quantity: 2, unit_weight: 1 } } }
 
-            it 'updates the item on the aggregate list'
+            it "doesn't create a new list item" do
+              expect { create_item }
+                .not_to change(InventoryListItem, :count)
+            end
 
-            it 'updates matching items on other regular lists'
+            it 'combines it with the existing item', :aggregate_failures do
+              create_item
+              expect(list_item.reload.quantity).to eq 5
+              expect(list_item.unit_weight).to eq 1
+            end
 
-            it 'returns status 200'
+            it 'updates the item on the aggregate list', :aggregate_failures do
+              create_item
+              expect(aggregate_list.list_items.first.quantity).to eq 7
+              expect(aggregate_list.list_items.first.unit_weight).to eq 1
+            end
 
-            it 'returns all items that have been updated'
+            it 'updates only the unit_weight on the other item', :aggregate_failures do
+              create_item
+              expect(other_item.reload.unit_weight).to eq 1
+              expect(other_item.quantity).to eq 2
+            end
+
+            it 'returns status 200' do
+              create_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that have been updated' do
+              create_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, other_item.reload, list_item.reload].to_json))
+            end
           end
         end
       end
