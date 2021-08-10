@@ -129,6 +129,19 @@ SIM uses [Rubocop](https://github.com/rubocop/rubocop) for linting and style pur
 
 When you run the setup script, it installs a precommit hook that runs Rubocop against any changed Ruby files. This hook can be skipped with `--no-verify` if you absolutely need to commit something that breaks Rubocop, although you should be aware that Rubocop also runs in [CI](#ci). Additionally, if you would rather run Rubocop manually, you can run `rm .git/hooks/pre-commit` to remove the hook.
 
+#### Running Rubocop Manually
+
+The precommit hook can be very annoying since it doesn't autocorrect and prevents the commit if there are any failures. For that reason, it's best to run Rubocop prior to attempting a commit. There are two ways to do this in SIM. The most basic, built-in way is:
+```sh
+bundle exec rails rubocop:auto_correct
+```
+Unfortunately, this runs against every file in the repo, not just changed files, and it can take some time to get through them all. For that reason, we've created a [script](/script/run_rubocop.sh) that runs Rubocop, with autocorrect, only against files that are _staged_ (not just changed) in Git. The reason it only runs against staged files is that running it against changed files (`git diff`) would not catch any untracked files (those that have not been previously committed to Git). You can run the script from the root directory of the repo as follows:
+```sh
+git add file1.rb file2.rb
+./script/run_rubocop.sh
+```
+The `run_rubocop.sh` script runs Rubocop against the same files that will be checked in the pre-commit hook, so if Rubocop passes when running the script, you won't have any issues committing.
+
 ### Workflows
 
 We use [Trello](https://trello.com/b/ZoVvVBJc/sim-project-board) to track work for both SIM applications. To work on an issue, first check out a branch for your dev work and do the work on that branch. Push to GitHub and open a pull request. The pull request should link to the Trello card as well as providing context, a summary of changes, and an explanation for any design choices you made or anything that might not make sense to a reviewer or future developer looking at Git history. Link to the PR in the Trello card and move the card to reviewing. Once your PR has been approved and CI has passed, you are free to merge.
