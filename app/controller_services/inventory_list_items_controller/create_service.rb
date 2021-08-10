@@ -32,7 +32,7 @@ class InventoryListItemsController < ApplicationController
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
           Service::CreatedResult.new(resource: resource)
         else
-          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notese])
+          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
 
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 
@@ -44,6 +44,7 @@ class InventoryListItemsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
+      Rails.logger.error("Internal Server Error: #{e.message}")
       Service::InternalServerErrorResult.new(errors: e.message)
     end
 

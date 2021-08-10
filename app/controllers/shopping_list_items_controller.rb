@@ -28,6 +28,7 @@ class ShoppingListItemsController < ApplicationController
       :description,
       :quantity,
       :notes,
+      :unit_weight,
     )
   end
 end
