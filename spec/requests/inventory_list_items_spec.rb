@@ -217,6 +217,26 @@ RSpec.describe 'InventoryListItems', type: :request do
           expect(response.body).to be_blank
         end
       end
+
+      context "when the list doesn't belong to the authenticated user" do
+        let(:inventory_list) { create(:inventory_list) }
+        let(:params)         { { inventory_list_item: { description: 'Corundum ingot', quantity: 5 } } }
+
+        it "doesn't create the list item" do
+          expect { create_item }
+            .not_to change(InventoryListItem, :count)
+        end
+
+        it 'returns status 404' do
+          create_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          create_item
+          expect(response.body).to be_blank
+        end
+      end
     end
   end
 end
