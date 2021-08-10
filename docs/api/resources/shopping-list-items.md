@@ -2,7 +2,7 @@
 
 Shopping list items represent the items on a [shopping list](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on aggregate shopping lists are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
 
-There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
+There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:shopping_list_id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
 
 All requests to shopping list item endpoints must be [authenticated](/docs/api/resources/authorization.md).
 
@@ -60,13 +60,18 @@ Creates a shopping list item on the given list if the shopping list with the giv
 3. Is not an aggregate list AND
 4. Does not have an existing shopping list item with the same description
 
-If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values.
+If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `nil`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
 
-In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `notes`.
+In both cases, the aggregate list for the same game is also updated to reflect the new `quantity`, `notes`, and `unit_weight`.
 
-Requests must specify a `description` and an integer `quantity` greater than 0. The optional `notes` field is an arbitrary string where users can keep any reminders of what the item will be used for or other useful notes.
+Allowed fields are:
 
-A successful response will return a JSON array of two items. The first item is the item from the user's aggregate list that has been added or updated as a result of the request. The second item is the item created or updated from the client's request.
+* `description` (string, required): A name or description of the item on the list
+* `quantity` (integer, required): The quantity of the item
+* `notes` (string, optional): Any notes about the item or what it is for
+* `unit_weight` (decimal, optional): The unit weight of the item as given in the game, precise to one decimal place
+
+A successful response will return a JSON array of any items created or updated while handling the request. These may come in any order and will include the item requested, the aggregate list item, and, if `unit_weight` is given in the request, any other items with the same description belonging to the same game that have had their `unit_weight` changed.
 
 ### Example Request
 

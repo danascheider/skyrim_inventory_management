@@ -7,14 +7,14 @@ require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe ShoppingListItemsController::CreateService do
+RSpec.describe InventoryListItemsController::CreateService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
+    subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
     let(:user)            { create(:user) }
     let(:game)            { create(:game, user: user) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when all goes well' do
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
@@ -23,7 +23,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         context 'when there is no existing matching item on any list' do
           it 'creates a new item on the list' do
             expect { perform }
-              .to change(shopping_list.list_items, :count).from(0).to(1)
+              .to change(inventory_list.list_items, :count).from(0).to(1)
           end
 
           it 'creates a new item on the aggregate list' do
@@ -36,13 +36,13 @@ RSpec.describe ShoppingListItemsController::CreateService do
           end
 
           it 'sets the new and aggregate list items as the resource' do
-            expect(perform.resource).to eq [aggregate_list.list_items.last, shopping_list.list_items.last]
+            expect(perform.resource).to eq [aggregate_list.list_items.last, inventory_list.list_items.last]
           end
         end
 
         context 'when there is an existing matching item on another list' do
-          let(:other_list)  { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 1) }
+          let(:other_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 1) }
 
           before do
             aggregate_list.add_item_from_child_list(other_item)
@@ -51,7 +51,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
           context 'when the unit_weight is not set' do
             it 'creates a new item on the list' do
               expect { perform }
-                .to change(shopping_list.list_items, :count).from(0).to(1)
+                .to change(inventory_list.list_items, :count).from(0).to(1)
             end
 
             it 'updates the item on the aggregate list', :aggregate_failures do
@@ -65,7 +65,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
             end
 
             it 'sets the resource as the aggregate list item and the regular list item' do
-              expect(perform.resource).to eq([aggregate_list.list_items.first, shopping_list.list_items.first])
+              expect(perform.resource).to eq([aggregate_list.list_items.first, inventory_list.list_items.first])
             end
           end
 
@@ -74,7 +74,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
             it 'creates a new item on the list' do
               expect { perform }
-                .to change(shopping_list.list_items, :count).from(0).to(1)
+                .to change(inventory_list.list_items, :count).from(0).to(1)
             end
 
             it 'updates the item on the aggregate list', :aggregate_failures do
@@ -95,16 +95,16 @@ RSpec.describe ShoppingListItemsController::CreateService do
             end
 
             it 'sets the resource as the all created or changed list items' do
-              expect(perform.resource).to eq([aggregate_list.list_items.first, other_item, shopping_list.list_items.first])
+              expect(perform.resource).to eq([aggregate_list.list_items.first, other_item, inventory_list.list_items.first])
             end
           end
         end
       end
 
       context 'when there is an existing matching item on the same list' do
-        let(:other_list)  { create(:shopping_list, game: game) }
-        let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 2) }
-        let!(:list_item)  { create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 1) }
+        let(:other_list)  { create(:inventory_list, game: game) }
+        let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
+        let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)
@@ -116,7 +116,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
           it "doesn't create a new item" do
             expect { perform }
-              .not_to change(ShoppingListItem, :count)
+              .not_to change(InventoryListItem, :count)
           end
 
           it 'combines with the existing item' do
@@ -143,7 +143,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
           it "doesn't create a new list item" do
             expect { perform }
-              .not_to change(ShoppingListItem, :count)
+              .not_to change(InventoryListItem, :count)
           end
 
           it 'combines the items', :aggregate_failures do
@@ -177,7 +177,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context "when the list doesn't exist" do
       let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let(:shopping_list) { double(id: 234_980) }
+      let(:inventory_list) { double(id: 234_980) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -191,7 +191,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
     context "when the list doesn't belong to the given user" do
       let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let(:shopping_list) { create(:shopping_list) }
+      let(:inventory_list) { create(:inventory_list) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -216,12 +216,12 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list is an aggregate list' do
-      let(:shopping_list)   { aggregate_list }
+      let(:inventory_list)  { aggregate_list }
       let!(:params)         { { description: 'Necklace', quantity: 2 } }
 
       it "doesn't create an item" do
         expect { perform }
-          .not_to change(ShoppingListItem, :count)
+          .not_to change(InventoryListItem, :count)
       end
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -229,7 +229,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq ['Cannot manually manage items on an aggregate shopping list']
+        expect(perform.errors).to eq ['Cannot manually manage items on an aggregate inventory list']
       end
     end
 
@@ -237,7 +237,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
       let!(:params) { { description: 'Necklace', quantity: 2 } }
 
       before do
-        allow(ShoppingList).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
+        allow(InventoryList).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
       end
 
       it 'returns a Service::InternalServerErrorResponse' do

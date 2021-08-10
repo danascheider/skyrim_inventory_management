@@ -7,9 +7,9 @@ require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-class ShoppingListItemsController < ApplicationController
+class InventoryListItemsController < ApplicationController
   class CreateService
-    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate inventory list'
 
     def initialize(user, list_id, params)
       @user    = user
@@ -18,10 +18,10 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
 
-      preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
-      item             = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
+      preexisting_item = inventory_list.list_items.find_by('description ILIKE ?', params[:description])
+      item             = InventoryListItem.combine_or_new(params.merge(list_id: list_id))
 
       ActiveRecord::Base.transaction do
         item.save!
@@ -30,7 +30,6 @@ class ShoppingListItemsController < ApplicationController
           aggregate_list_item = aggregate_list.add_item_from_child_list(item)
 
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
-
           Service::CreatedResult.new(resource: resource)
         else
           aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
@@ -53,16 +52,16 @@ class ShoppingListItemsController < ApplicationController
 
     attr_reader :user, :list_id, :params
 
-    def shopping_list
-      @shopping_list ||= user.shopping_lists.find(list_id)
+    def inventory_list
+      @inventory_list ||= user.inventory_lists.find(list_id)
     end
 
     def aggregate_list
-      @aggregate_list ||= shopping_list.aggregate_list
+      @aggregate_list ||= inventory_list.aggregate_list
     end
 
     def all_matching_list_items
-      aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
+      aggregate_list.game.inventory_list_items.where('description ILIKE ?', params[:description])
     end
   end
 end

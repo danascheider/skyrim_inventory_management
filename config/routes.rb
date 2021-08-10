@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :shopping_list_items, shallow: true, except: %i[index show]
     end
 
-    resources :inventory_lists, shallow: true, except: %i[show]
+    resources :inventory_lists, shallow: true, except: %i[show] do
+      resources :inventory_list_items, shallow: true, only: %i[create]
+    end
   end
 
   get '/privacy', to: 'utilities#privacy'
