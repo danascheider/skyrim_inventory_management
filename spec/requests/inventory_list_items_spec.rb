@@ -256,6 +256,27 @@ RSpec.describe 'InventoryListItems', type: :request do
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
         end
       end
+
+      context 'when the list is an aggregate list' do
+        let(:inventory_list) { aggregate_list }
+        let(:params)         { { inventory_list_item: { description: 'Corundum ingot', quantity: 4 } } }
+
+        it "doesn't create an item" do
+          expect { create_item }
+            .not_to change(InventoryListItem, :count)
+        end
+
+        it 'returns status 405' do
+          create_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns the error' do
+          create_item
+          expect(JSON.parse(response.body))
+            .to eq({ 'errors' => ['Cannot manually manage items on an aggregate inventory list'] })
+        end
+      end
     end
   end
 end

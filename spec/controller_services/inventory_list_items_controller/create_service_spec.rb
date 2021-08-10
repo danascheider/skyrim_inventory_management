@@ -4,6 +4,7 @@ require 'rails_helper'
 require 'service/created_result'
 require 'service/ok_result'
 require 'service/not_found_result'
+require 'service/method_not_allowed_result'
 
 RSpec.describe InventoryListItemsController::CreateService do
   describe '#perform' do
@@ -97,75 +98,77 @@ RSpec.describe InventoryListItemsController::CreateService do
             end
           end
         end
+      end
 
-        context 'when there is an existing matching item on the same list' do
-          let(:other_list)  { create(:inventory_list, game: game) }
-          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
-          let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
+      context 'when there is an existing matching item on the same list' do
+        let(:other_list)  { create(:inventory_list, game: game) }
+        let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
+        let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
 
-          before do
-            aggregate_list.add_item_from_child_list(other_item)
-            aggregate_list.add_item_from_child_list(list_item)
+        before do
+          aggregate_list.add_item_from_child_list(other_item)
+          aggregate_list.add_item_from_child_list(list_item)
+        end
+
+        context "when unit weight isn't updated" do
+          let(:params) { { description: 'Necklace', quantity: 2 } }
+
+          it "doesn't create a new item" do
+            expect { perform }
+              .not_to change(InventoryListItem, :count)
           end
 
-          context "when unit weight isn't updated" do
-            it "doesn't create a new item" do
-              expect { perform }
-                .not_to change(InventoryListItem, :count)
-            end
-
-            it 'combines with the existing item' do
-              perform
-              expect(list_item.reload.quantity).to eq 3
-            end
-
-            it 'updates the item on the aggregate list' do
-              perform
-              expect(aggregate_list.list_items.first.quantity).to eq 5
-            end
-
-            it 'returns a Service::OKResult' do
-              expect(perform).to be_a(Service::OKResult)
-            end
-
-            it 'returns the requested item and the aggregate list item' do
-              expect(perform.resource).to eq([aggregate_list.list_items.first, list_item.reload])
-            end
+          it 'combines with the existing item' do
+            perform
+            expect(list_item.reload.quantity).to eq 3
           end
 
-          context 'when unit weight is updated' do
-            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 } }
+          it 'updates the item on the aggregate list' do
+            perform
+            expect(aggregate_list.list_items.first.quantity).to eq 5
+          end
 
-            it "doesn't create a new list item" do
-              expect { perform }
-                .not_to change(InventoryListItem, :count)
-            end
+          it 'returns a Service::OKResult' do
+            expect(perform).to be_a(Service::OKResult)
+          end
 
-            it 'combines the items', :aggregate_failures do
-              perform
-              expect(list_item.reload.quantity).to eq 3
-              expect(list_item.unit_weight).to eq 0.5
-            end
+          it 'returns the requested item and the aggregate list item' do
+            expect(perform.resource).to eq([aggregate_list.list_items.first, list_item.reload])
+          end
+        end
 
-            it 'updates the item on the aggregate list', :aggregate_failures do
-              perform
-              expect(aggregate_list.list_items.first.quantity).to eq 5
-              expect(aggregate_list.list_items.first.unit_weight).to eq 0.5
-            end
+        context 'when unit weight is updated' do
+          let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 } }
 
-            it 'updates only the unit_weight on the other item', :aggregate_failures do
-              perform
-              expect(other_item.reload.unit_weight).to eq 0.5
-              expect(other_item.quantity).to eq 2
-            end
+          it "doesn't create a new list item" do
+            expect { perform }
+              .not_to change(InventoryListItem, :count)
+          end
 
-            it 'returns a Service::OKResult' do
-              expect(perform).to be_a(Service::OKResult)
-            end
+          it 'combines the items', :aggregate_failures do
+            perform
+            expect(list_item.reload.quantity).to eq 3
+            expect(list_item.unit_weight).to eq 0.5
+          end
 
-            it 'returns all the items that have been updated' do
-              expect(perform.resource).to eq [aggregate_list.list_items.first, other_item.reload, list_item.reload]
-            end
+          it 'updates the item on the aggregate list', :aggregate_failures do
+            perform
+            expect(aggregate_list.list_items.first.quantity).to eq 5
+            expect(aggregate_list.list_items.first.unit_weight).to eq 0.5
+          end
+
+          it 'updates only the unit_weight on the other item', :aggregate_failures do
+            perform
+            expect(other_item.reload.unit_weight).to eq 0.5
+            expect(other_item.quantity).to eq 2
+          end
+
+          it 'returns a Service::OKResult' do
+            expect(perform).to be_a(Service::OKResult)
+          end
+
+          it 'returns all the items that have been updated' do
+            expect(perform.resource).to eq [aggregate_list.list_items.first, other_item.reload, list_item.reload]
           end
         end
       end
@@ -208,6 +211,24 @@ RSpec.describe InventoryListItemsController::CreateService do
 
       it 'returns the error array' do
         expect(perform.errors).to eq(['Quantity must be greater than 0'])
+      end
+    end
+
+    context 'when the list is an aggregate list' do
+      let(:inventory_list)  { aggregate_list }
+      let!(:params)         { { description: 'Necklace', quantity: 2 } }
+
+      it "doesn't create an item" do
+        expect { perform }
+          .not_to change(InventoryListItem, :count)
+      end
+
+      it 'returns a Service::MethodNotAllowedResult' do
+        expect(perform).to be_a(Service::MethodNotAllowedResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq ['Cannot manually manage items on an aggregate inventory list']
       end
     end
   end

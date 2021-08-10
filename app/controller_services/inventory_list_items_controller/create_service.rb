@@ -4,9 +4,12 @@ require 'service/created_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
+require 'service/method_not_allowed_result'
 
 class InventoryListItemsController < ApplicationController
   class CreateService
+    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate inventory list'
+
     def initialize(user, list_id, params)
       @user    = user
       @list_id = list_id
@@ -14,6 +17,8 @@ class InventoryListItemsController < ApplicationController
     end
 
     def perform
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
+
       preexisting_item = inventory_list.list_items.find_by('description ILIKE ?', params[:description])
       item             = InventoryListItem.combine_or_new(params.merge(list_id: list_id))
 
