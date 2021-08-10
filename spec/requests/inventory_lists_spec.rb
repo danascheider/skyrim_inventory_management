@@ -605,4 +605,139 @@ RSpec.describe 'InventoryLists', type: :request do
       end
     end
   end
+
+  describe 'DELETE /inventory_lists/:id' do
+    subject(:delete_inventory_list) { delete "/inventory_lists/#{inventory_list.id}", headers: headers }
+
+    context 'when unauthenticated' do
+      let!(:inventory_list) { create(:inventory_list) }
+
+      it 'returns 401' do
+        delete_inventory_list
+        expect(response.status).to eq 401
+      end
+
+      it 'does not delete the inventory list' do
+        expect { delete_inventory_list }
+          .not_to change(InventoryList, :count)
+      end
+
+      it 'returns an error in the body' do
+        delete_inventory_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
+
+    context 'when authenticated' do
+      let(:user)      { create(:user) }
+      let(:game)      { create(:game, user: user) }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when the inventory list exists' do
+        let!(:inventory_list) { create(:inventory_list, game: game) }
+
+        context "when this is the game's last regular inventory list" do
+          it 'deletes the inventory list and the aggregate list' do
+            expect { delete_inventory_list }
+              .to change(game.inventory_lists, :count).from(2).to(0)
+          end
+
+          it 'returns status 204' do
+            delete_inventory_list
+            expect(response.status).to eq 204
+          end
+
+          it "doesn't return any data" do
+            delete_inventory_list
+            expect(response.body).to be_blank
+          end
+        end
+
+        context "when this is not the game's last regular inventory list" do
+          before do
+            create(:inventory_list, game: game, aggregate_list: game.aggregate_inventory_list)
+          end
+
+          it 'deletes the requested inventory list' do
+            expect { delete_inventory_list }
+              .to change(game.inventory_lists, :count).from(3).to(2)
+          end
+
+          it 'returns status 200' do
+            delete_inventory_list
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the aggregate list in the body' do
+            delete_inventory_list
+            expect(response.body).to eq(game.aggregate_inventory_list.to_json)
+          end
+        end
+      end
+
+      context 'when the inventory list does not exist' do
+        let(:inventory_list) { double(id: 24_588) }
+
+        it 'returns 404' do
+          delete_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_inventory_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the inventory list belongs to a different user' do
+        let!(:inventory_list) { create(:inventory_list) }
+
+        it "doesn't delete the list" do
+          expect { delete_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
+
+        it 'returns status 404' do
+          delete_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_inventory_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when attempting to delete the aggregate list' do
+        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
+
+        it "doesn't delete the list" do
+          expect { delete_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
+
+        it 'returns status 405' do
+          delete_inventory_list
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an "errors" array' do
+          delete_inventory_list
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete an aggregate inventory list'] })
+        end
+      end
+    end
+  end
 end
