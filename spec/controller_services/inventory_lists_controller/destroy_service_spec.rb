@@ -37,7 +37,7 @@ RSpec.describe InventoryListsController::DestroyService do
             .to change(game.inventory_lists, :count).from(3).to(2)
         end
 
-        it 'updates the list item on the aggregate list' do
+        it 'updates the list items on the aggregate list' do
           expect { perform }
             .to change(aggregate_list.list_items, :count).from(4).to(2)
         end
