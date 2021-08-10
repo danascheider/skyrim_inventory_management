@@ -5,6 +5,7 @@ require 'service/created_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe InventoryListItemsController::CreateService do
   describe '#perform' do
