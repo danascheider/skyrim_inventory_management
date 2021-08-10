@@ -231,5 +231,21 @@ RSpec.describe InventoryListItemsController::CreateService do
         expect(perform.errors).to eq ['Cannot manually manage items on an aggregate inventory list']
       end
     end
+
+    context 'when something unexpected goes wrong' do
+      let!(:params) { { description: 'Necklace', quantity: 2 } }
+
+      before do
+        allow(InventoryList).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
+      end
+
+      it 'returns a Service::InternalServerErrorResponse' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq ['Something went horribly wrong']
+      end
+    end
   end
 end

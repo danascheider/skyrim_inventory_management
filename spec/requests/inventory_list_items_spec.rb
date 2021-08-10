@@ -277,6 +277,24 @@ RSpec.describe 'InventoryListItems', type: :request do
             .to eq({ 'errors' => ['Cannot manually manage items on an aggregate inventory list'] })
         end
       end
+
+      context 'when something unexpected goes wrong' do
+        let(:params) { { inventory_list_item: { description: 'Corundum ingot', quantity: 4 } } }
+
+        before do
+          allow(InventoryList).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          create_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error' do
+          create_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
+      end
     end
   end
 end
