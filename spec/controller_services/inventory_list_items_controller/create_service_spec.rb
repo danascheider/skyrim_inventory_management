@@ -3,18 +3,19 @@
 require 'rails_helper'
 require 'service/created_result'
 require 'service/ok_result'
+require 'service/not_found_result'
 
 RSpec.describe InventoryListItemsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
-    let(:user) { create(:user) }
-    let(:game) { create(:game, user: user) }
+    let(:user)            { create(:user) }
+    let(:game)            { create(:game, user: user) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when all goes well' do
-      let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-      let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
-      let(:params)          { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
+      let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
 
       context 'when there is no existing matching item on the same list' do
         context 'when there is no existing matching item on any list' do
@@ -167,6 +168,20 @@ RSpec.describe InventoryListItemsController::CreateService do
             end
           end
         end
+      end
+    end
+
+    context "when the list doesn't exist" do
+      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let(:inventory_list) { double(id: 234_980) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
   end
