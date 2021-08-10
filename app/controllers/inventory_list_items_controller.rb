@@ -9,6 +9,12 @@ class InventoryListItemsController < ApplicationController
     ::Controller::Response.new(self, result).execute
   end
 
+  def update
+    result = UpdateService.new(current_user, params[:id], list_item_params).perform
+
+    ::Controller::Response.new(self, result).execute
+  end
+
   private
 
   def list_item_params

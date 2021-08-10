@@ -297,4 +297,67 @@ RSpec.describe 'InventoryListItems', type: :request do
       end
     end
   end
+
+  describe 'PATCH /inventory_list_items/:id' do
+    subject(:update_item) { patch "/inventory_list_items/#{list_item.id}", headers: headers, params: params.to_json }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+
+    context 'when authenticated' do
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        context 'when there is no matching item on another list' do
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+          let(:params)              { { inventory_list_item: { description: 'Dwarven metal ingot', quantity: 10 } } }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          it 'updates the list item' do
+            update_item
+            expect(list_item.reload.quantity).to eq 10
+          end
+
+          it 'updates the aggregate list item' do
+            update_item
+            expect(aggregate_list_item.quantity).to eq 10
+          end
+
+          it 'returns status 200' do
+            update_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the regular list item and the aggregate list item' do
+            update_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+          end
+        end
+
+        context 'when there is a matching item on another list' do
+          context 'when unit_weight is not changed'
+
+          context 'when unit_weight is changed'
+        end
+      end
+    end
+  end
 end
