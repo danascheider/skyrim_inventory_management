@@ -62,6 +62,7 @@ For a game with multiple lists:
         "description": "Unenchanted ebony sword",
         "quantity": 1,
         "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
@@ -70,6 +71,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 4,
         "notes": "3 locks -- 2 hinges",
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -89,6 +91,7 @@ For a game with multiple lists:
         "description": "Unenchanted ebony sword",
         "quantity": 1,
         "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
@@ -97,6 +100,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 3,
         "notes": "3 locks",
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -116,6 +120,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 1,
         "notes": "2 hinges",
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -320,6 +325,7 @@ Content-Type: application/json
       "description": "Ebony sword",
       "quantity": 1,
       "notes": "To enchant with Soul Trap",
+      "unit_weight": 14.0,
       "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
       "updated_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00"
     }
@@ -385,25 +391,24 @@ If the resource deleted was the user's last regular list, the aggregate list wil
 
 ```json
 {
-  "aggregate_list": {
-    "id": 834,
-    "user_id": 16,
-    "aggregate": true,
-    "title": "All Items",
-    "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "id": 32,
-        "list_id": 834,
-        "description": "Ebony sword",
-        "quantity": 1,
-        "notes": "To enchant with Soul Trap",
-        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ] 
-  }
+  "id": 834,
+  "user_id": 16,
+  "aggregate": true,
+  "title": "All Items",
+  "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "list_items": [
+    {
+      "id": 32,
+      "list_id": 834,
+      "description": "Ebony sword",
+      "quantity": 1,
+      "notes": "To enchant with Soul Trap",
+      "unit_weight": 14.0,
+      "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+      "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+    }
+  ] 
 }
 ```
 

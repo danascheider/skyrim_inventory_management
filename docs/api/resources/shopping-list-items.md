@@ -100,7 +100,7 @@ The body for both responses is a JSON array containing all list items that were 
     "list_id": 238,
     "description": "Ebony sword",
     "quantity": 9,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To sell -- To enchant with 'Absorb Health'",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -110,7 +110,7 @@ The body for both responses is a JSON array containing all list items that were 
     "list_id": 237,
     "description": "Ebony sword",
     "quantity": 7,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To enchant with 'Absorb Health'",
     "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -202,7 +202,7 @@ The body is a JSON array containing all list items that were updated while handl
     "list_id": 238,
     "description": "Ebony sword",
     "quantity": 9,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To sell -- To enchant with 'Absorb Health'",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -212,7 +212,7 @@ The body is a JSON array containing all list items that were updated while handl
     "list_id": 237,
     "description": "Ebony sword",
     "quantity": 7,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To enchant with 'Absorb Health'",
     "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -303,7 +303,7 @@ The body is a JSON array containing all list items that were updated while handl
     "list_id": 238,
     "description": "Ebony sword",
     "quantity": 9,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To sell -- To enchant with 'Absorb Health'",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -313,7 +313,7 @@ The body is a JSON array containing all list items that were updated while handl
     "list_id": 237,
     "description": "Ebony sword",
     "quantity": 7,
-    "unit_weight": 14,
+    "unit_weight": 14.0,
     "notes": "To enchant with 'Absorb Health'",
     "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
@@ -396,7 +396,7 @@ Example 200 response body containing the updated aggregate list item:
   "list_id": 238,
   "description": "Ebony sword",
   "quantity": 9,
-  "unit_weight": 14,
+  "unit_weight": 14.0,
   "notes": "To sell -- To enchant with 'Absorb Health'",
   "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
