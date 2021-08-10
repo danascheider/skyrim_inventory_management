@@ -20,6 +20,8 @@ Like other resources in SIM, inventory lists are scoped to the authenticated use
 
 * [`GET /games/:game_id/inventory_lists`](#get-gamesgame_idinventory_lists)
 * [`POST /games/:game_id/inventory_lists`](#post-gamesgame_idinventory_lists)
+* [`PATCH|PUT /inventory_lists/:id`](#patchput-inventory_listsid)
+* [`DELETE /inventory_lists/:id`](#delete-inventory_listsid)
 
 ## GET /games/:game_id/inventory_lists
 
@@ -60,7 +62,7 @@ For a game with multiple lists:
         "description": "Ebony sword",
         "quantity": 1,
         "notes": "Enchanted with Absorb Health",
-        "unit_weight": 14,
+        "unit_weight": 14.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
@@ -69,7 +71,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 4,
         "notes": null,
-        "unit_weight": 1,
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -89,7 +91,7 @@ For a game with multiple lists:
         "description": "Ebony sword",
         "quantity": 1,
         "notes": "Enchanted with Absorb Health",
-        "unit_weight": 14,
+        "unit_weight": 14.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
@@ -98,7 +100,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 3,
         "notes": null,
-        "unit_weight": 1,
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -118,7 +120,7 @@ For a game with multiple lists:
         "description": "Iron ingot",
         "quantity": 1,
         "notes": null,
-        "unit_weight": 1,
+        "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
@@ -219,6 +221,7 @@ When the aggregate list has also been created:
     "user_id": 6,
     "aggregate": true,
     "title": "All Items",
+    "list_items": [],
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   },
@@ -228,6 +231,7 @@ When the aggregate list has also been created:
     "aggregate": false,
     "aggregate_list_id": 4,
     "title": "My List 1",
+    "list_items": [],
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
   }
@@ -323,7 +327,7 @@ Content-Type: application/json
       "description": "Ebony sword",
       "quantity": 1,
       "notes": "To enchant with Soul Trap",
-      "unit_weight": 14,
+      "unit_weight": 14.0,
       "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
       "updated_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00"
     }
@@ -355,6 +359,78 @@ For a 405 response due to attempting to update an aggregate list or convert a re
 ```json
 {
   "errors": ["Cannot manually update an aggregate inventory list"]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
+## DELETE /inventory_lists/:id
+
+Destroys the given inventory list, and any inventory list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) inventory list, the aggregate list will also be destroyed.
+
+### Example Request
+
+```
+DELETE /inventory_lists/428
+Authorization: Bearer xxxxxxxxxxxx
+```
+
+### Success Response
+
+#### Statuses
+
+* 204 No Content
+* 200 OK
+
+#### Example Body
+
+If the resource deleted was the user's last regular inventory list, the aggregate list will also be destroyed and no content will be returned in the response. If the user had at least one other regular inventory list (as well as an aggregate list), then the aggregate list will be returned with its values updated to reflect removal of the items on the list that was deleted.
+
+```json
+{
+  "id": 834,
+  "user_id": 16,
+  "aggregate": true,
+  "title": "All Items",
+  "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "list_items": [
+    {
+      "id": 32,
+      "list_id": 834,
+      "description": "Ebony sword",
+      "quantity": 1,
+      "notes": "To enchant with Soul Trap",
+      "unit_weight": 14.0,
+      "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+      "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+    }
+  ] 
+}
+```
+
+### Error Responses
+
+If the specified list does not exist or does not belong to the authenticated user, a 404 response will be returned. If the specified list is an aggregate list, a 405 response will be returned.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 500 Internal Server Error
+
+#### Example Bodies
+
+For a 404 response, no response body will be returned.
+
+For a 405 response:
+```json
+{
+  "errors": ["Cannot manually delete an aggregate inventory list"]
 }
 ```
 
