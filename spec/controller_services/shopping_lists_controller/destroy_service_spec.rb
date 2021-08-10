@@ -112,7 +112,7 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when the list does not belong to the user' do
-      let(:shopping_list) { create(:shopping_list) }
+      let!(:shopping_list) { create(:shopping_list) }
 
       it "doesn't delete the list" do
         expect { perform }
