@@ -198,5 +198,17 @@ RSpec.describe InventoryListItemsController::CreateService do
         expect(perform.errors).to be_blank
       end
     end
+
+    context 'when the params are invalid' do
+      let(:params) { { description: 'Necklace', quantity: -2 } }
+
+      it 'returns a Service::UnprocessableEntityResult' do
+        expect(perform).to be_a(Service::UnprocessableEntityResult)
+      end
+
+      it 'returns the error array' do
+        expect(perform.errors).to eq(['Quantity must be greater than 0'])
+      end
+    end
   end
 end

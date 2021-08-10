@@ -3,6 +3,7 @@
 require 'service/created_result'
 require 'service/ok_result'
 require 'service/not_found_result'
+require 'service/unprocessable_entity_result'
 
 class InventoryListItemsController < ApplicationController
   class CreateService
@@ -32,6 +33,8 @@ class InventoryListItemsController < ApplicationController
           Service::OKResult.new(resource: resource)
         end
       end
+    rescue ActiveRecord::RecordInvalid
+      Service::UnprocessableEntityResult.new(errors: item.error_array)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     end

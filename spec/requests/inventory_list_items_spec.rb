@@ -237,6 +237,25 @@ RSpec.describe 'InventoryListItems', type: :request do
           expect(response.body).to be_blank
         end
       end
+
+      context 'when the params are invalid' do
+        let(:params) { { inventory_list_item: { description: 'Corundum ingot', quantity: -2 } } }
+
+        it "doesn't create the item" do
+          expect { create_item }
+            .not_to change(InventoryListItem, :count)
+        end
+
+        it 'returns status 422' do
+          create_item
+          expect(response.status).to eq 422
+        end
+
+        it 'returns the error array' do
+          create_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
+        end
+      end
     end
   end
 end
