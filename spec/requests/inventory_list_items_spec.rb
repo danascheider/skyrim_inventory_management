@@ -353,9 +353,9 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item)  { create(:inventory_list_item, list: inventory_list) }
-          let(:other_list)          { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
-          let!(:other_item)         { create(:inventory_list_item, description: list_item.description, quantity: 4) }
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list) }
+          let!(:other_list)         { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 4) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -387,7 +387,37 @@ RSpec.describe 'InventoryListItems', type: :request do
             end
           end
 
-          context 'when unit_weight is changed'
+          context 'when unit_weight is changed' do
+            let(:params) { { inventory_list_item: { quantity: 10, unit_weight: 2 } } }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to eq 2
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to eq 2
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that were changed' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+            end
+          end
         end
       end
     end

@@ -21,7 +21,9 @@ class InventoryListItemsController < ApplicationController
         aggregate_list_item = aggregate_list.update_item_from_child_list(list_item.description, delta_qty, params[:unit_weight], old_notes, params[:notes])
       end
 
-      Service::OKResult.new(resource: [aggregate_list_item, list_item])
+      resource = params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item]
+
+      Service::OKResult.new(resource: resource)
     end
 
     private
@@ -34,6 +36,10 @@ class InventoryListItemsController < ApplicationController
 
     def list_item
       @list_item ||= InventoryListItem.find(item_id)
+    end
+
+    def all_matching_items
+      aggregate_list.game.inventory_list_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

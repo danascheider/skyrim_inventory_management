@@ -29,7 +29,7 @@ class ShoppingListItemsController < ApplicationController
         aggregate_list_item = aggregate_list.update_item_from_child_list(list_item.description, delta_qty, params[:unit_weight], old_notes, params[:notes])
       end
 
-      resource = params[:unit_weight] ? all_matching_items(list_item.description) : [aggregate_list_item, list_item]
+      resource = params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item]
 
       Service::OKResult.new(resource: resource)
     rescue ActiveRecord::RecordInvalid
@@ -57,8 +57,8 @@ class ShoppingListItemsController < ApplicationController
       @list_item ||= user.shopping_list_items.find(item_id)
     end
 
-    def all_matching_items(description)
-      aggregate_list.game.shopping_list_items.where('description ILIKE ?', description)
+    def all_matching_items
+      aggregate_list.game.shopping_list_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

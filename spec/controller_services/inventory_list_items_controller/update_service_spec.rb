@@ -75,6 +75,36 @@ RSpec.describe InventoryListItemsController::UpdateService do
             expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
           end
         end
+
+        context 'when the unit weight is changed' do
+          let(:params) { { quantity: 10, unit_weight: 2 } }
+
+          it 'updates the list item', :aggregate_failures do
+            perform
+            expect(list_item.reload.quantity).to eq 10
+            expect(list_item.unit_weight).to eq 2
+          end
+
+          it 'updates the aggregate list item', :aggregate_failures do
+            perform
+            expect(aggregate_list_item.quantity).to eq 13
+            expect(aggregate_list_item.unit_weight).to eq 2
+          end
+
+          it 'updates only the unit weight of the other list item', :aggregate_failures do
+            perform
+            expect(other_item.reload.quantity).to eq 3
+            expect(other_item.unit_weight).to eq 2
+          end
+
+          it 'returns a Service::OKResult' do
+            expect(perform).to be_a(Service::OKResult)
+          end
+
+          it 'returns all the list items that were changed' do
+            expect(perform.resource).to eq [aggregate_list_item, other_item.reload, list_item.reload]
+          end
+        end
       end
     end
   end
