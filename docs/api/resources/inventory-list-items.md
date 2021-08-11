@@ -277,7 +277,7 @@ Four error responses are possible.
 
 No body will be returned with a 404 error, which is returned if the specified inventory list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified inventory list is an aggregate inventory list, comes with the following body:
+A 405 error, which is returned if the specified inventory list item is on an aggregate inventory list, comes with the following body:
 ```json
 {
   "errors": [
