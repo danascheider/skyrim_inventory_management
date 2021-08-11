@@ -304,7 +304,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-# DELETE /shopping_list_items/:id
+## DELETE /shopping_list_items/:id
 
 Deletes the given shopping list item provided the item exists and the list it is on:
 
