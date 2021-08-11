@@ -3,6 +3,7 @@
 require 'rails_helper'
 require 'service/ok_result'
 require 'service/not_found_result'
+require 'service/unprocessable_entity_result'
 
 RSpec.describe InventoryListItemsController::UpdateService do
   describe '#perform' do
@@ -134,6 +135,38 @@ RSpec.describe InventoryListItemsController::UpdateService do
       it 'leaves the resource and errors empty', :aggregate_failures do
         expect(perform.resource).to be_blank
         expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the attributes are invalid' do
+      let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
+      let(:other_list)          { create(:inventory_list, game: game) }
+      let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 1) }
+      let(:aggregate_list_item) { aggregate_list.list_items.first }
+      let(:params)              { { quantity: -4, unit_weight: 2 } }
+
+      before do
+        aggregate_list.add_item_from_child_list(list_item)
+        aggregate_list.add_item_from_child_list(other_item)
+      end
+
+      it "doesn't update the aggregate list item", :aggregate_failures do
+        perform
+        expect(aggregate_list_item.quantity).to eq 3
+        expect(aggregate_list_item.unit_weight).to be nil
+      end
+
+      it "doesn't update the other item's unit_weight" do
+        perform
+        expect(other_item.reload.unit_weight).to be nil
+      end
+
+      it 'returns a Service::UnprocessableEntityResult' do
+        expect(perform).to be_a(Service::UnprocessableEntityResult)
+      end
+
+      it 'includes the validation errors' do
+        expect(perform.errors).to eq ['Quantity must be greater than 0']
       end
     end
   end
