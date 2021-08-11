@@ -435,6 +435,21 @@ RSpec.describe 'InventoryListItems', type: :request do
           expect(response.body).to be_blank
         end
       end
+
+      context "when the inventory list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:inventory_list_item) }
+        let(:params)    { { notes: 'Hello world' } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
     end
   end
 end
