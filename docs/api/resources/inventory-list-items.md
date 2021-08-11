@@ -47,6 +47,7 @@ When a client destroys a list item on a regular inventory list, one of the follo
 The following endpoints are available to manage inventory list items:
 
 * [`POST /inventory_lists/:inventory_list_id/inventory_list_items`](#post-inventory_listsinventory_list_idinventory_list_items)
+* [`PATCH|PUT /inventory_list_items/:id`](#patchput-inventory_list_itemsid)
 
 ## POST /inventory_lists/:inventory_list_id/inventory_list_items
 
