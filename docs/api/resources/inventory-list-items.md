@@ -172,7 +172,14 @@ Updates a given inventory list item provided the list the item is on:
 
 When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
 
-Requests may specify two fields to update: `quantity` (integer, greater than 0) and `notes` (any string). Requests attempting to update `description` will result in a validation error.
+Requests may specify up to three fields to update:
+* `quantity` (integer, greater than zero)
+* `notes` (any string)
+* `unit_weight` (decimal, 1 decimal place, greater than or equal to zero)
+
+Requests attempting to update `description` will result in a validation error.
+
+When updating `unit_weight`, the `unit_weight` value will be updated for all inventory list items belonging to the same game and matching the description. This is to prevent the aggregate list from getting out of sync with the values on its child list items.
 
 This route supports both `PATCH` and `PUT` requests. The only difference between these requests is the HTTP method; requests are handled by the same code regardless of the method.
 
