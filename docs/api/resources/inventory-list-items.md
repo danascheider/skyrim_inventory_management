@@ -249,7 +249,7 @@ The body is a JSON array containing all list items that were updated while handl
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
   },
   {
-    "id": 126,
+    "id": 102,
     "list_id": 238,
     "description": "Ebony sword",
     "quantity": 7,
