@@ -138,6 +138,19 @@ RSpec.describe InventoryListItemsController::UpdateService do
       end
     end
 
+    context 'when the item is on an aggregate list' do
+      let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+      let(:params)     { { quantity: 5 } }
+
+      it 'returns a Service::MethodNotAllowedResult' do
+        expect(perform).to be_a(Service::MethodNotAllowedResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq ['Cannot manually update list items on an aggregate inventory list']
+      end
+    end
+
     context 'when the attributes are invalid' do
       let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
       let(:other_list)          { create(:inventory_list, game: game) }

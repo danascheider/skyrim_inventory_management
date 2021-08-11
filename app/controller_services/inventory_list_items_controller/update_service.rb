@@ -3,9 +3,12 @@
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
+require 'service/method_not_allowed_result'
 
 class InventoryListItemsController < ApplicationController
   class UpdateService
+    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate inventory list'
+
     def initialize(user, item_id, params)
       @user    = user
       @item_id = item_id
@@ -13,6 +16,8 @@ class InventoryListItemsController < ApplicationController
     end
 
     def perform
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
+
       delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
 
@@ -38,6 +43,10 @@ class InventoryListItemsController < ApplicationController
 
     def aggregate_list
       @aggregate_list ||= list_item.list.aggregate_list
+    end
+
+    def inventory_list
+      @inventory_list ||= list_item.list
     end
 
     def list_item

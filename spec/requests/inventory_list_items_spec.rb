@@ -451,6 +451,21 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
 
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+        let(:params)     { { inventory_list_item: { quantity: 10 } } }
+
+        it 'returns status 405' do
+          update_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate inventory list'] })
+        end
+      end
+
       context 'when the attributes are invalid' do
         let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
         let(:other_list)          { create(:inventory_list, game: game) }
