@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'service/ok_result'
+require 'service/not_found_result'
 
 class InventoryListItemsController < ApplicationController
   class UpdateService
@@ -24,6 +25,8 @@ class InventoryListItemsController < ApplicationController
       resource = params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item]
 
       Service::OKResult.new(resource: resource)
+    rescue ActiveRecord::RecordNotFound
+      Service::NotFoundResult.new
     end
 
     private

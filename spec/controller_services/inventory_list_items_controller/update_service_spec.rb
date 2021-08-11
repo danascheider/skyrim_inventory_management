@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/ok_result'
+require 'service/not_found_result'
 
 RSpec.describe InventoryListItemsController::UpdateService do
   describe '#perform' do
@@ -105,6 +106,20 @@ RSpec.describe InventoryListItemsController::UpdateService do
             expect(perform.resource).to eq [aggregate_list_item, other_item.reload, list_item.reload]
           end
         end
+      end
+    end
+
+    context "when the inventory list item doesn't exist" do
+      let(:list_item) { double(id: 3_459_250) }
+      let(:params)    { { quantity: 4 } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it 'leaves the resource and errors empty', :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
   end

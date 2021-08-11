@@ -420,6 +420,21 @@ RSpec.describe 'InventoryListItems', type: :request do
           end
         end
       end
+
+      context "when the inventory list item doesn't exist" do
+        let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
     end
   end
 end
