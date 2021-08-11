@@ -47,6 +47,7 @@ When a client destroys a list item on a regular inventory list, one of the follo
 The following endpoints are available to manage inventory list items:
 
 * [`POST /inventory_lists/:inventory_list_id/inventory_list_items`](#post-inventory_listsinventory_list_idinventory_list_items)
+* [`PATCH|PUT /inventory_list_items/:id`](#patchput-inventory_list_itemsid)
 
 ## POST /inventory_lists/:inventory_list_id/inventory_list_items
 
@@ -151,6 +152,146 @@ A 422 error, returned as a result of a validation error, includes whichever erro
     "Quantity must be a number",
     "Quantity must be greater than zero",
     "Description is required"
+  ]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
+
+## PATCH|PUT /inventory_list_items/:id
+
+Updates a given inventory list item provided the list the item is on:
+
+1. Exists
+2. Belongs to the authenticated user AND
+3. Is not an aggregate list
+
+When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+
+Requests may specify up to three fields to update:
+* `quantity` (integer, greater than zero)
+* `notes` (any string)
+* `unit_weight` (decimal, 1 decimal place, greater than or equal to zero)
+
+Requests attempting to update `description` will result in a validation error.
+
+When updating `unit_weight`, the `unit_weight` value will be updated for all inventory list items belonging to the same game and matching the description. This is to prevent the aggregate list from getting out of sync with the values on its child list items.
+
+This route supports both `PATCH` and `PUT` requests. The only difference between these requests is the HTTP method; requests are handled by the same code regardless of the method.
+
+### Example Requests
+
+Request bodies must contain a `"inventory_list_item"` key containing attributes to be changed. Attributes that can be changed include:
+
+* `quantity` (integer greater than zero)
+* `notes` (string)
+* `unit_weight` (decimal greater than or equal to zero with up to one decimal place)
+
+Using a `PATCH` request:
+```
+PATCH /inventory_list_items/72
+Authorization: Bearer xxxxxxxxxxx
+Content-Type: application/json
+{
+  "inventory_list_item": {
+    "quantity": 7,
+    "notes": "To enchant with 'Absorb Health'"
+  }
+}
+```
+
+Using a `PUT` request:
+```
+PUT /inventory_list_items/72
+Authorization: Bearer xxxxxxxxxxx
+Content-Type: application/json
+{
+  "inventory_list_item": {
+    "quantity": 7,
+    "notes": "To enchant with 'Absorb Health'"
+  }
+}
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+
+#### Example Body
+
+The body is a JSON array containing all list items that were updated while handling the request, including the requested item, the corresponding aggregate list item, and, if setting `unit_weight`, any other list items with the same description belonging to the same game. (This is because, when `unit_weight` is set on any list item, all matching list items belonging to the same game are updated with the same value.)
+```json
+[
+  {
+    "id": 87,
+    "list_id": 236,
+    "description": "Ebony sword",
+    "quantity": 9,
+    "unit_weight": 14.0,
+    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  },
+  {
+    "id": 126,
+    "list_id": 237,
+    "description": "Ebony sword",
+    "quantity": 7,
+    "unit_weight": 14.0,
+    "notes": "To enchant with 'Absorb Health'",
+    "created_at": "Fri, 18 Jun 2021 02:32:31.762797000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  },
+  {
+    "id": 102,
+    "list_id": 238,
+    "description": "Ebony sword",
+    "quantity": 7,
+    "unit_weight": 14.0,
+    "notes": "To sell",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+  }
+]
+```
+
+### Error Responses
+
+Four error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 422 Unprocessable Entity
+* 500 Internal Server Error
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified inventory list item doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified inventory list item is on an aggregate inventory list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually update list items on an aggregate inventory list"
+  ]
+}
+```
+
+A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+```json
+{
+  "errors": [
+    "Quantity must be a number",
+    "Quantity must be greater than zero"
   ]
 }
 ```

@@ -6,9 +6,9 @@ require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-class ShoppingListItemsController < ApplicationController
+class InventoryListItemsController < ApplicationController
   class UpdateService
-    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate inventory list'
 
     def initialize(user, item_id, params)
       @user    = user
@@ -17,7 +17,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
 
       delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
@@ -37,7 +37,6 @@ class ShoppingListItemsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
-      Rails.logger.error "Internal Server Error: #{e.message}"
       Service::InternalServerErrorResult.new(errors: [e.message])
     end
 
@@ -49,16 +48,16 @@ class ShoppingListItemsController < ApplicationController
       @aggregate_list ||= list_item.list.aggregate_list
     end
 
-    def shopping_list
-      @shopping_list ||= list_item.list
+    def inventory_list
+      @inventory_list ||= list_item.list
     end
 
     def list_item
-      @list_item ||= user.shopping_list_items.find(item_id)
+      @list_item ||= user.inventory_list_items.find(item_id)
     end
 
     def all_matching_items
-      aggregate_list.game.shopping_list_items.where('description ILIKE ?', list_item.description)
+      aggregate_list.game.inventory_list_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

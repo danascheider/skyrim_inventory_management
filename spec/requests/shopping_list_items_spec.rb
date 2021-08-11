@@ -299,15 +299,15 @@ RSpec.describe 'ShoppingListItems', type: :request do
   end
 
   describe 'PATCH /shopping_list_items/:id' do
-    subject(:update_item) do
-      patch "/shopping_list_items/#{list_item.id}", params: params.to_json, headers: headers
-    end
+    subject(:update_item) { patch "/shopping_list_items/#{list_item.id}", headers: headers, params: params.to_json }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list)  { create(:shopping_list_with_list_items, game: aggregate_list.game) }
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when authenticated' do
-      let!(:user) { aggregate_list.user }
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
         {
@@ -317,193 +317,303 @@ RSpec.describe 'ShoppingListItems', type: :request do
         }
       end
 
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
       context 'when all goes well' do
-        let(:params)    { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
-        let(:game)      { aggregate_list.game }
-        let(:list_item) { shopping_list.list_items.first }
+        context 'when there is no matching item on another list' do
+          let!(:list_item)          { create(:shopping_list_item, list: shopping_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+          let(:params)              { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } } }
 
-        before do
-          second_list = create(:shopping_list, game: game, aggregate_list: aggregate_list)
-          second_list.list_items.create!(description: list_item.description, quantity: 2)
-          aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
-          aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          aggregate_list.add_item_from_child_list(second_list.list_items.first)
-        end
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
 
-        it 'updates the regular list item' do
-          update_item
-          expect(list_item.reload.attributes).to include(
-                                                   'quantity' => 5,
-                                                   'notes'    => 'To make locks',
-                                                 )
-        end
-
-        it 'updates the item on the aggregate list' do
-          update_item
-          expect(aggregate_list.list_items.first.attributes).to include(
-                                                                  'description' => list_item.description,
-                                                                  'quantity'    => 7,
-                                                                  'notes'       => 'To make locks',
-                                                                )
-        end
-
-        it 'updates the regular list' do
-          t = Time.zone.now + 3.days
-          Timecop.freeze(t) do
+          it 'updates the list item' do
             update_item
-            # use `be_within` even though the time will be set to the time Timecop
-            # has frozen because Rails (Postgres?) sets the last three digits of
-            # the timestamp to 0, which was breaking stuff in CI (but somehow not
-            # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            expect(list_item.reload.quantity).to eq 10
+          end
+
+          it 'updates the aggregate list item' do
+            update_item
+            expect(aggregate_list_item.quantity).to eq 10
+          end
+
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'returns status 200' do
+            update_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the regular list item and the aggregate list item' do
+            update_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
           end
         end
 
-        it 'returns the aggregate list item and the regular list item', :aggregate_failures do
-          update_item
+        context 'when there is a matching item on another list' do
+          let!(:list_item)          { create(:shopping_list_item, list: shopping_list) }
+          let!(:other_list)         { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
 
-          # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
-          # string is correct as some attributes are out of order and the timestamps are serialized
-          # differently. Here we grab the individual items and then we'll filter out the timestamps to
-          # verify them.
-          aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.except('created_at', 'updated_at')
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.except('created_at', 'updated_at')
-          regular_list_item_expected   = shopping_list.list_items.first.attributes.except('created_at', 'updated_at')
+          context 'when unit_weight is not changed' do
+            let(:params) { { shopping_list_item: { quantity: 10 } } }
 
-          expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
-          expect(regular_list_item_actual).to eq(regular_list_item_expected)
-        end
+            it 'updates the list item' do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+            end
 
-        it 'returns status 200' do
-          update_item
-          expect(response.status).to eq 200
+            it 'updates the aggregate list item' do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns the list item and the aggregate list item' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            end
+          end
+
+          context 'when unit_weight is changed' do
+            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: 2 } } }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to eq 2
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to eq 2
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that were changed' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+            end
+          end
         end
       end
 
-      context 'when the shopping list belongs to a different user' do
-        let(:user)      { create(:user) }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
-        let(:list_item) { create(:shopping_list_item, description: 'Corundum ingot', notes: nil) }
+      context "when the shopping list item doesn't exist" do
+        let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 } }
 
-        it 'does not updatte the list item' do
-          update_item
-          expect(list_item.quantity).to eq 1
-          expect(list_item.notes).to be nil
-        end
-
-        it 'returns 404' do
+        it 'returns status 404' do
           update_item
           expect(response.status).to eq 404
         end
 
-        it 'does not return content' do
+        it "doesn't return any data" do
           update_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
-      context 'when the shopping list does not exist' do
-        let(:game)      { create(:game_with_shopping_lists) }
-        let(:user)      { game.user }
-        let(:list_item) { double("this item doesn't exist", id: 8942) }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+      context "when the shopping list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:shopping_list_item) }
+        let(:params)    { { notes: 'Hello world' } }
 
-        it 'returns 404' do
+        it 'returns status 404' do
           update_item
           expect(response.status).to eq 404
         end
 
-        it 'returns no body' do
+        it "doesn't return any data" do
           update_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
-      context 'when the shopping list is an aggregate list' do
-        let(:game)          { create(:game_with_shopping_lists, user: user) }
-        let(:shopping_list) { game.aggregate_shopping_list }
-        let(:list_item)     { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
-        let(:params)        { { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
-
-        it 'does not update the list', :aggregate_failures do
-          update_item
-          expect(list_item.quantity).to eq 1
-          expect(list_item.notes).to be nil
-        end
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+        let(:params)     { { shopping_list_item: { quantity: 10 } } }
 
         it 'returns status 405' do
           update_item
           expect(response.status).to eq 405
         end
 
-        it 'returns a helpful error' do
+        it 'returns an error array' do
           update_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
         end
       end
 
-      context 'when the params are invalid' do
-        let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
+      context 'when the attributes are invalid' do
+        let!(:list_item)          { create(:shopping_list_item, list: shopping_list, quantity: 2) }
+        let(:other_list)          { create(:shopping_list, game: game) }
+        let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let(:aggregate_list_item) { aggregate_list.list_items.first }
+        let(:params)              { { shopping_list_item: { quantity: -4, unit_weight: 2 } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
         end
 
-        it 'does not update the aggregate list', :aggregate_failures do
+        it "doesn't update the aggregate list item", :aggregate_failures do
           update_item
-          expect(aggregate_list.list_items.first.quantity).to eq 1
-          expect(aggregate_list.list_items.first.notes).to be nil
+          expect(aggregate_list_item.quantity).to eq 3
+          expect(aggregate_list_item.unit_weight).to be nil
         end
 
-        it 'returns 422' do
+        it "doesn't update the unit weight of the other list item" do
+          update_item
+          expect(other_item.reload.unit_weight).to be nil
+        end
+
+        it 'returns status 422' do
           update_item
           expect(response.status).to eq 422
         end
 
-        it 'returns the validation errors' do
+        it 'returns the errors in an array' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity is not a number'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
         end
       end
-    end
 
-    context 'when unauthenticated' do
-      let(:user)      { create(:user) }
-      let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+        let(:params)     { { notes: 'Hello world' } }
 
-      it 'returns 401' do
-        update_item
-        expect(response.status).to eq 401
-      end
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          allow_any_instance_of(ShoppingList)
+            .to receive(:aggregate)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
+        end
 
-      it 'returns a helpful error' do
-        update_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+        it 'returns status 500' do
+          update_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
       end
     end
   end
 
   describe 'PUT /shopping_list_items/:id' do
-    subject(:update_item) do
-      put "/shopping_list_items/#{list_item.id}", params: params.to_json, headers: headers
-    end
+    subject(:update_item) { put "/shopping_list_items/#{list_item.id}", headers: headers, params: params.to_json }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list) { create(:shopping_list_with_list_items, game: aggregate_list.game) }
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
 
     context 'when authenticated' do
-      let!(:user) { aggregate_list.user }
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
         {
@@ -513,180 +623,209 @@ RSpec.describe 'ShoppingListItems', type: :request do
         }
       end
 
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
       before do
         allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
       end
 
       context 'when all goes well' do
-        let(:params)    { { shopping_list_item: { quantity: 5, notes: 'To make locks' } } }
-        let(:game)      { aggregate_list.game }
-        let(:list_item) { shopping_list.list_items.first }
+        context 'when there is no matching item on another list' do
+          let!(:list_item)          { create(:shopping_list_item, list: shopping_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+          let(:params)              { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } } }
 
-        before do
-          second_list = create(:shopping_list, game: game, aggregate_list: aggregate_list)
-          second_list.list_items.create!(description: list_item.description, quantity: 2)
-          aggregate_list.add_item_from_child_list(shopping_list.list_items.first)
-          aggregate_list.add_item_from_child_list(shopping_list.list_items.last) # for the sake of realism
-          aggregate_list.add_item_from_child_list(second_list.list_items.first)
-        end
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
 
-        it 'updates the regular list item' do
-          update_item
-          expect(list_item.reload.attributes).to include(
-                                                   'quantity' => 5,
-                                                   'notes'    => 'To make locks',
-                                                 )
-        end
-
-        it 'updates the item on the aggregate list' do
-          update_item
-          expect(aggregate_list.list_items.first.attributes).to include(
-                                                                  'description' => list_item.description,
-                                                                  'quantity'    => 7,
-                                                                  'notes'       => 'To make locks',
-                                                                )
-        end
-
-        it 'updates the regular list' do
-          t = Time.zone.now + 3.days
-          Timecop.freeze(t) do
+          it 'updates the list item' do
             update_item
-            # use `be_within` even though the time will be set to the time Timecop
-            # has frozen because Rails (Postgres?) sets the last three digits of
-            # the timestamp to 0, which was breaking stuff in CI (but somehow not
-            # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            expect(list_item.reload.quantity).to eq 10
+          end
+
+          it 'updates the aggregate list item' do
+            update_item
+            expect(aggregate_list_item.quantity).to eq 10
+          end
+
+          it 'returns status 200' do
+            update_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the regular list item and the aggregate list item' do
+            update_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
           end
         end
 
-        it 'returns the aggregate list item and the regular list item', :aggregate_failures do
-          update_item
+        context 'when there is a matching item on another list' do
+          let!(:list_item)          { create(:shopping_list_item, list: shopping_list) }
+          let!(:other_list)         { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
 
-          # The serialization isn't as simple as .to_json and it makes it hard to determine if the JSON
-          # string is correct as some attributes are out of order and the timestamps are serialized
-          # differently. Here we grab the individual items and then we'll filter out the timestamps to
-          # verify them.
-          aggregate_list_item_actual, regular_list_item_actual = JSON.parse(response.body).map do |item_attrs|
-            item_attrs.except('created_at', 'updated_at')
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
           end
 
-          aggregate_list_item_expected = aggregate_list.list_items.first.attributes.except('created_at', 'updated_at')
-          regular_list_item_expected   = shopping_list.list_items.first.attributes.except('created_at', 'updated_at')
+          context 'when unit_weight is not changed' do
+            let(:params) { { shopping_list_item: { quantity: 10 } } }
 
-          expect(aggregate_list_item_actual).to eq(aggregate_list_item_expected)
-          expect(regular_list_item_actual).to eq(regular_list_item_expected)
-        end
+            it 'updates the list item' do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+            end
 
-        it 'returns status 200' do
-          update_item
-          expect(response.status).to eq 200
+            it 'updates the aggregate list item' do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns the list item and the aggregate list item' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            end
+          end
+
+          context 'when unit_weight is changed' do
+            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: 2 } } }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to eq 2
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to eq 2
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that were changed' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+            end
+          end
         end
       end
 
-      context 'when the shopping list belongs to a different user' do
-        let(:user)      { create(:user) }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
-        let(:list_item) { create(:shopping_list_item, description: 'Corundum ingot', notes: nil) }
+      context "when the shopping list item doesn't exist" do
+        let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 } }
 
-        it 'does not updatte the list item' do
-          update_item
-          expect(list_item.quantity).to eq 1
-          expect(list_item.notes).to be nil
-        end
-
-        it 'returns 404' do
+        it 'returns status 404' do
           update_item
           expect(response.status).to eq 404
         end
 
-        it 'does not return content' do
+        it "doesn't return any data" do
           update_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
-      context 'when the shopping list does not exist' do
-        let(:game)      { create(:game_with_shopping_lists) }
-        let(:user)      { game.user }
-        let(:list_item) { double("this item doesn't exist", id: 8942) }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } } }
+      context "when the shopping list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:shopping_list_item) }
+        let(:params)    { { notes: 'Hello world' } }
 
-        it 'returns 404' do
+        it 'returns status 404' do
           update_item
           expect(response.status).to eq 404
         end
 
-        it 'returns no body' do
+        it "doesn't return any data" do
           update_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
-      context 'when the shopping list is an aggregate list' do
-        let(:game)          { create(:game_with_shopping_lists, user: user) }
-        let(:shopping_list) { game.aggregate_shopping_list }
-        let(:list_item)     { shopping_list.list_items.create!(description: 'Corundum Ingot', list: shopping_list) }
-
-        let(:params) { { shopping_list_item: { 'quantity': 5, notes: 'To make locks' } } }
-
-        it 'does not update the list', :aggregate_failures do
-          update_item
-          expect(list_item.quantity).to eq 1
-          expect(list_item.notes).to be nil
-        end
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+        let(:params)     { { shopping_list_item: { quantity: 10 } } }
 
         it 'returns status 405' do
           update_item
           expect(response.status).to eq 405
         end
 
-        it 'returns a helpful error' do
+        it 'returns an error array' do
           update_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
         end
       end
 
-      context 'when the params are invalid' do
-        let(:list_item) { shopping_list.list_items.create!(description: 'Corundum ingot') }
-        let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 'foooo', notes: 'To make locks' } } }
+      context 'when the attributes are invalid' do
+        let!(:list_item)          { create(:shopping_list_item, list: shopping_list, quantity: 2) }
+        let(:other_list)          { create(:shopping_list, game: game) }
+        let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let(:aggregate_list_item) { aggregate_list.list_items.first }
+        let(:params)              { { shopping_list_item: { quantity: -4, unit_weight: 2 } } }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
         end
 
-        it 'does not update the aggregate list', :aggregate_failures do
+        it "doesn't update the aggregate list item", :aggregate_failures do
           update_item
-          expect(aggregate_list.list_items.first.quantity).to eq 1
-          expect(aggregate_list.list_items.first.notes).to be nil
+          expect(aggregate_list_item.quantity).to eq 3
+          expect(aggregate_list_item.unit_weight).to be nil
         end
 
-        it 'returns 422' do
+        it "doesn't update the unit weight of the other list item" do
+          update_item
+          expect(other_item.reload.unit_weight).to be nil
+        end
+
+        it 'returns status 422' do
           update_item
           expect(response.status).to eq 422
         end
 
-        it 'returns the validation errors' do
+        it 'returns the errors in an array' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity is not a number'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
         end
       end
-    end
 
-    context 'when unauthenticated' do
-      let(:user)      { create(:user) }
-      let(:params)    { { shopping_list_item: { description: 'Corundum ingot', quantity: 4, notes: 'To make locks' } } }
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+        let(:params)     { { notes: 'Hello world' } }
 
-      it 'returns 401' do
-        update_item
-        expect(response.status).to eq 401
-      end
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          allow_any_instance_of(ShoppingList)
+            .to receive(:aggregate)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
+        end
 
-      it 'returns a helpful error' do
-        update_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+        it 'returns status 500' do
+          update_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
       end
     end
   end

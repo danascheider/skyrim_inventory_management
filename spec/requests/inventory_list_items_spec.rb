@@ -297,4 +297,512 @@ RSpec.describe 'InventoryListItems', type: :request do
       end
     end
   end
+
+  describe 'PATCH /inventory_list_items/:id' do
+    subject(:update_item) { patch "/inventory_list_items/#{list_item.id}", headers: headers, params: params.to_json }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+
+    context 'when authenticated' do
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        context 'when there is no matching item on another list' do
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+          let(:params)              { { inventory_list_item: { description: 'Dwarven metal ingot', quantity: 10 } } }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          it 'updates the list item' do
+            update_item
+            expect(list_item.reload.quantity).to eq 10
+          end
+
+          it 'updates the aggregate list item' do
+            update_item
+            expect(aggregate_list_item.quantity).to eq 10
+          end
+
+          it 'returns status 200' do
+            update_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the regular list item and the aggregate list item' do
+            update_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+          end
+        end
+
+        context 'when there is a matching item on another list' do
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list) }
+          let!(:other_list)         { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
+          end
+
+          context 'when unit_weight is not changed' do
+            let(:params) { { inventory_list_item: { quantity: 10 } } }
+
+            it 'updates the list item' do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+            end
+
+            it 'updates the aggregate list item' do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns the list item and the aggregate list item' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            end
+          end
+
+          context 'when unit_weight is changed' do
+            let(:params) { { inventory_list_item: { quantity: 10, unit_weight: 2 } } }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to eq 2
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to eq 2
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that were changed' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+            end
+          end
+        end
+      end
+
+      context "when the inventory list item doesn't exist" do
+        let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context "when the inventory list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:inventory_list_item) }
+        let(:params)    { { notes: 'Hello world' } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+        let(:params)     { { inventory_list_item: { quantity: 10 } } }
+
+        it 'returns status 405' do
+          update_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate inventory list'] })
+        end
+      end
+
+      context 'when the attributes are invalid' do
+        let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
+        let(:other_list)          { create(:inventory_list, game: game) }
+        let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let(:aggregate_list_item) { aggregate_list.list_items.first }
+        let(:params)              { { inventory_list_item: { quantity: -4, unit_weight: 2 } } }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        it "doesn't update the aggregate list item", :aggregate_failures do
+          update_item
+          expect(aggregate_list_item.quantity).to eq 3
+          expect(aggregate_list_item.unit_weight).to be nil
+        end
+
+        it "doesn't update the unit weight of the other list item" do
+          update_item
+          expect(other_item.reload.unit_weight).to be nil
+        end
+
+        it 'returns status 422' do
+          update_item
+          expect(response.status).to eq 422
+        end
+
+        it 'returns the errors in an array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+        let(:params)     { { notes: 'Hello world' } }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          allow_any_instance_of(InventoryList)
+            .to receive(:aggregate)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          update_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
+      end
+    end
+  end
+
+  describe 'PUT /inventory_list_items/:id' do
+    subject(:update_item) { put "/inventory_list_items/#{list_item.id}", headers: headers, params: params.to_json }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+
+    context 'when authenticated' do
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        context 'when there is no matching item on another list' do
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+          let(:params)              { { inventory_list_item: { description: 'Dwarven metal ingot', quantity: 10 } } }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          it 'updates the list item' do
+            update_item
+            expect(list_item.reload.quantity).to eq 10
+          end
+
+          it 'updates the aggregate list item' do
+            update_item
+            expect(aggregate_list_item.quantity).to eq 10
+          end
+
+          it 'returns status 200' do
+            update_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the regular list item and the aggregate list item' do
+            update_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+          end
+        end
+
+        context 'when there is a matching item on another list' do
+          let!(:list_item)          { create(:inventory_list_item, list: inventory_list) }
+          let!(:other_list)         { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let(:aggregate_list_item) { aggregate_list.list_items.first }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
+          end
+
+          context 'when unit_weight is not changed' do
+            let(:params) { { inventory_list_item: { quantity: 10 } } }
+
+            it 'updates the list item' do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+            end
+
+            it 'updates the aggregate list item' do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns the list item and the aggregate list item' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            end
+          end
+
+          context 'when unit_weight is changed' do
+            let(:params) { { inventory_list_item: { quantity: 10, unit_weight: 2 } } }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to eq 2
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to eq 2
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all items that were changed' do
+              update_item
+              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+            end
+          end
+        end
+      end
+
+      context "when the inventory list item doesn't exist" do
+        let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context "when the inventory list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:inventory_list_item) }
+        let(:params)    { { notes: 'Hello world' } }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+        let(:params)     { { inventory_list_item: { quantity: 10 } } }
+
+        it 'returns status 405' do
+          update_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate inventory list'] })
+        end
+      end
+
+      context 'when the attributes are invalid' do
+        let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
+        let(:other_list)          { create(:inventory_list, game: game) }
+        let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let(:aggregate_list_item) { aggregate_list.list_items.first }
+        let(:params)              { { inventory_list_item: { quantity: -4, unit_weight: 2 } } }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        it "doesn't update the aggregate list item", :aggregate_failures do
+          update_item
+          expect(aggregate_list_item.quantity).to eq 3
+          expect(aggregate_list_item.unit_weight).to be nil
+        end
+
+        it "doesn't update the unit weight of the other list item" do
+          update_item
+          expect(other_item.reload.unit_weight).to be nil
+        end
+
+        it 'returns status 422' do
+          update_item
+          expect(response.status).to eq 422
+        end
+
+        it 'returns the errors in an array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Quantity must be greater than 0'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+        let(:params)     { { notes: 'Hello world' } }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          allow_any_instance_of(InventoryList)
+            .to receive(:aggregate)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          update_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error array' do
+          update_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
+      end
+    end
+  end
 end
