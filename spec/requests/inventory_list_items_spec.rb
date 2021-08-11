@@ -376,6 +376,30 @@ RSpec.describe 'InventoryListItems', type: :request do
               expect(aggregate_list_item.quantity).to eq 14
             end
 
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
             it 'returns status 200' do
               update_item
               expect(response.status).to eq 200
@@ -406,6 +430,38 @@ RSpec.describe 'InventoryListItems', type: :request do
               update_item
               expect(other_item.reload.quantity).to eq 4
               expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
             end
 
             it 'returns status 200' do
