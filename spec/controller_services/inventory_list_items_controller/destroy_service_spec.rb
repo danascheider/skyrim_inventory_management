@@ -5,6 +5,7 @@ require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
+require 'service/internal_server_error_result'
 
 RSpec.describe InventoryListItemsController::DestroyService do
   describe '#perform' do
@@ -104,6 +105,22 @@ RSpec.describe InventoryListItemsController::DestroyService do
 
       it 'sets the errors' do
         expect(perform.errors).to eq(['Cannot manually delete list item from aggregate inventory list'])
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+      before do
+        allow_any_instance_of(InventoryList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))
+      end
+
+      it 'returns a Service::InternalServerErrorResult' do
+        expect(perform).to be_a(Service::InternalServerErrorResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq ['Something went horribly wrong']
       end
     end
   end

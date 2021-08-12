@@ -966,7 +966,23 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
 
-      context 'when something unexpected goes wrong'
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+        before do
+          allow_any_instance_of(InventoryList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          destroy_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
+      end
     end
 
     context 'when not authenticated' do
