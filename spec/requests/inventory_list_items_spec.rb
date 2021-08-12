@@ -296,6 +296,20 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let(:params) { { quantity: 4 } }
+
+      it 'returns status 401' do
+        create_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the error' do
+        create_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
   end
 
   describe 'PATCH /inventory_list_items/:id' do
@@ -578,6 +592,21 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let(:params)     { { quantity: 4 } }
+
+      it 'returns status 401' do
+        update_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the errors' do
+        update_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
   end
 
   describe 'PUT /inventory_list_items/:id' do
@@ -804,5 +833,24 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let(:params)     { { notes: 'Hello world' } }
+
+      it 'returns status 401' do
+        update_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the errors' do
+        update_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
+  end
+
+  describe 'DELETE /inventory_list_items/:id' do
+    #
   end
 end
