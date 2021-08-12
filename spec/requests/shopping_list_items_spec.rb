@@ -915,14 +915,38 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(aggregate_list.list_items).to be_empty
           end
 
-          it 'returns an empty response' do
-            destroy_item
-            expect(response.body).to be_empty
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
           end
 
           it 'returns status 204' do
             destroy_item
             expect(response.status).to eq 204
+          end
+
+          it 'returns an empty response' do
+            destroy_item
+            expect(response.body).to be_empty
           end
         end
 
@@ -949,6 +973,40 @@ RSpec.describe 'ShoppingListItems', type: :request do
             destroy_item
             expect(aggregate_list.list_items.first.notes).to match /bar/
             expect(aggregate_list.list_items.first.notes).not_to match /foo/
+          end
+
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'returns status 200' do
+            destroy_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the aggregate list item' do
+            destroy_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse(aggregate_list.list_items.first.to_json))
           end
         end
       end
@@ -992,6 +1050,24 @@ RSpec.describe 'ShoppingListItems', type: :request do
         it 'returns a helpful error message' do
           destroy_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate shopping list'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+
+        before do
+          allow_any_instance_of(ShoppingList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          destroy_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
         end
       end
     end
