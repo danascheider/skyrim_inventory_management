@@ -886,6 +886,30 @@ RSpec.describe 'InventoryListItems', type: :request do
               .to change(game.inventory_list_items, :count).from(2).to(0)
           end
 
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
           it 'returns status 204' do
             destroy_item
             expect(response.status).to eq 204
@@ -905,6 +929,30 @@ RSpec.describe 'InventoryListItems', type: :request do
           it 'removes only the list item requested' do
             expect { destroy_item }
               .to change(InventoryListItem, :count).from(3).to(2)
+          end
+
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
           end
 
           it 'returns status 200' do
