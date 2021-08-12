@@ -3,6 +3,7 @@
 require 'rails_helper'
 require 'service/no_content_result'
 require 'service/ok_result'
+require 'service/not_found_result'
 
 RSpec.describe InventoryListItemsController::DestroyService do
   describe '#perform' do
@@ -59,6 +60,19 @@ RSpec.describe InventoryListItemsController::DestroyService do
         it 'returns the aggregate list item', :aggregate_failures do
           expect(perform.resource).to eq aggregate_list.list_items.first
         end
+      end
+    end
+
+    context 'when the list item is not found' do
+      let(:list_item) { double(id: 4568) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't set a resource or errors array", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
   end

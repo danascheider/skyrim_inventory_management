@@ -918,6 +918,26 @@ RSpec.describe 'InventoryListItems', type: :request do
           end
         end
       end
+
+      context 'when the list item is not found' do
+        let(:list_item) { double(id: 428_943) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context "when the list item doesn't belong to the authenticated user"
+
+      context 'when the list item is on an aggregate list'
+
+      context 'when something unexpected goes wrong'
     end
 
     context 'when not authenticated' do

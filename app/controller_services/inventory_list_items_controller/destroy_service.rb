@@ -2,6 +2,7 @@
 
 require 'service/no_content_result'
 require 'service/ok_result'
+require 'service/not_found_result'
 
 class InventoryListItemsController < ApplicationController
   class DestroyService
@@ -19,6 +20,8 @@ class InventoryListItemsController < ApplicationController
       end
 
       aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
+    rescue ActiveRecord::RecordNotFound
+      Service::NotFoundResult.new
     end
 
     private
