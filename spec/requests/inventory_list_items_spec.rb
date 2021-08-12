@@ -296,6 +296,20 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let(:params) { { quantity: 4 } }
+
+      it 'returns status 401' do
+        create_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the error' do
+        create_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
   end
 
   describe 'PATCH /inventory_list_items/:id' do
@@ -578,6 +592,21 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let(:params)     { { quantity: 4 } }
+
+      it 'returns status 401' do
+        update_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the errors' do
+        update_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
   end
 
   describe 'PUT /inventory_list_items/:id' do
@@ -802,6 +831,224 @@ RSpec.describe 'InventoryListItems', type: :request do
           update_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let(:params)     { { notes: 'Hello world' } }
+
+      it 'returns status 401' do
+        update_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the errors' do
+        update_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
+  end
+
+  describe 'DELETE /inventory_list_items/:id' do
+    subject(:destroy_item) { delete "/inventory_list_items/#{list_item.id}", headers: headers }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+
+    context 'when authenticated' do
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        context 'when there is no matching list item on another list' do
+          let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          it 'deletes the item on the regular list and the aggregate list' do
+            expect { destroy_item }
+              .to change(game.inventory_list_items, :count).from(2).to(0)
+          end
+
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'returns status 204' do
+            destroy_item
+            expect(response.status).to eq 204
+          end
+        end
+
+        context 'when there is a matching list item on another list' do
+          let!(:list_item)  { create(:inventory_list_item, list: inventory_list) }
+          let(:other_list)  { create(:inventory_list, game: game) }
+          let!(:other_item) { create(:inventory_list_item, description: list_item.description, list: other_list) }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
+          end
+
+          it 'removes only the list item requested' do
+            expect { destroy_item }
+              .to change(InventoryListItem, :count).from(3).to(2)
+          end
+
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(inventory_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              destroy_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'returns status 200' do
+            destroy_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the updated aggregate list item' do
+            destroy_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse(aggregate_list.list_items.first.to_json))
+          end
+        end
+      end
+
+      context 'when the list item is not found' do
+        let(:list_item) { double(id: 428_943) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context "when the list item doesn't belong to the authenticated user" do
+        let(:list_item) { create(:inventory_list_item) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+
+        it "doesn't destroy the list item" do
+          expect { destroy_item }
+            .not_to change(InventoryListItem, :count)
+        end
+
+        it 'returns status 405' do
+          destroy_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an error message' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate inventory list'] })
+        end
+      end
+
+      context 'when something unexpected goes wrong' do
+        let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+        before do
+          allow_any_instance_of(InventoryList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))
+        end
+
+        it 'returns status 500' do
+          destroy_item
+          expect(response.status).to eq 500
+        end
+
+        it 'returns the error' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
+        end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+      it "doesn't destroy the item" do
+        expect { destroy_item }
+          .not_to change(InventoryListItem, :count)
+      end
+
+      it 'returns status 401' do
+        destroy_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the error' do
+        destroy_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
   end
