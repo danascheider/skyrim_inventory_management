@@ -933,6 +933,20 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
 
+      context 'when the list item belongs to a different user' do
+        let(:list_item) { create(:inventory_list_item) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_item
+          expect(response.body).to be_blank
+        end
+      end
+
       context "when the list item doesn't belong to the authenticated user"
 
       context 'when the list item is on an aggregate list'
