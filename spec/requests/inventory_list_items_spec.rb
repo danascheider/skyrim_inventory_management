@@ -891,6 +891,32 @@ RSpec.describe 'InventoryListItems', type: :request do
             expect(response.status).to eq 204
           end
         end
+
+        context 'when there is a matching list item on another list' do
+          let!(:list_item)  { create(:inventory_list_item, list: inventory_list) }
+          let(:other_list)  { create(:inventory_list, game: game) }
+          let!(:other_item) { create(:inventory_list_item, description: list_item.description, list: other_list) }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+            aggregate_list.add_item_from_child_list(other_item)
+          end
+
+          it 'removes only the list item requested' do
+            expect { destroy_item }
+              .to change(InventoryListItem, :count).from(3).to(2)
+          end
+
+          it 'returns status 200' do
+            destroy_item
+            expect(response.status).to eq 200
+          end
+
+          it 'returns the updated aggregate list item' do
+            destroy_item
+            expect(JSON.parse(response.body)).to eq(JSON.parse(aggregate_list.list_items.first.to_json))
+          end
+        end
       end
     end
 

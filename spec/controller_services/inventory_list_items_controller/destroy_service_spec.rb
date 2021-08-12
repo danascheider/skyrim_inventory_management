@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/no_content_result'
+require 'service/ok_result'
 
 RSpec.describe InventoryListItemsController::DestroyService do
   describe '#perform' do
@@ -33,6 +34,30 @@ RSpec.describe InventoryListItemsController::DestroyService do
         it "doesn't return any data", :aggregate_failures do
           expect(perform.resource).to be_blank
           expect(perform.errors).to be_blank
+        end
+      end
+
+      context 'when there is a matching item on another list' do
+        let!(:list_item)  { create(:inventory_list_item, list: inventory_list) }
+        let(:other_list)  { create(:inventory_list, game: game) }
+        let!(:other_item) { create(:inventory_list_item, description: list_item.description, list: other_list) }
+
+        before do
+          aggregate_list.add_item_from_child_list(list_item)
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        it 'destroys the list item and aggregate list item' do
+          expect { perform }
+            .to change(game.inventory_list_items, :count).from(3).to(2)
+        end
+
+        it 'returns a Service::OKResult' do
+          expect(perform).to be_a(Service::OKResult)
+        end
+
+        it 'returns the aggregate list item', :aggregate_failures do
+          expect(perform.resource).to eq aggregate_list.list_items.first
         end
       end
     end

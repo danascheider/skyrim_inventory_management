@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'service/no_content_result'
+require 'service/ok_result'
 
 class InventoryListItemsController < ApplicationController
   class DestroyService
@@ -17,7 +18,7 @@ class InventoryListItemsController < ApplicationController
         aggregate_list_item = aggregate_list.remove_item_from_child_list(list_item.attributes)
       end
 
-      Service::NoContentResult.new
+      aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
     end
 
     private
