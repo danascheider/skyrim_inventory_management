@@ -851,6 +851,66 @@ RSpec.describe 'InventoryListItems', type: :request do
   end
 
   describe 'DELETE /inventory_list_items/:id' do
-    #
+    subject(:destroy_item) { delete "/inventory_list_items/#{list_item.id}", headers: headers }
+
+    let(:game)            { create(:game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+
+    context 'when authenticated' do
+      let!(:user)     { game.user }
+      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      let(:validation_data) do
+        {
+          'exp'   => (Time.zone.now + 1.year).to_i,
+          'email' => user.email,
+          'name'  => user.name,
+        }
+      end
+
+      before do
+        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
+      end
+
+      context 'when all goes well' do
+        context 'when there is no matching list item on another list' do
+          let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+          before do
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          it 'deletes the item on the regular list and the aggregate list' do
+            expect { destroy_item }
+              .to change(game.inventory_list_items, :count).from(2).to(0)
+          end
+
+          it 'returns status 204' do
+            destroy_item
+            expect(response.status).to eq 204
+          end
+        end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+
+      it "doesn't destroy the item" do
+        expect { destroy_item }
+          .not_to change(InventoryListItem, :count)
+      end
+
+      it 'returns status 401' do
+        destroy_item
+        expect(response.status).to eq 401
+      end
+
+      it 'returns the error' do
+        destroy_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
+      end
+    end
   end
 end

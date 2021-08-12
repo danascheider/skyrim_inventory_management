@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
 
     resources :inventory_lists, shallow: true, except: %i[show] do
-      resources :inventory_list_items, shallow: true, only: %i[create update]
+      resources :inventory_list_items, shallow: true, except: %i[index show]
     end
   end
 
