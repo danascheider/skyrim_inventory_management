@@ -933,7 +933,7 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
 
-      context 'when the list item belongs to a different user' do
+      context "when the list item doesn't belong to the authenticated user" do
         let(:list_item) { create(:inventory_list_item) }
 
         it 'returns status 404' do
@@ -947,9 +947,24 @@ RSpec.describe 'InventoryListItems', type: :request do
         end
       end
 
-      context "when the list item doesn't belong to the authenticated user"
+      context 'when the list item is on an aggregate list' do
+        let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
 
-      context 'when the list item is on an aggregate list'
+        it "doesn't destroy the list item" do
+          expect { destroy_item }
+            .not_to change(InventoryListItem, :count)
+        end
+
+        it 'returns status 405' do
+          destroy_item
+          expect(response.status).to eq 405
+        end
+
+        it 'returns an error message' do
+          destroy_item
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate inventory list'] })
+        end
+      end
 
       context 'when something unexpected goes wrong'
     end

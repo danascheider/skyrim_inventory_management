@@ -4,6 +4,7 @@ require 'rails_helper'
 require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
+require 'service/method_not_allowed_result'
 
 RSpec.describe InventoryListItemsController::DestroyService do
   describe '#perform' do
@@ -86,6 +87,23 @@ RSpec.describe InventoryListItemsController::DestroyService do
       it "doesn't set a resource or errors array", :aggregate_failures do
         expect(perform.resource).to be_blank
         expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the list item is on an aggregate list' do
+      let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+
+      it "doesn't destroy the item" do
+        expect { perform }
+          .not_to change(InventoryListItem, :count)
+      end
+
+      it 'returns a Service::MethodNotAllowedResult' do
+        expect(perform).to be_a(Service::MethodNotAllowedResult)
+      end
+
+      it 'sets the errors' do
+        expect(perform.errors).to eq(['Cannot manually delete list item from aggregate inventory list'])
       end
     end
   end

@@ -3,15 +3,20 @@
 require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
+require 'service/method_not_allowed_result'
 
 class InventoryListItemsController < ApplicationController
   class DestroyService
+    AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate inventory list'
+
     def initialize(user, item_id)
       @user    = user
       @item_id = item_id
     end
 
     def perform
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
+
       aggregate_list_item = nil
 
       ActiveRecord::Base.transaction do
