@@ -48,6 +48,7 @@ The following endpoints are available to manage inventory list items:
 
 * [`POST /inventory_lists/:inventory_list_id/inventory_list_items`](#post-inventory_listsinventory_list_idinventory_list_items)
 * [`PATCH|PUT /inventory_list_items/:id`](#patchput-inventory_list_itemsid)
+* [`DELETE /inventory_list_items/:id`](#delete-inventory_list_itemsid)
 
 ## POST /inventory_lists/:inventory_list_id/inventory_list_items
 
@@ -292,6 +293,77 @@ A 422 error, returned as a result of a validation error, includes whichever erro
   "errors": [
     "Quantity must be a number",
     "Quantity must be greater than zero"
+  ]
+}
+```
+
+A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+```json
+{
+  "errors": ["Something went horribly wrong"]
+}
+```
+
+## DELETE /inventory_list_items/:id
+
+Deletes the given inventory list item provided the item exists and the list it is on:
+
+1. Belongs to the authenticated user AND
+2. Is not an aggregate list
+
+When this happens, the corresponding list item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced and the `notes` value may be shortened or set to `nil`, depending on the existing `notes` value on the aggregate list and whether there are notes on that list other than the ones from the deleted item.
+
+### Example Request
+
+```
+DELETE /inventory_list_items/5651
+Authorization: Bearer xxxxxxxxxxx
+```
+
+### Success Responses
+
+#### Statuses
+
+* 200 OK
+* 204 No Content
+
+#### Example Body
+
+The API will return a 204 response if the list item has been destroyed along with the corresponding item on the aggregate list. This response does not include a body. On the other hand, if the aggregate list item has been updated rather than destroyed, it will be returned and the status code will be 200.
+
+Example 200 response body containing the updated aggregate list item:
+```json
+{
+  "id": 87,
+  "list_id": 238,
+  "description": "Ebony sword",
+  "quantity": 9,
+  "unit_weight": 14.0,
+  "notes": "To sell -- To enchant with 'Absorb Health'",
+  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+  "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+}
+```
+
+### Error Responses
+
+Three error responses are possible.
+
+#### Statuses
+
+* 404 Not Found
+* 405 Method Not Allowed
+* 500 Internal Server Error
+
+#### Example Bodies
+
+No body will be returned with a 404 error, which is returned if the specified inventory list item doesn't exist or doesn't belong to the authenticated user.
+
+A 405 error, which is returned if the specified inventory list item is on an aggregate inventory list, comes with the following body:
+```json
+{
+  "errors": [
+    "Cannot manually delete an item from an aggregate inventory list"
   ]
 }
 ```

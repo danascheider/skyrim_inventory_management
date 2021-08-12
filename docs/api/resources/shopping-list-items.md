@@ -329,7 +329,7 @@ Authorization: Bearer xxxxxxxxxxx
 
 #### Example Body
 
-The API will return a 204 response if the list item has been destroyed along with the corresponding item on the aggregate list. This responsee does not include a body. On the other hand, if the aggregate list item has been updated, it will be returned and the status code will be 200.
+The API will return a 204 response if the list item has been destroyed along with the corresponding item on the aggregate list. This response does not include a body. On the other hand, if the aggregate list item has been updated rather than destroyed, it will be returned and the status code will be 200.
 
 Example 200 response body containing the updated aggregate list item:
 ```json
@@ -363,17 +363,7 @@ A 405 error, which is returned if the specified shopping list item is on an aggr
 ```json
 {
   "errors": [
-    "Cannot manually delete an aggregate shopping list"
-  ]
-}
-```
-
-A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
-```json
-{
-  "errors": [
-    "Quantity must be a number",
-    "Quantity must be greater than zero"
+    "Cannot manually delete an item from an aggregate shopping list"
   ]
 }
 ```
