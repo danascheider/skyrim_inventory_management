@@ -30,16 +30,28 @@ module Listable
     end
 
     def self.combine_or_new(attrs)
-      list          = attrs[:list] || attrs['list'] || list_class.find(attrs[:list_id] || attrs['list_id'])
-      desc          = (attrs[:description] || attrs['description'])
-      existing_item = list.list_items.find_by('description ILIKE ?', desc)
+      # Make sure the attributes all have symbol keys. This can
+      # result in problems if the key types of the attrs differ
+      # (e.g., if there is a :unit_weight key and a 'unit_weight'
+      # key, only the value of the second one will be preserved)
+      new_attrs                                      = {}
+      attrs.each {|key, value| new_attrs[key.to_sym] = value }
+
+      list          = new_attrs[:list] || list_class.find(new_attrs[:list_id])
+      existing_item = list.list_items.find_by('description ILIKE ?', new_attrs[:description])
 
       if existing_item.nil?
-        new attrs
+        if list.aggregate_list
+          aggregate_list_item = list.aggregate_list.list_items.find_by('description ILIKE ?', new_attrs[:description])
+
+          new_attrs[:unit_weight] ||= aggregate_list_item&.unit_weight
+        end
+
+        new new_attrs
       else
-        qty        = attrs[:quantity] || attrs['quantity'] || 1
-        new_notes  = attrs[:notes] || attrs['notes']
-        new_weight = attrs[:unit_weight] || attrs['unit_weight'] || existing_item.unit_weight
+        qty        = new_attrs[:quantity] || 1
+        new_notes  = new_attrs[:notes]
+        new_weight = new_attrs[:unit_weight] || existing_item.unit_weight
         old_notes  = existing_item.notes
 
         new_quantity = existing_item.quantity + qty

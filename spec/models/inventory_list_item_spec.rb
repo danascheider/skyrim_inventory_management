@@ -3,15 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe InventoryListItem, type: :model do
-  let!(:game) { create(:game) }
+  let!(:game)          { create(:game) }
+  let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+  let(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
 
   describe 'delegation' do
-    let(:inventory_list) { create(:inventory_list, game: game) }
-    let(:list_item)      { create(:inventory_list_item, list: inventory_list) }
-
-    before do
-      create(:aggregate_inventory_list, game: game)
-    end
+    let(:list_item) { create(:inventory_list_item, list: inventory_list) }
 
     describe '#game' do
       it 'returns the game its InventoryList belongs to' do
@@ -28,13 +25,11 @@ RSpec.describe InventoryListItem, type: :model do
 
   describe 'scopes' do
     describe '::index_order' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list) }
+      let!(:list_item1) { create(:inventory_list_item, list: list) }
+      let!(:list_item2) { create(:inventory_list_item, list: list) }
+      let!(:list_item3) { create(:inventory_list_item, list: list) }
 
-      let!(:list_item1) { create(:shopping_list_item, list: list) }
-      let!(:list_item2) { create(:shopping_list_item, list: list) }
-      let!(:list_item3) { create(:shopping_list_item, list: list) }
-
-      let(:list) { create(:shopping_list, game: aggregate_list.game) }
+      let(:list) { create(:inventory_list, game: game) }
 
       before do
         list_item2.update!(quantity: 3)
@@ -46,9 +41,15 @@ RSpec.describe InventoryListItem, type: :model do
     end
 
     describe '::belonging_to_game' do
-      let!(:list1) { create(:inventory_list_with_list_items, game: game) }
-      let!(:list2) { create(:inventory_list_with_list_items, game: game) }
-      let!(:list3) { create(:inventory_list_with_list_items, game: game) }
+      let!(:list1) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
+      let!(:list2) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
+      let!(:list3) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
+
+      before do
+        # There should be some that don't belong to the game to make sure they
+        # don't also get included
+        create(:inventory_list_with_list_items)
+      end
 
       it 'returns all list items from all the lists for the given game' do
         # We don't actually care what order these are in since we currently only use this
@@ -70,7 +71,7 @@ RSpec.describe InventoryListItem, type: :model do
       let(:user) { game.user }
 
       before do
-        create(:inventory_list_with_list_items, game: game)
+        create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list)
         create(:game_with_inventory_lists_and_items, user: user)
         create(:game_with_inventory_lists_and_items, user: user)
         create(:inventory_list_with_list_items) # one from a different user
@@ -90,9 +91,7 @@ RSpec.describe InventoryListItem, type: :model do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let(:aggregate_list)  { create(:aggregate_inventory_list) }
-      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
-      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -125,15 +124,28 @@ RSpec.describe InventoryListItem, type: :model do
         end
       end
     end
+
+    context 'when there is an existing item on a different list with the same (case-insensitive) description' do
+      subject(:combine_or_create) { described_class.combine_or_create!(description: 'New Item', quantity: 1, list: inventory_list, unit_weight: nil) }
+
+      let(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+      let!(:other_item) { create(:inventory_list_item, description: 'New Item', list: other_list, unit_weight: 1) }
+
+      before do
+        aggregate_list.add_item_from_child_list(other_item)
+      end
+
+      it 'sets the unit weight to that of the existing item' do
+        expect(combine_or_create.unit_weight).to eq 1
+      end
+    end
   end
 
   describe '::combine_or_new' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let(:aggregate_list) { create(:aggregate_inventory_list) }
-      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
-      let!(:existing_item)  { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       before do
         allow(described_class).to receive(:new)
@@ -170,22 +182,39 @@ RSpec.describe InventoryListItem, type: :model do
     end
 
     context 'when there is not an existing item on the same list with that description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'new item', quantity: 1, list: inventory_list) }
+      subject(:combine_or_new) { described_class.combine_or_new(description: 'new item', quantity: 1, list: inventory_list) }
 
-      let(:aggregate_list) { create(:aggregate_inventory_list) }
-      let!(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
+      before do
+        allow(described_class).to receive(:new).and_call_original
+      end
 
-      it 'creates a new item on the list' do
-        expect { combine_or_create }
-          .to change(inventory_list.list_items, :count).by(1)
+      it 'instantiates a new inventory list item' do
+        combine_or_new
+        expect(described_class).to have_received(:new)
+      end
+
+      it "doesn't save the inventory list item yet" do
+        expect { combine_or_new }
+          .not_to change(inventory_list.list_items, :count)
+      end
+
+      context 'when unit weight is nil and there are matching items on other lists' do
+        let!(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+        let!(:other_item) { create(:inventory_list_item, description: 'new item', list: other_list, unit_weight: 1) }
+
+        before do
+          aggregate_list.add_item_from_child_list(other_item)
+        end
+
+        it "sets the new item's unit weight to match the existing items" do
+          expect(combine_or_new.unit_weight).to eq 1
+        end
       end
     end
   end
 
   describe '#update!' do
-    let(:aggregate_list) { create(:aggregate_inventory_list) }
-    let(:inventory_list) { create(:inventory_list, game: aggregate_list.game) }
-    let!(:list_item)     { create(:inventory_list_item, quantity: 1, list: inventory_list) }
+    let!(:list_item) { create(:inventory_list_item, quantity: 1, list: inventory_list) }
 
     context 'when updating quantity' do
       subject(:update_item) { list_item.update!(quantity: 4) }
