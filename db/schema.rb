@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_080015) do
     t.boolean "effects_cumulative", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
   end
 
   create_table "enchantments", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_080015) do
     t.string "strength_unit", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_enchantments_on_name", unique: true
   end
 
   create_table "games", force: :cascade do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_080015) do
     t.boolean "cumulative", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_spells_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

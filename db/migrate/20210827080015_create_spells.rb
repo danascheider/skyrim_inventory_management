@@ -11,5 +11,7 @@ class CreateSpells < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_index :spells, :name, unique: true
   end
 end
