@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_080015) do
+ActiveRecord::Schema.define(version: 2021_08_27_104934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 2021_08_27_080015) do
   create_table "enchantments", force: :cascade do |t|
     t.string "name", null: false
     t.string "enchantable_items", default: [], array: true
-    t.string "strength_unit", null: false
+    t.string "strength_unit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "school"
     t.index ["name"], name: "index_enchantments_on_name", unique: true
   end
 
