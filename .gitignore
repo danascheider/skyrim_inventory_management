@@ -32,3 +32,5 @@ skyrim_inventory_management.csr
 
 # Ignore vendored gems
 /vendor/bundle/
+
+.pgdata
