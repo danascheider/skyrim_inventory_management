@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_080015) do
     t.string "description", null: false
     t.integer "strength"
     t.integer "base_duration"
-    t.boolean "cumulative", default: false
+    t.boolean "effects_cumulative", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_spells_on_name", unique: true

@@ -7,7 +7,7 @@ class CreateSpells < ActiveRecord::Migration[6.1]
       t.string :description, null: false
       t.integer :strength
       t.integer :base_duration
-      t.boolean :cumulative, default: false
+      t.boolean :effects_cumulative, default: false
 
       t.timestamps
     end
