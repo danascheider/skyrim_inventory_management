@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_013545) do
+ActiveRecord::Schema.define(version: 2021_08_27_080015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alchemical_properties", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "strength_unit"
+    t.boolean "effects_cumulative", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
+  end
+
+  create_table "enchantments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "enchantable_items", default: [], array: true
+    t.string "strength_unit", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_enchantments_on_name", unique: true
+  end
 
   create_table "games", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -71,6 +89,17 @@ ActiveRecord::Schema.define(version: 2021_08_08_013545) do
     t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_shopping_lists_on_game_id"
     t.index ["title", "game_id"], name: "index_shopping_lists_on_title_and_game_id", unique: true
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "strength"
+    t.integer "base_duration"
+    t.boolean "effects_cumulative", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_spells_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
