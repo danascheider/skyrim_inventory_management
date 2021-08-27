@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_075623) do
+ActiveRecord::Schema.define(version: 2021_08_27_080015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 2021_08_27_075623) do
     t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_shopping_lists_on_game_id"
     t.index ["title", "game_id"], name: "index_shopping_lists_on_title_and_game_id", unique: true
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "strength"
+    t.integer "base_duration"
+    t.boolean "cumulative", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
