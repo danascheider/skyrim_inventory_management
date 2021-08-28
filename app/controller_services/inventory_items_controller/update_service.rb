@@ -53,11 +53,11 @@ class InventoryItemsController < ApplicationController
     end
 
     def list_item
-      @list_item ||= user.inventory_list_items.find(item_id)
+      @list_item ||= user.inventory_items.find(item_id)
     end
 
     def all_matching_items
-      aggregate_list.game.inventory_list_items.where('description ILIKE ?', list_item.description)
+      aggregate_list.game.inventory_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

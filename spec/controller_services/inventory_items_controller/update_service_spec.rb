@@ -18,7 +18,7 @@ RSpec.describe InventoryItemsController::UpdateService do
 
     context 'when all goes well' do
       context 'when there is no matching item on another list' do
-        let!(:list_item)          { create(:inventory_list_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 2) }
+        let!(:list_item)          { create(:inventory_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 2) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params)              { { quantity: 9, notes: 'To make bolts with' } }
 
@@ -48,9 +48,9 @@ RSpec.describe InventoryItemsController::UpdateService do
       end
 
       context 'when there is a matching item on another list' do
-        let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 4) }
+        let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 4) }
         let(:other_list)          { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
-        let!(:other_item)         { create(:inventory_list_item, description: list_item.description, list: other_list, quantity: 3) }
+        let!(:other_item)         { create(:inventory_item, description: list_item.description, list: other_list, quantity: 3) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
 
         before do
@@ -127,7 +127,7 @@ RSpec.describe InventoryItemsController::UpdateService do
     end
 
     context "when the inventory list item doesn't belong to the given user" do
-      let(:list_item) { create(:inventory_list_item) }
+      let(:list_item) { create(:inventory_item) }
       let(:params)    { { notes: 'Hello world' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -141,7 +141,7 @@ RSpec.describe InventoryItemsController::UpdateService do
     end
 
     context 'when the item is on an aggregate list' do
-      let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+      let!(:list_item) { create(:inventory_item, list: aggregate_list) }
       let(:params)     { { quantity: 5 } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -154,9 +154,9 @@ RSpec.describe InventoryItemsController::UpdateService do
     end
 
     context 'when the attributes are invalid' do
-      let!(:list_item)          { create(:inventory_list_item, list: inventory_list, quantity: 2) }
+      let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 2) }
       let(:other_list)          { create(:inventory_list, game: game) }
-      let!(:other_item)         { create(:inventory_list_item, list: other_list, description: list_item.description, quantity: 1) }
+      let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
       let(:aggregate_list_item) { aggregate_list.list_items.first }
       let(:params)              { { quantity: -4, unit_weight: 2 } }
 
@@ -186,7 +186,7 @@ RSpec.describe InventoryItemsController::UpdateService do
     end
 
     context 'when there is an unexpected error' do
-      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let!(:list_item) { create(:inventory_item, list: inventory_list) }
       let(:params)     { { notes: 'Hello world' } }
 
       before do

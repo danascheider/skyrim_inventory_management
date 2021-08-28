@@ -42,7 +42,7 @@ RSpec.describe InventoryItemsController::CreateService do
 
         context 'when there is an existing matching item on another list' do
           let(:other_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 1) }
+          let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 1) }
 
           before do
             aggregate_list.add_item_from_child_list(other_item)
@@ -103,8 +103,8 @@ RSpec.describe InventoryItemsController::CreateService do
 
       context 'when there is an existing matching item on the same list' do
         let(:other_list)  { create(:inventory_list, game: game) }
-        let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
-        let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
+        let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 2) }
+        let!(:list_item)  { create(:inventory_item, list: inventory_list, description: 'Necklace', quantity: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)

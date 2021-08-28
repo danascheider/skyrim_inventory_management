@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :inventory_list_item do
+  factory :inventory_item do
     association :list, factory: :inventory_list
 
     sequence(:description) {|n| "Item #{n}" }

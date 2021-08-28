@@ -19,7 +19,7 @@ FactoryBot.define do
       end
 
       after(:create) do |list, evaluator|
-        create_list(:inventory_list_item, evaluator.list_item_count, list: list)
+        create_list(:inventory_item, evaluator.list_item_count, list: list)
       end
     end
   end
