@@ -29,6 +29,6 @@ class User < ApplicationRecord
   end
 
   def inventory_list_items
-    InventoryListItem.belonging_to_user(self)
+    InventoryItem.belonging_to_user(self)
   end
 end

@@ -7,7 +7,7 @@ require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe InventoryListItemsController::UpdateService do
+RSpec.describe InventoryItemsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id, params).perform }
 

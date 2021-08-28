@@ -19,7 +19,7 @@ class InventoryList < ApplicationRecord
   # This has to be defined before including AggregateListable because its `included` block
   # calls this method.
   def self.list_item_class_name
-    'InventoryListItem'
+    'InventoryItem'
   end
 
   include Aggregatable

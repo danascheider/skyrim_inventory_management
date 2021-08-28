@@ -7,7 +7,7 @@ require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe InventoryListItemsController::DestroyService do
+RSpec.describe InventoryItemsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
@@ -96,7 +96,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
 
       it "doesn't destroy the item" do
         expect { perform }
-          .not_to change(InventoryListItem, :count)
+          .not_to change(InventoryItem, :count)
       end
 
       it 'returns a Service::MethodNotAllowedResult' do
