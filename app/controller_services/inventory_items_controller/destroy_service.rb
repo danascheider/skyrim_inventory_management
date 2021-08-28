@@ -45,7 +45,7 @@ class InventoryItemsController < ApplicationController
     end
 
     def list_item
-      @list_item ||= user.inventory_list_items.find(item_id)
+      @list_item ||= user.inventory_items.find(item_id)
     end
   end
 end

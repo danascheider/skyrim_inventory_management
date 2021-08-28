@@ -42,7 +42,7 @@ class Game < ApplicationRecord
     ShoppingListItem.belonging_to_game(self)
   end
 
-  def inventory_list_items
+  def inventory_items
     InventoryItem.belonging_to_game(self)
   end
 

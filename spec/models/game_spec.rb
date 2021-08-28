@@ -217,8 +217,8 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  describe '#inventory_list_items' do
-    subject(:inventory_list_items) { game.inventory_list_items.to_a.sort }
+  describe '#inventory_items' do
+    subject(:inventory_items) { game.inventory_items.to_a.sort }
 
     let(:game) { create(:game, user: user) }
 
@@ -232,7 +232,7 @@ RSpec.describe Game, type: :model do
       items.flatten!
       items.sort!
 
-      expect(inventory_list_items).to eq items
+      expect(inventory_items).to eq items
     end
   end
 end

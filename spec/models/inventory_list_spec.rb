@@ -301,9 +301,9 @@ RSpec.describe InventoryList, type: :model do
 
     let!(:aggregate_list) { create(:aggregate_inventory_list) }
     let(:inventory_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
-    let!(:item1)          { create(:inventory_list_item, list: inventory_list) }
-    let!(:item2)          { create(:inventory_list_item, list: inventory_list) }
-    let!(:item3)          { create(:inventory_list_item, list: inventory_list) }
+    let!(:item1)          { create(:inventory_item, list: inventory_list) }
+    let!(:item2)          { create(:inventory_item, list: inventory_list) }
+    let!(:item3)          { create(:inventory_item, list: inventory_list) }
 
     before do
       item2.update!(quantity: 2)
@@ -375,7 +375,7 @@ RSpec.describe InventoryList, type: :model do
       let(:aggregate_list) { create(:aggregate_inventory_list) }
 
       context 'when there is no matching item on the aggregate list' do
-        let(:list_item) { create(:inventory_list_item) }
+        let(:list_item) { create(:inventory_item) }
 
         it 'creates a corresponding item on the aggregate list' do
           expect { add_item }
@@ -394,11 +394,11 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when there is a matching item on the aggregate list' do
         let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-        let!(:item_on_other_list) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
+        let!(:item_on_other_list) { create(:inventory_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
 
           it 'combines the notes and quantities', :aggregate_failures do
             add_item
@@ -408,8 +408,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when neither have notes' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: nil) }
-          let(:list_item)           { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: nil) }
+          let(:list_item)           { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: nil) }
 
           it 'combines the quantities and leaves the notes nil', :aggregate_failures do
             add_item
@@ -419,8 +419,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when one has notes and the other does not' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2) }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2) }
 
           it 'combines the quantities and uses the existing notes value', :aggregate_failures do
             add_item
@@ -430,8 +430,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context "when the new item doesn't have a unit weight" do
-          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
+          let!(:existing_list_item) { create(:inventory_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
 
           it 'leaves the unit weight as-is on the existing item' do
             add_item
@@ -445,8 +445,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when the new item has a unit weight' do
-          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', unit_weight: 0.3, list: aggregate_list) }
-          let(:list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: nil, unit_weight: 0.2) }
+          let!(:existing_list_item) { create(:inventory_item, description: 'Dwarven metal ingot', unit_weight: 0.3, list: aggregate_list) }
+          let(:list_item) { create(:inventory_item, description: 'Dwarven metal ingot', quantity: 2, notes: nil, unit_weight: 0.2) }
 
           it 'updates the unit weight of the existing item' do
             add_item
@@ -462,7 +462,7 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when called on a non-aggregate list' do
         let(:aggregate_list) { create(:inventory_list) }
-        let(:list_item)      { create(:inventory_list_item) }
+        let(:list_item)      { create(:inventory_item) }
 
         it 'raises an AggregateListError' do
           expect { add_item }
@@ -674,8 +674,8 @@ RSpec.describe InventoryList, type: :model do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
 
         let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-        let!(:item_on_other_list)  { create(:inventory_list_item, list: other_list, description: description, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:inventory_list_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
+        let!(:item_on_other_list)  { create(:inventory_item, list: other_list, description: description, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:inventory_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
 
         before do
           aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
