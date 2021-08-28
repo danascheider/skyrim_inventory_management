@@ -3,6 +3,7 @@
 SIM knows certain things about Skyrim that it may or may not immediately reveal to users. Canonical models are models representing things in Skyrim the user may not know yet. Currently there are three canonical models:
 
 * [`AlchemicalProperty`](/app/models/alchemical_property.rb): actual properties of ingredients or potions that exist in the game
+* [`CanonicalProperty`](/app/models/canonical_property.rb): actual properties the player character can own in the game
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 
@@ -16,6 +17,7 @@ The following idempotent Rake tasks can be used to populate the database with th
 
 * `rails canonical_models:populate:all` (populates all canonical models from JSON data)
 * `rails canonical_models:populate:alchemical_properties` (populates canonical alchemical properties from JSON data)
+* `rails canonical_models:populate:canonical_properties` (populates canonical properties from JSON data)
 * `rails canonical_models:populate:enchantments` (populates canonical enchantments from JSON data)
 * `rails canonical_models:populate:spells` (populates canonical spells from JSON data)
 

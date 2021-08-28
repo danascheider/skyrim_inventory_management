@@ -18,6 +18,9 @@ namespace :canonical_models do
         rescue ActiveRecord::RecordInvalid => e
           Rails.logger.error "Error saving alchemical property \"#{property_attributes[:name]}\": #{e.message}"
           raise e
+        rescue StandardError => e
+          Rails.logger.error "Unknown error saving alchemical property \"#{property_attributes[:name]}\": #{e.message}"
+          raise e
         end
       end
     end
@@ -36,6 +39,9 @@ namespace :canonical_models do
         rescue ActiveRecord::RecordInvalid => e
           Rails.logger.error("Error saving enchantment \"#{enchantment_attributes[:name]}\": #{e.message}")
           raise e
+        rescue StandardError => e
+          Rails.logger.error "Unknown error saving enchantment \"#{enchantment_attributes[:name]}\": #{e.message}"
+          raise e
         end
       end
     end
@@ -52,7 +58,31 @@ namespace :canonical_models do
           spell.assign_attributes(spell_attributes)
           spell.save!
         rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Error saving spell \"#{spell_attributes[:name]}\": #{e.message}"
+          Rails.logger.error "Validation error saving spell \"#{spell_attributes[:name]}\": #{e.message}"
+          raise e
+        rescue StandardError => e
+          Rails.logger.error "Unknown error saving spell \"#{spell_attributes[:name]}\": #{e.message}"
+          raise e
+        end
+      end
+    end
+
+    desc 'Populate or update canonical properties from JSON data'
+    task canonical_properties: :environment do
+      Rails.logger.info 'Populating canonical properties...'
+
+      canonical_properties = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_properties.json')), symbolize_names: true)
+
+      ActiveRecord::Base.transaction do
+        canonical_properties.each do |canonical_property_attributes|
+          property = CanonicalProperty.find_or_initialize_by(name: canonical_property_attributes[:name])
+          property.assign_attributes(canonical_property_attributes)
+          property.save!
+        rescue ActiveRecord::RecordInvalid => e
+          Rails.logger.error "Validation error saving canonical property \"#{canonical_property_attributes[:name]}\": #{e.message}"
+          raise e
+        rescue StandardError => e
+          Rails.logger.error "Unknown error saving canonical property \"#{canonical_property_attributes[:name]}\": #{e.message}"
           raise e
         end
       end
@@ -61,6 +91,7 @@ namespace :canonical_models do
     desc 'Populate or update all canonical models from JSON files'
     task all: :environment do
       Rake::Task['canonical_models:populate:alchemical_properties'].invoke
+      Rake::Task['canonical_models:populate:canonical_properties'].invoke
       Rake::Task['canonical_models:populate:enchantments'].invoke
       Rake::Task['canonical_models:populate:spells'].invoke
     end
