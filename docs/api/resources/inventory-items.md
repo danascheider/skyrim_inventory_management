@@ -1,4 +1,4 @@
-# Inventory List Items
+# Inventory Items
 
 Inventory items represent the items on an [inventory list](/docs/api/resources/inventory-lists.md). Inventory items on regular lists can be created, updated, and destroyed through the API. Inventory items on aggregate inventory lists are managed automatically as the items on their other lists change. Each inventory item belongs to a particular list and will be destroyed if the list is destroyed.
 
