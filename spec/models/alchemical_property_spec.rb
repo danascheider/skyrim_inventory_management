@@ -22,10 +22,16 @@ RSpec.describe AlchemicalProperty, type: :model do
     end
 
     describe 'strength_unit' do
-      it 'must be one of "point" or "percentage"' do
+      it "isn't required" do
         property = described_class.new
         property.validate
-        expect(property.errors[:strength_unit]).to eq ["can't be blank", 'must be "point" or "percentage"']
+        expect(property.errors[:strength_unit]).to be_empty
+      end
+
+      it 'must be one of "point" or "percentage"' do
+        property = described_class.new(strength_unit: 'Foobar')
+        property.validate
+        expect(property.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
       end
     end
   end
