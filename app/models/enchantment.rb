@@ -37,8 +37,8 @@ class Enchantment < ApplicationRecord
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :strength_unit, presence: true, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"' }
-  validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic' }
+  validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
+  validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
 
   private
