@@ -6,7 +6,7 @@ require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-class InventoryListItemsController < ApplicationController
+class InventoryItemsController < ApplicationController
   class DestroyService
     AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate inventory list'
 

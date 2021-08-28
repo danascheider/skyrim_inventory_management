@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'InventoryListItems', type: :request do
+RSpec.describe 'InventoryItems', type: :request do
   let(:headers) do
     {
       'Content-Type'  => 'application/json',
@@ -140,7 +140,7 @@ RSpec.describe 'InventoryListItems', type: :request do
           context "when unit weight isn't updated" do
             it "doesn't create a new item" do
               expect { create_item }
-                .not_to change(InventoryListItem, :count)
+                .not_to change(InventoryItem, :count)
             end
 
             it 'combines with the existing item' do
@@ -169,7 +169,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
             it "doesn't create a new list item" do
               expect { create_item }
-                .not_to change(InventoryListItem, :count)
+                .not_to change(InventoryItem, :count)
             end
 
             it 'combines it with the existing item', :aggregate_failures do
@@ -224,7 +224,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
         it "doesn't create the list item" do
           expect { create_item }
-            .not_to change(InventoryListItem, :count)
+            .not_to change(InventoryItem, :count)
         end
 
         it 'returns status 404' do
@@ -243,7 +243,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
         it "doesn't create the item" do
           expect { create_item }
-            .not_to change(InventoryListItem, :count)
+            .not_to change(InventoryItem, :count)
         end
 
         it 'returns status 422' do
@@ -263,7 +263,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
         it "doesn't create an item" do
           expect { create_item }
-            .not_to change(InventoryListItem, :count)
+            .not_to change(InventoryItem, :count)
         end
 
         it 'returns status 405' do
@@ -928,7 +928,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
           it 'removes only the list item requested' do
             expect { destroy_item }
-              .to change(InventoryListItem, :count).from(3).to(2)
+              .to change(InventoryItem, :count).from(3).to(2)
           end
 
           it 'updates the regular list' do
@@ -1000,7 +1000,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
         it "doesn't destroy the list item" do
           expect { destroy_item }
-            .not_to change(InventoryListItem, :count)
+            .not_to change(InventoryItem, :count)
         end
 
         it 'returns status 405' do
@@ -1038,7 +1038,7 @@ RSpec.describe 'InventoryListItems', type: :request do
 
       it "doesn't destroy the item" do
         expect { destroy_item }
-          .not_to change(InventoryListItem, :count)
+          .not_to change(InventoryItem, :count)
       end
 
       it 'returns status 401' do

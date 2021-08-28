@@ -80,7 +80,7 @@ RSpec.describe Game, type: :model do
 
     it "destroys all the game's inventory list items" do
       expect { game.destroy! }
-        .to change(InventoryListItem, :count).from(8).to(0)
+        .to change(InventoryItem, :count).from(8).to(0)
     end
   end
 

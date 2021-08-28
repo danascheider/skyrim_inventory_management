@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class InventoryListItem < ApplicationRecord
+class InventoryItem < ApplicationRecord
   def self.list_class
     InventoryList
   end

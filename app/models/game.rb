@@ -43,7 +43,7 @@ class Game < ApplicationRecord
   end
 
   def inventory_list_items
-    InventoryListItem.belonging_to_game(self)
+    InventoryItem.belonging_to_game(self)
   end
 
   private
