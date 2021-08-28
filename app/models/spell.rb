@@ -27,9 +27,9 @@ class Spell < ApplicationRecord
   private
 
   def strength_and_strength_unit_both_or_neither_present
-    if !strength.nil? && !strength_unit
+    if strength.present? && strength_unit.blank?
       errors.add(:strength_unit, 'must be present if strength is given')
-    elsif !strength_unit.nil? && !strength
+    elsif strength_unit.present? && strength.blank?
       errors.add(:strength, 'must be present if strength unit is given')
     end
   end
