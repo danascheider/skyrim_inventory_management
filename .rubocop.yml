@@ -1237,7 +1237,7 @@ Rails/Blank:
   NotPresent: true
   UnlessPresent: true
 Rails/BulkChangeTable:
-  Enabled: true
+  Enabled: false
 Rails/CreateTableWithTimestamps:
   Enabled: true
 Rails/Date:

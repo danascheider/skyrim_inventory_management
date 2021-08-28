@@ -1,0 +1,1212 @@
+[
+  {
+    "name": "Arniel's Convection",
+    "school": "Destruction",
+    "level": "Novice",
+    "description": "Burns target 1 point per second. Targets on fire take extra damage.",
+    "strength": 1,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Ash Rune",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "Cast on a nearby surface, explodes when enemies are nearby, immobilizing them in hardened ash for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ash Shell",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Targets that fail to resist are immobilized in hardened ash for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Bane of the Undead",
+    "school": "Restoration",
+    "level": "Master",
+    "description": "Sets undead up to level 30 on fire and makes them flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Banish Daedra",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Send lesser Daedra back to Oblivion.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Blizzard",
+    "school": "Destruction",
+    "level": "Master",
+    "description": "20 Frost damage per second for 10 seconds.",
+    "strength": 20,
+    "strength_unit": "point",
+    "base_duration": 10,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Bound Battleaxe",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Creates a magic battle axe for 120 seconds. Sheathe it to dispel.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 120,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Bound Bow",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Equips an ethereal Daedric Bow and 100 ethereal Daedric Arrows for 120 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 120,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Bound Dagger",
+    "school": "Conjuration",
+    "level": "Novice",
+    "description": "Creates a magic dagger for 120 seconds. Sheathe it to dispel.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 120,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Bound Sword",
+    "school": "Conjuration",
+    "level": "Novice",
+    "description": "Creates a magic sword for 120 seconds. Sheathe it to dispel.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 120,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Call to Arms",
+    "school": "Illusion",
+    "level": "Master",
+    "description": "Targets have improved combat skills, health, and stamina for 10 minutes.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": 600,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Calm",
+    "school": "Illusion",
+    "level": "Apprentice",
+    "description": "Creatures and people up to level 9 won't fight for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Candlelight",
+    "school": "Alteration",
+    "level": "Novice",
+    "description": "Creates a hovering light that lasts for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Chain Lightning",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "Lightning bolt that does 40 (min) shock damage to Health and half to Magicka, then leaps to new target.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Circle of Protection",
+    "school": "Restoration",
+    "level": "Expert",
+    "description": "Undead up to level 20 entering the circle will flee.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Clairvoyance",
+    "school": "Illusion",
+    "level": "Novice",
+    "description": "Draws a path to the next objective.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Close Wounds",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Restores 100 points of health to the caster.",
+    "strength": 100,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Command Daedra",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Powerful summoned and raised creatures are put under the caster's control.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Ash Guardian",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Creates an Ash Guardian that guards that location until destroyed. Consumes a heart stone from your inventory, without which it will be hostile.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Ash Spawn",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Summons an Ash Spawn for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Boneman",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Summons a Boneman Archer from the Soul Cairn for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Dragon Priest",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Summons a spectral Dragon Priest.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Dremora Lord",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Summons a Dremora Lord for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Familiar",
+    "school": "Conjuration",
+    "level": "Novice",
+    "description": "Summons a familiar for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Flame Atronach",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Summons a Flame Atronach for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Flaming Familiar",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Summons a flaming familiar which will charge into battle and explode.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Frost Atronach",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Summons a Frost Atronach for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Mistman",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Summons a Mistman from the Soul Cairn for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Seeker",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Summons a Seeker for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Storm Atronach",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Summons a Storm Atronach for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Conjure Wrathman",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Summons a Wrathman from the Soul Cairn for 60 seconds wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Courage",
+    "school": "Illusion",
+    "level": "Novice",
+    "description": "Target won't flee for 60 seconds and gets some extra health and stamina.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Dead Thrall",
+    "school": "Conjuration",
+    "level": "Master",
+    "description": "Reanimate a dead body permanently to fight for you. Only works on people.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Detect Dead",
+    "school": "Alteration",
+    "level": "Expert",
+    "description": "Nearby dead can be seen through walls.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Detect Life",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Nearby living creatures, but not undead, machines, or daedra, can be seen through walls.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Dragonhide",
+    "school": "Alteration",
+    "level": "Master",
+    "description": "Caster ignores 80% of all physical damage.",
+    "strength": 80,
+    "strength_unit": "percentage",
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Dread Zombie",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Reanimate a very powerful dead body to fight for you for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ebonyflesh",
+    "school": "Alteration",
+    "level": "Expert",
+    "description": "Improves the caster's armor rating by 100 points for 60 seconds.",
+    "strength": 100,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Equilibrium",
+    "school": "Alteration",
+    "level": "Novice",
+    "description": "Convert health into magicka at 25 points per second. Caster can be killed by this effect.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Expel Daedra",
+    "school": "Conjuration",
+    "level": "Expert",
+    "description": "Powerful summoned daedra creatures are sent back to Oblivion.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fade Other",
+    "school": "Illusion",
+    "level": "Expert",
+    "description": "Target is invisible for 30 seconds. Activating an object or attacking will break the spell.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fast Healing",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Heals the caster for 50 points.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fear",
+    "school": "Illusion",
+    "level": "Apprentice",
+    "description": "Creatures and people up to level 9 flee from combat for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fire Rune",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "Cast on a nearby surface, it explodes for 50 points of fire damage when enemies come near.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fire Storm",
+    "school": "Destruction",
+    "level": "Master",
+    "description": "Summons a fire storm that deals 100 damage.",
+    "strength": 100,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Fireball",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "A fiery explosion for 40 points of damage in a 15 foot radius. Targets on fire take extra damage.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Firebolt",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "A blast of fire that does 25 points of damage. Targets on fire take extra damage.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Flame Cloak",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "For 60 seconds, opponents in melee range take 8 points fire damage per second. Targets on fire take extra damage.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Flame Thrall",
+    "school": "Conjuration",
+    "level": "Master",
+    "description": "Summons a Flame Atronach permanently.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Flames",
+    "school": "Destruction",
+    "level": "Novice",
+    "description": "A gout of fire that does 8 points per second. Targets on fire take extra damage.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Freeze",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "A spike of ice that does 20 points of frost damage to Health and Stamina and slows the target for 15 seconds.",
+    "strength": 20,
+    "strength_unit": "point",
+    "base_duration": 15,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Frenzy",
+    "school": "Illusion",
+    "level": "Adept",
+    "description": "Creatures and people up to level 14 will attack anyone nearby for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Frenzy Rune",
+    "school": "Illusion",
+    "level": "Adept",
+    "description": "Targets up to level 20 that fail to resist are frenzied for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Frost Cloak",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "For 60 seconds, opponents in melee range take 8 points frost damage and Stamina damage per second.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Frost Rune",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "Cast on a nearby surface, it explodes for 50 points of frost damage when enemies come near.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Frost Thrall",
+    "school": "Conjuration",
+    "level": "Master",
+    "description": "Summons a Frost Atronach permanently.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Frostbite",
+    "school": "Destruction",
+    "level": "Novice",
+    "description": "A blast of cold that does 8 points of damage per second to Health and Stamina.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Fury",
+    "school": "Illusion",
+    "level": "Novice",
+    "description": "Creatures and people up to level 6 will attack anything nearby for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Grand Healing",
+    "school": "Restoration",
+    "level": "Expert",
+    "description": "Heals everyone close to the caster 200 points.",
+    "strength": 200,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Greater Ward",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Increases armor rating by 80 points and negates up to 80 points of spell damage or effects.",
+    "strength": 80,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Guardian Circle",
+    "school": "Restoration",
+    "level": "Master",
+    "description": "Undead up to level 35 entering the circle will flee. Caster heals 20 health per second inside it.",
+    "strength": 20,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Harmony",
+    "school": "Illusion",
+    "level": "Master",
+    "description": "Creatures and people up to level 25 nearby won't fight for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Heal Other",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Heals the target 75 points, but not undead, atronachs or machines.",
+    "strength": 75,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Heal Undead",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Heals the undead target 75 points, but not the living, atronachs or machines.",
+    "strength": 75,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Healing",
+    "school": "Restoration",
+    "level": "Novice",
+    "description": "Heals the caster 10 points per second.",
+    "strength": 10,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Healing Hands",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Heals the target 10 points per second, but not undead, atronachs, or machines.",
+    "strength": 10,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Hysteria",
+    "school": "Illusion",
+    "level": "Master",
+    "description": "Creatures and people up to level 25 flee from combat.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ice Spike",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "Throw a spike of ice that does 25 points of frost damage to Health and Stamina.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ice Storm",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "A freezing whirlwind that does 40 points of frost damage per second to Health and Stamina.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Icy Spear",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "A spear of ice that does 60 points of Frost Damage to Health and Stamina.",
+    "strength": 60,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ignite",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "A blast of flame that sets targets on fire, doing 4 damage per second for 15 seconds.",
+    "strength": 4,
+    "strength_unit": "point",
+    "base_duration": 15,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Incinerate",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "A blast of fire that does 60 points of damage. Targets on fire take extra damage.",
+    "strength": 60,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Invisibility",
+    "school": "Illusion",
+    "level": "Expert",
+    "description": "Caster is invisible for 30 seconds. Activating an object or attacking will break the spell.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Ironflesh",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Improves caster's armor rating by 80 points for 60 seconds.",
+    "strength": 80,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Lesser Ward",
+    "school": "Restoration",
+    "level": "Novice",
+    "description": "Increases armor rating by 40 points and negates up to 40 points of spell damage or effects.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Lightning Bolt",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "A bolt of lightning that does 25 points of shock damage to health and half that to magicka.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Lightning Cloak",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "For 60 seconds, nearby opponents take 8 points of shock damage and half magicka damage.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Lightning Rune",
+    "school": "Destruction",
+    "level": "Apprentice",
+    "description": "Cast on a nearby surface, it explodes for 50 points of shock damage when enemies come near.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Lightning Storm",
+    "school": "Destruction",
+    "level": "Master",
+    "description": "Target takes 75 points of shock damage per second to health, and half that to magicka.",
+    "strength": 75,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Magelight",
+    "school": "Alteration",
+    "level": "Apprentice",
+    "description": "Cast a ball of light that lasts 60 seconds and sticks where it strikes.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Mass Paralysis",
+    "school": "Alteration",
+    "level": "Master",
+    "description": "All targets in the area that fail to resist are paralyzed for 15 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 15,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Mayhem",
+    "school": "Illusion",
+    "level": "Master",
+    "description": "Creatures and people up to level 25 will attack anyone nearby for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Muffle",
+    "school": "Illusion",
+    "level": "Apprentice",
+    "description": "You move more quietly for 180 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 180,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Necromantic Healing",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Heals the undead target for 10 points per second.",
+    "strength": 10,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Oakflesh",
+    "school": "Alteration",
+    "level": "Novice",
+    "description": "Improves the caster's armor rating by 40 points for 60 seconds.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Pacify",
+    "school": "Illusion",
+    "level": "Expert",
+    "description": "Creatures and people up to level 20 won't fight for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Paralyze",
+    "school": "Alteration",
+    "level": "Expert",
+    "description": "Targets that fail to resist are paralyzed for 10 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 10,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Poison Rune",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Targets that fail to resist take 3 points of poison damage per second for 30 seconds.",
+    "strength": 3,
+    "strength_unit": "point",
+    "base_duration": 30,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Raise Zombie",
+    "school": "Conjuration",
+    "level": "Novice",
+    "description": "Reanimate a weak dead body to fight for you for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Rally",
+    "school": "Illusion",
+    "level": "Adept",
+    "description": "Targets won't flee and will get extra health and stamina.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Reanimate Corpse",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Reanimate a more powerful dead body to fight for you for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Repel Lesser Undead",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "All affected undead up to level 8 flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Repel Undead",
+    "school": "Restoration",
+    "level": "Expert",
+    "description": "All affected undead up to level 16 flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Revenant",
+    "school": "Conjuration",
+    "level": "Adept",
+    "description": "Reanimate a powerful dead body to fight for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Rout",
+    "school": "Illusion",
+    "level": "Expert",
+    "description": "Creatures and people up to level 20 flee from combat for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Soul Trap",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "If target dies within 60 seconds, fills a soul gem.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Sparks",
+    "school": "Destruction",
+    "level": "Novice",
+    "description": "Lightning that does 8 points of shock damage to health and magicka per second.",
+    "strength": 8,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Spectral Arrow",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Causes 30 damage to health and causes target to stagger.",
+    "strength": 30,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Steadfast Ward",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Increases armor rating by 60 points and negates up to 60 points of spell damage or effects.",
+    "strength": 60,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Stendarr's Aura",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "For 60 seconds, undead in melee range take 10 points of Sun damage per second.",
+    "strength": 10,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Stoneflesh",
+    "school": "Alteration",
+    "level": "Apprentice",
+    "description": "Improves the caster's armor rating by 60 points for 60 seconds.",
+    "strength": 60,
+    "strength_unit": "point",
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Storm Thrall",
+    "school": "Conjuration",
+    "level": "Master",
+    "description": "Summons a Storm Atronach permanently.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Summon Arniel's Shade",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Summons Arniel's Shade wherever the caster is pointing.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Summon Arvak",
+    "school": "Conjuration",
+    "level": "Apprentice",
+    "description": "Summons Arvak in the Soul Cairn or Tamriel wilderness to act as your steed.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Summon Unbound Dremora",
+    "school": "Conjuration",
+    "level": "Novice",
+    "description": "Summons an unbound Dremora.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Sun Fire",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Ball of sunlight that does 25 points of damage to undead.",
+    "strength": 25,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Telekinesis",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Can pull an object from a distance. Add it to the inventory or throw it.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Thunderbolt",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "Cast a thunderbolt that does 60 points of shock damage to health and half that to magicka.",
+    "strength": 60,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Transmute Mineral Ore",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Transmutes one piece of iron ore to silver ore, or silver ore to gold ore, if the caster is carrying any.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Turn Greater Undead",
+    "school": "Restoration",
+    "level": "Expert",
+    "description": "Undead up to level 21 flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Turn Lesser Undead",
+    "school": "Restoration",
+    "level": "Apprentice",
+    "description": "Undead up to level 6 flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Turn Undead",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Undead up to level 13 flee for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Vampire's Bane",
+    "school": "Restoration",
+    "level": "Adept",
+    "description": "Sunlight explosion that does 40 points of damage in a 15 foot radius to undead.",
+    "strength": 40,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Vampire's Seduction",
+    "school": "Illusion",
+    "level": "Apprentice",
+    "description": "Calms creatures and people up to level 10 for 30 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Vampiric Drain",
+    "school": "Destruction",
+    "level": "Novice",
+    "description": "Drains 2 health from target enemies and heals the caster simultaneously.",
+    "strength": 2,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Vision of the Tenth Eye",
+    "school": "Illusion",
+    "level": "Master",
+    "description": "See what others cannot.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 30,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Wall of Flames",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "Sprayed on the ground, it creates a wall of fire that does 50 points of fire damage per second.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Wall of Frost",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "Sprayed on the ground, it creates a wall of frost that does 50 points of frost damage per second.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Wall of Storms",
+    "school": "Destruction",
+    "level": "Expert",
+    "description": "Sprayed on the ground, it creates a wall of lightning that does 50 points of shock damage per second.",
+    "strength": 50,
+    "strength_unit": "point",
+    "base_duration": null,
+    "effects_cumulative": true
+  },
+  {
+    "name": "Waterbreathing",
+    "school": "Alteration",
+    "level": "Adept",
+    "description": "Breathe underwater for 60 seconds.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Whirlwind Cloak",
+    "school": "Destruction",
+    "level": "Adept",
+    "description": "For 60 seconds, opponents in melee range have a chance of being flung away.",
+    "strength": null,
+    "strength_unit": null,
+    "base_duration": 60,
+    "effects_cumulative": false
+  }
+]

@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class Enchantment < ApplicationRecord
+  SCHOOLS = %w[
+              Alteration
+              Conjuration
+              Destruction
+              Illusion
+              Restoration
+            ].freeze
+
   ENCHANTABLE_WEAPONS = [
                           'sword',
                           'mace',
@@ -13,27 +21,24 @@ class Enchantment < ApplicationRecord
                           'crossbow',
                           'staff',
                           'axe',
+                          'pickaxe',
                         ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[
-                                helmet
-                                bracers
-                                gauntlets
-                                boots
+                                head
+                                chest
+                                hands
+                                feet
                                 shield
-                                armor
-                                robes
-                                shoes
-                                necklace
+                                amulet
                                 ring
-                                circlet
-                                gloves
                               ].freeze
 
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :strength_unit, presence: true, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"' }
+  validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
+  validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
 
   private

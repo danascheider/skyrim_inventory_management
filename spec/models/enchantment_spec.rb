@@ -22,12 +22,28 @@ RSpec.describe Enchantment, type: :model do
       end
     end
 
+    describe 'school' do
+      it 'has to be a valid school of magic' do
+        enchantment = described_class.new(school: 'Foo')
+
+        enchantment.validate
+        expect(enchantment.errors[:school]).to eq ['must be a valid school of magic']
+      end
+    end
+
     describe 'strength_unit' do
       it 'must be one of "point" or "percentage"' do
+        enchantment = described_class.new(strength_unit: 'foobar')
+
+        enchantment.validate
+        expect(enchantment.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
+      end
+
+      it 'can be blank' do
         enchantment = described_class.new
 
         enchantment.validate
-        expect(enchantment.errors[:strength_unit]).to eq ["can't be blank", 'must be "point" or "percentage"']
+        expect(enchantment.errors[:strength_unit]).to be_blank
       end
     end
 
