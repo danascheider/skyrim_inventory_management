@@ -4,7 +4,7 @@ require 'json'
 
 namespace :canonical_models do
   namespace :populate do
-    desc 'Populate or update canonical alchemical properties'
+    desc 'Populate or update canonical alchemical properties from JSON data'
     task alchemical_properties: :environment do
       Rails.logger.info 'Populating canonical alchemical properties...'
 
@@ -22,7 +22,7 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical enchantments'
+    desc 'Populate or update canonical enchantments from JSON data'
     task enchantments: :environment do
       Rails.logger.info 'Populating canonical enchantments...'
 
@@ -40,7 +40,7 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical spells'
+    desc 'Populate or update canonical spells from JSON data'
     task spells: :environment do
       Rails.logger.info 'Populating canonical spells...'
 
