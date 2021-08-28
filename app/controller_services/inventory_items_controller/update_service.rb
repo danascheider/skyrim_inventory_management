@@ -6,7 +6,7 @@ require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-class InventoryListItemsController < ApplicationController
+class InventoryItemsController < ApplicationController
   class UpdateService
     AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate inventory list'
 
@@ -53,11 +53,11 @@ class InventoryListItemsController < ApplicationController
     end
 
     def list_item
-      @list_item ||= user.inventory_list_items.find(item_id)
+      @list_item ||= user.inventory_items.find(item_id)
     end
 
     def all_matching_items
-      aggregate_list.game.inventory_list_items.where('description ILIKE ?', list_item.description)
+      aggregate_list.game.inventory_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

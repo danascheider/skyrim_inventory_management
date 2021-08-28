@@ -47,7 +47,7 @@ end
 Above where you include the `Listable` module, you will need to define two class methods, `self.list_class` and `self.list_table_name`, to associate the item with its parent list.
 
 ```ruby
-class InventoryListItem < ApplicationRecord
+class InventoryItem < ApplicationRecord
   def self.list_class
     InventoryList
   end

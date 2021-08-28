@@ -2,7 +2,7 @@
 
 require 'controller/response'
 
-class InventoryListItemsController < ApplicationController
+class InventoryItemsController < ApplicationController
   def create
     result = CreateService.new(current_user, params[:inventory_list_id], list_item_params).perform
 
@@ -24,7 +24,7 @@ class InventoryListItemsController < ApplicationController
   private
 
   def list_item_params
-    params.require(:inventory_list_item).permit(
+    params.require(:inventory_item).permit(
       :description,
       :quantity,
       :notes,

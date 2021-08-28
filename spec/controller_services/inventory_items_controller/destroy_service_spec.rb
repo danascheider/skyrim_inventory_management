@@ -7,7 +7,7 @@ require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe InventoryListItemsController::DestroyService do
+RSpec.describe InventoryItemsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
@@ -19,7 +19,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
 
     context 'when all goes well' do
       context 'when there is no matching item on another list' do
-        let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+        let!(:list_item) { create(:inventory_item, list: inventory_list) }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -27,7 +27,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
 
         it 'destroys the list item and aggregate list item' do
           expect { perform }
-            .to change(game.inventory_list_items, :count).from(2).to(0)
+            .to change(game.inventory_items, :count).from(2).to(0)
         end
 
         it 'returns a Service::NoContentResult' do
@@ -41,9 +41,9 @@ RSpec.describe InventoryListItemsController::DestroyService do
       end
 
       context 'when there is a matching item on another list' do
-        let!(:list_item)  { create(:inventory_list_item, list: inventory_list) }
+        let!(:list_item)  { create(:inventory_item, list: inventory_list) }
         let(:other_list)  { create(:inventory_list, game: game) }
-        let!(:other_item) { create(:inventory_list_item, description: list_item.description, list: other_list) }
+        let!(:other_item) { create(:inventory_item, description: list_item.description, list: other_list) }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -52,7 +52,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
 
         it 'destroys the list item and aggregate list item' do
           expect { perform }
-            .to change(game.inventory_list_items, :count).from(3).to(2)
+            .to change(game.inventory_items, :count).from(3).to(2)
         end
 
         it 'returns a Service::OKResult' do
@@ -79,7 +79,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
     end
 
     context 'when the list item belongs to another user' do
-      let(:list_item) { create(:inventory_list_item) }
+      let(:list_item) { create(:inventory_item) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -92,11 +92,11 @@ RSpec.describe InventoryListItemsController::DestroyService do
     end
 
     context 'when the list item is on an aggregate list' do
-      let!(:list_item) { create(:inventory_list_item, list: aggregate_list) }
+      let!(:list_item) { create(:inventory_item, list: aggregate_list) }
 
       it "doesn't destroy the item" do
         expect { perform }
-          .not_to change(InventoryListItem, :count)
+          .not_to change(InventoryItem, :count)
       end
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -109,7 +109,7 @@ RSpec.describe InventoryListItemsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:list_item) { create(:inventory_list_item, list: inventory_list) }
+      let!(:list_item) { create(:inventory_item, list: inventory_list) }
 
       before do
         allow_any_instance_of(InventoryList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))

@@ -7,7 +7,7 @@ require 'service/not_found_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe InventoryListItemsController::CreateService do
+RSpec.describe InventoryItemsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
@@ -42,7 +42,7 @@ RSpec.describe InventoryListItemsController::CreateService do
 
         context 'when there is an existing matching item on another list' do
           let(:other_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-          let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 1) }
+          let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 1) }
 
           before do
             aggregate_list.add_item_from_child_list(other_item)
@@ -103,8 +103,8 @@ RSpec.describe InventoryListItemsController::CreateService do
 
       context 'when there is an existing matching item on the same list' do
         let(:other_list)  { create(:inventory_list, game: game) }
-        let!(:other_item) { create(:inventory_list_item, list: other_list, description: 'Necklace', quantity: 2) }
-        let!(:list_item)  { create(:inventory_list_item, list: inventory_list, description: 'Necklace', quantity: 1) }
+        let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 2) }
+        let!(:list_item)  { create(:inventory_item, list: inventory_list, description: 'Necklace', quantity: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)
@@ -116,7 +116,7 @@ RSpec.describe InventoryListItemsController::CreateService do
 
           it "doesn't create a new item" do
             expect { perform }
-              .not_to change(InventoryListItem, :count)
+              .not_to change(InventoryItem, :count)
           end
 
           it 'combines with the existing item' do
@@ -143,7 +143,7 @@ RSpec.describe InventoryListItemsController::CreateService do
 
           it "doesn't create a new list item" do
             expect { perform }
-              .not_to change(InventoryListItem, :count)
+              .not_to change(InventoryItem, :count)
           end
 
           it 'combines the items', :aggregate_failures do
@@ -221,7 +221,7 @@ RSpec.describe InventoryListItemsController::CreateService do
 
       it "doesn't create an item" do
         expect { perform }
-          .not_to change(InventoryListItem, :count)
+          .not_to change(InventoryItem, :count)
       end
 
       it 'returns a Service::MethodNotAllowedResult' do

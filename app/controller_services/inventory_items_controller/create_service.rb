@@ -7,7 +7,7 @@ require 'service/unprocessable_entity_result'
 require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 
-class InventoryListItemsController < ApplicationController
+class InventoryItemsController < ApplicationController
   class CreateService
     AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate inventory list'
 
@@ -21,7 +21,7 @@ class InventoryListItemsController < ApplicationController
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
 
       preexisting_item = inventory_list.list_items.find_by('description ILIKE ?', params[:description])
-      item             = InventoryListItem.combine_or_new(params.merge(list_id: list_id))
+      item             = InventoryItem.combine_or_new(params.merge(list_id: list_id))
 
       ActiveRecord::Base.transaction do
         item.save!
@@ -61,7 +61,7 @@ class InventoryListItemsController < ApplicationController
     end
 
     def all_matching_list_items
-      aggregate_list.game.inventory_list_items.where('description ILIKE ?', params[:description])
+      aggregate_list.game.inventory_items.where('description ILIKE ?', params[:description])
     end
   end
 end

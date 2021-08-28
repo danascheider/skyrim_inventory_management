@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_234534) do
+ActiveRecord::Schema.define(version: 2021_08_28_040417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_234534) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "inventory_list_items", force: :cascade do |t|
+  create_table "inventory_items", force: :cascade do |t|
     t.bigint "list_id", null: false
     t.string "description", null: false
     t.string "notes"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_08_27_234534) do
     t.decimal "unit_weight", precision: 5, scale: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["description", "list_id"], name: "index_inventory_list_items_on_description_and_list_id", unique: true
-    t.index ["list_id"], name: "index_inventory_list_items_on_list_id"
+    t.index ["description", "list_id"], name: "index_inventory_items_on_description_and_list_id", unique: true
+    t.index ["list_id"], name: "index_inventory_items_on_list_id"
   end
 
   create_table "inventory_lists", force: :cascade do |t|
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_234534) do
   end
 
   add_foreign_key "games", "users"
-  add_foreign_key "inventory_list_items", "inventory_lists", column: "list_id"
+  add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
   add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"

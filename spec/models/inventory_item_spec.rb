@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe InventoryListItem, type: :model do
+RSpec.describe InventoryItem, type: :model do
   let!(:game)          { create(:game) }
   let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
   let(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
 
   describe 'delegation' do
-    let(:list_item) { create(:inventory_list_item, list: inventory_list) }
+    let(:list_item) { create(:inventory_item, list: inventory_list) }
 
     describe '#game' do
       it 'returns the game its InventoryList belongs to' do
@@ -25,9 +25,9 @@ RSpec.describe InventoryListItem, type: :model do
 
   describe 'scopes' do
     describe '::index_order' do
-      let!(:list_item1) { create(:inventory_list_item, list: list) }
-      let!(:list_item2) { create(:inventory_list_item, list: list) }
-      let!(:list_item3) { create(:inventory_list_item, list: list) }
+      let!(:list_item1) { create(:inventory_item, list: list) }
+      let!(:list_item2) { create(:inventory_item, list: list) }
+      let!(:list_item3) { create(:inventory_item, list: list) }
 
       let(:list) { create(:inventory_list, game: game) }
 
@@ -91,7 +91,7 @@ RSpec.describe InventoryListItem, type: :model do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let!(:existing_item) { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:inventory_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -129,7 +129,7 @@ RSpec.describe InventoryListItem, type: :model do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'New Item', quantity: 1, list: inventory_list, unit_weight: nil) }
 
       let(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
-      let!(:other_item) { create(:inventory_list_item, description: 'New Item', list: other_list, unit_weight: 1) }
+      let!(:other_item) { create(:inventory_item, description: 'New Item', list: other_list, unit_weight: 1) }
 
       before do
         aggregate_list.add_item_from_child_list(other_item)
@@ -145,7 +145,7 @@ RSpec.describe InventoryListItem, type: :model do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
       subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
 
-      let!(:existing_item) { create(:inventory_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item) { create(:inventory_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
 
       before do
         allow(described_class).to receive(:new)
@@ -200,7 +200,7 @@ RSpec.describe InventoryListItem, type: :model do
 
       context 'when unit weight is nil and there are matching items on other lists' do
         let!(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
-        let!(:other_item) { create(:inventory_list_item, description: 'new item', list: other_list, unit_weight: 1) }
+        let!(:other_item) { create(:inventory_item, description: 'new item', list: other_list, unit_weight: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)
@@ -214,7 +214,7 @@ RSpec.describe InventoryListItem, type: :model do
   end
 
   describe '#update!' do
-    let!(:list_item) { create(:inventory_list_item, quantity: 1, list: inventory_list) }
+    let!(:list_item) { create(:inventory_item, quantity: 1, list: inventory_list) }
 
     context 'when updating quantity' do
       subject(:update_item) { list_item.update!(quantity: 4) }
@@ -237,15 +237,15 @@ RSpec.describe InventoryListItem, type: :model do
 
   describe 'notes field' do
     it 'cleans up leading and trailing dashes or whitespace' do
-      inventory_list_item = build(:inventory_list_item, notes: ' -- some notes --')
-      expect { inventory_list_item.save }
-        .to change(inventory_list_item, :notes).to('some notes')
+      inventory_item = build(:inventory_item, notes: ' -- some notes --')
+      expect { inventory_item.save }
+        .to change(inventory_item, :notes).to('some notes')
     end
 
     it 'saves as nil if it consists only of dashes' do
-      inventory_list_item = build(:inventory_list_item, notes: '--')
-      expect { inventory_list_item.save }
-        .to change(inventory_list_item, :notes).to(nil)
+      inventory_item = build(:inventory_item, notes: '--')
+      expect { inventory_item.save }
+        .to change(inventory_item, :notes).to(nil)
     end
   end
 end
