@@ -12,7 +12,7 @@ RSpec.describe Spell, type: :model do
       end
 
       it 'must be unique' do
-        described_class.create!(name: 'Clairvoyance', school: 'Illusion', description: 'Something')
+        described_class.create!(name: 'Clairvoyance', school: 'Illusion', level: 'Novice', description: 'Something')
 
         spell = described_class.new(name: 'Clairvoyance')
         spell.validate
@@ -28,11 +28,49 @@ RSpec.describe Spell, type: :model do
       end
     end
 
+    describe 'level' do
+      it 'must be a valid level' do
+        spell = described_class.new
+        spell.validate
+        expect(spell.errors[:level]).to eq ["can't be blank", 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"']
+      end
+    end
+
     describe 'description' do
       it 'must be present' do
         spell = described_class.new
         spell.validate
         expect(spell.errors[:description]).to eq ["can't be blank"]
+      end
+    end
+
+    describe 'strength and strength_unit' do
+      it 'is valid with both a strength and a strength_unit' do
+        spell = described_class.new(strength: 50, strength_unit: 'point', name: 'Fire Rune', level: 'Adept', school: 'Destruction', description: 'Hello world')
+        expect(spell).to be_valid
+      end
+
+      it 'is valid with neither a strength nor a strength_unit' do
+        spell = described_class.new(name: 'Clairvoyance', level: 'Novice', school: 'Illusion', description: 'Hello world')
+        expect(spell).to be_valid
+      end
+
+      it 'is invalid with a strength but no strength_unit' do
+        spell = described_class.new(strength: 50)
+        spell.validate
+        expect(spell.errors[:strength_unit]).to eq ['must be present if strength is given']
+      end
+
+      it 'is invalid with a strength_unit but no strength' do
+        spell = described_class.new(strength_unit: 'percentage')
+        spell.validate
+        expect(spell.errors[:strength]).to eq ['must be present if strength unit is given']
+      end
+
+      it 'requires a valid strength_unit value' do
+        spell = described_class.new(strength: 50, strength_unit: 'foo')
+        spell.validate
+        expect(spell.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
       end
     end
   end
