@@ -16,6 +16,9 @@ bundle install
 echo "+++ Setting up development and test databases......."
 bundle exec rails db:setup
 
+echo "+++ Populating canonical models from JSON data......."
+bundle exec rails canonical_models:populate:all
+
 # Install precommit hook to run Rubocop against changed Ruby
 # files before each git commit
 echo "+++ Installing Git precommit hook......."

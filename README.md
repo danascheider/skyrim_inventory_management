@@ -82,10 +82,12 @@ notes: string
 
 ### Local Setup
 
-The Skyrim Inventory Management API is a basic Rails API running on Rails 6 and Ruby 3.0.1. You can set it up locally by cloning the repository, `cd`ing into it, and running:
+The Skyrim Inventory Management API is a basic Rails API running on Rails 6 and Ruby 3.0.2. You can set it up locally by cloning the repository, `cd`ing into it, and running:
 ```bash
 ./script/setup.sh
 ```
+The setup script installs dependencies (including Bundler), sets up the database, and populates [canonical models](/docs/canonical-models.md), including alchemical properties, enchantments, and spells.
+
 Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#rubocop). **Running the setup script will overwrite any existing precommit hooks you have in the repo.** Since these are not saved in Git, they are not recoverable if you overwrite them (unless you've committed them to Git somewhere outside this repo). 
 
 To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.

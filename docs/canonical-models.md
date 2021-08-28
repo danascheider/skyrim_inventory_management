@@ -6,4 +6,25 @@ SIM knows certain things about Skyrim that it may or may not immediately reveal 
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 
-These models are not user-created and are to be stored in the database with actual data from the game. There is [planned work](https://trello.com/c/WwBkrm30/179-populate-canonical-models-in-database) to populate the models in the database and provide seeds or a Rake task to seed development and test databases.
+These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is populated live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production). 
+
+## Seeding Canonical Models
+
+### Rake Tasks
+
+The following idempotent Rake tasks can be used to populate the database with the canonical models from the JSON data or update existing models:
+
+* `rails canonical_models:populate:all` (populates all canonical models from JSON data)
+* `rails canonical_models:populate:alchemical_properties` (populates canonical alchemical properties from JSON data)
+* `rails canonical_models:populate:enchantments` (populates canonical enchantments from JSON data)
+* `rails canonical_models:populate:spells` (populates canonical spells from JSON data)
+
+These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data.
+
+### Running Rake Tasks in Production
+
+To run the Rake tasks in production, use the `heroku run` CLI command from within this repo (you will need to log in to Heroku):
+```
+heroku login
+heroku run bundle exec rails canonical_models:populate:all
+```
