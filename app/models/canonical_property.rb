@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CanonicalProperty < ApplicationRecord
+  has_many :properties, dependent: :destroy
+
   TOTAL_PROPERTY_COUNT = 10
 
   VALID_NAMES = [
@@ -29,17 +31,31 @@ class CanonicalProperty < ApplicationRecord
                   'Winterhold',
                 ].freeze
 
-  validate :ensure_max, if: :count_is_max
+  VALID_CITIES = [
+                   'Markarth',
+                   'Raven Rock',
+                   'Riften',
+                   'Solitude',
+                   'Whiterun',
+                   'Windhelm',
+                   'Winterhold',
+                 ].freeze
+
+  validate :ensure_max, on: :create, if: :count_is_max
 
   validates :name,
             presence:   true,
             inclusion:  { in: VALID_NAMES, message: "must be an ownable property in Skyrim, or the Arch-Mage's Quarters" },
-            uniqueness: true
+            uniqueness: { message: 'must be unique' }
 
   validates :hold,
             presence:   true,
             inclusion:  { in: VALID_HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
-            uniqueness: true
+            uniqueness: { message: 'must be unique' }
+
+  validates :city,
+            inclusion:  { in: VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
+            uniqueness: { message: 'must be unique if present', allow_blank: true }
 
   private
 
