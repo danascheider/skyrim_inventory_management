@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_064012) do
+ActiveRecord::Schema.define(version: 2021_08_28_234917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_064012) do
     t.boolean "forge_available", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
   end
@@ -79,6 +80,25 @@ ActiveRecord::Schema.define(version: 2021_08_28_064012) do
     t.index ["aggregate_list_id"], name: "index_inventory_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_inventory_lists_on_game_id"
     t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_property_id", null: false
+    t.string "name", null: false
+    t.string "hold", null: false
+    t.string "city"
+    t.boolean "has_alchemy_lab", default: false
+    t.boolean "has_arcane_enchanter", default: false
+    t.boolean "has_forge", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_property_id"], name: "index_properties_on_canonical_property_id"
+    t.index ["game_id", "canonical_property_id"], name: "index_properties_on_game_id_and_canonical_property_id", unique: true
+    t.index ["game_id", "city"], name: "index_properties_on_game_id_and_city", unique: true
+    t.index ["game_id", "hold"], name: "index_properties_on_game_id_and_hold", unique: true
+    t.index ["game_id", "name"], name: "index_properties_on_game_id_and_name", unique: true
+    t.index ["game_id"], name: "index_properties_on_game_id"
   end
 
   create_table "shopping_list_items", force: :cascade do |t|
@@ -134,6 +154,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_064012) do
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
   add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
+  add_foreign_key "properties", "canonical_properties"
+  add_foreign_key "properties", "games"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
