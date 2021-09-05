@@ -12,10 +12,7 @@ gem 'rails', '~> 6.1.4'
 gem 'pg', '~> 1.2'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
-
-# Use HTTParty to validate OAuth tokens
-gem 'httparty', '~> 0.18.1'
+gem 'puma', '~> 5.3.2'
 
 # Use google-id-token gem to verify tokens sent from Google OAuth
 gem 'google-id-token', '~> 1.4.2'
