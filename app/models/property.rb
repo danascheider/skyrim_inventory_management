@@ -4,6 +4,9 @@ class Property < ApplicationRecord
   belongs_to :game
   belongs_to :canonical_property
 
+  has_many :shopping_lists, dependent: nil
+  has_many :inventory_lists, dependent: nil
+
   validate :ensure_max, on: :create, if: :count_is_max
 
   validates :canonical_property, uniqueness: { scope: :game_id, message: 'must be unique per game' }
