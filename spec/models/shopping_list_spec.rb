@@ -882,6 +882,7 @@ RSpec.describe ShoppingList, type: :model do
       it 'can have a property' do
         property         = create(:property, game: create(:game), canonical_property: canonical_property, name: 'Breezehome', hold: 'Whiterun', city: 'Whiterun')
         list.property_id = property.id
+        list.validate
         expect(list.errors[:property]).to be_blank
       end
     end
