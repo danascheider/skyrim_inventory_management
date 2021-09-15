@@ -25,6 +25,11 @@ class Property < ApplicationRecord
             inclusion:  { in: CanonicalProperty::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
             uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_blank: true }
 
+  validate :ensure_alchemy_lab_available,      if: -> { has_alchemy_lab == true && !canonical_property.alchemy_lab_available }
+  validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && !canonical_property.arcane_enchanter_available }
+  validate :ensure_forge_available,            if: -> { has_forge == true && !canonical_property.forge_available }
+  validate :ensure_matches_canonical_property
+
   private
 
   def ensure_max
@@ -34,5 +39,21 @@ class Property < ApplicationRecord
 
   def count_is_max
     game.present? && game.properties.count == CanonicalProperty::TOTAL_PROPERTY_COUNT
+  end
+
+  def ensure_alchemy_lab_available
+    errors.add(:has_alchemy_lab, 'cannot be true because this property cannot have an alchemy lab in Skyrim')
+  end
+
+  def ensure_arcane_enchanter_available
+    errors.add(:has_arcane_enchanter, 'cannot be true because this property cannot have an arcane enchanter in Skyrim')
+  end
+
+  def ensure_forge_available
+    errors.add(:has_forge, 'cannot be true because this property cannot have a forge in Skyrim')
+  end
+
+  def ensure_matches_canonical_property
+    errors.add(:base, 'property attributes must match attributes of a property that exists in Skyrim') unless name == canonical_property&.name && hold == canonical_property&.hold && city == canonical_property&.city
   end
 end
