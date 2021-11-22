@@ -19,6 +19,7 @@
 !/tmp/pids/.keep
 
 .byebug_history
+.tool-versions
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
