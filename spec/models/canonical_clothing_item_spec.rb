@@ -21,7 +21,7 @@ RSpec.describe CanonicalClothingItem, type: :model do
       end
 
       it 'is valid with a valid name' do
-        item = described_class.new(name: 'foo')
+        item = described_class.new(name: 'foo', unit_weight: 2.0, body_slot: 'feet')
 
         expect(item).to be_valid
       end
@@ -43,7 +43,29 @@ RSpec.describe CanonicalClothingItem, type: :model do
       end
 
       it 'is valid with a positive decimal unit weight value' do
-        item = described_class.new(name: 'foo', unit_weight: 7.0)
+        item = described_class.new(name: 'foo', unit_weight: 7.0, body_slot: 'hands')
+
+        expect(item).to be_valid
+      end
+    end
+
+    describe 'body_slot' do
+      it 'is invalid without a body_slot' do
+        item = described_class.new(name: 'foo', unit_weight: 2.0)
+
+        item.validate
+        expect(item.errors[:body_slot]).to eq ["can't be blank", 'must be "head", "hands", "body", "feet", or "shield"']
+      end
+
+      it 'is invalid with an invalid body_slot value' do
+        item = described_class.new(name: 'foo', unit_weight: 2.0, body_slot: 'bar')
+
+        item.validate
+        expect(item.errors[:body_slot]).to eq ['must be "head", "hands", "body", "feet", or "shield"']
+      end
+
+      it 'is valid with a valid body_slot value' do
+        item = described_class.new(name: 'foo', unit_weight: 14.2, body_slot: 'shield')
 
         expect(item).to be_valid
       end
