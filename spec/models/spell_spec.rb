@@ -30,7 +30,7 @@ RSpec.describe Spell, type: :model do
       end
 
       it 'must be a valid school of magic' do
-        spell = described_class.new 'Alternation'
+        spell = described_class.new(name: 'Alternation')
 
         spell.validate
         expect(spell.errors[:school]).to include 'must be a valid school of magic'
