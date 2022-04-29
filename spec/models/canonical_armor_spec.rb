@@ -11,6 +11,7 @@ RSpec.describe CanonicalArmor, type: :model do
         armor.validate
         expect(armor.errors[:name]).to eq ["can't be blank"]
       end
+    end
 
     describe 'weight' do
       it 'is invalid without a valid weight' do
