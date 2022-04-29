@@ -7,6 +7,7 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
       t.string :weight, null: false
       t.string :body_slot, null: false
       t.boolean :dragon_priest_mask, default: false
+      t.boolean :quest_item, default: false
 
       t.timestamps
     end
