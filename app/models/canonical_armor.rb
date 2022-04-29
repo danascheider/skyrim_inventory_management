@@ -18,5 +18,5 @@ class CanonicalArmor < ApplicationRecord
                          in:      %w[head body hands feet shield],
                          message: 'must be "head", "body", "hands", "feet", or "shield"',
                        }
-  validates :unit_weight, numericality: { greater_than_or_equal_to: 0 }
+  validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end
