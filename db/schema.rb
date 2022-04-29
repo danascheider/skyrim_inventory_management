@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_094922) do
     t.string "name", null: false
     t.string "weight", null: false
     t.string "body_slot", null: false
+    t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "dragon_priest_mask", default: false
     t.boolean "quest_item", default: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_094922) do
 
   create_table "canonical_clothing_items", force: :cascade do |t|
     t.string "name", null: false
+    t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -88,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_094922) do
     t.string "jewelry_type", null: false
     t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "quest_item"
+    t.string "magical_effects"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_canonical_jewelry_items_on_name", unique: true
