@@ -5,6 +5,7 @@ SIM knows certain things about Skyrim that it may or may not immediately reveal 
 * [`AlchemicalProperty`](/app/models/alchemical_property.rb): actual properties of ingredients or potions that exist in the game
 * [`CanonicalArmor`](/app/models/canonical_armor.rb): actual armor pieces available in the game
 * [`CanonicalClothingItem`](/app/models/canonical_clothing_item.rb): actual clothing items available in the game; includes mages' robes as well as plain clothes
+* [`CanonicalJewelryItem`](/app/models/canonical_jewelry_item.rb): actual jewelry items available in-game, including both generic and unique pieces
 * [`CanonicalMaterial`](/app/models/canonical_material.rb): actual building and smithing materials present in the game
 * [`CanonicalProperty`](/app/models/canonical_property.rb): actual properties (homes) the player character can own in the game
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game

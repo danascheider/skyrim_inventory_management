@@ -11,7 +11,7 @@ RSpec.describe CanonicalArmorsTemperingMaterial, type: :model do
         model    = described_class.new(count: 0, canonical_material: material, canonical_armor: armor)
 
         model.validate
-        expect(model.errors[:count]).to eq ['must be greater than 0']
+        expect(model.errors[:count]).to include 'must be greater than 0'
       end
 
       it 'is invalid if count is not an integer' do
@@ -20,7 +20,7 @@ RSpec.describe CanonicalArmorsTemperingMaterial, type: :model do
         model    = described_class.new(count: 7.6, canonical_material: material, canonical_armor: armor)
 
         model.validate
-        expect(model.errors[:count]).to eq ['must be an integer']
+        expect(model.errors[:count]).to include 'must be an integer'
       end
 
       it 'is valid with a valid count' do

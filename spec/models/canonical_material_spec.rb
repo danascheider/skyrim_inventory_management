@@ -15,7 +15,7 @@ RSpec.describe CanonicalMaterial, type: :model do
         material = described_class.new(unit_weight: 4.2)
 
         material.validate
-        expect(material.errors[:name]).to eq ["can't be blank"]
+        expect(material.errors[:name]).to include "can't be blank"
       end
 
       it 'is invalid with a duplicate name' do
@@ -23,7 +23,7 @@ RSpec.describe CanonicalMaterial, type: :model do
         material = described_class.new(name: 'foo', unit_weight: 34.0)
 
         material.validate
-        expect(material.errors[:name]).to eq ['has already been taken']
+        expect(material.errors[:name]).to include 'has already been taken'
       end
     end
 
@@ -32,21 +32,21 @@ RSpec.describe CanonicalMaterial, type: :model do
         material = described_class.new(name: 'foo')
 
         material.validate
-        expect(material.errors[:unit_weight]).to eq ['is not a number']
+        expect(material.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'is invalid with a non-numeric unit weight' do
         material = described_class.new(name: 'foo', unit_weight: 'bar')
 
         material.validate
-        expect(material.errors[:unit_weight]).to eq ['is not a number']
+        expect(material.errors[:unit_weight]).to include 'is not a number'
       end
 
       it 'is invalid without a negative unit weight' do
         material = described_class.new(name: 'foo', unit_weight: -4.0)
 
         material.validate
-        expect(material.errors[:unit_weight]).to eq ['must be greater than or equal to 0']
+        expect(material.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
   end

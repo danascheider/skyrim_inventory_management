@@ -29,22 +29,32 @@ RSpec.describe Property, type: :model do
 
     it 'is invalid without a game' do
       property.validate
-      expect(property.errors[:game]).to eq ['must exist']
+      expect(property.errors[:game]).to include 'must exist'
     end
 
     it 'is invalid without a canonical property' do
       property.validate
-      expect(property.errors[:canonical_property]).to eq ['must exist']
+      expect(property.errors[:canonical_property]).to include 'must exist'
+    end
+
+    it 'must have a name' do
+      property.validate
+      expect(property.errors[:name]).to include "can't be blank"
     end
 
     it 'must have a valid name' do
       property.validate
-      expect(property.errors[:name]).to eq ["can't be blank", "must be an ownable property in Skyrim, or the Arch-Mage's Quarters"]
+      expect(property.errors[:name]).to include "must be an ownable property in Skyrim, or the Arch-Mage's Quarters"
+    end
+
+    it 'must have a hold' do
+      property.validate
+      expect(property.errors[:hold]).to include "can't be blank"
     end
 
     it 'must have a valid hold' do
       property.validate
-      expect(property.errors[:hold]).to eq ["can't be blank", 'must be one of the nine Skyrim holds, or Solstheim']
+      expect(property.errors[:hold]).to include 'must be one of the nine Skyrim holds, or Solstheim'
     end
 
     it 'only allows up to 10 per game', :aggregate_failures do
@@ -61,7 +71,7 @@ RSpec.describe Property, type: :model do
       property.name = 'Vlindrel Hall'
       property.hold = 'The Reach'
       property.validate
-      expect(property.errors[:game]).to eq ['already has max number of ownable properties']
+      expect(property.errors[:game]).to include 'already has max number of ownable properties'
       expect(Rails.logger).to have_received(:error).with('Cannot create property "Vlindrel Hall" in hold "The Reach": this game already has 10 properties')
     end
 
@@ -81,21 +91,21 @@ RSpec.describe Property, type: :model do
         property.game               = game
         property.canonical_property = canonical_property
         property.validate
-        expect(property.errors[:canonical_property]).to eq ['must be unique per game']
+        expect(property.errors[:canonical_property]).to include 'must be unique per game'
       end
 
       it 'has a unique name per game' do
         property.game = game
         property.name = canonical_property.name
         property.validate
-        expect(property.errors[:name]).to eq ['must be unique per game']
+        expect(property.errors[:name]).to include 'must be unique per game'
       end
 
       it 'has a unique hold per game' do
         property.game = game
         property.hold = canonical_property.hold
         property.validate
-        expect(property.errors[:hold]).to eq ['must be unique per game']
+        expect(property.errors[:hold]).to include 'must be unique per game'
       end
     end
 
@@ -108,7 +118,7 @@ RSpec.describe Property, type: :model do
         property.hold                  = canonical_property.hold
         property.city                  = nil
         property.validate
-        expect(property.errors[:base]).to eq ['property attributes must match attributes of a property that exists in Skyrim']
+        expect(property.errors[:base]).to include 'property attributes must match attributes of a property that exists in Skyrim'
       end
     end
 
@@ -120,7 +130,7 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter  = true
           property.validate
-          expect(property.errors[:has_arcane_enchanter]).to eq ['cannot be true because this property cannot have an arcane enchanter in Skyrim']
+          expect(property.errors[:has_arcane_enchanter]).to include 'cannot be true because this property cannot have an arcane enchanter in Skyrim'
         end
       end
 
@@ -151,7 +161,7 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_forge             = true
           property.validate
-          expect(property.errors[:has_forge]).to eq ['cannot be true because this property cannot have a forge in Skyrim']
+          expect(property.errors[:has_forge]).to include 'cannot be true because this property cannot have a forge in Skyrim'
         end
       end
 

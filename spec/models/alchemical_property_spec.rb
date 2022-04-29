@@ -9,7 +9,7 @@ RSpec.describe AlchemicalProperty, type: :model do
         property = described_class.new
 
         property.validate
-        expect(property.errors[:name]).to eq ["can't be blank"]
+        expect(property.errors[:name]).to include "can't be blank"
       end
 
       it 'must be unique' do
@@ -17,7 +17,7 @@ RSpec.describe AlchemicalProperty, type: :model do
 
         property = described_class.new(name: 'Restore Health')
         property.validate
-        expect(property.errors[:name]).to eq ['must be unique']
+        expect(property.errors[:name]).to include 'must be unique'
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe AlchemicalProperty, type: :model do
       it 'must be one of "point" or "percentage"' do
         property = described_class.new(strength_unit: 'Foobar')
         property.validate
-        expect(property.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
+        expect(property.errors[:strength_unit]).to include 'must be "point" or "percentage"'
       end
     end
   end
