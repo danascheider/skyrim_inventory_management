@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_040232) do
+ActiveRecord::Schema.define(version: 2022_04_29_042245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2022_04_29_040232) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_enchantments_on_canonical_armor_id"
     t.index ["enchantment_id"], name: "index_canonical_armors_enchantments_on_enchantment_id"
+  end
+
+  create_table "canonical_materials", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "building_material", default: false
+    t.boolean "smithing_material", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_canonical_materials_on_name", unique: true
   end
 
   create_table "canonical_properties", force: :cascade do |t|
