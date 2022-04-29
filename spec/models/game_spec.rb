@@ -12,7 +12,9 @@ RSpec.describe Game, type: :model do
 
         it 'is unique per user' do
           create(:game, name: 'My Game', user: user)
-          expect(game).not_to be_valid
+
+          game.validate
+          expect(game.errors[:user]).to include 'must be unique'
         end
 
         it "doesn't have to be unique across all users" do
@@ -24,7 +26,8 @@ RSpec.describe Game, type: :model do
       describe 'format' do
         it 'only contains alphanumeric characters, spaces, commas, hyphens, and apostrophes', :aggregate_failures do
           invalid_game = build(:game, name: "#\t&\n^")
-          expect(invalid_game).not_to be_valid
+          invalid_game.validate
+          expect(invalid_game.errors[:format]).to eq 'foobar'
 
           valid_game = build(:game, name: "bA1 ,-'")
           expect(valid_game).to be_valid

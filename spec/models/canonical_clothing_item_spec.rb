@@ -9,7 +9,7 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item = described_class.new
 
         item.validate
-        expect(item.errors[:name]).to eq ["can't be blank"]
+        expect(item.errors[:name]).to include "can't be blank"
       end
 
       it 'is invalid with a non-unique name' do
@@ -17,7 +17,7 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item = described_class.new(name: 'foo')
 
         item.validate
-        expect(item.errors[:name]).to eq ['has already been taken']
+        expect(item.errors[:name]).to include 'has already been taken'
       end
 
       it 'is valid with a valid name' do
@@ -32,14 +32,14 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item = described_class.new(name: 'foo', unit_weight: 'bar')
 
         item.validate
-        expect(item.errors[:unit_weight]).to eq ['is not a number']
+        expect(item.errors[:unit_weight]).to include 'is not a number'
       end
 
       it 'is invalid with a negative unit weight' do
         item = described_class.new(name: 'foo', unit_weight: -34)
 
         item.validate
-        expect(item.errors[:unit_weight]).to eq ['must be greater than or equal to 0']
+        expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
 
       it 'is valid with a positive decimal unit weight value' do
@@ -54,14 +54,14 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item = described_class.new(name: 'foo', unit_weight: 2.0)
 
         item.validate
-        expect(item.errors[:body_slot]).to eq ["can't be blank", 'must be "head", "hands", "body", "feet", or "shield"']
+        expect(item.errors[:body_slot]).to include "can't be blank"
       end
 
       it 'is invalid with an invalid body_slot value' do
         item = described_class.new(name: 'foo', unit_weight: 2.0, body_slot: 'bar')
 
         item.validate
-        expect(item.errors[:body_slot]).to eq ['must be "head", "hands", "body", "feet", or "shield"']
+        expect(item.errors[:body_slot]).to include 'must be "head", "hands", "body", "feet", or "shield"'
       end
 
       it 'is valid with a valid body_slot value' do

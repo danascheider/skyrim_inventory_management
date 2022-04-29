@@ -129,13 +129,14 @@ RSpec.describe InventoryList, type: :model do
         it 'is not allowed for a regular list', :aggregate_failures do
           list = build(:inventory_list, title: 'all items')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['cannot be "All Items"'])
+          expect(list.errors[:title]).to include 'cannot be "All Items"'
         end
       end
 
       context 'when the title contains "all items" as well as other characters' do
         it 'is valid' do
           list = build(:inventory_list, title: 'aLL iTems the seQUel')
+
           expect(list).to be_valid
         end
       end
@@ -143,30 +144,35 @@ RSpec.describe InventoryList, type: :model do
       describe 'allowed characters' do
         it 'allows alphanumeric characters, spaces, commas, apostrophes, and hyphens' do
           list = build(:inventory_list, title: "aB 61 ,'-")
+
           expect(list).to be_valid
         end
 
         it "doesn't allow newlines", :aggregate_failures do
           list = build(:inventory_list, title: "My\nList 1  ")
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow other non-space whitespace", :aggregate_failures do
           list = build(:inventory_list, title: "My\tList 1")
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow special characters", :aggregate_failures do
           list = build(:inventory_list, title: 'My^List&1')
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         # Leading and trailing whitespace characters will be stripped anyway so no need to validate
         it 'ignores leading or trailing whitespace characters' do
           list = build(:inventory_list, title: "My List 1\n\t")
+
           expect(list).to be_valid
         end
       end
@@ -873,18 +879,21 @@ RSpec.describe InventoryList, type: :model do
 
     it 'is invalid without a game' do
       list = described_class.new(aggregate_list: aggregate_list)
+
       list.validate
-      expect(list.errors[:game]).to eq ['must exist']
+      expect(list.errors[:game]).to include 'must exist'
     end
 
     it "doesn't have to have a property" do
       list = described_class.new(aggregate_list: aggregate_list)
+
       list.validate
       expect(list.errors[:property]).to be_blank
     end
 
     it 'can have a property' do
       list = described_class.new(aggregate_list: aggregate_list, property: property)
+
       expect(list.property).to eq property
     end
   end
