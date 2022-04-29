@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_061411) do
+ActiveRecord::Schema.define(version: 2022_04_29_080952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2022_04_29_061411) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
+  end
+
+  create_table "canonical_clothing_items", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "unit_weight", default: "1.0"
+    t.boolean "quest_item", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_canonical_clothing_items_on_name", unique: true
   end
 
   create_table "canonical_materials", force: :cascade do |t|
