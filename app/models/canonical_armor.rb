@@ -2,6 +2,7 @@
 
 class CanonicalArmor < ApplicationRecord
   has_many :enchantments, through: :canonical_armors_enchantments
+  has_many :smithing_materials, through: :canonical_armors_smithing_materials, source: :canonical_materials
 
   validates :name, presence: true
   validates :weight,
