@@ -8,6 +8,7 @@ class CreateCanonicalClothingItems < ActiveRecord::Migration[6.1]
       t.decimal :unit_weight, precision: 5, scale: 1
       t.boolean :quest_item, default: false
       t.boolean :unique_item, default: false
+      t.boolean :enchantable, default: true
 
       t.index :name, unique: true
 

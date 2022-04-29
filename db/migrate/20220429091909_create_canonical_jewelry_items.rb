@@ -9,6 +9,7 @@ class CreateCanonicalJewelryItems < ActiveRecord::Migration[6.1]
       t.decimal :unit_weight, scale: 1, precision: 5
       t.boolean :quest_item, default: false
       t.string :unique_item, default: false
+      t.string :enchantable, default: true
 
       t.index :name, unique: true
 

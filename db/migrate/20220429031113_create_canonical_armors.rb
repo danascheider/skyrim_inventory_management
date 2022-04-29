@@ -11,6 +11,7 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
       t.boolean :dragon_priest_mask, default: false
       t.boolean :quest_item, default: false
       t.boolean :unique_item, default: false
+      t.boolean :enchantable, default: true
 
       t.timestamps
     end
