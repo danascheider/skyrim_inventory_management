@@ -1,0 +1,434 @@
+[
+  {
+    "name": "Clay",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Glass",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Goat Horns",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Hinge",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Iron Fittings",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Lock",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Nail",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Quarried Stone",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Sawn Log",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": null
+  },
+  {
+    "name": "Straw",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Small Antlers",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Large Antlers",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name":"Sabre Cat Tooth",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Bone Meal",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Bear Pelt",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Amethyst",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Bone Hawk Feathers",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Bone Hawk Skull",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight":1
+  },
+  {
+    "name": "Cave Bear Pelt",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Centurion Dynamo Core",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight":4
+  },
+  {
+    "name": "Chaurus Chitin",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 4
+  },
+  {
+    "name": "Chitin Plate",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Corundum ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Cow Hide",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Daedra Heart",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Deer Hide",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Diamond",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Diamond",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Dragon Bone",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 15
+  },
+  {
+    "name": "Dragon Scales",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 10
+  },
+  {
+    "name": "Dwarven Metal Ingot",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ebony Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ectoplasm",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Emerald",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Emerald",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Firewood",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 5
+  },
+  {
+    "name": "Flawless Amethyst",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Garnet",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Ruby",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Fox Pelt",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Garnet",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Goat Hide",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Gold Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Vale Deer Hide",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Horse Hide",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Ice Wolf Pelt",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Iron Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Leather",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Leather Strips",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Netch Leather",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Orichalcum Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Sapphire",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Sapphire",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Quicksilver Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Refined Malachite",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Refined Moonstone",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ruby",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Sabre Cat Pelt",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight":2
+  },
+  {
+    "name": "Sabre Cat Snow Pelt",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Shellbug Chitin",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 4
+  },
+  {
+    "name": "Silver Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Snow Bear Pelt",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Snow Fox Pelt",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Stahlrim",
+    "building_material": false,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Steel Ingot",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Vale Sabre Cat Hide",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Void Salts",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.2
+  },
+  {
+    "name": "Wolf Pelt",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Horker Tusk",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Mudcrab Chitin",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.3
+  },
+  {
+    "name": "Slaughterfish Scales",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Vampire Dust",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.2
+  }
+]
