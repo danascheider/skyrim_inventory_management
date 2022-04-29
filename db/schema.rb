@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_061411) do
+ActiveRecord::Schema.define(version: 2022_04_29_082157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,24 @@ ActiveRecord::Schema.define(version: 2022_04_29_061411) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
+  end
+
+  create_table "canonical_clothing_items", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "unit_weight", precision: 5, scale: 1, default: "1.0"
+    t.boolean "quest_item", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_canonical_clothing_items_on_name", unique: true
+  end
+
+  create_table "canonical_clothing_items_enchantments", force: :cascade do |t|
+    t.bigint "canonical_clothing_item_id", null: false
+    t.bigint "enchantment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
+    t.index ["enchantment_id"], name: "index_canonical_clothing_items_enchantments_on_enchantment_id"
   end
 
   create_table "canonical_materials", force: :cascade do |t|
@@ -210,6 +228,8 @@ ActiveRecord::Schema.define(version: 2022_04_29_061411) do
   add_foreign_key "canonical_armors_smithing_materials", "canonical_materials"
   add_foreign_key "canonical_armors_tempering_materials", "canonical_armors"
   add_foreign_key "canonical_armors_tempering_materials", "canonical_materials"
+  add_foreign_key "canonical_clothing_items_enchantments", "canonical_clothing_items"
+  add_foreign_key "canonical_clothing_items_enchantments", "enchantments"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"

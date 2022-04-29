@@ -37,6 +37,7 @@ class Enchantment < ApplicationRecord
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
   has_many :canonical_armors, through: :canonical_armors_enchantments
+  has_many :canonical_clothing_items, through: :canonical_clothing_items_enchantments
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
