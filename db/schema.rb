@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_021120) do
+ActiveRecord::Schema.define(version: 2022_04_29_031113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2021_08_29_021120) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
+  end
+
+  create_table "canonical_armors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "weight", null: false
+    t.string "body_slot", null: false
+    t.boolean "dragon_priest_mask", default: false
+    t.boolean "quest_item", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "canonical_properties", force: :cascade do |t|
