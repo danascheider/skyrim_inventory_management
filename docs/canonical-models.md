@@ -3,11 +3,13 @@
 SIM knows certain things about Skyrim that it may or may not immediately reveal to users. Canonical models are models representing things in Skyrim the user may not know yet. Currently there are three canonical models:
 
 * [`AlchemicalProperty`](/app/models/alchemical_property.rb): actual properties of ingredients or potions that exist in the game
+* [`CanonicalArmor`](/app/models/canonical_armor.rb): actual armor pieces available in the game
+* [`CanonicalMaterial`](/app/models/canonical_material.rb): actual building and smithing materials present in the game
 * [`CanonicalProperty`](/app/models/canonical_property.rb): actual properties (homes) the player character can own in the game
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 
-These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is populated live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production). 
+These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is populated live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
 
 ## Seeding Canonical Models
 

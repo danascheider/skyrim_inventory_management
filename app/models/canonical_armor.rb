@@ -2,6 +2,8 @@
 
 class CanonicalArmor < ApplicationRecord
   has_many :enchantments, through: :canonical_armors_enchantments
+  has_many :smithing_materials, through: :canonical_armors_smithing_materials, source: :canonical_materials
+  has_many :tempering_materials, through: :canonical_armors_tempering_materials, source: :canonical_materials
 
   validates :name, presence: true
   validates :weight,
@@ -16,4 +18,5 @@ class CanonicalArmor < ApplicationRecord
                          in:      %w[head body hands feet shield],
                          message: 'must be "head", "body", "hands", "feet", or "shield"',
                        }
+  validates :unit_weight, numericality: { greater_than_or_equal_to: 0 }
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_040232) do
+ActiveRecord::Schema.define(version: 2022_04_29_061411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_040232) do
     t.string "name", null: false
     t.string "weight", null: false
     t.string "body_slot", null: false
+    t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "dragon_priest_mask", default: false
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,6 +42,36 @@ ActiveRecord::Schema.define(version: 2022_04_29_040232) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_enchantments_on_canonical_armor_id"
     t.index ["enchantment_id"], name: "index_canonical_armors_enchantments_on_enchantment_id"
+  end
+
+  create_table "canonical_armors_smithing_materials", force: :cascade do |t|
+    t.bigint "canonical_armor_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "count", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id"], name: "index_canonical_armors_smithing_mats_on_canonical_armor_id"
+    t.index ["canonical_material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
+  end
+
+  create_table "canonical_armors_tempering_materials", force: :cascade do |t|
+    t.bigint "canonical_armor_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "count", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
+    t.index ["canonical_material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
+  end
+
+  create_table "canonical_materials", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "building_material", default: false
+    t.boolean "smithing_material", default: false
+    t.decimal "unit_weight", precision: 5, scale: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_canonical_materials_on_name", unique: true
   end
 
   create_table "canonical_properties", force: :cascade do |t|
@@ -175,6 +206,10 @@ ActiveRecord::Schema.define(version: 2022_04_29_040232) do
 
   add_foreign_key "canonical_armors_enchantments", "canonical_armors"
   add_foreign_key "canonical_armors_enchantments", "enchantments"
+  add_foreign_key "canonical_armors_smithing_materials", "canonical_armors"
+  add_foreign_key "canonical_armors_smithing_materials", "canonical_materials"
+  add_foreign_key "canonical_armors_tempering_materials", "canonical_armors"
+  add_foreign_key "canonical_armors_tempering_materials", "canonical_materials"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
