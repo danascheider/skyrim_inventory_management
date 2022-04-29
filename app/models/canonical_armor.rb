@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CanonicalArmor < ApplicationRecord
+  has_many :enchantments, through: :canonical_armors_enchantments
+
   validates :name, presence: true
   validates :weight,
             presence:  true,
