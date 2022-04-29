@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CanonicalJewelryItem < ApplicationRecord
+  has_many :enchantments, through: :canonical_jewelry_items_enchantments
+
   validates :name, presence: true, uniqueness: true
   validates :jewelry_type,
             presence:  true,
