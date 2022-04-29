@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_082157) do
 
   create_table "canonical_clothing_items", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "unit_weight", default: "1.0"
+    t.decimal "unit_weight", precision: 5, scale: 1, default: "1.0"
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
