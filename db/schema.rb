@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_084831) do
+ActiveRecord::Schema.define(version: 2022_04_29_091909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_084831) do
 
   create_table "canonical_clothing_items", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "unit_weight", precision: 5, scale: 1, default: "1.0"
+    t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2022_04_29_084831) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
     t.index ["enchantment_id"], name: "index_canonical_clothing_items_enchantments_on_enchantment_id"
+  end
+
+  create_table "canonical_jewelry_items", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "jewelry_type", null: false
+    t.decimal "unit_weight", precision: 5, scale: 1
+    t.boolean "quest_item"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_canonical_jewelry_items_on_name", unique: true
   end
 
   create_table "canonical_materials", force: :cascade do |t|
