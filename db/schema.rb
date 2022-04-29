@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_061411) do
     t.string "name", null: false
     t.string "weight", null: false
     t.string "body_slot", null: false
+    t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "dragon_priest_mask", default: false
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_04_29_061411) do
     t.string "name", null: false
     t.boolean "building_material", default: false
     t.boolean "smithing_material", default: false
+    t.decimal "unit_weight", precision: 5, scale: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_canonical_materials_on_name", unique: true
