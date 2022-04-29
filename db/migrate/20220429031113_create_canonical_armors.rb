@@ -10,6 +10,7 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
       t.decimal :unit_weight, precision: 5, scale: 1
       t.boolean :dragon_priest_mask, default: false
       t.boolean :quest_item, default: false
+      t.boolean :unique_item, default: false
 
       t.timestamps
     end
