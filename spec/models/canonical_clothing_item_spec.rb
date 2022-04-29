@@ -41,6 +41,12 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item.validate
         expect(item.errors[:unit_weight]).to eq ['must be greater than or equal to 0']
       end
+
+      it 'is valid with a positive decimal unit weight value' do
+        item = described_class.new(name: 'foo', unit_weight: 7.0)
+
+        expect(item).to be_valid
+      end
     end
   end
 end
