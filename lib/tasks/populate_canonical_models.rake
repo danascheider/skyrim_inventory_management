@@ -109,10 +109,32 @@ namespace :canonical_models do
       end
     end
 
+    desc 'Populate or update canonical jewelry items from JSON data'
+    task canonical_jewelry_items: :environment do
+      Rails.logger.info 'Populating canonical jewelry items...'
+
+      items = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.json')), symbolize_names: true)
+
+      ActiveRecord::Base.transaction do
+        items.each do |item_attributes|
+          item = CanonicalJewelryItem.find_or_initialize_by(name: item_attributes[:name])
+          item.assign_attributes(item_attributes)
+          item.save!
+        rescue ActiveRecord::RecordInvalid => e
+          Rails.logger.error "Validation error saving canonical jewelry item \"#{item_attributes[:name]}\": #{e.message}"
+          raise e
+        rescue StandardError => e
+          Rails.logger.error "Unknown error saving canonical jewelry item \"#{item_attributes[:name]}\": #{e.message}"
+          raise e
+        end
+      end
+    end
+
     desc 'Populate or update all canonical models from JSON files'
     task all: :environment do
       Rake::Task['canonical_models:populate:alchemical_properties'].invoke
       Rake::Task['canonical_models:populate:canonical_materials'].invoke
+      Rake::Task['canonical_models:populate:canonical_jewelry_items'].invoke
       Rake::Task['canonical_models:populate:canonical_properties'].invoke
       Rake::Task['canonical_models:populate:enchantments'].invoke
       Rake::Task['canonical_models:populate:spells'].invoke
