@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
 
   create_table "canonical_armors", force: :cascade do |t|
     t.string "name", null: false
+    t.string "item_code", null: false
     t.string "weight", null: false
     t.string "body_slot", null: false
     t.string "magical_effects"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.boolean "enchantable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
   create_table "canonical_armors_enchantments", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
 
   create_table "canonical_clothing_items", force: :cascade do |t|
     t.string "name", null: false
+    t.string "item_code", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 1
     t.boolean "quest_item", default: false
@@ -78,7 +81,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "body_slot", null: false
-    t.index ["name"], name: "index_canonical_clothing_items_on_name", unique: true
+    t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
   create_table "canonical_clothing_items_enchantments", force: :cascade do |t|
@@ -93,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
 
   create_table "canonical_jewelry_items", force: :cascade do |t|
     t.string "name", null: false
+    t.string "item_code", null: false
     t.string "jewelry_type", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 1
@@ -101,7 +105,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.string "enchantable", default: "t"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_canonical_jewelry_items_on_name", unique: true
+    t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
   create_table "canonical_jewelry_items_canonical_materials", force: :cascade do |t|

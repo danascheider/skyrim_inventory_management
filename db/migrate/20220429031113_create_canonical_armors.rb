@@ -4,6 +4,7 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
   def change
     create_table :canonical_armors do |t|
       t.string :name, null: false
+      t.string :item_code, null: false, unique: true
       t.string :weight, null: false
       t.string :body_slot, null: false
       t.string :magical_effects
@@ -12,6 +13,8 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
       t.boolean :quest_item, default: false
       t.boolean :unique_item, default: false
       t.boolean :enchantable, default: true
+
+      t.index :item_code, unique: true
 
       t.timestamps
     end
