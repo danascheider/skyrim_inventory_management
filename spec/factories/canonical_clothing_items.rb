@@ -2,9 +2,10 @@
 
 FactoryBot.define do
   factory :canonical_clothing_item do
-    sequence(:name) {|n| "Clothing Item #{n}" }
-    unit_weight     { 9.9 }
-    body_slot       { 'body' }
-    quest_item      { false }
+    name                 { 'Fine Clothes' }
+    sequence(:item_code) {|n| "123xxx#{n}" }
+    unit_weight          { 9.9 }
+    body_slot            { 'body' }
+    quest_item           { false }
   end
 end

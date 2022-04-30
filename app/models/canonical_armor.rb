@@ -6,6 +6,7 @@ class CanonicalArmor < ApplicationRecord
   has_many :tempering_materials, through: :canonical_armors_tempering_materials, source: :canonical_materials
 
   validates :name, presence: true
+  validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
   validates :weight,
             presence:  true,
             inclusion: {
