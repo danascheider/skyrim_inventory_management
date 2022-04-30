@@ -1,803 +1,1263 @@
 [
   {
-    "name": "Copper and Moonstone Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Copper and Onyx Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Copper and Ruby Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Copper and Sapphire Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold and Emerald Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold and Ruby Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Jade and Emerald Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Jade and Sapphire Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver and Moonstone Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver and Sapphire Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Aetherial Crown",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": true,
-    "magical_effects": "Retain effects of the last two Standing Stones selected when equipped",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Diadem of the Savant",
-    "jewelry_type": "circlet",
-    "unit_weight": 4,
-    "quest_item": false,
-    "magical_effects": "Spells in all schools cost less Magicka to cast",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Mage's Circlet",
-    "jewelry_type": "circlet",
-    "unit_weight": 2,
-    "quest_item": true,
-    "magical_effects": "Increases your Magicka by 20-70 points",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Wedding Wreath",
-    "jewelry_type": "circlet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Gold Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Diamond Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Emerald Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Sapphire Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Amethyst Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Garnet Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Ruby Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Ahzidal's Ring of Arcana",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": "Allows you to cast the Destruction spells Ignite and Freeze",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ahzidal's Ring of Necromancy",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": "Whenever a creature you have reanimated takes damage, they explode for 50 points of Frost damage and die",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Asgeir's Wedding Band",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Balwen's Ornamental Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Bone Hawk Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": true
-  },
-  {
-    "name":"Calcelmo's Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Enchanted Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Fjola's Wedding Band",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": true
-  },
-  {
-    "name": "Hircine's Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": "Provides additional transformations for werewolves",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ilas-Tei's Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": true
-  },
-  {
-    "name": "Katarina's Ornamental Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Madesi's Silver Ring",
-    "jewelry_type": "ring",
-    "unit_weight":0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Muiri's Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Neloth's Ring of Tracking",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Nightweaver's Band",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Pithi's Ornamental Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of Bloodlust",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": false,
-    "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of Instinct",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": false,
-    "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of Namira",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of Pure Mixtures",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of the Beast",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of the Erudite",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of the Hunt",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": false,
-    "magical_effects": "While in Beast Form, your health regenerates",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ring of the Moon",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": false,
-    "magical_effects": "Increases the duration of your Howls by 25%",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Silver-Blood Family Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "The Bond of Matrimony",
-    "jewelry_type": "ring",
-    "unit_weight": 0.3,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Treoy's Ornamental Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 3,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Viola's Gold Ring",
-    "jewelry_type": "ring",
-    "unit_weight": 0.25,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Gold Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Diamond Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Jeweled Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Gold Ruby Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Emerald Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Jeweled Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Silver Sapphire Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Bone Hawk Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Amulet of Akatosh",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Arkay",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Dibella",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Julianos",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Kynareth",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Mara",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Stendarr",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Talos",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": "Time between Shouts is reduced by 20%",
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Zenithar",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": false,
-    "magical_effects": "Prices are 10% better",
-    "unique_item": false,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Articulation",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of Bats",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of the Gargoyle",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": "While wearing this amulet, your Summon Gargoyle spell summons an additional gargoyle for 30 seconds",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Andur's Amulet of Arkay",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Charmed Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "East Empire Pendant",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": false,
-    "magical_effects": null,
-    "unique_item": false,
-    "enchantable": true
-  },
-  {
-    "name": "Fjotli's Silver Locket",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Grosta's Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Jeweled Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Amulet of the Elder Council",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Kyne's Token",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": "Damage taken from animals is reduced 10%",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Locket of Saint Jiub",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Moon amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Necromancer Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": "Health and Stamina regenerate 75% slower",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Ogmund's Amulet of Talos",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": "Time between Shouts is reduced by 20%",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Reyda's Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Saarthal Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.75,
-    "quest_item": true,
-    "magical_effects": "Spells cost 3% less to cast",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Savos Aren's Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name":"Shahvee's Amulet of Zenithar",
-    "jewelry_type": "amulet",
-    "unit_weight": 1,
-    "quest_item": true,
-    "magical_effects": "Prices are 10% better",
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "The Gauldur Amulet",
-    "jewelry_type": "amulet",
-    "unit_weight": 0,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": false
-  },
-  {
-    "name": "Yisra's Necklace",
-    "jewelry_type": "amulet",
-    "unit_weight": 0.5,
-    "quest_item": true,
-    "magical_effects": null,
-    "unique_item": true,
-    "enchantable": true
+    "attributes": {
+      "name": "Copper and Moonstone Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Onyx Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Ruby Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Sapphire Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gold and Emerald Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gold and Ruby Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jade and Emerald Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jade and Sapphire Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Silver and Moonstone Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Silver and Sapphire Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Aetherial Crown",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": true,
+      "magical_effects": "Retain effects of the last two Standing Stones selected when equipped",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Diadem of the Savant",
+      "jewelry_type": "circlet",
+      "unit_weight": 4,
+      "quest_item": false,
+      "magical_effects": "Spells in all schools cost less Magicka to cast",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mage's Circlet",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": true,
+      "magical_effects": "Increases your Magicka by 20-70 points",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Wedding Wreath",
+      "jewelry_type": "circlet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gold Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Diamond Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Diamond",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Emerald Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Emerald",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Sapphire Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Sapphire",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Amethyst Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Amethyst",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Garnet Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Garnet",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Ruby Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Ruby",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ahzidal's Ring of Arcana",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Allows you to cast the Destruction spells Ignite and Freeze",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ahzidal's Ring of Necromancy",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Whenever a creature you have reanimated takes damage, they explode for 50 points of Frost damage and die",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Asgeir's Wedding Band",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Balwen's Ornamental Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Bone Hawk Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name":"Calcelmo's Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Enchanted Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fjola's Wedding Band",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Hircine's Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Provides additional transformations for werewolves",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ilas-Tei's Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Katarina's Ornamental Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Madesi's Silver Ring",
+      "jewelry_type": "ring",
+      "unit_weight":0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Muiri's Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Neloth's Ring of Tracking",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Nightweaver's Band",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 10
+      },
+      {
+        "name": "Fortify Destruction",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Pithi's Ornamental Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Bloodlust",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Instinct",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Namira",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Pure Mixtures",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Beast",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Erudite",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Regenerate Magicka faster",
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Hunt",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "While in Beast Form, your health regenerates",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Moon",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "Increases the duration of your Howls by 25%",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Silver-Blood Family Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The Bond of Matrimony",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "Restoration spells cost 10% less to cast",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Treoy's Ornamental Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Viola's Gold Ring",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gold Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Diamond Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Diamond",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Jeweled Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Amethyst",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Ruby Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Ruby",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Emerald Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Emerald",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Jeweled Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Garnet",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Sapphire Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Sapphire",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bone Hawk Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Bone Hawk Skull",
+        "count": 1
+      },
+      {
+        "name": "Bone Hawk Feathers",
+        "count": 6
+      },
+      {
+        "name": "Leather Strips",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Akatosh",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Arkay",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Dibella",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": "+15 Speechcraft",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Julianos",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Kynareth",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Mara",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": "Restoration spells cost 10% less to cast",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Stendarr",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Talos",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": "Time between Shouts is reduced by 20%",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Zenithar",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": "Prices are 10% better",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Articulation",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Bats",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of the Gargoyle",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": "While wearing this amulet, your Summon Gargoyle spell summons an additional gargoyle for 30 seconds",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Andur's Amulet of Arkay",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Charmed Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "East Empire Pendant",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fjotli's Silver Locket",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Grosta's Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jeweled Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of the Elder Council",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Kyne's Token",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": "Damage taken from animals is reduced 10%",
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 5
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Locket of Saint Jiub",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 50
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Moon amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Necromancer Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": "Conjuration spells cost 25% lesss to cast, Health and Stamina regenerate 75% slower",
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ogmund's Amulet of Talos",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": "Time between Shouts is reduced by 20%",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Reyda's Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Saarthal Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.75,
+      "quest_item": true,
+      "magical_effects": "Spells cost 3% less to cast",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Savos Aren's Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name":"Shahvee's Amulet of Zenithar",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": "Prices are 10% better",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "The Gauldur Amulet",
+      "jewelry_type": "amulet",
+      "unit_weight": 0,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 30
+      },
+      {
+        "name": "Fortify Health",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Yisra's Necklace",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
   }
 ]

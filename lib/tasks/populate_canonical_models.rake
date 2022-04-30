@@ -117,14 +117,38 @@ namespace :canonical_models do
 
       ActiveRecord::Base.transaction do
         items.each do |item_attributes|
-          item = CanonicalJewelryItem.find_or_initialize_by(name: item_attributes[:name])
-          item.assign_attributes(item_attributes)
+          item = CanonicalJewelryItem.find_or_initialize_by(name: item_attributes[:attributes][:name])
+          item.assign_attributes(item_attributes[:attributes])
           item.save!
+
+          if item_attributes.has_key?(:materials)
+            item_attributes[:materials].each do |data|
+              material = CanonicalMaterial.find_by(name: data[:name])
+
+              CanonicalJewelryItemsCanonicalMaterial.create!(
+                canonical_jewelry_item: item,
+                canonical_material:     material,
+                strength:               data[:count],
+              )
+            end
+          end
+
+          if item_attributes.has_key?(:enchantments)
+            item_attributes[:enchantments].each do |data|
+              enchantment = Enchantment.find_by(name: data[:name])
+
+              CanonicalJewelryItemsEnchantment.create!(
+                canonical_jewelry_item: item,
+                enchantment:            enchantment,
+                strength:               data[:strength],
+              )
+            end
+          end
         rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical jewelry item \"#{item_attributes[:name]}\": #{e.message}"
+          Rails.logger.error "Validation error saving canonical jewelry item \"#{item_attributes[:attributes][:name]}\": #{e.message}"
           raise e
         rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical jewelry item \"#{item_attributes[:name]}\": #{e.message}"
+          Rails.logger.error "Unknown error saving canonical jewelry item \"#{item_attributes[:attributes][:name]}\": #{e.message}"
           raise e
         end
       end
