@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_094922) do
+ActiveRecord::Schema.define(version: 2022_04_30_002324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 2022_04_29_094922) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_canonical_jewelry_items_on_name", unique: true
+  end
+
+  create_table "canonical_jewelry_items_canonical_materials", force: :cascade do |t|
+    t.bigint "canonical_jewelry_item_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "count", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
+    t.index ["canonical_material_id"], name: "index_canonical_jewelry_items_materials_on_material_id"
   end
 
   create_table "canonical_jewelry_items_enchantments", force: :cascade do |t|
@@ -259,6 +269,8 @@ ActiveRecord::Schema.define(version: 2022_04_29_094922) do
   add_foreign_key "canonical_armors_tempering_materials", "canonical_materials"
   add_foreign_key "canonical_clothing_items_enchantments", "canonical_clothing_items"
   add_foreign_key "canonical_clothing_items_enchantments", "enchantments"
+  add_foreign_key "canonical_jewelry_items_canonical_materials", "canonical_jewelry_items"
+  add_foreign_key "canonical_jewelry_items_canonical_materials", "canonical_materials"
   add_foreign_key "canonical_jewelry_items_enchantments", "canonical_jewelry_items"
   add_foreign_key "canonical_jewelry_items_enchantments", "enchantments"
   add_foreign_key "games", "users"

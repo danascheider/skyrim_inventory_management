@@ -2,6 +2,7 @@
 
 class CanonicalJewelryItem < ApplicationRecord
   has_many :enchantments, through: :canonical_jewelry_items_enchantments
+  has_many :canonical_materials, through: :canonical_jewelry_items_canonical_materials
 
   validates :name, presence: true, uniqueness: true
   validates :jewelry_type,
