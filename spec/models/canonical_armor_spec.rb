@@ -41,7 +41,7 @@ RSpec.describe CanonicalArmor, type: :model do
         armor = described_class.new(name: 'fur armor', weight: 'light armor', unit_weight: 47.0, body_slot: 'foo')
 
         armor.validate
-        expect(armor.errors[:body_slot]).to include 'must be "head", "body", "hands", "feet", or "shield"'
+        expect(armor.errors[:body_slot]).to include 'must be "head", "body", "hands", "feet", "hair", or "shield"'
       end
 
       it 'is valid with a valid body slot' do
@@ -74,7 +74,7 @@ RSpec.describe CanonicalArmor, type: :model do
       end
 
       it 'is valid with a valid unit weight' do
-        armor = described_class.new(name: 'steel helmet', weight: 'heavy armor', body_slot: 'head', unit_weight: 2.4)
+        armor = described_class.new(name: 'steel helmet', weight: 'heavy armor', body_slot: 'hair', unit_weight: 2.4)
 
         expect(armor).to be_valid
       end

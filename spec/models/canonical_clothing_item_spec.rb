@@ -61,7 +61,7 @@ RSpec.describe CanonicalClothingItem, type: :model do
         item = described_class.new(name: 'foo', unit_weight: 2.0, body_slot: 'bar')
 
         item.validate
-        expect(item.errors[:body_slot]).to include 'must be "head", "hands", "body", "feet", or "shield"'
+        expect(item.errors[:body_slot]).to include 'must be "head", "hands", "body", or "feet"'
       end
 
       it 'is valid with a valid body_slot value' do
