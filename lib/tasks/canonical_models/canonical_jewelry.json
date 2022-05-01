@@ -142,24 +142,6 @@
   },
   {
     "attributes": {
-      "name": "Circlet of Extreme Alteration",
-      "item_code": "000fc009",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Circlet of Extreme Archery",
       "item_code": "000fc02e",
       "jewelry_type": "circlet",
@@ -359,7 +341,7 @@
   {
     "attributes": {
       "name": "Circlet of Peerless Alchemy",
-      "item_code": "000fc004",
+      "item_code": "000fc005",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -431,6 +413,7 @@
   {
     "attributes": {
       "name": "Copper and Moonstone Circlet",
+      "item_code": "00016730",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -442,6 +425,7 @@
   {
     "attributes": {
       "name": "Copper and Onyx Circlet",
+      "item_code": "000166FF",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -453,6 +437,7 @@
   {
     "attributes": {
       "name": "Copper and Ruby Circlet",
+      "item_code": "00016731",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -464,6 +449,7 @@
   {
     "attributes": {
       "name": "Copper and Sapphire Circlet",
+      "item_code": "000166FE",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -475,6 +461,7 @@
   {
     "attributes": {
       "name": "Gold and Emerald Circlet",
+      "item_code": "0001672F",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -486,6 +473,7 @@
   {
     "attributes": {
       "name": "Gold and Ruby Circlet",
+      "item_code": "000166FD",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -497,6 +485,7 @@
   {
     "attributes": {
       "name": "Jade and Emerald Circlet",
+      "item_code": "000166D6",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -508,6 +497,7 @@
   {
     "attributes": {
       "name": "Jade and Sapphire Circlet",
+      "item_code": "0001671A",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -519,6 +509,7 @@
   {
     "attributes": {
       "name": "Silver and Moonstone Circlet",
+      "item_code": "000166E0",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -531,6 +522,7 @@
     "attributes": {
       "name": "Silver and Sapphire Circlet",
       "jewelry_type": "circlet",
+      "item_code": "00016719",
       "unit_weight": 2,
       "quest_item": false,
       "magical_effects": null,
@@ -541,6 +533,7 @@
   {
     "attributes": {
       "name": "Aetherial Crown",
+      "item_code": "xx00575a",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": true,
@@ -552,6 +545,7 @@
   {
     "attributes": {
       "name": "Diadem of the Savant",
+      "item_code": "000F9904",
       "jewelry_type": "circlet",
       "unit_weight": 4,
       "quest_item": false,
@@ -563,6 +557,7 @@
   {
     "attributes": {
       "name": "Mage's Circlet",
+      "item_code": "000F1B2C",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": true,
@@ -586,6 +581,7 @@
   {
     "attributes": {
       "name": "Gold Ring",
+      "item_code": "0001CF2B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -603,6 +599,7 @@
   {
     "attributes": {
       "name": "Gold Diamond Ring",
+      "item_code": "000877C9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -624,6 +621,7 @@
   {
     "attributes": {
       "name": "Gold Emerald Ring",
+      "item_code": "000877CA",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -645,6 +643,7 @@
   {
     "attributes": {
       "name": "Gold Sapphire Ring",
+      "item_code": "000877CB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -684,7 +683,7 @@
   {
     "attributes": {
       "name": "Ring of Archery",
-      "item_code": "00100e24",
+      "item_code": "00100e25",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -756,7 +755,7 @@
   {
     "attributes": {
       "name": "Circlet of Destruction",
-      "item_code": "000fc00d",
+      "item_code": "000fc013",
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "quest_item": false,
@@ -828,7 +827,7 @@
   {
     "attributes": {
       "name": "Ring of Eminent Conjuration",
-      "item_code": "00100dfb",
+      "item_code": "00100dfc",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1134,6 +1133,7 @@
   {
     "attributes": {
       "name": "Silver Ring",
+      "item_code": "0003B97C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1151,6 +1151,7 @@
   {
     "attributes": {
       "name": "Silver Amethyst Ring",
+      "item_code": "000877A7",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1172,6 +1173,7 @@
   {
     "attributes": {
       "name": "Silver Garnet Ring",
+      "item_code": "000877AB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1193,6 +1195,7 @@
   {
     "attributes": {
       "name": "Silver Ruby Ring",
+      "item_code": "000877B1",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1214,6 +1217,7 @@
   {
     "attributes": {
       "name": "Ahzidal's Ring of Arcana",
+      "item_code": "XX01DB9B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1225,6 +1229,7 @@
   {
     "attributes": {
       "name": "Ahzidal's Ring of Necromancy",
+      "item_code": "XX01DB9A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1236,6 +1241,7 @@
   {
     "attributes": {
       "name": "Asgeir's Wedding Band",
+      "item_code": "000F5A1D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1247,6 +1253,7 @@
   {
     "attributes": {
       "name": "Balwen's Ornamental Ring",
+      "item_code": "000DA735",
       "jewelry_type": "ring",
       "unit_weight": 3,
       "quest_item": true,
@@ -1258,6 +1265,7 @@
   {
     "attributes": {
       "name": "Bone Hawk Ring",
+      "item_code": "xx011CF5",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
@@ -1268,7 +1276,8 @@
   },
   {
     "attributes": {
-      "name":"Calcelmo's Ring",
+      "name": "Calcelmo's Ring",
+      "item_code": "000D8482",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1280,6 +1289,7 @@
   {
     "attributes": {
       "name": "Enchanted Ring",
+      "item_code": "0002584C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1297,6 +1307,7 @@
   {
     "attributes": {
       "name": "Fjola's Wedding Band",
+      "item_code": "000D3BDB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1308,6 +1319,7 @@
   {
     "attributes": {
       "name": "Hircine's Ring",
+      "item_code": "0002AC60",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1319,6 +1331,7 @@
   {
     "attributes": {
       "name": "Ilas-Tei's Ring",
+      "item_code": "000D5047",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1330,6 +1343,7 @@
   {
     "attributes": {
       "name": "Katarina's Ornamental Ring",
+      "item_code": "000DA733",
       "jewelry_type": "ring",
       "unit_weight": 3,
       "quest_item": true,
@@ -1341,8 +1355,9 @@
   {
     "attributes": {
       "name": "Madesi's Silver Ring",
+      "item_code": "00076F12",
       "jewelry_type": "ring",
-      "unit_weight":0.25,
+      "unit_weight": 0.25,
       "quest_item": true,
       "magical_effects": null,
       "unique_item": true,
@@ -1352,6 +1367,7 @@
   {
     "attributes": {
       "name": "Muiri's Ring",
+      "item_code": "0006B218",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1369,6 +1385,7 @@
   {
     "attributes": {
       "name": "Neloth's Ring of Tracking",
+      "item_code": "XX01961C",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1380,6 +1397,7 @@
   {
     "attributes": {
       "name": "Nightweaver's Band",
+      "item_code": "00068B83",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1401,6 +1419,7 @@
   {
     "attributes": {
       "name": "Pithi's Ornamental Ring",
+      "item_code": "000DA734",
       "jewelry_type": "ring",
       "unit_weight": 3,
       "quest_item": true,
@@ -1412,6 +1431,7 @@
   {
     "attributes": {
       "name": "Ring of Bloodlust",
+      "item_code": "XX0275B6",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": false,
@@ -1423,6 +1443,7 @@
   {
     "attributes": {
       "name": "Ring of Instinct",
+      "item_code": "XX0275B7",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": false,
@@ -1434,6 +1455,7 @@
   {
     "attributes": {
       "name": "Ring of Namira",
+      "item_code": "0002C37B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1445,6 +1467,7 @@
   {
     "attributes": {
       "name": "Ring of Pure Mixtures",
+      "item_code": "00090E32",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1462,6 +1485,7 @@
   {
     "attributes": {
       "name": "Ring of the Beast",
+      "item_code": "XX00E7FD",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1473,6 +1497,7 @@
   {
     "attributes": {
       "name": "Ring of the Erudite",
+      "item_code": "XX00E7FE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1490,6 +1515,7 @@
   {
     "attributes": {
       "name": "Ring of the Hunt",
+      "item_code": "XX0275B9",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": false,
@@ -1501,6 +1527,7 @@
   {
     "attributes": {
       "name": "Ring of the Moon",
+      "item_code": "XX0275B8",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": false,
@@ -1512,6 +1539,7 @@
   {
     "attributes": {
       "name": "Silver-Blood Family Ring",
+      "item_code": "00024CFF",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": true,
@@ -1529,6 +1557,7 @@
   {
     "attributes": {
       "name": "The Bond of Matrimony",
+      "item_code": "000C5809",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
       "quest_item": false,
@@ -1546,6 +1575,7 @@
   {
     "attributes": {
       "name": "Treoy's Ornamental Ring",
+      "item_code": "000DA732",
       "jewelry_type": "ring",
       "unit_weight": 3,
       "quest_item": true,
@@ -1557,6 +1587,7 @@
   {
     "attributes": {
       "name": "Viola's Gold Ring",
+      "item_code": "000403A9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": true,
@@ -1568,6 +1599,7 @@
   {
     "attributes": {
       "name": "Gold Necklace",
+      "item_code": "000877D5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1585,6 +1617,7 @@
   {
     "attributes": {
       "name": "Gold Diamond Necklace",
+      "item_code": "000877F1",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1606,6 +1639,7 @@
   {
     "attributes": {
       "name": "Gold Jeweled Necklace",
+      "item_code": "00087835",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1627,6 +1661,7 @@
   {
     "attributes": {
       "name": "Gold Ruby Necklace",
+      "item_code": "000877DC",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1828,7 +1863,7 @@
   {
     "attributes": {
       "name": "Necklace of Major Blocking",
-      "item_code": "0010df1c",
+      "item_code": "0010df1d",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1972,6 +2007,7 @@
   {
     "attributes": {
       "name": "Silver Necklace",
+      "item_code": "0009171B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -1989,6 +2025,7 @@
   {
     "attributes": {
       "name": "Silver Emerald Necklace",
+      "item_code": "00087833",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -2010,6 +2047,7 @@
   {
     "attributes": {
       "name": "Silver Jeweled Necklace",
+      "item_code": "00087834",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -2031,6 +2069,7 @@
   {
     "attributes": {
       "name": "Silver Sapphire Necklace",
+      "item_code": "00087832",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -2052,6 +2091,7 @@
   {
     "attributes": {
       "name": "Bone Hawk Amulet",
+      "item_code": "xx01AA0B",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2077,6 +2117,7 @@
   {
     "attributes": {
       "name": "Amulet of Akatosh",
+      "item_code": "000C8911",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2094,6 +2135,7 @@
   {
     "attributes": {
       "name": "Amulet of Arkay",
+      "item_code": "000CC848",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2111,6 +2153,7 @@
   {
     "attributes": {
       "name": "Amulet of Dibella",
+      "item_code": "000C8915",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2122,6 +2165,7 @@
   {
     "attributes": {
       "name": "Amulet of Julianos",
+      "item_code": "000C8917",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2139,6 +2183,7 @@
   {
     "attributes": {
       "name": "Amulet of Kynareth",
+      "item_code": "000C8919",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2156,6 +2201,7 @@
   {
     "attributes": {
       "name": "Amulet of Mara",
+      "item_code": "000C891B",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2173,6 +2219,7 @@
   {
     "attributes": {
       "name": "Amulet of Stendarr",
+      "item_code": "000CC844",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2190,6 +2237,7 @@
   {
     "attributes": {
       "name": "Amulet of Talos",
+      "item_code": "000CC846",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2201,6 +2249,7 @@
   {
     "attributes": {
       "name": "Amulet of Zenithar",
+      "item_code": "000878BB",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": false,
@@ -2212,6 +2261,7 @@
   {
     "attributes": {
       "name": "Amulet of Articulation",
+      "item_code": "000F6911",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2223,6 +2273,7 @@
   {
     "attributes": {
       "name": "Amulet of Bats",
+      "item_code": "XX0068AE",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2234,6 +2285,7 @@
   {
     "attributes": {
       "name": "Amulet of the Gargoyle",
+      "item_code": "XX00F4D5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2244,7 +2296,8 @@
   },
   {
     "attributes": {
-      "name": "Andur's Amulet of Arkay",
+      "name": "Andurs' Amulet of Arkay",
+      "item_code": "00094E3E",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2262,6 +2315,7 @@
   {
     "attributes": {
       "name": "Bera's Necklace",
+      "item_code": "XX02C8AD",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2273,6 +2327,7 @@
   {
     "attributes": {
       "name": "Charmed Necklace",
+      "item_code": "000C72E8",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -2290,6 +2345,7 @@
   {
     "attributes": {
       "name": "East Empire Pendant",
+      "item_code": "XX024FA4",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": false,
@@ -2301,6 +2357,7 @@
   {
     "attributes": {
       "name": "Fjotli's Silver Locket",
+      "item_code": "0007D678",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2312,6 +2369,7 @@
   {
     "attributes": {
       "name": "Gauldur Amulet Fragment",
+      "item_code": "0002D74F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2328,7 +2386,44 @@
   },
   {
     "attributes": {
+      "name": "Gauldur Amulet Fragment",
+      "item_code": "0002D75A",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gauldur Amulet Fragment",
+      "item_code": "0002D753",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Grosta's Necklace",
+      "item_code": "0006BBB5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2340,17 +2435,7 @@
   {
     "attributes": {
       "name": "Jeweled Amulet",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Amulet of the Elder Council",
+      "item_code": "0006B217",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2362,6 +2447,7 @@
   {
     "attributes": {
       "name": "Kyne's Token",
+      "item_code": "00107E2D",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2379,6 +2465,7 @@
   {
     "attributes": {
       "name": "Locket of Saint Jiub",
+      "item_code": "XX018B91",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2399,7 +2486,8 @@
   },
   {
     "attributes": {
-      "name": "Moon amulet",
+      "name": "Moon Amulet",
+      "item_code": "000D9394",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2411,6 +2499,7 @@
   {
     "attributes": {
       "name": "Necromancer Amulet",
+      "item_code": "000C891D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2432,6 +2521,7 @@
   {
     "attributes": {
       "name": "Ogmund's Amulet of Talos",
+      "item_code": "00064796",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2443,6 +2533,7 @@
   {
     "attributes": {
       "name": "Reyda's Necklace",
+      "item_code": "000663DA",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
@@ -2454,6 +2545,7 @@
   {
     "attributes": {
       "name": "Saarthal Amulet",
+      "item_code": "000233D0",
       "jewelry_type": "amulet",
       "unit_weight": 0.75,
       "quest_item": true,
@@ -2487,6 +2579,7 @@
   {
     "attributes": {
       "name": "Savos Aren's Amulet",
+      "item_code": "000F1B33",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2503,7 +2596,8 @@
   },
   {
     "attributes": {
-      "name":"Shahvee's Amulet of Zenithar",
+      "name": "Shahvee's Amulet of Zenithar",
+      "item_code": "000BFA0A",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
@@ -2515,6 +2609,7 @@
   {
     "attributes": {
       "name": "The Gauldur Amulet",
+      "item_code": "0002D75B",
       "jewelry_type": "amulet",
       "unit_weight": 0,
       "quest_item": true,
@@ -2540,6 +2635,7 @@
   {
     "attributes": {
       "name": "Yisra's Necklace",
+      "item_code": "000d4ff7",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
       "quest_item": true,
