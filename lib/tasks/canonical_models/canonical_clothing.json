@@ -97,7 +97,7 @@
   },
   {
     "attributes": {
-      "name": "Adept Robes of Conjuration \u0026 Illusion",
+      "name": "Adept Robes of Conjuration & Illusion",
       "item_code": "FExxx837",
       "magical_effects": null,
       "body_slot": "body",
@@ -145,7 +145,7 @@
   },
   {
     "attributes": {
-      "name": "Adept Robes of Destruction \u0026 Alteration",
+      "name": "Adept Robes of Destruction & Alteration",
       "item_code": "FExxx82A",
       "magical_effects": null,
       "body_slot": "body",
@@ -307,7 +307,7 @@
   },
   {
     "attributes": {
-      "name": "Apprentice Robes of Conjuration \u0026 Illusion",
+      "name": "Apprentice Robes of Conjuration & Illusion",
       "item_code": "FExxx836",
       "magical_effects": null,
       "body_slot": "body",
@@ -355,7 +355,7 @@
   },
   {
     "attributes": {
-      "name": "Apprentice Robes of Destruction \u0026 Alteration",
+      "name": "Apprentice Robes of Destruction & Alteration",
       "item_code": "FExxx829",
       "magical_effects": null,
       "body_slot": "body",
@@ -458,6 +458,18 @@
         "strength": 40
       }
     ]
+  },
+  {
+    "attributes": {
+      "name": "Ascendant Necromancer Robes",
+      "item_code": "FExxx90F",
+      "magical_effects": "Conjuration spells last 25% longer. Increases summon limit by 1 for lesser conjured or reanimated undead.",
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    }
   },
   {
     "attributes": {
@@ -915,7 +927,7 @@
   },
   {
     "attributes": {
-      "name": "Expert Robes of Destruction \u0026 Alteration",
+      "name": "Expert Robes of Destruction & Alteration",
       "item_code": "FExxx82B",
       "magical_effects": null,
       "body_slot": "body",
@@ -1265,6 +1277,18 @@
   },
   {
     "attributes": {
+      "name": "Lucky Fishing Hat",
+      "item_code": "xx000A6F",
+      "magical_effects": "When worn, rainstorms occur while fishing at temperate lakes and streams.",
+      "body_slot": "head",
+      "unit_weight": "0.5",
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Mage Hood",
       "item_code": "000D3DE8",
       "magical_effects": null,
@@ -1351,7 +1375,7 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Conjuration \u0026 Illusion",
+      "name": "Master Robes of Conjuration & Illusion",
       "item_code": "FExxx839",
       "magical_effects": null,
       "body_slot": "body",
@@ -1399,7 +1423,7 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Destruction \u0026 Alteration",
+      "name": "Master Robes of Destruction & Alteration",
       "item_code": "FExxx82C",
       "magical_effects": null,
       "body_slot": "body",
@@ -1681,7 +1705,7 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Conjuration \u0026 Illusion",
+      "name": "Novice Robes of Conjuration & Illusion",
       "item_code": "FExxx835",
       "magical_effects": null,
       "body_slot": "body",
@@ -1729,7 +1753,7 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Destruction \u0026 Alteration",
+      "name": "Novice Robes of Destruction & Alteration",
       "item_code": "FExxx827",
       "magical_effects": null,
       "body_slot": "body",

@@ -1188,7 +1188,7 @@
       "unit_weight": 2,
       "quest_item": false,
       "magical_effects": null,
-      "unique_item": false,
+      "unique_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -4128,6 +4128,18 @@
   },
   {
     "attributes": {
+      "name": "Ring of Disrobing",
+      "item_code": "xx183E63",
+      "jewelry_type": "ring",
+      "unit_weight": 0.2,
+      "quest_item": true,
+      "magical_effects": "When worn, removes your chest slot armour immediately.",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Ring of Dwindling Magic",
       "item_code": "0010dfca",
       "jewelry_type": "ring",
@@ -6658,6 +6670,18 @@
   },
   {
     "attributes": {
+      "name": "Skaal Amulet",
+      "item_code": "xx039d4a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "The Bond of Matrimony",
       "item_code": "000C5809",
       "jewelry_type": "ring",
@@ -6722,6 +6746,18 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Vittoria's Wedding Band",
+      "item_code": "000f5a1c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
     }
   },
   {
