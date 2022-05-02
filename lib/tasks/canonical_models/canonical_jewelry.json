@@ -966,24 +966,6 @@
   },
   {
     "attributes": {
-      "name": "Circlet of Minor Destruction",
-      "item_code": "000fc012",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Circlet of Minor Illusion",
       "item_code": "000fc01e",
       "jewelry_type": "circlet",
@@ -4969,7 +4951,7 @@
   {
     "attributes": {
       "name": "Ring of Major Destruction",
-      "item_code": "000fc014",
+      "item_code": "00100e01",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "quest_item": false,
