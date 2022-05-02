@@ -1,83 +1,45 @@
 [
   {
     "attributes": {
-      "name": "Belted Tunic",
-      "item_code": "0001BE1A",
+      "name": "Adept Hood",
+      "item_code": "0010DD3C",
       "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Blacksmith's Apron",
-      "item_code": "0005B69F",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Chef's Tunic",
-      "item_code": "0001BC82",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Child's Clothes",
-      "item_code": "xx03c819",
-      "magical_effects": null,
-      "body_slot": "body",
+      "body_slot": "head",
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
+    },
+    "enchantments": {
+      "name": "Fortify Magicka",
+      "strength": 50
     }
   },
   {
     "attributes": {
-      "name": "Clothes",
-      "item_code": "000209A6",
+      "name": "Adept Hood",
+      "item_code": "0010dd3c",
       "magical_effects": null,
-      "body_slot": "body",
+      "body_slot": "head",
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": true
-    }
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
   },
   {
     "attributes": {
-      "name": "Cyrus' Clothes",
-      "item_code": "xx00089E",
+      "name": "Adept Robes",
+      "item_code": "0010d67e",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Dunmer Outfit",
-      "item_code": "xx03706a",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 2,
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
@@ -85,177 +47,9 @@
     "enchantments": [
       {
         "name": "Fortify Magicka Regen",
-        "strength": 75
+        "strength": 100
       }
     ]
-  },
-  {
-    "attributes": {
-      "name": "Fine Clothes",
-      "item_code": "000CEE80",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Fur-Trimmed Cloak",
-      "item_code": "0008698C",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Hammerfell Garb",
-      "item_code": "0007BC19",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Miner's Clothes",
-      "item_code": "0006FF43",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mourner's Clothes",
-      "item_code": "000646A7",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Noble Clothes",
-      "item_code": "0005DB7B",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 3,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Party Clothes",
-      "item_code": "000E40DF",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Refined Tunic",
-      "item_code": "000E84C6",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 3,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Radiant Raiment Fine Clothes",
-      "item_code": "000E9EB5",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ragged Trousers",
-      "item_code": "0008F19A",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Redguard Clothes",
-      "item_code": "000E0DD0",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Roughspun Tunic",
-      "item_code": "0003C9FE",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Tavern Clothes",
-      "item_code": "000D191F",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Wedding Dress",
-      "item_code": "00088956",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    }
   },
   {
     "attributes": {
@@ -281,8 +75,8 @@
   },
   {
     "attributes": {
-      "name": "Robes of Conjuration",
-      "item_code": "001017b6",
+      "name": "Adept Robes of Conjuration",
+      "item_code": "0010d673",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -293,11 +87,177 @@
     "enchantments": [
       {
         "name": "Fortify Conjuration",
-        "strength": 15
+        "strength": 17
       },
       {
         "name": "Fortify Magicka Regen",
-        "strength": 50
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Adept Robes of Conjuration \u0026 Illusion",
+      "item_code": "FExxx837",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Adept Robes of Destruction",
+      "item_code": "0010d676",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Adept Robes of Destruction \u0026 Alteration",
+      "item_code": "FExxx82A",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destrucion",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Alteration",
+        "strength": 17
+      },
+      {
+        "name": "FortifyMagickaRegen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Adept Robes of Illusion",
+      "item_code": "0010d67a",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Adept Robes of Restoration",
+      "item_code": "0010d682",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Alik'r Hood",
+      "item_code": "0007BC1A",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Hood",
+      "item_code": "0010dd3b",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Robes",
+      "item_code": "0010d67d",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
       }
     ]
   },
@@ -347,7 +307,7 @@
   },
   {
     "attributes": {
-      "name": "Apprentice Robes of Conjuration & Illusion",
+      "name": "Apprentice Robes of Conjuration \u0026 Illusion",
       "item_code": "FExxx836",
       "magical_effects": null,
       "body_slot": "body",
@@ -373,6 +333,176 @@
   },
   {
     "attributes": {
+      "name": "Apprentice Robes of Destruction",
+      "item_code": "0010d670",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Robes of Destruction \u0026 Alteration",
+      "item_code": "FExxx829",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destrucion",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Alteration",
+        "strength": 15
+      },
+      {
+        "name": "FortifyMagickaRegen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Robes of Illusion",
+      "item_code": "0010d679",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Robes of Restoration",
+      "item_code": "0010d681",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Arcane Blacksmith's Apron",
+      "item_code": "xx000AE4",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Arch-Mage's Boots",
+      "item_code": "0007c92e",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Belted Tunic",
+      "item_code": "0001BE1A",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Black Mage Hood",
+      "item_code": "xx017e9B",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Black Mage Robes",
+      "item_code": "000c5d11",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Black Robes",
       "item_code": "00106661",
       "magical_effects": null,
@@ -382,6 +512,36 @@
       "unique_item": false,
       "enchantable": true
     }
+  },
+  {
+    "attributes": {
+      "name": "Blacksmith's Apron",
+      "item_code": "0005B69F",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Blue Mage Robes",
+      "item_code": "000d1f3b",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
   },
   {
     "attributes": {
@@ -397,10 +557,188 @@
   },
   {
     "attributes": {
+      "name": "Boots",
+      "item_code": "0001BE1B",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Chef's Hat",
+      "item_code": "0001BCA7",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Chef's Tunic",
+      "item_code": "0001BC82",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Child's Clothes",
+      "item_code": "xx03c819",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cicero's Boots",
+      "item_code": "0006492a",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Muffle",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Cicero's Clothes",
+      "item_code": "0006492c",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 20
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Cicero's Gloves",
+      "item_code": "0006492d",
+      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
+      "body_slot": "hands",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cicero's Hat",
+      "item_code": "0006492e",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Clothes",
+      "item_code": "000209A6",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "College Boots",
+      "item_code": "0010E2CE",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "College Robes",
       "item_code": "000D3DEA",
       "magical_effects": null,
       "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cowl",
+      "item_code": "00017696",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cuffed Boots",
+      "item_code": "000CEE78",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cultist Boots",
+      "item_code": "xx037b8e",
+      "magical_effects": null,
+      "body_slot": "feet",
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
@@ -427,6 +765,60 @@
   },
   {
     "attributes": {
+      "name": "Cyrus' Boots",
+      "item_code": "xx00089B",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Cyrus' Clothes",
+      "item_code": "xx00089E",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Dunmer Outfit",
+      "item_code": "xx03706a",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dunmer Shoes",
+      "item_code": "xx03705a",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Emperor's Robes",
       "item_code": "00015516",
       "magical_effects": null,
@@ -436,6 +828,24 @@
       "unique_item": false,
       "enchantable": true
     }
+  },
+  {
+    "attributes": {
+      "name": "Expert Robes",
+      "item_code": "0010d67f",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 125
+      }
+    ]
   },
   {
     "attributes": {
@@ -483,6 +893,182 @@
   },
   {
     "attributes": {
+      "name": "Expert Robes of Destruction",
+      "item_code": "0010d677",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 20
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 125
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Expert Robes of Destruction \u0026 Alteration",
+      "item_code": "FExxx82B",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destrucion",
+        "strength": 20
+      },
+      {
+        "name": "Fortify Alteration",
+        "strength": 20
+      },
+      {
+        "name": "FortifyMagickaRegen",
+        "strength": 125
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Expert Robes of Illusion",
+      "item_code": "0010d67b",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 20
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 125
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Expert Robes of Restoration",
+      "item_code": "0010d683",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 20
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 125
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fine Boots",
+      "item_code": "00086993",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fine Clothes",
+      "item_code": "000CEE80",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fine Hat",
+      "item_code": "000CEE84",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Footwraps",
+      "item_code": "0003CA00",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fur-Trimmed Cloak",
+      "item_code": "0008698C",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fur-lined Boots",
+      "item_code": "0005DB7E",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gloves",
+      "item_code": "000261C1",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Green Robes",
       "item_code": "0010CFF0",
       "magical_effects": null,
@@ -492,6 +1078,48 @@
       "unique_item": false,
       "enchantable": true
     }
+  },
+  {
+    "attributes": {
+      "name": "Hammerfell Garb",
+      "item_code": "0007BC19",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Hat",
+      "item_code": "000330B3",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Hooded Black Mage Robes",
+      "item_code": "0010710c",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
   },
   {
     "attributes": {
@@ -531,6 +1159,24 @@
   },
   {
     "attributes": {
+      "name": "Hooded Necromancer Robes",
+      "item_code": "0010710d",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Hooded Thalmor Robes",
       "item_code": "0010c698",
       "magical_effects": null,
@@ -549,6 +1195,88 @@
   },
   {
     "attributes": {
+      "name": "Jester's Boots",
+      "item_code": "000cee70",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Muffle",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Jester's Clothes",
+      "item_code": "000cee6e",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 12
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Jester's Gloves",
+      "item_code": "000cee74",
+      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
+      "body_slot": "hands",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jester's Hat",
+      "item_code": "000cee72",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Mage Hood",
+      "item_code": "000D3DE8",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Mage Robes",
       "item_code": "0006B46B",
       "magical_effects": null,
@@ -558,6 +1286,24 @@
       "unique_item": false,
       "enchantable": true
     }
+  },
+  {
+    "attributes": {
+      "name": "Master Robes",
+      "item_code": "0010d680",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 150
+      }
+    ]
   },
   {
     "attributes": {
@@ -605,7 +1351,7 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Conjuration & Illusion",
+      "name": "Master Robes of Conjuration \u0026 Illusion",
       "item_code": "FExxx839",
       "magical_effects": null,
       "body_slot": "body",
@@ -631,6 +1377,110 @@
   },
   {
     "attributes": {
+      "name": "Master Robes of Destruction",
+      "item_code": "0010d678",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 150
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Master Robes of Destruction \u0026 Alteration",
+      "item_code": "FExxx82C",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destrucion",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Alteration",
+        "strength": 22
+      },
+      {
+        "name": "FortifyMagickaRegen",
+        "strength": 150
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Master Robes of Illusion",
+      "item_code": "0010d67c",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 150
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Master Robes of Restoration",
+      "item_code": "0010d684",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 25
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 150
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Miner's Clothes",
+      "item_code": "0006FF43",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Monk Robes",
       "item_code": "000BACF3",
       "magical_effects": null,
@@ -640,6 +1490,150 @@
       "unique_item": false,
       "enchantable": true
     }
+  },
+  {
+    "attributes": {
+      "name": "Mourner's Clothes",
+      "item_code": "000646A7",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mourner's Hat",
+      "item_code": "000646AB",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mystic Tuning Gloves",
+      "item_code": "00026c3b",
+      "magical_effects": "Adds a hidden bonus to your Magicka Regen",
+      "body_slot": "hands",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mythic Dawn Boots",
+      "item_code": "000B1460",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mythic Dawn Gloves",
+      "item_code": "000B145B",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mythic Dawn Robes",
+      "item_code": "000b144d",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Noble Clothes",
+      "item_code": "0005DB7B",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 3,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Novice Hood",
+      "item_code": "0010dd3a",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Novice Hood",
+      "item_code": "0010dd3a",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Novice Robes",
+      "item_code": "0010d667",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
   },
   {
     "attributes": {
@@ -687,7 +1681,7 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Conjuration & Illusion",
+      "name": "Novice Robes of Conjuration \u0026 Illusion",
       "item_code": "FExxx835",
       "magical_effects": null,
       "body_slot": "body",
@@ -713,8 +1707,196 @@
   },
   {
     "attributes": {
+      "name": "Novice Robes of Destruction",
+      "item_code": "0010d668",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Novice Robes of Destruction \u0026 Alteration",
+      "item_code": "FExxx827",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Alteration",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Novice Robes of Illusion",
+      "item_code": "0010d671",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Novice Robes of Restoration",
+      "item_code": "0010d66b",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Party Boots",
+      "item_code": "000E40DE",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 0,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Party Clothes",
+      "item_code": "000E40DF",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Pleated Shoes",
+      "item_code": "0008698E",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Prisoner's Cuffs",
+      "item_code": "0010e039",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 0,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Radiant Raiment Fine Clothes",
+      "item_code": "000E9EB5",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ragged Boots",
+      "item_code": "00013106",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ragged Cap",
+      "item_code": "00013104",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Ragged Robes",
       "item_code": "00013105",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ragged Trousers",
+      "item_code": "0008F19A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -737,6 +1919,54 @@
   },
   {
     "attributes": {
+      "name": "Redguard Boots",
+      "item_code": "0007BC15",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Redguard Clothes",
+      "item_code": "000E0DD0",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Redguard Hood",
+      "item_code": "000E0DD2",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Refined Tunic",
+      "item_code": "000E84C6",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 3,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Robes of Alteration",
       "item_code": "00101738",
       "magical_effects": null,
@@ -749,6 +1979,50 @@
     "enchantments": [
       {
         "name": "Fortify Alteration",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Conjuration",
+      "item_code": "001017b6",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Destruction",
+      "item_code": "00101744",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
         "strength": 15
       },
       {
@@ -803,8 +2077,8 @@
   },
   {
     "attributes": {
-      "name": "Adept Robes of Conjuration",
-      "item_code": "0010d673",
+      "name": "Robes of Eminent Destruction",
+      "item_code": "00101746",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -814,19 +2088,19 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Conjuration",
-        "strength": 17
+        "name": "Fortify Destruction",
+        "strength": 20
       },
       {
         "name": "Fortify Magicka Regen",
-        "strength": 100
+        "strength": 50
       }
     ]
   },
   {
     "attributes": {
-      "name": "Adept Robes of Conjuration & Illusion",
-      "item_code": "FExxx837",
+      "name": "Robes of Eminent Illusion",
+      "item_code": "00101752",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -836,16 +2110,34 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Conjuration",
-        "strength": 17
-      },
-      {
         "name": "Fortify Illusion",
-        "strength": 17
+        "strength": 20
       },
       {
         "name": "Fortify Magicka Regen",
-        "strength": 100
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Eminent Restoration",
+      "item_code": "00101758",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 20
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
       }
     ]
   },
@@ -886,6 +2178,94 @@
       {
         "name": "Fortify Conjuration",
         "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Extreme Destruction",
+      "item_code": "00101747",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Extreme Illusion",
+      "item_code": "00101753",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Extreme Restoration",
+      "item_code": "00101759",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 22
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Illusion",
+      "item_code": "00101750",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 15
       },
       {
         "name": "Fortify Magicka Regen",
@@ -939,6 +2319,72 @@
   },
   {
     "attributes": {
+      "name": "Robes of Major Destruction",
+      "item_code": "00101745",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Major Illusion",
+      "item_code": "00101751",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Major Restoration",
+      "item_code": "00101757",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 17
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Robes of Minor Alteration",
       "item_code": "00101737",
       "magical_effects": null,
@@ -973,6 +2419,72 @@
     "enchantments": [
       {
         "name": "Fortify Conjuration",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Minor Destruction",
+      "item_code": "00101743",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Minor Illusion",
+      "item_code": "00101749",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 12
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Minor Restoration",
+      "item_code": "00101755",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
         "strength": 12
       },
       {
@@ -1027,11 +2539,77 @@
   },
   {
     "attributes": {
-      "name": "Temple Priest Robes",
-      "item_code": "xx01cdab",
+      "name": "Robes of Peerless Destruction",
+      "item_code": "00101748",
       "magical_effects": null,
       "body_slot": "body",
-      "unit_weight": 2,
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 25
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Peerless Illusion",
+      "item_code": "00101754",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 25
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Peerless Restoration",
+      "item_code": "0010175a",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 25
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Robes of Quickening",
+      "item_code": "0010524f",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
@@ -1045,68 +2623,28 @@
   },
   {
     "attributes": {
-      "name": "Thalmor Robes",
-      "item_code": "00065bbf",
+      "name": "Robes of Recharging",
+      "item_code": "0010175b",
       "magical_effects": null,
       "body_slot": "body",
-      "unit_weight": 4,
+      "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
-        "name": "Fortify Destruction",
-        "strength": 12
+        "name": "Fortify Magicka Regen",
+        "strength": 100
       }
     ]
   },
   {
     "attributes": {
-      "name": "Vaermina Robes",
-      "item_code": "000E739B",
+      "name": "Robes of Replenishing",
+      "item_code": "0010175c",
       "magical_effects": null,
       "body_slot": "body",
-      "unit_weight": 5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Adept Hood",
-      "item_code": "0010DD3C",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": {
-      "name": "Fortify Magicka",
-      "strength": 50
-    }
-  },
-  {
-    "attributes": {
-      "name": "Alik'r Hood",
-      "item_code": "0007BC1A",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Apprentice Hood",
-      "item_code": "0010dd3b",
-      "magical_effects": null,
-      "body_slot": "head",
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
@@ -1114,101 +2652,17 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Magicka",
-        "strength": 40
+        "name": "Fortify Magicka Regen",
+        "strength": 125
       }
     ]
   },
   {
     "attributes": {
-      "name": "Black Mage Hood",
-      "item_code": "xx017e9B",
+      "name": "Robes of Restoration",
+      "item_code": "00101756",
       "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Chef's Hat",
-      "item_code": "0001BCA7",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Cowl",
-      "item_code": "00017696",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Fine Hat",
-      "item_code": "000CEE84",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Hat",
-      "item_code": "000330B3",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mage Hood",
-      "item_code": "000D3DE8",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mourner's Hat",
-      "item_code": "000646AB",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Novice Hood",
-      "item_code": "0010dd3a",
-      "magical_effects": null,
-      "body_slot": "head",
+      "body_slot": "body",
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
@@ -1216,18 +2670,40 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Magicka",
-        "strength": 30
+        "name": "Fortify Restoration",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 50
       }
     ]
   },
   {
     "attributes": {
-      "name": "Ragged Cap",
-      "item_code": "00013104",
+      "name": "Robes of Resurgence",
+      "item_code": "0010175d",
       "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 150
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Roughspun Tunic",
+      "item_code": "0003C9FE",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
@@ -1235,14 +2711,38 @@
   },
   {
     "attributes": {
-      "name": "Redguard Hood",
-      "item_code": "000E0DD2",
+      "name": "Shoes",
+      "item_code": "00018801",
       "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
+      "body_slot": "feet",
+      "unit_weight": 0,
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Shoes",
+      "item_code": "0005B69E",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Shrouded Hand Wraps",
+      "item_code": "000cf8a9",
+      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
+      "body_slot": "hands",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
     }
   },
   {
@@ -1265,11 +2765,213 @@
   },
   {
     "attributes": {
+      "name": "Shrouded Robes",
+      "item_code": "000cf8a0",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Shrouded Shoes",
+      "item_code": "000cf89f",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Muffle",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Taron Dreth's Robes",
+      "item_code": "xx014c03",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Tavern Clothes",
+      "item_code": "000D191F",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Temple Priest Boots",
+      "item_code": "xx03b04b",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Temple Priest Hood",
       "item_code": "xx03b04e",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Temple Priest Robes",
+      "item_code": "xx01cdab",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Thalmor Boots",
+      "item_code": "00065BAC",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Thalmor Gloves",
+      "item_code": "00065BB3",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Thalmor Robes",
+      "item_code": "00065bbf",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 4,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ulfric's Boots",
+      "item_code": "00062311",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ulfric's Clothes",
+      "item_code": "00062303",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Vaermina Robes",
+      "item_code": "000E739B",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 5,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Vampire Boots",
+      "item_code": "xx019ae1",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Vampire Gloves",
+      "item_code": "xx019ae3",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 0.5,
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
@@ -1301,594 +3003,6 @@
   },
   {
     "attributes": {
-      "name": "Boots",
-      "item_code": "0001BE1B",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "College Boots",
-      "item_code": "0010E2CE",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Cuffed Boots",
-      "item_code": "000CEE78",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Cultist Boots",
-      "item_code": "xx037b8e",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Dunmer Shoes",
-      "item_code": "xx03705a",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 2,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Fine Boots",
-      "item_code": "00086993",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Footwraps",
-      "item_code": "0003CA00",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Fur-lined Boots",
-      "item_code": "0005DB7E",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mythic Dawn Boots",
-      "item_code": "000B1460",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Party Boots",
-      "item_code": "000E40DE",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 0,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Pleated Shoes",
-      "item_code": "0008698E",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ragged Boots",
-      "item_code": "00013106",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Redguard Boots",
-      "item_code": "0007BC15",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Shoes",
-      "item_code": "00018801",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 0,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Shoes",
-      "item_code": "000cf89f",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shoes",
-      "item_code": "0005B69E",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Temple Priest Boots",
-      "item_code": "xx03b04b",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Thalmor Boots",
-      "item_code": "00065BAC",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ulfric's Boots",
-      "item_code": "00062311",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Vampire Boots",
-      "item_code": "xx019ae1",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Wedding Sandals",
-      "item_code": "00088958",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Gloves",
-      "item_code": "000261C1",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mystic Tuning Gloves",
-      "item_code": "00026c3b",
-      "magical_effects": "Adds a hidden bonus to your Magicka Regen",
-      "body_slot": "hands",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "unique_item": false,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mythic Dawn Gloves",
-      "item_code": "000B145B",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Prisoner's Cuffs",
-      "item_code": "0010e039",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 0,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Hand Wraps",
-      "item_code": "000cf8a9",
-      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Thalmor Gloves",
-      "item_code": "00065BB3",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Vampire Gloves",
-      "item_code": "xx019ae3",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Arcane Blacksmith's Apron",
-      "item_code": "xx000AE4",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Smithing",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Arch-Mage's Boots",
-      "item_code": "0007c92e",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Shock",
-        "strength": 40
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Cicero's Boots",
-      "item_code": "0006492a",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Jester's Boots",
-      "item_code": "000cee70",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Cicero's Clothes",
-      "item_code": "0006492c",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 20
-      },
-      {
-        "name": "Fortify One-Handed",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Jester's Clothes",
-      "item_code": "000cee6e",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 12
-      },
-      {
-        "name": "Fortify One-Handed",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Cicero's Gloves",
-      "item_code": "0006492d",
-      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Jester's Gloves",
-      "item_code": "000cee74",
-      "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Cicero's Hat",
-      "item_code": "0006492e",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Jester's Hat",
-      "item_code": "000cee72",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Cyrus' Boots",
-      "item_code": "xx00089B",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mythic Dawn Robes",
-      "item_code": "000b144d",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 2,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 75
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Robes",
-      "item_code": "000cf8a0",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Taron Dreth's Robes",
-      "item_code": "xx014c03",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 15
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 75
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Vampire Robes",
       "item_code": "xx019adf",
       "magical_effects": null,
@@ -1901,12 +3015,24 @@
   },
   {
     "attributes": {
-      "name": "Ulfric's Clothes",
-      "item_code": "00062303",
+      "name": "Wedding Dress",
+      "item_code": "00088956",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
       "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Wedding Sandals",
+      "item_code": "00088958",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": true,
       "unique_item": true,
       "enchantable": true
     }
