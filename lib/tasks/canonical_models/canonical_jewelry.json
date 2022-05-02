@@ -1,537 +1,6 @@
 [
   {
     "attributes": {
-      "name": "Circlet of Alchemy",
-      "item_code": "000fc001",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Alteration",
-      "item_code": "000fc007",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Archery",
-      "item_code": "000fc02b",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Eminent Alchemy",
-      "item_code": "000fc003",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Eminent Alteration",
-      "item_code": "000fc009",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Eminent Archery",
-      "item_code": "000fc02d",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Eminent Conjuration",
-      "item_code": "000fc00f",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Extreme Alchemy",
-      "item_code": "000fc004",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Extreme Archery",
-      "item_code": "000fc02e",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Extreme Conjuration",
-      "item_code": "000fc010",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Major Alchemy",
-      "item_code": "000fc002",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Major Alteration",
-      "item_code": "000fc008",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Major Archery",
-      "item_code": "000fc02c",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Major Conjuration",
-      "item_code": "000fc00e",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Minor Alchemy",
-      "item_code": "000fc000",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Minor Alteration",
-      "item_code": "000fc006",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Minor Archery",
-      "item_code": "000fc02a",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Minor Conjuration",
-      "item_code": "000fc00c",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Minor Destruction",
-      "item_code": "000fc012",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Peerless Alchemy",
-      "item_code": "000fc005",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Peerless Alteration",
-      "item_code": "000fc00b",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Peerless Archery",
-      "item_code": "000fc02f",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 40
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Peerless Conjuration",
-      "item_code": "000fc011",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Copper and Moonstone Circlet",
-      "item_code": "00016730",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Copper and Onyx Circlet",
-      "item_code": "000166FF",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Copper and Ruby Circlet",
-      "item_code": "00016731",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Copper and Sapphire Circlet",
-      "item_code": "000166FE",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Gold and Emerald Circlet",
-      "item_code": "0001672F",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Gold and Ruby Circlet",
-      "item_code": "000166FD",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Jade and Emerald Circlet",
-      "item_code": "000166D6",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Jade and Sapphire Circlet",
-      "item_code": "0001671A",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Silver and Moonstone Circlet",
-      "item_code": "000166E0",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Silver and Sapphire Circlet",
-      "jewelry_type": "circlet",
-      "item_code": "00016719",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
       "name": "Aetherial Crown",
       "item_code": "xx00575a",
       "jewelry_type": "circlet",
@@ -541,678 +10,6 @@
       "unique_item": true,
       "enchantable": false
     }
-  },
-  {
-    "attributes": {
-      "name": "Diadem of the Savant",
-      "item_code": "000F9904",
-      "jewelry_type": "circlet",
-      "unit_weight": 4,
-      "quest_item": false,
-      "magical_effects": "Spells in all schools cost less Magicka to cast",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mage's Circlet",
-      "item_code": "000F1B2C",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": true,
-      "magical_effects": "Increases your Magicka by 20-70 points",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Wedding Wreath",
-      "item_code": "0008895A",
-      "jewelry_type": "circlet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Gold Ring",
-      "item_code": "0001CF2B",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Diamond Ring",
-      "item_code": "000877C9",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Diamond",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Emerald Ring",
-      "item_code": "000877CA",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Emerald",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Sapphire Ring",
-      "item_code": "000877CB",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Sapphire",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Alteration",
-      "item_code": "00100dee",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Archery",
-      "item_code": "00100e25",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Blocking",
-      "item_code": "00100df4",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Conjuration",
-      "item_code": "00100dfa",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Conjuration",
-      "item_code": "000fc00d",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Circlet of Destruction",
-      "item_code": "000fc013",
-      "jewelry_type": "circlet",
-      "unit_weight": 2,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Eminent Alteration",
-      "item_code": "00100df0",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Eminent Archery",
-      "item_code": "00100e26",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Eminent Blocking",
-      "item_code": "00100df6",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Eminent Conjuration",
-      "item_code": "00100dfc",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Extreme Alteration",
-      "item_code": "00100df1",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Extreme Archery",
-      "item_code": "00100e27",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Extreme Blocking",
-      "item_code": "00100df7",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Extreme Conjuration",
-      "item_code": "00100dfd",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Major Alteration",
-      "item_code": "00100def",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Major Archery",
-      "item_code": "00100e24",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Major Blocking",
-      "item_code": "00100df5",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Major Conjuration",
-      "item_code": "00100dfb",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Minor Alteration",
-      "item_code": "000ff7de",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Minor Archery",
-      "item_code": "00100e23",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Minor Blocking",
-      "item_code": "00100df3",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Minor Conjuration",
-      "item_code": "00100df9",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Peerless Alteration",
-      "item_code": "00100df2",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alteration",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Peerless Archery",
-      "item_code": "00100e28",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 40
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Peerless Blocking",
-      "item_code": "00100df8",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of Peerless Conjuration",
-      "item_code": "00100dfe",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Ring",
-      "item_code": "0003B97C",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Amethyst Ring",
-      "item_code": "000877A7",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Amethyst",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Garnet Ring",
-      "item_code": "000877AB",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Garnet",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Ruby Ring",
-      "item_code": "000877B1",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Ruby",
-        "count": 1
-      }
-    ]
   },
   {
     "attributes": {
@@ -1237,882 +34,6 @@
       "unique_item": true,
       "enchantable": false
     }
-  },
-  {
-    "attributes": {
-      "name": "Asgeir's Wedding Band",
-      "item_code": "000F5A1D",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Balwen's Ornamental Ring",
-      "item_code": "000DA735",
-      "jewelry_type": "ring",
-      "unit_weight": 3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Bone Hawk Ring",
-      "item_code": "xx011CF5",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Calcelmo's Ring",
-      "item_code": "000D8482",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Enchanted Ring",
-      "item_code": "0002584C",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Health",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Fjola's Wedding Band",
-      "item_code": "000D3BDB",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Hircine's Ring",
-      "item_code": "0002AC60",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": "Provides additional transformations for werewolves",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ilas-Tei's Ring",
-      "item_code": "000D5047",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Katarina's Ornamental Ring",
-      "item_code": "000DA733",
-      "jewelry_type": "ring",
-      "unit_weight": 3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Madesi's Silver Ring",
-      "item_code": "00076F12",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Muiri's Ring",
-      "item_code": "0006B218",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Neloth's Ring of Tracking",
-      "item_code": "XX01961C",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Nightweaver's Band",
-      "item_code": "00068B83",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 10
-      },
-      {
-        "name": "Fortify Destruction",
-        "strength": 10
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Pithi's Ornamental Ring",
-      "item_code": "000DA734",
-      "jewelry_type": "ring",
-      "unit_weight": 3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of Bloodlust",
-      "item_code": "XX0275B6",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": false,
-      "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
-      "unique_item": false,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of Instinct",
-      "item_code": "XX0275B7",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": false,
-      "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of Namira",
-      "item_code": "0002C37B",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of Pure Mixtures",
-      "item_code": "00090E32",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of the Beast",
-      "item_code": "XX00E7FD",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of the Erudite",
-      "item_code": "XX00E7FE",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": "Regenerate Magicka faster",
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 100
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ring of the Hunt",
-      "item_code": "XX0275B9",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": false,
-      "magical_effects": "While in Beast Form, your health regenerates",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ring of the Moon",
-      "item_code": "XX0275B8",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": false,
-      "magical_effects": "Increases the duration of your Howls by 25%",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Silver-Blood Family Ring",
-      "item_code": "00024CFF",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Smithing",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "The Bond of Matrimony",
-      "item_code": "000C5809",
-      "jewelry_type": "ring",
-      "unit_weight": 0.3,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Restoration",
-        "strength": 10
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Treoy's Ornamental Ring",
-      "item_code": "000DA732",
-      "jewelry_type": "ring",
-      "unit_weight": 3,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Viola's Gold Ring",
-      "item_code": "000403A9",
-      "jewelry_type": "ring",
-      "unit_weight": 0.25,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Gold Necklace",
-      "item_code": "000877D5",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Diamond Necklace",
-      "item_code": "000877F1",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Diamond",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Jeweled Necklace",
-      "item_code": "00087835",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Amethyst",
-        "count": 2
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gold Ruby Necklace",
-      "item_code": "000877DC",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Gold Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Ruby",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Alchemy",
-      "item_code": "0010df46",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Blocking",
-      "item_code": "0010df1c",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Haggling",
-      "item_code": "0010df4c",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Eminent Alchemy",
-      "item_code": "0010df48",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Eminent Blocking",
-      "item_code": "0010df1e",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Eminent Haggling",
-      "item_code": "0010df4e",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Extreme Alchemy",
-      "item_code": "0010df49",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Extreme Blocking",
-      "item_code": "0010df1f",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 35
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Extreme Haggling",
-      "item_code": "0010df4f",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 22
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Major Alchemy",
-      "item_code": "0010df47",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Major Blocking",
-      "item_code": "0010df1d",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Major Haggling",
-      "item_code": "0010df4d",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 17
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Minor Alchemy",
-      "item_code": "0010df45",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Minor Blocking",
-      "item_code": "0010df1b",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 15
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Minor Haggling",
-      "item_code": "0010df4b",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 12
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Peerless Alchemy",
-      "item_code": "0010df4a",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Alchemy",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Peerless Blocking",
-      "item_code": "0010df20",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Block",
-        "strength": 40
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Necklace of Peerless Haggling",
-      "item_code": "0010df50",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 25
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Necklace",
-      "item_code": "0009171B",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Emerald Necklace",
-      "item_code": "00087833",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Emerald",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Jeweled Necklace",
-      "item_code": "00087834",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Garnet",
-        "count": 2
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Silver Sapphire Necklace",
-      "item_code": "00087832",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Silver Ingot",
-        "count": 1
-      },
-      {
-        "name": "Flawless Sapphire",
-        "count": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Bone Hawk Amulet",
-      "item_code": "xx01AA0B",
-      "jewelry_type": "amulet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "materials": [
-      {
-        "name": "Bone Hawk Skull",
-        "count": 1
-      },
-      {
-        "name": "Bone Hawk Feathers",
-        "count": 6
-      },
-      {
-        "name": "Leather Strips",
-        "count": 2
-      }
-    ]
   },
   {
     "attributes": {
@@ -2149,6 +70,30 @@
         "strength": 10
       }
     ]
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Articulation",
+      "item_code": "000F6911",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Amulet of Bats",
+      "item_code": "XX0068AE",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
+      "unique_item": true,
+      "enchantable": false
+    }
   },
   {
     "attributes": {
@@ -2260,30 +205,6 @@
   },
   {
     "attributes": {
-      "name": "Amulet of Articulation",
-      "item_code": "000F6911",
-      "jewelry_type": "amulet",
-      "unit_weight": 1,
-      "quest_item": true,
-      "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Amulet of Bats",
-      "item_code": "XX0068AE",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
-      "unique_item": true,
-      "enchantable": false
-    }
-  },
-  {
-    "attributes": {
       "name": "Amulet of the Gargoyle",
       "item_code": "XX00F4D5",
       "jewelry_type": "amulet",
@@ -2314,6 +235,30 @@
   },
   {
     "attributes": {
+      "name": "Asgeir's Wedding Band",
+      "item_code": "000F5A1D",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Balwen's Ornamental Ring",
+      "item_code": "000DA735",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Bera's Necklace",
       "item_code": "XX02C8AD",
       "jewelry_type": "amulet",
@@ -2322,6 +267,56 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Bone Hawk Amulet",
+      "item_code": "xx01AA0B",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Bone Hawk Skull",
+        "count": 1
+      },
+      {
+        "name": "Bone Hawk Feathers",
+        "count": 6
+      },
+      {
+        "name": "Leather Strips",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bone Hawk Ring",
+      "item_code": "xx011CF5",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Calcelmo's Ring",
+      "item_code": "000D8482",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
     }
   },
   {
@@ -2344,6 +339,945 @@
   },
   {
     "attributes": {
+      "name": "Circlet of Alchemy",
+      "item_code": "000fc001",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Alteration",
+      "item_code": "000fc007",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Archery",
+      "item_code": "000fc02b",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Conjuration",
+      "item_code": "000fc00d",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Destruction",
+      "item_code": "000fc013",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Alchemy",
+      "item_code": "000fc003",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Alteration",
+      "item_code": "000fc009",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Archery",
+      "item_code": "000fc02d",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Conjuration",
+      "item_code": "000fc00f",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Destruction",
+      "item_code": "000fc015",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Illusion",
+      "item_code": "000fc021",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Eminent Restoration",
+      "item_code": "000fc033",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Alchemy",
+      "item_code": "000fc004",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Archery",
+      "item_code": "000fc02e",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Conjuration",
+      "item_code": "000fc010",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Destruction",
+      "item_code": "000fc016",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Illusion",
+      "item_code": "000fc022",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Magicka",
+      "item_code": "000fc028",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Magicka",
+      "item_code": "000fc027",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Extreme Restoration",
+      "item_code": "000fc034",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Illusion",
+      "item_code": "000fc01f",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Magicka",
+      "item_code": "000fc025",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Alchemy",
+      "item_code": "000fc002",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Alteration",
+      "item_code": "000fc008",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Archery",
+      "item_code": "000fc02c",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Conjuration",
+      "item_code": "000fc00e",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Destruction",
+      "item_code": "000fc014",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Illusion",
+      "item_code": "000fc020",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Magicka",
+      "item_code": "000fc026",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Major Restoration",
+      "item_code": "000fc032",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Alchemy",
+      "item_code": "000fc000",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Alteration",
+      "item_code": "000fc006",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Archery",
+      "item_code": "000fc02a",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Conjuration",
+      "item_code": "000fc00c",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Destruction",
+      "item_code": "000fc012",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Destruction",
+      "item_code": "000fc012",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Illusion",
+      "item_code": "000fc01e",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Magicka",
+      "item_code": "000fc024",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Minor Restoration",
+      "item_code": "000fc030",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Alchemy",
+      "item_code": "000fc005",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Alteration",
+      "item_code": "000fc00b",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Archery",
+      "item_code": "000fc02f",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Conjuration",
+      "item_code": "000fc011",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Destruction",
+      "item_code": "000fc017",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Illusion",
+      "item_code": "000fc023",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Magicka",
+      "item_code": "000fc029",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Peerless Restoration",
+      "item_code": "000fc035",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Restoration",
+      "item_code": "000fc031",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Circlet of Waterbreathing",
+      "item_code": "000fc036",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Waterbreathing",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Copper and Moonstone Circlet",
+      "item_code": "00016730",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Onyx Circlet",
+      "item_code": "000166FF",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Ruby Circlet",
+      "item_code": "00016731",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Copper and Sapphire Circlet",
+      "item_code": "000166FE",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Diadem of the Savant",
+      "item_code": "000F9904",
+      "jewelry_type": "circlet",
+      "unit_weight": 4,
+      "quest_item": false,
+      "magical_effects": "Spells in all schools cost less Magicka to cast",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "East Empire Pendant",
       "item_code": "XX024FA4",
       "jewelry_type": "amulet",
@@ -2351,6 +1285,36 @@
       "quest_item": false,
       "magical_effects": null,
       "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Enchanted Ring",
+      "item_code": "0002584C",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fjola's Wedding Band",
+      "item_code": "000D3BDB",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
       "enchantable": true
     }
   },
@@ -2369,24 +1333,6 @@
   {
     "attributes": {
       "name": "Gauldur Amulet Fragment",
-      "item_code": "0002D74F",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": true,
-      "magical_effects": null,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Health",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gauldur Amulet Fragment",
       "item_code": "0002D75A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
@@ -2398,6 +1344,24 @@
     "enchantments": [
       {
         "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gauldur Amulet Fragment",
+      "item_code": "0002D74F",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
         "strength": 30
       }
     ]
@@ -2422,6 +1386,198 @@
   },
   {
     "attributes": {
+      "name": "Gold Diamond Necklace",
+      "item_code": "000877F1",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Diamond",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Diamond Ring",
+      "item_code": "000877C9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Diamond",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Emerald Ring",
+      "item_code": "000877CA",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Emerald",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Jeweled Necklace",
+      "item_code": "00087835",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Amethyst",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Necklace",
+      "item_code": "000877D5",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Ring",
+      "item_code": "0001CF2B",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Ruby Necklace",
+      "item_code": "000877DC",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Ruby",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold Sapphire Ring",
+      "item_code": "000877CB",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Gold Ingot",
+        "count": 1
+      },
+      {
+        "name": "Sapphire",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gold and Emerald Circlet",
+      "item_code": "0001672F",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Gold and Ruby Circlet",
+      "item_code": "000166FD",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Grosta's Necklace",
       "item_code": "0006BBB5",
       "jewelry_type": "amulet",
@@ -2434,10 +1590,70 @@
   },
   {
     "attributes": {
+      "name": "Hircine's Ring",
+      "item_code": "0002AC60",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Provides additional transformations for werewolves",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ilas-Tei's Ring",
+      "item_code": "000D5047",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jade and Emerald Circlet",
+      "item_code": "000166D6",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Jade and Sapphire Circlet",
+      "item_code": "0001671A",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
       "name": "Jeweled Amulet",
       "item_code": "0006B217",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Katarina's Ornamental Ring",
+      "item_code": "000DA733",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
       "quest_item": true,
       "magical_effects": null,
       "unique_item": true,
@@ -2486,6 +1702,30 @@
   },
   {
     "attributes": {
+      "name": "Madesi's Silver Ring",
+      "item_code": "00076F12",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Mage's Circlet",
+      "item_code": "000F1B2C",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": true,
+      "magical_effects": "Increases your Magicka by 20-70 points",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Moon Amulet",
       "item_code": "000D9394",
       "jewelry_type": "amulet",
@@ -2495,6 +1735,2202 @@
       "unique_item": true,
       "enchantable": false
     }
+  },
+  {
+    "attributes": {
+      "name": "Muiri's Ring",
+      "item_code": "0006B218",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Alchemy",
+      "item_code": "0010df46",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Blocking",
+      "item_code": "0010df1c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Deft Hands",
+      "item_code": "0010df34",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Disease Immunity",
+      "item_code": "00100e65",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Disease",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Disease Resistance",
+      "item_code": "00100e64",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Disease",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Dwindling Fire",
+      "item_code": "000fc045",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Dwindling Frost",
+      "item_code": "000fc04b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Dwindling Magic",
+      "item_code": "000fc063",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Dwindling Shock",
+      "item_code": "000fc051",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Alchemy",
+      "item_code": "0010df48",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Blocking",
+      "item_code": "0010df1e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Deft Hands",
+      "item_code": "0010df36",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Haggling",
+      "item_code": "0010df4e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Health",
+      "item_code": "000fc03a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Lockpicking",
+      "item_code": "0010df3c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Magicka",
+      "item_code": "0010df54",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Smithing",
+      "item_code": "0010df24",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Sneaking",
+      "item_code": "0010df42",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Stamina",
+      "item_code": "000fc058",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Sure Grip",
+      "item_code": "0010df18",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Eminent Wielding",
+      "item_code": "0010df13",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Alchemy",
+      "item_code": "0010df49",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Blocking",
+      "item_code": "0010df1f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Deft Hands",
+      "item_code": "0010df37",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Haggling",
+      "item_code": "0010df4f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Health",
+      "item_code": "000fc03b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Lockpicking",
+      "item_code": "0010df3d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Magicka",
+      "item_code": "0010df55",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Smithing",
+      "item_code": "0010df25",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Sneaking",
+      "item_code": "0010df43",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Stamina",
+      "item_code": "000fc059",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Sure Grip",
+      "item_code": "0010df19",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Extreme Wielding",
+      "item_code": "0010df14",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Fire Abatement",
+      "item_code": "000fc047",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Flame Suppression",
+      "item_code": "000fc046",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Frost Abatement",
+      "item_code": "000fc04d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Frost Resist",
+      "item_code": "000fc049",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Frost Suppression",
+      "item_code": "000fc04c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Grounding",
+      "item_code": "000fc054",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Haggling",
+      "item_code": "0010df4c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Health",
+      "item_code": "000fc038",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Invigoration",
+      "item_code": "0010df5d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Lockpicking",
+      "item_code": "0010df3a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Magic Abatement",
+      "item_code": "000fc065",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Magic Suppression",
+      "item_code": "000fc064",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Magicka",
+      "item_code": "0010df52",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Alchemy",
+      "item_code": "0010df47",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Blocking",
+      "item_code": "0010df1d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Deft Hands",
+      "item_code": "0010df35",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Haggling",
+      "item_code": "0010df4d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Health",
+      "item_code": "000fc039",
+      "jewelry_type": "ring",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Lockpicking",
+      "item_code": "0010df3b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Magicka",
+      "item_code": "0010df53",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Smithing",
+      "item_code": "0010df23",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Sneaking",
+      "item_code": "0010df41",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Stamina",
+      "item_code": "000fc057",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Sure Grip",
+      "item_code": "0010df17",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Major Wielding",
+      "item_code": "0010df12",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Mending",
+      "item_code": "0010df58",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Alchemy",
+      "item_code": "0010df45",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Blocking",
+      "item_code": "0010df1b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Deft Hands",
+      "item_code": "0010df33",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Haggling",
+      "item_code": "0010df4b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Health",
+      "item_code": "000fc037",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Lockpicking",
+      "item_code": "0010df39",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Magicka",
+      "item_code": "0010df51",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Smithing",
+      "item_code": "0010df21",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Sneaking",
+      "item_code": "0010df3f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Stamina",
+      "item_code": "000fc055",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Sure Grip",
+      "item_code": "0010df15",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Minor Wielding",
+      "item_code": "0010df10",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Nullification",
+      "item_code": "000fc066",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Alchemy",
+      "item_code": "0010df4a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Blocking",
+      "item_code": "0010df20",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Deft Hands",
+      "item_code": "0010df38",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Haggling",
+      "item_code": "0010df50",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Barter",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Health",
+      "item_code": "000fc03c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Lockpicking",
+      "item_code": "0010df3e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Magicka",
+      "item_code": "0010df56",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Smithing",
+      "item_code": "0010df26",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Sneaking",
+      "item_code": "0010df44",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Stamina",
+      "item_code": "000fc05a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Sure Grip",
+      "item_code": "0010df1a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Peerless Wielding",
+      "item_code": "0010df67",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Poison Immunity",
+      "item_code": "00100e5f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Poison",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Poison Resistance",
+      "item_code": "000fc03d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Poison",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Recuperation",
+      "item_code": "0010df5b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Regeneration",
+      "item_code": "0010df59",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Rejuvenation",
+      "item_code": "0010df5c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Remedy",
+      "item_code": "0010df57",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Renewal",
+      "item_code": "0010df5e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Resist Fire",
+      "item_code": "000fc043",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Resist Magic",
+      "item_code": "000fc061",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Resist Shock",
+      "item_code": "000fc04f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Revival",
+      "item_code": "0010df5a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Shock Abatement",
+      "item_code": "000fc053",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Shock Suppression",
+      "item_code": "000fc052",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Smithing",
+      "item_code": "0010df22",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Sneaking",
+      "item_code": "0010df40",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Stamina",
+      "item_code": "000fc056",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Sure Grip",
+      "item_code": "0010df16",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Waning Fire",
+      "item_code": "000fc044",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Waning Frost",
+      "item_code": "000fc04a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Waning Magic",
+      "item_code": "000fc062",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Waning Shock",
+      "item_code": "000fc050",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Shock",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Warmth",
+      "item_code": "000fc04e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Waterbreathing",
+      "item_code": "000fc067",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Waterbreathing",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Wielding",
+      "item_code": "0010df11",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Eminent Knight",
+      "item_code": "0010df2a",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Eminent Squire",
+      "item_code": "0010df30",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Extreme Knight",
+      "item_code": "0010df2b",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Extreme Squire",
+      "item_code": "0010df31",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Firewalker",
+      "item_code": "000fc048",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Fire",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Knight",
+      "item_code": "0010df28",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Major Knight",
+      "item_code": "0010df29",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Major Squire",
+      "item_code": "0010df2f",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Minor Knight",
+      "item_code": "0010df27",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Minor Squire",
+      "item_code": "0010df2d",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Peerless Knight",
+      "item_code": "0010df2c",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Peerless Squire",
+      "item_code": "0010df32",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Necklace of the Squire",
+      "item_code": "0010df2e",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 15
+      }
+    ]
   },
   {
     "attributes": {
@@ -2520,12 +3956,58 @@
   },
   {
     "attributes": {
+      "name": "Neloth's Ring of Tracking",
+      "item_code": "XX01961C",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Nightweaver's Band",
+      "item_code": "00068B83",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 10
+      },
+      {
+        "name": "Fortify Destruction",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Ogmund's Amulet of Talos",
       "item_code": "00064796",
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "quest_item": true,
       "magical_effects": "Time between Shouts is reduced by 20%",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Pithi's Ornamental Ring",
+      "item_code": "000DA734",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
       "unique_item": true,
       "enchantable": false
     }
@@ -2541,6 +4023,2382 @@
       "unique_item": true,
       "enchantable": false
     }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Alteration",
+      "item_code": "00100dee",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Archery",
+      "item_code": "00100e25",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Blocking",
+      "item_code": "00100df4",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Bloodlust",
+      "item_code": "XX0275B6",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
+      "unique_item": false,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Conjuration",
+      "item_code": "00100dfa",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Deft Hands",
+      "item_code": "00100e30",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Destruction",
+      "item_code": "00100e00",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Dwindling Magic",
+      "item_code": "0010dfca",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Alteration",
+      "item_code": "00100df0",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Archery",
+      "item_code": "00100e26",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Blocking",
+      "item_code": "00100df6",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Conjuration",
+      "item_code": "00100dfc",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Deft Hands",
+      "item_code": "00100e32",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Destruction",
+      "item_code": "00100e02",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Health",
+      "item_code": "000fcf00",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Illusion",
+      "item_code": "00100e14",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Lockpicking",
+      "item_code": "00100e20",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Magicka",
+      "item_code": "000ff7d5",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Restoration",
+      "item_code": "00100e37",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Smithing",
+      "item_code": "00100e3e",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Sneaking",
+      "item_code": "00100e43",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Stamina",
+      "item_code": "000fcefa",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Sure Grip",
+      "item_code": "00100e4f",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Eminent Wielding",
+      "item_code": "00100e2c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Alteration",
+      "item_code": "00100df1",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Archery",
+      "item_code": "00100e27",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Blocking",
+      "item_code": "00100df7",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Conjuration",
+      "item_code": "00100dfd",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Deft Hands",
+      "item_code": "00100e33",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Destruction",
+      "item_code": "00100e03",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Health",
+      "item_code": "000fcf01",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Illusion",
+      "item_code": "00100e15",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Lockpicking",
+      "item_code": "00100e21",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Magicka",
+      "item_code": "000ff7d6",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Restoration",
+      "item_code": "00100e38",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Smithing",
+      "item_code": "00100e3f",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Sneaking",
+      "item_code": "00100e44",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Stamina",
+      "item_code": "000fcefb",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Sure Grip",
+      "item_code": "00100e50",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Extreme Wielding",
+      "item_code": "00100e2d",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Health",
+      "item_code": "000fcefe",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Illusion",
+      "item_code": "00100e12",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Instinct",
+      "item_code": "XX0275B7",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Invigoration",
+      "item_code": "00100e57",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Lockpicking",
+      "item_code": "00100e1e",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Magic Abatement",
+      "item_code": "0010dfcc",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Magic Suppression",
+      "item_code": "0010dfcb",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Magicka",
+      "item_code": "000ff7d3",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Alteration",
+      "item_code": "00100def",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Archery",
+      "item_code": "00100e24",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Blocking",
+      "item_code": "00100df5",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Conjuration",
+      "item_code": "00100dfb",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Deft Hands",
+      "item_code": "00100e31",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Destruction",
+      "item_code": "000fc014",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Health",
+      "item_code": "000fceff",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Illusion",
+      "item_code": "00100e13",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Lockpicking",
+      "item_code": "00100e1f",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Magicka",
+      "item_code": "000ff7d4",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Restoration",
+      "item_code": "00100e36",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Smithing",
+      "item_code": "00100e3d",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Sneaking",
+      "item_code": "00100e42",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Stamina",
+      "item_code": "000fcef9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Sure Grip",
+      "item_code": "00100e4e",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Major Wielding",
+      "item_code": "00100e2b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Mending",
+      "item_code": "00100e52",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Alteration",
+      "item_code": "000ff7de",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Archery",
+      "item_code": "00100e23",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Blocking",
+      "item_code": "00100df3",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Conjuration",
+      "item_code": "00100df9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Deft Hands",
+      "item_code": "00100e2f",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Destruction",
+      "item_code": "00100dff",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Health",
+      "item_code": "000fcefd",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Illusion",
+      "item_code": "00100e11",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Lockpicking",
+      "item_code": "00100e17",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Magicka",
+      "item_code": "000ff7d2",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Restoration",
+      "item_code": "00100e34",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Smithing",
+      "item_code": "00100e3b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Sneaking",
+      "item_code": "00100e3a",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Stamina",
+      "item_code": "000fcef7",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Striking",
+      "item_code": "00100e4c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Minor Wielding",
+      "item_code": "00100e29",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Namira",
+      "item_code": "0002C37B",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of Nullification",
+      "item_code": "0010dfcd",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peeless Destruction",
+      "item_code": "00100e04",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Alteration",
+      "item_code": "00100df2",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Archery",
+      "item_code": "00100e28",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Archery",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Blocking",
+      "item_code": "00100df8",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 35
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Conjuration",
+      "item_code": "00100dfe",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Deft Hands",
+      "item_code": "00100e7b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Health",
+      "item_code": "000fcf02",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Illusion",
+      "item_code": "00100e16",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Lockpicking",
+      "item_code": "00100e22",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Magicka",
+      "item_code": "000ff7d7",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Restoration",
+      "item_code": "00100e39",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Smithing",
+      "item_code": "00100e40",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Sneaking",
+      "item_code": "00100e45",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Stamina",
+      "item_code": "000fcefc",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Sure Grip",
+      "item_code": "00100e84",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Peerless Wielding",
+      "item_code": "00100e2e",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Pure Mixtures",
+      "item_code": "00090E32",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Alchemy",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Recharging",
+      "item_code": "00100e59",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Recovery",
+      "item_code": "00100e5c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Recuperation",
+      "item_code": "00100e55",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Regeneration",
+      "item_code": "00100e53",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Rejuvenation",
+      "item_code": "00100e56",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Remedy",
+      "item_code": "00100e51",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Renewal",
+      "item_code": "00100e58",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina Regen",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Replenishing",
+      "item_code": "00100e5a",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Resist Magic",
+      "item_code": "0010dfc8",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Restoration",
+      "item_code": "00100e35",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Resurgence",
+      "item_code": "00100e5b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 80
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Revival",
+      "item_code": "00100e54",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Healing Rate",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Smithing",
+      "item_code": "00100e3c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Sneaking",
+      "item_code": "00100e41",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Stamina",
+      "item_code": "000fcef8",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Sure Grip",
+      "item_code": "00100e4d",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Waning Magic",
+      "item_code": "0010dfc9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of Wielding",
+      "item_code": "00100e2a",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Beast",
+      "item_code": "XX00E7FD",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Eminent Knight",
+      "item_code": "00100e0e",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Eminent Squire",
+      "item_code": "00100e1b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Erudite",
+      "item_code": "XX00E7FE",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": "Regenerate Magicka faster",
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Extreme Knight",
+      "item_code": "00100e0f",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Extreme Squire",
+      "item_code": "00100e1c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 22
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Hunt",
+      "item_code": "XX0275B9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "While in Beast Form, your health regenerates",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Knight",
+      "item_code": "00100e0c",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Major Knight",
+      "item_code": "00100e0d",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Major Squire",
+      "item_code": "00100e1a",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 17
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Minor Knight",
+      "item_code": "00100e0b",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Minor Squire",
+      "item_code": "00100e18",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 12
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Moon",
+      "item_code": "XX0275B8",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": "Increases the duration of your Howls by 25%",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Peerless Knight",
+      "item_code": "00100e10",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Peerless Squire",
+      "item_code": "00100e1d",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 25
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ring of the Squire",
+      "item_code": "00100e19",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 15
+      }
+    ]
   },
   {
     "attributes": {
@@ -2608,6 +6466,234 @@
   },
   {
     "attributes": {
+      "name": "Silver Amethyst Ring",
+      "item_code": "000877A7",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Amethyst",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Emerald Necklace",
+      "item_code": "00087833",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Emerald",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Garnet Ring",
+      "item_code": "000877AB",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Garnet",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Jeweled Necklace",
+      "item_code": "00087834",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Garnet",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Necklace",
+      "item_code": "0009171B",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Ring",
+      "item_code": "0003B97C",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Ruby Ring",
+      "item_code": "000877B1",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Ruby",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver Sapphire Necklace",
+      "item_code": "00087832",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "name": "Silver Ingot",
+        "count": 1
+      },
+      {
+        "name": "Flawless Sapphire",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silver and Moonstone Circlet",
+      "item_code": "000166E0",
+      "jewelry_type": "circlet",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Silver and Sapphire Circlet",
+      "jewelry_type": "circlet",
+      "item_code": "00016719",
+      "unit_weight": 2,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Silver-Blood Family Ring",
+      "item_code": "00024CFF",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The Bond of Matrimony",
+      "item_code": "000C5809",
+      "jewelry_type": "ring",
+      "unit_weight": 0.3,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "The Gauldur Amulet",
       "item_code": "0002D75B",
       "jewelry_type": "amulet",
@@ -2631,6 +6717,42 @@
         "strength": 30
       }
     ]
+  },
+  {
+    "attributes": {
+      "name": "Treoy's Ornamental Ring",
+      "item_code": "000DA732",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Viola's Gold Ring",
+      "item_code": "000403A9",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Wedding Wreath",
+      "item_code": "0008895A",
+      "jewelry_type": "circlet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
   },
   {
     "attributes": {
