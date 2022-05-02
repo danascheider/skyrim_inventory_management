@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
   create_table "canonical_armors_enchantments", force: :cascade do |t|
     t.bigint "canonical_armor_id", null: false
     t.bigint "enchantment_id", null: false
-    t.integer "strength"
+    t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_enchantments_on_canonical_armor_id"
