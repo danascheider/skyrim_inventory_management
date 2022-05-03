@@ -8,7 +8,7 @@ class CanonicalJewelryItem < ApplicationRecord
 
   has_many :canonical_jewelry_items_canonical_materials, dependent: :destroy
   has_many :canonical_materials,
-           -> { select 'canonical_materials.*, canonical_jewelry_items_canonical_materials.count as quantity_needed' },
+           -> { select 'canonical_materials.*, canonical_jewelry_items_canonical_materials.quantity as quantity_needed' },
            through: :canonical_jewelry_items_canonical_materials
 
   validates :name, presence: true

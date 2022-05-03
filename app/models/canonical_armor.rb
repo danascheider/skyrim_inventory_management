@@ -14,7 +14,7 @@ class CanonicalArmor < ApplicationRecord
 
   has_many :canonical_armors_tempering_materials, dependent: :destroy
   has_many :tempering_materials,
-           -> { select 'canonical_materials.*, canonical_armors_tempering_materials.count as quantity_needed' },
+           -> { select 'canonical_materials.*, canonical_armors_tempering_materials.quantity as quantity_needed' },
            through: :canonical_armors_tempering_materials,
            source:  :canonical_material
 

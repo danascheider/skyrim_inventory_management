@@ -107,7 +107,7 @@ RSpec.describe CanonicalJewelryItem, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        item.canonical_jewelry_items_canonical_materials.create!(canonical_material: material, count: 2)
+        item.canonical_jewelry_items_canonical_materials.create!(canonical_material: material, quantity: 2)
       end
 
       it 'gives the enchantment strength' do
