@@ -130,12 +130,13 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
 
   create_table "canonical_materials", force: :cascade do |t|
     t.string "name", null: false
+    t.string "item_code", null: false
     t.boolean "building_material", default: false
     t.boolean "smithing_material", default: false
     t.decimal "unit_weight", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_canonical_materials_on_name", unique: true
+    t.index ["item_code"], name: "index_canonical_materials_on_item_code", unique: true
   end
 
   create_table "canonical_properties", force: :cascade do |t|
