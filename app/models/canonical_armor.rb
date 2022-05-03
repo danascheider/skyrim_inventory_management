@@ -8,7 +8,7 @@ class CanonicalArmor < ApplicationRecord
 
   has_many :canonical_armors_smithing_materials, dependent: :destroy
   has_many :smithing_materials,
-           -> { select 'canonical_materials.*, canonical_armors_smithing_materials.count as quantity_needed' },
+           -> { select 'canonical_materials.*, canonical_armors_smithing_materials.quantity as quantity_needed' },
            through: :canonical_armors_smithing_materials,
            source:  :canonical_material
 
