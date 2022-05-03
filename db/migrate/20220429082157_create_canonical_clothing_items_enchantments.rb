@@ -9,7 +9,7 @@ class CreateCanonicalClothingItemsEnchantments < ActiveRecord::Migration[6.1]
                    index:       { name: :index_canonical_clothing_enchantments_on_canonical_clothing_id }
       t.references :enchantment, null: false, foreign_key: true
 
-      t.integer :strength
+      t.decimal :strength, precision: 5, scale: 2
 
       t.timestamps
     end
