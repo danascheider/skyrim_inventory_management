@@ -10,10 +10,12 @@
       "unique_item": false,
       "enchantable": false
     },
-    "enchantments": {
-      "name": "Fortify Magicka",
-      "strength": 50
-    }
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
   },
   {
     "attributes": {
