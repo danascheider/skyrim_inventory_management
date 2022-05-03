@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CanonicalClothingItem < ApplicationRecord
+  has_many :canonical_clothing_items_enchantments, dependent: :destroy
   has_many :enchantments, through: :canonical_clothing_items_enchantments
 
   validates :name, presence: true

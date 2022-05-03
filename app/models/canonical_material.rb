@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class CanonicalMaterial < ApplicationRecord
+  has_many :canonical_armors_smithing_materials, dependent: :destroy
   has_many :smithable_armors, through: :canonical_armors_smithing_materials, source: :canonical_armor
+
+  has_many :canonical_armors_tempering_materials, dependent: :destroy
   has_many :temperable_armors, through: :canonical_armors_tempering_materials, source: :canonical_armor
+
+  has_many :canonical_jewelry_items_canonical_materials, dependent: :destroy
   has_many :canonical_jewelry_items, through: :canonical_jewelry_items_canonical_materials
 
   validates :name, presence: true
