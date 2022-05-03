@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
   create_table "canonical_armors_smithing_materials", force: :cascade do |t|
     t.bigint "canonical_armor_id", null: false
     t.bigint "canonical_material_id", null: false
-    t.integer "count", default: 1, null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_smithing_mats_on_canonical_armor_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
   create_table "canonical_armors_tempering_materials", force: :cascade do |t|
     t.bigint "canonical_armor_id", null: false
     t.bigint "canonical_material_id", null: false
-    t.integer "count", default: 1, null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"

@@ -32,12 +32,23 @@ RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
       end
     end
 
-      it 'is valid with a valid count' do
-        armor    = create(:canonical_armor)
+    describe 'canonical armor' do
+      it 'is invalid without a canonical armor' do
         material = create(:canonical_material)
-        model    = described_class.new(count: 2, canonical_armor: armor, canonical_material: material)
+        model    = described_class.new(quantity: 2, canonical_material: material)
 
-        expect(model).to be_valid
+        model.validate
+        expect(model.errors[:canonical_armor_id]).to include "can't be blank"
+      end
+    end
+
+    describe 'canonical material' do
+      it 'is invalid without a canonical material' do
+        armor = create(:canonical_armor)
+        model = described_class.new(quantity: 2, canonical_armor: armor)
+
+        model.validate
+        expect(model.errors[:canonical_material_id]).to include "can't be blank"
       end
     end
   end
