@@ -18,44 +18,6 @@
         "strength": 50
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Ebony Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ahzidal",
-      "item_code": "XX0240FE",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": "Fire spells do 25% more damage.",
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Fire",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
@@ -338,44 +300,6 @@
         "strength": 40
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Iron Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ancient Helmet of the Unburned",
-      "item_code": "000f494e",
-      "unit_weight": 4,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Fire",
-        "strength": 40
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
@@ -396,12 +320,6 @@
       "unique_item": false,
       "enchantable": false
     },
-    "enchantments": [
-      {
-        "name": null,
-        "strength": null
-      }
-    ],
     "smithing_materials": [
       {
         "name": "Iron Ingot",
@@ -578,44 +496,6 @@
         "strength": 100
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ancient Shrouded Armor",
-      "item_code": "000e1f15",
-      "unit_weight": 5,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Poison",
-        "strength": 100
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -640,76 +520,6 @@
       {
         "name": "Muffle",
         "strength": 0.5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ancient Shrouded Boots",
-      "item_code": "000e1f14",
-      "unit_weight": 0.5,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": 0.5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ancient Shrouded Cowl",
-      "item_code": "000e1f17",
-      "unit_weight": 1,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 35
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -802,44 +612,6 @@
         "strength": 15
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Armor of the Old Gods",
-      "item_code": "000eafd0",
-      "unit_weight": 3,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -860,12 +632,6 @@
       "unique_item": false,
       "enchantable": true
     },
-    "enchantments": [
-      {
-        "name": null,
-        "strength": null
-      }
-    ],
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
@@ -1666,44 +1432,6 @@
         "strength": 50
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Blackguard's Armor",
-      "item_code": "xx02ad33",
-      "unit_weight": 7,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Carry Weight",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -1730,44 +1458,6 @@
         "strength": 40
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Blackguard's Boots",
-      "item_code": "xx02ad34",
-      "unit_weight": 2,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Pickpocket",
-        "strength": 40
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -1792,76 +1482,6 @@
       {
         "name": "Fortify Lockpicking",
         "strength": 40
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Blackguard's Gloves",
-      "item_code": "xx02ad32",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Lockpicking",
-        "strength": 40
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Blackguard's Hood",
-      "item_code": "xx02ad31",
-      "unit_weight": 2,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 25
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -2360,44 +1980,6 @@
       {
         "name": "Fortify Sneak",
         "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Boots of the Old Gods",
-      "item_code": "000eafd3",
-      "unit_weight": 1.5,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -9995,44 +9577,6 @@
         "strength": 50
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Ebony Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Dukaan",
-      "item_code": "XX0240FF",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": "Frost spells do 25% more damage.",
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Frost",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
@@ -13961,44 +13505,6 @@
       {
         "name": "Muffle",
         "strength": 0.5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Ebony Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ebony Mail",
-      "item_code": "00052794",
-      "unit_weight": 28,
-      "body_slot": "body",
-      "weight": "heavy armor",
-      "magical_effects": "Opponents that get too close take 5 points of poison damage per second.",
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": 0.5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -17943,44 +17449,6 @@
         "strength": null
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Fur Boots",
-      "item_code": "000a6d7f",
-      "unit_weight": 2,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": [
-      {
-        "name": null,
-        "strength": null
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -18037,44 +17505,6 @@
       {
         "name": null,
         "strength": null
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Fur Gauntlets",
-      "item_code": "000a6d7d",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": [
-      {
-        "name": null,
-        "strength": null
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -18165,44 +17595,6 @@
       {
         "name": "Fortify Archery",
         "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Gauntlets of the Old Gods",
-      "item_code": "000eafd2",
-      "unit_weight": 0.5,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -20750,42 +20142,6 @@
   },
   {
     "attributes": {
-      "name": "Gloves of the Pugilist",
-      "item_code": "0010a06a",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Unarmed",
-        "strength": 10
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather Strips",
-        "quantity": 2
-      },
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Guild Master's Armor",
       "item_code": "000e35d7",
       "unit_weight": 10,
@@ -20801,44 +20157,6 @@
       {
         "name": "Fortify Carry Weight",
         "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Guild Master's Armor",
-      "item_code": "000e35d7",
-      "unit_weight": 10,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Carry Weight",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -20867,44 +20185,6 @@
         "strength": 35
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Guild Master's Boots",
-      "item_code": "000e35d6",
-      "unit_weight": 2,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Pickpocket",
-        "strength": 35
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -20929,44 +20209,6 @@
       {
         "name": "Fortify Lockpicking",
         "strength": 35
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Guild Master's Gloves",
-      "item_code": "000e35d8",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Lockpicking",
-        "strength": 35
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -20995,79 +20237,9 @@
         "strength": 20
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Guild Master's Hood",
-      "item_code": "000e35d9",
-      "unit_weight": 3,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Helm of Yngol",
-      "item_code": "000295f3",
-      "unit_weight": 8,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Frost",
-        "strength": 30
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Steel Ingot",
         "quantity": 1
       }
     ]
@@ -21123,44 +20295,6 @@
         "strength": 30
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Helmet of the Old Gods",
-      "item_code": "000eafd1",
-      "unit_weight": 1,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 30
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -21171,7 +20305,7 @@
   {
     "attributes": {
       "name": "Hevnoraak",
-      "item_code": "00061CC1​",
+      "item_code": "00061CC1",
       "unit_weight": 9,
       "body_slot": "head",
       "weight": "heavy armor",
@@ -21189,48 +20323,6 @@
       {
         "name": "Resist Poison",
         "strength": 100
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Iron Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Hevnoraak",
-      "item_code": "00061CC1​",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Disease",
-        "strength": 100
-      },
-      {
-        "name": "Resist Poison",
-        "strength": 100
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -29211,44 +28303,6 @@
         "strength": 15
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Iron Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Ironhand Gauntlets",
-      "item_code": "000e1643",
-      "unit_weight": 4,
-      "body_slot": "hands",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Two-Handed",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
@@ -29284,46 +28338,6 @@
     "tempering_materials": [
       {
         "name": "Gold Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Krosis",
-      "item_code": "00061CB9",
-      "unit_weight": 5,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Lockpicking",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Archery",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Alchemy",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Iron Ingot",
         "quantity": 1
       }
     ]
@@ -31211,44 +30225,6 @@
         "strength": 15
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Linwe's Armor",
-      "item_code": "00108544",
-      "unit_weight": 8,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Stamina",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -31275,44 +30251,6 @@
         "strength": 15
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Linwe's Boots",
-      "item_code": "00108543",
-      "unit_weight": 2,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -31336,70 +30274,6 @@
     "enchantments": [
       {
         "name": "Fortify One-Handed",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Linwe's Gloves",
-      "item_code": "00108545",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify One-Handed",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Linwe's Hood",
-      "item_code": "00108546",
-      "unit_weight": 2,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
         "strength": 15
       }
     ],
@@ -31565,74 +30439,6 @@
       {
         "name": "Fortify Magicka Regen",
         "strength": 5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Masque of Clavicus Vile",
-      "item_code": "000D2846",
-      "unit_weight": 7,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": "+10 Speechcraft",
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Miraak",
-      "item_code": "XX039FA1",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 40
       }
     ],
     "smithing_materials": [
@@ -31842,38 +30648,6 @@
   },
   {
     "attributes": {
-      "name": "Morokei",
-      "item_code": "00061C8B",
-      "unit_weight": 4,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 100
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Refined Moonstone",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Movarth's Boots",
       "item_code": "00096d9b",
       "unit_weight": 1,
@@ -31889,50 +30663,6 @@
       {
         "name": "Fortify Sneak",
         "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Movarth's Boots",
-      "item_code": "00096d9b",
-      "unit_weight": 1,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Sneak",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ]
   },
@@ -31961,52 +30691,6 @@
       {
         "name": "Fortify Restoration",
         "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Ebony Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Nahkriin",
-      "item_code": "00061CA5",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 50
-      },
-      {
-        "name": "Fortify Destruction",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Restoration",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -34314,46 +32998,6 @@
   },
   {
     "attributes": {
-      "name": "Otar",
-      "item_code": "00061CC2",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Fire",
-        "strength": 30
-      },
-      {
-        "name": "Resist Frost",
-        "strength": 30
-      },
-      {
-        "name": "Resist Shock",
-        "strength": 30
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Refined Malachite",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Pale Guard's Armor",
       "item_code": "00021525",
       "unit_weight": 6,
@@ -34599,48 +33243,6 @@
         "strength": 1
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Iron Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Predator's Grace",
-      "item_code": "000a4dcd",
-      "unit_weight": 1,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": 1
-      },
-      {
-        "name": "Fortify Stamina Regen",
-        "strength": 1
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
@@ -34665,44 +33267,6 @@
       {
         "name": "Fortify Stamina",
         "strength": 70
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Orichalcum Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Rahgot",
-      "item_code": "00061CC0",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Stamina",
-        "strength": 70
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -36799,76 +35363,6 @@
         "strength": 50
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Armor",
-      "item_code": "0005ABC3",
-      "unit_weight": 32,
-      "body_slot": "body",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Poison",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Armor",
-      "item_code": "000D2844",
-      "unit_weight": 7,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Poison",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -36895,44 +35389,6 @@
         "strength": 0.5
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Boots",
-      "item_code": "000D2845",
-      "unit_weight": 2,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Muffle",
-        "strength": 0.5
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -36957,44 +35413,6 @@
       {
         "name": "Fortify Archery",
         "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Shrouded Cowl",
-      "item_code": "000D2842",
-      "unit_weight": 2,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Archery",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -42002,70 +40420,6 @@
   },
   {
     "attributes": {
-      "name": "Thieves' Guild Armor",
-      "item_code": "000d3ac3",
-      "unit_weight": 7,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Carry Weight",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Thieves' Guild Boots",
-      "item_code": "000d3ac2",
-      "unit_weight": 1.5,
-      "body_slot": "feet",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Pickpocket",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Thieves' Guild Boots",
       "item_code": "000d3ac2",
       "unit_weight": 1.5,
@@ -42115,44 +40469,6 @@
         "strength": 15
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Thieves' Guild Gloves",
-      "item_code": "000d3ac4",
-      "unit_weight": 1,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Lockpicking",
-        "strength": 15
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Leather",
@@ -42177,44 +40493,6 @@
       {
         "name": "Fortify Barter",
         "strength": 10
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Thieves' Guild Hood",
-      "item_code": "000d3ac5",
-      "unit_weight": 1.5,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 10
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -42273,50 +40551,6 @@
       {
         "name": "Fortify Lockpicking",
         "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Tumblerbane Gloves",
-      "item_code": "000f5981",
-      "unit_weight": 2,
-      "body_slot": "hands",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Lockpicking",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ]
   },
@@ -42690,50 +40924,6 @@
         "name": "Fortify Magicka Regen",
         "strength": 125
       }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Vampire Royal Armor",
-      "item_code": "xx0194c5",
-      "unit_weight": 9,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 125
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
     ]
   },
   {
@@ -42753,44 +40943,6 @@
       {
         "name": "Fortify Magicka Regen",
         "strength": 125
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Leather",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Vampire Royal Armor",
-      "item_code": "xx00b5db",
-      "unit_weight": 9,
-      "body_slot": "body",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 125
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -42817,44 +40969,6 @@
       {
         "name": "Fortify Stamina",
         "strength": 60
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Dwarven Metal Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Visage of Mzund",
-      "item_code": "xx038add",
-      "unit_weight": 12,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": "Allows wearer to release the Breath of Nchuak, a powerful steam attack.",
-      "dragon_priest_mask": false,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Stamina",
-        "strength": 60
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -42891,52 +41005,6 @@
         "strength": 20
       }
     ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Steel Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Vokun",
-      "item_code": "00061CC9",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Illusion",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Alteration",
-        "strength": 20
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
@@ -42969,52 +41037,6 @@
       {
         "name": "Waterbreathing",
         "strength": null
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Corundum Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Volsung",
-      "item_code": "00061CAB",
-      "unit_weight": 5,
-      "body_slot": "head",
-      "weight": "light armor",
-      "magical_effects": null,
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Barter",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Carry Weight",
-        "strength": 20
-      },
-      {
-        "name": "Waterbreathing",
-        "strength": null
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
@@ -43425,44 +41447,6 @@
       {
         "name": "Resist Shock",
         "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
-      }
-    ],
-    "tempering_materials": [
-      {
-        "name": "Ebony Ingot",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Zahkriisos",
-      "item_code": "XX024037",
-      "unit_weight": 9,
-      "body_slot": "head",
-      "weight": "heavy armor",
-      "magical_effects": "Shock spells do 25% more damage.",
-      "dragon_priest_mask": true,
-      "quest_item": true,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Shock",
-        "strength": 50
-      }
-    ],
-    "smithing_materials": [
-      {
-        "name": null,
-        "quantity": null
       }
     ],
     "tempering_materials": [
