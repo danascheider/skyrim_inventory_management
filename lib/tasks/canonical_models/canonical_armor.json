@@ -4789,7 +4789,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
@@ -4811,7 +4811,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
@@ -4833,7 +4833,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
@@ -4855,7 +4855,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
@@ -27104,7 +27104,7 @@
         "count": 1
       },
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       },
       {
@@ -27151,7 +27151,7 @@
         "count": 1
       },
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       },
       {
@@ -27198,7 +27198,7 @@
         "count": 1
       },
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       },
       {
@@ -27245,7 +27245,7 @@
         "count": 1
       },
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       },
       {
@@ -27292,7 +27292,7 @@
         "count": 1
       },
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       },
       {
@@ -34611,7 +34611,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundom Ingot",
+        "name": "Corundum Ingot",
         "count": 2
       },
       {
@@ -35112,7 +35112,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundom Ingot",
+        "name": "Corundum Ingot",
         "count": 1
       },
       {
@@ -35547,7 +35547,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundom Ingot",
+        "name": "Corundum Ingot",
         "count": 1
       },
       {
@@ -36048,7 +36048,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundom Ingot",
+        "name": "Corundum Ingot",
         "count": 1
       },
       {
@@ -36931,12 +36931,12 @@
   },
   {
     "attributes": {
-      "name": "Stahlrim Heavy Armor",
+      "name": "Stalhrim Heavy Armor",
       "item_code": "xx01cd9f",
       "unit_weight": 38,
       "body_slot": "body",
       "weight": "heavy armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -36945,7 +36945,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 6
       },
       {
@@ -36959,19 +36959,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Heavy Boots",
+      "name": "Stalhrim Heavy Boots",
       "item_code": "xx01cd9e",
       "unit_weight": 7,
       "body_slot": "feet",
       "weight": "heavy armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -36980,7 +36980,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 4
       },
       {
@@ -36994,19 +36994,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Heavy Gauntlets",
+      "name": "Stalhrim Heavy Gauntlets",
       "item_code": "xx01cda0",
       "unit_weight": 7,
       "body_slot": "hands",
       "weight": "heavy armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37015,7 +37015,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 3
       },
       {
@@ -37029,19 +37029,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Helmet",
+      "name": "Stalhrim Helmet",
       "item_code": "xx01cda1",
       "unit_weight": 7,
       "body_slot": "head",
       "weight": "heavy armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37050,7 +37050,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 4
       },
       {
@@ -37064,19 +37064,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Light Armor",
+      "name": "Stalhrim Light Armor",
       "item_code": "xx01cda2",
       "unit_weight": 7,
       "body_slot": "body",
       "weight": "light armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37085,7 +37085,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 5
       },
       {
@@ -37099,19 +37099,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Light Boots",
+      "name": "Stalhrim Light Boots",
       "item_code": "xx01cd7e",
       "unit_weight": 2,
       "body_slot": "feet",
       "weight": "light armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37120,7 +37120,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 3
       },
       {
@@ -37134,19 +37134,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Light Bracers",
+      "name": "Stalhrim Light Bracers",
       "item_code": "xx01cda5",
       "unit_weight": 2,
       "body_slot": "hands",
       "weight": "light armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37155,7 +37155,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 2
       },
       {
@@ -37169,19 +37169,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Light Helmet",
+      "name": "Stalhrim Light Helmet",
       "item_code": "xx01cda3",
       "unit_weight": 2,
       "body_slot": "head",
       "weight": "light armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37190,7 +37190,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 3
       },
       {
@@ -37204,19 +37204,19 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
   },
   {
     "attributes": {
-      "name": "Stahlrim Shield",
+      "name": "Stalhrim Shield",
       "item_code": "xx026237",
       "unit_weight": 10,
       "body_slot": "shield",
       "weight": "light armor",
-      "magical_effects": "Frost enchantments are 25% stronger when placed on Stahlrim items. Chaos damage enchantments are also 25% stronger.",
+      "magical_effects": "Frost enchantments are 25% stronger when placed on Stalhrim items. Chaos damage enchantments are also 25% stronger.",
       "dragon_priest_mask": false,
       "quest_item": false,
       "unique_item": false,
@@ -37225,7 +37225,7 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 4
       },
       {
@@ -37239,7 +37239,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Stahlrim",
+        "name": "Stalhrim",
         "count": 1
       }
     ]
