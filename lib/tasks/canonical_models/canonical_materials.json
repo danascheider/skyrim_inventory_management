@@ -98,6 +98,13 @@
     "unit_weight": 0.5
   },
   {
+    "name": "Netch Jelly",
+    "item_code": "XX01CD72",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
     "name": "Bear Pelt",
     "item_code": "0003AD52",
     "building_material": true,
