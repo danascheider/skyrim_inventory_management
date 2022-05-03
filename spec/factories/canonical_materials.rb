@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :canonical_material do
-    name        { 'iron ingot' }
-    unit_weight { 2.4 }
+    name                 { 'iron ingot' }
+    sequence(:item_code) {|n| "xxx000#{n}" }
+    unit_weight          { 2.4 }
   end
 end
