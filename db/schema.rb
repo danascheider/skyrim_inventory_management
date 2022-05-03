@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "quest_item", default: false
-    t.string "unique_item", default: "f"
-    t.string "enchantable", default: "t"
+    t.boolean "unique_item", default: false
+    t.boolean "enchantable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
