@@ -37,6 +37,13 @@ RSpec.describe CanonicalClothingItem, type: :model do
     end
 
     describe 'unit_weight' do
+      it 'is invalid with no unit weight' do
+        item = described_class.new(name: 'Fine Clothes', item_code: 'foo', body_slot: 'body')
+
+        item.validate
+        expect(item.errors[:unit_weight]).to include "can't be blank"
+      end
+
       it 'is invalid with a non-numeric unit weight' do
         item = build(:canonical_clothing_item, unit_weight: 'bar')
 
