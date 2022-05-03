@@ -87,4 +87,32 @@ RSpec.describe CanonicalJewelryItem, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    describe 'enchantments' do
+      let(:item)        { create(:canonical_jewelry_item) }
+      let(:enchantment) { create(:enchantment) }
+
+      before do
+        item.canonical_jewelry_items_enchantments.create!(enchantment: enchantment, strength: 17)
+      end
+
+      it 'gives the enchantment strength' do
+        expect(item.enchantments.first.enchantment_strength).to eq 17
+      end
+    end
+
+    describe 'materials' do
+      let(:item)     { create(:canonical_jewelry_item) }
+      let(:material) { create(:canonical_material) }
+
+      before do
+        item.canonical_jewelry_items_canonical_materials.create!(canonical_material: material, count: 2)
+      end
+
+      it 'gives the enchantment strength' do
+        expect(item.canonical_materials.first.quantity_needed).to eq 2
+      end
+    end
+  end
 end

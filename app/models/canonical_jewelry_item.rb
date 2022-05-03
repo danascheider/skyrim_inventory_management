@@ -2,10 +2,14 @@
 
 class CanonicalJewelryItem < ApplicationRecord
   has_many :canonical_jewelry_items_enchantments, dependent: :destroy
-  has_many :enchantments, through: :canonical_jewelry_items_enchantments
+  has_many :enchantments,
+           -> { select 'enchantments.*, canonical_jewelry_items_enchantments.strength as enchantment_strength' },
+           through: :canonical_jewelry_items_enchantments
 
   has_many :canonical_jewelry_items_canonical_materials, dependent: :destroy
-  has_many :canonical_materials, through: :canonical_jewelry_items_canonical_materials
+  has_many :canonical_materials,
+           -> { select 'canonical_materials.*, canonical_jewelry_items_canonical_materials.count as quantity_needed' },
+           through: :canonical_jewelry_items_canonical_materials
 
   validates :name, presence: true
   validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

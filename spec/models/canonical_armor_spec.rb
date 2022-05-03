@@ -103,4 +103,45 @@ RSpec.describe CanonicalArmor, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    describe 'enchantments' do
+      let(:armor)       { create(:canonical_armor) }
+      let(:enchantment) { create(:enchantment) }
+
+      before do
+        armor.canonical_armors_enchantments.create!(enchantment: enchantment, strength: 40)
+      end
+
+      it 'gives the enchantment strength' do
+        expect(armor.enchantments.first.enchantment_strength).to eq 40
+      end
+    end
+
+    describe 'smithing materials' do
+      let(:armor) { create(:canonical_armor) }
+      let(:material) { create(:canonical_material) }
+
+      before do
+        armor.canonical_armors_smithing_materials.create!(canonical_material: material, count: 4)
+      end
+
+      it 'gives the quantity needed' do
+        expect(armor.smithing_materials.first.quantity_needed).to eq 4
+      end
+    end
+
+    describe 'tempering materials' do
+      let(:armor) { create(:canonical_armor) }
+      let(:material) { create(:canonical_material) }
+
+      before do
+        armor.canonical_armors_tempering_materials.create!(canonical_material: material, count: 1)
+      end
+
+      it 'gives the quantity needed' do
+        expect(armor.tempering_materials.first.quantity_needed).to eq 1
+      end
+    end
+  end
 end

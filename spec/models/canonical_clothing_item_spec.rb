@@ -80,4 +80,19 @@ RSpec.describe CanonicalClothingItem, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    describe 'enchantments' do
+      let(:item)        { create(:canonical_clothing_item) }
+      let(:enchantment) { create(:enchantment) }
+
+      before do
+        item.canonical_clothing_items_enchantments.create!(enchantment: enchantment, strength: 14)
+      end
+
+      it 'gives the enchantment strength' do
+        expect(item.enchantments.first.enchantment_strength).to eq 14
+      end
+    end
+  end
 end

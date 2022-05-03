@@ -2,7 +2,9 @@
 
 class CanonicalClothingItem < ApplicationRecord
   has_many :canonical_clothing_items_enchantments, dependent: :destroy
-  has_many :enchantments, through: :canonical_clothing_items_enchantments
+  has_many :enchantments,
+           -> { select 'enchantments.*, canonical_clothing_items_enchantments.strength as enchantment_strength' },
+           through: :canonical_clothing_items_enchantments
 
   validates :name, presence: true
   validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

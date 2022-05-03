@@ -2,13 +2,21 @@
 
 class CanonicalArmor < ApplicationRecord
   has_many :canonical_armors_enchantments, dependent: :destroy
-  has_many :enchantments, through: :canonical_armors_enchantments
+  has_many :enchantments,
+           -> { select 'enchantments.*, canonical_armors_enchantments.strength as enchantment_strength' },
+           through: :canonical_armors_enchantments
 
   has_many :canonical_armors_smithing_materials, dependent: :destroy
-  has_many :smithing_materials, through: :canonical_armors_smithing_materials, source: :canonical_material
+  has_many :smithing_materials,
+           -> { select 'canonical_materials.*, canonical_armors_smithing_materials.count as quantity_needed' },
+           through: :canonical_armors_smithing_materials,
+           source:  :canonical_material
 
   has_many :canonical_armors_tempering_materials, dependent: :destroy
-  has_many :tempering_materials, through: :canonical_armors_tempering_materials, source: :canonical_material
+  has_many :tempering_materials,
+           -> { select 'canonical_materials.*, canonical_armors_tempering_materials.count as quantity_needed' },
+           through: :canonical_armors_tempering_materials,
+           source:  :canonical_material
 
   validates :name, presence: true
   validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
