@@ -217,6 +217,18 @@
   },
   {
     "attributes": {
+      "name": "Ancient Nord Amulet",
+      "item_code": "000cc842",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Andurs' Amulet of Arkay",
       "item_code": "00094E3E",
       "jewelry_type": "amulet",
@@ -1244,18 +1256,6 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
-  },
-  {
-    "attributes": {
-      "name": "Diadem of the Savant",
-      "item_code": "000F9904",
-      "jewelry_type": "circlet",
-      "unit_weight": 4,
-      "quest_item": false,
-      "magical_effects": "Spells in all schools cost less Magicka to cast",
-      "unique_item": true,
-      "enchantable": false
     }
   },
   {

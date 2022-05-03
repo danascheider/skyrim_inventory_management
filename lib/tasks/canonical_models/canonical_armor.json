@@ -2566,6 +2566,19 @@
   },
   {
     "attributes": {
+      "name": "Diadem of the Savant",
+      "item_code": "000F9904",
+      "unit_weight": 4,
+      "body_slot": "head",
+      "weight": "light armor",
+      "quest_item": true,
+      "magical_effects": "Spells in all schools cost less Magicka to cast",
+      "unique_item": true,
+      "enchantable": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Dragonplate Armor of Eminent Alteration",
       "item_code": "0010cf3f",
       "unit_weight": "40",
@@ -2574,7 +2587,8 @@
       "magical_effects": null,
       "dragon_priest_mask": false,
       "quest_item": false,
-      "unique_item": false
+      "unique_item": false,
+      "enchantable": false
     },
     "enchantments": [
       {
