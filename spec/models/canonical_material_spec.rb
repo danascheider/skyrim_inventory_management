@@ -37,11 +37,11 @@ RSpec.describe CanonicalMaterial, type: :model do
     end
 
     describe 'unit_weight' do
-      it 'is valid without a unit weight' do
+      it 'is invalid without a unit weight' do
         material = described_class.new(name: 'foo')
 
         material.validate
-        expect(material.errors[:unit_weight]).to be_empty
+        expect(material.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'is invalid with a non-numeric unit weight' do
