@@ -1,0 +1,625 @@
+[
+  {
+    "name": "Clay",
+    "item_code": "XX003043",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Glass",
+    "item_code": "XX005A69",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Goat Horns",
+    "item_code": "XX00303F",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Hinge",
+    "item_code": "XX003011",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Iron Fittings",
+    "item_code": "XX003035",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Lock",
+    "item_code": "XX003012",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Nails",
+    "item_code": "XX00300F",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Quarried Stone",
+    "item_code": "XX00306C",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Sawn Log",
+    "item_code": "XX00300E",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0
+  },
+  {
+    "name": "Straw",
+    "item_code": "XX005A68",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Small Antlers",
+    "item_code": "0006BC0B",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Large Antlers",
+    "item_code": "0006BC0A",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name":"Sabre Cat Tooth",
+    "item_code": "0006BC04",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Bone Meal",
+    "item_code": "00034CDD",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Netch Jelly",
+    "item_code": "XX01CD72",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Bear Pelt",
+    "item_code": "0003AD52",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Amethyst",
+    "item_code": "00063B46",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Bone Hawk Feathers",
+    "item_code": "XX002994",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Bone Hawk Skull",
+    "item_code": "XX002993",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight":1
+  },
+  {
+    "name": "Cave Bear Pelt",
+    "item_code": "0003AD53",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Centurion Dynamo Core",
+    "item_code": "000F4983",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight":4
+  },
+  {
+    "name": "Chaurus Chitin",
+    "item_code": "0003AD57",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 4
+  },
+  {
+    "name": "Chitin Plate",
+    "item_code": "XX02B04E",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Corundum Ingot",
+    "item_code": "0005AD93",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Corundum Ore",
+    "item_code": "0005acdb",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Cow Hide",
+    "item_code": "0003AD8F",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Daedra Heart",
+    "item_code": "0003AD5B",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Deer Hide",
+    "item_code": "000D284D",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Diamond",
+    "item_code": "00063B47",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Diamond",
+    "item_code": "0006851F",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Dragon Bone",
+    "item_code": "0003ADA4",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 15
+  },
+  {
+    "name": "Dragon Scales",
+    "item_code": "0003ADA3",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 10
+  },
+  {
+    "name": "Dwarven Metal Ingot",
+    "item_code": "000DB8A2",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Bent Dwemer Scrap Metal",
+    "item_code": "000c886c",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Large Decorative Dwemer Strut",
+    "item_code": "000c8878",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 15
+  },
+  {
+    "name": "Large Dwemer Plate Metal",
+    "item_code": "000c8864",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Large Dwemer Strut",
+    "item_code": "000c8872",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 20
+  },
+  {
+    "name": "Small Dwemer Plate Metal",
+    "item_code": "000c8866",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Solid Dwemer Metal",
+    "item_code": "000c8874",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 25
+  },
+  {
+    "name": "Dwemer Scrap Metal",
+    "item_code": "000c886a",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 2
+  },
+  {
+    "name": "Ebony Ingot",
+    "item_code": "0005AD9D",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ebony Ore",
+    "item_code": "0005acdc",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ectoplasm",
+    "item_code": "0003AD63",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Emerald",
+    "item_code": "00063B43",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Emerald",
+    "item_code": "00068520",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Firewood",
+    "item_code": "0006F993",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 5
+  },
+  {
+    "name": "Flawless Amethyst",
+    "item_code": "0006851E",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Garnet",
+    "item_code": "00068521",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Ruby",
+    "item_code": "00068522",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Fox Pelt",
+    "item_code": "000D4B35",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Garnet",
+    "item_code": "00063B45",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Goat Hide",
+    "item_code": "0003AD8E",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Gold Ingot",
+    "item_code": "0005AD9E",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Gold Ore",
+    "item_code": "0005acde",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Vale Deer Hide",
+    "item_code": "XX011999",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Horse Hide",
+    "item_code": "0003AD93",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Ice Wolf Pelt",
+    "item_code": "0003AD75",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Iron Ingot",
+    "item_code": "0005ACE4",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Iron Ore",
+    "item_code": "00071cf3",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Leather",
+    "item_code": "000DB5D2",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Leather Strips",
+    "item_code": "000800E4",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Netch Leather",
+    "item_code": "XX01CD7C",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Orichalcum Ingot",
+    "item_code": "0005AD99",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Orichalcum Ore",
+    "item_code": "0005acdd",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Sapphire",
+    "item_code": "00063B44",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Flawless Sapphire",
+    "item_code": "00068523",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Quicksilver Ingot",
+    "item_code": "0005ADA0",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Quicksilver Ore",
+    "item_code": "0005ace2",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Refined Malachite",
+    "item_code": "0005ADA1",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Malachite Ore",
+    "item_code": "0005ace1",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Refined Moonstone",
+    "item_code": "0005AD9F",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Moonstone Ore",
+    "item_code": "0005ace0",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Ruby",
+    "item_code": "00063B42",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Sabre Cat Pelt",
+    "item_code": "0003AD6D",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight":2
+  },
+  {
+    "name": "Sabre Cat Snow Pelt",
+    "item_code": "0003AD6E",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Shellbug Chitin",
+    "item_code": "XX0195AA",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 4
+  },
+  {
+    "name": "Silver Ingot",
+    "item_code": "0005ACE3",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Silver Ore",
+    "item_code": "0005acdf",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Snow Bear Pelt",
+    "item_code": "0003AD54",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 3
+  },
+  {
+    "name": "Snow Fox Pelt",
+    "item_code": "000D4BE7",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.5
+  },
+  {
+    "name": "Stalhrim",
+    "item_code": "XX02B06B",
+    "building_material": false,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Steel Ingot",
+    "item_code": "0005ACE5",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Vale Sabre Cat Hide",
+    "item_code": "XX01199A",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 2
+  },
+  {
+    "name": "Void Salts",
+    "item_code": "0003AD60",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.2
+  },
+  {
+    "name": "Wolf Pelt",
+    "item_code": "0003AD74",
+    "building_material": true,
+    "smithing_material": true,
+    "unit_weight": 1
+  },
+  {
+    "name": "Horker Tusk",
+    "item_code": "0003AD68",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 1
+  },
+  {
+    "name": "Mudcrab Chitin",
+    "item_code": "0006BC00",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.3
+  },
+  {
+    "name": "Slaughterfish Scales",
+    "item_code": "0003AD70",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.1
+  },
+  {
+    "name": "Vampire Dust",
+    "item_code": "0003AD76",
+    "building_material": true,
+    "smithing_material": false,
+    "unit_weight": 0.2
+  }
+]

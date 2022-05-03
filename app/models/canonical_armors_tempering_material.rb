@@ -4,5 +4,7 @@ class CanonicalArmorsTemperingMaterial < ApplicationRecord
   belongs_to :canonical_armor
   belongs_to :canonical_material
 
-  validates :count, numericality: { greater_than: 0, only_integer: true }
+  validates :canonical_armor_id, presence: true
+  validates :canonical_material_id, presence: true
+  validates :quantity, numericality: { greater_than: 0, only_integer: true }
 end

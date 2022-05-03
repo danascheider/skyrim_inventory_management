@@ -3,11 +3,16 @@
 class CreateCanonicalClothingItems < ActiveRecord::Migration[6.1]
   def change
     create_table :canonical_clothing_items do |t|
-      t.string :name, null: false, unique: true
-      t.decimal :unit_weight, precision: 5, scale: 1
+      t.string :name, null: false
+      t.string :item_code, null: false, unique: true
+      t.string :body_slot, null: false
+      t.string :magical_effects
+      t.decimal :unit_weight, precision: 5, scale: 2, null: false
       t.boolean :quest_item, default: false
+      t.boolean :unique_item, default: false
+      t.boolean :enchantable, default: true
 
-      t.index :name, unique: true
+      t.index :item_code, unique: true
 
       t.timestamps
     end

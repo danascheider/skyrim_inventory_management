@@ -2,9 +2,10 @@
 
 FactoryBot.define do
   factory :canonical_jewelry_item do
-    sequence(:name) {|n| "Jewelry Item #{n}" }
-    jewelry_type    { 'ring' }
-    unit_weight     { 37.0 }
-    quest_item      { false }
+    name                 { 'Gold Diamond Ring' }
+    sequence(:item_code) {|n| "xxx123#{n}" }
+    jewelry_type         { 'ring' }
+    unit_weight          { 37.0 }
+    quest_item           { false }
   end
 end
