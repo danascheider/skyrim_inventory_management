@@ -11,7 +11,7 @@ class CreateCanonicalArmorsTemperingMaterials < ActiveRecord::Migration[6.1]
                    null:        false,
                    foreign_key: true,
                    index:       { name: :index_canonical_armors_tempering_mats_on_canonical_material_id }
-      t.integer    :count,
+      t.integer    :quantity,
                    default: 1,
                    null:    false
 

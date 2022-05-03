@@ -129,7 +129,7 @@ namespace :canonical_models do
                 CanonicalJewelryItemsCanonicalMaterial.create!(
                   canonical_jewelry_item: item,
                   canonical_material:     material,
-                  count:                  m[:count],
+                  quantity:               m[:quantity],
                 )
               elsif item.canonical_materials.include?(material)
                 Rails.logger.warn("Jewelry item #{item.item_code} already associated with material #{m[:name]}.")
@@ -226,7 +226,7 @@ namespace :canonical_models do
                 CanonicalArmorsSmithingMaterial.create!(
                   canonical_armor:    item,
                   canonical_material: material,
-                  count:              m[:count],
+                  quantity:           m[:quantity],
                 )
               elsif item.smithing_materials.include?(material)
                 Rails.logger.warn("Armor item #{item.item_code} already associated with smithing material #{m[:name]}.")
@@ -244,7 +244,7 @@ namespace :canonical_models do
                 CanonicalArmorsTemperingMaterial.create!(
                   canonical_armor:    item,
                   canonical_material: material,
-                  count:              m[:count],
+                  quantity:           m[:quantity],
                 )
               elsif item.tempering_materials.include?(material)
                 Rails.logger.warn("Armor item #{item.item_code} already associated with tempering material #{m[:name]}.")

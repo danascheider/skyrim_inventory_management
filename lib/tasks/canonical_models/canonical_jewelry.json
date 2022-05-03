@@ -295,15 +295,15 @@
     "materials": [
       {
         "name": "Bone Hawk Skull",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Hawk Feathers",
-        "count": 6
+        "quantity": 6
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1380,11 +1380,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Diamond",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1402,11 +1402,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Diamond",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1424,11 +1424,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Emerald",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1446,11 +1446,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Amethyst",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1468,7 +1468,7 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1486,7 +1486,7 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1504,11 +1504,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Ruby",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1526,11 +1526,11 @@
     "materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Sapphire",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6472,11 +6472,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Amethyst",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6494,11 +6494,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Emerald",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6516,11 +6516,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Garnet",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6538,11 +6538,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Garnet",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -6560,7 +6560,7 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6578,7 +6578,7 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6596,11 +6596,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ruby",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6618,11 +6618,11 @@
     "materials": [
       {
         "name": "Silver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Flawless Sapphire",
-        "count": 1
+        "quantity": 1
       }
     ]
   },

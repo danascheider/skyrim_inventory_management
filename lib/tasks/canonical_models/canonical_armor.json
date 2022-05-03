@@ -21,7 +21,7 @@
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -44,7 +44,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -66,7 +66,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -88,7 +88,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -110,7 +110,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -132,7 +132,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -154,7 +154,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -176,7 +176,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -198,7 +198,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -224,7 +224,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -245,25 +245,25 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Steel Ingot",
-        "count": 5
+        "quantity": 5
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "enchantments": []
@@ -285,25 +285,25 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -324,25 +324,25 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -363,25 +363,25 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -407,7 +407,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -434,7 +434,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -462,7 +462,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -505,7 +505,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -526,21 +526,21 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 5
+        "quantity": 5
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "enchantments": []
@@ -1024,21 +1024,21 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1394,7 +1394,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -1421,7 +1421,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -1448,7 +1448,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -1476,7 +1476,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1498,7 +1498,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1520,7 +1520,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1542,7 +1542,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1564,7 +1564,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1586,7 +1586,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1607,21 +1607,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 10
+        "quantity": 10
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1642,21 +1642,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 6
+        "quantity": 6
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1677,21 +1677,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1712,21 +1712,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 10
+        "quantity": 10
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1747,21 +1747,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 6
+        "quantity": 6
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1782,21 +1782,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 10
+        "quantity": 10
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1817,21 +1817,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 8
+        "quantity": 8
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -1857,7 +1857,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -1879,21 +1879,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 5
+        "quantity": 5
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1914,21 +1914,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1949,21 +1949,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -1984,21 +1984,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 6
+        "quantity": 6
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2019,21 +2019,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2054,21 +2054,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2089,21 +2089,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2124,21 +2124,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2159,21 +2159,21 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Chitin Plate",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Chitin Plate",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2195,7 +2195,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2217,7 +2217,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2238,21 +2238,21 @@
     "smithing_materials": [
       {
         "name": "Daedra Heart",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ebony Ingot",
-        "count": 5
+        "quantity": 5
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -2867,21 +2867,21 @@
     "smithing_materials": [
       {
         "name": "Daedra Heart",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ebony Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -3232,21 +3232,21 @@
     "smithing_materials": [
       {
         "name": "Daedra Heart",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ebony Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -3597,21 +3597,21 @@
     "smithing_materials": [
       {
         "name": "Daedra Heart",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ebony Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4248,21 +4248,21 @@
     "smithing_materials": [
       {
         "name": "Daedra Heart",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Ebony Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4592,7 +4592,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4614,7 +4614,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4636,7 +4636,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4658,7 +4658,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4680,7 +4680,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4702,7 +4702,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4724,7 +4724,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4746,7 +4746,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4768,7 +4768,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4790,7 +4790,7 @@
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4812,7 +4812,7 @@
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4834,7 +4834,7 @@
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4856,7 +4856,7 @@
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -4893,21 +4893,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Dragon Bone",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -5522,21 +5522,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -5887,21 +5887,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6252,21 +6252,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -6903,21 +6903,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Bone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -7246,25 +7246,25 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Scales",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -7879,25 +7879,25 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Scales",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -8292,25 +8292,25 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Scales",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -8793,25 +8793,25 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Scales",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -9448,21 +9448,21 @@
     "smithing_materials": [
       {
         "name": "Dragon Scales",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dragon Scales",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -9796,7 +9796,7 @@
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -9818,25 +9818,25 @@
     "smithing_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -10319,25 +10319,25 @@
     "smithing_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -11040,25 +11040,25 @@
     "smithing_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -11079,25 +11079,25 @@
     "smithing_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -11646,25 +11646,25 @@
     "smithing_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -12015,17 +12015,17 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 5
+        "quantity": 5
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -12640,17 +12640,17 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -13023,17 +13023,17 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -13384,17 +13384,17 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -14036,7 +14036,7 @@
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -14058,17 +14058,17 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -14419,25 +14419,25 @@
     "smithing_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -14920,25 +14920,25 @@
     "smithing_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -15817,25 +15817,25 @@
     "smithing_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -15856,25 +15856,25 @@
     "smithing_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Refined Moonstone",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -16489,25 +16489,25 @@
     "smithing_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17057,7 +17057,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17079,7 +17079,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17101,7 +17101,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17123,7 +17123,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17144,21 +17144,21 @@
     "smithing_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17510,7 +17510,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17532,7 +17532,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17554,7 +17554,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17576,7 +17576,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17598,7 +17598,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17620,7 +17620,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17642,7 +17642,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17664,7 +17664,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17686,7 +17686,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17708,7 +17708,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17730,7 +17730,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17752,7 +17752,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17774,7 +17774,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17796,7 +17796,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17818,7 +17818,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17840,7 +17840,7 @@
     "tempering_materials": [
       {
         "name": "Chaurus Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17862,7 +17862,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17884,7 +17884,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17906,7 +17906,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17928,7 +17928,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17950,7 +17950,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -17971,7 +17971,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -17994,7 +17994,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18015,7 +18015,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -18038,7 +18038,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18060,7 +18060,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18086,7 +18086,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -18109,7 +18109,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18131,7 +18131,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18152,25 +18152,25 @@
     "smithing_materials": [
       {
         "name": "Refined Malachite",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Refined Moonstone",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -18807,25 +18807,25 @@
     "smithing_materials": [
       {
         "name": "Refined Malachite",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -19264,25 +19264,25 @@
     "smithing_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -19765,25 +19765,25 @@
     "smithing_materials": [
       {
         "name": "Refined Malachite",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -20420,21 +20420,21 @@
     "smithing_materials": [
       {
         "name": "Refined Malachite",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -20791,11 +20791,11 @@
     "tempering_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -20821,7 +20821,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -20848,7 +20848,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -20875,7 +20875,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -20902,7 +20902,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -20930,7 +20930,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -20956,7 +20956,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -20987,7 +20987,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -21009,17 +21009,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -21502,17 +21502,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -21929,17 +21929,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -22422,17 +22422,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -22981,17 +22981,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -23343,7 +23343,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -23365,7 +23365,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -23387,7 +23387,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -23408,21 +23408,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -23729,21 +23729,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -24424,21 +24424,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -25647,21 +25647,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -26188,21 +26188,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -26223,21 +26223,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -26258,21 +26258,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -26293,21 +26293,21 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -26724,17 +26724,17 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -27020,7 +27020,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -27041,17 +27041,17 @@
     "smithing_materials": [
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -27089,33 +27089,33 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 10
+        "quantity": 10
       },
       {
         "name": "Netch Jelly",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Void Salts",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -27136,33 +27136,33 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 6
+        "quantity": 6
       },
       {
         "name": "Netch Jelly",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Void Salts",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -27183,33 +27183,33 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Netch Jelly",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Void Salts",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -27230,33 +27230,33 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 6
+        "quantity": 6
       },
       {
         "name": "Netch Jelly",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Void Salts",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -27277,33 +27277,33 @@
     "smithing_materials": [
       {
         "name": "Netch Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Bone Meal",
-        "count": 8
+        "quantity": 8
       },
       {
         "name": "Netch Jelly",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Void Salts",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Bone Meal",
-        "count": 2
+        "quantity": 2
       }
     ]
   },
@@ -27324,17 +27324,17 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 5
+        "quantity": 5
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -27817,17 +27817,17 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -28178,17 +28178,17 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -28539,17 +28539,17 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -29098,17 +29098,17 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -29464,7 +29464,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -29487,7 +29487,7 @@
     "tempering_materials": [
       {
         "name": "Gold Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -29522,7 +29522,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -29543,17 +29543,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -30036,17 +30036,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -30463,17 +30463,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -30956,17 +30956,17 @@
     "smithing_materials": [
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31520,7 +31520,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -31547,7 +31547,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -31575,7 +31575,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31602,7 +31602,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31624,7 +31624,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31646,7 +31646,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31668,7 +31668,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31738,7 +31738,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31760,7 +31760,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31782,7 +31782,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31804,7 +31804,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31831,7 +31831,7 @@
     "tempering_materials": [
       {
         "name": "Refined Moonstone",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31887,7 +31887,7 @@
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -31909,25 +31909,25 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 6
+        "quantity": 6
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31948,25 +31948,25 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -31987,25 +31987,25 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -32026,25 +32026,25 @@
     "smithing_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -32065,21 +32065,21 @@
     "smithing_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       }
     ],
     "tempering_materials": [
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -32100,21 +32100,21 @@
     "smithing_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -32663,21 +32663,21 @@
     "smithing_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -32984,21 +32984,21 @@
     "smithing_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -33349,21 +33349,21 @@
     "smithing_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -33934,21 +33934,21 @@
     "smithing_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34313,7 +34313,7 @@
     "tempering_materials": [
       {
         "name": "Refined Malachite",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34335,7 +34335,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34357,7 +34357,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34379,7 +34379,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34401,7 +34401,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34423,7 +34423,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34445,7 +34445,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34467,7 +34467,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34497,7 +34497,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -34524,7 +34524,7 @@
     "tempering_materials": [
       {
         "name": "Orichalcum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -34547,7 +34547,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34569,7 +34569,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34591,7 +34591,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -34612,25 +34612,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Leather",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -35113,25 +35113,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -35548,25 +35548,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36049,25 +36049,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36639,7 +36639,7 @@
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36661,7 +36661,7 @@
     "tempering_materials": [
       {
         "name": "Shellbug Chitin",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36688,7 +36688,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36714,7 +36714,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -36741,7 +36741,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -36768,7 +36768,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -36791,7 +36791,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36881,7 +36881,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36903,7 +36903,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36925,7 +36925,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36946,21 +36946,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 6
+        "quantity": 6
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -36981,21 +36981,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37016,21 +37016,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37051,21 +37051,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Quicksilver Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37086,21 +37086,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 5
+        "quantity": 5
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37121,21 +37121,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37156,21 +37156,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37191,21 +37191,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37226,21 +37226,21 @@
     "smithing_materials": [
       {
         "name": "Stalhrim",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Stalhrim",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -37261,21 +37261,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -38110,21 +38110,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -38475,21 +38475,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -39060,21 +39060,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -39095,21 +39095,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -39130,21 +39130,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -39165,25 +39165,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -39666,25 +39666,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -40387,25 +40387,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -40426,25 +40426,25 @@
     "smithing_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Steel Ingot",
-        "count": 2
+        "quantity": 2
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41015,21 +41015,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 1
+        "quantity": 1
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41380,21 +41380,21 @@
     "smithing_materials": [
       {
         "name": "Steel Ingot",
-        "count": 3
+        "quantity": 3
       },
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather Strips",
-        "count": 2
+        "quantity": 2
       }
     ],
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41416,7 +41416,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41438,7 +41438,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41460,7 +41460,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41482,7 +41482,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41504,7 +41504,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41526,7 +41526,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41547,21 +41547,21 @@
     "smithing_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       },
       {
         "name": "Leather",
-        "count": 4
+        "quantity": 4
       },
       {
         "name": "Leather Strips",
-        "count": 3
+        "quantity": 3
       }
     ],
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41852,7 +41852,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41879,7 +41879,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -41905,7 +41905,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -41932,7 +41932,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -42011,7 +42011,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42277,7 +42277,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42299,7 +42299,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42347,7 +42347,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -42374,7 +42374,7 @@
     "tempering_materials": [
       {
         "name": "Dwarven Metal Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -42409,7 +42409,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -42444,7 +42444,7 @@
     "tempering_materials": [
       {
         "name": "Corundum Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []
@@ -42467,7 +42467,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42489,7 +42489,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42511,7 +42511,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42533,7 +42533,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42555,7 +42555,7 @@
     "tempering_materials": [
       {
         "name": "Leather",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42577,7 +42577,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42599,7 +42599,7 @@
     "tempering_materials": [
       {
         "name": "Iron Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42621,7 +42621,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42643,7 +42643,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42665,7 +42665,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42687,7 +42687,7 @@
     "tempering_materials": [
       {
         "name": "Steel Ingot",
-        "count": 1
+        "quantity": 1
       }
     ]
   },
@@ -42730,7 +42730,7 @@
     "tempering_materials": [
       {
         "name": "Ebony Ingot",
-        "count": 1
+        "quantity": 1
       }
     ],
     "smithing_materials": []

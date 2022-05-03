@@ -11,7 +11,7 @@ class CreateCanonicalArmorsSmithingMaterials < ActiveRecord::Migration[6.1]
                    null:        false,
                    foreign_key: true,
                    index:       { name: :index_canonical_armors_smithing_mats_on_canonical_mat_id }
-      t.integer    :count,
+      t.integer    :quantity,
                    default: 1,
                    null:    false
 
