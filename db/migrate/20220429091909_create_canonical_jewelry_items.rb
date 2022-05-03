@@ -7,7 +7,7 @@ class CreateCanonicalJewelryItems < ActiveRecord::Migration[6.1]
       t.string :item_code, null: false, unique: true
       t.string :jewelry_type, null: false
       t.string :magical_effects
-      t.decimal :unit_weight, scale: 2, precision: 5
+      t.decimal :unit_weight, scale: 2, precision: 5, null: false
       t.boolean :quest_item, default: false
       t.string :unique_item, default: false
       t.string :enchantable, default: true
