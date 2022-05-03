@@ -11,7 +11,7 @@ class CreateCanonicalJewelryItemsCanonicalMaterials < ActiveRecord::Migration[6.
                    null:        false,
                    foreign_key: true,
                    index:       { name: :index_canonical_jewelry_items_materials_on_material_id }
-      t.integer    :count, default: 1, null: false
+      t.integer    :quantity, default: 1, null: false
 
       t.timestamps
     end

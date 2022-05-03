@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.string "weight", null: false
     t.string "body_slot", null: false
     t.string "magical_effects"
-    t.decimal "unit_weight", precision: 5, scale: 2
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "dragon_priest_mask", default: false
     t.boolean "quest_item", default: false
     t.boolean "unique_item", default: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
   create_table "canonical_clothing_items", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
+    t.string "body_slot", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2
     t.boolean "quest_item", default: false
@@ -80,14 +81,13 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.boolean "enchantable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "body_slot", null: false
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
   create_table "canonical_clothing_items_enchantments", force: :cascade do |t|
     t.bigint "canonical_clothing_item_id", null: false
     t.bigint "enchantment_id", null: false
-    t.integer "strength"
+    t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.string "item_code", null: false
     t.string "jewelry_type", null: false
     t.string "magical_effects"
-    t.decimal "unit_weight", precision: 5, scale: 2
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "quest_item", default: false
     t.string "unique_item", default: "f"
     t.string "enchantable", default: "t"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
   create_table "canonical_jewelry_items_canonical_materials", force: :cascade do |t|
     t.bigint "canonical_jewelry_item_id", null: false
     t.bigint "canonical_material_id", null: false
-    t.integer "count", default: 1, null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
