@@ -327,15 +327,15 @@
     },
     "materials": [
       {
-        "name": "Bone Hawk Skull",
+        "item_code": "XX002993",
         "quantity": 1
       },
       {
-        "name": "Bone Hawk Feathers",
+        "item_code": "XX002994",
         "quantity": 6
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
@@ -1484,11 +1484,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Flawless Diamond",
+        "item_code": "0006851F",
         "quantity": 1
       }
     ],
@@ -1507,11 +1507,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Diamond",
+        "item_code": "00063B47",
         "quantity": 1
       }
     ],
@@ -1530,11 +1530,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Emerald",
+        "item_code": "00063B43",
         "quantity": 1
       }
     ],
@@ -1553,11 +1553,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Flawless Amethyst",
+        "item_code": "0006851E",
         "quantity": 2
       }
     ],
@@ -1576,7 +1576,7 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       }
     ],
@@ -1595,7 +1595,7 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       }
     ],
@@ -1614,11 +1614,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Flawless Ruby",
+        "item_code": "00068522",
         "quantity": 1
       }
     ],
@@ -1637,11 +1637,11 @@
     },
     "materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       },
       {
-        "name": "Sapphire",
+        "item_code": "00063B44",
         "quantity": 1
       }
     ],
@@ -2562,7 +2562,7 @@
   },
   {
     "attributes": {
-      "name": "Necklace of Frost Resist",
+      "name": "Necklace of Resist Frost",
       "item_code": "000fc049",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
@@ -6888,11 +6888,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Amethyst",
+        "item_code": "00063B46",
         "quantity": 1
       }
     ],
@@ -6911,11 +6911,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Flawless Emerald",
+        "item_code": "00068520",
         "quantity": 1
       }
     ],
@@ -6934,11 +6934,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Garnet",
+        "item_code": "00063B45",
         "quantity": 1
       }
     ],
@@ -6957,11 +6957,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Flawless Garnet",
+        "item_code": "00068521",
         "quantity": 2
       }
     ],
@@ -6980,7 +6980,7 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       }
     ],
@@ -6999,7 +6999,7 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       }
     ],
@@ -7018,11 +7018,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Ruby",
+        "item_code": "00063B42",
         "quantity": 1
       }
     ],
@@ -7041,11 +7041,11 @@
     },
     "materials": [
       {
-        "name": "Silver Ingot",
+        "item_code": "0005ACE3",
         "quantity": 1
       },
       {
-        "name": "Flawless Sapphire",
+        "item_code": "00068523",
         "quantity": 1
       }
     ],
