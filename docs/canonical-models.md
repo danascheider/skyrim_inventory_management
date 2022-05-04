@@ -12,9 +12,9 @@ SIM knows certain things about Skyrim that it may or may not immediately reveal 
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 
-These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is syncd live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
+These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is synced live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
 
-Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly syncd in the SIM database with data from the game. These include:
+Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly synced in the SIM database with data from the game. These include:
 
 * [`AlchemicalIngredientsCanonicalIngredient](/app/models/alchemical_properties_canonical_ingredient.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised
 * [`CanonicalArmorsEnchantment`](/app/models/canonical_armors_enchantment.rb): Associates canonical armours to their enchantments, adding a metadata field called "strength" for the strength of the enchantment (in whatever its strength unit is)
