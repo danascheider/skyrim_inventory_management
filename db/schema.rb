@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_041320) do
+ActiveRecord::Schema.define(version: 2022_05_04_045733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2022_05_04_041320) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
+  end
+
+  create_table "alchemical_properties_canonical_ingredients", force: :cascade do |t|
+    t.bigint "alchemical_property_id", null: false
+    t.bigint "canonical_ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alchemical_property_id", "canonical_ingredient_id"], name: "ndex_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
+    t.index ["alchemical_property_id"], name: "index_alc_properties_can_ingredients_on_alc_property_id"
+    t.index ["canonical_ingredient_id"], name: "index_alc_properties_can_ingredients_on_can_ingredient_id"
   end
 
   create_table "canonical_armors", force: :cascade do |t|
@@ -277,6 +287,8 @@ ActiveRecord::Schema.define(version: 2022_05_04_041320) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "alchemical_properties_canonical_ingredients", "alchemical_properties"
+  add_foreign_key "alchemical_properties_canonical_ingredients", "canonical_ingredients"
   add_foreign_key "canonical_armors_enchantments", "canonical_armors"
   add_foreign_key "canonical_armors_enchantments", "enchantments"
   add_foreign_key "canonical_armors_smithing_materials", "canonical_armors"
