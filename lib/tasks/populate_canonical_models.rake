@@ -191,7 +191,9 @@ namespace :canonical_models do
                 quantity:               m[:quantity],
               )
             elsif item.canonical_materials.include?(material)
-              Rails.logger.warn("Jewelry item #{item.item_code} already associated with material #{m[:item_code]}.")
+              item.canonical_jewelry_items_canonical_materials
+                .find_by(canonical_material_id: material.id)
+                .update!(strength: en[:strength])
             else
               Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:item_code]} but material does not exist.")
             end
@@ -207,7 +209,9 @@ namespace :canonical_models do
                 strength:               en[:strength],
               )
             elsif item.enchantments.include?(enchantment)
-              Rails.logger.warn("Jewelry item #{item.item_code} already associated with enchantment #{enchantment.name}.")
+              item.canonical_jewelry_items_enchantments
+                .find_by(enchantment_id: enchantment.id)
+                .update!(strength: en[:strength])
             else
               Rails.logger.warn("Jewelry item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
             end
@@ -262,7 +266,9 @@ namespace :canonical_models do
                 strength:                en[:strength],
               )
             elsif item.enchantments.include?(enchantment)
-              Rails.logger.warn("Clothing item #{item.item_code} already associated with enchantment #{en[:name]}.")
+              item.canonical_clothing_items_enchantments
+                .find_by(enchantment_id: enchantment.id)
+                .update!(strength: en[:strength])
             else
               Rails.logger.warn("Clothing item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
             end
@@ -325,7 +331,9 @@ namespace :canonical_models do
                 quantity:           m[:quantity],
               )
             elsif item.smithing_materials.include?(material)
-              Rails.logger.warn("Armor item #{item.item_code} already associated with smithing material #{m[:item_code]}.")
+              item.canonical_armors_smithing_materials
+                .find_by(canonical_material_id: material.id)
+                .update!(quantity: m[:quantity])
             else
               Rails.logger.warn("Armor item #{item.item_code} calls for smithing material #{m[:item_code]} but material does not exist.")
             end
@@ -341,7 +349,9 @@ namespace :canonical_models do
                 quantity:           m[:quantity],
               )
             elsif item.tempering_materials.include?(material)
-              Rails.logger.warn("Armor item #{item.item_code} already associated with tempering material #{m[:item_code]}.")
+              item.canonical_armors_tempering_materials
+                .find_by(canonical_material_id: material.id)
+                .update!(quantity: m[:quantity])
             else
               Rails.logger.warn("Armor item #{item.item_code} calls for tempering material #{m[:item_code]} but material does not exist.")
             end
@@ -357,7 +367,9 @@ namespace :canonical_models do
                 strength:        en[:strength],
               )
             elsif item.enchantments.include?(enchantment)
-              Rails.logger.warn("Armor item #{item.item_code} already associated with enchantment #{en[:name]}.")
+              item.canonical_armors_enchantments
+                .find_by(enchantment_id: enchantment.id)
+                .update!(strength: en[:strength])
             else
               Rails.logger.warn("Armor item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
             end
