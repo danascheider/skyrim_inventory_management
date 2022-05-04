@@ -40,7 +40,7 @@ The following idempotent Rake tasks can be used to populate the database with th
 * `rails canonical_models:populate:canonical_jewelry` (populates canonical jewellery from JSON data)
 * `rails canonical_models:populate:canonical_clothing` (populates canonical clothing items from JSON data)
 
-These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
+These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding join model will be updated with data from the JSON files. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 
 ```
 bundle exec rails 'canonical_models:populate:all[true]'
