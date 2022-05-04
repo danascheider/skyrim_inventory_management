@@ -193,7 +193,7 @@ namespace :canonical_models do
             elsif item.canonical_materials.include?(material)
               item.canonical_jewelry_items_canonical_materials
                 .find_by(canonical_material_id: material.id)
-                .update!(strength: en[:strength])
+                .update!(quantity: m[:quantity])
             else
               Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:item_code]} but material does not exist.")
             end

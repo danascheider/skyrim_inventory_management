@@ -111,6 +111,9 @@ ActiveRecord::Schema.define(version: 2022_05_04_081145) do
   create_table "canonical_ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
+    t.boolean "quest_item", default: false
+    t.boolean "unique_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
