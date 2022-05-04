@@ -40,9 +40,19 @@ The following idempotent Rake tasks can be used to populate the database with th
 * `rails canonical_models:populate:canonical_jewelry` (populates canonical jewellery from JSON data)
 * `rails canonical_models:populate:canonical_clothing` (populates canonical clothing items from JSON data)
 
-These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. **The Rake tasks will not remove models that exist in the database but are not present in the JSON data.** (There is a [card](https://trello.com/c/YdoBROVq/161-modify-rake-tasks-for-populating-canonical-items-to-clean-up-items-not-in-json-files) in the backlog to make the Rake tasks remove database items that are not in the JSON data.)
+These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 
-In addition to seeding the models, the Rake task also creates canonical associations - for example, adding enchantments to items that are canonically enchanted with one or more of the standard enchantments or smithing materials to armours. Because of this, canonical materials and enchantments will need to be seeded before canonical armours or jewellery can be. Canonical clothing doesn't have materials and is therefore only dependent on enchantments.
+```
+bundle exec rails 'canonical_models:populate:all[true]'
+```
+
+This argument can also be set on the individual tasks:
+
+```
+bundle exec rails 'canonical_models:populate:canonical_properties[true]'
+```
+
+In addition to seeding the models, the Rake task also creates canonical associations - for example, adding enchantments to items that are canonically enchanted with one or more of the standard enchantments or smithing materials to armours. Because of this, canonical materials and enchantments will need to be seeded before canonical armours or jewellery can be. Canonical clothing doesn't have materials and is therefore only dependent on enchantments. If the `preserve_existing_records` argument is set to `false` (which is its default value) when the Rake task is invoked, any associations with `dependent: :destroy` set will be destroyed along with any corresponding records not included in the JSON data. Additionally, associations that are not present in the JSON data will be destroyed as well.
 
 ### Running Rake Tasks in Production
 
