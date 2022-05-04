@@ -158,7 +158,7 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Destrucion",
+        "name": "Fortify Destruction",
         "strength": 17
       },
       {
@@ -166,7 +166,7 @@
         "strength": 17
       },
       {
-        "name": "FortifyMagickaRegen",
+        "name": "Fortify Magicka Regen",
         "strength": 100
       }
     ]
@@ -369,7 +369,7 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Destrucion",
+        "name": "Fortify Destruction",
         "strength": 15
       },
       {
@@ -377,7 +377,7 @@
         "strength": 15
       },
       {
-        "name": "FortifyMagickaRegen",
+        "name": "Fortify Magicka Regen",
         "strength": 75
       }
     ]
@@ -962,7 +962,7 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Destrucion",
+        "name": "Fortify Destruction",
         "strength": 20
       },
       {
@@ -970,7 +970,7 @@
         "strength": 20
       },
       {
-        "name": "FortifyMagickaRegen",
+        "name": "Fortify Magicka Regen",
         "strength": 125
       }
     ]
@@ -1475,7 +1475,7 @@
     },
     "enchantments": [
       {
-        "name": "Fortify Destrucion",
+        "name": "Fortify Destruction",
         "strength": 22
       },
       {
@@ -1483,7 +1483,7 @@
         "strength": 22
       },
       {
-        "name": "FortifyMagickaRegen",
+        "name": "Fortify Magicka Regen",
         "strength": 150
       }
     ]
