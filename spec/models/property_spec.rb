@@ -13,11 +13,11 @@ RSpec.describe Property, type: :model do
   # rubocop:enable RSpec/BeforeAfterAll
 
   before do
-    Rake::Task['canonical_models:populate:canonical_properties'].invoke
+    Rake::Task['canonical_models:sync:canonical_properties'].invoke
   end
 
   after do
-    Rake::Task['canonical_models:populate:canonical_properties'].reenable
+    Rake::Task['canonical_models:sync:canonical_properties'].reenable
   end
 
   describe 'validations' do

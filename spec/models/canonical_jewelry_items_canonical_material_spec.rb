@@ -30,5 +30,15 @@ RSpec.describe CanonicalJewelryItemsCanonicalMaterial, type: :model do
         expect(model).to be_valid
       end
     end
+
+    describe 'canonical jewelry item and canonical material' do
+      it 'must form a unique combination' do
+        create(:canonical_jewelry_items_canonical_material, canonical_jewelry_item: jewelry_item, canonical_material: material)
+        model = described_class.new(canonical_jewelry_item: jewelry_item, canonical_material: material)
+
+        model.validate
+        expect(model.errors[:canonical_jewelry_item_id]).to include 'must form a unique combination with canonical material'
+      end
+    end
   end
 end

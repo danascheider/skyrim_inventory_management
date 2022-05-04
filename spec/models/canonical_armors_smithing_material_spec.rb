@@ -32,23 +32,16 @@ RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
       end
     end
 
-    describe 'canonical armor' do
-      it 'is invalid without a canonical armor' do
-        material = create(:canonical_material)
-        model    = described_class.new(quantity: 2, canonical_material: material)
+    describe 'canonical material and canonical armor' do
+      let(:material) { create(:canonical_material) }
+      let(:armor)    { create(:canonical_armor) }
+
+      it 'must form a unique combination' do
+        create(:canonical_armors_smithing_material, canonical_material: material, canonical_armor: armor)
+        model = described_class.new(quantity: 2, canonical_material: material, canonical_armor: armor)
 
         model.validate
-        expect(model.errors[:canonical_armor_id]).to include "can't be blank"
-      end
-    end
-
-    describe 'canonical material' do
-      it 'is invalid without a canonical material' do
-        armor = create(:canonical_armor)
-        model = described_class.new(quantity: 2, canonical_armor: armor)
-
-        model.validate
-        expect(model.errors[:canonical_material_id]).to include "can't be blank"
+        expect(model.errors[:canonical_armor_id]).to include 'must form a unique combination with canonical material'
       end
     end
   end

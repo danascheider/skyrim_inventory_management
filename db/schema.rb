@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_045733) do
+ActiveRecord::Schema.define(version: 2022_05_04_081145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "enchantment_id"], name: "index_can_armors_enchantments_on_can_armor_id_and_ench_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_enchantments_on_canonical_armor_id"
     t.index ["enchantment_id"], name: "index_canonical_armors_enchantments_on_enchantment_id"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "canonical_material_id"], name: "index_can_armors_smithing_mats_on_can_armor_id_and_mat_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_smithing_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
   end
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "canonical_material_id"], name: "index_can_armors_tempering_mats_on_can_armor_id_and_mat_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
   end
@@ -100,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_clothing_item_id", "enchantment_id"], name: "index_can_clthng_enchantments_on_can_clthng_id_and_ench_id", unique: true
     t.index ["canonical_clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
     t.index ["enchantment_id"], name: "index_canonical_clothing_items_enchantments_on_enchantment_id"
   end
@@ -132,6 +136,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id", "canonical_material_id"], name: "index_can_jlry_can_mats_on_jlry_id_and_mat_id", unique: true
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
     t.index ["canonical_material_id"], name: "index_canonical_jewelry_items_materials_on_material_id"
   end
@@ -142,6 +147,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_045733) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id", "enchantment_id"], name: "index_can_jlry_enchs_on_jlry_id_and_ench_id", unique: true
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_enchantments_on_jewelry_item_id"
     t.index ["enchantment_id"], name: "index_canonical_jewelry_items_enchantments_on_enchantment_id"
   end
