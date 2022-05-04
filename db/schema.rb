@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_30_002324) do
+ActiveRecord::Schema.define(version: 2022_05_04_081145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
+  end
+
+  create_table "alchemical_properties_canonical_ingredients", force: :cascade do |t|
+    t.bigint "alchemical_property_id", null: false
+    t.bigint "canonical_ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alchemical_property_id", "canonical_ingredient_id"], name: "ndex_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
+    t.index ["alchemical_property_id"], name: "index_alc_properties_can_ingredients_on_alc_property_id"
+    t.index ["canonical_ingredient_id"], name: "index_alc_properties_can_ingredients_on_can_ingredient_id"
   end
 
   create_table "canonical_armors", force: :cascade do |t|
@@ -46,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "enchantment_id"], name: "index_can_armors_enchantments_on_can_armor_id_and_ench_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_enchantments_on_canonical_armor_id"
     t.index ["enchantment_id"], name: "index_canonical_armors_enchantments_on_enchantment_id"
   end
@@ -56,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "canonical_material_id"], name: "index_can_armors_smithing_mats_on_can_armor_id_and_mat_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_smithing_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
   end
@@ -66,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_armor_id", "canonical_material_id"], name: "index_can_armors_tempering_mats_on_can_armor_id_and_mat_id", unique: true
     t.index ["canonical_armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
     t.index ["canonical_material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
   end
@@ -90,8 +103,17 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_clothing_item_id", "enchantment_id"], name: "index_can_clthng_enchantments_on_can_clthng_id_and_ench_id", unique: true
     t.index ["canonical_clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
     t.index ["enchantment_id"], name: "index_canonical_clothing_items_enchantments_on_enchantment_id"
+  end
+
+  create_table "canonical_ingredients", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "item_code", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
   end
 
   create_table "canonical_jewelry_items", force: :cascade do |t|
@@ -114,6 +136,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id", "canonical_material_id"], name: "index_can_jlry_can_mats_on_jlry_id_and_mat_id", unique: true
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
     t.index ["canonical_material_id"], name: "index_canonical_jewelry_items_materials_on_material_id"
   end
@@ -124,6 +147,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id", "enchantment_id"], name: "index_can_jlry_enchs_on_jlry_id_and_ench_id", unique: true
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_enchantments_on_jewelry_item_id"
     t.index ["enchantment_id"], name: "index_canonical_jewelry_items_enchantments_on_enchantment_id"
   end
@@ -269,6 +293,8 @@ ActiveRecord::Schema.define(version: 2022_04_30_002324) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "alchemical_properties_canonical_ingredients", "alchemical_properties"
+  add_foreign_key "alchemical_properties_canonical_ingredients", "canonical_ingredients"
   add_foreign_key "canonical_armors_enchantments", "canonical_armors"
   add_foreign_key "canonical_armors_enchantments", "enchantments"
   add_foreign_key "canonical_armors_smithing_materials", "canonical_armors"

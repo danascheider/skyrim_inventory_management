@@ -12,40 +12,29 @@ RSpec.describe CanonicalClothingItemsEnchantment, type: :model do
       expect(model).to be_valid
     end
 
-    describe 'canonical clothing item' do
-      it 'is invalid without a canonical clothing item' do
-        enchantment = create(:enchantment)
-        item        = described_class.new(enchantment: enchantment)
+    describe 'enchantment and canonical clothing item' do
+      let(:clothing_item) { create(:canonical_clothing_item) }
+      let(:enchantment)   { create(:enchantment) }
+
+      it 'must form a unique combination' do
+        create(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
+        item = build(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
 
         item.validate
-        expect(item.errors[:canonical_clothing_item_id]).to include "can't be blank"
-      end
-    end
-
-    describe 'enchantment' do
-      it 'is invalid without an enchantment' do
-        clothing_item = create(:canonical_clothing_item)
-        item          = described_class.new(canonical_clothing_item: clothing_item)
-
-        item.validate
-        expect(item.errors[:enchantment_id]).to include "can't be blank"
+        expect(item.errors[:canonical_clothing_item_id]).to include 'must form a unique combination with enchantment'
       end
     end
 
     describe 'strength' do
       it 'is invalid with a non-numeric strength value' do
-        clothing_item = create(:canonical_clothing_item)
-        enchantment   = create(:enchantment)
-        model         = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment, strength: 'foo')
+        model = build(:canonical_clothing_items_enchantment, strength: 'foo')
 
         model.validate
         expect(model.errors[:strength]).to include 'is not a number'
       end
 
       it 'is invalid with a negative strength value' do
-        clothing_item = create(:canonical_clothing_item)
-        enchantment   = create(:enchantment)
-        model         = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment, strength: -4)
+        model = build(:canonical_clothing_items_enchantment, strength: -4)
 
         model.validate
         expect(model.errors[:strength]).to include 'must be greater than 0'

@@ -5,10 +5,10 @@ require 'json'
 FALSEY_VALUES = [false, 'false'].freeze
 
 namespace :canonical_models do
-  namespace :populate do
-    desc 'Populate or update canonical alchemical properties from JSON data'
+  namespace :sync do
+    desc 'Sync alchemical properties in the database with JSON data'
     task :alchemical_properties, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Populating canonical alchemical properties...'
+      Rails.logger.info 'Syncing canonical alchemical properties...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -34,9 +34,9 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical enchantments from JSON data'
+    desc 'Sync canonical enchantments in the database with JSON data'
     task :enchantments, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Populating canonical enchantments...'
+      Rails.logger.info 'Syncing canonical enchantments...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -62,9 +62,9 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical spells from JSON data'
+    desc 'Sync canonical spells in the database with JSON data'
     task :spells, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Populating canonical spells...'
+      Rails.logger.info 'Syncing canonical spells...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -90,9 +90,9 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical properties from JSON data'
+    desc 'Sync canonical properties in the database with JSON data'
     task :canonical_properties, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Populating canonical properties...'
+      Rails.logger.info 'Syncing canonical properties...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -118,9 +118,9 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical building and smithing materials from JSON data'
+    desc 'Sync canonical building and smithing materials in the database with JSON data'
     task :canonical_materials, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Populating canonical materials...'
+      Rails.logger.info 'Syncing canonical materials...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -146,15 +146,15 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical jewelry items from JSON data'
+    desc 'Sync canonical jewelry items in the database with JSON data'
     # rubocop:disable Layout/BlockAlignment
     task :canonical_jewelry,
          [:preserve_existing_records] => %w[
                                            environment
-                                           canonical_models:populate:canonical_materials
-                                           canonical_models:populate:enchantments
+                                           canonical_models:sync:canonical_materials
+                                           canonical_models:sync:enchantments
                                          ] do |_t, args|
-      Rails.logger.info 'Populating canonical jewelry items...'
+      Rails.logger.info 'Syncing canonical jewelry items...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -226,14 +226,14 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical clothing items from JSON data'
+    desc 'Sync canonical clothing items in the database with JSON data'
     task :canonical_clothing,
          [:preserve_existing_records] => %w[
                                            environment
-                                           canonical_models:populate:canonical_materials
-                                           canonical_models:populate:enchantments
+                                           canonical_models:sync:canonical_materials
+                                           canonical_models:sync:enchantments
                                          ] do |_t, args|
-      Rails.logger.info 'Populating canonical clothing items...'
+      Rails.logger.info 'Syncing canonical clothing items...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -283,14 +283,14 @@ namespace :canonical_models do
       end
     end
 
-    desc 'Populate or update canonical armor items from JSON data'
+    desc 'Sync canonical armor models in the database with JSON data'
     task :canonical_armor,
          [:preserve_existing_records] => %w[
                                            environment
-                                           canonical_models:populate:canonical_materials
-                                           canonical_models:populate:enchantments
+                                           canonical_models:sync:canonical_materials
+                                           canonical_models:sync:enchantments
                                          ] do |_t, args|
-      Rails.logger.info 'Populating canonical armor items...'
+      Rails.logger.info 'Syncing canonical armor items...'
 
       args.with_defaults(preserve_existing_records: false)
 
@@ -385,18 +385,18 @@ namespace :canonical_models do
     end
     # rubocop:enable Layout/BlockAlignment
 
-    desc 'Populate or update all canonical models from JSON files'
+    desc 'Sync all canonical models with JSON files'
     task :all, [:preserve_existing_records] => :environment do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
-      Rake::Task['canonical_models:populate:canonical_properties'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:enchantments'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:spells'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:alchemical_properties'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:canonical_materials'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:canonical_jewelry'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:canonical_clothing'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:populate:canonical_armor'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_properties'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:enchantments'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:spells'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:alchemical_properties'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_materials'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_jewelry'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_clothing'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_armor'].invoke(args[:preserve_existing_records])
     end
   end
 end
