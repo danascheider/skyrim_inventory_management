@@ -12,9 +12,9 @@ SIM knows certain things about Skyrim that it may or may not immediately reveal 
 * [`Enchantment`](/app/models/enchantment.rb): actual enchantments that exist in the game
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 
-These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is populated live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
+These models are not user-created and are to be stored in the database with actual data from the game. The data from which the database is syncd live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
 
-Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly populated in the SIM database with data from the game. These include:
+Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly syncd in the SIM database with data from the game. These include:
 
 * [`AlchemicalIngredientsCanonicalIngredient](/app/models/alchemical_properties_canonical_ingredient.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised
 * [`CanonicalArmorsEnchantment`](/app/models/canonical_armors_enchantment.rb): Associates canonical armours to their enchantments, adding a metadata field called "strength" for the strength of the enchantment (in whatever its strength unit is)
@@ -30,37 +30,37 @@ Note that the last two of these are associated to the same table - canonical mat
 
 ### Rake Tasks
 
-The following idempotent Rake tasks can be used to sync the database with the canonical models from the JSON data:
+The following idempotent Rake tasks can be used to sync the database with the canonical models with the JSON data:
 
-* `rails canonical_models:populate:all` (populates all canonical models from JSON data)
-* `rails canonical_models:populate:alchemical_properties` (populates canonical alchemical properties from JSON data)
-* `rails canonical_models:populate:canonical_properties` (populates canonical properties from JSON data)
-* `rails canonical_models:populate:enchantments` (populates canonical enchantments from JSON data)
-* `rails canonical_models:populate:spells` (populates canonical spells from JSON data)
-* `rails canonical_models:populate:canonical_materials` (populates canonical materials from JSON data)
-* `rails canonical_models:populate:canonical_armor` (populates canonical armours from JSON data)
-* `rails canonical_models:populate:canonical_jewelry` (populates canonical jewellery from JSON data)
-* `rails canonical_models:populate:canonical_clothing` (populates canonical clothing items from JSON data)
-* `rails canonical_models:populate:canonical_ingredients` (populate canonical ingredients from JSON data)
+* `rails canonical_models:sync:all` (syncs all canonical models with JSON data)
+* `rails canonical_models:sync:alchemical_properties` (syncs canonical alchemical properties with JSON data)
+* `rails canonical_models:sync:canonical_properties` (syncs canonical properties with JSON data)
+* `rails canonical_models:sync:enchantments` (syncs canonical enchantments with JSON data)
+* `rails canonical_models:sync:spells` (syncs canonical spells with JSON data)
+* `rails canonical_models:sync:canonical_materials` (syncs canonical materials with JSON data)
+* `rails canonical_models:sync:canonical_armor` (syncs canonical armours with JSON data)
+* `rails canonical_models:sync:canonical_jewelry` (syncs canonical jewellery with JSON data)
+* `rails canonical_models:sync:canonical_clothing` (syncs canonical clothing items with JSON data)
+* `rails canonical_models:sync:canonical_ingredients` (sync canonical ingredients with JSON data)
 
-These tasks populate the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
+These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 
 ```
-bundle exec rails 'canonical_models:populate:all[true]'
+bundle exec rails 'canonical_models:sync:all[true]'
 ```
 
 This argument can also be set on the individual tasks:
 
 ```
-bundle exec rails 'canonical_models:populate:canonical_properties[true]'
+bundle exec rails 'canonical_models:sync:canonical_properties[true]'
 ```
 
-In addition to seeding the models, the Rake task also creates canonical associations - for example, adding enchantments to items that are canonically enchanted with one or more of the standard enchantments or smithing materials to armours. Because of this, tasks to populate apparel items list the one that populates enchantments as prerequisites. Tasks to populate jewellery and armour items also require `canonical_models:populate:canonical_materials` as a prerequisite. (Clothing items don't have materials and are therefore only dependent on enchantments.) If the `preserve_existing_records` argument is set to `false` (which is its default value) when the Rake task is invoked, any associations with `dependent: :destroy` set will be destroyed along with any corresponding records not included in the JSON data. Additionally, associations that are not present in the JSON data will be destroyed as well.
+In addition to seeding the models, the Rake task also creates canonical associations - for example, adding enchantments to items that are canonically enchanted with one or more of the standard enchantments or smithing materials to armours. Because of this, tasks to sync apparel items list the one that syncs enchantments as prerequisites. Tasks to sync jewellery and armour items also require `canonical_models:sync:canonical_materials` as a prerequisite. (Clothing items don't have materials and are therefore only dependent on enchantments.) If the `preserve_existing_records` argument is set to `false` (which is its default value) when the Rake task is invoked, any associations with `dependent: :destroy` set will be destroyed along with any corresponding records not included in the JSON data. Additionally, associations that are not present in the JSON data will be destroyed as well.
 
 ### Running Rake Tasks in Production
 
 To run the Rake tasks in production, use the `heroku run` CLI command from within this repo (you will need to log in to Heroku):
 ```
 heroku login
-heroku run bundle exec rails canonical_models:populate:all
+heroku run bundle exec rails canonical_models:sync:all
 ```
