@@ -34,5 +34,17 @@ RSpec.describe CanonicalIngredient, type: :model do
         expect(ingredient.errors[:item_code]).to include 'must be unique'
       end
     end
+
+    describe 'alchemical properties' do
+      subject(:associate_alchemical_property) { ingredient.alchemical_properties << create(:alchemical_property) }
+
+      let(:ingredient) { create(:canonical_ingredient) }
+
+      it 'can have a maximum of 4 alchemical properties associated' do
+        4.times { ingredient.alchemical_properties << create(:alchemical_property) }
+        expect { associate_alchemical_property }
+          .to raise_error ActiveRecord::RecordInvalid
+      end
+    end
   end
 end
