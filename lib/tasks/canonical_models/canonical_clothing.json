@@ -225,7 +225,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -471,7 +472,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -483,7 +485,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -495,7 +498,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -525,7 +529,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -537,7 +542,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -567,7 +573,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -579,7 +586,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -591,7 +599,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -603,7 +612,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -615,7 +625,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -667,7 +678,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -697,7 +709,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -709,7 +722,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -721,7 +735,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -733,7 +748,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -745,7 +761,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -757,7 +774,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -787,7 +805,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -799,7 +818,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -829,7 +849,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -841,7 +862,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1007,7 +1029,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1019,7 +1042,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1031,7 +1055,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1043,7 +1068,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1055,7 +1081,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1067,7 +1094,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1079,7 +1107,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1091,7 +1120,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1103,7 +1133,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1115,7 +1146,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1145,7 +1177,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1157,7 +1190,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1169,7 +1203,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1257,7 +1292,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1287,7 +1323,8 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1299,7 +1336,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1311,7 +1349,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1503,7 +1542,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1515,7 +1555,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1527,7 +1568,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1539,7 +1581,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1551,7 +1594,8 @@
       "quest_item": true,
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1563,7 +1607,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1575,7 +1620,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1605,7 +1651,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1833,7 +1880,8 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1845,7 +1893,8 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1857,7 +1906,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1869,7 +1919,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1881,7 +1932,8 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1893,7 +1945,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1905,7 +1958,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1917,7 +1971,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1929,7 +1984,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1941,7 +1997,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1953,7 +2010,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1965,7 +2023,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1977,7 +2036,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1989,7 +2049,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2733,7 +2794,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2745,7 +2807,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2757,7 +2820,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2769,7 +2833,8 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2857,7 +2922,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2869,7 +2935,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2881,7 +2948,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2911,7 +2979,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2923,7 +2992,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2953,7 +3023,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2965,7 +3036,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2977,7 +3049,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2989,7 +3062,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3001,7 +3075,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3013,7 +3088,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3025,7 +3101,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3037,7 +3114,8 @@
       "quest_item": false,
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3049,7 +3127,8 @@
       "quest_item": false,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   },
   {
     "attributes": {
@@ -3061,6 +3140,7 @@
       "quest_item": true,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": []
   }
 ]
