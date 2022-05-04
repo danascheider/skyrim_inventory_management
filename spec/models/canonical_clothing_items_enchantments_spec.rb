@@ -17,11 +17,8 @@ RSpec.describe CanonicalClothingItemsEnchantment, type: :model do
       let(:enchantment)   { create(:enchantment) }
 
       it 'must form a unique combination' do
-        clothing_item = create(:canonical_clothing_item)
-        enchantment   = create(:enchantment)
-
         create(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
-        item = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment)
+        item = build(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
 
         item.validate
         expect(item.errors[:canonical_clothing_item_id]).to include 'must form a unique combination with enchantment'
@@ -30,18 +27,14 @@ RSpec.describe CanonicalClothingItemsEnchantment, type: :model do
 
     describe 'strength' do
       it 'is invalid with a non-numeric strength value' do
-        clothing_item = create(:canonical_clothing_item)
-        enchantment   = create(:enchantment)
-        model         = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment, strength: 'foo')
+        model = build(:canonical_clothing_items_enchantment, strength: 'foo')
 
         model.validate
         expect(model.errors[:strength]).to include 'is not a number'
       end
 
       it 'is invalid with a negative strength value' do
-        clothing_item = create(:canonical_clothing_item)
-        enchantment   = create(:enchantment)
-        model         = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment, strength: -4)
+        model = build(:canonical_clothing_items_enchantment, strength: -4)
 
         model.validate
         expect(model.errors[:strength]).to include 'must be greater than 0'

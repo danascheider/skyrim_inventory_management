@@ -28,7 +28,7 @@ RSpec.describe CanonicalIngredient, type: :model do
 
       it 'is invalid with a non-unique item code' do
         create(:canonical_ingredient, item_code: 'foo')
-        ingredient = described_class.new(name: 'Thistle Branch', item_code: 'foo')
+        ingredient = build(:canonical_ingredient, name: 'Thistle Branch', item_code: 'foo')
 
         ingredient.validate
         expect(ingredient.errors[:item_code]).to include 'must be unique'

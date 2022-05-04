@@ -38,7 +38,7 @@ RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
 
       it 'must form a unique combination' do
         create(:canonical_armors_smithing_material, canonical_material: material, canonical_armor: armor)
-        model = described_class.new(quantity: 2, canonical_material: material, canonical_armor: armor)
+        model = build(:canonical_armors_smithing_material, quantity: 2, canonical_material: material, canonical_armor: armor)
 
         model.validate
         expect(model.errors[:canonical_armor_id]).to include 'must form a unique combination with canonical material'
