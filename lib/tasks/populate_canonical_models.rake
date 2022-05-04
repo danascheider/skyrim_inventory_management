@@ -133,14 +133,14 @@ namespace :canonical_models do
         end
 
         canonical_materials.each do |canonical_material_attributes|
-          material = CanonicalMaterial.find_or_initialize_by(name: canonical_material_attributes[:name])
+          material = CanonicalMaterial.find_or_initialize_by(item_code: canonical_material_attributes[:item_code])
           material.assign_attributes(canonical_material_attributes)
           material.save!
         rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical material \"#{canonical_material_attributes[:name]}\": #{e.message}"
+          Rails.logger.error "Validation error saving canonical material \"#{canonical_material_attributes[:item_code]}\": #{e.message}"
           raise e
         rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical material \"#{canonical_material_attributes[:name]}\": #{e.message}"
+          Rails.logger.error "Unknown error saving canonical material \"#{canonical_material_attributes[:item_code]}\": #{e.message}"
           raise e
         end
       end
@@ -161,13 +161,13 @@ namespace :canonical_models do
         end
 
         items.each do |data|
-          item = CanonicalJewelryItem.find_or_initialize_by(name: data[:attributes][:name])
+          item = CanonicalJewelryItem.find_or_initialize_by(item_code: data[:attributes][:item_code])
           item.assign_attributes(data[:attributes])
           item.save!
 
           if FALSEY_VALUES.include?(args[:preserve_existing_records])
-            material_names = data[:materials].pluck(:name)
-            material_ids   = item.canonical_materials.where.not(name: material_names).ids
+            material_codes = data[:materials].pluck(:item_code)
+            material_ids   = item.canonical_materials.where.not(item_code: material_codes).ids
             item.canonical_jewelry_items_canonical_materials.where(canonical_material_id: material_ids).destroy_all
 
             enchantment_names = data[:enchantments].pluck(:name)
@@ -176,7 +176,7 @@ namespace :canonical_models do
           end
 
           data[:materials].each do |m|
-            material = CanonicalMaterial.find_by(name: m[:name])
+            material = CanonicalMaterial.find_by(item_code: m[:item_code])
 
             if material.present? && item.canonical_materials.exclude?(material)
               CanonicalJewelryItemsCanonicalMaterial.create!(
@@ -185,9 +185,9 @@ namespace :canonical_models do
                 quantity:               m[:quantity],
               )
             elsif item.canonical_materials.include?(material)
-              Rails.logger.warn("Jewelry item #{item.item_code} already associated with material #{m[:name]}.")
+              Rails.logger.warn("Jewelry item #{item.item_code} already associated with material #{m[:item_code]}.")
             else
-              Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:name]} but material does not exist.")
+              Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:item_code]} but material does not exist.")
             end
           end
 
@@ -231,11 +231,9 @@ namespace :canonical_models do
         end
 
         items.each do |data|
-          item = CanonicalClothingItem.find_or_initialize_by(name: data[:attributes][:name])
+          item = CanonicalClothingItem.find_or_initialize_by(item_code: data[:attributes][:item_code])
           item.assign_attributes(data[:attributes])
           item.save!
-
-          next unless data.has_key?(:enchantments)
 
           if FALSEY_VALUES.include?(args[:preserve_existing_records])
             names           = data[:enchantments].pluck(:name)
@@ -283,7 +281,7 @@ namespace :canonical_models do
         end
 
         items.each do |data|
-          item = CanonicalArmor.find_or_initialize_by(name: data[:attributes][:name])
+          item = CanonicalArmor.find_or_initialize_by(item_code: data[:attributes][:item_code])
           item.assign_attributes(data[:attributes])
           item.save!
 
@@ -292,17 +290,17 @@ namespace :canonical_models do
             enchantment_ids   = item.enchantments.where.not(name: enchantment_names).ids
             item.canonical_armors_enchantments.where(enchantment_id: enchantment_ids).destroy_all
 
-            smithing_material_names = data[:smithing_materials].pluck(:name)
-            smithing_material_ids   = item.smithing_materials.where.not(name: smithing_material_names).ids
+            smithing_material_codes = data[:smithing_materials].pluck(:item_code)
+            smithing_material_ids   = item.smithing_materials.where.not(item_code: smithing_material_codes).ids
             item.canonical_armors_smithing_materials.where(canonical_material_id: smithing_material_ids).destroy_all
 
-            tempering_material_names = data[:tempering_materials].pluck(:name)
-            tempering_material_ids   = item.tempering_materials.where.not(name: tempering_material_names).ids
+            tempering_material_codes = data[:tempering_materials].pluck(:item_code)
+            tempering_material_ids   = item.tempering_materials.where.not(item_code: tempering_material_codes).ids
             item.canonical_armors_tempering_materials.where(canonical_material_id: tempering_material_ids).destroy_all
           end
 
           data[:smithing_materials].each do |m|
-            material = CanonicalMaterial.find_by(name: m[:name])
+            material = CanonicalMaterial.find_by(item_code: m[:item_code])
 
             if material.present? && item.smithing_materials.exclude?(material)
               CanonicalArmorsSmithingMaterial.create!(
@@ -311,14 +309,14 @@ namespace :canonical_models do
                 quantity:           m[:quantity],
               )
             elsif item.smithing_materials.include?(material)
-              Rails.logger.warn("Armor item #{item.item_code} already associated with smithing material #{m[:name]}.")
+              Rails.logger.warn("Armor item #{item.item_code} already associated with smithing material #{m[:item_code]}.")
             else
-              Rails.logger.warn("Armor item #{item.item_code} calls for smithing material #{m[:name]} but material does not exist.")
+              Rails.logger.warn("Armor item #{item.item_code} calls for smithing material #{m[:item_code]} but material does not exist.")
             end
           end
 
           data[:tempering_materials].each do |m|
-            material = CanonicalMaterial.find_by(name: m[:name])
+            material = CanonicalMaterial.find_by(item_code: m[:item_code])
 
             if material.present? && item.tempering_materials.exclude?(material)
               CanonicalArmorsTemperingMaterial.create!(
@@ -327,9 +325,9 @@ namespace :canonical_models do
                 quantity:           m[:quantity],
               )
             elsif item.tempering_materials.include?(material)
-              Rails.logger.warn("Armor item #{item.item_code} already associated with tempering material #{m[:name]}.")
+              Rails.logger.warn("Armor item #{item.item_code} already associated with tempering material #{m[:item_code]}.")
             else
-              Rails.logger.warn("Armor item #{item.item_code} calls for tempering material #{m[:name]} but material does not exist.")
+              Rails.logger.warn("Armor item #{item.item_code} calls for tempering material #{m[:item_code]} but material does not exist.")
             end
           end
 
