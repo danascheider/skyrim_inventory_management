@@ -127,7 +127,7 @@ namespace :canonical_models do
       ActiveRecord::Base.transaction do
         if [false, 'false'].include?(args[:preserve_existing_records])
           item_codes = canonical_materials.pluck(:item_code)
-          CanonicalMaterials.where.not(item_code: item_codes).destroy_all
+          CanonicalMaterial.where.not(item_code: item_codes).destroy_all
         end
 
         canonical_materials.each do |canonical_material_attributes|
@@ -209,7 +209,7 @@ namespace :canonical_models do
     end
 
     desc 'Populate or update canonical clothing items from JSON data'
-    task :canonical_clothing, [:preserve_existing_records] => :environment do
+    task :canonical_clothing, [:preserve_existing_records] => :environment do |_t, args|
       Rails.logger.info 'Populating canonical clothing items...'
 
       args.with_defaults(preserve_existing_records: false)
