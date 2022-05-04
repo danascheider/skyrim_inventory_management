@@ -9,7 +9,9 @@
       "magical_effects": "Retain effects of the last two Standing Stones selected when equipped",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -21,7 +23,9 @@
       "magical_effects": "Allows you to cast the Destruction spells Ignite and Freeze",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -33,7 +37,9 @@
       "magical_effects": "Whenever a creature you have reanimated takes damage, they explode for 50 points of Frost damage and die",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -51,7 +57,8 @@
         "name": "Fortify Magicka Regen",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -69,7 +76,8 @@
         "name": "Fortify Health",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -81,7 +89,9 @@
       "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -93,7 +103,9 @@
       "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -105,7 +117,9 @@
       "magical_effects": "+15 Speechcraft",
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -123,7 +137,8 @@
         "name": "Fortify Magicka",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -141,7 +156,8 @@
         "name": "Fortify Stamina",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -159,7 +175,8 @@
         "name": "Fortify Restoration",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -177,7 +194,8 @@
         "name": "Fortify Block",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -189,7 +207,9 @@
       "magical_effects": "Time between Shouts is reduced by 20%",
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -201,7 +221,9 @@
       "magical_effects": "Prices are 10% better",
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -213,7 +235,9 @@
       "magical_effects": "While wearing this amulet, your Summon Gargoyle spell summons an additional gargoyle for 30 seconds",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -225,7 +249,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -243,7 +269,8 @@
         "name": "Fortify Health",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -255,7 +282,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -267,7 +296,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -279,7 +310,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -305,7 +338,8 @@
         "name": "Leather Strips",
         "quantity": 2
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -317,7 +351,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -329,7 +365,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -347,7 +385,8 @@
         "name": "Fortify Carry Weight",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -364,7 +403,8 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -381,7 +421,8 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -398,7 +439,8 @@
         "name": "Fortify Archery",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -416,7 +458,8 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -434,7 +477,8 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -452,7 +496,8 @@
         "name": "Fortify Alchemy",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -470,7 +515,8 @@
         "name": "Fortify Alteration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -488,7 +534,8 @@
         "name": "Fortify Archery",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -506,7 +553,8 @@
         "name": "Fortify Conjuration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -524,7 +572,8 @@
         "name": "Fortify Destruction",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -542,7 +591,8 @@
         "name": "Fortify Illusion",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -560,7 +610,8 @@
         "name": "Fortify Restoration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -578,7 +629,8 @@
         "name": "Fortify Alchemy",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -596,7 +648,8 @@
         "name": "Fortify Archery",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -614,7 +667,8 @@
         "name": "Fortify Conjuration",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -632,7 +686,8 @@
         "name": "Fortify Destruction",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -650,7 +705,8 @@
         "name": "Fortify Illusion",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -668,7 +724,8 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -686,7 +743,8 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -704,7 +762,8 @@
         "name": "Fortify Restoration",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -722,7 +781,8 @@
         "name": "Fortify Illusion",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -740,7 +800,8 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -758,7 +819,8 @@
         "name": "Fortify Alchemy",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -776,7 +838,8 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -794,7 +857,8 @@
         "name": "Fortify Archery",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -812,7 +876,8 @@
         "name": "Fortify Conjuration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -830,7 +895,8 @@
         "name": "Fortify Destruction",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -848,7 +914,8 @@
         "name": "Fortify Illusion",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -866,7 +933,8 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -884,7 +952,8 @@
         "name": "Fortify Restoration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -902,7 +971,8 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -920,7 +990,8 @@
         "name": "Fortify Alteration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -938,7 +1009,8 @@
         "name": "Fortify Archery",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -956,7 +1028,8 @@
         "name": "Fortify Conjuration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -974,7 +1047,8 @@
         "name": "Fortify Destruction",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -992,7 +1066,8 @@
         "name": "Fortify Illusion",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1010,7 +1085,8 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1028,7 +1104,8 @@
         "name": "Fortify Restoration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1046,7 +1123,8 @@
         "name": "Fortify Alchemy",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1064,7 +1142,8 @@
         "name": "Fortify Alteration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1082,7 +1161,8 @@
         "name": "Fortify Archery",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1100,7 +1180,8 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1118,7 +1199,8 @@
         "name": "Fortify Destruction",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1136,7 +1218,8 @@
         "name": "Fortify Illusion",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1154,7 +1237,8 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1172,7 +1256,8 @@
         "name": "Fortify Restoration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1190,7 +1275,8 @@
         "name": "Fortify Restoration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1208,7 +1294,8 @@
         "name": "Waterbreathing",
         "strength": null
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1220,7 +1307,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1232,7 +1321,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1244,7 +1335,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1256,7 +1349,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1268,7 +1363,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1286,7 +1383,8 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1298,7 +1396,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1310,7 +1410,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1328,7 +1430,8 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1346,7 +1449,8 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1364,7 +1468,8 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1386,7 +1491,8 @@
         "name": "Flawless Diamond",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1408,7 +1514,8 @@
         "name": "Diamond",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1430,7 +1537,8 @@
         "name": "Emerald",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1452,7 +1560,8 @@
         "name": "Flawless Amethyst",
         "quantity": 2
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1470,7 +1579,8 @@
         "name": "Gold Ingot",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1488,7 +1598,8 @@
         "name": "Gold Ingot",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1510,7 +1621,8 @@
         "name": "Flawless Ruby",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1532,7 +1644,8 @@
         "name": "Sapphire",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1544,7 +1657,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1556,7 +1671,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1568,7 +1685,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1580,7 +1699,9 @@
       "magical_effects": "Provides additional transformations for werewolves",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1592,7 +1713,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1604,7 +1727,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1616,7 +1741,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1628,7 +1755,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1640,7 +1769,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1658,7 +1789,8 @@
         "name": "Fortify Archery",
         "strength": 5
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1680,7 +1812,8 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1692,7 +1825,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1704,7 +1839,9 @@
       "magical_effects": "Increases your Magicka by 20-70 points",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1716,7 +1853,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -1734,7 +1873,8 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1752,7 +1892,8 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1770,7 +1911,8 @@
         "name": "Fortify Block",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1788,7 +1930,8 @@
         "name": "Fortify Pickpocket",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1806,7 +1949,8 @@
         "name": "Resist Disease",
         "strength": 100
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1824,7 +1968,8 @@
         "name": "Resist Disease",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1842,7 +1987,8 @@
         "name": "Resist Fire",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1860,7 +2006,8 @@
         "name": "Resist Frost",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1878,7 +2025,8 @@
         "name": "Resist Magic",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1896,7 +2044,8 @@
         "name": "Resist Shock",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1914,7 +2063,8 @@
         "name": "Fortify Alchemy",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1932,7 +2082,8 @@
         "name": "Fortify Block",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1950,7 +2101,8 @@
         "name": "Fortify Pickpocket",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1968,7 +2120,8 @@
         "name": "Fortify Barter",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -1986,7 +2139,8 @@
         "name": "Fortify Health",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2004,7 +2158,8 @@
         "name": "Fortify Lockpicking",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2022,7 +2177,8 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2040,7 +2196,8 @@
         "name": "Fortify Smithing",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2058,7 +2215,8 @@
         "name": "Fortify Sneak",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2076,7 +2234,8 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2094,7 +2253,8 @@
         "name": "Fortify Two-Handed",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2112,7 +2272,8 @@
         "name": "Fortify One-Handed",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2130,7 +2291,8 @@
         "name": "Fortify Alchemy",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2148,7 +2310,8 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2166,7 +2329,8 @@
         "name": "Fortify Pickpocket",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2184,7 +2348,8 @@
         "name": "Fortify Barter",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2202,7 +2367,8 @@
         "name": "Fortify Health",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2220,7 +2386,8 @@
         "name": "Fortify Lockpicking",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2238,7 +2405,8 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2256,7 +2424,8 @@
         "name": "Fortify Smithing",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2274,7 +2443,8 @@
         "name": "Fortify Sneak",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2292,7 +2462,8 @@
         "name": "Fortify Stamina",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2310,7 +2481,8 @@
         "name": "Fortify Two-Handed",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2328,7 +2500,8 @@
         "name": "Fortify One-Handed",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2346,7 +2519,8 @@
         "name": "Resist Fire",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2364,7 +2538,8 @@
         "name": "Resist Fire",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2382,7 +2557,8 @@
         "name": "Resist Frost",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2400,7 +2576,8 @@
         "name": "Resist Frost",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2418,7 +2595,8 @@
         "name": "Resist Frost",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2436,7 +2614,8 @@
         "name": "Resist Shock",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2454,7 +2633,8 @@
         "name": "Fortify Barter",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2472,7 +2652,8 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2490,7 +2671,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2508,7 +2690,8 @@
         "name": "Fortify Lockpicking",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2526,7 +2709,8 @@
         "name": "Resist Magic",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2544,7 +2728,8 @@
         "name": "Resist Magic",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2562,7 +2747,8 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2580,7 +2766,8 @@
         "name": "Fortify Alchemy",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2598,7 +2785,8 @@
         "name": "Fortify Block",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2616,7 +2804,8 @@
         "name": "Fortify Pickpocket",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2634,7 +2823,8 @@
         "name": "Fortify Barter",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2652,7 +2842,8 @@
         "name": "Fortify Health",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2670,7 +2861,8 @@
         "name": "Fortify Lockpicking",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2688,7 +2880,8 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2706,7 +2899,8 @@
         "name": "Fortify Smithing",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2724,7 +2918,8 @@
         "name": "Fortify Sneak",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2742,7 +2937,8 @@
         "name": "Fortify Stamina",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2760,7 +2956,8 @@
         "name": "Fortify Two-Handed",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2778,7 +2975,8 @@
         "name": "Fortify One-Handed",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2796,7 +2994,8 @@
         "name": "Fortify Healing Rate",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2814,7 +3013,8 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2832,7 +3032,8 @@
         "name": "Fortify Block",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2850,7 +3051,8 @@
         "name": "Fortify Pickpocket",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2868,7 +3070,8 @@
         "name": "Fortify Barter",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2886,7 +3089,8 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2904,7 +3108,8 @@
         "name": "Fortify Lockpicking",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2922,7 +3127,8 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2940,7 +3146,8 @@
         "name": "Fortify Smithing",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2958,7 +3165,8 @@
         "name": "Fortify Sneak",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2976,7 +3184,8 @@
         "name": "Fortify Stamina",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -2994,7 +3203,8 @@
         "name": "Fortify Two-Handed",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3012,7 +3222,8 @@
         "name": "Fortify One-Handed",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3030,7 +3241,8 @@
         "name": "Resist Magic",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3048,7 +3260,8 @@
         "name": "Fortify Alchemy",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3066,7 +3279,8 @@
         "name": "Fortify Block",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3084,7 +3298,8 @@
         "name": "Fortify Pickpocket",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3102,7 +3317,8 @@
         "name": "Fortify Barter",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3120,7 +3336,8 @@
         "name": "Fortify Health",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3138,7 +3355,8 @@
         "name": "Fortify Lockpicking",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3156,7 +3374,8 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3174,7 +3393,8 @@
         "name": "Fortify Smithing",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3192,7 +3412,8 @@
         "name": "Fortify Sneak",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3210,7 +3431,8 @@
         "name": "Fortify Stamina",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3228,7 +3450,8 @@
         "name": "Fortify Two-Handed",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3246,7 +3469,8 @@
         "name": "Fortify One-Handed",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3264,7 +3488,8 @@
         "name": "Resist Poison",
         "strength": 100
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3282,7 +3507,8 @@
         "name": "Resist Poison",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3300,7 +3526,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3318,7 +3545,8 @@
         "name": "Fortify Healing Rate",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3336,7 +3564,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3354,7 +3583,8 @@
         "name": "Fortify Healing Rate",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3372,7 +3602,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3390,7 +3621,8 @@
         "name": "Resist Fire",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3408,7 +3640,8 @@
         "name": "Resist Magic",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3426,7 +3659,8 @@
         "name": "Resist Shock",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3444,7 +3678,8 @@
         "name": "Fortify Healing Rate",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3462,7 +3697,8 @@
         "name": "Resist Shock",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3480,7 +3716,8 @@
         "name": "Resist Shock",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3498,7 +3735,8 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3516,7 +3754,8 @@
         "name": "Fortify Sneak",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3534,7 +3773,8 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3552,7 +3792,8 @@
         "name": "Fortify Two-Handed",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3570,7 +3811,8 @@
         "name": "Resist Fire",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3588,7 +3830,8 @@
         "name": "Resist Frost",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3606,7 +3849,8 @@
         "name": "Resist Magic",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3624,7 +3868,8 @@
         "name": "Resist Shock",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3642,7 +3887,8 @@
         "name": "Resist Frost",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3660,7 +3906,8 @@
         "name": "Waterbreathing",
         "strength": null
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3678,7 +3925,8 @@
         "name": "Fortify One-Handed",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3696,7 +3944,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3714,7 +3963,8 @@
         "name": "Fortify Light Armor",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3732,7 +3982,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3750,7 +4001,8 @@
         "name": "Fortify Light Armor",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3768,7 +4020,8 @@
         "name": "Resist Fire",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3786,7 +4039,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3804,7 +4058,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3822,7 +4077,8 @@
         "name": "Fortify Light Armor",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3840,7 +4096,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3858,7 +4115,8 @@
         "name": "Fortify Light Armor",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3876,7 +4134,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3894,7 +4153,8 @@
         "name": "Fortify Light Armor",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3912,7 +4172,8 @@
         "name": "Fortify Light Armor",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3934,7 +4195,8 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3946,7 +4208,9 @@
       "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -3968,7 +4232,8 @@
         "name": "Fortify Destruction",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -3980,7 +4245,9 @@
       "magical_effects": "Time between Shouts is reduced by 20%",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -3992,7 +4259,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -4004,7 +4273,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -4022,7 +4293,8 @@
         "name": "Fortify Alteration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4040,7 +4312,8 @@
         "name": "Fortify Archery",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4058,7 +4331,8 @@
         "name": "Fortify Block",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4070,7 +4344,9 @@
       "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
       "unique_item": false,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -4088,7 +4364,8 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4106,7 +4383,8 @@
         "name": "Fortify Pickpocket",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4124,7 +4402,8 @@
         "name": "Fortify Destruction",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4136,7 +4415,9 @@
       "magical_effects": "When worn, removes your chest slot armour immediately.",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -4154,7 +4435,8 @@
         "name": "Resist Magic",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4172,7 +4454,8 @@
         "name": "Fortify Alteration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4190,7 +4473,8 @@
         "name": "Fortify Archery",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4208,7 +4492,8 @@
         "name": "Fortify Block",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4226,7 +4511,8 @@
         "name": "Fortify Conjuration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4244,7 +4530,8 @@
         "name": "Fortify Pickpocket",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4262,7 +4549,8 @@
         "name": "Fortify Destruction",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4280,7 +4568,8 @@
         "name": "Fortify Health",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4298,7 +4587,8 @@
         "name": "Fortify Illusion",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4316,7 +4606,8 @@
         "name": "Fortify Lockpicking",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4334,7 +4625,8 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4352,7 +4644,8 @@
         "name": "Fortify Restoration",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4370,7 +4663,8 @@
         "name": "Fortify Smithing",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4388,7 +4682,8 @@
         "name": "Fortify Sneak",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4406,7 +4701,8 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4424,7 +4720,8 @@
         "name": "Fortify Two-Handed",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4442,7 +4739,8 @@
         "name": "Fortify One-Handed",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4460,7 +4758,8 @@
         "name": "Fortify Alteration",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4478,7 +4777,8 @@
         "name": "Fortify Archery",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4496,7 +4796,8 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4514,7 +4815,8 @@
         "name": "Fortify Conjuration",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4532,7 +4834,8 @@
         "name": "Fortify Pickpocket",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4550,7 +4853,8 @@
         "name": "Fortify Destruction",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4568,7 +4872,8 @@
         "name": "Fortify Health",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4586,7 +4891,8 @@
         "name": "Fortify Illusion",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4604,7 +4910,8 @@
         "name": "Fortify Lockpicking",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4622,7 +4929,8 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4640,7 +4948,8 @@
         "name": "Fortify Restoration",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4658,7 +4967,8 @@
         "name": "Fortify Smithing",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4676,7 +4986,8 @@
         "name": "Fortify Sneak",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4694,7 +5005,8 @@
         "name": "Fortify Stamina",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4712,7 +5024,8 @@
         "name": "Fortify Two-Handed",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4730,7 +5043,8 @@
         "name": "Fortify One-Handed",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4748,7 +5062,8 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4766,7 +5081,8 @@
         "name": "Fortify Illusion",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4778,7 +5094,9 @@
       "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -4796,7 +5114,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4814,7 +5133,8 @@
         "name": "Fortify Lockpicking",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4832,7 +5152,8 @@
         "name": "Resist Magic",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4850,7 +5171,8 @@
         "name": "Resist Magic",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4868,7 +5190,8 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4886,7 +5209,8 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4904,7 +5228,8 @@
         "name": "Fortify Archery",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4922,7 +5247,8 @@
         "name": "Fortify Block",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4940,7 +5266,8 @@
         "name": "Fortify Conjuration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4958,7 +5285,8 @@
         "name": "Fortify Pickpocket",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4976,7 +5304,8 @@
         "name": "Fortify Destruction",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -4994,7 +5323,8 @@
         "name": "Fortify Health",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5012,7 +5342,8 @@
         "name": "Fortify Illusion",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5030,7 +5361,8 @@
         "name": "Fortify Lockpicking",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5048,7 +5380,8 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5066,7 +5399,8 @@
         "name": "Fortify Restoration",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5084,7 +5418,8 @@
         "name": "Fortify Smithing",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5102,7 +5437,8 @@
         "name": "Fortify Sneak",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5120,7 +5456,8 @@
         "name": "Fortify Stamina",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5138,7 +5475,8 @@
         "name": "Fortify Two-Handed",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5156,7 +5494,8 @@
         "name": "Fortify One-Handed",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5174,7 +5513,8 @@
         "name": "Fortify Healing Rate",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5192,7 +5532,8 @@
         "name": "Fortify Alteration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5210,7 +5551,8 @@
         "name": "Fortify Archery",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5228,7 +5570,8 @@
         "name": "Fortify Block",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5246,7 +5589,8 @@
         "name": "Fortify Conjuration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5264,7 +5608,8 @@
         "name": "Fortify Pickpocket",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5282,7 +5627,8 @@
         "name": "Fortify Destruction",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5300,7 +5646,8 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5318,7 +5665,8 @@
         "name": "Fortify Illusion",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5336,7 +5684,8 @@
         "name": "Fortify Lockpicking",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5354,7 +5703,8 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5372,7 +5722,8 @@
         "name": "Fortify Restoration",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5390,7 +5741,8 @@
         "name": "Fortify Smithing",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5408,7 +5760,8 @@
         "name": "Fortify Sneak",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5426,7 +5779,8 @@
         "name": "Fortify Stamina",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5444,7 +5798,8 @@
         "name": "Fortify Two-Handed",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5462,7 +5817,8 @@
         "name": "Fortify One-Handed",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5474,7 +5830,9 @@
       "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -5492,7 +5850,8 @@
         "name": "Resist Magic",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5510,7 +5869,8 @@
         "name": "Fortify Destruction",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5528,7 +5888,8 @@
         "name": "Fortify Alteration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5546,7 +5907,8 @@
         "name": "Fortify Archery",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5564,7 +5926,8 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5582,7 +5945,8 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5600,7 +5964,8 @@
         "name": "Fortify Pickpocket",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5618,7 +5983,8 @@
         "name": "Fortify Health",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5636,7 +6002,8 @@
         "name": "Fortify Illusion",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5654,7 +6021,8 @@
         "name": "Fortify Lockpicking",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5672,7 +6040,8 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5690,7 +6059,8 @@
         "name": "Fortify Restoration",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5708,7 +6078,8 @@
         "name": "Fortify Smithing",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5726,7 +6097,8 @@
         "name": "Fortify Sneak",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5744,7 +6116,8 @@
         "name": "Fortify Stamina",
         "strength": 70
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5762,7 +6135,8 @@
         "name": "Fortify Two-Handed",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5780,7 +6154,8 @@
         "name": "Fortify One-Handed",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5798,7 +6173,8 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5816,7 +6192,8 @@
         "name": "Fortify Magicka Regen",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5834,7 +6211,8 @@
         "name": "Fortify Magicka Regen",
         "strength": 100
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5852,7 +6230,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5870,7 +6249,8 @@
         "name": "Fortify Healing Rate",
         "strength": 40
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5888,7 +6268,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5906,7 +6287,8 @@
         "name": "Fortify Healing Rate",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5924,7 +6306,8 @@
         "name": "Fortify Stamina Regen",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5942,7 +6325,8 @@
         "name": "Fortify Magicka Regen",
         "strength": 60
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5960,7 +6344,8 @@
         "name": "Resist Magic",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5978,7 +6363,8 @@
         "name": "Fortify Restoration",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -5996,7 +6382,8 @@
         "name": "Fortify Magicka Regen",
         "strength": 80
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6014,7 +6401,8 @@
         "name": "Fortify Healing Rate",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6032,7 +6420,8 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6050,7 +6439,8 @@
         "name": "Fortify Sneak",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6068,7 +6458,8 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6086,7 +6477,8 @@
         "name": "Fortify Two-Handed",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6104,7 +6496,8 @@
         "name": "Resist Magic",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6122,7 +6515,8 @@
         "name": "Fortify One-Handed",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6134,7 +6528,9 @@
       "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6152,7 +6548,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6170,7 +6567,8 @@
         "name": "Fortify Light Armor",
         "strength": 20
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6188,7 +6586,8 @@
         "name": "Fortify Magicka",
         "strength": 100
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6206,7 +6605,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6224,7 +6624,8 @@
         "name": "Fortify Light Armor",
         "strength": 22
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6236,7 +6637,9 @@
       "magical_effects": "While in Beast Form, your health regenerates",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6254,7 +6657,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6272,7 +6676,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6290,7 +6695,8 @@
         "name": "Fortify Light Armor",
         "strength": 17
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6308,7 +6714,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6326,7 +6733,8 @@
         "name": "Fortify Light Armor",
         "strength": 12
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6338,7 +6746,9 @@
       "magical_effects": "Increases the duration of your Howls by 25%",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6356,7 +6766,8 @@
         "name": "Fortify Heavy Armor",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6374,7 +6785,8 @@
         "name": "Fortify Light Armor",
         "strength": 25
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6392,7 +6804,8 @@
         "name": "Fortify Light Armor",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6426,7 +6839,8 @@
         "name": "Fortify Restoration",
         "strength": 3
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6444,7 +6858,8 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6456,7 +6871,9 @@
       "magical_effects": "Prices are 10% better",
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6478,7 +6895,8 @@
         "name": "Amethyst",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6500,7 +6918,8 @@
         "name": "Flawless Emerald",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6522,7 +6941,8 @@
         "name": "Garnet",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6544,7 +6964,8 @@
         "name": "Flawless Garnet",
         "quantity": 2
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6562,7 +6983,8 @@
         "name": "Silver Ingot",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6580,7 +7002,8 @@
         "name": "Silver Ingot",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6602,7 +7025,8 @@
         "name": "Ruby",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6624,7 +7048,8 @@
         "name": "Flawless Sapphire",
         "quantity": 1
       }
-    ]
+    ],
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6636,7 +7061,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6648,7 +7075,9 @@
       "magical_effects": null,
       "unique_item": false,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6666,7 +7095,8 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6678,7 +7108,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6696,7 +7128,8 @@
         "name": "Fortify Restoration",
         "strength": 10
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6722,7 +7155,8 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ]
+    ],
+    "materials": []
   },
   {
     "attributes": {
@@ -6734,7 +7168,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6746,7 +7182,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6758,7 +7196,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6770,7 +7210,9 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": false
-    }
+    },
+    "enchantments": [],
+    "materials": []
   },
   {
     "attributes": {
@@ -6782,6 +7224,8 @@
       "magical_effects": null,
       "unique_item": true,
       "enchantable": true
-    }
+    },
+    "enchantments": [],
+    "materials": []
   }
 ]
