@@ -20,7 +20,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ],
@@ -43,7 +43,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -65,7 +65,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -87,7 +87,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -109,7 +109,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -131,7 +131,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -153,7 +153,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -175,7 +175,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -197,7 +197,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -223,7 +223,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ],
@@ -244,25 +244,25 @@
     },
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 4
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 5
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ],
@@ -284,25 +284,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -323,25 +323,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -362,25 +362,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -406,7 +406,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -433,7 +433,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -461,7 +461,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -504,7 +504,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -525,21 +525,21 @@
     },
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 5
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ],
@@ -1023,21 +1023,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -1393,7 +1393,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -1420,7 +1420,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -1447,7 +1447,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -1475,7 +1475,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -1497,7 +1497,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -1519,7 +1519,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -1541,7 +1541,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -1563,7 +1563,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -1585,7 +1585,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -1606,21 +1606,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 10
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1641,21 +1641,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 6
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1676,21 +1676,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1711,21 +1711,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 10
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1746,21 +1746,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 6
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1781,21 +1781,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 10
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1816,21 +1816,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 8
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -1856,7 +1856,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -1878,21 +1878,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 5
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -1913,21 +1913,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -1948,21 +1948,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -1983,21 +1983,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 6
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2018,21 +2018,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2053,21 +2053,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2088,21 +2088,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2123,21 +2123,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2158,21 +2158,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Chitin Plate",
+        "item_code": "XX02B04E",
         "quantity": 1
       }
     ]
@@ -2194,7 +2194,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -2216,7 +2216,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -2237,21 +2237,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Daedra Heart",
+        "item_code": "0003AD5B",
         "quantity": 1
       },
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 5
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -2866,21 +2866,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Daedra Heart",
+        "item_code": "0003AD5B",
         "quantity": 1
       },
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -3231,21 +3231,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Daedra Heart",
+        "item_code": "0003AD5B",
         "quantity": 1
       },
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -3596,21 +3596,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Daedra Heart",
+        "item_code": "0003AD5B",
         "quantity": 1
       },
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -4247,21 +4247,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Daedra Heart",
+        "item_code": "0003AD5B",
         "quantity": 1
       },
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -4591,7 +4591,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4613,7 +4613,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4635,7 +4635,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4657,7 +4657,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4679,7 +4679,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4701,7 +4701,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4723,7 +4723,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4745,7 +4745,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4767,7 +4767,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -4789,7 +4789,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -4811,7 +4811,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -4833,7 +4833,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -4855,7 +4855,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -4892,21 +4892,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 3
       },
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       }
     ]
@@ -5521,21 +5521,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 3
       },
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       }
     ]
@@ -5886,21 +5886,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 2
       },
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       }
     ]
@@ -6251,21 +6251,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 2
       },
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       }
     ]
@@ -6902,21 +6902,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 3
       },
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Bone",
+        "item_code": "0003ADA4",
         "quantity": 1
       }
     ]
@@ -7245,25 +7245,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 1
       }
     ]
@@ -7878,25 +7878,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 1
       }
     ]
@@ -8291,25 +8291,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 1
       }
     ]
@@ -8792,25 +8792,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 1
       }
     ]
@@ -9447,21 +9447,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dragon Scales",
+        "item_code": "0003ADA3",
         "quantity": 1
       }
     ]
@@ -9795,7 +9795,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ],
@@ -9817,25 +9817,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ]
@@ -10318,25 +10318,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ]
@@ -11039,25 +11039,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ]
@@ -11078,25 +11078,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ]
@@ -11645,25 +11645,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ]
@@ -12014,17 +12014,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 5
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -12639,17 +12639,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -13022,17 +13022,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -13383,17 +13383,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -14035,7 +14035,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ],
@@ -14057,17 +14057,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ]
@@ -14418,25 +14418,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -14919,25 +14919,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -15816,25 +15816,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -15855,25 +15855,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -16488,25 +16488,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17056,7 +17056,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17078,7 +17078,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17100,7 +17100,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17122,7 +17122,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17143,21 +17143,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -17509,7 +17509,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17531,7 +17531,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -17553,7 +17553,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -17575,7 +17575,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17597,7 +17597,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17619,7 +17619,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17641,7 +17641,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17663,7 +17663,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17685,7 +17685,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17707,7 +17707,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17729,7 +17729,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17751,7 +17751,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17773,7 +17773,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17795,7 +17795,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17817,7 +17817,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17839,7 +17839,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Chaurus Chitin",
+        "item_code": "0003AD57",
         "quantity": 1
       }
     ]
@@ -17861,7 +17861,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17883,7 +17883,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17905,7 +17905,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17927,7 +17927,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17949,7 +17949,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -17970,7 +17970,7 @@
     "enchantments": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -17993,7 +17993,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -18014,7 +18014,7 @@
     "enchantments": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -18037,7 +18037,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -18059,7 +18059,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -18085,7 +18085,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -18108,7 +18108,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -18130,7 +18130,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -18151,25 +18151,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 4
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -18806,25 +18806,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 2
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -19263,25 +19263,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -19764,25 +19764,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 2
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -20419,21 +20419,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 4
       },
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -20790,11 +20790,11 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -20820,7 +20820,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -20847,7 +20847,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -20874,7 +20874,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -20901,7 +20901,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -20929,7 +20929,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -20955,7 +20955,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -20986,7 +20986,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ],
@@ -21008,17 +21008,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -21501,17 +21501,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -21928,17 +21928,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -22421,17 +22421,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -22980,17 +22980,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -23342,7 +23342,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -23364,7 +23364,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -23386,7 +23386,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -23407,21 +23407,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -23728,21 +23728,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -24423,21 +24423,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -25646,21 +25646,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -26187,21 +26187,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -26222,21 +26222,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -26257,21 +26257,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -26292,21 +26292,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -26723,17 +26723,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -27019,7 +27019,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -27040,17 +27040,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -27088,33 +27088,33 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 10
       },
       {
-        "name": "Netch Jelly",
+        "item_code": "XX01CD72",
         "quantity": 1
       },
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       },
       {
-        "name": "Void Salts",
+        "item_code": "0003AD60",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -27135,33 +27135,33 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 6
       },
       {
-        "name": "Netch Jelly",
+        "item_code": "XX01CD72",
         "quantity": 1
       },
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       },
       {
-        "name": "Void Salts",
+        "item_code": "0003AD60",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -27182,33 +27182,33 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 4
       },
       {
-        "name": "Netch Jelly",
+        "item_code": "XX01CD72",
         "quantity": 1
       },
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       },
       {
-        "name": "Void Salts",
+        "item_code": "0003AD60",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -27229,33 +27229,33 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 6
       },
       {
-        "name": "Netch Jelly",
+        "item_code": "XX01CD72",
         "quantity": 1
       },
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       },
       {
-        "name": "Void Salts",
+        "item_code": "0003AD60",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -27276,33 +27276,33 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Netch Leather",
+        "item_code": "XX01CD7C",
         "quantity": 1
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 8
       },
       {
-        "name": "Netch Jelly",
+        "item_code": "XX01CD72",
         "quantity": 1
       },
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       },
       {
-        "name": "Void Salts",
+        "item_code": "0003AD60",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Bone Meal",
+        "item_code": "00034CDD",
         "quantity": 2
       }
     ]
@@ -27323,17 +27323,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 5
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -27816,17 +27816,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -28177,17 +28177,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -28538,17 +28538,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 3
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -29097,17 +29097,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -29463,7 +29463,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ],
@@ -29486,7 +29486,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Gold Ingot",
+        "item_code": "0005AD9E",
         "quantity": 1
       }
     ]
@@ -29521,7 +29521,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -29542,17 +29542,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -30035,17 +30035,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -30462,17 +30462,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -30955,17 +30955,17 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31519,7 +31519,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -31546,7 +31546,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -31574,7 +31574,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31601,7 +31601,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31623,7 +31623,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31645,7 +31645,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -31667,7 +31667,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -31737,7 +31737,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31759,7 +31759,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31781,7 +31781,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31803,7 +31803,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -31830,7 +31830,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Moonstone",
+        "item_code": "0005AD9F",
         "quantity": 1
       }
     ]
@@ -31886,7 +31886,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ],
@@ -31908,25 +31908,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 6
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -31947,25 +31947,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -31986,25 +31986,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -32025,25 +32025,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -32064,21 +32064,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       }
     ],
     "tempering_materials": [
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       }
     ]
@@ -32099,21 +32099,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ]
@@ -32662,21 +32662,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ]
@@ -32983,21 +32983,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ]
@@ -33348,21 +33348,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ]
@@ -33933,21 +33933,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ]
@@ -34312,7 +34312,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Refined Malachite",
+        "item_code": "0005ADA1",
         "quantity": 1
       }
     ]
@@ -34334,7 +34334,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -34356,7 +34356,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -34378,7 +34378,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -34400,7 +34400,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -34422,7 +34422,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -34444,7 +34444,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -34466,7 +34466,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -34496,7 +34496,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ],
@@ -34523,7 +34523,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Orichalcum Ingot",
+        "item_code": "0005AD99",
         "quantity": 1
       }
     ],
@@ -34546,7 +34546,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -34568,7 +34568,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -34590,7 +34590,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -34611,25 +34611,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 2
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -35112,25 +35112,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -35547,25 +35547,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -36048,25 +36048,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -36638,7 +36638,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -36657,10 +36657,19 @@
       "enchantable": true
     },
     "enchantments": [],
-    "smithing_materials": [],
+    "smithing_materials": [
+      {
+        "item_code": "XX0195AA",
+        "quantity": 2
+      },
+      {
+        "item_code": "0005ACE4",
+        "quantity": 2
+      }
+    ],
     "tempering_materials": [
       {
-        "name": "Shellbug Chitin",
+        "item_code": "XX0195AA",
         "quantity": 1
       }
     ]
@@ -36687,7 +36696,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -36713,7 +36722,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -36740,7 +36749,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -36767,7 +36776,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -36790,7 +36799,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -36880,7 +36889,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -36902,7 +36911,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -36924,7 +36933,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -36945,21 +36954,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 6
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -36980,21 +36989,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 4
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37015,21 +37024,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 3
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37050,21 +37059,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 4
       },
       {
-        "name": "Quicksilver Ingot",
+        "item_code": "0005ADA0",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37085,21 +37094,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 5
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37120,21 +37129,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37155,21 +37164,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 2
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37190,21 +37199,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 3
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37225,21 +37234,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 4
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Stalhrim",
+        "item_code": "XX02B06B",
         "quantity": 1
       }
     ]
@@ -37260,21 +37269,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 4
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -38109,21 +38118,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -38474,21 +38483,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -39059,21 +39068,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -39094,21 +39103,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -39129,21 +39138,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -39164,25 +39173,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -39665,25 +39674,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -40386,25 +40395,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -40425,25 +40434,25 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       },
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 2
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ]
@@ -41014,21 +41023,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 1
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -41379,21 +41388,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 3
       },
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 2
       }
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -41415,7 +41424,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41437,7 +41446,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41459,7 +41468,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41481,7 +41490,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41503,7 +41512,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41525,7 +41534,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41546,21 +41555,21 @@
     "enchantments": [],
     "smithing_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       },
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 4
       },
       {
-        "name": "Leather Strips",
+        "item_code": "000800E4",
         "quantity": 3
       }
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41851,7 +41860,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41878,7 +41887,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -41904,7 +41913,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -41931,7 +41940,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -42010,7 +42019,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -42276,7 +42285,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -42298,7 +42307,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -42346,7 +42355,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ],
@@ -42373,7 +42382,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Dwarven Metal Ingot",
+        "item_code": "000DB8A2",
         "quantity": 1
       }
     ],
@@ -42408,7 +42417,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ],
@@ -42443,7 +42452,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Corundum Ingot",
+        "item_code": "0005AD93",
         "quantity": 1
       }
     ],
@@ -42466,7 +42475,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -42488,7 +42497,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -42510,7 +42519,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -42532,7 +42541,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -42554,7 +42563,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Leather",
+        "item_code": "000DB5D2",
         "quantity": 1
       }
     ]
@@ -42576,7 +42585,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -42598,7 +42607,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Iron Ingot",
+        "item_code": "0005ACE4",
         "quantity": 1
       }
     ]
@@ -42620,7 +42629,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -42642,7 +42651,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -42664,7 +42673,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -42686,7 +42695,7 @@
     "smithing_materials": [],
     "tempering_materials": [
       {
-        "name": "Steel Ingot",
+        "item_code": "0005ACE5",
         "quantity": 1
       }
     ]
@@ -42729,7 +42738,7 @@
     ],
     "tempering_materials": [
       {
-        "name": "Ebony Ingot",
+        "item_code": "0005AD9D",
         "quantity": 1
       }
     ],
