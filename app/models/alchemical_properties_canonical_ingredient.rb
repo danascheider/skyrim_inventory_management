@@ -5,6 +5,7 @@ class AlchemicalPropertiesCanonicalIngredient < ApplicationRecord
   belongs_to :canonical_ingredient
 
   validates :alchemical_property_id, uniqueness: { scope: :canonical_ingredient_id, message: 'must form a unique combination with canonical ingredient' }
+  validates :priority, uniqueness: { scope: :canonical_ingredient_id, message: 'must be unique per ingredient' }
   validate :ensure_max_of_four_per_ingredient, on: :create
 
   MAX_PER_INGREDIENT = 4
