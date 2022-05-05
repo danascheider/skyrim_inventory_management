@@ -416,29 +416,26 @@ namespace :canonical_models do
           end
 
           i[:alchemical_properties].each do |property|
-            join_model = ingredient.alchemical_properties_canonical_ingredients.find_or_initialize_by(alchemical_property: AlchemicalProperty.find_by(name: property[:name]))
+            alchemical_property = AlchemicalProperty.find_by(name: property[:name])
 
-            if join_model.persisted? && property[:priority] != join_model.priority
-              # If the ingredient already has 4 properties, then changing the priority to another number will
-              # cause uniqueness validations to fail. In order to update priority, you will need to first clear
-              # the priorities of the items that will conflict and then change the priority on both/all.
-              Rails.logger.warn "Unable to change priority on property #{property[:name]} from #{join_model.priority} to #{property[:priority]}"
-
-              join_model.assign_attributes(
-                strength_modifier: property[:strength_modifier],
-                duration_modifier: property[:duration_modifier],
+            if alchemical_property.present? && ingredient.alchemical_properties.exclude?(alchemical_property)
+              AlchemicalPropertiesCanonicalIngredient.create!(
+                alchemical_property:  alchemical_property,
+                canonical_ingredient: ingredient,
+                priority:             property[:priority],
+                strength_modifier:    property[:strength_modifier],
+                duration_modifier:    property[:duration_modifier],
               )
+            elsif ingredient.alchemical_properties.include?(alchemical_property)
+              join_model = ingredient.alchemical_properties_canonical_ingredients.find_by(alchemical_property_id: alchemical_property.id)
+
+              Rails.logger.warn "(Canonical Ingredient #{ingredient.item_code}): Priority of alchemical properties must be updated manually" unless join_model.priority == property[:priority]
+
+              join_model.update!(strength_modifier: property[:strength_modifier], duration_modifier: property[:duration_modifier])
             else
-              join_model.assign_attributes(
-                priority:          property[:priority],
-                strength_modifier: property[:strength_modifier],
-                duration_modifier: property[:duration_modifier],
-              )
+              Rails.logger.warn "CanonicalIngredient #{ingredient.item_code} calls for alchemical property #{alchemical_property.name} but alchemical property does not exist"
             end
-
-            join_model.save!
           end
-
         rescue ActiveRecord::RecordInvalid => e
           Rails.logger.error "Validation error creating ingredient #{i[:attributes][:item_code]}: #{e.message}"
           raise e
