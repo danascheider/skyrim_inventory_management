@@ -26,7 +26,7 @@ RSpec.describe CanonicalIngredient, type: :model do
         expect(ingredient.errors[:item_code]).to include "can't be blank"
       end
 
-      it 'must be unique item code' do
+      it 'must be unique' do
         create(:canonical_ingredient, item_code: 'foo')
         ingredient = build(:canonical_ingredient, name: 'Thistle Branch', item_code: 'foo')
 
