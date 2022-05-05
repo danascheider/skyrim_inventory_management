@@ -31894,6 +31894,122 @@
   },
   {
     "attributes": {
+      "name": "Nightingale Armor",
+      "item_code": "000fcc0f",
+      "unit_weight": 12,
+      "body_slot": "body",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 40
+      },
+      {
+        "name": "Resist Frost",
+        "strength": 50
+      }
+    ],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0003AD60",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nightingale Boots",
+      "item_code": "000fcc0d",
+      "unit_weight": 2,
+      "body_slot": "feet",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Muffle",
+        "strength": 0.75
+      }
+    ],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0003AD60",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nightingale Gloves",
+      "item_code": "000fcc11",
+      "unit_weight": 2,
+      "body_slot": "hands",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 25
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 25
+      }
+    ],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0003AD60",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nightingale Hood",
+      "item_code": "000fcc12",
+      "unit_weight": 2,
+      "body_slot": "head",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 17
+      }
+    ],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0003AD60",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Nordic Carved Armor",
       "item_code": "xx01cd97",
       "unit_weight": 37,

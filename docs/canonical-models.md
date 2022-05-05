@@ -16,7 +16,7 @@ These models are not user-created and are to be stored in the database with actu
 
 Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly synced in the SIM database with data from the game. These include:
 
-* [`AlchemicalIngredientsCanonicalIngredient](/app/models/alchemical_properties_canonical_ingredient.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised
+* [`AlchemicalPropertiesCanonicalIngredient](/app/models/alchemical_properties_canonical_ingredient.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/models/alchemical-properties-canonical-ingredient.md)
 * [`CanonicalArmorsEnchantment`](/app/models/canonical_armors_enchantment.rb): Associates canonical armours to their enchantments, adding a metadata field called "strength" for the strength of the enchantment (in whatever its strength unit is)
 * [`CanonicalClothingItemsEnchantment`](/app/models/canonical_clothing_items_enchantment.rb): Associates canonical clothing items to their enchantments, adding a metadata field called "strength" for the strength of the enchantment (in whatever its strength unit is)
 * [`CanonicalJewelryItemsEnchantments`](/app/models/canonical_jewelry_items_enchantment.rb): Associates canonical jewellery items to their enchantments, adding a metadata field called "strength" for the strength of the enchantment (in whatever its strength unit is)

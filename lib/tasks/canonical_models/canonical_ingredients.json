@@ -1,0 +1,3852 @@
+[
+  {
+    "attributes": {
+      "name": "Abecean Longfin",
+      "item_code": "00106e1b",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ancestor Moth Wing",
+      "item_code": "xx0059ba",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ash Creep Cluster",
+      "item_code": "xx01cd74",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Destruction",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ash Hopper Jelly",
+      "item_code": "xx01cd71",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ashen Grass Pod",
+      "item_code": "xx016e26",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Fire",
+        "strength_modifier": 1.33,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Lockpicking",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bear Claws",
+      "item_code": "0006bc02",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": 0.8,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bee",
+      "item_code": "000a9195",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Beehive Husk",
+      "item_code": "000a9191",
+      "unit_weight": 1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": 0.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Destruction",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bleeding Crown",
+      "item_code": "0004da20",
+      "unit_weight": 0.3,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Block",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blisterwort",
+      "item_code": "0004da25",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Health",
+        "strength_modifier": 0.6,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Smithing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blue Butterfly Wing",
+      "item_code": "000727de",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blue Dartwing",
+      "item_code": "000e4f0c",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Pickpocket",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blue Mountain Flower",
+      "item_code": "00077e1c",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Boar Tusk",
+      "item_code": "xx01cd6f",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Fortify Stamina",
+        "strength_modifier": 1.25,
+        "duration_modifier": 5
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": 5
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Block",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bone Meal",
+      "item_code": "00034cdd",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Briar Heart",
+      "item_code": "0003ad61",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Block",
+        "strength_modifier": 0.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Burnt Spriggan Wood",
+      "item_code": "xx01cd6e",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Alteration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Butterfly Wing",
+      "item_code": "000727e0",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Barter",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Lingering Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Canis Root",
+      "item_code": "0006abcb",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Marksman",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Charred Skeever Hide",
+      "item_code": "00052695",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Cure Disease",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Chaurus Eggs",
+      "item_code": "0003ad56",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Chaurus Hunter Antennae",
+      "item_code": "xx0183b7",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Chicken's Egg",
+      "item_code": "00023d77",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Waterbreathing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Lingering Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Creep Cluster",
+      "item_code": "000b2183",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Crimson Nirnroot",
+      "item_code": "000b701a",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": 3,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Stamina",
+        "strength_modifier": 3,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Cyrodilic Spadetail",
+      "item_code": "00106e19",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Daedra Heart",
+      "item_code": "0003ad5b",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deathbell",
+      "item_code": "000516c8",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": 1.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dragon's Tongue",
+      "item_code": "000889a2",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Barter",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Illusion",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Two-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dwarven Oil",
+      "item_code": "000f11c0",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Illusion",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ectoplasm",
+      "item_code": "0003ad63",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Destruction",
+        "strength_modifier": 0.8,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elves Ear",
+      "item_code": "00034d31",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Marksman",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Emperor Parasol Moss",
+      "item_code": "xx01ff75",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Two-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Eye of Sabre Cat",
+      "item_code": "0006bc07",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Falmer Ear",
+      "item_code": "0003ad5d",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Lockpicking",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Felsaad Tern Feathers",
+      "item_code": "xx03cd8e",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Cure Disease",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fire Salts",
+      "item_code": "0003ad5e",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fly Amanita",
+      "item_code": "0004da00",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Two-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Frost Salts",
+      "item_code": "0003ad5f",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Garlic",
+      "item_code": "00034d22",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Giant Lichen",
+      "item_code": "0007e8c1",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Giant's Toe",
+      "item_code": "0003ad64",
+      "unit_weight": 1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": 5
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Gleamblossom",
+      "item_code": "xx00b097",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Glow Dust",
+      "item_code": "0003ad73",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Destruction",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Glowing Mushroom",
+      "item_code": "0007ee01",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Destruction",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Smithing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grass Pod",
+      "item_code": "00083e64",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Alteration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hagraven Claw",
+      "item_code": "0006b689",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Barter",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hagraven Feathers",
+      "item_code": "0003ad66",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hanging Moss",
+      "item_code": "00057f91",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hawk Beak",
+      "item_code": "000e7ebc",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hawk Feathers",
+      "item_code": "000e7ed0",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Cure Disease",
+        "strength_modifier": 0.36,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Hawk's Egg",
+      "item_code": "xx00f1cc",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Waterbreathing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Lingering Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Histcarp",
+      "item_code": "00106e18",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Waterbreathing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Honeycomb",
+      "item_code": "000b08c5",
+      "unit_weight": 1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Block",
+        "strength_modifier": 0.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Human Flesh",
+      "item_code": "001016b3",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Human Heart",
+      "item_code": "000b18cd",
+      "unit_weight": 1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ice Wraith Teeth",
+      "item_code": "0003ad6a",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Heavy Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Imp Stool",
+      "item_code": "0004da23",
+      "unit_weight": 0.3,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Health",
+        "strength_modifier": 0.6,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Jazbay Grapes",
+      "item_code": "0006ac4a",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Juniper Berries",
+      "item_code": "0005076e",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Marksman",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Large Antlers",
+      "item_code": "0006bc0a",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": 6
+      },
+      {
+        "priority": 4,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lavender",
+      "item_code": "00045c28",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Luna Moth Wing",
+      "item_code": "000727df",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Moon Sugar",
+      "item_code": "000d8e3f",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Mora Tapinella",
+      "item_code": "000ec870",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Illusion",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Mudcrab Chitin",
+      "item_code": "0006bc00",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Cure Disease",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Namira's Rot",
+      "item_code": "0004da24",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Lockpicking",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Netch Jelly",
+      "item_code": "xx01cd72",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Stamina",
+        "strength_modifier": 2,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nightshade",
+      "item_code": "xx042A41",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Lingering Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Destruction",
+        "strength_modifier": 0.8,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nirnroot",
+      "item_code": "00059b86",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nordic Barnacle",
+      "item_code": "0007edf5",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Waterbreathing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Pickpocket",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Orange Dartwing",
+      "item_code": "000bb956",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Pickpocket",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Pearl",
+      "item_code": "000854fe",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Block",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Pine Thrush Egg",
+      "item_code": "00023d6f",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Lockpicking",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Poison Bloom",
+      "item_code": "xx0185fb",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": 1.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Powdered Mammoth Tusk",
+      "item_code": "0006bc10",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fear",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Purple Mountain Flower",
+      "item_code": "00077e1e",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Lingering Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Red Mountain Flower",
+      "item_code": "00077e1d",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "River Betty",
+      "item_code": "00106e1a",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": 2.5,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Alteration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Rock Warbler Egg",
+      "item_code": "0007e8c8",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Sabre Tooth Cat",
+      "item_code": "0006bc04",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Heavy Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Smithing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Salmon Roe",
+      "item_code": "xx003545",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": 0.4,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Waterbreathing",
+        "strength_modifier": null,
+        "duration_modifier": 12
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Magicka",
+        "strength_modifier": 12.5,
+        "duration_modifier": 0.08
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Salt Pile",
+      "item_code": "00074a19",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Scaly Pholiota",
+      "item_code": "0006f950",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Illusion",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Scathecraw",
+      "item_code": "xx017e97",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Silverside Perch",
+      "item_code": "00106e1c",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skeever Tail",
+      "item_code": "0003ad6f",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Slaughterfish Egg",
+      "item_code": "0007e8c5",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Pickpocket",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Slaughterfish Scales",
+      "item_code": "0003ad70",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Heavy Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Block",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Small Antlers",
+      "item_code": "0006bc0b",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Lingering Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Small Pearl",
+      "item_code": "00085500",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify One-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Snowberries",
+      "item_code": "0001b3bd",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Spawn Ash",
+      "item_code": "xx01cd6d",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Spider Egg",
+      "item_code": "0009151b",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Lockpicking",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Marksman",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Spriggan Sap",
+      "item_code": "00063b5f",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Enchanting",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Smithing",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Alteration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Swamp Fungal Pod",
+      "item_code": "0007e8b7",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Paralysis",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Taproot",
+      "item_code": "0003ad71",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Illusion",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Thistle Branch",
+      "item_code": "000134aa",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Poison",
+        "strength_modifier": 0.75,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Heavy Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Torchbug Thorax",
+      "item_code": "0004da73",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Lingering Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Trama Root",
+      "item_code": "xx017008",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Slow",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Troll Fat",
+      "item_code": "0003ad72",
+      "unit_weight": 1,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Two-Handed",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Frenzy",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Tundra Cotton",
+      "item_code": "0003f7f8",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Block",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Barter",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Vampire Dust",
+      "item_code": "0003ad76",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Invisibility",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Regenerate Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Cure Disease",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Void Salts",
+      "item_code": "0003ad60",
+      "unit_weight": 0.2,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Wheat",
+      "item_code": "0004b0ba",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Lingering Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "White Cap",
+      "item_code": "0004da22",
+      "unit_weight": 0.3,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Heavy Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Wisp Wrappings",
+      "item_code": "0006bc0e",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Destruction",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Carry Weight",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Magic",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Yellow Mountain Flower",
+      "item_code": "xx002a78",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Restoration",
+        "strength_modifier": 1.25,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Berit's Ashes",
+      "item_code": "000705b7",
+      "unit_weight": 0.2,
+      "unique_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Fortify Conjuration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Ravage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Jarrin Root",
+      "item_code": "0001bcbc",
+      "unit_weight": 0.5,
+      "unique_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Damage Health",
+        "strength_modifier": 100,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Damage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Damage Stamina",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Magicka Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  }
+]

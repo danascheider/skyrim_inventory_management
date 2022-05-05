@@ -193,7 +193,7 @@ namespace :canonical_models do
             elsif item.canonical_materials.include?(material)
               item.canonical_jewelry_items_canonical_materials
                 .find_by(canonical_material_id: material.id)
-                .update!(strength: en[:strength])
+                .update!(quantity: m[:quantity])
             else
               Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:item_code]} but material does not exist.")
             end
@@ -383,6 +383,74 @@ namespace :canonical_models do
         end
       end
     end
+
+    desc 'Sync canonical ingredient models in the database with JSON data'
+    task :canonical_ingredients,
+         %i[preserve_existing_records] => %w[
+                                            environment
+                                            canonical_models:sync:alchemical_properties
+                                          ] do |_t, args|
+      Rails.logger.info 'Syncing canonical ingredients...'
+
+      args.with_defaults(preserve_existing_records: false)
+
+      ingredients = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.json')), symbolize_names: true)
+
+      ActiveRecord::Base.transaction do
+        if FALSEY_VALUES.include?(args[:preserve_existing_records])
+          item_codes = ingredients.map {|item| item[:attributes][:item_code] }
+          CanonicalIngredient.where.not(item_code: item_codes).destroy_all
+        end
+
+        ingredients.each do |i|
+          ingredient = CanonicalIngredient.find_or_initialize_by(item_code: i[:attributes][:item_code])
+          ingredient.assign_attributes(i[:attributes])
+          ingredient.save!
+
+          if FALSEY_VALUES.include?(args[:preserve_existing_records])
+            alchemical_property_ids = AlchemicalProperty.where(name: i[:alchemical_properties].pluck(:name)).ids
+            ingredient.alchemical_properties_canonical_ingredients
+              .where
+              .not(alchemical_property_id: alchemical_property_ids)
+              .destroy_all
+          end
+
+          i[:alchemical_properties].each do |property|
+            join_model = ingredient.alchemical_properties_canonical_ingredients.find_or_initialize_by(alchemical_property: AlchemicalProperty.find_by(name: property[:name]))
+
+            if join_model.persisted? && property[:priority] != join_model.priority
+              # If the ingredient already has 4 properties, then changing the priority to another number will
+              # cause uniqueness validations to fail. In order to update priority, you will need to first clear
+              # the priorities of the items that will conflict and then change the priority on both/all.
+              Rails.logger.warn "Unable to change priority on property #{property[:name]} from #{join_model.priority} to #{property[:priority]}"
+
+              join_model.assign_attributes(
+                strength_modifier: property[:strength_modifier],
+                duration_modifier: property[:duration_modifier],
+              )
+            else
+              join_model.assign_attributes(
+                priority:          property[:priority],
+                strength_modifier: property[:strength_modifier],
+                duration_modifier: property[:duration_modifier],
+              )
+            end
+
+            join_model.save!
+          end
+
+        rescue ActiveRecord::RecordInvalid => e
+          Rails.logger.error "Validation error creating ingredient #{i[:attributes][:item_code]}: #{e.message}"
+          raise e
+        rescue StandardError => e
+          Rails.logger.error "Unexpected #{e.class} creating ingredient #{i[:attributes][:item_code]}: #{e.message}"
+          e.backtrace.each {|line| Rails.logger.error "  #{line}" }
+          raise e
+        end
+      end
+    rescue StandardError => e
+      Rails.logger.error "Unexpected error #{e.class} syncing ingredients: #{e.message}"
+    end
     # rubocop:enable Layout/BlockAlignment
 
     desc 'Sync all canonical models with JSON files'
@@ -397,6 +465,7 @@ namespace :canonical_models do
       Rake::Task['canonical_models:sync:canonical_jewelry'].invoke(args[:preserve_existing_records])
       Rake::Task['canonical_models:sync:canonical_clothing'].invoke(args[:preserve_existing_records])
       Rake::Task['canonical_models:sync:canonical_armor'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_ingredients'].invoke(args[:preserve_existing_records])
     end
   end
 end

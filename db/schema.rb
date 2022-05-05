@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_081145) do
+ActiveRecord::Schema.define(version: 2022_05_04_232656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,13 @@ ActiveRecord::Schema.define(version: 2022_05_04_081145) do
     t.bigint "canonical_ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "priority", null: false
+    t.decimal "strength_modifier"
+    t.decimal "duration_modifier"
     t.index ["alchemical_property_id", "canonical_ingredient_id"], name: "ndex_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
     t.index ["alchemical_property_id"], name: "index_alc_properties_can_ingredients_on_alc_property_id"
     t.index ["canonical_ingredient_id"], name: "index_alc_properties_can_ingredients_on_can_ingredient_id"
+    t.index ["priority", "canonical_ingredient_id"], name: "index_alc_properties_can_ingrs_on_priority_and_ingr_id", unique: true
   end
 
   create_table "canonical_armors", force: :cascade do |t|
@@ -111,6 +115,9 @@ ActiveRecord::Schema.define(version: 2022_05_04_081145) do
   create_table "canonical_ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
+    t.boolean "quest_item", default: false
+    t.boolean "unique_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
