@@ -197,7 +197,7 @@
       },
       {
         "priority": 3,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -646,7 +646,7 @@
       },
       {
         "priority": 2,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -1008,7 +1008,7 @@
       },
       {
         "priority": 4,
-        "name": "Fortify Two-handed",
+        "name": "Fortify Two-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       }
@@ -1148,7 +1148,7 @@
       },
       {
         "priority": 4,
-        "name": "Fortify Two-handed",
+        "name": "Fortify Two-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       }
@@ -1311,7 +1311,7 @@
       },
       {
         "priority": 2,
-        "name": "Fortify Two-handed",
+        "name": "Fortify Two-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -1708,7 +1708,7 @@
       },
       {
         "priority": 4,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       }
@@ -1772,7 +1772,7 @@
       },
       {
         "priority": 3,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -2781,7 +2781,7 @@
       },
       {
         "priority": 2,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -3166,7 +3166,7 @@
       },
       {
         "priority": 2,
-        "name": "Fortify One-handed",
+        "name": "Fortify One-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -3419,7 +3419,7 @@
         "priority": 3,
         "name": "Resist Poison",
         "strength_modifier": 0.75,
-        "duration_modifier": "0"
+        "duration_modifier": null
       },
       {
         "priority": 4,
@@ -3516,7 +3516,7 @@
       },
       {
         "priority": 2,
-        "name": "Fortify Two-handed",
+        "name": "Fortify Two-Handed",
         "strength_modifier": null,
         "duration_modifier": null
       },
@@ -3809,76 +3809,6 @@
       {
         "priority": 4,
         "name": "Ravage Stamina",
-        "strength_modifier": null,
-        "duration_modifier": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Farengar's Frost Salt",
-      "item_code": "0003ad5f",
-      "unit_weight": 0.25,
-      "unique_item": true,
-      "quest_item": true
-    },
-    "alchemical_properties": [
-      {
-        "priority": 1,
-        "name": "Weakness to Fire",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 2,
-        "name": "Resist Frost",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 3,
-        "name": "Restore Magicka",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 4,
-        "name": "Fortify Conjuration",
-        "strength_modifier": null,
-        "duration_modifier": null
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Fine-Cut Void Salts",
-      "item_code": "0003ad60",
-      "unit_weight": 0.2,
-      "unique_item": true,
-      "quest_item": true
-    },
-    "alchemical_properties": [
-      {
-        "priority": 1,
-        "name": "Weakness to Shock",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 2,
-        "name": "Resist Magic",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 3,
-        "name": "Damage Health",
-        "strength_modifier": null,
-        "duration_modifier": null
-      },
-      {
-        "priority": 4,
-        "name": "Fortify Magicka",
         "strength_modifier": null,
         "duration_modifier": null
       }
