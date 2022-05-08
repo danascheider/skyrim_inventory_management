@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_015540) do
     t.string "smithing_perks", default: [], array: true
     t.integer "base_damage", null: false
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "leveled", default: false
+    t.boolean "levelled", default: false
     t.boolean "enchantable", default: true
     t.boolean "quest_item", default: false
     t.boolean "unique_item", default: false
