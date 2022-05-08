@@ -47,6 +47,9 @@ class Enchantment < ApplicationRecord
   has_many :canonical_jewelry_items_enchantments, dependent: :destroy
   has_many :canonical_jewelry_items, through: :canonical_jewelry_items_enchantments
 
+  has_many :canonical_weapons_enchantments, dependent: :destroy
+  has_many :canonical_weapons, through: :canonical_weapons_enchantments
+
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,
             inclusion: {

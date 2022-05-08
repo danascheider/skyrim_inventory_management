@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class CanonicalWeapon < ApplicationRecord
+  has_many :canonical_weapons_enchantments, dependent: :destroy
+  has_many :enchantments,
+           -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
+           through: :canonical_weapons_enchantments
+
   VALID_CATEGORIES   = %w[one-handed two-handed archery arrow].freeze
   VALID_WEAPON_TYPES = [
                          'battleaxe',
