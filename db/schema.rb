@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_015540) do
+ActiveRecord::Schema.define(version: 2022_05_08_035226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,6 +202,39 @@ ActiveRecord::Schema.define(version: 2022_05_08_015540) do
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
+  create_table "canonical_weapons_enchantments", force: :cascade do |t|
+    t.bigint "canonical_weapon_id", null: false
+    t.bigint "enchantment_id", null: false
+    t.decimal "strength", precision: 5, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_weapon_id", "enchantment_id"], name: "index_can_weapons_enchantments_on_weap_and_ench_ids", unique: true
+    t.index ["canonical_weapon_id"], name: "index_can_weapons_enchantments_on_ench_id"
+    t.index ["enchantment_id"], name: "index_can_weapons_enchantments_on_can_weapon_id"
+  end
+
+  create_table "canonical_weapons_smithing_materials", force: :cascade do |t|
+    t.bigint "canonical_weapon_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_material_id"], name: "index_can_weapons_sm_mats_on_can_weap_id"
+    t.index ["canonical_weapon_id", "canonical_material_id"], name: "index_can_weapons_sm_mats_on_weap_and_mat_ids", unique: true
+    t.index ["canonical_weapon_id"], name: "index_can_weapons_sm_mats_on_mat_id"
+  end
+
+  create_table "canonical_weapons_tempering_materials", force: :cascade do |t|
+    t.bigint "canonical_weapon_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_material_id"], name: "index_can_weapons_temp_mats_on_can_weap_id"
+    t.index ["canonical_weapon_id", "canonical_material_id"], name: "index_can_weapons_temp_mats_on_weap_and_mat_ids", unique: true
+    t.index ["canonical_weapon_id"], name: "index_can_weapons_temp_mats_on_mat_id"
+  end
+
   create_table "enchantments", force: :cascade do |t|
     t.string "name", null: false
     t.string "enchantable_items", default: [], array: true
@@ -332,6 +365,12 @@ ActiveRecord::Schema.define(version: 2022_05_08_015540) do
   add_foreign_key "canonical_jewelry_items_canonical_materials", "canonical_materials"
   add_foreign_key "canonical_jewelry_items_enchantments", "canonical_jewelry_items"
   add_foreign_key "canonical_jewelry_items_enchantments", "enchantments"
+  add_foreign_key "canonical_weapons_enchantments", "canonical_weapons"
+  add_foreign_key "canonical_weapons_enchantments", "enchantments"
+  add_foreign_key "canonical_weapons_smithing_materials", "canonical_materials"
+  add_foreign_key "canonical_weapons_smithing_materials", "canonical_weapons"
+  add_foreign_key "canonical_weapons_tempering_materials", "canonical_materials"
+  add_foreign_key "canonical_weapons_tempering_materials", "canonical_weapons"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
