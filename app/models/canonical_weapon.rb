@@ -29,12 +29,10 @@ class CanonicalWeapon < ApplicationRecord
                                            warhammer
                                          ],
                          'archery'    => %w[
-                                           bow
-                                           crossbow
-                                         ],
-                         'arrow'      => %w[
                                            arrow
                                            bolt
+                                           bow
+                                           crossbow
                                          ],
                        }.freeze
 
@@ -74,7 +72,7 @@ class CanonicalWeapon < ApplicationRecord
             presence:  true,
             inclusion: {
                          in:      VALID_CATEGORIES,
-                         message: 'must be "one-handed", "two-handed", "archery", or "arrow"',
+                         message: 'must be "one-handed", "two-handed", or "archery"',
                        }
   validates :weapon_type,
             presence:  true,

@@ -56,7 +56,7 @@ RSpec.describe CanonicalWeapon, type: :model do
         weapon = build(:canonical_weapon, category: 'foo')
 
         weapon.validate
-        expect(weapon.errors[:category]).to include 'must be "one-handed", "two-handed", "archery", or "arrow"'
+        expect(weapon.errors[:category]).to include 'must be "one-handed", "two-handed", or "archery"'
       end
     end
 
