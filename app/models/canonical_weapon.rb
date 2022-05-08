@@ -6,6 +6,12 @@ class CanonicalWeapon < ApplicationRecord
            -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
            through: :canonical_weapons_enchantments
 
+  has_many :canonical_weapons_smithing_materials, dependent: :destroy
+  has_many :smithing_materials,
+           -> { select 'canonical_materials.*, canonical_weapons_smithing_materials.quantity as quantity_needed' },
+           through: :canonical_weapons_smithing_materials,
+           source:  :canonical_material
+
   VALID_CATEGORIES   = %w[one-handed two-handed archery arrow].freeze
   VALID_WEAPON_TYPES = [
                          'battleaxe',

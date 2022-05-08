@@ -146,4 +146,32 @@ RSpec.describe CanonicalWeapon, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    describe 'enchantments' do
+      let(:weapon)      { create(:canonical_weapon) }
+      let(:enchantment) { create(:enchantment) }
+
+      before do
+        weapon.canonical_weapons_enchantments.create!(enchantment: enchantment, strength: 40)
+      end
+
+      it 'gives the enchantment strength' do
+        expect(weapon.enchantments.first.enchantment_strength).to eq 40
+      end
+    end
+
+    describe 'smithing materials' do
+      let(:weapon)   { create(:canonical_weapon) }
+      let(:material) { create(:canonical_material) }
+
+      before do
+        weapon.canonical_weapons_smithing_materials.create!(canonical_material: material, quantity: 4)
+      end
+
+      it 'gives the quantity needed' do
+        expect(weapon.smithing_materials.first.quantity_needed).to eq 4
+      end
+    end
+  end
 end
