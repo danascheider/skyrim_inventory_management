@@ -36,6 +36,8 @@ class Enchantment < ApplicationRecord
 
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
+  STRENGTH_UNITS = %w[percentage point second level].freeze
+
   has_many :canonical_armors_enchantments, dependent: :destroy
   has_many :canonical_armors, through: :canonical_armors_enchantments
 
@@ -48,7 +50,7 @@ class Enchantment < ApplicationRecord
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,
             inclusion: {
-                         in:          %w[point percentage second level],
+                         in:          STRENGTH_UNITS,
                          message:     'must be "point", "percentage", "second", or the "level" of affected characters',
                          allow_blank: true,
                        }
