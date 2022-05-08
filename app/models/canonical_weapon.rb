@@ -1,30 +1,19 @@
 # frozen_string_literal: true
 
 class CanonicalWeapon < ApplicationRecord
-  has_many :canonical_weapons_enchantments, dependent: :destroy
-  has_many :enchantments,
-           -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
-           through: :canonical_weapons_enchantments
-
-  has_many :canonical_weapons_smithing_materials, dependent: :destroy
-  has_many :smithing_materials,
-           -> { select 'canonical_materials.*, canonical_weapons_smithing_materials.quantity as quantity_needed' },
-           through: :canonical_weapons_smithing_materials,
-           source:  :canonical_material
-
   VALID_CATEGORIES   = %w[one-handed two-handed archery arrow].freeze
   VALID_WEAPON_TYPES = [
+                         'arrow',
                          'battleaxe',
+                         'bolt',
+                         'bow',
+                         'crossbow',
                          'dagger',
                          'greatsword',
                          'mace',
                          'sword',
                          'war axe',
                          'warhammer',
-                         'bow',
-                         'crossbow',
-                         'arrow',
-                         'bolt',
                        ].freeze
 
   VALID_COMBINATIONS = {
@@ -61,6 +50,23 @@ class CanonicalWeapon < ApplicationRecord
                            'Ebony Smithing',
                            'Daedric Smithing',
                          ].freeze
+
+  has_many :canonical_weapons_enchantments, dependent: :destroy
+  has_many :enchantments,
+           -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
+           through: :canonical_weapons_enchantments
+
+  has_many :canonical_weapons_smithing_materials, dependent: :destroy
+  has_many :smithing_materials,
+           -> { select 'canonical_materials.*, canonical_weapons_smithing_materials.quantity as quantity_needed' },
+           through: :canonical_weapons_smithing_materials,
+           source:  :canonical_material
+
+  has_many :canonical_weapons_tempering_materials, dependent: :destroy
+  has_many :tempering_materials,
+           -> { select 'canonical_materials.*, canonical_weapons_tempering_materials.quantity as quantity_needed' },
+           through: :canonical_weapons_tempering_materials,
+           source:  :canonical_material
 
   validates :name, presence: true
   validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

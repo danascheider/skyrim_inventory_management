@@ -173,5 +173,18 @@ RSpec.describe CanonicalWeapon, type: :model do
         expect(weapon.smithing_materials.first.quantity_needed).to eq 4
       end
     end
+
+    describe 'tempering materials' do
+      let(:weapon)   { create(:canonical_weapon) }
+      let(:material) { create(:canonical_material) }
+
+      before do
+        weapon.canonical_weapons_tempering_materials.create!(canonical_material: material, quantity: 4)
+      end
+
+      it 'gives the quantity needed' do
+        expect(weapon.tempering_materials.first.quantity_needed).to eq 4
+      end
+    end
   end
 end
