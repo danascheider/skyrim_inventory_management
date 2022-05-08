@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe CanonicalArmor, type: :model do
   describe 'validations' do
     describe 'name' do
-      it 'is invalid without a name' do
+      it "can't be blank" do
         armor = described_class.new(weight: 'heavy armor', item_code: 'xxx', unit_weight: 1.0, body_slot: 'body')
 
         armor.validate
@@ -14,30 +14,24 @@ RSpec.describe CanonicalArmor, type: :model do
     end
 
     describe 'item_code' do
-      it 'is invalid without an item_code' do
+      it "can't be blank" do
         armor = described_class.new(name: 'foo', weight: 'heavy armor', unit_weight: 1.0, body_slot: 'body')
 
         armor.validate
         expect(armor.errors[:item_code]).to include "can't be blank"
       end
 
-      it 'is invalid with a non-unique item code' do
+      it 'must be unique' do
         create(:canonical_armor, item_code: 'xxx')
         armor = build(:canonical_armor, item_code: 'xxx')
 
         armor.validate
         expect(armor.errors[:item_code]).to include 'must be unique'
       end
-
-      it 'is valid with a unique item code' do
-        armor = build(:canonical_armor, item_code: 'xxx')
-
-        expect(armor).to be_valid
-      end
     end
 
     describe 'weight' do
-      it 'is invalid without a weight' do
+      it "can't be blank" do
         armor = described_class.new(name: 'fur armor', item_code: 'xxx', unit_weight: 2.5, body_slot: 'head')
 
         armor.validate
@@ -119,7 +113,7 @@ RSpec.describe CanonicalArmor, type: :model do
     end
 
     describe 'smithing materials' do
-      let(:armor) { create(:canonical_armor) }
+      let(:armor)    { create(:canonical_armor) }
       let(:material) { create(:canonical_material) }
 
       before do

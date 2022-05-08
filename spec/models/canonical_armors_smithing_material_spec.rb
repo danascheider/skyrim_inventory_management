@@ -13,7 +13,7 @@ RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
     end
 
     describe 'quantity' do
-      it 'is invalid if quantity is zero or less' do
+      it 'must be greater than zero' do
         armor    = create(:canonical_armor)
         material = create(:canonical_material)
         model    = described_class.new(quantity: 0, canonical_armor: armor, canonical_material: material)
@@ -22,7 +22,7 @@ RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
         expect(model.errors[:quantity]).to include 'must be greater than 0'
       end
 
-      it 'is invalid if quantity is not an integer' do
+      it 'must be an integer' do
         armor    = create(:canonical_armor)
         material = create(:canonical_material)
         model    = described_class.new(quantity: 1.3, canonical_armor: armor, canonical_material: material)
