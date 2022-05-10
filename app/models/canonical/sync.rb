@@ -4,6 +4,7 @@ module Canonical
   module Sync
     SYNCERS = {
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
+                enchantment:         Canonical::Sync::Enchantments,
               }.freeze
 
     module_function

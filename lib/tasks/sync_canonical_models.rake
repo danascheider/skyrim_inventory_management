@@ -15,30 +15,9 @@ namespace :canonical_models do
 
     desc 'Sync canonical enchantments in the database with JSON data'
     task :enchantments, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Syncing canonical enchantments...'
-
       args.with_defaults(preserve_existing_records: false)
 
-      enchantments = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'enchantments.json')), symbolize_names: true)
-
-      ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          names = enchantments.pluck(:name)
-          Enchantment.where.not(name: names).destroy_all
-        end
-
-        enchantments.each do |enchantment_attributes|
-          enchantment = Enchantment.find_or_initialize_by(name: enchantment_attributes[:name])
-          enchantment.assign_attributes(enchantment_attributes)
-          enchantment.save!
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error("Validation error saving enchantment \"#{enchantment_attributes[:name]}\": #{e.message}")
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error #{e.class} saving enchantment \"#{enchantment_attributes[:name]}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync.perform(:enchantment, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical spells in the database with JSON data'
