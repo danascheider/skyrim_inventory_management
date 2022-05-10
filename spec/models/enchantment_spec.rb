@@ -36,7 +36,7 @@ RSpec.describe Enchantment, type: :model do
         enchantment = described_class.new(strength_unit: 'foobar')
 
         enchantment.validate
-        expect(enchantment.errors[:strength_unit]).to include 'must be "point", "percentage", "second", or the "level" of affected characters'
+        expect(enchantment.errors[:strength_unit]).to include 'must be "point", "percentage", "second", or the "level" of affected targets'
       end
 
       it 'can be blank' do
