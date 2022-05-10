@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalArmor, type: :model do
+RSpec.describe Canonical::Armor, type: :model do
   describe 'validations' do
     describe 'name' do
       it "can't be blank" do
