@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :canonical_jewelry_item do
+  factory :canonical_jewelry_item, class: Canonical::JewelryItem do
     name                 { 'Gold Diamond Ring' }
     sequence(:item_code) {|n| "xxx123#{n}" }
     jewelry_type         { 'ring' }

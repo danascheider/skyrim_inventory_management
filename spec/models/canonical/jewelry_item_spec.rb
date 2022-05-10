@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalJewelryItem, type: :model do
+RSpec.describe Canonical::JewelryItem, type: :model do
   describe 'validations' do
     describe 'name' do
       it 'is invalid with no name' do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CanonicalJewelryItemsCanonicalMaterial < ApplicationRecord
-  belongs_to :canonical_jewelry_item
+  belongs_to :canonical_jewelry_item, class_name: 'Canonical::JewelryItem'
   belongs_to :canonical_material, class_name: 'Canonical::Material'
 
   validates :quantity, numericality: { greater_than: 0, only_integer: true }
