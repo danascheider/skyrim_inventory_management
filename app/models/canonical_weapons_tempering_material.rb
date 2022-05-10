@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CanonicalWeaponsTemperingMaterial < ApplicationRecord
-  belongs_to :canonical_weapon
+  belongs_to :canonical_weapon, class_name: 'Canonical::Weapon'
   belongs_to :canonical_material, class_name: 'Canonical::Material'
 
   validates :quantity, presence: true, numericality: { greater_than: 0, only_integer: true }

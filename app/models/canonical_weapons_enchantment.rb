@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CanonicalWeaponsEnchantment < ApplicationRecord
-  belongs_to :canonical_weapon
+  belongs_to :canonical_weapon, class_name: 'Canonical::Weapon'
   belongs_to :enchantment
 
   validates :strength, numericality: { greater_than: 0, allow_blank: true }

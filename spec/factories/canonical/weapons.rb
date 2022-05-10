@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :canonical_weapon do
+  factory :canonical_weapon, class: Canonical::Weapon do
     name                 { 'Dwarven War Axe' }
     sequence(:item_code) {|n| "123xxx#{n}" }
     category             { 'one-handed' }

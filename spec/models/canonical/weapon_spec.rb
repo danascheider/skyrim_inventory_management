@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalWeapon, type: :model do
+RSpec.describe Canonical::Weapon, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       weapon = described_class.new(
