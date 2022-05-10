@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :canonical_clothing_item do
+  factory :canonical_clothing_item, class: Canonical::ClothingItem do
     name                 { 'Fine Clothes' }
     sequence(:item_code) {|n| "123xxx#{n}" }
     unit_weight          { 9.9 }

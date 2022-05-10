@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalClothingItem, type: :model do
+RSpec.describe Canonical::ClothingItem, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       item = described_class.new(name: 'Clothes', item_code: 'foo', unit_weight: 1, body_slot: 'body')
