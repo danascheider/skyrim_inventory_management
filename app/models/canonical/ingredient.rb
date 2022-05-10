@@ -6,6 +6,7 @@ module Canonical
 
     has_many :canonical_ingredients_alchemical_properties,
              dependent:   :destroy,
+             class_name:  'Canonical::IngredientsAlchemicalProperty',
              foreign_key: :canonical_ingredient_id,
              inverse_of:  :canonical_ingredient
     has_many :alchemical_properties, through: :canonical_ingredients_alchemical_properties

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalIngredientsAlchemicalProperty, type: :model do
+RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
   describe 'validations' do
     describe 'number of records per ingredient' do
       let(:ingredient) { create(:canonical_ingredient) }
