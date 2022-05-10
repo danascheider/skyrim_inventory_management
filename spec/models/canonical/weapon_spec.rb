@@ -157,7 +157,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
 
       it 'gives the enchantment strength' do
-        expect(weapon.enchantments.first.enchantment_strength).to eq 40
+        expect(weapon.enchantments.first.strength).to eq 40
       end
     end
 

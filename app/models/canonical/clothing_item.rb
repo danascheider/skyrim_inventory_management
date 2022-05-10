@@ -8,7 +8,7 @@ module Canonical
              dependent:  :destroy,
              class_name: 'Canonical::ClothingItemsEnchantment'
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_clothing_items_enchantments.strength as enchantment_strength' },
+             -> { select 'enchantments.*, canonical_clothing_items_enchantments.strength as strength' },
              through: :canonical_clothing_items_enchantments
 
     validates :name, presence: true

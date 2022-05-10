@@ -98,7 +98,7 @@ RSpec.describe Canonical::JewelryItem, type: :model do
       end
 
       it 'gives the enchantment strength' do
-        expect(item.enchantments.first.enchantment_strength).to eq 17
+        expect(item.enchantments.first.strength).to eq 17
       end
     end
 

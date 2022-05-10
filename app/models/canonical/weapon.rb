@@ -58,7 +58,7 @@ module Canonical
              dependent:  :destroy,
              class_name: 'Canonical::WeaponsEnchantment'
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
+             -> { select 'enchantments.*, canonical_weapons_enchantments.strength as strength' },
              through: :canonical_weapons_enchantments
 
     has_many :canonical_weapons_smithing_materials,
