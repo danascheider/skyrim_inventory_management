@@ -32,7 +32,7 @@ RSpec.describe Enchantment, type: :model do
     end
 
     describe 'strength_unit' do
-      it 'must be one of "point", "percentage", "second", or "level"' do
+      it 'must be "point", "percentage", "second", or "level"' do
         enchantment = described_class.new(strength_unit: 'foobar')
 
         enchantment.validate
