@@ -6,27 +6,23 @@ module Canonical
 
     has_many :canonical_armors_smithing_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsSmithingMaterial',
-             inverse_of: :material
-    has_many :smithable_armors, through: :canonical_armors_smithing_materials, source: :canonical_armor
+             class_name: 'Canonical::ArmorsSmithingMaterial'
+    has_many :smithable_armors, through: :canonical_armors_smithing_materials
 
     has_many :canonical_armors_tempering_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsTemperingMaterial',
-             inverse_of: :material
-    has_many :temperable_armors, through: :canonical_armors_tempering_materials, source: :armor
+             class_name: 'Canonical::ArmorsTemperingMaterial'
+    has_many :temperable_armors, through: :canonical_armors_tempering_materials
 
     has_many :canonical_weapons_smithing_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsSmithingMaterial',
-             inverse_of: :material
-    has_many :smithable_weapons, through: :canonical_weapons_smithing_materials, source: :weapon
+             class_name: 'Canonical::WeaponsSmithingMaterial'
+    has_many :smithable_weapons, through: :canonical_weapons_smithing_materials
 
     has_many :canonical_weapons_tempering_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsTemperingMaterial',
-             inverse_of: :material
-    has_many :temperable_weapons, through: :canonical_weapons_tempering_materials, source: :weapon
+             class_name: 'Canonical::WeaponsTemperingMaterial'
+    has_many :temperable_weapons, through: :canonical_weapons_tempering_materials
 
     has_many :canonical_jewelry_items_materials,
              dependent:  :destroy,

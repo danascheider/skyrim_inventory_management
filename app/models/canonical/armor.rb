@@ -6,16 +6,14 @@ module Canonical
 
     has_many :canonical_armors_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsEnchantment',
-             inverse_of: :armor
+             class_name: 'Canonical::ArmorsEnchantment'
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_armors_enchantments.strength as enchantment_strength' },
              through: :canonical_armors_enchantments
 
     has_many :canonical_armors_smithing_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsSmithingMaterial',
-             inverse_of: :armor
+             class_name: 'Canonical::ArmorsSmithingMaterial'
     has_many :smithing_materials,
              -> { select 'canonical_materials.*, canonical_armors_smithing_materials.quantity as quantity_needed' },
              through: :canonical_armors_smithing_materials,
@@ -23,8 +21,7 @@ module Canonical
 
     has_many :canonical_armors_tempering_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsTemperingMaterial',
-             inverse_of: :armor
+             class_name: 'Canonical::ArmorsTemperingMaterial'
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_armors_tempering_materials.quantity as quantity_needed' },
              through: :canonical_armors_tempering_materials,

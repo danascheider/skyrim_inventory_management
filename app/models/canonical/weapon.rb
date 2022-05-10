@@ -63,8 +63,7 @@ module Canonical
 
     has_many :canonical_weapons_smithing_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsSmithingMaterial',
-             inverse_of: :weapon
+             class_name: 'Canonical::WeaponsSmithingMaterial'
     has_many :smithing_materials,
              -> { select 'canonical_materials.*, canonical_weapons_smithing_materials.quantity as quantity_needed' },
              through: :canonical_weapons_smithing_materials,
@@ -72,8 +71,7 @@ module Canonical
 
     has_many :canonical_weapons_tempering_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsTemperingMaterial',
-             inverse_of: :weapon
+             class_name: 'Canonical::WeaponsTemperingMaterial'
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_weapons_tempering_materials.quantity as quantity_needed' },
              through: :canonical_weapons_tempering_materials,

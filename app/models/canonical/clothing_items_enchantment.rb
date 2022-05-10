@@ -4,7 +4,7 @@ module Canonical
   class ClothingItemsEnchantment < ApplicationRecord
     self.table_name = 'canonical_clothing_items_enchantments'
 
-    belongs_to :clothing_item, class_name: 'Canonical::ClothingItem', inverse_of: :canonical_clothing_items_enchantments
+    belongs_to :clothing_item, class_name: 'Canonical::ClothingItem'
     belongs_to :enchantment
 
     validates :clothing_item_id, uniqueness: { scope: :enchantment_id, message: 'must form a unique combination with enchantment' }
