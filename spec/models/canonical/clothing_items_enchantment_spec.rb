@@ -7,7 +7,7 @@ RSpec.describe Canonical::ClothingItemsEnchantment, type: :model do
     it 'is valid with valid associations' do
       clothing_item = create(:canonical_clothing_item)
       enchantment   = create(:enchantment)
-      model         = described_class.new(canonical_clothing_item: clothing_item, enchantment: enchantment)
+      model         = described_class.new(clothing_item: clothing_item, enchantment: enchantment)
 
       expect(model).to be_valid
     end
@@ -17,11 +17,11 @@ RSpec.describe Canonical::ClothingItemsEnchantment, type: :model do
       let(:enchantment)   { create(:enchantment) }
 
       it 'must form a unique combination' do
-        create(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
-        item = build(:canonical_clothing_items_enchantment, canonical_clothing_item: clothing_item, enchantment: enchantment)
+        create(:canonical_clothing_items_enchantment, clothing_item: clothing_item, enchantment: enchantment)
+        item = build(:canonical_clothing_items_enchantment, clothing_item: clothing_item, enchantment: enchantment)
 
         item.validate
-        expect(item.errors[:canonical_clothing_item_id]).to include 'must form a unique combination with enchantment'
+        expect(item.errors[:clothing_item_id]).to include 'must form a unique combination with enchantment'
       end
     end
 

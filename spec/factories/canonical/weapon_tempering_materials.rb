@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :canonical_weapons_tempering_material, class: Canonical::WeaponsTemperingMaterial do
-    canonical_weapon
-    canonical_material
+    association :weapon, factory: :canonical_weapon
+    association :material, factory: :canonical_material
 
     quantity { 1 }
   end

@@ -5,33 +5,30 @@ module Canonical
     self.table_name = 'canonical_armors'
 
     has_many :canonical_armors_enchantments,
-             dependent:   :destroy,
-             class_name:  'Canonical::ArmorsEnchantment',
-             foreign_key: 'canonical_armor_id',
-             inverse_of:  :canonical_armor
+             dependent:  :destroy,
+             class_name: 'Canonical::ArmorsEnchantment',
+             inverse_of: :armor
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_armors_enchantments.strength as enchantment_strength' },
              through: :canonical_armors_enchantments
 
     has_many :canonical_armors_smithing_materials,
-             dependent:   :destroy,
-             class_name:  'Canonical::ArmorsSmithingMaterial',
-             foreign_key: 'canonical_armor_id',
-             inverse_of:  :canonical_armor
+             dependent:  :destroy,
+             class_name: 'Canonical::ArmorsSmithingMaterial',
+             inverse_of: :armor
     has_many :smithing_materials,
              -> { select 'canonical_materials.*, canonical_armors_smithing_materials.quantity as quantity_needed' },
              through: :canonical_armors_smithing_materials,
-             source:  :canonical_material
+             source:  :material
 
     has_many :canonical_armors_tempering_materials,
-             dependent:   :destroy,
-             class_name:  'Canonical::ArmorsTemperingMaterial',
-             foreign_key: 'canonical_armor_id',
-             inverse_of:  :canonical_armor
+             dependent:  :destroy,
+             class_name: 'Canonical::ArmorsTemperingMaterial',
+             inverse_of: :armor
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_armors_tempering_materials.quantity as quantity_needed' },
              through: :canonical_armors_tempering_materials,
-             source:  :canonical_material
+             source:  :material
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

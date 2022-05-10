@@ -25,15 +25,15 @@ RSpec.describe Canonical::JewelryItemsEnchantment, type: :model do
       let(:enchantment)  { create(:enchantment) }
 
       it 'must form a unique combination' do
-        create(:canonical_jewelry_items_enchantment, canonical_jewelry_item: jewelry_item, enchantment: enchantment)
+        create(:canonical_jewelry_items_enchantment, jewelry_item: jewelry_item, enchantment: enchantment)
         model = build(
                   :canonical_jewelry_items_enchantment,
-                  canonical_jewelry_item: jewelry_item,
-                  enchantment:            enchantment,
+                  jewelry_item: jewelry_item,
+                  enchantment:  enchantment,
                 )
 
         model.validate
-        expect(model.errors[:canonical_jewelry_item_id]).to include 'must form a unique combination with enchantment'
+        expect(model.errors[:jewelry_item_id]).to include 'must form a unique combination with enchantment'
       end
     end
   end

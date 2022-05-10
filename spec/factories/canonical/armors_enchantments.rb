@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :canonical_armors_enchantment, class: Canonical::ArmorsEnchantment do
-    association :canonical_armor, factory: :canonical_armor
+    association :armor, factory: :canonical_armor
     enchantment
   end
 end

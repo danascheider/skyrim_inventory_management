@@ -9,8 +9,8 @@ RSpec.describe Canonical::ArmorsEnchantment, type: :model do
       let(:armor)       { create(:canonical_armor) }
 
       it 'must form a unique combination' do
-        create(:canonical_armors_enchantment, canonical_armor: armor, enchantment: enchantment)
-        model = build(:canonical_armors_enchantment, canonical_armor: armor, enchantment: enchantment)
+        create(:canonical_armors_enchantment, armor: armor, enchantment: enchantment)
+        model = build(:canonical_armors_enchantment, armor: armor, enchantment: enchantment)
 
         model.validate
         expect(model.errors[:enchantment_id]).to include 'must form a unique combination with canonical armor item'

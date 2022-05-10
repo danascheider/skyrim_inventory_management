@@ -5,10 +5,8 @@ module Canonical
     self.table_name = 'canonical_ingredients'
 
     has_many :canonical_ingredients_alchemical_properties,
-             dependent:   :destroy,
-             class_name:  'Canonical::IngredientsAlchemicalProperty',
-             foreign_key: :canonical_ingredient_id,
-             inverse_of:  :canonical_ingredient
+             dependent:  :destroy,
+             class_name: 'Canonical::IngredientsAlchemicalProperty'
     has_many :alchemical_properties, through: :canonical_ingredients_alchemical_properties
 
     validates :name, presence: true

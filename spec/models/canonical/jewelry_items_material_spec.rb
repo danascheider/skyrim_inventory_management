@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Canonical::JewelryItemsMaterial, type: :model do
   describe 'validations' do
-    subject(:model) { described_class.new(canonical_jewelry_item: jewelry_item, canonical_material: material) }
+    subject(:model) { described_class.new(jewelry_item: jewelry_item, material: material) }
 
     let(:jewelry_item) { create(:canonical_jewelry_item) }
     let(:material)     { create(:canonical_material) }
@@ -33,11 +33,11 @@ RSpec.describe Canonical::JewelryItemsMaterial, type: :model do
 
     describe 'canonical jewelry item and canonical material' do
       it 'must form a unique combination' do
-        create(:canonical_jewelry_items_material, canonical_jewelry_item: jewelry_item, canonical_material: material)
-        model = described_class.new(canonical_jewelry_item: jewelry_item, canonical_material: material)
+        create(:canonical_jewelry_items_material, jewelry_item: jewelry_item, material: material)
+        model = described_class.new(jewelry_item: jewelry_item, material: material)
 
         model.validate
-        expect(model.errors[:canonical_jewelry_item_id]).to include 'must form a unique combination with canonical material'
+        expect(model.errors[:jewelry_item_id]).to include 'must form a unique combination with canonical material'
       end
     end
   end

@@ -39,11 +39,11 @@ RSpec.describe Canonical::WeaponsSmithingMaterial, type: :model do
       let(:material) { create(:canonical_material) }
 
       it 'must form a unique combination' do
-        create(:canonical_weapons_smithing_material, canonical_weapon: weapon, canonical_material: material)
-        model = build(:canonical_weapons_smithing_material, canonical_weapon: weapon, canonical_material: material)
+        create(:canonical_weapons_smithing_material, weapon: weapon, material: material)
+        model = build(:canonical_weapons_smithing_material, weapon: weapon, material: material)
 
         model.validate
-        expect(model.errors[:canonical_weapon_id]).to include 'must form a unique combination with canonical material'
+        expect(model.errors[:weapon_id]).to include 'must form a unique combination with canonical material'
       end
     end
   end

@@ -7,7 +7,7 @@ RSpec.describe Canonical::ArmorsTemperingMaterial, type: :model do
     it 'is valid with valid attributes' do
       material = create(:canonical_material)
       armor    = create(:canonical_armor)
-      model    = described_class.new(quantity: 3, canonical_material: material, canonical_armor: armor)
+      model    = described_class.new(quantity: 3, material: material, armor: armor)
 
       expect(model).to be_valid
     end
@@ -33,11 +33,11 @@ RSpec.describe Canonical::ArmorsTemperingMaterial, type: :model do
       let(:armor)    { create(:canonical_armor) }
 
       it 'must be a unique combination' do
-        create(:canonical_armors_tempering_material, canonical_material: material, canonical_armor: armor)
-        model = build(:canonical_armors_tempering_material, canonical_material: material, canonical_armor: armor)
+        create(:canonical_armors_tempering_material, material: material, armor: armor)
+        model = build(:canonical_armors_tempering_material, material: material, armor: armor)
 
         model.validate
-        expect(model.errors[:canonical_material_id]).to include 'must form a unique combination with canonical armor item'
+        expect(model.errors[:material_id]).to include 'must form a unique combination with canonical armor item'
       end
     end
   end

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :canonical_weapons_enchantment, class: Canonical::WeaponsEnchantment do
-    canonical_weapon
+    association :weapon, factory: :canonical_weapon
     enchantment
 
     strength { 15 }

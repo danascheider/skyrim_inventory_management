@@ -55,33 +55,29 @@ module Canonical
     self.table_name = 'canonical_weapons'
 
     has_many :canonical_weapons_enchantments,
-             dependent:   :destroy,
-             class_name:  'Canonical::WeaponsEnchantment',
-             foreign_key: :canonical_weapon_id,
-             inverse_of:  :canonical_weapon
+             dependent:  :destroy,
+             class_name: 'Canonical::WeaponsEnchantment'
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_weapons_enchantments.strength as enchantment_strength' },
              through: :canonical_weapons_enchantments
 
     has_many :canonical_weapons_smithing_materials,
-             dependent:   :destroy,
-             class_name:  'Canonical::WeaponsSmithingMaterial',
-             foreign_key: :canonical_weapon_id,
-             inverse_of:  :canonical_weapon
+             dependent:  :destroy,
+             class_name: 'Canonical::WeaponsSmithingMaterial',
+             inverse_of: :weapon
     has_many :smithing_materials,
              -> { select 'canonical_materials.*, canonical_weapons_smithing_materials.quantity as quantity_needed' },
              through: :canonical_weapons_smithing_materials,
-             source:  :canonical_material
+             source:  :material
 
     has_many :canonical_weapons_tempering_materials,
-             dependent:   :destroy,
-             class_name:  'Canonical::WeaponsTemperingMaterial',
-             foreign_key: :canonical_weapon_id,
-             inverse_of:  :canonical_weapon
+             dependent:  :destroy,
+             class_name: 'Canonical::WeaponsTemperingMaterial',
+             inverse_of: :weapon
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_weapons_tempering_materials.quantity as quantity_needed' },
              through: :canonical_weapons_tempering_materials,
-             source:  :canonical_material
+             source:  :material
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

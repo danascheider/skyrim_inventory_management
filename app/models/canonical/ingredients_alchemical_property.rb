@@ -5,16 +5,16 @@ module Canonical
     self.table_name = 'canonical_ingredients_alchemical_properties'
 
     belongs_to :alchemical_property
-    belongs_to :canonical_ingredient, class_name: 'Canonical::Ingredient'
+    belongs_to :ingredient, class_name: 'Canonical::Ingredient'
 
-    validates :alchemical_property_id, uniqueness: { scope: :canonical_ingredient_id, message: 'must form a unique combination with canonical ingredient' }
+    validates :alchemical_property_id, uniqueness: { scope: :ingredient_id, message: 'must form a unique combination with canonical ingredient' }
     # priority is allowed to be blank. Otherwise, there is no way to change the priority of properties
     # in the database if there are already 4 alchemical properties for the ingredient, because of the
     # uniqueness validations. In order to update the priority, you need to first clear priority for
     # any models that conflict, save them, and then update them again to the correct values.
     validates :priority,
               allow_blank:  true,
-              uniqueness:   { scope: :canonical_ingredient_id, message: 'must be unique per ingredient' },
+              uniqueness:   { scope: :ingredient_id, message: 'must be unique per ingredient' },
               numericality: {
                               greater_than_or_equal_to: 1,
                               less_than_or_equal_to:    4,
@@ -29,7 +29,7 @@ module Canonical
     private
 
     def ensure_max_of_four_per_ingredient
-      errors.add(:canonical_ingredient, "already has #{MAX_PER_INGREDIENT} alchemical properties") if canonical_ingredient.alchemical_properties.count >= MAX_PER_INGREDIENT
+      errors.add(:ingredient, "already has #{MAX_PER_INGREDIENT} alchemical properties") if ingredient.alchemical_properties.count >= MAX_PER_INGREDIENT
     end
   end
 end

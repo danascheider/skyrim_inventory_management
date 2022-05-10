@@ -15,10 +15,10 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
           )
         end
 
-        new_association = build(:canonical_ingredients_alchemical_property, canonical_ingredient: ingredient)
+        new_association = build(:canonical_ingredients_alchemical_property, ingredient: ingredient)
 
         new_association.validate
-        expect(new_association.errors[:canonical_ingredient]).to include 'already has 4 alchemical properties'
+        expect(new_association.errors[:ingredient]).to include 'already has 4 alchemical properties'
       end
     end
 
@@ -29,16 +29,16 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
         before do
           create(
             :canonical_ingredients_alchemical_property,
-            priority:             1,
-            canonical_ingredient: ingredient,
+            priority:   1,
+            ingredient: ingredient,
           )
         end
 
         it 'must be unique per ingredient' do
           model = build(
                     :canonical_ingredients_alchemical_property,
-                    priority:             1,
-                    canonical_ingredient: ingredient,
+                    priority:   1,
+                    ingredient: ingredient,
                   )
 
           model.validate

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :canonical_ingredients_alchemical_property, class: Canonical::IngredientsAlchemicalProperty do
     alchemical_property
-    canonical_ingredient
+    association :ingredient, factory: :canonical_ingredient
     priority { 2 }
   end
 end

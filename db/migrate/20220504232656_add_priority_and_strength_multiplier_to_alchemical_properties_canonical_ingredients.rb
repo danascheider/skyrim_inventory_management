@@ -13,7 +13,7 @@ class AddPriorityAndStrengthMultiplierToAlchemicalPropertiesCanonicalIngredients
                :duration_modifier,
                :decimal
     add_index :canonical_ingredients_alchemical_properties,
-              %i[priority canonical_ingredient_id],
+              %i[priority ingredient_id],
               unique: true,
               name:   :index_can_ingrs_alc_props_on_priority_and_ingr_id
   end

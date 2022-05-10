@@ -7,12 +7,12 @@ class CreateCanonicalIngredientsAlchemicalProperties < ActiveRecord::Migration[6
                    null:        false,
                    foreign_key: true,
                    index:       { name: 'index_alc_properties_can_ingredients_on_alc_property_id' }
-      t.references :canonical_ingredient,
+      t.references :ingredient,
                    null:        false,
-                   foreign_key: true,
+                   foreign_key: { to_table: 'canonical_ingredients' },
                    index:       { name: 'index_alc_properties_can_ingredients_on_can_ingredient_id' }
 
-      t.index %i[alchemical_property_id canonical_ingredient_id], unique: true, name: 'index_alc_properties_can_ingredients_on_property_and_ingr_ids'
+      t.index %i[alchemical_property_id ingredient_id], unique: true, name: 'index_alc_properties_can_ingredients_on_property_and_ingr_ids'
 
       t.timestamps
     end

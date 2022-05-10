@@ -5,22 +5,20 @@ module Canonical
     self.table_name = 'canonical_jewelry_items'
 
     has_many :canonical_jewelry_items_enchantments,
-             dependent:   :destroy,
-             class_name:  'Canonical::JewelryItemsEnchantment',
-             foreign_key: 'canonical_jewelry_item_id',
-             inverse_of:  :canonical_jewelry_item
+             dependent:  :destroy,
+             class_name: 'Canonical::JewelryItemsEnchantment',
+             inverse_of: :jewelry_item
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_jewelry_items_enchantments.strength as enchantment_strength' },
              through: :canonical_jewelry_items_enchantments
 
     has_many :canonical_jewelry_items_materials,
-             dependent:   :destroy,
-             class_name:  'Canonical::JewelryItemsMaterial',
-             foreign_key: 'canonical_jewelry_item_id',
-             inverse_of:  :canonical_jewelry_item
+             dependent:  :destroy,
+             class_name: 'Canonical::JewelryItemsMaterial'
     has_many :canonical_materials,
              -> { select 'canonical_materials.*, canonical_jewelry_items_materials.quantity as quantity_needed' },
-             through: :canonical_jewelry_items_materials
+             through: :canonical_jewelry_items_materials,
+             source:  :material
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
