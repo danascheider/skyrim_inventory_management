@@ -24,6 +24,13 @@ RSpec.describe CanonicalWeaponsEnchantment, type: :model do
         expect(model).to be_valid
       end
 
+      it 'must be a number' do
+        model = build(:canonical_weapons_enchantment, strength: 'foo')
+
+        model.validate
+        expect(model.errors[:strength]).to include 'is not a number'
+      end
+
       it 'must be greater than zero' do
         model = build(:canonical_weapons_enchantment, strength: 0)
 
