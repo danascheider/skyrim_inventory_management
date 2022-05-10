@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Cure Disease",
+    "strength_unit": null,
+    "effects_cumulative": false
+  },
+  {
+    "name": "Damage Health",
+    "strength_unit": "point",
+    "effects_cumulative": false
+  },
+  {
+    "name": "Damage Magicka",
+    "strength_unit": "point",
+    "effects_cumulative": false
+  },
+  {
+    "name": "Damage Magicka Regen",
+    "strength_unit": "percentage",
+    "effects_cumulative": false
+  }
+]

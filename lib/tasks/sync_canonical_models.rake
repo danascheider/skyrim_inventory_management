@@ -8,30 +8,9 @@ namespace :canonical_models do
   namespace :sync do
     desc 'Sync alchemical properties in the database with JSON data'
     task :alchemical_properties, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Syncing canonical alchemical properties...'
-
       args.with_defaults(preserve_existing_records: false)
 
-      alchemical_properties = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.json')), symbolize_names: true)
-
-      ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          names = alchemical_properties.pluck(:name)
-          AlchemicalProperty.where.not(name: names).destroy_all
-        end
-
-        alchemical_properties.each do |property_attributes|
-          property = AlchemicalProperty.find_or_initialize_by(name: property_attributes[:name])
-          property.assign_attributes(property_attributes)
-          property.save!
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving alchemical property \"#{property_attributes[:name]}\": #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error #{e.class} saving alchemical property \"#{property_attributes[:name]}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync.perform(:alchemical_property, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical enchantments in the database with JSON data'
