@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalWeaponsSmithingMaterial, type: :model do
+RSpec.describe Canonical::WeaponsSmithingMaterial, type: :model do
   describe 'validations' do
     describe 'quantity' do
       it "can't be blank" do

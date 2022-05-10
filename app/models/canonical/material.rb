@@ -16,7 +16,10 @@ module Canonical
              inverse_of: :canonical_material
     has_many :temperable_armors, through: :canonical_armors_tempering_materials, source: :canonical_armor
 
-    has_many :canonical_weapons_smithing_materials, dependent: :destroy
+    has_many :canonical_weapons_smithing_materials,
+             dependent:  :destroy,
+             class_name: 'Canonical::WeaponsSmithingMaterial',
+             inverse_of: :canonical_material
     has_many :smithable_weapons, through: :canonical_weapons_smithing_materials, source: :canonical_weapon
 
     has_many :canonical_weapons_tempering_materials, dependent: :destroy
