@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CanonicalWeapon < ApplicationRecord
-  VALID_CATEGORIES   = %w[one-handed two-handed archery arrow].freeze
+  VALID_CATEGORIES   = %w[one-handed two-handed archery].freeze
   VALID_WEAPON_TYPES = [
                          'arrow',
                          'battleaxe',
@@ -11,6 +11,7 @@ class CanonicalWeapon < ApplicationRecord
                          'dagger',
                          'greatsword',
                          'mace',
+                         'other',
                          'sword',
                          'war axe',
                          'warhammer',
@@ -20,6 +21,7 @@ class CanonicalWeapon < ApplicationRecord
                          'one-handed' => [
                                            'dagger',
                                            'mace',
+                                           'other',
                                            'sword',
                                            'war axe',
                                          ],
@@ -93,7 +95,7 @@ class CanonicalWeapon < ApplicationRecord
   end
 
   def verify_all_smithing_perks_valid
-    smithing_perks.each do |perk|
+    smithing_perks&.each do |perk|
       errors.add(:smithing_perks, "\"#{perk}\" is not a valid smithing perk") unless VALID_SMITHING_PERKS.include?(perk)
     end
   end
