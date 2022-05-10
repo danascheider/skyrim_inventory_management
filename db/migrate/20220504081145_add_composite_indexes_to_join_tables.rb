@@ -18,10 +18,10 @@ class AddCompositeIndexesToJoinTables < ActiveRecord::Migration[6.1]
               %i[canonical_clothing_item_id enchantment_id],
               unique: true,
               name:   'index_can_clthng_enchantments_on_can_clthng_id_and_ench_id'
-    add_index :canonical_jewelry_items_canonical_materials,
+    add_index :canonical_jewelry_items_materials,
               %i[canonical_jewelry_item_id canonical_material_id],
               unique: true,
-              name:   'index_can_jlry_can_mats_on_jlry_id_and_mat_id'
+              name:   'index_can_jlry_mats_on_jlry_id_and_mat_id'
     add_index :canonical_jewelry_items_enchantments,
               %i[canonical_jewelry_item_id enchantment_id],
               unique: true,

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalJewelryItemsCanonicalMaterial, type: :model do
+RSpec.describe Canonical::JewelryItemsMaterial, type: :model do
   describe 'validations' do
     subject(:model) { described_class.new(canonical_jewelry_item: jewelry_item, canonical_material: material) }
 
@@ -33,7 +33,7 @@ RSpec.describe CanonicalJewelryItemsCanonicalMaterial, type: :model do
 
     describe 'canonical jewelry item and canonical material' do
       it 'must form a unique combination' do
-        create(:canonical_jewelry_items_canonical_material, canonical_jewelry_item: jewelry_item, canonical_material: material)
+        create(:canonical_jewelry_items_material, canonical_jewelry_item: jewelry_item, canonical_material: material)
         model = described_class.new(canonical_jewelry_item: jewelry_item, canonical_material: material)
 
         model.validate

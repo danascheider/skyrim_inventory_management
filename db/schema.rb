@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.integer "priority", null: false
     t.decimal "strength_modifier"
     t.decimal "duration_modifier"
-    t.index ["alchemical_property_id", "canonical_ingredient_id"], name: "ndex_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
+    t.index ["alchemical_property_id", "canonical_ingredient_id"], name: "index_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
     t.index ["alchemical_property_id"], name: "index_alc_properties_can_ingredients_on_alc_property_id"
     t.index ["canonical_ingredient_id"], name: "index_alc_properties_can_ingredients_on_can_ingredient_id"
     t.index ["priority", "canonical_ingredient_id"], name: "index_alc_properties_can_ingrs_on_priority_and_ingr_id", unique: true
@@ -137,17 +137,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
-  create_table "canonical_jewelry_items_canonical_materials", force: :cascade do |t|
-    t.bigint "canonical_jewelry_item_id", null: false
-    t.bigint "canonical_material_id", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["canonical_jewelry_item_id", "canonical_material_id"], name: "index_can_jlry_can_mats_on_jlry_id_and_mat_id", unique: true
-    t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
-    t.index ["canonical_material_id"], name: "index_canonical_jewelry_items_materials_on_material_id"
-  end
-
   create_table "canonical_jewelry_items_enchantments", force: :cascade do |t|
     t.bigint "canonical_jewelry_item_id", null: false
     t.bigint "enchantment_id", null: false
@@ -157,6 +146,17 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["canonical_jewelry_item_id", "enchantment_id"], name: "index_can_jlry_enchs_on_jlry_id_and_ench_id", unique: true
     t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_enchantments_on_jewelry_item_id"
     t.index ["enchantment_id"], name: "index_canonical_jewelry_items_enchantments_on_enchantment_id"
+  end
+
+  create_table "canonical_jewelry_items_materials", force: :cascade do |t|
+    t.bigint "canonical_jewelry_item_id", null: false
+    t.bigint "canonical_material_id", null: false
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canonical_jewelry_item_id", "canonical_material_id"], name: "index_can_jlry_mats_on_jlry_id_and_mat_id", unique: true
+    t.index ["canonical_jewelry_item_id"], name: "index_canonical_jewelry_items_materials_on_jewelry_id"
+    t.index ["canonical_material_id"], name: "index_canonical_jewelry_items_materials_on_material_id"
   end
 
   create_table "canonical_materials", force: :cascade do |t|
@@ -361,10 +361,10 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
   add_foreign_key "canonical_armors_tempering_materials", "canonical_materials"
   add_foreign_key "canonical_clothing_items_enchantments", "canonical_clothing_items"
   add_foreign_key "canonical_clothing_items_enchantments", "enchantments"
-  add_foreign_key "canonical_jewelry_items_canonical_materials", "canonical_jewelry_items"
-  add_foreign_key "canonical_jewelry_items_canonical_materials", "canonical_materials"
   add_foreign_key "canonical_jewelry_items_enchantments", "canonical_jewelry_items"
   add_foreign_key "canonical_jewelry_items_enchantments", "enchantments"
+  add_foreign_key "canonical_jewelry_items_materials", "canonical_jewelry_items"
+  add_foreign_key "canonical_jewelry_items_materials", "canonical_materials"
   add_foreign_key "canonical_weapons_enchantments", "canonical_weapons"
   add_foreign_key "canonical_weapons_enchantments", "enchantments"
   add_foreign_key "canonical_weapons_smithing_materials", "canonical_materials"

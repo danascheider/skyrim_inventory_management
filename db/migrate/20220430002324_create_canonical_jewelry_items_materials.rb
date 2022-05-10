@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateCanonicalJewelryItemsCanonicalMaterials < ActiveRecord::Migration[6.1]
+class CreateCanonicalJewelryItemsMaterials < ActiveRecord::Migration[6.1]
   def change
-    create_table :canonical_jewelry_items_canonical_materials do |t|
+    create_table :canonical_jewelry_items_materials do |t|
       t.references :canonical_jewelry_item,
                    null:        false,
                    foreign_key: true,

@@ -22,8 +22,8 @@ module Canonical
     has_many :canonical_weapons_tempering_materials, dependent: :destroy
     has_many :temperable_weapons, through: :canonical_weapons_tempering_materials, source: :canonical_weapon
 
-    has_many :canonical_jewelry_items_canonical_materials, dependent: :destroy
-    has_many :canonical_jewelry_items, through: :canonical_jewelry_items_canonical_materials
+    has_many :canonical_jewelry_items_materials, dependent: :destroy, class_name: 'Canonical::JewelryItemsMaterial'
+    has_many :canonical_jewelry_items, through: :canonical_jewelry_items_materials
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
