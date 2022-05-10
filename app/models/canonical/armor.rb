@@ -23,7 +23,11 @@ module Canonical
              through: :canonical_armors_smithing_materials,
              source:  :canonical_material
 
-    has_many :canonical_armors_tempering_materials, dependent: :destroy, foreign_key: 'canonical_armor_id', inverse_of: :canonical_armor
+    has_many :canonical_armors_tempering_materials,
+             dependent:   :destroy,
+             class_name:  'Canonical::ArmorsTemperingMaterial',
+             foreign_key: 'canonical_armor_id',
+             inverse_of:  :canonical_armor
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_armors_tempering_materials.quantity as quantity_needed' },
              through: :canonical_armors_tempering_materials,
