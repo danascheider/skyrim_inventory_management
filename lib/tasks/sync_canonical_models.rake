@@ -123,14 +123,17 @@ namespace :canonical_models do
       Rails.logger.info 'Syncing canonical materials...'
 
       args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
       canonical_materials = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.json')), symbolize_names: true)
+      item_codes          = []
+      canonical_materials.each do |data|
+        code = data[:item_code].upcase!
+        item_codes << code unless preserve_existing_records
+      end
 
       ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          item_codes = canonical_materials.pluck(:item_code)
-          CanonicalMaterial.where.not(item_code: item_codes).destroy_all
-        end
+        CanonicalMaterial.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         canonical_materials.each do |canonical_material_attributes|
           material = CanonicalMaterial.find_or_initialize_by(item_code: canonical_material_attributes[:item_code])
@@ -157,21 +160,26 @@ namespace :canonical_models do
       Rails.logger.info 'Syncing canonical jewelry items...'
 
       args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      items = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.json')), symbolize_names: true)
+      items      = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.json')), symbolize_names: true)
+      item_codes = []
+      items.each do |item|
+        code = item.dig(:attributes, :item_code).upcase!
+        item_codes << code unless preserve_existing_records
+      end
 
       ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          item_codes = items.map {|item| item[:attributes][:item_code] }
-          CanonicalJewelryItem.where.not(item_code: item_codes).destroy_all
-        end
+        CanonicalJewelryItem.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         items.each do |data|
-          item = CanonicalJewelryItem.find_or_initialize_by(item_code: data[:attributes][:item_code])
+          item = CanonicalJewelryItem.find_or_initialize_by(item_code: data.dig(:attributes, :item_code))
           item.assign_attributes(data[:attributes])
           item.save!
 
-          if FALSEY_VALUES.include?(args[:preserve_existing_records])
+          if !preserve_existing_records
+            data[:materials].each {|material| material[:item_code].upcase! }
+
             material_codes = data[:materials].pluck(:item_code)
             material_ids   = item.canonical_materials.where.not(item_code: material_codes).ids
             item.canonical_jewelry_items_canonical_materials.where(canonical_material_id: material_ids).destroy_all
@@ -195,7 +203,7 @@ namespace :canonical_models do
                 .find_by(canonical_material_id: material.id)
                 .update!(quantity: m[:quantity])
             else
-              Rails.logger.warn("Jewelry item #{item.item_code} calls for material #{m[:item_code]} but material does not exist.")
+              Rails.logger.warn("Jewelry item #{item.item_code} calls for material \"#{m[:item_code]}\" but material does not exist.")
             end
           end
 
@@ -236,21 +244,25 @@ namespace :canonical_models do
       Rails.logger.info 'Syncing canonical clothing items...'
 
       args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
       items = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.json')), symbolize_names: true)
 
+      item_codes = []
+      items.each do |item|
+        code = item.dig(:attributes, :item_code).upcase!
+        item_codes << code unless preserve_existing_records
+      end
+
       ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          item_codes = items.map {|item| item[:attributes][:item_code] }
-          CanonicalClothingItem.where.not(item_code: item_codes).destroy_all
-        end
+        CanonicalClothingItem.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         items.each do |data|
-          item = CanonicalClothingItem.find_or_initialize_by(item_code: data[:attributes][:item_code])
+          item = CanonicalClothingItem.find_or_initialize_by(item_code: data.dig(:attributes, :item_code))
           item.assign_attributes(data[:attributes])
           item.save!
 
-          if FALSEY_VALUES.include?(args[:preserve_existing_records])
+          if !preserve_existing_records
             names           = data[:enchantments].pluck(:name)
             enchantment_ids = item.enchantments.where.not(name: names).ids
             item.canonical_clothing_items_enchantments.where(enchantment_id: enchantment_ids).destroy_all
@@ -273,10 +285,10 @@ namespace :canonical_models do
               Rails.logger.warn("Clothing item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
             end
           end
+        rescue ActiveRecord::RecordInvalid => e
+          Rails.logger.error "Validation error saving canonical clothing item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
+          raise e
         end
-      rescue ActiveRecord::RecordInvalid => e
-        Rails.logger.error "Validation error saving canonical clothing items: #{e.message}"
-        raise e
       rescue StandardError => e
         Rails.logger.error "Unknown error saving canonical clothing items: #{e.message}"
         raise e
@@ -293,30 +305,35 @@ namespace :canonical_models do
       Rails.logger.info 'Syncing canonical armor items...'
 
       args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      items = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.json')), symbolize_names: true)
+      items      = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.json')), symbolize_names: true)
+      item_codes = []
+      items.each do |item|
+        code = item.dig(:attributes, :item_code).upcase!
+        item_codes << code unless preserve_existing_records
+      end
 
       ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          item_codes = items.map {|item| item[:attributes][:item_code] }
-          CanonicalArmor.where.not(item_code: item_codes).destroy_all
-        end
+        CanonicalArmor.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         items.each do |data|
           item = CanonicalArmor.find_or_initialize_by(item_code: data[:attributes][:item_code])
           item.assign_attributes(data[:attributes])
           item.save!
 
-          if FALSEY_VALUES.include?(args[:preserve_existing_records])
+          if !preserve_existing_records
             enchantment_names = data[:enchantments].pluck(:name)
             enchantment_ids   = item.enchantments.where.not(name: enchantment_names).ids
             item.canonical_armors_enchantments.where(enchantment_id: enchantment_ids).destroy_all
 
-            smithing_material_codes = data[:smithing_materials].pluck(:item_code)
+            smithing_material_codes = []
+            data[:smithing_materials].each {|material| smithing_material_codes << material[:item_code].upcase! }
             smithing_material_ids   = item.smithing_materials.where.not(item_code: smithing_material_codes).ids
             item.canonical_armors_smithing_materials.where(canonical_material_id: smithing_material_ids).destroy_all
 
-            tempering_material_codes = data[:tempering_materials].pluck(:item_code)
+            tempering_material_codes = []
+            data[:tempering_materials].each {|material| tempering_material_codes << material[:item_code].upcase! }
             tempering_material_ids   = item.tempering_materials.where.not(item_code: tempering_material_codes).ids
             item.canonical_armors_tempering_materials.where(canonical_material_id: tempering_material_ids).destroy_all
           end
@@ -375,10 +392,10 @@ namespace :canonical_models do
             end
           end
         rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical jewelry item \"#{data[:attributes][:item_code]}\": #{e.message}"
+          Rails.logger.error "Validation error saving canonical jewelry item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
           raise e
         rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical jewelry item \"#{data[:attributes][:item_code]}\": #{e.message}"
+          Rails.logger.error "Unknown error saving canonical jewelry item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
           raise e
         end
       end
@@ -393,21 +410,24 @@ namespace :canonical_models do
       Rails.logger.info 'Syncing canonical ingredients...'
 
       args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
       ingredients = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.json')), symbolize_names: true)
+      item_codes  = []
+      ingredients.each do |ingredient|
+        code = ingredient.dig(:attributes, :item_code).upcase!
+        item_codes << code unless preserve_existing_records
+      end
 
       ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          item_codes = ingredients.map {|item| item[:attributes][:item_code] }
-          CanonicalIngredient.where.not(item_code: item_codes).destroy_all
-        end
+        CanonicalIngredient.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         ingredients.each do |i|
           ingredient = CanonicalIngredient.find_or_initialize_by(item_code: i[:attributes][:item_code])
           ingredient.assign_attributes(i[:attributes])
           ingredient.save!
 
-          if FALSEY_VALUES.include?(args[:preserve_existing_records])
+          if !preserve_existing_records
             alchemical_property_ids = AlchemicalProperty.where(name: i[:alchemical_properties].pluck(:name)).ids
             ingredient.alchemical_properties_canonical_ingredients
               .where
@@ -437,16 +457,123 @@ namespace :canonical_models do
             end
           end
         rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error creating ingredient #{i[:attributes][:item_code]}: #{e.message}"
+          Rails.logger.error "Validation error creating ingredient #{i.dig(:attributes, :item_code)}: #{e.message}"
           raise e
         rescue StandardError => e
-          Rails.logger.error "Unexpected #{e.class} creating ingredient #{i[:attributes][:item_code]}: #{e.message}"
+          Rails.logger.error "Unexpected #{e.class} creating ingredient #{i.dig(:attributes, :item_code)}: #{e.message}"
           e.backtrace.each {|line| Rails.logger.error "  #{line}" }
           raise e
         end
       end
     rescue StandardError => e
       Rails.logger.error "Unexpected error #{e.class} syncing ingredients: #{e.message}"
+      e.backtrace.each {|line| Rails.logger.error "  #{line}" }
+    end
+
+    desc 'Sync canonical weapon models in the database with JSON data'
+    task :canonical_weapons,
+         %i[preserve_existing_records] => %w[
+                                            environment
+                                            canonical_models:sync:enchantments
+                                            canonical_models:sync:canonical_materials
+                                          ] do |_t, args|
+      Rails.logger.info 'Syncing canonical weapons...'
+
+      args.with_defaults(preserve_existing_records: false)
+      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
+
+      weapons    = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_weapons.json')), symbolize_names: true)
+      item_codes = []
+      weapons.each do |data|
+        code = data.dig(:attributes, :item_code).upcase!
+        item_codes << code unless preserve_existing_records
+      end
+
+      ActiveRecord::Base.transaction do
+        CanonicalWeapon.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
+
+        weapons.each do |data|
+          weapon = CanonicalWeapon.find_or_initialize_by(item_code: data.dig(:attributes, :item_code))
+          weapon.assign_attributes(data[:attributes])
+          weapon.save!
+
+          if !preserve_existing_records
+            enchantment_names = data[:enchantments].pluck(:name).split(',')
+            enchantment_ids   = weapon.enchantments.where.not(name: enchantment_names).ids
+            weapon.canonical_weapons_enchantments.where(enchantment_id: enchantment_ids).destroy_all
+
+            data[:smithing_materials].each {|material| material[:item_code].upcase! }
+            smithing_material_codes = data[:smithing_materials].pluck(:item_code)
+            smithing_material_ids   = weapon.smithing_materials.where.not(item_code: smithing_material_codes).ids
+            weapon.canonical_weapons_smithing_materials.where(canonical_material_id: smithing_material_ids).destroy_all
+
+            data[:tempering_materials].each {|material| material[:item_code].upcase! }
+            tempering_material_codes = data[:tempering_materials].pluck(:item_code)
+            tempering_material_ids   = weapon.tempering_materials.where.not(item_code: tempering_material_codes).ids
+            weapon.canonical_weapons_tempering_materials.where(canonical_material_id: tempering_material_ids).destroy_all
+          end
+
+          data[:smithing_materials].each do |m|
+            material = CanonicalMaterial.find_by(item_code: m[:item_code])
+
+            if material.present? && weapon.smithing_materials.exclude?(material)
+              CanonicalWeaponsSmithingMaterial.create!(
+                canonical_weapon:   weapon,
+                canonical_material: material,
+                quantity:           m[:quantity],
+              )
+            elsif weapon.smithing_materials.include?(material)
+              weapon.canonical_weapons_smithing_materials
+                .find_by(canonical_material_id: material.id)
+                .update!(quantity: m[:quantity])
+            else
+              Rails.logger.warn("Weapon \"#{weapon.item_code}\" calls for smithing material \"#{m[:item_code]}\" but material does not exist.")
+            end
+          end
+
+          data[:tempering_materials].each do |m|
+            material = CanonicalMaterial.find_by(item_code: m[:item_code])
+
+            if material.present? && weapon.tempering_materials.exclude?(material)
+              CanonicalWeaponsTemperingMaterial.create!(
+                canonical_weapon:   weapon,
+                canonical_material: material,
+                quantity:           m[:quantity],
+              )
+            elsif weapon.tempering_materials.include?(material)
+              weapon.canonical_weapons_tempering_materials
+                .find_by(canonical_material_id: material.id)
+                .update!(quantity: m[:quantity])
+            else
+              Rails.logger.warn("Weapon \"#{weapon.item_code}\" calls for tempering material \"#{m[:item_code]}\" but material does not exist.")
+            end
+          end
+
+          data[:enchantments].each do |ench|
+            enchantment = Enchantment.find_by(name: ench[:name])
+
+            if enchantment.present? && weapon.enchantments.exclude?(enchantment)
+              CanonicalWeaponsEnchantment.create!(
+                canonical_weapon: weapon,
+                enchantment:      enchantment,
+                strength:         ench[:strength],
+              )
+            elsif weapon.enchantments.include?(enchantment)
+              weapon.canonical_weapons_enchantments
+                .find_by(enchantment_id: enchantment.id)
+                .update!(strength: ench[:strength])
+            else
+              Rails.logger.warn("Weapon #{weapon.item_code} calls for enchantment #{ench[:name]} but enchantment does not exist.")
+            end
+          rescue ActiveRecord::RecordInvalid => e
+            Rails.logger.error "Validation error saving canonical weapon \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
+            raise e
+          rescue StandardError => e
+            Rails.logger.error "Unknown error saving canonical weapon \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
+            raise e
+          end
+        end
+      end
     end
     # rubocop:enable Layout/BlockAlignment
 
@@ -463,6 +590,7 @@ namespace :canonical_models do
       Rake::Task['canonical_models:sync:canonical_clothing'].invoke(args[:preserve_existing_records])
       Rake::Task['canonical_models:sync:canonical_armor'].invoke(args[:preserve_existing_records])
       Rake::Task['canonical_models:sync:canonical_ingredients'].invoke(args[:preserve_existing_records])
+      Rake::Task['canonical_models:sync:canonical_weapons'].invoke(args[:preserve_existing_records])
     end
   end
 end
