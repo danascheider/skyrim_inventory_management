@@ -1,6 +1,6 @@
-# AlchemicalPropertiesCanonicalIngredient
+# CanonicalIngredientsAlchemicalProperty
 
-The `AlchemicalPropertiesCanonicalIngredient` model is a join model between `AlchemicalProperty` and `CanonicalIngredient`. It has a couple noteworthy characteristics.
+The `CanonicalIngredientsAlchemicalProperty` model is a join model between `Canonical::Ingredient` and `AlchemicalProperty`. It has a couple noteworthy characteristics.
 
 ## Count Limit
 
@@ -10,32 +10,32 @@ Each ingredient has four and only four alchemical properties. Therefore, a valid
 
 In Skyrim, each ingredient's properties have a priority that affects which potions are produced, how strong they are, and how long the effects last when they are combined with other ingredients. ([This wiki page](https://en.uesp.net/wiki/Skyrim:Alchemy_Effects) offers detailed information about how priority affects potions produced.) In SIM, the `priority` field is used to track this. Because each canonical ingredient has exactly four alchemical properties, the integer priority values for each model will range from 1 to 4.
 
-There is a uniqueness constraint in place on the `AlchemicalPropertiesCanonicalIngredient` model to ensure that each ingredient only has one property with each valid value. Because of this, changing priority values after four models with priorities exist in the database for a single ingredient requires an additional step. Before you can change the priority on any model, you will need to clear any that conflict.
+There is a uniqueness constraint in place on the `CanonicalIngredientsAlchemicalProperty` model to ensure that each ingredient only has one property with each valid value. Because of this, changing priority values after four models with priorities exist in the database for a single ingredient requires an additional step. Before you can change the priority on any model, you will need to clear any that conflict.
 
-Say you have four `AlchemicalPropertiesCanonicalIngredients` models:
+Say you have four `CanonicalIngredientsAlchemicalProperty` models:
 ```ruby
 [
   {
     id: 21,
-    canonical_ingredient_id: 6,
+    ingredient_id: 6,
     alchemical_property_id: 47,
     priority: 1
   },
   {
     id: 22,
-    canonical_ingredient_id: 6,
+    ingredient_id: 6,
     alchemical_property_id: 33,
     priority: 2
   },
   {
     id: 23,
-    canonical_ingredient_id: 6,
+    ingredient_id: 6,
     alchemical_property_id: 60,
     priority: 3
   },
   {
     id: 24,
-    canonical_ingredient_id: 6,
+    ingredient_id: 6,
     alchemical_property_id: 14,
     priority: 4
   }
