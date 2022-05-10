@@ -56,6 +56,7 @@ module Canonical
 
     has_many :canonical_weapons_enchantments,
              dependent:   :destroy,
+             class_name:  'Canonical::WeaponsEnchantment',
              foreign_key: :canonical_weapon_id,
              inverse_of:  :canonical_weapon
     has_many :enchantments,

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :canonical_weapons_enchantment do
+  factory :canonical_weapons_enchantment, class: Canonical::WeaponsEnchantment do
     canonical_weapon
     enchantment
 
