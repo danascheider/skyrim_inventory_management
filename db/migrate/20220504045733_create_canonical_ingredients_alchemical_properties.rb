@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateAlchemicalPropertiesCanonicalIngredients < ActiveRecord::Migration[6.1]
+class CreateCanonicalIngredientsAlchemicalProperties < ActiveRecord::Migration[6.1]
   def change
-    create_table :alchemical_properties_canonical_ingredients do |t|
+    create_table :canonical_ingredients_alchemical_properties do |t|
       t.references :alchemical_property,
                    null:        false,
                    foreign_key: true,

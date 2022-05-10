@@ -2,19 +2,19 @@
 
 class AddPriorityAndStrengthMultiplierToAlchemicalPropertiesCanonicalIngredients < ActiveRecord::Migration[6.1]
   def change
-    add_column :alchemical_properties_canonical_ingredients,
+    add_column :canonical_ingredients_alchemical_properties,
                :priority,
                :integer,
                null: false
-    add_column :alchemical_properties_canonical_ingredients,
+    add_column :canonical_ingredients_alchemical_properties,
                :strength_modifier,
                :decimal
-    add_column :alchemical_properties_canonical_ingredients,
+    add_column :canonical_ingredients_alchemical_properties,
                :duration_modifier,
                :decimal
-    add_index :alchemical_properties_canonical_ingredients,
+    add_index :canonical_ingredients_alchemical_properties,
               %i[priority canonical_ingredient_id],
               unique: true,
-              name:   :index_alc_properties_can_ingrs_on_priority_and_ingr_id
+              name:   :index_can_ingrs_alc_props_on_priority_and_ingr_id
   end
 end

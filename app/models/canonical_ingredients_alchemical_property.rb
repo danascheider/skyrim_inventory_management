@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class AlchemicalPropertiesCanonicalIngredient < ApplicationRecord
+class CanonicalIngredientsAlchemicalProperty < ApplicationRecord
   belongs_to :alchemical_property
-  belongs_to :canonical_ingredient
+  belongs_to :canonical_ingredient, class_name: 'Canonical::Ingredient'
 
   validates :alchemical_property_id, uniqueness: { scope: :canonical_ingredient_id, message: 'must form a unique combination with canonical ingredient' }
   # priority is allowed to be blank. Otherwise, there is no way to change the priority of properties

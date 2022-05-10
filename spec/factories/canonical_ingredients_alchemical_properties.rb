@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :alchemical_properties_canonical_ingredient do
+  factory :canonical_ingredients_alchemical_property do
     alchemical_property
     canonical_ingredient
     priority { 2 }

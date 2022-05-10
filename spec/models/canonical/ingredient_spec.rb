@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalIngredient, type: :model do
+RSpec.describe Canonical::Ingredient, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       ingredient = described_class.new(name: 'Skeever Tail', item_code: 'foo', unit_weight: 1)
