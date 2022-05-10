@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalMaterial, type: :model do
+RSpec.describe Canonical::Material, type: :model do
   describe 'validations' do
     it 'is valid with a valid name, item code, and unit weight' do
       material = build(:canonical_material, item_code: 'foo', unit_weight: 7.0, name: 'bear pelt')
