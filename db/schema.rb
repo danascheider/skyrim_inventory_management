@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.integer "priority", null: false
     t.decimal "strength_modifier"
     t.decimal "duration_modifier"
-    t.index ["alchemical_property_id", "ingredient_id"], name: "index_alc_properties_can_ingredients_on_property_and_ingr_ids", unique: true
-    t.index ["alchemical_property_id"], name: "index_alc_properties_can_ingredients_on_alc_property_id"
-    t.index ["ingredient_id"], name: "index_alc_properties_can_ingredients_on_can_ingredient_id"
+    t.index ["alchemical_property_id", "ingredient_id"], name: "index_can_ingredients_alc_properties_on_property_and_ingr_ids", unique: true
+    t.index ["alchemical_property_id"], name: "index_can_ingredients_alc_properties_on_alc_property_id"
+    t.index ["ingredient_id"], name: "index_can_ingredients_alc_properties_on_can_ingredient_id"
     t.index ["priority", "ingredient_id"], name: "index_can_ingrs_alc_props_on_priority_and_ingr_id", unique: true
   end
 
