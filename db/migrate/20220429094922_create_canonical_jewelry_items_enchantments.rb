@@ -3,9 +3,9 @@
 class CreateCanonicalJewelryItemsEnchantments < ActiveRecord::Migration[6.1]
   def change
     create_table :canonical_jewelry_items_enchantments do |t|
-      t.references :canonical_jewelry_item,
+      t.references :jewelry_item,
                    null:        false,
-                   foreign_key: true,
+                   foreign_key: { to_table: 'canonical_jewelry_items' },
                    index:       { name: :index_canonical_jewelry_items_enchantments_on_jewelry_item_id }
       t.references :enchantment, null: false, foreign_key: true
 
