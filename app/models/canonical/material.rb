@@ -22,7 +22,10 @@ module Canonical
              inverse_of: :canonical_material
     has_many :smithable_weapons, through: :canonical_weapons_smithing_materials, source: :canonical_weapon
 
-    has_many :canonical_weapons_tempering_materials, dependent: :destroy
+    has_many :canonical_weapons_tempering_materials,
+             dependent:  :destroy,
+             class_name: 'Canonical::WeaponsTemperingMaterial',
+             inverse_of: :canonical_material
     has_many :temperable_weapons, through: :canonical_weapons_tempering_materials, source: :canonical_weapon
 
     has_many :canonical_jewelry_items_materials, dependent: :destroy, class_name: 'Canonical::JewelryItemsMaterial'

@@ -75,6 +75,7 @@ module Canonical
 
     has_many :canonical_weapons_tempering_materials,
              dependent:   :destroy,
+             class_name:  'Canonical::WeaponsTemperingMaterial',
              foreign_key: :canonical_weapon_id,
              inverse_of:  :canonical_weapon
     has_many :tempering_materials,
