@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalJewelryItemsEnchantment, type: :model do
+RSpec.describe Canonical::JewelryItemsEnchantment, type: :model do
   describe 'validations' do
     describe 'strength' do
       it 'is invalid with a non-numeric strength value' do

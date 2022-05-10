@@ -44,7 +44,7 @@ class Enchantment < ApplicationRecord
   has_many :canonical_clothing_items_enchantments, class_name: 'Canonical::ClothingItemsEnchantment', dependent: :destroy
   has_many :canonical_clothing_items, through: :canonical_clothing_items_enchantments
 
-  has_many :canonical_jewelry_items_enchantments, dependent: :destroy
+  has_many :canonical_jewelry_items_enchantments, class_name: 'Canonical::JewelryItemsEnchantment', dependent: :destroy
   has_many :canonical_jewelry_items, through: :canonical_jewelry_items_enchantments
 
   has_many :canonical_weapons_enchantments, dependent: :destroy

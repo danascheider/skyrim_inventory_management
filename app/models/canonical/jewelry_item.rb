@@ -6,6 +6,7 @@ module Canonical
 
     has_many :canonical_jewelry_items_enchantments,
              dependent:   :destroy,
+             class_name:  'Canonical::JewelryItemsEnchantment',
              foreign_key: 'canonical_jewelry_item_id',
              inverse_of:  :canonical_jewelry_item
     has_many :enchantments,
