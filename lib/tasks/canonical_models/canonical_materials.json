@@ -1,5 +1,68 @@
 [
   {
+    "name": "Crossbow",
+    "item_code": "XX000801",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 15
+  },
+  {
+    "name": "Dwarven Crossbow",
+    "item_code": "XX00B647",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 20
+  },
+  {
+    "name": "Ancient Nord Battle Axe",
+    "item_code": "0001CB64",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 22
+  },
+  {
+    "name": "Ancient Nord Bow",
+    "item_code": "000302CA",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 12
+  },
+  {
+    "name": "Ancient Nord Greatsword",
+    "item_code": "000236A5",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 18
+  },
+  {
+    "name": "Ancient Nord Sword",
+    "item_code": "0002C66F",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 12
+  },
+  {
+    "name": "Ancient Nord War Axe",
+    "item_code": "0002C672",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 11
+  },
+  {
+    "name": "Dwarven Bolt",
+    "item_code": "XX00D099",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0
+  },
+  {
+    "name": "Steel Bolt",
+    "item_code": "XX000BB3",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0
+  },
+  {
     "name": "Clay",
     "item_code": "XX003043",
     "building_material": true,
@@ -320,6 +383,27 @@
     "building_material": false,
     "smithing_material": true,
     "unit_weight": 5
+  },
+  {
+    "name": "Fire Salts",
+    "item_code": "0003AD5E",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.3
+  },
+  {
+    "name": "Frost Salts",
+    "item_code": "0003AD5F",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.3
+  },
+  {
+    "name": "Void Salts",
+    "item_code": "0003AD60",
+    "building_material": false,
+    "smithing_material": true,
+    "unit_weight": 0.3
   },
   {
     "name": "Flawless Amethyst",
