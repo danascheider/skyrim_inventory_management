@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalProperty, type: :model do
+RSpec.describe Canonical::Property, type: :model do
   subject(:property) { described_class.new }
 
   describe 'validations' do

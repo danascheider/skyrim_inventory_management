@@ -58,7 +58,7 @@ RSpec.describe Property, type: :model do
     end
 
     it 'only allows up to 10 per game', :aggregate_failures do
-      CanonicalProperty.all.each do |canonical_property|
+      Canonical::Property.all.each do |canonical_property|
         game.properties.create!(
           canonical_property: canonical_property,
           name:               canonical_property.name,
@@ -76,7 +76,7 @@ RSpec.describe Property, type: :model do
     end
 
     describe 'uniqueness' do
-      let(:canonical_property) { CanonicalProperty.first }
+      let(:canonical_property) { Canonical::Property.first }
 
       before do
         game.properties.create!(
@@ -110,7 +110,7 @@ RSpec.describe Property, type: :model do
     end
 
     describe 'consistency with canonical property' do
-      let(:canonical_property) { CanonicalProperty.find_by(name: 'Severin Manor') }
+      let(:canonical_property) { Canonical::Property.find_by(name: 'Severin Manor') }
 
       it 'must have the same name, hold, and city as the canonical property' do
         property.canonical_property_id = canonical_property.id
@@ -124,7 +124,7 @@ RSpec.describe Property, type: :model do
 
     describe 'arcane enchanter availability' do
       context 'when an arcane enchanter is not available at the given property' do
-        let(:canonical_property) { CanonicalProperty.find_by(name: 'Breezehome') }
+        let(:canonical_property) { Canonical::Property.find_by(name: 'Breezehome') }
 
         it 'cannot have an arcane enchanter' do
           property.canonical_property_id = canonical_property.id
@@ -135,7 +135,7 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when an arcane enchanter is available at the given property' do
-        let(:canonical_property) { CanonicalProperty.find_by(name: 'Lakeview Manor') }
+        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
 
         it 'can have an arcane enchanter' do
           property.canonical_property_id = canonical_property.id
@@ -155,7 +155,7 @@ RSpec.describe Property, type: :model do
 
     describe 'forge availability' do
       context 'when a forge is not available at the given property' do
-        let(:canonical_property) { CanonicalProperty.find_by(name: 'Breezehome') }
+        let(:canonical_property) { Canonical::Property.find_by(name: 'Breezehome') }
 
         it 'cannot have a forge' do
           property.canonical_property_id = canonical_property.id
@@ -166,7 +166,7 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when a forge is available at the given property' do
-        let(:canonical_property) { CanonicalProperty.find_by(name: 'Lakeview Manor') }
+        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
 
         it 'can have a forge' do
           property.canonical_property_id = canonical_property.id

@@ -101,11 +101,11 @@ namespace :canonical_models do
       ActiveRecord::Base.transaction do
         if FALSEY_VALUES.include?(args[:preserve_existing_records])
           names = canonical_properties.pluck(:name)
-          CanonicalProperty.where.not(name: names).destroy_all
+          Canonical::Property.where.not(name: names).destroy_all
         end
 
         canonical_properties.each do |canonical_property_attributes|
-          property = CanonicalProperty.find_or_initialize_by(name: canonical_property_attributes[:name])
+          property = Canonical::Property.find_or_initialize_by(name: canonical_property_attributes[:name])
           property.assign_attributes(canonical_property_attributes)
           property.save!
         rescue ActiveRecord::RecordInvalid => e
