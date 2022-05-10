@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalArmorsSmithingMaterial, type: :model do
+RSpec.describe Canonical::ArmorsSmithingMaterial, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       armor    = create(:canonical_armor)

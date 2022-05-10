@@ -13,7 +13,11 @@ module Canonical
              -> { select 'enchantments.*, canonical_armors_enchantments.strength as enchantment_strength' },
              through: :canonical_armors_enchantments
 
-    has_many :canonical_armors_smithing_materials, dependent: :destroy, foreign_key: 'canonical_armor_id', inverse_of: :canonical_armor
+    has_many :canonical_armors_smithing_materials,
+             dependent:   :destroy,
+             class_name:  'Canonical::ArmorsSmithingMaterial',
+             foreign_key: 'canonical_armor_id',
+             inverse_of:  :canonical_armor
     has_many :smithing_materials,
              -> { select 'canonical_materials.*, canonical_armors_smithing_materials.quantity as quantity_needed' },
              through: :canonical_armors_smithing_materials,
