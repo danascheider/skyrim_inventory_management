@@ -4,7 +4,11 @@ module Canonical
   class Armor < ApplicationRecord
     self.table_name = 'canonical_armors'
 
-    has_many :canonical_armors_enchantments, dependent: :destroy, foreign_key: 'canonical_armor_id', inverse_of: :canonical_armor
+    has_many :canonical_armors_enchantments,
+             dependent:   :destroy,
+             class_name:  'Canonical::ArmorsEnchantment',
+             foreign_key: 'canonical_armor_id',
+             inverse_of:  :canonical_armor
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_armors_enchantments.strength as enchantment_strength' },
              through: :canonical_armors_enchantments

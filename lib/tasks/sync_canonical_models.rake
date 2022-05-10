@@ -315,10 +315,10 @@ namespace :canonical_models do
       end
 
       ActiveRecord::Base.transaction do
-        CanonicalArmor.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
+        Canonical::Armor.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
 
         items.each do |data|
-          item = CanonicalArmor.find_or_initialize_by(item_code: data[:attributes][:item_code])
+          item = Canonical::Armor.find_or_initialize_by(item_code: data[:attributes][:item_code])
           item.assign_attributes(data[:attributes])
           item.save!
 
@@ -342,7 +342,7 @@ namespace :canonical_models do
             material = CanonicalMaterial.find_by(item_code: m[:item_code])
 
             if material.present? && item.smithing_materials.exclude?(material)
-              CanonicalArmorsSmithingMaterial.create!(
+              Canonical::ArmorsSmithingMaterial.create!(
                 canonical_armor:    item,
                 canonical_material: material,
                 quantity:           m[:quantity],
@@ -360,7 +360,7 @@ namespace :canonical_models do
             material = CanonicalMaterial.find_by(item_code: m[:item_code])
 
             if material.present? && item.tempering_materials.exclude?(material)
-              CanonicalArmorsTemperingMaterial.create!(
+              Canonical::ArmorsTemperingMaterial.create!(
                 canonical_armor:    item,
                 canonical_material: material,
                 quantity:           m[:quantity],
@@ -378,7 +378,7 @@ namespace :canonical_models do
             enchantment = Enchantment.find_by(name: en[:name])
 
             if enchantment.present? && item.enchantments.exclude?(enchantment)
-              CanonicalArmorsEnchantment.create!(
+              Canonical::ArmorsEnchantment.create!(
                 canonical_armor: item,
                 enchantment:     enchantment,
                 strength:        en[:strength],

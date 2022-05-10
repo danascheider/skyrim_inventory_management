@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalArmorsEnchantment, type: :model do
+RSpec.describe Canonical::ArmorsEnchantment, type: :model do
   describe 'validations' do
     describe 'canonical armor and enchantment' do
       let(:enchantment) { create(:enchantment) }

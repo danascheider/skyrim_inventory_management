@@ -38,7 +38,7 @@ class Enchantment < ApplicationRecord
 
   STRENGTH_UNITS = %w[percentage point second level].freeze
 
-  has_many :canonical_armors_enchantments, dependent: :destroy
+  has_many :canonical_armors_enchantments, class_name: 'Canonical::ArmorsEnchantment', dependent: :destroy
   has_many :canonical_armors, through: :canonical_armors_enchantments
 
   has_many :canonical_clothing_items_enchantments, dependent: :destroy
