@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CanonicalClothingItemsEnchantment, type: :model do
+RSpec.describe Canonical::ClothingItemsEnchantment, type: :model do
   describe 'validations' do
     it 'is valid with valid associations' do
       clothing_item = create(:canonical_clothing_item)
