@@ -22,30 +22,9 @@ namespace :canonical_models do
 
     desc 'Sync canonical spells in the database with JSON data'
     task :spells, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Syncing canonical spells...'
-
       args.with_defaults(preserve_existing_records: false)
 
-      spells = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'spells.json')), symbolize_names: true)
-
-      ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          names = spells.pluck(:name)
-          Spell.where.not(name: names).destroy_all
-        end
-
-        spells.each do |spell_attributes|
-          spell = Spell.find_or_initialize_by(name: spell_attributes[:name])
-          spell.assign_attributes(spell_attributes)
-          spell.save!
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving spell \"#{spell_attributes[:name]}\": #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error #{e.class} saving spell \"#{spell_attributes[:name]}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync::Spells.perform(:spell, FALSEY_VALUES.exclude?(preserve_existing_records))
     end
 
     desc 'Sync canonical properties in the database with JSON data'

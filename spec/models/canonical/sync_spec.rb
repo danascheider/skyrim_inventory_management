@@ -31,5 +31,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::Enchantments).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":spell"' do
+      subject(:perform) { described_class.perform(:spell, false) }
+
+      before do
+        allow(Canonical::Sync::Spells).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Spells).to have_received(:perform)
+      end
+    end
   end
 end
