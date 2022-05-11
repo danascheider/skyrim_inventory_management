@@ -15,7 +15,7 @@ RSpec.describe Canonical::Sync do
 
       it 'calls #perform on the correct syncer' do
         perform
-        expect(Canonical::Sync::AlchemicalProperties).to have_received(:perform).with(false)
+        expect(Canonical::Sync::AlchemicalProperties).to have_received(:perform).with(preserve_existing_records)
       end
     end
 

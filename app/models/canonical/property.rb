@@ -4,7 +4,11 @@ module Canonical
   class Property < ApplicationRecord
     self.table_name = 'canonical_properties'
 
-    has_many :properties, dependent: :destroy
+    has_many :properties,
+             dependent:   :destroy,
+             class_name:  '::Property',
+             inverse_of:  :canonical_property,
+             foreign_key: :canonical_property_id
 
     TOTAL_PROPERTY_COUNT = 10
 

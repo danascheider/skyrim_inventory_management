@@ -66,12 +66,12 @@ RSpec.describe Canonical::Sync::AlchemicalProperties do
       let!(:property_not_in_json)     { create(:alchemical_property, name: 'Restore Health') }
 
       before do
-        allow(Canonical::Sync::Enchantments).to receive(:new)
+        allow(described_class).to receive(:new).and_return(syncer)
       end
 
       it 'instantiates itself' do
         perform
-        expect(Canonical::Sync::Enchantments).to have_received(:new).with(preserve_existing_records)
+        expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
       it 'updates properties found in the JSON data' do
