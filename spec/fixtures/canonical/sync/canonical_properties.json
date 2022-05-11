@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Hjerim",
+    "hold": "Eastmarch",
+    "city": "Windhelm",
+    "alchemy_lab_available": true,
+    "arcane_enchanter_available": true,
+    "forge_available": false
+  },
+  {
+    "name": "Honeyside",
+    "hold": "The Rift",
+    "city": "Riften",
+    "alchemy_lab_available": true,
+    "arcane_enchanter_available": true,
+    "forge_available": false
+  },
+  {
+    "name": "Lakeview Manor",
+    "hold": "Falkreath",
+    "city": null,
+    "alchemy_lab_available": true,
+    "arcane_enchanter_available": true,
+    "forge_available": true
+  },
+  {
+    "name": "Proudspire Manor",
+    "hold": "Haafingar",
+    "city": "Solitude",
+    "alchemy_lab_available": true,
+    "arcane_enchanter_available": true,
+    "forge_available": false
+  }
+]

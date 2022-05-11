@@ -6,6 +6,7 @@ module Canonical
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
                 enchantment:         Canonical::Sync::Enchantments,
                 spell:               Canonical::Sync::Spells,
+                property:            Canonical::Sync::Properties,
               }.freeze
 
     module_function

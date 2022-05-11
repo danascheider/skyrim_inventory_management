@@ -33,26 +33,7 @@ namespace :canonical_models do
 
       args.with_defaults(preserve_existing_records: false)
 
-      canonical_properties = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_properties.json')), symbolize_names: true)
-
-      ActiveRecord::Base.transaction do
-        if FALSEY_VALUES.include?(args[:preserve_existing_records])
-          names = canonical_properties.pluck(:name)
-          Canonical::Property.where.not(name: names).destroy_all
-        end
-
-        canonical_properties.each do |canonical_property_attributes|
-          property = Canonical::Property.find_or_initialize_by(name: canonical_property_attributes[:name])
-          property.assign_attributes(canonical_property_attributes)
-          property.save!
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical property \"#{canonical_property_attributes[:name]}\": #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical property \"#{canonical_property_attributes[:name]}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync::Properties.perform(:property, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical building and smithing materials in the database with JSON data'

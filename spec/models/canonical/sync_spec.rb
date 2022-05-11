@@ -41,7 +41,20 @@ RSpec.describe Canonical::Sync do
 
       it 'calls #perform on the correct syncer' do
         perform
-        expect(Canonical::Sync::Spells).to have_received(:perform)
+        expect(Canonical::Sync::Spells).to have_received(:perform).with(false)
+      end
+    end
+
+    context 'when the model is ":property"' do
+      subject(:perform) { described_class.perform(:property, false) }
+
+      before do
+        allow(Canonical::Sync::Properties).to receive(:perform).with(false)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Properties).to have_received(:perform)
       end
     end
   end
