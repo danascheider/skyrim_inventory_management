@@ -32,5 +32,9 @@ module Canonical
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+    def self.unique_identifier
+      :item_code
+    end
   end
 end

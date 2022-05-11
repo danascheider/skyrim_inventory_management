@@ -24,6 +24,10 @@ class Spell < ApplicationRecord
   validates :description, presence: true
   validate :strength_and_strength_unit_both_or_neither_present
 
+  def self.unique_identifier
+    :name
+  end
+
   private
 
   def strength_and_strength_unit_both_or_neither_present

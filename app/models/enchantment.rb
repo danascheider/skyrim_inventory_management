@@ -60,6 +60,10 @@ class Enchantment < ApplicationRecord
   validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
 
+  def self.unique_identifier
+    :name
+  end
+
   private
 
   def validate_enchantable_items

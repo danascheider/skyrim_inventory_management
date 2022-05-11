@@ -64,6 +64,10 @@ module Canonical
               inclusion:  { in: VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
               uniqueness: { message: 'must be unique if present', allow_blank: true }
 
+    def self.unique_identifier
+      :name
+    end
+
     private
 
     def ensure_max

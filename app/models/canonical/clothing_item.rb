@@ -17,5 +17,9 @@ module Canonical
     validates :body_slot,
               presence:  true,
               inclusion: { in: %w[head hands body feet], message: 'must be "head", "hands", "body", or "feet"' }
+
+    def self.unique_identifier
+      :item_code
+    end
   end
 end
