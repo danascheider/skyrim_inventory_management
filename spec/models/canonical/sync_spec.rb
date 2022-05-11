@@ -49,12 +49,25 @@ RSpec.describe Canonical::Sync do
       subject(:perform) { described_class.perform(:property, false) }
 
       before do
-        allow(Canonical::Sync::Properties).to receive(:perform).with(false)
+        allow(Canonical::Sync::Properties).to receive(:perform)
       end
 
       it 'calls #perform on the correct syncer' do
         perform
-        expect(Canonical::Sync::Properties).to have_received(:perform)
+        expect(Canonical::Sync::Properties).to have_received(:perform).with(false)
+      end
+    end
+
+    context 'when the model is ":material"' do
+      subject(:perform) { described_class.perform(:material, true) }
+
+      before do
+        allow(Canonical::Sync::Materials).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Materials).to have_received(:perform).with(true)
       end
     end
   end

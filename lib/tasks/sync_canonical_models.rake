@@ -24,47 +24,21 @@ namespace :canonical_models do
     task :spells, [:preserve_existing_records] => :environment do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
-      Canonical::Sync::Spells.perform(:spell, FALSEY_VALUES.exclude?(preserve_existing_records))
+      Canonical::Sync.perform(:spell, FALSEY_VALUES.exclude?(preserve_existing_records))
     end
 
     desc 'Sync canonical properties in the database with JSON data'
     task :properties, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Syncing canonical properties...'
-
       args.with_defaults(preserve_existing_records: false)
 
-      Canonical::Sync::Properties.perform(:property, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+      Canonical::Sync.perform(:property, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical building and smithing materials in the database with JSON data'
     task :materials, [:preserve_existing_records] => :environment do |_t, args|
-      Rails.logger.info 'Syncing canonical materials...'
-
       args.with_defaults(preserve_existing_records: false)
-      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      canonical_materials = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.json')), symbolize_names: true)
-      item_codes          = []
-      canonical_materials.each do |data|
-        code = data[:item_code].upcase!
-        item_codes << code unless preserve_existing_records
-      end
-
-      ActiveRecord::Base.transaction do
-        Canonical::Material.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
-
-        canonical_materials.each do |canonical_material_attributes|
-          material = Canonical::Material.find_or_initialize_by(item_code: canonical_material_attributes[:item_code])
-          material.assign_attributes(canonical_material_attributes)
-          material.save!
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical material \"#{canonical_material_attributes[:item_code]}\": #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical material \"#{canonical_material_attributes[:item_code]}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync.perform(:material, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical jewelry items in the database with JSON data'

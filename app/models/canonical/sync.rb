@@ -5,8 +5,9 @@ module Canonical
     SYNCERS = {
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
                 enchantment:         Canonical::Sync::Enchantments,
-                spell:               Canonical::Sync::Spells,
+                material:            Canonical::Sync::Materials,
                 property:            Canonical::Sync::Properties,
+                spell:               Canonical::Sync::Spells,
               }.freeze
 
     module_function
