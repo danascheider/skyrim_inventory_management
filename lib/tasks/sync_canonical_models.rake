@@ -49,81 +49,9 @@ namespace :canonical_models do
                                            canonical_models:sync:materials
                                            canonical_models:sync:enchantments
                                          ] do |_t, args|
-      Rails.logger.info 'Syncing canonical jewelry items...'
-
       args.with_defaults(preserve_existing_records: false)
-      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      items      = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.json')), symbolize_names: true)
-      item_codes = []
-      items.each do |item|
-        code = item.dig(:attributes, :item_code).upcase!
-        item_codes << code unless preserve_existing_records
-      end
-
-      ActiveRecord::Base.transaction do
-        Canonical::JewelryItem.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
-
-        items.each do |data|
-          item = Canonical::JewelryItem.find_or_initialize_by(item_code: data.dig(:attributes, :item_code))
-          item.assign_attributes(data[:attributes])
-          item.save!
-
-          if !preserve_existing_records
-            data[:materials].each {|material| material[:item_code].upcase! }
-
-            material_codes = data[:materials].pluck(:item_code)
-            material_ids   = item.canonical_materials.where.not(item_code: material_codes).ids
-            item.canonical_jewelry_items_materials.where(canonical_material_id: material_ids).destroy_all
-
-            enchantment_names = data[:enchantments].pluck(:name)
-            enchantment_ids   = item.enchantments.where.not(name: enchantment_names).ids
-            item.canonical_jewelry_items_enchantments.where(enchantment_id: enchantment_ids).destroy_all
-          end
-
-          data[:materials].each do |m|
-            material = Canonical::Material.find_by(item_code: m[:item_code])
-
-            if material.present? && item.canonical_materials.exclude?(material)
-              Canonical::JewelryItemsMaterial.create!(
-                jewelry_item: item,
-                material:     material,
-                quantity:     m[:quantity],
-              )
-            elsif item.canonical_materials.include?(material)
-              item.canonical_jewelry_items_materials
-                .find_by(material_id: material.id)
-                .update!(quantity: m[:quantity])
-            else
-              Rails.logger.warn("Jewelry item #{item.item_code} calls for material \"#{m[:item_code]}\" but material does not exist.")
-            end
-          end
-
-          data[:enchantments].each do |en|
-            enchantment = Enchantment.find_by(name: en[:name])
-
-            if enchantment.present? && item.enchantments.exclude?(enchantment)
-              Canonical::JewelryItemsEnchantment.create!(
-                jewelry_item: item,
-                enchantment:  enchantment,
-                strength:     en[:strength],
-              )
-            elsif item.enchantments.include?(enchantment)
-              item.canonical_jewelry_items_enchantments
-                .find_by(enchantment_id: enchantment.id)
-                .update!(strength: en[:strength])
-            else
-              Rails.logger.warn("Jewelry item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
-            end
-          end
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical jewelry item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unknown error saving canonical jewelry item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
-          raise e
-        end
-      end
+      Canonical::Sync.perform(:jewelry, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical clothing items in the database with JSON data'
