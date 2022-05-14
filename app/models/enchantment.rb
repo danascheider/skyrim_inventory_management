@@ -20,8 +20,7 @@ class Enchantment < ApplicationRecord
                           'bow',
                           'crossbow',
                           'staff',
-                          'axe',
-                          'pickaxe',
+                          'other',
                         ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[

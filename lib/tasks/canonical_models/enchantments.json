@@ -13,8 +13,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -33,8 +32,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -53,8 +51,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -73,8 +70,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "level"
     }
@@ -93,8 +89,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -113,8 +108,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "second"
     }
@@ -133,8 +127,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "second"
     }
@@ -153,8 +146,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -550,8 +542,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -570,8 +561,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -590,8 +580,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -610,8 +599,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "second"
     }
@@ -707,8 +695,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -727,8 +714,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -747,8 +733,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "second"
     }
@@ -767,8 +752,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "point"
     }
@@ -787,8 +771,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "level"
     }
