@@ -2,9 +2,12 @@
 
 module Canonical
   module Sync
+    class PrerequisiteNotMetError < StandardError; end
+
     SYNCERS = {
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
                 enchantment:         Canonical::Sync::Enchantments,
+                jewelry:             Canonical::Sync::JewelryItems,
                 material:            Canonical::Sync::Materials,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,

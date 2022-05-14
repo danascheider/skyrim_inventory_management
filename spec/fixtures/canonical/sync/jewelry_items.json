@@ -1,0 +1,76 @@
+[
+  {
+    "attributes": {
+      "name": "Andurs' Amulet of Arkay",
+      "item_code": "00094E3E",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Health",
+        "strength": 10
+      }
+    ],
+    "materials": []
+  },
+  {
+    "attributes": {
+      "name": "Asgeir's Wedding Band",
+      "item_code": "000F5A1D",
+      "jewelry_type": "ring",
+      "unit_weight": 0.25,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [],
+    "materials": []
+  },
+  {
+    "attributes": {
+      "name": "Balwen's Ornamental Ring",
+      "item_code": "000DA735",
+      "jewelry_type": "ring",
+      "unit_weight": 3,
+      "quest_item": true,
+      "magical_effects": null,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [],
+    "materials": []
+  },
+  {
+    "attributes": {
+      "name": "Bone Hawk Amulet",
+      "item_code": "XX01AA0B",
+      "jewelry_type": "amulet",
+      "unit_weight": 1,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "materials": [
+      {
+        "item_code": "XX002993",
+        "quantity": 1
+      },
+      {
+        "item_code": "XX002994",
+        "quantity": 6
+      },
+      {
+        "item_code": "000800E4",
+        "quantity": 2
+      }
+    ],
+    "enchantments": []
+  }
+]

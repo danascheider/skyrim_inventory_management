@@ -6,7 +6,8 @@ module Canonical
 
     has_many :canonical_jewelry_items_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::JewelryItemsEnchantment'
+             class_name: 'Canonical::JewelryItemsEnchantment',
+             inverse_of: :jewelry_item
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_jewelry_items_enchantments.strength as strength' },
              through: :canonical_jewelry_items_enchantments

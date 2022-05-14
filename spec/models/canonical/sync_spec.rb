@@ -70,5 +70,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::Materials).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":jewelry"' do
+      subject(:perform) { described_class.perform(:jewelry, true) }
+
+      before do
+        allow(Canonical::Sync::JewelryItems).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::JewelryItems).to have_received(:perform).with(true)
+      end
+    end
   end
 end
