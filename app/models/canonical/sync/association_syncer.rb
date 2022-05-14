@@ -7,6 +7,7 @@ module Canonical
         raise Canonical::Sync::PrerequisiteNotMetError.new(prerequisite_error_message) unless prerequisite_conditions_met?
 
         Rails.logger.info "Syncing #{model_name.downcase.pluralize}..."
+        Rails.logger.warn "preserve_existing_records mode does not preserve associations for #{model_name.downcase.pluralize}" if preserve_existing_records && !preserve_associations?
 
         ActiveRecord::Base.transaction do
           destroy_existing_models unless preserve_existing_records
@@ -26,7 +27,7 @@ module Canonical
               associated_model_identifier  = associated_model_class.unique_identifier
               associated_fk                = reflection.foreign_key.to_sym
 
-              if !preserve_existing_records
+              if !preserve_existing_records || !preserve_associations?
                 identifiers = object[association].pluck(associated_model_identifier)
                 assn_ids    = associated_model_class.where(associated_model_identifier => identifiers).ids
                 model.send(association_name).where.not(associated_fk => assn_ids).destroy_all
@@ -65,6 +66,10 @@ module Canonical
 
       def prerequisite_conditions_met?
         prerequisites.empty? || prerequisites.all?(&:any?)
+      end
+
+      def preserve_associations?
+        true
       end
     end
   end

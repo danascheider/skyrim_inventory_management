@@ -9,6 +9,7 @@ module Canonical
                 armor:               Canonical::Sync::Armor,
                 clothing:            Canonical::Sync::ClothingItems,
                 enchantment:         Canonical::Sync::Enchantments,
+                ingredient:          Canonical::Sync::Ingredients,
                 jewelry:             Canonical::Sync::JewelryItems,
                 material:            Canonical::Sync::Materials,
                 property:            Canonical::Sync::Properties,

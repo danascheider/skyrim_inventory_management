@@ -109,5 +109,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::Armor).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":ingredient"' do
+      subject(:perform) { described_class.perform(:ingredient, true) }
+
+      before do
+        allow(Canonical::Sync::Ingredients).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Ingredients).to have_received(:perform).with(true)
+      end
+    end
   end
 end

@@ -84,67 +84,9 @@ namespace :canonical_models do
                                             environment
                                             canonical_models:sync:alchemical_properties
                                           ] do |_t, args|
-      Rails.logger.info 'Syncing canonical ingredients...'
-
       args.with_defaults(preserve_existing_records: false)
-      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      ingredients = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.json')), symbolize_names: true)
-      item_codes  = []
-      ingredients.each do |ingredient|
-        code = ingredient.dig(:attributes, :item_code).upcase!
-        item_codes << code unless preserve_existing_records
-      end
-
-      ActiveRecord::Base.transaction do
-        Canonical::Ingredient.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
-
-        ingredients.each do |i|
-          ingredient = Canonical::Ingredient.find_or_initialize_by(item_code: i[:attributes][:item_code])
-          ingredient.assign_attributes(i[:attributes])
-          ingredient.save!
-
-          if !preserve_existing_records
-            alchemical_property_ids = AlchemicalProperty.where(name: i[:alchemical_properties].pluck(:name)).ids
-            ingredient.canonical_ingredients_alchemical_properties
-              .where
-              .not(alchemical_property_id: alchemical_property_ids)
-              .destroy_all
-          end
-
-          i[:alchemical_properties].each do |property|
-            alchemical_property = AlchemicalProperty.find_by(name: property[:name])
-
-            if alchemical_property.present? && ingredient.alchemical_properties.exclude?(alchemical_property)
-              Canonical::IngredientsAlchemicalProperty.create!(
-                alchemical_property: alchemical_property,
-                ingredient:          ingredient,
-                priority:            property[:priority],
-                strength_modifier:   property[:strength_modifier],
-                duration_modifier:   property[:duration_modifier],
-              )
-            elsif ingredient.alchemical_properties.include?(alchemical_property)
-              join_model = ingredient.canonical_ingredients_alchemical_properties.find_by(alchemical_property_id: alchemical_property.id)
-
-              Rails.logger.warn "(Canonical Ingredient #{ingredient.item_code}): Priority of alchemical properties must be updated manually" unless join_model.priority == property[:priority]
-
-              join_model.update!(strength_modifier: property[:strength_modifier], duration_modifier: property[:duration_modifier])
-            else
-              Rails.logger.warn "CanonicalIngredient #{ingredient.item_code} calls for alchemical property #{alchemical_property.name} but alchemical property does not exist"
-            end
-          end
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error creating ingredient #{i.dig(:attributes, :item_code)}: #{e.message}"
-          raise e
-        rescue StandardError => e
-          Rails.logger.error "Unexpected #{e.class} creating ingredient #{i.dig(:attributes, :item_code)}: #{e.message}"
-          e.backtrace.each {|line| Rails.logger.error "  #{line}" }
-          raise e
-        end
-      end
-    rescue StandardError => e
-      Rails.logger.error "Unexpected error #{e.class} syncing ingredients: #{e.message}"
-      e.backtrace.each {|line| Rails.logger.error "  #{line}" }
+      Canonical::Sync.perform(:ingredient, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical weapon models in the database with JSON data'
