@@ -52,6 +52,7 @@ module Canonical
         model = model_class.find_or_initialize_by(model_identifier => attributes[model_identifier])
         model.assign_attributes(attributes)
         model.save!
+        model
       rescue ActiveRecord::RecordInvalid => e
         Rails.logger.error "Error saving #{model_name.downcase} \"#{attributes[model_identifier]}\": #{e.message}"
         raise e
