@@ -106,16 +106,7 @@ namespace :canonical_models do
     task :all, [:preserve_existing_records] => :environment do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
-      Rake::Task['canonical_models:sync:properties'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:enchantments'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:spells'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:alchemical_properties'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:materials'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:jewelry'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:clothing'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:armor'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:ingredients'].invoke(args[:preserve_existing_records])
-      Rake::Task['canonical_models:sync:weapons'].invoke(args[:preserve_existing_records])
+      Canonical::Sync.perform(:all, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
   end
 end

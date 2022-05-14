@@ -5,21 +5,28 @@ module Canonical
     class PrerequisiteNotMetError < StandardError; end
 
     SYNCERS = {
+                # Syncers that are prerequisites for other syncers
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
+                enchantment:         Canonical::Sync::Enchantments,
+                material:            Canonical::Sync::Materials,
+                # Syncers that are not prerequisites for other syncers
                 armor:               Canonical::Sync::Armor,
                 clothing:            Canonical::Sync::ClothingItems,
-                enchantment:         Canonical::Sync::Enchantments,
                 ingredient:          Canonical::Sync::Ingredients,
                 jewelry:             Canonical::Sync::JewelryItems,
-                material:            Canonical::Sync::Materials,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,
+                weapon:              Canonical::Sync::Weapons,
               }.freeze
 
     module_function
 
     def perform(model = :all, preserve_existing_records = false)
-      SYNCERS[model].perform(preserve_existing_records)
+      if model == :all
+        SYNCERS.each_value {|syncer| syncer.perform(preserve_existing_records) }
+      else
+        SYNCERS[model].perform(preserve_existing_records)
+      end
     end
   end
 end

@@ -4,7 +4,22 @@ require 'rails_helper'
 
 RSpec.describe Canonical::Sync do
   describe 'perform' do
-    context 'when the model is ":all"'
+    context 'when the model is ":all"' do
+      subject(:perform) { described_class.perform(:all, false) }
+
+      before do
+        described_class::SYNCERS.each_value do |syncer|
+          allow(syncer).to receive(:perform)
+        end
+      end
+
+      it 'calls all the other syncers', :aggregate_failures do
+        perform
+        described_class::SYNCERS.each_value do |syncer|
+          expect(syncer).to have_received(:perform).with(false)
+        end
+      end
+    end
 
     context 'when the model is ":alchemical_property"' do
       subject(:perform) { described_class.perform(:alchemical_property, false) }
@@ -120,6 +135,19 @@ RSpec.describe Canonical::Sync do
       it 'calls #perform on the correct syncer' do
         perform
         expect(Canonical::Sync::Ingredients).to have_received(:perform).with(true)
+      end
+    end
+
+    context 'when the model is ":weapon"' do
+      subject(:perform) { described_class.perform(:weapon, true) }
+
+      before do
+        allow(Canonical::Sync::Weapons).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Weapons).to have_received(:perform).with(true)
       end
     end
   end
