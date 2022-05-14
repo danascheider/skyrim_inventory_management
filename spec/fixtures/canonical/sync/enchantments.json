@@ -13,8 +13,7 @@
         "battleaxe",
         "bow",
         "crossbow",
-        "axe",
-        "pickaxe"
+        "other"
       ],
       "strength_unit": "level"
     }
