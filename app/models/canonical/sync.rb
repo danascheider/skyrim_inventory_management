@@ -6,6 +6,7 @@ module Canonical
 
     SYNCERS = {
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
+                armor:               Canonical::Sync::Armor,
                 clothing:            Canonical::Sync::ClothingItems,
                 enchantment:         Canonical::Sync::Enchantments,
                 jewelry:             Canonical::Sync::JewelryItems,

@@ -2,7 +2,7 @@
 
 module Canonical
   module Sync
-    class ClothingItems
+    class Armor
       def self.perform(preserve_existing_records)
         new(preserve_existing_records).perform
       end
@@ -12,7 +12,7 @@ module Canonical
       end
 
       def perform
-        raise Canonical::Sync::PrerequisiteNotMetError.new('Prerequisite not met: sync enchantments before clothing items') unless Enchantment.any?
+        raise Canonical::Sync::PrerequisiteNotMetError.new('Prerequisite not met: sync canonical materials and enchantments before armor') unless Enchantment.any? && Canonical::Material.any?
 
         Rails.logger.info "Syncing #{model_name.downcase.pluralize}..."
 
@@ -25,18 +25,54 @@ module Canonical
             if !preserve_existing_records
               names           = object[:enchantments].pluck(:name)
               enchantment_ids = Enchantment.where(name: names).ids
-              model.canonical_clothing_items_enchantments.where.not(enchantment_id: enchantment_ids).destroy_all
+              model.canonical_armors_enchantments.where.not(enchantment_id: enchantment_ids).destroy_all
             end
 
             # create enchantments
             object[:enchantments].each do |enchantment|
               join_model          = model
-                                      .canonical_clothing_items_enchantments
+                                      .canonical_armors_enchantments
                                       .find_or_initialize_by(enchantment: Enchantment.find_by(name: enchantment[:name]))
               join_model.strength = enchantment[:strength]
               join_model.save!
             rescue ActiveRecord::RecordInvalid => e
-              Rails.logger.error "Validation error saving associations for #{model_name.downcase} \"#{model.item_code}\": #{e.message}"
+              Rails.logger.error "Validation error saving associations for #{model_name.downcase} \"#{model.send(model_identifier)}\": #{e.message}"
+              raise e
+            end
+
+            if !preserve_existing_records
+              codes        = object[:smithing_materials].pluck(:item_code)
+              material_ids = Canonical::Material.where(item_code: codes).ids
+              model.canonical_armors_smithing_materials.where.not(material_id: material_ids).destroy_all
+            end
+
+            # create materials
+            object[:smithing_materials].each do |material|
+              join_model          = model
+                                      .canonical_armors_smithing_materials
+                                      .find_or_initialize_by(material: Canonical::Material.find_by(item_code: material[:item_code]))
+              join_model.quantity = material[:quantity]
+              join_model.save!
+            rescue ActiveRecord::RecordInvalid => e
+              Rails.logger.error "Validation error saving associations for #{model_name.downcase} \"#{model.send(model_identifier)}\": #{e.message}"
+              raise e
+            end
+
+            if !preserve_existing_records
+              codes        = object[:tempering_materials].pluck(:item_code)
+              material_ids = Canonical::Material.where(item_code: codes).ids
+              model.canonical_armors_tempering_materials.where.not(material_id: material_ids).destroy_all
+            end
+
+            # create materials
+            object[:tempering_materials].each do |material|
+              join_model          = model
+                                      .canonical_armors_tempering_materials
+                                      .find_or_initialize_by(material: Canonical::Material.find_by(item_code: material[:item_code]))
+              join_model.quantity = material[:quantity]
+              join_model.save!
+            rescue ActiveRecord::RecordInvalid => e
+              Rails.logger.error "Validation error saving associations for #{model_name.downcase} \"#{model.send(model_identifier)}\": #{e.message}"
               raise e
             end
           end
@@ -54,7 +90,7 @@ module Canonical
       attr_reader :preserve_existing_records
 
       def model_class
-        Canonical::ClothingItem
+        Canonical::Armor
       end
 
       def model_name
@@ -66,7 +102,7 @@ module Canonical
       end
 
       def json_file_path
-        Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.json')
+        Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.json')
       end
 
       def json_data

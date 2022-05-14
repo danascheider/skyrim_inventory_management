@@ -96,5 +96,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::ClothingItems).to have_received(:perform).with(false)
       end
     end
+
+    context 'when the model is ":armor"' do
+      subject(:perform) { described_class.perform(:armor, true) }
+
+      before do
+        allow(Canonical::Sync::Armor).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Armor).to have_received(:perform).with(true)
+      end
+    end
   end
 end
