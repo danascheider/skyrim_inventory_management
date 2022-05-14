@@ -145,7 +145,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
-      it 'updates properties found in the JSON data' do
+      it 'updates models found in the JSON data' do
         perform
         expect(item_in_json.reload.body_slot).to eq 'head'
       end

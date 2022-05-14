@@ -82,7 +82,7 @@ RSpec.describe Canonical::Sync::Spells do
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
-      it 'updates properties found in the JSON data', :aggregate_failures do
+      it 'updates models found in the JSON data', :aggregate_failures do
         perform
         expect(spell_in_json.reload.strength_unit).to be_nil
         expect(spell_in_json.strength).to be_nil

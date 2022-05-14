@@ -5,12 +5,12 @@ module Canonical
     class AlchemicalProperties < Syncer
       private
 
-      def json_file_path
-        Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.json')
-      end
-
       def model_class
         AlchemicalProperty
+      end
+
+      def json_file_path
+        Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.json')
       end
     end
   end

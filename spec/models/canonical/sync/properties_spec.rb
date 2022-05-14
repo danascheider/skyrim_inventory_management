@@ -81,7 +81,7 @@ RSpec.describe Canonical::Sync::Properties do
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
-      it 'updates properties found in the JSON data' do
+      it 'updates models found in the JSON data' do
         perform
         expect(property_in_json.reload.forge_available).to be false
       end

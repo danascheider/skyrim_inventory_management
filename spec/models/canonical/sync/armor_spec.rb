@@ -9,6 +9,18 @@ RSpec.describe Canonical::Sync::Armor do
   let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'armor.json') }
   let!(:json_data) { File.read(json_path) }
 
+  let(:material_codes) do
+    %w[
+      0005ACE5
+      0005AD9F
+      0005ACE4
+      000DB5D2
+      000800E4
+      0003ADA3
+      0003ADA4
+    ]
+  end
+
   before do
     allow(File).to receive(:read).and_return(json_data)
   end
@@ -24,13 +36,7 @@ RSpec.describe Canonical::Sync::Armor do
 
         before do
           create(:enchantment, name: 'Fortify Block')
-          create(:canonical_material, item_code: '0005ACE5')
-          create(:canonical_material, item_code: '0005AD9F')
-          create(:canonical_material, item_code: '0005ACE4')
-          create(:canonical_material, item_code: '000DB5D2')
-          create(:canonical_material, item_code: '000800E4')
-          create(:canonical_material, item_code: '0003ADA3')
-          create(:canonical_material, item_code: '0003ADA4')
+          material_codes.each {|code| create(:canonical_material, item_code: code) }
           allow(described_class).to receive(:new).and_return(syncer)
         end
 
@@ -76,13 +82,7 @@ RSpec.describe Canonical::Sync::Armor do
 
         before do
           create(:enchantment, name: 'Fortify Block')
-          create(:canonical_material, item_code: '0005ACE5')
-          create(:canonical_material, item_code: '0005AD9F')
-          create(:canonical_material, item_code: '0005ACE4')
-          create(:canonical_material, item_code: '000DB5D2')
-          create(:canonical_material, item_code: '000800E4')
-          create(:canonical_material, item_code: '0003ADA3')
-          create(:canonical_material, item_code: '0003ADA4')
+          material_codes.each {|code| create(:canonical_material, item_code: code) }
         end
 
         it 'instantiates itself' do
@@ -161,13 +161,7 @@ RSpec.describe Canonical::Sync::Armor do
 
       before do
         create(:enchantment, name: 'Fortify Block')
-        create(:canonical_material, item_code: '0005ACE5')
-        create(:canonical_material, item_code: '0005AD9F')
-        create(:canonical_material, item_code: '0005ACE4')
-        create(:canonical_material, item_code: '000DB5D2')
-        create(:canonical_material, item_code: '000800E4')
-        create(:canonical_material, item_code: '0003ADA3')
-        create(:canonical_material, item_code: '0003ADA4')
+        material_codes.each {|code| create(:canonical_material, item_code: code) }
         create(:canonical_armors_tempering_material, armor: item_in_json, material: create(:canonical_material))
         allow(described_class).to receive(:new).and_return(syncer)
       end
@@ -177,7 +171,7 @@ RSpec.describe Canonical::Sync::Armor do
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
-      it 'updates properties found in the JSON data' do
+      it 'updates models found in the JSON data' do
         perform
         expect(item_in_json.reload.body_slot).to eq 'body'
       end
