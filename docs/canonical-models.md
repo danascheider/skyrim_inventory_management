@@ -33,7 +33,9 @@ Note that the models listed above do not include join tables for the `has_many, 
 
 Note that weapons and armour items have multiple associations to the same table - canonical materials - but the associations are separate since materials required to improve an item and those required to create it are distinct. If materials associations are blank, it means the item in question can't be forged or improved.
 
-## Seeding Canonical Models
+## Syncing Canonical Models
+
+For more information about the `Canonical::Sync` module, which powers the Rake tasks that sync the canonical models, see the [docs for that module](/docs/syncing-canonical-models.md).
 
 ### Rake Tasks
 
@@ -51,7 +53,7 @@ The following idempotent Rake tasks can be used to sync the database with the ca
 * `rails canonical_models:sync:ingredients` (sync canonical ingredients with JSON data)
 * `rails canonical_models:sync:weapons` (sync canonical weapons with JSON data)
 
-These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
+These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models and associations that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 
 ```
 bundle exec rails 'canonical_models:sync:all[true]'
