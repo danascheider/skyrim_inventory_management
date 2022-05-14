@@ -61,58 +61,9 @@ namespace :canonical_models do
                                            canonical_models:sync:materials
                                            canonical_models:sync:enchantments
                                          ] do |_t, args|
-      Rails.logger.info 'Syncing canonical clothing items...'
-
       args.with_defaults(preserve_existing_records: false)
-      preserve_existing_records = FALSEY_VALUES.exclude?(args[:preserve_existing_records])
 
-      items = JSON.parse(File.read(Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.json')), symbolize_names: true)
-
-      item_codes = []
-      items.each do |item|
-        code = item.dig(:attributes, :item_code).upcase!
-        item_codes << code unless preserve_existing_records
-      end
-
-      ActiveRecord::Base.transaction do
-        Canonical::ClothingItem.where.not(item_code: item_codes).destroy_all unless preserve_existing_records
-
-        items.each do |data|
-          item = Canonical::ClothingItem.find_or_initialize_by(item_code: data.dig(:attributes, :item_code))
-          item.assign_attributes(data[:attributes])
-          item.save!
-
-          if !preserve_existing_records
-            names           = data[:enchantments].pluck(:name)
-            enchantment_ids = item.enchantments.where.not(name: names).ids
-            item.canonical_clothing_items_enchantments.where(enchantment_id: enchantment_ids).destroy_all
-          end
-
-          data[:enchantments].each do |en|
-            enchantment = Enchantment.find_by(name: en[:name])
-
-            if enchantment.present? && item.enchantments.exclude?(enchantment)
-              Canonical::ClothingItemsEnchantment.find_or_create_by!(
-                clothing_item: item,
-                enchantment:   enchantment,
-                strength:      en[:strength],
-              )
-            elsif item.enchantments.include?(enchantment)
-              item.canonical_clothing_items_enchantments
-                .find_by(enchantment_id: enchantment.id)
-                .update!(strength: en[:strength])
-            else
-              Rails.logger.warn("Clothing item #{item.item_code} calls for enchantment #{en[:name]} but enchantment does not exist.")
-            end
-          end
-        rescue ActiveRecord::RecordInvalid => e
-          Rails.logger.error "Validation error saving canonical clothing item \"#{data.dig(:attributes, :item_code)}\": #{e.message}"
-          raise e
-        end
-      rescue StandardError => e
-        Rails.logger.error "Unknown error saving canonical clothing items: #{e.message}"
-        raise e
-      end
+      Canonical::Sync.perform(:clothing, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
 
     desc 'Sync canonical armor models in the database with JSON data'

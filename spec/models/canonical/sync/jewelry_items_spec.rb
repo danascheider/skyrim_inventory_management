@@ -31,7 +31,8 @@ RSpec.describe Canonical::Sync::JewelryItems do
         end
 
         it 'instantiates itseslf' do
-          #
+          perform
+          expect(described_class).to have_received(:new).with(preserve_existing_records)
         end
 
         it 'populates the models from the JSON file' do
