@@ -131,7 +131,7 @@ RSpec.describe Canonical::Sync::Armor do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite not met: sync canonical materials and enchantments before armor')
+          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Enchantment, Canonical::Material before canonical armors')
           expect(Canonical::JewelryItem.count).to eq 0
         end
       end

@@ -105,7 +105,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite not met: sync enchantments before clothing items')
+          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Enchantment before canonical clothing items')
           expect(Canonical::ClothingItem.count).to eq 0
         end
       end

@@ -16,7 +16,7 @@
         "strength": 10
       }
     ],
-    "materials": []
+    "canonical_materials": []
   },
   {
     "attributes": {
@@ -30,7 +30,7 @@
       "enchantable": false
     },
     "enchantments": [],
-    "materials": []
+    "canonical_materials": []
   },
   {
     "attributes": {
@@ -44,7 +44,7 @@
       "enchantable": false
     },
     "enchantments": [],
-    "materials": []
+    "canonical_materials": []
   },
   {
     "attributes": {
@@ -57,7 +57,7 @@
       "unique_item": false,
       "enchantable": true
     },
-    "materials": [
+    "canonical_materials": [
       {
         "item_code": "XX002993",
         "quantity": 1

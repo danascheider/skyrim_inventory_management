@@ -115,7 +115,7 @@ RSpec.describe Canonical::Sync::JewelryItems do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite not met: sync canonical materials and enchantments before jewelry items')
+          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Enchantment, Canonical::Material before canonical jewelry items')
           expect(Canonical::JewelryItem.count).to eq 0
         end
       end
@@ -126,6 +126,11 @@ RSpec.describe Canonical::Sync::JewelryItems do
           # enchantments or materials at all
           create(:enchantment)
           create(:canonical_material)
+
+          create(:canonical_material, item_code: 'XX002993')
+          create(:canonical_material, item_code: 'XX002994')
+          create(:canonical_material, item_code: '000800E4')
+
           allow(Rails.logger).to receive(:error).twice
         end
 
