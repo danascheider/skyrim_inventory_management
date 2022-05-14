@@ -158,6 +158,7 @@
       "enchantable_items": [
         "head",
         "hands",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -171,6 +172,7 @@
       "enchantable_items": [
         "head",
         "chest",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -194,6 +196,7 @@
       "enchantable_items": [
         "head",
         "hands",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -243,6 +246,7 @@
       "enchantable_items": [
         "head",
         "chest",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -266,6 +270,7 @@
       "enchantable_items": [
         "head",
         "chest",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -327,6 +332,7 @@
       "enchantable_items": [
         "head",
         "chest",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -376,6 +382,7 @@
       "enchantable_items": [
         "head",
         "hands",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -401,6 +408,7 @@
       "enchantable_items": [
         "hands",
         "feet",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -427,6 +435,7 @@
       "enchantable_items": [
         "head",
         "chest",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -476,6 +485,7 @@
       "enchantable_items": [
         "chest",
         "feet",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -501,6 +511,7 @@
       "enchantable_items": [
         "hands",
         "feet",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -624,6 +635,7 @@
       "enchantable_items": [
         "feet",
         "shield",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -637,6 +649,7 @@
       "enchantable_items": [
         "feet",
         "shield",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -649,6 +662,7 @@
       "school": null,
       "enchantable_items": [
         "shield",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -675,6 +689,7 @@
       "enchantable_items": [
         "feet",
         "shield",
+        "circlet",
         "amulet",
         "ring"
       ],
@@ -782,6 +797,7 @@
       "school": null,
       "enchantable_items": [
         "head",
+        "circlet",
         "amulet",
         "ring"
       ],

@@ -29,6 +29,7 @@ class Enchantment < ApplicationRecord
                                 hands
                                 feet
                                 shield
+                                circlet
                                 amulet
                                 ring
                               ].freeze
