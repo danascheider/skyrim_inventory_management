@@ -1,0 +1,68 @@
+[
+  {
+    "attributes": {
+      "name": "Adept Hood",
+      "item_code": "0010DD3C",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Apprentice Robes of Destruction",
+      "item_code": "0010D670",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 15
+      },
+      {
+        "name": "Fortify Magicka Regen",
+        "strength": 75
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Wedding Dress",
+      "item_code": "00088956",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 1,
+      "quest_item": false,
+      "unique_item": true,
+      "enchantable": true
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Wedding Sandals",
+      "item_code": "00088958",
+      "magical_effects": null,
+      "body_slot": "feet",
+      "unit_weight": 1,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": true
+    },
+    "enchantments": []
+  }
+]

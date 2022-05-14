@@ -6,7 +6,8 @@ module Canonical
 
     has_many :canonical_jewelry_items_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::JewelryItemsEnchantment'
+             class_name: 'Canonical::JewelryItemsEnchantment',
+             inverse_of: :jewelry_item
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_jewelry_items_enchantments.strength as strength' },
              through: :canonical_jewelry_items_enchantments
@@ -25,5 +26,9 @@ module Canonical
               presence:  true,
               inclusion: { in: %w[ring circlet amulet], message: 'must be "ring", "circlet", or "amulet"' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+    def self.unique_identifier
+      :item_code
+    end
   end
 end

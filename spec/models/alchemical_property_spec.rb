@@ -35,4 +35,14 @@ RSpec.describe AlchemicalProperty, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      subject(:unique_identifier) { described_class.unique_identifier }
+
+      it 'returns :name' do
+        expect(unique_identifier).to eq :name
+      end
+    end
+  end
 end

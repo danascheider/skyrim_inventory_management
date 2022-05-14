@@ -1,82 +1,102 @@
 [
   {
-    "name": "Arch-Mage's Quarters",
-    "hold": "Winterhold",
-    "city": "Winterhold",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": false
+    "attributes": {
+      "name": "Arch-Mage's Quarters",
+      "hold": "Winterhold",
+      "city": "Winterhold",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": false
+    }
   },
   {
-    "name": "Breezehome",
-    "hold": "Whiterun",
-    "city": "Whiterun",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": false,
-    "forge_available": false
+    "attributes": {
+      "name": "Breezehome",
+      "hold": "Whiterun",
+      "city": "Whiterun",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": false,
+      "forge_available": false
+    }
   },
   {
-    "name": "Heljarchen Hall",
-    "hold": "The Pale",
-    "city": null,
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": true
+    "attributes": {
+      "name": "Heljarchen Hall",
+      "hold": "The Pale",
+      "city": null,
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": true
+    }
   },
   {
-    "name": "Hjerim",
-    "hold": "Eastmarch",
-    "city": "Windhelm",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": false
+    "attributes": {
+      "name": "Hjerim",
+      "hold": "Eastmarch",
+      "city": "Windhelm",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": false
+    }
   },
   {
-    "name": "Honeyside",
-    "hold": "The Rift",
-    "city": "Riften",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": false
+    "attributes": {
+      "name": "Honeyside",
+      "hold": "The Rift",
+      "city": "Riften",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": false
+    }
   },
   {
-    "name": "Lakeview Manor",
-    "hold": "Falkreath",
-    "city": null,
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": true
+    "attributes": {
+      "name": "Lakeview Manor",
+      "hold": "Falkreath",
+      "city": null,
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": true
+    }
   },
   {
-    "name": "Proudspire Manor",
-    "hold": "Haafingar",
-    "city": "Solitude",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": false
+    "attributes": {
+      "name": "Proudspire Manor",
+      "hold": "Haafingar",
+      "city": "Solitude",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": false
+    }
   },
   {
-    "name": "Severin Manor",
-    "hold": "Solstheim",
-    "city": "Raven Rock",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": true
+    "attributes": {
+      "name": "Severin Manor",
+      "hold": "Solstheim",
+      "city": "Raven Rock",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": true
+    }
   },
   {
-    "name": "Vlindrel Hall",
-    "hold": "The Reach",
-    "city": "Markarth",
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": false
+    "attributes": {
+      "name": "Vlindrel Hall",
+      "hold": "The Reach",
+      "city": "Markarth",
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": false
+    }
   },
   {
-    "name": "Windstad Manor",
-    "hold": "Hjaalmarch",
-    "city": null,
-    "alchemy_lab_available": true,
-    "arcane_enchanter_available": true,
-    "forge_available": true
+    "attributes": {
+      "name": "Windstad Manor",
+      "hold": "Hjaalmarch",
+      "city": null,
+      "alchemy_lab_available": true,
+      "arcane_enchanter_available": true,
+      "forge_available": true
+    }
   }
 ]

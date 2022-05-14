@@ -1,0 +1,50 @@
+[
+  {
+    "attributes": {
+      "name": "Bound Battleaxe",
+      "school": "Conjuration",
+      "level": "Apprentice",
+      "description": "Creates a magic battle axe for 120 seconds. Sheathe it to dispel.",
+      "strength": null,
+      "strength_unit": null,
+      "base_duration": 120,
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Bound Bow",
+      "school": "Conjuration",
+      "level": "Adept",
+      "description": "Equips an ethereal Daedric Bow and 100 ethereal Daedric Arrows for 120 seconds.",
+      "strength": null,
+      "strength_unit": null,
+      "base_duration": 120,
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Bound Dagger",
+      "school": "Conjuration",
+      "level": "Novice",
+      "description": "Creates a magic dagger for 120 seconds. Sheathe it to dispel.",
+      "strength": null,
+      "strength_unit": null,
+      "base_duration": 120,
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Bound Sword",
+      "school": "Conjuration",
+      "level": "Novice",
+      "description": "Creates a magic sword for 120 seconds. Sheathe it to dispel.",
+      "strength": null,
+      "strength_unit": null,
+      "base_duration": 120,
+      "effects_cumulative": false
+    }
+  }
+]

@@ -1,277 +1,387 @@
 [
   {
-    "name": "Cure Disease",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Cure Disease",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Health",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Magicka",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Magicka Regen",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Magicka Regen",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Stamina",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Stamina Regen",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Stamina Regen",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fear",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fear",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Alteration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Alteration",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Barter",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Barter",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Block",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Block",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Carry Weight",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Carry Weight",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Conjuration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Conjuration",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Destruction",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Destruction",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Enchanting",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Enchanting",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Health",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Health",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Heavy Armor",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Heavy Armor",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Illusion",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Illusion",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Light Armor",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Light Armor",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Lockpicking",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Lockpicking",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Magicka",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Marksman",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Marksman",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify One-Handed",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify One-Handed",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Pickpocket",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Pickpocket",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Restoration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Restoration",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Smithing",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Smithing",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Sneak",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Sneak",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Stamina",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Two-Handed",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Two-Handed",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Frenzy",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Frenzy",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Invisibility",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Invisibility",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Lingering Damage Health",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Lingering Damage Health",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Lingering Damage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Lingering Damage Magicka",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Lingering Damage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Lingering Damage Stamina",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Paralysis",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Paralysis",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Ravage Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Health",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Ravage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Magicka",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Ravage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Stamina",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Health",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Health",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Magicka",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Magicka",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Stamina",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Stamina",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Fire",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Fire",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Frost",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Frost",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Magic",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Magic",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Poison",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Poison",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Shock",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Shock",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Health",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Magicka",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Stamina",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Slow",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Slow",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Waterbreathing",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Waterbreathing",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Fire",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Fire",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Frost",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Frost",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Magic",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Magic",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Poison",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Poison",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Shock",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Shock",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   }
 ]

@@ -4,7 +4,11 @@ module Canonical
   class Property < ApplicationRecord
     self.table_name = 'canonical_properties'
 
-    has_many :properties, dependent: :destroy
+    has_many :properties,
+             dependent:   :destroy,
+             class_name:  '::Property',
+             inverse_of:  :canonical_property,
+             foreign_key: :canonical_property_id
 
     TOTAL_PROPERTY_COUNT = 10
 
@@ -59,6 +63,10 @@ module Canonical
     validates :city,
               inclusion:  { in: VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
               uniqueness: { message: 'must be unique if present', allow_blank: true }
+
+    def self.unique_identifier
+      :name
+    end
 
     private
 

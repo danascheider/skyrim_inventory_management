@@ -84,4 +84,14 @@ RSpec.describe Canonical::Property, type: :model do
       expect(Rails.logger).to have_received(:error).with('Cannot create canonical property "Breezehome" in hold "Whiterun": there are already 10 canonical properties')
     end
   end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      subject(:unique_identifier) { described_class.unique_identifier }
+
+      it 'returns :name' do
+        expect(unique_identifier).to eq :name
+      end
+    end
+  end
 end

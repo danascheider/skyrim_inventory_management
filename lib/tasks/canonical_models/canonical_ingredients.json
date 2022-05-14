@@ -2,7 +2,7 @@
   {
     "attributes": {
       "name": "Abecean Longfin",
-      "item_code": "00106e1b",
+      "item_code": "00106E1B",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -37,7 +37,7 @@
   {
     "attributes": {
       "name": "Ancestor Moth Wing",
-      "item_code": "xx0059ba",
+      "item_code": "XX0059BA",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -72,7 +72,7 @@
   {
     "attributes": {
       "name": "Ash Creep Cluster",
-      "item_code": "xx01cd74",
+      "item_code": "XX01CD74",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -107,7 +107,7 @@
   {
     "attributes": {
       "name": "Ash Hopper Jelly",
-      "item_code": "xx01cd71",
+      "item_code": "XX01CD71",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -142,7 +142,7 @@
   {
     "attributes": {
       "name": "Ashen Grass Pod",
-      "item_code": "xx016e26",
+      "item_code": "XX016E26",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -177,7 +177,7 @@
   {
     "attributes": {
       "name": "Bear Claws",
-      "item_code": "0006bc02",
+      "item_code": "0006BC02",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -212,7 +212,7 @@
   {
     "attributes": {
       "name": "Bee",
-      "item_code": "000a9195",
+      "item_code": "000A9195",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -247,7 +247,7 @@
   {
     "attributes": {
       "name": "Beehive Husk",
-      "item_code": "000a9191",
+      "item_code": "000A9191",
       "unit_weight": 1,
       "unique_item": false,
       "quest_item": false
@@ -282,7 +282,7 @@
   {
     "attributes": {
       "name": "Bleeding Crown",
-      "item_code": "0004da20",
+      "item_code": "0004DA20",
       "unit_weight": 0.3,
       "unique_item": false,
       "quest_item": false
@@ -317,7 +317,7 @@
   {
     "attributes": {
       "name": "Blisterwort",
-      "item_code": "0004da25",
+      "item_code": "0004DA25",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -352,7 +352,7 @@
   {
     "attributes": {
       "name": "Blue Butterfly Wing",
-      "item_code": "000727de",
+      "item_code": "000727DE",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -387,7 +387,7 @@
   {
     "attributes": {
       "name": "Blue Dartwing",
-      "item_code": "000e4f0c",
+      "item_code": "000E4F0C",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -422,7 +422,7 @@
   {
     "attributes": {
       "name": "Blue Mountain Flower",
-      "item_code": "00077e1c",
+      "item_code": "00077E1C",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -457,7 +457,7 @@
   {
     "attributes": {
       "name": "Boar Tusk",
-      "item_code": "xx01cd6f",
+      "item_code": "XX01CD6F",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -492,7 +492,7 @@
   {
     "attributes": {
       "name": "Bone Meal",
-      "item_code": "00034cdd",
+      "item_code": "00034CDD",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -527,7 +527,7 @@
   {
     "attributes": {
       "name": "Briar Heart",
-      "item_code": "0003ad61",
+      "item_code": "0003AD61",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -562,7 +562,7 @@
   {
     "attributes": {
       "name": "Burnt Spriggan Wood",
-      "item_code": "xx01cd6e",
+      "item_code": "XX01CD6E",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -597,7 +597,7 @@
   {
     "attributes": {
       "name": "Butterfly Wing",
-      "item_code": "000727e0",
+      "item_code": "000727E0",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -632,7 +632,7 @@
   {
     "attributes": {
       "name": "Canis Root",
-      "item_code": "0006abcb",
+      "item_code": "0006ABCB",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -702,7 +702,7 @@
   {
     "attributes": {
       "name": "Chaurus Eggs",
-      "item_code": "0003ad56",
+      "item_code": "0003AD56",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -737,7 +737,7 @@
   {
     "attributes": {
       "name": "Chaurus Hunter Antennae",
-      "item_code": "xx0183b7",
+      "item_code": "XX0183B7",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -772,7 +772,7 @@
   {
     "attributes": {
       "name": "Chicken's Egg",
-      "item_code": "00023d77",
+      "item_code": "00023D77",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -807,7 +807,7 @@
   {
     "attributes": {
       "name": "Creep Cluster",
-      "item_code": "000b2183",
+      "item_code": "000B2183",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -842,7 +842,7 @@
   {
     "attributes": {
       "name": "Crimson Nirnroot",
-      "item_code": "000b701a",
+      "item_code": "000B701A",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": true
@@ -877,7 +877,7 @@
   {
     "attributes": {
       "name": "Cyrodilic Spadetail",
-      "item_code": "00106e19",
+      "item_code": "00106E19",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -912,7 +912,7 @@
   {
     "attributes": {
       "name": "Daedra Heart",
-      "item_code": "0003ad5b",
+      "item_code": "0003AD5B",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -947,7 +947,7 @@
   {
     "attributes": {
       "name": "Deathbell",
-      "item_code": "000516c8",
+      "item_code": "000516C8",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": true
@@ -982,7 +982,7 @@
   {
     "attributes": {
       "name": "Dragon's Tongue",
-      "item_code": "000889a2",
+      "item_code": "000889A2",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1017,7 +1017,7 @@
   {
     "attributes": {
       "name": "Dwarven Oil",
-      "item_code": "000f11c0",
+      "item_code": "000F11C0",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1052,7 +1052,7 @@
   {
     "attributes": {
       "name": "Ectoplasm",
-      "item_code": "0003ad63",
+      "item_code": "0003AD63",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1087,7 +1087,7 @@
   {
     "attributes": {
       "name": "Elves Ear",
-      "item_code": "00034d31",
+      "item_code": "00034D31",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1122,7 +1122,7 @@
   {
     "attributes": {
       "name": "Emperor Parasol Moss",
-      "item_code": "xx01ff75",
+      "item_code": "XX01FF75",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1157,7 +1157,7 @@
   {
     "attributes": {
       "name": "Eye of Sabre Cat",
-      "item_code": "0006bc07",
+      "item_code": "0006BC07",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1192,7 +1192,7 @@
   {
     "attributes": {
       "name": "Falmer Ear",
-      "item_code": "0003ad5d",
+      "item_code": "0003AD5D",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -1227,7 +1227,7 @@
   {
     "attributes": {
       "name": "Felsaad Tern Feathers",
-      "item_code": "xx03cd8e",
+      "item_code": "XX03CD8E",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1262,7 +1262,7 @@
   {
     "attributes": {
       "name": "Fire Salts",
-      "item_code": "0003ad5e",
+      "item_code": "0003AD5E",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": true
@@ -1297,7 +1297,7 @@
   {
     "attributes": {
       "name": "Fly Amanita",
-      "item_code": "0004da00",
+      "item_code": "0004DA00",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1332,7 +1332,7 @@
   {
     "attributes": {
       "name": "Frost Salts",
-      "item_code": "0003ad5f",
+      "item_code": "0003AD5F",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1367,7 +1367,7 @@
   {
     "attributes": {
       "name": "Garlic",
-      "item_code": "00034d22",
+      "item_code": "00034D22",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1402,7 +1402,7 @@
   {
     "attributes": {
       "name": "Giant Lichen",
-      "item_code": "0007e8c1",
+      "item_code": "0007E8C1",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1437,7 +1437,7 @@
   {
     "attributes": {
       "name": "Giant's Toe",
-      "item_code": "0003ad64",
+      "item_code": "0003AD64",
       "unit_weight": 1,
       "unique_item": false,
       "quest_item": false
@@ -1472,7 +1472,7 @@
   {
     "attributes": {
       "name": "Gleamblossom",
-      "item_code": "xx00b097",
+      "item_code": "XX00B097",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1507,7 +1507,7 @@
   {
     "attributes": {
       "name": "Glow Dust",
-      "item_code": "0003ad73",
+      "item_code": "0003AD73",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -1542,7 +1542,7 @@
   {
     "attributes": {
       "name": "Glowing Mushroom",
-      "item_code": "0007ee01",
+      "item_code": "0007EE01",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -1577,7 +1577,7 @@
   {
     "attributes": {
       "name": "Grass Pod",
-      "item_code": "00083e64",
+      "item_code": "00083E64",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1612,7 +1612,7 @@
   {
     "attributes": {
       "name": "Hagraven Claw",
-      "item_code": "0006b689",
+      "item_code": "0006B689",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1647,7 +1647,7 @@
   {
     "attributes": {
       "name": "Hagraven Feathers",
-      "item_code": "0003ad66",
+      "item_code": "0003AD66",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1682,7 +1682,7 @@
   {
     "attributes": {
       "name": "Hanging Moss",
-      "item_code": "00057f91",
+      "item_code": "00057F91",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1717,7 +1717,7 @@
   {
     "attributes": {
       "name": "Hawk Beak",
-      "item_code": "000e7ebc",
+      "item_code": "000E7EBC",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1752,7 +1752,7 @@
   {
     "attributes": {
       "name": "Hawk Feathers",
-      "item_code": "000e7ed0",
+      "item_code": "000E7ED0",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -1787,7 +1787,7 @@
   {
     "attributes": {
       "name": "Hawk's Egg",
-      "item_code": "xx00f1cc",
+      "item_code": "XX00F1CC",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -1822,7 +1822,7 @@
   {
     "attributes": {
       "name": "Histcarp",
-      "item_code": "00106e18",
+      "item_code": "00106E18",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1857,7 +1857,7 @@
   {
     "attributes": {
       "name": "Honeycomb",
-      "item_code": "000b08c5",
+      "item_code": "000B08C5",
       "unit_weight": 1,
       "unique_item": false,
       "quest_item": false
@@ -1892,7 +1892,7 @@
   {
     "attributes": {
       "name": "Human Flesh",
-      "item_code": "001016b3",
+      "item_code": "001016B3",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -1927,7 +1927,7 @@
   {
     "attributes": {
       "name": "Human Heart",
-      "item_code": "000b18cd",
+      "item_code": "000B18CD",
       "unit_weight": 1,
       "unique_item": false,
       "quest_item": false
@@ -1962,7 +1962,7 @@
   {
     "attributes": {
       "name": "Ice Wraith Teeth",
-      "item_code": "0003ad6a",
+      "item_code": "0003AD6A",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": true
@@ -1997,7 +1997,7 @@
   {
     "attributes": {
       "name": "Imp Stool",
-      "item_code": "0004da23",
+      "item_code": "0004DA23",
       "unit_weight": 0.3,
       "unique_item": false,
       "quest_item": false
@@ -2032,7 +2032,7 @@
   {
     "attributes": {
       "name": "Jazbay Grapes",
-      "item_code": "0006ac4a",
+      "item_code": "0006AC4A",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": true
@@ -2067,7 +2067,7 @@
   {
     "attributes": {
       "name": "Juniper Berries",
-      "item_code": "0005076e",
+      "item_code": "0005076E",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2102,7 +2102,7 @@
   {
     "attributes": {
       "name": "Large Antlers",
-      "item_code": "0006bc0a",
+      "item_code": "0006BC0A",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2137,7 +2137,7 @@
   {
     "attributes": {
       "name": "Lavender",
-      "item_code": "00045c28",
+      "item_code": "00045C28",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2172,7 +2172,7 @@
   {
     "attributes": {
       "name": "Luna Moth Wing",
-      "item_code": "000727df",
+      "item_code": "000727DF",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2207,7 +2207,7 @@
   {
     "attributes": {
       "name": "Moon Sugar",
-      "item_code": "000d8e3f",
+      "item_code": "000D8E3F",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2242,7 +2242,7 @@
   {
     "attributes": {
       "name": "Mora Tapinella",
-      "item_code": "000ec870",
+      "item_code": "000EC870",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2277,7 +2277,7 @@
   {
     "attributes": {
       "name": "Mudcrab Chitin",
-      "item_code": "0006bc00",
+      "item_code": "0006BC00",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2312,7 +2312,7 @@
   {
     "attributes": {
       "name": "Namira's Rot",
-      "item_code": "0004da24",
+      "item_code": "0004DA24",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2347,7 +2347,7 @@
   {
     "attributes": {
       "name": "Netch Jelly",
-      "item_code": "xx01cd72",
+      "item_code": "XX01CD72",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -2382,7 +2382,7 @@
   {
     "attributes": {
       "name": "Nightshade",
-      "item_code": "xx042A41",
+      "item_code": "XX042A41",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": true
@@ -2417,7 +2417,7 @@
   {
     "attributes": {
       "name": "Nirnroot",
-      "item_code": "00059b86",
+      "item_code": "00059B86",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": true
@@ -2452,7 +2452,7 @@
   {
     "attributes": {
       "name": "Nordic Barnacle",
-      "item_code": "0007edf5",
+      "item_code": "0007EDF5",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -2487,7 +2487,7 @@
   {
     "attributes": {
       "name": "Orange Dartwing",
-      "item_code": "000bb956",
+      "item_code": "000BB956",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2522,7 +2522,7 @@
   {
     "attributes": {
       "name": "Pearl",
-      "item_code": "000854fe",
+      "item_code": "000854FE",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2557,7 +2557,7 @@
   {
     "attributes": {
       "name": "Pine Thrush Egg",
-      "item_code": "00023d6f",
+      "item_code": "00023D6F",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -2592,7 +2592,7 @@
   {
     "attributes": {
       "name": "Poison Bloom",
-      "item_code": "xx0185fb",
+      "item_code": "XX0185FB",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2627,7 +2627,7 @@
   {
     "attributes": {
       "name": "Powdered Mammoth Tusk",
-      "item_code": "0006bc10",
+      "item_code": "0006BC10",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2662,7 +2662,7 @@
   {
     "attributes": {
       "name": "Purple Mountain Flower",
-      "item_code": "00077e1e",
+      "item_code": "00077E1E",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2697,7 +2697,7 @@
   {
     "attributes": {
       "name": "Red Mountain Flower",
-      "item_code": "00077e1d",
+      "item_code": "00077E1D",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2732,7 +2732,7 @@
   {
     "attributes": {
       "name": "River Betty",
-      "item_code": "00106e1a",
+      "item_code": "00106E1A",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2767,7 +2767,7 @@
   {
     "attributes": {
       "name": "Rock Warbler Egg",
-      "item_code": "0007e8c8",
+      "item_code": "0007E8C8",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -2802,7 +2802,7 @@
   {
     "attributes": {
       "name": "Sabre Tooth Cat",
-      "item_code": "0006bc04",
+      "item_code": "0006BC04",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2837,7 +2837,7 @@
   {
     "attributes": {
       "name": "Salmon Roe",
-      "item_code": "xx003545",
+      "item_code": "XX003545",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -2872,7 +2872,7 @@
   {
     "attributes": {
       "name": "Salt Pile",
-      "item_code": "00074a19",
+      "item_code": "00074A19",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -2907,7 +2907,7 @@
   {
     "attributes": {
       "name": "Scaly Pholiota",
-      "item_code": "0006f950",
+      "item_code": "0006F950",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -2942,7 +2942,7 @@
   {
     "attributes": {
       "name": "Scathecraw",
-      "item_code": "xx017e97",
+      "item_code": "XX017E97",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -2977,7 +2977,7 @@
   {
     "attributes": {
       "name": "Silverside Perch",
-      "item_code": "00106e1c",
+      "item_code": "00106E1C",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -3012,7 +3012,7 @@
   {
     "attributes": {
       "name": "Skeever Tail",
-      "item_code": "0003ad6f",
+      "item_code": "0003AD6F",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3047,7 +3047,7 @@
   {
     "attributes": {
       "name": "Slaughterfish Egg",
-      "item_code": "0007e8c5",
+      "item_code": "0007E8C5",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3082,7 +3082,7 @@
   {
     "attributes": {
       "name": "Slaughterfish Scales",
-      "item_code": "0003ad70",
+      "item_code": "0003AD70",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3117,7 +3117,7 @@
   {
     "attributes": {
       "name": "Small Antlers",
-      "item_code": "0006bc0b",
+      "item_code": "0006BC0B",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3187,7 +3187,7 @@
   {
     "attributes": {
       "name": "Snowberries",
-      "item_code": "0001b3bd",
+      "item_code": "0001B3BD",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3222,7 +3222,7 @@
   {
     "attributes": {
       "name": "Spawn Ash",
-      "item_code": "xx01cd6d",
+      "item_code": "XX01CD6D",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3257,7 +3257,7 @@
   {
     "attributes": {
       "name": "Spider Egg",
-      "item_code": "0009151b",
+      "item_code": "0009151B",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3292,7 +3292,7 @@
   {
     "attributes": {
       "name": "Spriggan Sap",
-      "item_code": "00063b5f",
+      "item_code": "00063B5F",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3327,7 +3327,7 @@
   {
     "attributes": {
       "name": "Swamp Fungal Pod",
-      "item_code": "0007e8b7",
+      "item_code": "0007E8B7",
       "unit_weight": 0.25,
       "unique_item": false,
       "quest_item": false
@@ -3362,7 +3362,7 @@
   {
     "attributes": {
       "name": "Taproot",
-      "item_code": "0003ad71",
+      "item_code": "0003AD71",
       "unit_weight": 0.5,
       "unique_item": false,
       "quest_item": false
@@ -3397,7 +3397,7 @@
   {
     "attributes": {
       "name": "Thistle Branch",
-      "item_code": "000134aa",
+      "item_code": "000134AA",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3432,7 +3432,7 @@
   {
     "attributes": {
       "name": "Torchbug Thorax",
-      "item_code": "0004da73",
+      "item_code": "0004DA73",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3467,7 +3467,7 @@
   {
     "attributes": {
       "name": "Trama Root",
-      "item_code": "xx017008",
+      "item_code": "XX017008",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3502,7 +3502,7 @@
   {
     "attributes": {
       "name": "Troll Fat",
-      "item_code": "0003ad72",
+      "item_code": "0003AD72",
       "unit_weight": 1,
       "unique_item": false,
       "quest_item": true
@@ -3537,7 +3537,7 @@
   {
     "attributes": {
       "name": "Tundra Cotton",
-      "item_code": "0003f7f8",
+      "item_code": "0003F7F8",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3572,7 +3572,7 @@
   {
     "attributes": {
       "name": "Vampire Dust",
-      "item_code": "0003ad76",
+      "item_code": "0003AD76",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3607,7 +3607,7 @@
   {
     "attributes": {
       "name": "Void Salts",
-      "item_code": "0003ad60",
+      "item_code": "0003AD60",
       "unit_weight": 0.2,
       "unique_item": false,
       "quest_item": false
@@ -3642,7 +3642,7 @@
   {
     "attributes": {
       "name": "Wheat",
-      "item_code": "0004b0ba",
+      "item_code": "0004B0BA",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3677,7 +3677,7 @@
   {
     "attributes": {
       "name": "White Cap",
-      "item_code": "0004da22",
+      "item_code": "0004DA22",
       "unit_weight": 0.3,
       "unique_item": false,
       "quest_item": false
@@ -3712,7 +3712,7 @@
   {
     "attributes": {
       "name": "Wisp Wrappings",
-      "item_code": "0006bc0e",
+      "item_code": "0006BC0E",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3747,7 +3747,7 @@
   {
     "attributes": {
       "name": "Yellow Mountain Flower",
-      "item_code": "xx002a78",
+      "item_code": "XX002A78",
       "unit_weight": 0.1,
       "unique_item": false,
       "quest_item": false
@@ -3782,7 +3782,7 @@
   {
     "attributes": {
       "name": "Berit's Ashes",
-      "item_code": "000705b7",
+      "item_code": "000705B7",
       "unit_weight": 0.2,
       "unique_item": true,
       "quest_item": true
@@ -3817,7 +3817,7 @@
   {
     "attributes": {
       "name": "Jarrin Root",
-      "item_code": "0001bcbc",
+      "item_code": "0001BCBC",
       "unit_weight": 0.5,
       "unique_item": true,
       "quest_item": true

@@ -59,4 +59,14 @@ RSpec.describe Canonical::Material, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      subject(:unique_identifier) { described_class.unique_identifier }
+
+      it 'returns :item_code' do
+        expect(unique_identifier).to eq :item_code
+      end
+    end
+  end
 end

@@ -97,6 +97,10 @@ module Canonical
     validate :verify_category_type_combination
     validate :verify_all_smithing_perks_valid
 
+    def self.unique_identifier
+      :item_code
+    end
+
     private
 
     def verify_category_type_combination

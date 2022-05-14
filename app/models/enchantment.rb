@@ -20,8 +20,7 @@ class Enchantment < ApplicationRecord
                           'bow',
                           'crossbow',
                           'staff',
-                          'axe',
-                          'pickaxe',
+                          'other',
                         ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[
@@ -30,6 +29,7 @@ class Enchantment < ApplicationRecord
                                 hands
                                 feet
                                 shield
+                                circlet
                                 amulet
                                 ring
                               ].freeze
@@ -59,6 +59,10 @@ class Enchantment < ApplicationRecord
                        }
   validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
+
+  def self.unique_identifier
+    :name
+  end
 
   private
 

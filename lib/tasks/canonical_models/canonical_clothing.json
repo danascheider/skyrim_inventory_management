@@ -20,7 +20,7 @@
   {
     "attributes": {
       "name": "Adept Hood",
-      "item_code": "0010dd3c",
+      "item_code": "0010DD3C",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
@@ -38,7 +38,7 @@
   {
     "attributes": {
       "name": "Adept Robes",
-      "item_code": "0010d67e",
+      "item_code": "0010D67E",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -56,7 +56,7 @@
   {
     "attributes": {
       "name": "Adept Robes of Alteration",
-      "item_code": "0010d66d",
+      "item_code": "0010D66D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -78,7 +78,7 @@
   {
     "attributes": {
       "name": "Adept Robes of Conjuration",
-      "item_code": "0010d673",
+      "item_code": "0010D673",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -99,8 +99,8 @@
   },
   {
     "attributes": {
-      "name": "Adept Robes of Conjuration & Illusion",
-      "item_code": "FExxx837",
+      "name": "Adept Robes of Conjuration \u0026 Illusion",
+      "item_code": "FEXXX837",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -126,7 +126,7 @@
   {
     "attributes": {
       "name": "Adept Robes of Destruction",
-      "item_code": "0010d676",
+      "item_code": "0010D676",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -147,8 +147,8 @@
   },
   {
     "attributes": {
-      "name": "Adept Robes of Destruction & Alteration",
-      "item_code": "FExxx82A",
+      "name": "Adept Robes of Destruction \u0026 Alteration",
+      "item_code": "FEXXX82A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -174,7 +174,7 @@
   {
     "attributes": {
       "name": "Adept Robes of Illusion",
-      "item_code": "0010d67a",
+      "item_code": "0010D67A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -196,7 +196,7 @@
   {
     "attributes": {
       "name": "Adept Robes of Restoration",
-      "item_code": "0010d682",
+      "item_code": "0010D682",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -231,7 +231,7 @@
   {
     "attributes": {
       "name": "Apprentice Hood",
-      "item_code": "0010dd3b",
+      "item_code": "0010DD3B",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
@@ -249,7 +249,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes",
-      "item_code": "0010d67d",
+      "item_code": "0010D67D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -267,7 +267,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes of Alteration",
-      "item_code": "0010d66c",
+      "item_code": "0010D66C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -289,7 +289,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes of Conjuration",
-      "item_code": "0010d672",
+      "item_code": "0010D672",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -310,8 +310,8 @@
   },
   {
     "attributes": {
-      "name": "Apprentice Robes of Conjuration & Illusion",
-      "item_code": "FExxx836",
+      "name": "Apprentice Robes of Conjuration \u0026 Illusion",
+      "item_code": "FEXXX836",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -337,7 +337,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes of Destruction",
-      "item_code": "0010d670",
+      "item_code": "0010D670",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -358,8 +358,8 @@
   },
   {
     "attributes": {
-      "name": "Apprentice Robes of Destruction & Alteration",
-      "item_code": "FExxx829",
+      "name": "Apprentice Robes of Destruction \u0026 Alteration",
+      "item_code": "FEXXX829",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -385,7 +385,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes of Illusion",
-      "item_code": "0010d679",
+      "item_code": "0010D679",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -407,7 +407,7 @@
   {
     "attributes": {
       "name": "Apprentice Robes of Restoration",
-      "item_code": "0010d681",
+      "item_code": "0010D681",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -429,7 +429,7 @@
   {
     "attributes": {
       "name": "Arcane Blacksmith's Apron",
-      "item_code": "xx000AE4",
+      "item_code": "XX000AE4",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -447,7 +447,7 @@
   {
     "attributes": {
       "name": "Arch-Mage's Boots",
-      "item_code": "0007c92e",
+      "item_code": "0007C92E",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -465,7 +465,7 @@
   {
     "attributes": {
       "name": "Ascendant Necromancer Robes",
-      "item_code": "FExxx90F",
+      "item_code": "FEXXX90F",
       "magical_effects": "Conjuration spells last 25% longer. Increases summon limit by 1 for lesser conjured or reanimated undead.",
       "body_slot": "body",
       "unit_weight": 1,
@@ -491,7 +491,7 @@
   {
     "attributes": {
       "name": "Black Mage Hood",
-      "item_code": "xx017e9B",
+      "item_code": "XX017E9B",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
@@ -504,7 +504,7 @@
   {
     "attributes": {
       "name": "Black Mage Robes",
-      "item_code": "000c5d11",
+      "item_code": "000C5D11",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -548,7 +548,7 @@
   {
     "attributes": {
       "name": "Blue Mage Robes",
-      "item_code": "000d1f3b",
+      "item_code": "000D1F3B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -618,7 +618,7 @@
   {
     "attributes": {
       "name": "Child's Clothes",
-      "item_code": "xx03c819",
+      "item_code": "XX03C819",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -631,7 +631,7 @@
   {
     "attributes": {
       "name": "Cicero's Boots",
-      "item_code": "0006492a",
+      "item_code": "0006492A",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
@@ -649,7 +649,7 @@
   {
     "attributes": {
       "name": "Cicero's Clothes",
-      "item_code": "0006492c",
+      "item_code": "0006492C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -671,7 +671,7 @@
   {
     "attributes": {
       "name": "Cicero's Gloves",
-      "item_code": "0006492d",
+      "item_code": "0006492D",
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
@@ -684,7 +684,7 @@
   {
     "attributes": {
       "name": "Cicero's Hat",
-      "item_code": "0006492e",
+      "item_code": "0006492E",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
@@ -767,7 +767,7 @@
   {
     "attributes": {
       "name": "Cultist Boots",
-      "item_code": "xx037b8e",
+      "item_code": "XX037B8E",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -780,7 +780,7 @@
   {
     "attributes": {
       "name": "Cultist Robes",
-      "item_code": "xx037b8a",
+      "item_code": "XX037B8A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -798,7 +798,7 @@
   {
     "attributes": {
       "name": "Cyrus' Boots",
-      "item_code": "xx00089B",
+      "item_code": "XX00089B",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -811,7 +811,7 @@
   {
     "attributes": {
       "name": "Cyrus' Clothes",
-      "item_code": "xx00089E",
+      "item_code": "XX00089E",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -824,7 +824,7 @@
   {
     "attributes": {
       "name": "Dunmer Outfit",
-      "item_code": "xx03706a",
+      "item_code": "XX03706A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
@@ -842,7 +842,7 @@
   {
     "attributes": {
       "name": "Dunmer Shoes",
-      "item_code": "xx03705a",
+      "item_code": "XX03705A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
@@ -868,7 +868,7 @@
   {
     "attributes": {
       "name": "Expert Robes",
-      "item_code": "0010d67f",
+      "item_code": "0010D67F",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -886,7 +886,7 @@
   {
     "attributes": {
       "name": "Expert Robes of Alteration",
-      "item_code": "0010d66e",
+      "item_code": "0010D66E",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -908,7 +908,7 @@
   {
     "attributes": {
       "name": "Expert Robes of Conjuration",
-      "item_code": "0010d674",
+      "item_code": "0010D674",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -930,7 +930,7 @@
   {
     "attributes": {
       "name": "Expert Robes of Destruction",
-      "item_code": "0010d677",
+      "item_code": "0010D677",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -951,8 +951,8 @@
   },
   {
     "attributes": {
-      "name": "Expert Robes of Destruction & Alteration",
-      "item_code": "FExxx82B",
+      "name": "Expert Robes of Destruction \u0026 Alteration",
+      "item_code": "FEXXX82B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -978,7 +978,7 @@
   {
     "attributes": {
       "name": "Expert Robes of Illusion",
-      "item_code": "0010d67b",
+      "item_code": "0010D67B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1000,7 +1000,7 @@
   {
     "attributes": {
       "name": "Expert Robes of Restoration",
-      "item_code": "0010d683",
+      "item_code": "0010D683",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1152,7 +1152,7 @@
   {
     "attributes": {
       "name": "Hooded Black Mage Robes",
-      "item_code": "0010710c",
+      "item_code": "0010710C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1209,7 +1209,7 @@
   {
     "attributes": {
       "name": "Hooded Necromancer Robes",
-      "item_code": "0010710d",
+      "item_code": "0010710D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1227,7 +1227,7 @@
   {
     "attributes": {
       "name": "Hooded Thalmor Robes",
-      "item_code": "0010c698",
+      "item_code": "0010C698",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 5,
@@ -1245,7 +1245,7 @@
   {
     "attributes": {
       "name": "Jester's Boots",
-      "item_code": "000cee70",
+      "item_code": "000CEE70",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -1263,7 +1263,7 @@
   {
     "attributes": {
       "name": "Jester's Clothes",
-      "item_code": "000cee6e",
+      "item_code": "000CEE6E",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1285,7 +1285,7 @@
   {
     "attributes": {
       "name": "Jester's Gloves",
-      "item_code": "000cee74",
+      "item_code": "000CEE74",
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
@@ -1298,7 +1298,7 @@
   {
     "attributes": {
       "name": "Jester's Hat",
-      "item_code": "000cee72",
+      "item_code": "000CEE72",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
@@ -1316,7 +1316,7 @@
   {
     "attributes": {
       "name": "Lucky Fishing Hat",
-      "item_code": "xx000A6F",
+      "item_code": "XX000A6F",
       "magical_effects": "When worn, rainstorms occur while fishing at temperate lakes and streams.",
       "body_slot": "head",
       "unit_weight": "0.5",
@@ -1355,7 +1355,7 @@
   {
     "attributes": {
       "name": "Master Robes",
-      "item_code": "0010d680",
+      "item_code": "0010D680",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1373,7 +1373,7 @@
   {
     "attributes": {
       "name": "Master Robes of Alteration",
-      "item_code": "0010d66f",
+      "item_code": "0010D66F",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1395,7 +1395,7 @@
   {
     "attributes": {
       "name": "Master Robes of Conjuration",
-      "item_code": "0010d675",
+      "item_code": "0010D675",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1416,8 +1416,8 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Conjuration & Illusion",
-      "item_code": "FExxx839",
+      "name": "Master Robes of Conjuration \u0026 Illusion",
+      "item_code": "FEXXX839",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1443,7 +1443,7 @@
   {
     "attributes": {
       "name": "Master Robes of Destruction",
-      "item_code": "0010d678",
+      "item_code": "0010D678",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1464,8 +1464,8 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Destruction & Alteration",
-      "item_code": "FExxx82C",
+      "name": "Master Robes of Destruction \u0026 Alteration",
+      "item_code": "FEXXX82C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1491,7 +1491,7 @@
   {
     "attributes": {
       "name": "Master Robes of Illusion",
-      "item_code": "0010d67c",
+      "item_code": "0010D67C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1513,7 +1513,7 @@
   {
     "attributes": {
       "name": "Master Robes of Restoration",
-      "item_code": "0010d684",
+      "item_code": "0010D684",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1587,7 +1587,7 @@
   {
     "attributes": {
       "name": "Mystic Tuning Gloves",
-      "item_code": "00026c3b",
+      "item_code": "00026C3B",
       "magical_effects": "Adds a hidden bonus to your Magicka Regen",
       "body_slot": "hands",
       "unit_weight": 0.25,
@@ -1626,7 +1626,7 @@
   {
     "attributes": {
       "name": "Mythic Dawn Robes",
-      "item_code": "000b144d",
+      "item_code": "000B144D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
@@ -1657,7 +1657,7 @@
   {
     "attributes": {
       "name": "Novice Hood",
-      "item_code": "0010dd3a",
+      "item_code": "0010DD3A",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
@@ -1675,7 +1675,7 @@
   {
     "attributes": {
       "name": "Novice Hood",
-      "item_code": "0010dd3a",
+      "item_code": "0010DD3A",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
@@ -1693,7 +1693,7 @@
   {
     "attributes": {
       "name": "Novice Robes",
-      "item_code": "0010d667",
+      "item_code": "0010D667",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1711,7 +1711,7 @@
   {
     "attributes": {
       "name": "Novice Robes of Alteration",
-      "item_code": "0010d669",
+      "item_code": "0010D669",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1733,7 +1733,7 @@
   {
     "attributes": {
       "name": "Novice Robes of Conjuration",
-      "item_code": "0010173e",
+      "item_code": "0010173E",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1754,8 +1754,8 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Conjuration & Illusion",
-      "item_code": "FExxx835",
+      "name": "Novice Robes of Conjuration \u0026 Illusion",
+      "item_code": "FEXXX835",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1781,7 +1781,7 @@
   {
     "attributes": {
       "name": "Novice Robes of Destruction",
-      "item_code": "0010d668",
+      "item_code": "0010D668",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1802,8 +1802,8 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Destruction & Alteration",
-      "item_code": "FExxx827",
+      "name": "Novice Robes of Destruction \u0026 Alteration",
+      "item_code": "FEXXX827",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1829,7 +1829,7 @@
   {
     "attributes": {
       "name": "Novice Robes of Illusion",
-      "item_code": "0010d671",
+      "item_code": "0010D671",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1851,7 +1851,7 @@
   {
     "attributes": {
       "name": "Novice Robes of Restoration",
-      "item_code": "0010d66b",
+      "item_code": "0010D66B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -1912,7 +1912,7 @@
   {
     "attributes": {
       "name": "Prisoner's Cuffs",
-      "item_code": "0010e039",
+      "item_code": "0010E039",
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0,
@@ -2077,7 +2077,7 @@
   {
     "attributes": {
       "name": "Robes of Conjuration",
-      "item_code": "001017b6",
+      "item_code": "001017B6",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2121,7 +2121,7 @@
   {
     "attributes": {
       "name": "Robes of Eminent Alteration",
-      "item_code": "0010173a",
+      "item_code": "0010173A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2231,7 +2231,7 @@
   {
     "attributes": {
       "name": "Robes of Extreme Alteration",
-      "item_code": "0010173b",
+      "item_code": "0010173B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2385,7 +2385,7 @@
   {
     "attributes": {
       "name": "Robes of Major Conjuration",
-      "item_code": "001017b5",
+      "item_code": "001017B5",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2495,7 +2495,7 @@
   {
     "attributes": {
       "name": "Robes of Minor Conjuration",
-      "item_code": "0010177d",
+      "item_code": "0010177D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2583,7 +2583,7 @@
   {
     "attributes": {
       "name": "Robes of Peerless Alteration",
-      "item_code": "0010173c",
+      "item_code": "0010173C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2671,7 +2671,7 @@
   {
     "attributes": {
       "name": "Robes of Peerless Restoration",
-      "item_code": "0010175a",
+      "item_code": "0010175A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2693,7 +2693,7 @@
   {
     "attributes": {
       "name": "Robes of Quickening",
-      "item_code": "0010524f",
+      "item_code": "0010524F",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2711,7 +2711,7 @@
   {
     "attributes": {
       "name": "Robes of Recharging",
-      "item_code": "0010175b",
+      "item_code": "0010175B",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2729,7 +2729,7 @@
   {
     "attributes": {
       "name": "Robes of Replenishing",
-      "item_code": "0010175c",
+      "item_code": "0010175C",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2769,7 +2769,7 @@
   {
     "attributes": {
       "name": "Robes of Resurgence",
-      "item_code": "0010175d",
+      "item_code": "0010175D",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2826,7 +2826,7 @@
   {
     "attributes": {
       "name": "Shrouded Hand Wraps",
-      "item_code": "000cf8a9",
+      "item_code": "000CF8A9",
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
@@ -2839,7 +2839,7 @@
   {
     "attributes": {
       "name": "Shrouded Hood",
-      "item_code": "000cf8a1",
+      "item_code": "000CF8A1",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
@@ -2857,7 +2857,7 @@
   {
     "attributes": {
       "name": "Shrouded Robes",
-      "item_code": "000cf8a0",
+      "item_code": "000CF8A0",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 0.5,
@@ -2875,7 +2875,7 @@
   {
     "attributes": {
       "name": "Shrouded Shoes",
-      "item_code": "000cf89f",
+      "item_code": "000CF89F",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
@@ -2893,7 +2893,7 @@
   {
     "attributes": {
       "name": "Taron Dreth's Robes",
-      "item_code": "xx014c03",
+      "item_code": "XX014C03",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
@@ -2928,7 +2928,7 @@
   {
     "attributes": {
       "name": "Temple Priest Boots",
-      "item_code": "xx03b04b",
+      "item_code": "XX03B04B",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -2941,7 +2941,7 @@
   {
     "attributes": {
       "name": "Temple Priest Hood",
-      "item_code": "xx03b04e",
+      "item_code": "XX03B04E",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 2,
@@ -2954,7 +2954,7 @@
   {
     "attributes": {
       "name": "Temple Priest Robes",
-      "item_code": "xx01cdab",
+      "item_code": "XX01CDAB",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
@@ -2998,7 +2998,7 @@
   {
     "attributes": {
       "name": "Thalmor Robes",
-      "item_code": "00065bbf",
+      "item_code": "00065BBF",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 4,
@@ -3055,7 +3055,7 @@
   {
     "attributes": {
       "name": "Vampire Boots",
-      "item_code": "xx019ae1",
+      "item_code": "XX019AE1",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
@@ -3068,7 +3068,7 @@
   {
     "attributes": {
       "name": "Vampire Gloves",
-      "item_code": "xx019ae3",
+      "item_code": "XX019AE3",
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0.5,
@@ -3081,7 +3081,7 @@
   {
     "attributes": {
       "name": "Vampire Hood",
-      "item_code": "xx019ade",
+      "item_code": "XX019ADE",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
@@ -3094,7 +3094,7 @@
   {
     "attributes": {
       "name": "Vampire Leather Hood",
-      "item_code": "xx089eef",
+      "item_code": "XX089EEF",
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
@@ -3107,7 +3107,7 @@
   {
     "attributes": {
       "name": "Vampire Robes",
-      "item_code": "xx019adf",
+      "item_code": "XX019ADF",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,

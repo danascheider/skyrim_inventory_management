@@ -1,0 +1,119 @@
+[
+  {
+    "attributes": {
+      "name": "Ancient Nord Arrow",
+      "item_code": "00034182",
+      "category": "archery",
+      "weapon_type": "arrow",
+      "unit_weight": 0.0,
+      "base_damage": 10,
+      "leveled": false,
+      "smithing_perks": null,
+      "magical_effects": null,
+      "enchantable": false,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "smithing_materials": [],
+    "tempering_materials": []
+  },
+  {
+    "attributes": {
+      "name": "Ancient Nord Battle Axe of Frost",
+      "item_code": "0005BF06",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 22.0,
+      "base_damage": 18,
+      "leveled": false,
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Steel Smithing"
+      ],
+      "magical_effects": null,
+      "enchantable": false,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [
+      {
+        "name": "Frost Damage",
+        "strength": 10.0
+      }
+    ],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Daedric Battleaxe",
+      "item_code": "000139B4",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 27.0,
+      "base_damage": 25,
+      "leveled": false,
+      "smithing_perks": [
+        "Daedric Smithing"
+      ],
+      "magical_effects": null,
+      "enchantable": true,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "smithing_materials": [
+      {
+        "item_code": "0003AD5B",
+        "quantity": 1
+      },
+      {
+        "item_code": "000800E4",
+        "quantity": 2
+      },
+      {
+        "item_code": "0005AD9D",
+        "quantity": 5
+      }
+    ],
+    "tempering_materials": [
+      {
+        "item_code": "0005AD9D",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Zephyr",
+      "item_code": "XX00CFB6",
+      "category": "archery",
+      "weapon_type": "bow",
+      "unit_weight": 10.0,
+      "base_damage": 12,
+      "leveled": true,
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dwarven Smithing"
+      ],
+      "magical_effects": "Fires 30% faster than a standard bow.",
+      "enchantable": false,
+      "unique_item": true,
+      "quest_item": true
+    },
+    "enchantments": [],
+    "smithing_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "000DB8A2",
+        "quantity": 1
+      }
+    ]
+  }
+]
