@@ -7,11 +7,7 @@ module Canonical
     belongs_to :craftable, polymorphic: true
     belongs_to :material, class_name: 'Canonical::Material'
 
-    # rubocop:disable Lint/RedundantCopDisableDirective
-    # rubocop:disable Rails/UniqueValidationWithoutIndex
     validates :material_id, uniqueness: { scope: %i[craftable_id craftable_type], message: 'must form a unique combination with craftable item' }
-    # rubocop:enable Rails/UniqueValidationWithoutIndex
-    # rubocop:enable Lint/RedundantCopDisableDirective
     validates :quantity, numericality: { only_integer: true, greater_than: 0 }
   end
 end

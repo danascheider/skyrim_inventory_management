@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id", "craftable_id", "craftable_type"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
     t.index ["material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
   end
 
