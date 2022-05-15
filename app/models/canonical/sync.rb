@@ -9,6 +9,7 @@ module Canonical
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
                 enchantment:         Canonical::Sync::Enchantments,
                 material:            Canonical::Sync::Materials,
+                power:               Canonical::Sync::Powers,
                 # Syncers that are not prerequisites for other syncers
                 armor:               Canonical::Sync::Armor,
                 clothing:            Canonical::Sync::ClothingItems,

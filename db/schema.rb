@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_015540) do
+ActiveRecord::Schema.define(version: 2022_05_15_213838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,16 @@ ActiveRecord::Schema.define(version: 2022_05_08_015540) do
     t.index ["game_id"], name: "index_inventory_lists_on_game_id"
     t.index ["property_id"], name: "index_inventory_lists_on_property_id"
     t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
+  end
+
+  create_table "powers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "power_type", null: false
+    t.string "source", null: false
+    t.string "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_powers_on_name", unique: true
   end
 
   create_table "properties", force: :cascade do |t|
