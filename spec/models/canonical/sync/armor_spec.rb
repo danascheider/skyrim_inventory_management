@@ -109,7 +109,7 @@ RSpec.describe Canonical::Sync::Armor do
         end
 
         it "removes associations that don't exist in the JSON data" do
-          item_in_json.canonical_armors_tempering_materials.create!(
+          item_in_json.canonical_temperables_tempering_materials.create!(
             material: create(:canonical_material, name: 'Titanium Ingot'),
             quantity: 2,
           )
@@ -162,7 +162,7 @@ RSpec.describe Canonical::Sync::Armor do
       before do
         create(:enchantment, name: 'Fortify Block')
         material_codes.each {|code| create(:canonical_material, item_code: code) }
-        create(:canonical_armors_tempering_material, armor: item_in_json, material: create(:canonical_material))
+        create(:canonical_temperables_tempering_material, temperable: item_in_json, material: create(:canonical_material))
         allow(described_class).to receive(:new).and_return(syncer)
       end
 
@@ -190,7 +190,7 @@ RSpec.describe Canonical::Sync::Armor do
 
       it "doesn't destroy associations" do
         perform
-        expect(item_in_json.reload.canonical_armors_tempering_materials.length).to eq 2
+        expect(item_in_json.reload.tempering_materials.length).to eq 2
       end
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_035226) do
+ActiveRecord::Schema.define(version: 2022_05_08_015540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,17 +38,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
-  end
-
-  create_table "canonical_armors_tempering_materials", force: :cascade do |t|
-    t.bigint "armor_id", null: false
-    t.bigint "material_id", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["armor_id", "material_id"], name: "index_can_armors_tempering_mats_on_armor_id_and_mat_id", unique: true
-    t.index ["armor_id"], name: "index_canonical_armors_tempering_mats_on_canonical_armor_id"
-    t.index ["material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
   end
 
   create_table "canonical_clothing_items", force: :cascade do |t|
@@ -151,6 +140,17 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
   end
 
+  create_table "canonical_temperables_tempering_materials", force: :cascade do |t|
+    t.bigint "material_id", null: false
+    t.bigint "temperable_id", null: false
+    t.string "temperable_type", null: false
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id", "temperable_id", "temperable_type"], name: "index_temperables_tempering_mats_on_mat_id_and_temperable", unique: true
+    t.index ["material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
+  end
+
   create_table "canonical_weapons", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
@@ -167,17 +167,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
-  end
-
-  create_table "canonical_weapons_tempering_materials", force: :cascade do |t|
-    t.bigint "weapon_id", null: false
-    t.bigint "material_id", null: false
-    t.integer "quantity", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["material_id"], name: "index_can_weapons_temp_mats_on_can_weap_id"
-    t.index ["weapon_id", "material_id"], name: "index_can_weapons_temp_mats_on_weap_and_mat_ids", unique: true
-    t.index ["weapon_id"], name: "index_can_weapons_temp_mats_on_mat_id"
   end
 
   create_table "enchantments", force: :cascade do |t|
@@ -296,14 +285,11 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
-  add_foreign_key "canonical_armors_tempering_materials", "canonical_armors", column: "armor_id"
-  add_foreign_key "canonical_armors_tempering_materials", "canonical_materials", column: "material_id"
   add_foreign_key "canonical_craftables_crafting_materials", "canonical_materials", column: "material_id"
   add_foreign_key "canonical_enchantables_enchantments", "enchantments"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
-  add_foreign_key "canonical_weapons_tempering_materials", "canonical_materials", column: "material_id"
-  add_foreign_key "canonical_weapons_tempering_materials", "canonical_weapons", column: "weapon_id"
+  add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"

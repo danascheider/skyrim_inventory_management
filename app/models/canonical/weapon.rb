@@ -71,12 +71,13 @@ module Canonical
              through: :canonical_craftables_crafting_materials,
              source:  :material
 
-    has_many :canonical_weapons_tempering_materials,
+    has_many :canonical_temperables_tempering_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsTemperingMaterial'
+             class_name: 'Canonical::TemperablesTemperingMaterial',
+             as:         :temperable
     has_many :tempering_materials,
-             -> { select 'canonical_materials.*, canonical_weapons_tempering_materials.quantity as quantity_needed' },
-             through: :canonical_weapons_tempering_materials,
+             -> { select 'canonical_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
+             through: :canonical_temperables_tempering_materials,
              source:  :material
 
     validates :name, presence: true
