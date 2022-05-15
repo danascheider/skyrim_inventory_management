@@ -971,8 +971,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'updates the notes of the item on the aggregate list', :aggregate_failures do
             destroy_item
-            expect(aggregate_list.list_items.first.notes).to match /bar/
-            expect(aggregate_list.list_items.first.notes).not_to match /foo/
+            expect(aggregate_list.list_items.first.notes).to match(/bar/)
+            expect(aggregate_list.list_items.first.notes).not_to match(/foo/)
           end
 
           it 'updates the regular list' do
