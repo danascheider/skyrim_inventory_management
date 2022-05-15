@@ -4,13 +4,13 @@ module Canonical
   class JewelryItem < ApplicationRecord
     self.table_name = 'canonical_jewelry_items'
 
-    has_many :canonical_jewelry_items_enchantments,
+    has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::JewelryItemsEnchantment',
-             inverse_of: :jewelry_item
+             class_name: 'Canonical::EnchantablesEnchantment',
+             as:         :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_jewelry_items_enchantments.strength as strength' },
-             through: :canonical_jewelry_items_enchantments
+             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
+             through: :canonical_enchantables_enchantments
 
     has_many :canonical_jewelry_items_materials,
              dependent:  :destroy,

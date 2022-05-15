@@ -83,7 +83,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         end
 
         it "removes enchantments that don't exist in the JSON data" do
-          item_in_json.canonical_clothing_items_enchantments.create!(
+          item_in_json.canonical_enchantables_enchantments.create!(
             enchantment: Enchantment.find_by(name: 'Fortify Destruction'),
             strength:    2,
           )
@@ -136,7 +136,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         create(:enchantment, name: 'Fortify Magicka')
         create(:enchantment, name: 'Fortify Destruction')
         create(:enchantment, name: 'Fortify Magicka Regen')
-        create(:canonical_clothing_items_enchantment, clothing_item: item_in_json, enchantment: create(:enchantment))
+        create(:canonical_enchantables_enchantment, :for_clothing, enchantable: item_in_json, enchantment: create(:enchantment))
         allow(described_class).to receive(:new).and_return(syncer)
       end
 
@@ -164,7 +164,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
 
       it "doesn't destroy associations" do
         perform
-        expect(item_in_json.reload.canonical_clothing_items_enchantments.length).to eq 2
+        expect(item_in_json.reload.enchantments.length).to eq 2
       end
     end
 

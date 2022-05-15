@@ -54,12 +54,13 @@ module Canonical
 
     self.table_name = 'canonical_weapons'
 
-    has_many :canonical_weapons_enchantments,
+    has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::WeaponsEnchantment'
+             class_name: 'Canonical::EnchantablesEnchantment',
+             as:         :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_weapons_enchantments.strength as strength' },
-             through: :canonical_weapons_enchantments
+             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
+             through: :canonical_enchantables_enchantments
 
     has_many :canonical_weapons_smithing_materials,
              dependent:  :destroy,

@@ -40,17 +40,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
-  create_table "canonical_armors_enchantments", force: :cascade do |t|
-    t.bigint "armor_id", null: false
-    t.bigint "enchantment_id", null: false
-    t.decimal "strength", precision: 5, scale: 2
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["armor_id", "enchantment_id"], name: "index_can_armors_enchantments_on_armor_id_and_ench_id", unique: true
-    t.index ["armor_id"], name: "index_canonical_armors_enchantments_on_armor_id"
-    t.index ["enchantment_id"], name: "index_canonical_armors_enchantments_on_enchantment_id"
-  end
-
   create_table "canonical_armors_smithing_materials", force: :cascade do |t|
     t.bigint "armor_id", null: false
     t.bigint "material_id", null: false
@@ -87,15 +76,15 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
-  create_table "canonical_clothing_items_enchantments", force: :cascade do |t|
-    t.bigint "clothing_item_id", null: false
+  create_table "canonical_enchantables_enchantments", force: :cascade do |t|
     t.bigint "enchantment_id", null: false
+    t.bigint "enchantable_id", null: false
+    t.string "enchantable_type", null: false
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["clothing_item_id", "enchantment_id"], name: "index_can_clthng_enchantments_on_clthng_id_and_ench_id", unique: true
-    t.index ["clothing_item_id"], name: "index_canonical_clothing_enchantments_on_canonical_clothing_id"
-    t.index ["enchantment_id"], name: "index_canonical_clothing_items_enchantments_on_enchantment_id"
+    t.index ["enchantment_id", "enchantable_id", "enchantable_type"], name: "index_enchantables_enchantments_on_enchmnt_id_enchble_id_type", unique: true
+    t.index ["enchantment_id"], name: "index_canonical_enchantables_enchantments_on_enchantment_id"
   end
 
   create_table "canonical_ingredients", force: :cascade do |t|
@@ -135,17 +124,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
-  end
-
-  create_table "canonical_jewelry_items_enchantments", force: :cascade do |t|
-    t.bigint "jewelry_item_id", null: false
-    t.bigint "enchantment_id", null: false
-    t.decimal "strength", precision: 5, scale: 2
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["enchantment_id"], name: "index_canonical_jewelry_items_enchantments_on_enchantment_id"
-    t.index ["jewelry_item_id", "enchantment_id"], name: "index_can_jlry_enchs_on_jlry_id_and_ench_id", unique: true
-    t.index ["jewelry_item_id"], name: "index_canonical_jewelry_items_enchantments_on_jewelry_item_id"
   end
 
   create_table "canonical_jewelry_items_materials", force: :cascade do |t|
@@ -200,17 +178,6 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
-  end
-
-  create_table "canonical_weapons_enchantments", force: :cascade do |t|
-    t.bigint "weapon_id", null: false
-    t.bigint "enchantment_id", null: false
-    t.decimal "strength", precision: 5, scale: 2
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["enchantment_id"], name: "index_can_weapons_enchantments_on_can_weapon_id"
-    t.index ["weapon_id", "enchantment_id"], name: "index_can_weapons_enchantments_on_weap_and_ench_ids", unique: true
-    t.index ["weapon_id"], name: "index_can_weapons_enchantments_on_ench_id"
   end
 
   create_table "canonical_weapons_smithing_materials", force: :cascade do |t|
@@ -351,22 +318,15 @@ ActiveRecord::Schema.define(version: 2022_05_08_035226) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
-  add_foreign_key "canonical_armors_enchantments", "canonical_armors", column: "armor_id"
-  add_foreign_key "canonical_armors_enchantments", "enchantments"
   add_foreign_key "canonical_armors_smithing_materials", "canonical_armors", column: "armor_id"
   add_foreign_key "canonical_armors_smithing_materials", "canonical_materials", column: "material_id"
   add_foreign_key "canonical_armors_tempering_materials", "canonical_armors", column: "armor_id"
   add_foreign_key "canonical_armors_tempering_materials", "canonical_materials", column: "material_id"
-  add_foreign_key "canonical_clothing_items_enchantments", "canonical_clothing_items", column: "clothing_item_id"
-  add_foreign_key "canonical_clothing_items_enchantments", "enchantments"
+  add_foreign_key "canonical_enchantables_enchantments", "enchantments"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
-  add_foreign_key "canonical_jewelry_items_enchantments", "canonical_jewelry_items", column: "jewelry_item_id"
-  add_foreign_key "canonical_jewelry_items_enchantments", "enchantments"
   add_foreign_key "canonical_jewelry_items_materials", "canonical_jewelry_items", column: "jewelry_item_id"
   add_foreign_key "canonical_jewelry_items_materials", "canonical_materials", column: "material_id"
-  add_foreign_key "canonical_weapons_enchantments", "canonical_weapons", column: "weapon_id"
-  add_foreign_key "canonical_weapons_enchantments", "enchantments"
   add_foreign_key "canonical_weapons_smithing_materials", "canonical_materials", column: "material_id"
   add_foreign_key "canonical_weapons_smithing_materials", "canonical_weapons", column: "weapon_id"
   add_foreign_key "canonical_weapons_tempering_materials", "canonical_materials", column: "material_id"

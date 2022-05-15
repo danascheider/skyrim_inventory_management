@@ -2,22 +2,6 @@
 
 class AddAssociationsForCanonicalWeapons < ActiveRecord::Migration[6.1]
   def change
-    create_table :canonical_weapons_enchantments do |t|
-      t.references :weapon,
-                   null:        false,
-                   foreign_key: { to_table: 'canonical_weapons' },
-                   index:       { name: 'index_can_weapons_enchantments_on_ench_id' }
-      t.references :enchantment,
-                   null:        false,
-                   foreign_key: true,
-                   index:       { name: 'index_can_weapons_enchantments_on_can_weapon_id' }
-      t.decimal :strength, precision: 5, scale: 2
-
-      t.index %i[weapon_id enchantment_id], unique: true, name: 'index_can_weapons_enchantments_on_weap_and_ench_ids'
-
-      t.timestamps
-    end
-
     create_table :canonical_weapons_tempering_materials do |t|
       t.references :weapon,
                    null:        false,

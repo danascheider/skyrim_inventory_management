@@ -4,12 +4,13 @@ module Canonical
   class Armor < ApplicationRecord
     self.table_name = 'canonical_armors'
 
-    has_many :canonical_armors_enchantments,
+    has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsEnchantment'
+             class_name: 'Canonical::EnchantablesEnchantment',
+             as:         :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_armors_enchantments.strength as strength' },
-             through: :canonical_armors_enchantments
+             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
+             through: :canonical_enchantables_enchantments
 
     has_many :canonical_armors_smithing_materials,
              dependent:  :destroy,
