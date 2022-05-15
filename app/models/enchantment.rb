@@ -38,17 +38,8 @@ class Enchantment < ApplicationRecord
 
   STRENGTH_UNITS = %w[percentage point second level].freeze
 
-  has_many :canonical_armors_enchantments, class_name: 'Canonical::ArmorsEnchantment', dependent: :destroy
-  has_many :canonical_armors, through: :canonical_armors_enchantments
-
-  has_many :canonical_clothing_items_enchantments, class_name: 'Canonical::ClothingItemsEnchantment', dependent: :destroy
-  has_many :canonical_clothing_items, through: :canonical_clothing_items_enchantments
-
-  has_many :canonical_jewelry_items_enchantments, class_name: 'Canonical::JewelryItemsEnchantment', dependent: :destroy
-  has_many :canonical_jewelry_items, through: :canonical_jewelry_items_enchantments
-
-  has_many :canonical_weapons_enchantments, class_name: 'Canonical::WeaponsEnchantment', dependent: :destroy
-  has_many :canonical_weapons, through: :canonical_weapons_enchantments
+  has_many :canonical_enchantables_enchantments, class_name: 'Canonical::EnchantablesEnchantment', dependent: :destroy
+  has_many :enchantables, through: :canonical_enchantables_enchantments
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,

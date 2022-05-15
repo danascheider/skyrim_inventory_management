@@ -94,7 +94,7 @@ RSpec.describe Canonical::JewelryItem, type: :model do
       let(:enchantment) { create(:enchantment) }
 
       before do
-        item.canonical_jewelry_items_enchantments.create!(enchantment: enchantment, strength: 17)
+        item.canonical_enchantables_enchantments.create!(enchantment: enchantment, strength: 17)
       end
 
       it 'gives the enchantment strength' do

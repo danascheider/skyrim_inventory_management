@@ -4,12 +4,13 @@ module Canonical
   class ClothingItem < ApplicationRecord
     self.table_name = 'canonical_clothing_items'
 
-    has_many :canonical_clothing_items_enchantments,
+    has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
-             class_name: 'Canonical::ClothingItemsEnchantment'
+             class_name: 'Canonical::EnchantablesEnchantment',
+             as:         :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_clothing_items_enchantments.strength as strength' },
-             through: :canonical_clothing_items_enchantments
+             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
+             through: :canonical_enchantables_enchantments
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
