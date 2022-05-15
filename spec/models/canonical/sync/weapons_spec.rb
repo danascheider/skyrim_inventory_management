@@ -48,12 +48,12 @@ RSpec.describe Canonical::Sync::Weapons do
           expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').enchantments.length).to eq 0
         end
 
-        it 'creates the associations to smithing materials where they exist', :aggregate_failures do
+        it 'creates the associations to crafting materials where they exist', :aggregate_failures do
           perform
-          expect(Canonical::Weapon.find_by(item_code: '00034182').smithing_materials.length).to eq 0
-          expect(Canonical::Weapon.find_by(item_code: '0005BF06').smithing_materials.length).to eq 0
-          expect(Canonical::Weapon.find_by(item_code: '000139B4').smithing_materials.length).to eq 3
-          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').smithing_materials.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: '00034182').crafting_materials.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: '0005BF06').crafting_materials.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: '000139B4').crafting_materials.length).to eq 3
+          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').crafting_materials.length).to eq 0
         end
 
         it 'creates the associations to tempering materials where they exist', :aggregate_failures do

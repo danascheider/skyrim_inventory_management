@@ -15,7 +15,7 @@
       "quest_item": false
     },
     "enchantments": [],
-    "smithing_materials": [],
+    "crafting_materials": [],
     "tempering_materials": []
   },
   {
@@ -42,7 +42,7 @@
         "strength": 10.0
       }
     ],
-    "smithing_materials": [],
+    "crafting_materials": [],
     "tempering_materials": [
       {
         "item_code": "0005ACE5",
@@ -68,7 +68,7 @@
       "quest_item": false
     },
     "enchantments": [],
-    "smithing_materials": [
+    "crafting_materials": [
       {
         "item_code": "0003AD5B",
         "quantity": 1
@@ -108,7 +108,7 @@
       "quest_item": true
     },
     "enchantments": [],
-    "smithing_materials": [],
+    "crafting_materials": [],
     "tempering_materials": [
       {
         "item_code": "000DB8A2",

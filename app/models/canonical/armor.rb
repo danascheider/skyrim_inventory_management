@@ -12,12 +12,13 @@ module Canonical
              -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
              through: :canonical_enchantables_enchantments
 
-    has_many :canonical_armors_smithing_materials,
+    has_many :canonical_craftables_crafting_materials,
              dependent:  :destroy,
-             class_name: 'Canonical::ArmorsSmithingMaterial'
-    has_many :smithing_materials,
-             -> { select 'canonical_materials.*, canonical_armors_smithing_materials.quantity as quantity_needed' },
-             through: :canonical_armors_smithing_materials,
+             class_name: 'Canonical::CraftablesCraftingMaterial',
+             as:         :craftable
+    has_many :crafting_materials,
+             -> { select 'canonical_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
+             through: :canonical_craftables_crafting_materials,
              source:  :material
 
     has_many :canonical_armors_tempering_materials,

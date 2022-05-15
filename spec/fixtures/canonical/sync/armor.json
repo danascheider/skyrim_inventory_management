@@ -13,7 +13,7 @@
       "enchantable": false
     },
     "enchantments": [],
-    "smithing_materials": [],
+    "crafting_materials": [],
     "tempering_materials": [
       {
         "item_code": "0005ACE5",
@@ -40,7 +40,7 @@
         "strength": 20
       }
     ],
-    "smithing_materials": [],
+    "crafting_materials": [],
     "tempering_materials": [
       {
         "item_code": "0005ACE5",
@@ -62,7 +62,7 @@
       "enchantable": true
     },
     "enchantments": [],
-    "smithing_materials": [
+    "crafting_materials": [
       {
         "item_code": "0005AD9F",
         "quantity": 2
@@ -101,7 +101,7 @@
       "enchantable": true
     },
     "enchantments": [],
-    "smithing_materials": [
+    "crafting_materials": [
       {
         "item_code": "0003ADA3",
         "quantity": 3
