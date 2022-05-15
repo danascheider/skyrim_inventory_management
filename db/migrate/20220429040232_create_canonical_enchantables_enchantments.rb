@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateEnchantablesEnchantments < ActiveRecord::Migration[6.1]
+class CreateCanonicalEnchantablesEnchantments < ActiveRecord::Migration[6.1]
   def change
     create_table :canonical_enchantables_enchantments do |t|
       t.references :enchantment, null: false, foreign_key: true
