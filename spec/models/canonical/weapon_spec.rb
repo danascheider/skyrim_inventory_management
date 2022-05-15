@@ -179,7 +179,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        weapon.canonical_weapons_tempering_materials.create!(material: material, quantity: 4)
+        weapon.canonical_temperables_tempering_materials.create!(material: material, quantity: 4)
       end
 
       it 'gives the quantity needed' do

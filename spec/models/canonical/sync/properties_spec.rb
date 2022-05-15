@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Properties do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'canonical_properties.json') }
+  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'properties.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
