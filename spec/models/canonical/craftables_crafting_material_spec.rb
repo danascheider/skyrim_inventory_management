@@ -32,7 +32,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
       end
     end
 
-    describe 'canonical material and canonical armor' do
+    describe 'canonical material and craftable item' do
       let(:material) { create(:canonical_material) }
       let(:armor)    { create(:canonical_armor) }
 
@@ -42,6 +42,34 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
 
         model.validate
         expect(model.errors[:material_id]).to include 'must form a unique combination with craftable item'
+      end
+    end
+  end
+
+  describe 'polymorphic associations' do
+    subject(:craftable_type) { described_class.new(craftable: item, material: create(:canonical_material)).craftable_type }
+
+    context 'when the association is an armor item' do
+      let(:item) { create(:canonical_armor) }
+
+      it 'sets the craftable type' do
+        expect(craftable_type).to eq 'Canonical::Armor'
+      end
+    end
+
+    context 'when the association is a weapon' do
+      let(:item) { create(:canonical_weapon) }
+
+      it 'sets the craftable type' do
+        expect(craftable_type).to eq 'Canonical::Weapon'
+      end
+    end
+
+    context 'when the association is a jewelry item' do
+      let(:item) { create(:canonical_jewelry_item) }
+
+      it 'sets the craftable type' do
+        expect(craftable_type).to eq 'Canonical::JewelryItem'
       end
     end
   end

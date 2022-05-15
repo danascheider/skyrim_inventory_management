@@ -42,13 +42,13 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
     end
 
     describe 'polymorphic associations' do
-      subject(:model) { described_class.new(temperable: item, material: create(:canonical_material)) }
+      subject(:temperable_type) { described_class.new(temperable: item, material: create(:canonical_material)).temperable_type }
 
       context 'when the association is an armor item' do
         let(:item) { create(:canonical_armor) }
 
         it 'sets the temperable type' do
-          expect(model.temperable_type).to eq 'Canonical::Armor'
+          expect(temperable_type).to eq 'Canonical::Armor'
         end
       end
 
@@ -56,7 +56,7 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
         let(:item) { create(:canonical_weapon) }
 
         it 'sets the temperable type' do
-          expect(model.temperable_type).to eq 'Canonical::Weapon'
+          expect(temperable_type).to eq 'Canonical::Weapon'
         end
       end
     end
