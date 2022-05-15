@@ -117,11 +117,11 @@ RSpec.describe Canonical::Armor, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        armor.canonical_armors_smithing_materials.create!(material: material, quantity: 4)
+        armor.canonical_craftables_crafting_materials.create!(material: material, quantity: 4)
       end
 
       it 'gives the quantity needed' do
-        expect(armor.smithing_materials.first.quantity_needed).to eq 4
+        expect(armor.crafting_materials.first.quantity_needed).to eq 4
       end
     end
 

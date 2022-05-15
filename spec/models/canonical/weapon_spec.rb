@@ -161,16 +161,16 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'smithing materials' do
+    describe 'crafting materials' do
       let(:weapon)   { create(:canonical_weapon) }
       let(:material) { create(:canonical_material) }
 
       before do
-        weapon.canonical_weapons_smithing_materials.create!(material: material, quantity: 4)
+        weapon.canonical_craftables_crafting_materials.create!(material: material, quantity: 4)
       end
 
       it 'gives the quantity needed' do
-        expect(weapon.smithing_materials.first.quantity_needed).to eq 4
+        expect(weapon.crafting_materials.first.quantity_needed).to eq 4
       end
     end
 

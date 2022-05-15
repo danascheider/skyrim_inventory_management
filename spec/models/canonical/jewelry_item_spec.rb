@@ -107,11 +107,11 @@ RSpec.describe Canonical::JewelryItem, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        item.canonical_jewelry_items_materials.create!(material: material, quantity: 2)
+        item.canonical_craftables_crafting_materials.create!(material: material, quantity: 2)
       end
 
       it 'gives the quantity needed' do
-        expect(item.canonical_materials.first.quantity_needed).to eq 2
+        expect(item.crafting_materials.first.quantity_needed).to eq 2
       end
     end
   end
