@@ -116,7 +116,7 @@
     "spells": [
       {
         "name": "Fury",
-        "strength": null
+        "strength": 4
       }
     ],
     "powers": []
@@ -138,7 +138,7 @@
     "spells": [
       {
         "name": "Calm",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -160,7 +160,7 @@
     "spells": [
       {
         "name": "Repel Undead",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -182,7 +182,7 @@
     "spells": [
       {
         "name": "Turn Greater Undead",
-        "strength": null
+        "strength": 12
       }
     ],
     "powers": []
@@ -230,7 +230,7 @@
     "spells": [
       {
         "name": "Turn Lesser Undead",
-        "strength": null
+        "strength": 4
       }
     ],
     "powers": []
@@ -307,7 +307,7 @@
     "spells": [
       {
         "name": "Fear",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -351,7 +351,7 @@
     "spells": [
       {
         "name": "Calm",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -505,7 +505,7 @@
     "spells": [
       {
         "name": "Fear",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -637,7 +637,7 @@
     "spells": [
       {
         "name": "Frenzy",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -681,7 +681,7 @@
     "spells": [
       {
         "name": "Fury",
-        "strength": null
+        "strength": 4
       }
     ],
     "powers": []
@@ -1050,7 +1050,7 @@
     "spells": [
       {
         "name": "Repel Lesser Undead",
-        "strength": null
+        "strength": 4
       }
     ],
     "powers": []
@@ -1182,7 +1182,7 @@
     "spells": [
       {
         "name": "Turn Lesser Undead",
-        "strength": null
+        "strength": 8
       }
     ],
     "powers": []
@@ -1204,7 +1204,7 @@
     "spells": [
       {
         "name": "Rout",
-        "strength": null
+        "strength": 12
       }
     ],
     "powers": []
