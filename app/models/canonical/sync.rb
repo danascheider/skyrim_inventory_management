@@ -9,6 +9,7 @@ module Canonical
                 alchemical_property: Canonical::Sync::AlchemicalProperties,
                 enchantment:         Canonical::Sync::Enchantments,
                 material:            Canonical::Sync::Materials,
+                power:               Canonical::Sync::Powers,
                 # Syncers that are not prerequisites for other syncers
                 armor:               Canonical::Sync::Armor,
                 clothing:            Canonical::Sync::ClothingItems,
@@ -16,6 +17,7 @@ module Canonical
                 jewelry:             Canonical::Sync::JewelryItems,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,
+                staff:               Canonical::Sync::Staves,
                 weapon:              Canonical::Sync::Weapons,
               }.freeze
 

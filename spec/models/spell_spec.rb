@@ -97,7 +97,7 @@ RSpec.describe Spell, type: :model do
       it 'requires a valid strength_unit value' do
         spell = described_class.new(strength: 50, strength_unit: 'foo')
         spell.validate
-        expect(spell.errors[:strength_unit]).to include 'must be "point" or "percentage"'
+        expect(spell.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
       end
     end
   end

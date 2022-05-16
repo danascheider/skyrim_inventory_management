@@ -150,5 +150,31 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::Weapons).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":power"' do
+      subject(:perform) { described_class.perform(:power, true) }
+
+      before do
+        allow(Canonical::Sync::Powers).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Powers).to have_received(:perform).with(true)
+      end
+    end
+
+    context 'when the model is ":staff"' do
+      subject(:perform) { described_class.perform(:staff, true) }
+
+      before do
+        allow(Canonical::Sync::Staves).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Staves).to have_received(:perform).with(true)
+      end
+    end
   end
 end

@@ -1,0 +1,86 @@
+[
+  {
+    "attributes": {
+      "name": "Halldir's Staff",
+      "item_code": "000AB704",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": "Halldir",
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Soul Trap",
+        "strength": null
+      },
+      {
+        "name": "Pacify",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Minor Staff of Turning",
+      "item_code": "00029B94",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Turn Lesser Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Miraak's Staff",
+      "item_code": "XX039FAC",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": null,
+      "enemy": "Miraak",
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": true
+    },
+    "spells": [],
+    "powers": [
+      { "name": "Mora's Agony" }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Sanguine Rose",
+      "item_code": "0001CB36",
+      "unit_weight": 10.0,
+      "base_damage": 0,
+      "magical_effects": "Summons a level-dependent Dremora to fight for the wielder for 60 seconds",
+      "school": "Conjuration",
+      "enemy": "Sanguine",
+      "daedric": true,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  }
+]
