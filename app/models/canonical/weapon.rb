@@ -62,6 +62,12 @@ module Canonical
              -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
              through: :canonical_enchantables_enchantments
 
+    has_many :canonical_powerables_powers,
+             dependent:  :destroy,
+             class_name: 'Canonical::PowerablesPower',
+             as:         :powerable
+    has_many :powers, through: :canonical_powerables_powers
+
     has_many :canonical_craftables_crafting_materials,
              dependent:  :destroy,
              class_name: 'Canonical::CraftablesCraftingMaterial',

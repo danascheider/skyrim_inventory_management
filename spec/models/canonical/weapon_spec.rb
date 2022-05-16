@@ -161,6 +161,19 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
+    describe 'powers' do
+      let(:weapon) { create(:canonical_weapon) }
+      let(:power)  { create(:power) }
+
+      before do
+        weapon.canonical_powerables_powers.create!(power: power)
+      end
+
+      it 'retrieves the power' do
+        expect(weapon.powers.first).to eq power
+      end
+    end
+
     describe 'crafting materials' do
       let(:weapon)   { create(:canonical_weapon) }
       let(:material) { create(:canonical_material) }

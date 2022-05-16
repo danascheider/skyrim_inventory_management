@@ -17,6 +17,11 @@ class Spell < ApplicationRecord
              Master
            ].freeze
 
+  has_many :canonical_staves_spells,
+           dependent:  :destroy,
+           class_name: 'Canonical::StavesSpell',
+           inverse_of: :spell
+
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :school, presence: true, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic' }
   validates :level, presence: true, inclusion: { in: LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }

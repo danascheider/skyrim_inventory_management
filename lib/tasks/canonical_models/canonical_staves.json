@@ -1,0 +1,1540 @@
+[
+  {
+    "attributes": {
+      "name": "Dragon Priest Staff (Wall of Fire)",
+      "item_code": "0007E5BB",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": "Rahgot",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Flames",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Dragon Priest Staff (Wall of Lightning)",
+      "item_code": "0004DE5B",
+      "unit_weight": 8.0,
+      "base_damage": 2,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": "Nahkriin",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Storms",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Eye of Melka",
+      "item_code": "000B3DFA",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fireball",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Forsworn Staff",
+      "item_code": "000FA2C1",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": "A gout of fire that does 8 points per second. Targets on fire take extra damage.",
+      "school": null,
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Forsworn Staff",
+      "item_code": "000CC826",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": null,
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Gadnor's Staff of Charming",
+      "item_code": "00046E0B",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fury",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Grand Staff of Charming",
+      "item_code": "00029B91",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Calm",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Grand Staff of Repulsion",
+      "item_code": "00029B9B",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Repel Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Grand Staff of Turning",
+      "item_code": "00029B97",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Turn Greater Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Halldir's Staff",
+      "item_code": "000AB704",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": "Halldir",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Soul Trap",
+        "strength": null
+      },
+      {
+        "name": "Pacify",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Minor Staff of Turning",
+      "item_code": "00029B94",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Turn Lesser Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Miraak's Staff",
+      "item_code": "XX039FAC",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": null,
+      "enemy": "Miraak",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": true
+    },
+    "spells": [],
+    "powers": [
+      {
+        "name": "Mora's Agony",
+        "strength": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Sanguine Rose",
+      "item_code": "0001CB36",
+      "unit_weight": 10.0,
+      "base_damage": 0,
+      "magical_effects": "Summons a level-dependent Dremora to fight for the wielder for 60 seconds",
+      "school": "Conjuration",
+      "enemy": "Sanguine",
+      "description": null,
+      "daedric": true,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Skull of Corruption",
+      "item_code": "00035066",
+      "unit_weight": 10.0,
+      "base_damage": 0,
+      "magical_effects": "20 points damage, increases to 50 if powered with dreams collected from sleeping people.",
+      "school": null,
+      "enemy": "Vaermina",
+      "description": null,
+      "daedric": true,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Arcane Authority",
+      "item_code": "000940D8",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": " ",
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fear",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Banishing",
+      "item_code": "000A88C9",
+      "unit_weight": 8.0,
+      "base_damage": 17,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Banish",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Calm",
+      "item_code": "00029B8B",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Calm",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Chain Lightning (Falmer)",
+      "item_code": "XX011D56",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Chain Lightning",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Chain Lightning (Standard)",
+      "item_code": "00029B84",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Chain Lightning",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Courage",
+      "item_code": "00029B88",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Courage",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Daedric Command",
+      "item_code": "00029B7B",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Command Daedra",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Dread Zombies",
+      "item_code": "00029B7C",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Dread Zombie",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Expulsion",
+      "item_code": "00029B7E",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Expel Daedra",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Fear",
+      "item_code": "00029B8C",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fear",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Fireballs (Falmer)",
+      "item_code": "XX011D57",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fireball",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Fireballs (Standard)",
+      "item_code": "00029B82",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fireball",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Firebolts (Falmer)",
+      "item_code": "XX011D5D",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Firebolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Firebolts (Standard)",
+      "item_code": "0004C6CA",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Firebolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Flames",
+      "item_code": "0004DEE0",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Flames",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Frenzy",
+      "item_code": "00029B8F",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Frenzy",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Frostbite",
+      "item_code": "0004DEE1",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Frostbite",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Fury",
+      "item_code": "00029B89",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Fury",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Hag's Wrath",
+      "item_code": "0007A4FB",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Flames",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Ice Spikes (Falmer)",
+      "item_code": "XX011D5E",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Ice Spike",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Ice Spikes (Standard)",
+      "item_code": "0004DED8",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Ice Spike",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Ice Storms (Falmer)",
+      "item_code": "XX011D5F",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Ice Storm",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Ice Storms (Standard)",
+      "item_code": "00029B83",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Ice Storm",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Icy Spear",
+      "item_code": "0010FCF7",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Icy Spear",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Incineration",
+      "item_code": "0010FCF2",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Incinerate",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Inspiration",
+      "item_code": "00029B8E",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Rally",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Jyrik Gauldurson",
+      "item_code": "000E5F43",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": "Jyrik Gauldurson",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Lightning Bolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Lightning Bolts (Falmer)",
+      "item_code": "XX011D60",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Lightning Bolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Lightning Bolts (Standard)",
+      "item_code": "0004DEE3",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Lightning Bolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Magelight",
+      "item_code": "000BE121",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Alteration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Magelight",
+        "strength": 60
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Magnus",
+      "item_code": "00035369",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": "Absorb 20 Magicka per second. If the target is out of Magicka, absorb Health instead.",
+      "school": "Destruction",
+      "enemy": "Morokei",
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Mending",
+      "item_code": "00029B99",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Heal Other",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Paralysis",
+      "item_code": "00029B73",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Alteration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Paralyze",
+        "strength": 10
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Reanimation",
+      "item_code": "00029B76",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Reanimate Corpse",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Repulsion",
+      "item_code": "00029B9A",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Repel Lesser Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Revenants",
+      "item_code": "00029B7A",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Revenant",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Soul Trapping",
+      "item_code": "000BE122",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Soul Trap",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Sparks",
+      "item_code": "0004DEE2",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Sparks",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Tandil",
+      "item_code": "0006A093",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Calm",
+        "strength": 12
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Thunderbolts",
+      "item_code": "0010FCF4",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Thunderbolt",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Turning",
+      "item_code": "00029B95",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Turn Lesser Undead",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Vanquishment",
+      "item_code": "00029B92",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Rout",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of Zombies",
+      "item_code": "00029B74",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Raise Zombie",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Familiar",
+      "item_code": "0029B75",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Familiar",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Flame Atronach (Falmer)",
+      "item_code": "XX011D58",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Flame Atronach",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Flame Atronach (Standard)",
+      "item_code": "00029B78",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Flame Atronach",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Flame Wall",
+      "item_code": "00029B85",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Flames",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Frost Atronach (Falmer)",
+      "item_code": "000BE120",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Frost Atronach",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Frost Atronach (Standard)",
+      "item_code": "000BE120",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Frost Atronach",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Frost Wall",
+      "item_code": "00029B86",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Frost",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Healing Hand",
+      "item_code": "00029B93",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Healing Hands",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Storm Atronach",
+      "item_code": "00029B7D",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Conjure Storm Atronach",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Staff of the Storm Wall",
+      "item_code": "00029B87",
+      "unit_weight": 8.0,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "description": null,
+      "daedric": false,
+      "unique_item": false,
+      "quest_item": false,
+      "leveled": false
+    },
+    "spells": [
+      {
+        "name": "Wall of Storms",
+        "strength": null
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Wabbajack",
+      "item_code": "0002AC6F",
+      "unit_weight": 10.0,
+      "base_damage": 27,
+      "magical_effects": "A blast from Wabbajack with an unpredictable effect",
+      "school": null,
+      "enemy": "Sheogorath",
+      "description": null,
+      "daedric": true,
+      "unique_item": true,
+      "quest_item": true,
+      "leveled": false
+    },
+    "spells": [],
+    "powers": []
+  }
+]
