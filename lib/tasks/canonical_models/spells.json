@@ -41,8 +41,8 @@
       "school": "Restoration",
       "level": "Master",
       "description": "Sets undead up to level 30 on fire and makes them flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 30,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -137,8 +137,8 @@
       "school": "Illusion",
       "level": "Apprentice",
       "description": "Creatures and people up to level 9 won't fight for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 9,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -173,8 +173,8 @@
       "school": "Restoration",
       "level": "Expert",
       "description": "Undead up to level 20 entering the circle will flee.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 20,
+      "strength_unit": "level",
       "base_duration": null,
       "effects_cumulative": false
     }
@@ -509,8 +509,8 @@
       "school": "Illusion",
       "level": "Apprentice",
       "description": "Creatures and people up to level 9 flee from combat for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 9,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -617,8 +617,8 @@
       "school": "Illusion",
       "level": "Adept",
       "description": "Creatures and people up to level 14 will attack anyone nearby for 60 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 14,
+      "strength_unit": "level",
       "base_duration": 60,
       "effects_cumulative": false
     }
@@ -629,8 +629,8 @@
       "school": "Illusion",
       "level": "Adept",
       "description": "Targets up to level 20 that fail to resist are frenzied for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 20,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -689,8 +689,8 @@
       "school": "Illusion",
       "level": "Novice",
       "description": "Creatures and people up to level 6 will attack anything nearby for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 6,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -737,8 +737,8 @@
       "school": "Illusion",
       "level": "Master",
       "description": "Creatures and people up to level 25 nearby won't fight for 60 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 25,
+      "strength_unit": "level",
       "base_duration": 60,
       "effects_cumulative": false
     }
@@ -797,8 +797,8 @@
       "school": "Illusion",
       "level": "Master",
       "description": "Creatures and people up to level 25 flee from combat.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 25,
+      "strength_unit": "level",
       "base_duration": 60,
       "effects_cumulative": false
     }
@@ -977,8 +977,8 @@
       "school": "Illusion",
       "level": "Master",
       "description": "Creatures and people up to level 25 will attack anyone nearby for 60 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 25,
+      "strength_unit": "level",
       "base_duration": 60,
       "effects_cumulative": false
     }
@@ -1025,8 +1025,8 @@
       "school": "Illusion",
       "level": "Expert",
       "description": "Creatures and people up to level 20 won't fight for 60 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 20,
+      "strength_unit": "level",
       "base_duration": 60,
       "effects_cumulative": false
     }
@@ -1097,8 +1097,8 @@
       "school": "Restoration",
       "level": "Adept",
       "description": "All affected undead up to level 8 flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 8,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1109,8 +1109,8 @@
       "school": "Restoration",
       "level": "Expert",
       "description": "All affected undead up to level 16 flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 16,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1133,8 +1133,8 @@
       "school": "Illusion",
       "level": "Expert",
       "description": "Creatures and people up to level 20 flee from combat for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 20,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1313,8 +1313,8 @@
       "school": "Restoration",
       "level": "Expert",
       "description": "Undead up to level 21 flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 21,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1325,8 +1325,8 @@
       "school": "Restoration",
       "level": "Apprentice",
       "description": "Undead up to level 6 flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 6,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1337,8 +1337,8 @@
       "school": "Restoration",
       "level": "Adept",
       "description": "Undead up to level 13 flee for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 13,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }
@@ -1361,8 +1361,8 @@
       "school": "Illusion",
       "level": "Apprentice",
       "description": "Calms creatures and people up to level 10 for 30 seconds.",
-      "strength": null,
-      "strength_unit": null,
+      "strength": 10,
+      "strength_unit": "level",
       "base_duration": 30,
       "effects_cumulative": false
     }

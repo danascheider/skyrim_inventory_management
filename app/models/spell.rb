@@ -20,7 +20,12 @@ class Spell < ApplicationRecord
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :school, presence: true, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic' }
   validates :level, presence: true, inclusion: { in: LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }
-  validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
+  validates :strength_unit,
+            inclusion: {
+                         in:          %w[point percentage level],
+                         message:     'must be "point", "percentage", or the "level" of affected targets',
+                         allow_blank: true,
+                       }
   validates :description, presence: true
   validate :strength_and_strength_unit_both_or_neither_present
 
