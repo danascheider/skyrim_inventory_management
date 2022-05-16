@@ -165,7 +165,7 @@ RSpec.describe Canonical::Sync do
     end
 
     context 'when the model is ":staff"' do
-      subject(:perform) { described_class.perform(:power, true) }
+      subject(:perform) { described_class.perform(:staff, true) }
 
       before do
         allow(Canonical::Sync::Staves).to receive(:perform)
