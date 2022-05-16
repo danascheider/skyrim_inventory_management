@@ -21,7 +21,7 @@ There are additional models that can also be considered canonical, but are not n
 * [`Spell`](/app/models/spell.rb): actual spells that exist in the game
 * [`Power`](/app/models/power.rb): actual powers and abilities that exist in the game
 
-Note that the models listed above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly synced in the SIM database with data from the game. These include:
+Note that the lists above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly synced in the SIM database with data from the game. These include:
 
 * [`Canonical::EnchantablesEnchantment`](/app/models/canonical/enchantables_enchantment.rb): This polymorphic join table associates enchantments with any enchantable items, including armours, jewellery, clothing items, and weapons, adding a field called `strength` for the strength of the enchantment on that particular item
 * [`Canonical::CraftablesCraftingMaterial`](/app/models/canonical/craftables_crafting_material.rb): This polymorphic join table associates canonical materials with any items that are able to be crafted using those materials, including armours, jewellery, and weapons, adding a field called `quantity` for the quantity of a given material needed to craft that particular item
