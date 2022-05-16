@@ -24,6 +24,13 @@ RSpec.describe Canonical::StavesSpell, type: :model do
         model.validate
         expect(model.errors[:strength]).to include 'must be greater than 0'
       end
+
+      it 'must be an integer' do
+        model = build(:canonical_staves_spell, strength: 1.7)
+
+        model.validate
+        expect(model.errors[:strength]).to include 'must be an integer'
+      end
     end
 
     describe 'staff and spell' do

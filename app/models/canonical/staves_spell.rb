@@ -7,7 +7,7 @@ module Canonical
     belongs_to :staff, class_name: 'Canonical::Staff'
     belongs_to :spell
 
-    validates :strength, numericality: { greater_than: 0, allow_blank: true }
+    validates :strength, numericality: { greater_than: 0, only_integer: true, allow_blank: true }
     validates :staff_id, uniqueness: { scope: :spell_id, message: 'must form a unique combination with spell' }
   end
 end
