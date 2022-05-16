@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 2022_05_16_043808) do
     t.integer "base_damage", null: false
     t.string "magical_effects"
     t.string "school"
-    t.string "dragon_priest"
+    t.string "enemy"
     t.boolean "daedric", default: false, null: false
     t.boolean "unique_item", default: false, null: false
     t.boolean "quest_item", default: false, null: false

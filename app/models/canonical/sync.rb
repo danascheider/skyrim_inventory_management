@@ -17,6 +17,7 @@ module Canonical
                 jewelry:             Canonical::Sync::JewelryItems,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,
+                staff:               Canonical::Sync::Staves,
                 weapon:              Canonical::Sync::Weapons,
               }.freeze
 

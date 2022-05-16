@@ -37,5 +37,9 @@ module Canonical
     validates :daedric, inclusion: { in: [true, false], message: 'boolean value must be present' }
     validates :unique_item, inclusion: { in: [true, false], message: 'boolean value must be present' }
     validates :quest_item, inclusion: { in: [true, false], message: 'boolean value must be present' }
+
+    def self.unique_identifier
+      :item_code
+    end
   end
 end

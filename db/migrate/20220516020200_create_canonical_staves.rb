@@ -9,7 +9,7 @@ class CreateCanonicalStaves < ActiveRecord::Migration[6.1]
       t.integer :base_damage, null: false
       t.string :magical_effects
       t.string :school
-      t.string :dragon_priest
+      t.string :enemy
       t.boolean :daedric, null: false, default: false
       t.boolean :unique_item, null: false, default: false
       t.boolean :quest_item, null: false, default: false

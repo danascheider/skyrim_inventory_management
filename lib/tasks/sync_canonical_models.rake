@@ -107,6 +107,18 @@ namespace :canonical_models do
 
       Canonical::Sync.perform(:weapon, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
+
+    desc 'Sync canonical staff models in the database with JSON data'
+    task :staves,
+         %i[preserve_existing_records] => %w[
+                                            environment
+                                            canonical_models:sync:spells
+                                            canonical_models:sync:powers
+                                          ] do |_t, args|
+        args.with_defaults(preserve_existing_records: false)
+
+        Canonical::Sync.perform(:staff, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+      end
     # rubocop:enable Layout/BlockAlignment
 
     desc 'Sync all canonical models with JSON files'
