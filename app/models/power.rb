@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Power < ApplicationRecord
+  has_many :canonical_powerables_powers,
+           dependent:  :destroy,
+           class_name: 'Canonical::PowerablesPower'
+  has_many :powerables, through: :canonical_powerables_powers
+
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :power_type,
             presence:  true,
