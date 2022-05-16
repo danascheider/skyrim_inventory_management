@@ -9,7 +9,7 @@ RSpec.describe Canonical::Sync::Weapons do
   let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'weapons.json') }
   let!(:json_data) { File.read(json_path) }
 
-  let(:material_codes) { %w[0005ACE5 0003AD5B 000800E4 0005AD9D 000DB8A2] }
+  let(:material_codes) { %w[0005ACE5 0003AD5B 000800E4 0005AD9D 0005ADA1] }
 
   before do
     allow(File).to receive(:read).and_return(json_data)
@@ -26,6 +26,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
         before do
           create(:enchantment, name: 'Frost Damage')
+          create(:power, name: 'Blessing of the Stag Prince')
           material_codes.each {|code| create(:canonical_material, item_code: code) }
           allow(described_class).to receive(:new).and_return(syncer)
         end
@@ -45,7 +46,7 @@ RSpec.describe Canonical::Sync::Weapons do
           expect(Canonical::Weapon.find_by(item_code: '00034182').enchantments.length).to eq 0
           expect(Canonical::Weapon.find_by(item_code: '0005BF06').enchantments.length).to eq 1
           expect(Canonical::Weapon.find_by(item_code: '000139B4').enchantments.length).to eq 0
-          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').enchantments.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: 'XX018ED5').enchantments.length).to eq 0
         end
 
         it 'creates the associations to crafting materials where they exist', :aggregate_failures do
@@ -53,7 +54,7 @@ RSpec.describe Canonical::Sync::Weapons do
           expect(Canonical::Weapon.find_by(item_code: '00034182').crafting_materials.length).to eq 0
           expect(Canonical::Weapon.find_by(item_code: '0005BF06').crafting_materials.length).to eq 0
           expect(Canonical::Weapon.find_by(item_code: '000139B4').crafting_materials.length).to eq 3
-          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').crafting_materials.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: 'XX018ED5').crafting_materials.length).to eq 0
         end
 
         it 'creates the associations to tempering materials where they exist', :aggregate_failures do
@@ -61,7 +62,15 @@ RSpec.describe Canonical::Sync::Weapons do
           expect(Canonical::Weapon.find_by(item_code: '00034182').tempering_materials.length).to eq 0
           expect(Canonical::Weapon.find_by(item_code: '0005BF06').tempering_materials.length).to eq 1
           expect(Canonical::Weapon.find_by(item_code: '000139B4').tempering_materials.length).to eq 1
-          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6').tempering_materials.length).to eq 1
+          expect(Canonical::Weapon.find_by(item_code: 'XX018ED5').tempering_materials.length).to eq 1
+        end
+
+        it 'creates the associations to powers where they exist', :aggregate_failures do
+          perform
+          expect(Canonical::Weapon.find_by(item_code: '00034182').powers.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: '0005BF06').powers.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: '000139B4').powers.length).to eq 0
+          expect(Canonical::Weapon.find_by(item_code: 'XX018ED5').powers.length).to eq 1
         end
       end
 
@@ -72,6 +81,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
         before do
           create(:enchantment, name: 'Frost Damage')
+          create(:power, name: 'Blessing of the Stag Prince')
           material_codes.each {|code| create(:canonical_material, item_code: code) }
         end
 
@@ -95,7 +105,7 @@ RSpec.describe Canonical::Sync::Weapons do
           perform
           expect(Canonical::Weapon.find_by(item_code: '00034182')).to be_present
           expect(Canonical::Weapon.find_by(item_code: '000139B4')).to be_present
-          expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6')).to be_present
+          expect(Canonical::Weapon.find_by(item_code: 'XX018ED5')).to be_present
         end
 
         it "removes associations that don't exist in the JSON data" do
@@ -132,6 +142,7 @@ RSpec.describe Canonical::Sync::Weapons do
           # enchantments or materials at all
           create(:enchantment)
           create(:canonical_material)
+          create(:power)
           allow(Rails.logger).to receive(:error).twice
         end
 
@@ -151,6 +162,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
       before do
         create(:enchantment, name: 'Frost Damage')
+        create(:power, name: 'Blessing of the Stag Prince')
         material_codes.each {|code| create(:canonical_material, item_code: code) }
         create(:canonical_temperables_tempering_material, temperable: item_in_json, material: create(:canonical_material))
         allow(described_class).to receive(:new).and_return(syncer)
@@ -170,7 +182,7 @@ RSpec.describe Canonical::Sync::Weapons do
         perform
         expect(Canonical::Weapon.find_by(item_code: '00034182')).to be_present
         expect(Canonical::Weapon.find_by(item_code: '000139B4')).to be_present
-        expect(Canonical::Weapon.find_by(item_code: 'XX00CFB6')).to be_present
+        expect(Canonical::Weapon.find_by(item_code: 'XX018ED5')).to be_present
       end
 
       it "doesn't destroy models that aren't in the JSON data" do
@@ -199,6 +211,7 @@ RSpec.describe Canonical::Sync::Weapons do
         before do
           create(:enchantment)
           create(:canonical_material)
+          create(:power)
 
           allow_any_instance_of(Canonical::Weapon)
             .to receive(:save!)
