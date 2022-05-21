@@ -115,10 +115,21 @@ namespace :canonical_models do
                                             canonical_models:sync:spells
                                             canonical_models:sync:powers
                                           ] do |_t, args|
-        args.with_defaults(preserve_existing_records: false)
+      args.with_defaults(preserve_existing_records: false)
 
-        Canonical::Sync.perform(:staff, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
-      end
+      Canonical::Sync.perform(:staff, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+    end
+
+    desc 'Sync canonical book models in the database with JSON data'
+    task :books,
+         %i[preserve_existing_records] => %w[
+                                            environment
+                                            canonical_models:sync:ingredients
+                                          ] do |_t, args|
+      args.with_defaults(preserve_existing_records: false)
+
+      Canonical::Sync.perform(:book, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+    end
     # rubocop:enable Layout/BlockAlignment
 
     desc 'Sync all canonical models with JSON files'

@@ -10,10 +10,11 @@ module Canonical
                 enchantment:         Canonical::Sync::Enchantments,
                 material:            Canonical::Sync::Materials,
                 power:               Canonical::Sync::Powers,
+                ingredient:          Canonical::Sync::Ingredients,
                 # Syncers that are not prerequisites for other syncers
                 armor:               Canonical::Sync::Armor,
+                book:                Canonical::Sync::Books,
                 clothing:            Canonical::Sync::ClothingItems,
-                ingredient:          Canonical::Sync::Ingredients,
                 jewelry:             Canonical::Sync::JewelryItems,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,
