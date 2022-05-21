@@ -48,7 +48,7 @@ RSpec.describe Canonical::Sync::Books do
       end
 
       context 'when there are existing book records in the database' do
-        let!(:book_in_json)     { create(:canonical_book, item_code: '000F5CB8', book_type: 'recipe', title: 'The Seven Habits of Highly Successful People') }
+        let!(:book_in_json)     { create(:canonical_recipe, item_code: '000F5CB8', title: 'The Seven Habits of Highly Successful People') }
         let!(:book_not_in_json) { create(:canonical_book, item_code: '12345678') }
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
@@ -124,7 +124,7 @@ RSpec.describe Canonical::Sync::Books do
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
       let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:book_in_json)             { create(:canonical_book, item_code: '000F5CB8', title: 'Rich Dad, Poor Dad', book_type: 'recipe') }
+      let!(:book_in_json)             { create(:canonical_recipe, item_code: '000F5CB8', title: 'Rich Dad, Poor Dad') }
       let!(:book_not_in_json)         { create(:canonical_book, item_code: '12345678') }
 
       before do
