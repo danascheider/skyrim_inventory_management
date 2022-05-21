@@ -108,7 +108,7 @@ RSpec.describe Canonical::Sync::Books do
       context 'when a canonical ingredient is missing' do
         before do
           # prevent it from erroring out, which it will do if there are no
-          # enchantments all
+          # ingredients at all
           create(:canonical_ingredient)
           allow(Rails.logger).to receive(:error).twice
         end
