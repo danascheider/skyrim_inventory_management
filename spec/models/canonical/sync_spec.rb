@@ -176,5 +176,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::Staves).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":book"' do
+      subject(:perform) { described_class.perform(:book, false) }
+
+      before do
+        allow(Canonical::Sync::Books).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Books).to have_received(:perform).with(false)
+      end
+    end
   end
 end

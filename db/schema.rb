@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_16_043808) do
+ActiveRecord::Schema.define(version: 2022_05_21_032400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 2022_05_16_043808) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
+  end
+
+  create_table "canonical_books", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "title_variants", default: [], array: true
+    t.string "item_code", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
+    t.string "book_type", null: false
+    t.string "authors", default: [], array: true
+    t.string "skill_name"
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", default: false, null: false
+    t.boolean "solstheim_only", default: false, null: false
+    t.boolean "quest_item", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_code"], name: "index_canonical_books_on_item_code", unique: true
   end
 
   create_table "canonical_clothing_items", force: :cascade do |t|
@@ -148,6 +166,16 @@ ActiveRecord::Schema.define(version: 2022_05_16_043808) do
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
+  end
+
+  create_table "canonical_recipes_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_canonical_recipes_ingredients_on_ingredient_id"
+    t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
+    t.index ["recipe_id"], name: "index_canonical_recipes_ingredients_on_recipe_id"
   end
 
   create_table "canonical_staves", force: :cascade do |t|
@@ -338,6 +366,8 @@ ActiveRecord::Schema.define(version: 2022_05_16_043808) do
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_powerables_powers", "powers"
+  add_foreign_key "canonical_recipes_ingredients", "canonical_books", column: "recipe_id"
+  add_foreign_key "canonical_recipes_ingredients", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
   add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
