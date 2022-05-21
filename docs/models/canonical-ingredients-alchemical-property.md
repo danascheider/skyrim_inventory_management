@@ -1,6 +1,6 @@
-# CanonicalIngredientsAlchemicalProperty
+# Canonical::IngredientsAlchemicalProperty
 
-The `CanonicalIngredientsAlchemicalProperty` model is a join model between `Canonical::Ingredient` and `AlchemicalProperty`. It has a couple noteworthy characteristics.
+The `Canonical::IngredientsAlchemicalProperty` model is a join model between `Canonical::Ingredient` and `AlchemicalProperty`. It has a couple noteworthy characteristics.
 
 ## Count Limit
 
@@ -10,9 +10,9 @@ Each ingredient has four and only four alchemical properties. Therefore, a valid
 
 In Skyrim, each ingredient's properties have a priority that affects which potions are produced, how strong they are, and how long the effects last when they are combined with other ingredients. ([This wiki page](https://en.uesp.net/wiki/Skyrim:Alchemy_Effects) offers detailed information about how priority affects potions produced.) In SIM, the `priority` field is used to track this. Because each canonical ingredient has exactly four alchemical properties, the integer priority values for each model will range from 1 to 4.
 
-There is a uniqueness constraint in place on the `CanonicalIngredientsAlchemicalProperty` model to ensure that each ingredient only has one property with each valid value. Because of this, changing priority values after four models with priorities exist in the database for a single ingredient requires an additional step. Before you can change the priority on any model, you will need to clear any that conflict.
+There is a uniqueness constraint in place on the `Canonical::IngredientsAlchemicalProperty` model to ensure that each ingredient only has one property with each valid value. Because of this, changing priority values after four models with priorities exist in the database for a single ingredient requires an additional step. Before you can change the priority on any model, you will need to clear any that conflict.
 
-Say you have four `CanonicalIngredientsAlchemicalProperty` models:
+Say you have four `Canonical::IngredientsAlchemicalProperty` models:
 ```ruby
 [
   {
