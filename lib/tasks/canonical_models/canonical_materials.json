@@ -163,6 +163,15 @@
   },
   {
     "attributes": {
+      "name": "Small Antlers",
+      "item_code": "0006BC0B",
+      "building_material": true,
+      "smithing_material": false,
+      "unit_weight": 0.1
+    }
+  },
+  {
+    "attributes": {
       "name": "Straw",
       "item_code": "XX005A68",
       "building_material": true,
@@ -172,11 +181,11 @@
   },
   {
     "attributes": {
-      "name": "Small Antlers",
-      "item_code": "0006BC0B",
+      "name": "Troll Skull",
+      "item_code": "000319E4",
       "building_material": true,
       "smithing_material": false,
-      "unit_weight": 0.1
+      "unit_weight": 3.5
     }
   },
   {

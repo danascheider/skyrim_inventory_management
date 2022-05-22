@@ -531,16 +531,6 @@
   },
   {
     "attributes": {
-      "name": "Muffle",
-      "school": null,
-      "enchantable_items": [
-        "feet"
-      ],
-      "strength_unit": "percentage"
-    }
-  },
-  {
-    "attributes": {
       "name": "Frost Damage",
       "school": "Destruction",
       "enchantable_items": [
@@ -594,6 +584,16 @@
         "other"
       ],
       "strength_unit": "point"
+    }
+  },
+  {
+    "attributes": {
+      "name": "Muffle",
+      "school": null,
+      "enchantable_items": [
+        "feet"
+      ],
+      "strength_unit": "percentage"
     }
   },
   {

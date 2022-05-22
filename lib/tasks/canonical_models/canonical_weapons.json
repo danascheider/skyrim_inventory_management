@@ -125,6 +125,32 @@
   },
   {
     "attributes": {
+      "name": "Ancient Nord Battle Axe",
+      "item_code": "0001CB64",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 22.0,
+      "base_damage": 18,
+      "leveled": false,
+      "smithing_perks": [
+        "Steel Smithing"
+      ],
+      "magical_effects": null,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
       "name": "Ancient Nord Battle Axe of Cold",
       "item_code": "0005BF07",
       "category": "two-handed",
@@ -213,32 +239,6 @@
         "strength": 15.0
       }
     ],
-    "crafting_materials": [],
-    "tempering_materials": [
-      {
-        "item_code": "0005ACE5",
-        "quantity": 1
-      }
-    ],
-    "powers": []
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord Battle Axe",
-      "item_code": "0001CB64",
-      "category": "two-handed",
-      "weapon_type": "battleaxe",
-      "unit_weight": 22.0,
-      "base_damage": 18,
-      "leveled": false,
-      "smithing_perks": [
-        "Steel Smithing"
-      ],
-      "magical_effects": null,
-      "unique_item": false,
-      "quest_item": false
-    },
-    "enchantments": [],
     "crafting_materials": [],
     "tempering_materials": [
       {
@@ -52141,6 +52141,33 @@
   },
   {
     "attributes": {
+      "name": "Honed Ancient Nord Battle Axe",
+      "item_code": "0005BF12",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 25.0,
+      "base_damage": 21,
+      "leveled": false,
+      "smithing_perks": [
+        "Dwarven Smithing"
+      ],
+      "magical_effects": null,
+      "enchantable": true,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
       "name": "Honed Ancient Nord Battle Axe of Cold",
       "item_code": "000DDD64",
       "category": "two-handed",
@@ -52217,33 +52244,6 @@
     ],
     "crafting_materials": [],
     "tempering_materials": [],
-    "powers": []
-  },
-  {
-    "attributes": {
-      "name": "Honed Ancient Nord Battle Axe",
-      "item_code": "0005BF12",
-      "category": "two-handed",
-      "weapon_type": "battleaxe",
-      "unit_weight": 25.0,
-      "base_damage": 21,
-      "leveled": false,
-      "smithing_perks": [
-        "Dwarven Smithing"
-      ],
-      "magical_effects": null,
-      "enchantable": true,
-      "unique_item": false,
-      "quest_item": false
-    },
-    "enchantments": [],
-    "crafting_materials": [],
-    "tempering_materials": [
-      {
-        "item_code": "0005ACE5",
-        "quantity": 1
-      }
-    ],
     "powers": []
   },
   {
