@@ -2562,25 +2562,6 @@
   },
   {
     "attributes": {
-      "name": "Necklace of Resist Frost",
-      "item_code": "000FC049",
-      "jewelry_type": "amulet",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "magical_effects": null,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Resist Frost",
-        "strength": 15
-      }
-    ],
-    "crafting_materials": []
-  },
-  {
-    "attributes": {
       "name": "Necklace of Frost Suppression",
       "item_code": "000FC04C",
       "jewelry_type": "amulet",
@@ -3619,6 +3600,25 @@
     "enchantments": [
       {
         "name": "Resist Fire",
+        "strength": 15
+      }
+    ],
+    "crafting_materials": []
+  },
+  {
+    "attributes": {
+      "name": "Necklace of Resist Frost",
+      "item_code": "000FC049",
+      "jewelry_type": "amulet",
+      "unit_weight": 0.5,
+      "quest_item": false,
+      "magical_effects": null,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Frost",
         "strength": 15
       }
     ],

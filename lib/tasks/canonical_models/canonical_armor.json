@@ -40848,6 +40848,37 @@
   },
   {
     "attributes": {
+      "name": "Savior's Hide",
+      "item_code": "0002AC61",
+      "unit_weight": 6,
+      "body_slot": "body",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Resist Magic",
+        "strength": 15
+      },
+      {
+        "name": "Resist Poison",
+        "strength": 50
+      }
+    ],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "000DB5D2",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Scaled Armor",
       "item_code": "0001B3A3",
       "unit_weight": 6,
