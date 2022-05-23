@@ -8,7 +8,7 @@ The `title_variants` array includes alternative spellings of the title, full tit
 
 ## Book Type
 
-There are numerous items classed as "books" in Skyrim. These include letters, documents, journals, recipes, lore books, skill books, quest books, black books, treasure maps, and elder scrolls.
+There are numerous items classed as "books" in Skyrim. These include letters, documents, journals, recipes, lore books, skill books, quest books, Black Books, treasure maps, and Elder Scrolls.
 
 ### Recipes
 

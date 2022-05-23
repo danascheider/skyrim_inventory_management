@@ -1,6 +1,6 @@
 # Canonical Models
 
-SIM knows certain things about Skyrim that it may or may not immediately reveal to users. However, it will prevent users from creating impossible objects for UX reasons. Which objects are impossible is a hard question to answer without canonical data: the actual set of objects that exist in Skyrim. The purpose of canonical models is to store the data used to validate user input. The following canonical models exist in the SIM database:
+The following canonical models exist in the SIM database:
 
 * [`Canonical::Armor`](/app/models/canonical/armor.rb): actual armor pieces available in the game
 * [`Canonical::Book`](/app/models/canonical/book.rb): actual books, letters, recipes, and journals available in the game; includes Elder Scrolls; additional information about this model is available [here](/docs/models/canonical-book.md)
@@ -29,51 +29,14 @@ Note that the lists above do not include join tables for the `has_many, :through
 * [`Canonical::RecipesIngredient`](/app/models/canonical/recipes_ingredient.rb): This join table links canonical books that are recipes with the ingredients specified in the recipe; there are no fields on this table other than foreign keys and timestamps
 * [`Canonical::StavesSpell](/app/models/canonical/staves_spell.rb): This join table links enchanted staves to the spells they are enchanted with, adding a `strength` field in case the strength of the spell on the staff differs from the base strength of the spell
 * [`Canonical::TemperablesTemperingMaterial`](/app/models/canonical/temperables_tempering_material.rb): This polymorphic join table associates canonical materials with any items that are able to be tempered using those materials, including armours and weapons, adding a field called `quantity` for the quantity of a given material needed to temper that particular item
-* [`Canonical::IngredientsAlchemicalProperty](/app/models/canonical/ingredients_alchemical_property.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/models/canonical-ingredients-alchemical-property.md)
+* [`Canonical::IngredientsAlchemicalProperty](/app/models/canonical/ingredients_alchemical_property.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/canonical_models/canonical-ingredients-alchemical-property.md)
 
 Note that weapons and armour items have multiple associations to the same table - canonical materials - but the associations are separate since materials required to improve an item and those required to create it are distinct. If materials associations are blank, it means the item in question can't be crafted or improved.
 
+## Common API
+
+All canonical models, not including join tables, must have a class method, `::unique_identifier`, defined, which returns a symbol that is the column (other than the primary key) to be used as the unique identifier for that model. If a table includes an `:item_code` column, this will be the unique identifier. For models that don't include an item code, another unique identifier, such as `:name` may be used. The `::unique_identifier` method is called in the [syncer](/app/models/canonical/sync/syncer.rb) to indicate how models being synced should be uniquely identified and matched with corresponding records existing in the database. The Rake tasks that [sync the canonical models](/docs/canonical_models/syncing-canonical-models.md) will not function without this method defined.
+
 ## Syncing Canonical Models
 
-For more information about the `Canonical::Sync` module, which powers the Rake tasks that sync the canonical models, see the [docs for that module](/docs/syncing-canonical-models.md).
-
-### Rake Tasks
-
-The following idempotent Rake tasks can be used to sync the database with the canonical models with the JSON data:
-
-* `rails canonical_models:sync:all` (syncs all canonical models with JSON data)
-* `rails canonical_models:sync:alchemical_properties` (syncs canonical alchemical properties with JSON data)
-* `rails canonical_models:sync:powers` (syncs powers and abilities with JSON data)
-* `rails canonical_models:sync:properties` (syncs canonical properties with JSON data)
-* `rails canonical_models:sync:enchantments` (syncs canonical enchantments with JSON data)
-* `rails canonical_models:sync:spells` (syncs canonical spells with JSON data)
-* `rails canonical_models:sync:ingredients` (sync canonical ingredients with JSON data)
-* `rails canonical_models:sync:materials` (syncs canonical materials with JSON data)
-* `rails canonical_models:sync:armor` (syncs canonical armours with JSON data)
-* `rails canonical_models:sync:jewelry` (syncs canonical jewellery with JSON data)
-* `rails canonical_models:sync:clothing` (syncs canonical clothing items with JSON data)
-* `rails canonical_models:sync:weapons` (sync canonical weapons with JSON data)
-* `rails canonical_models:sync:books` (sync canonical books with JSON data)
-* `rails canonical_models:sync:staves` (sync canonical staves with JSON data)
-
-These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models and associations that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
-
-```
-bundle exec rails 'canonical_models:sync:all[true]'
-```
-
-This argument can also be set on the individual tasks:
-
-```
-bundle exec rails 'canonical_models:sync:properties[true]'
-```
-
-In addition to seeding the models, the Rake task also creates canonical associations - for example, adding enchantments to items that are canonically enchanted with one or more of the standard enchantments or smithing materials to armours. Because of this, tasks to sync apparel items list the one that syncs enchantments as prerequisites. Tasks to sync jewellery and armour items also require `canonical_models:sync:materials` as a prerequisite. (Clothing items don't have materials and are therefore only dependent on enchantments.) If the `preserve_existing_records` argument is set to `false` (which is its default value) when the Rake task is invoked, any associations with `dependent: :destroy` set will be destroyed along with any corresponding records not included in the JSON data. Additionally, associations that are not present in the JSON data will be destroyed as well.
-
-### Running Rake Tasks in Production
-
-To run the Rake tasks in production, use the `heroku run` CLI command from within this repo (you will need to log in to Heroku):
-```
-heroku login
-heroku run bundle exec rails canonical_models:sync:all
-```
+For more information about syncing canonical models and the `Canonical::Sync` module, which powers the Rake tasks that sync the models, see the [docs for that module](/docs/canonical_models/syncing-canonical-models.md).
