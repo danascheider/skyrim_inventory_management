@@ -263,5 +263,24 @@ namespace :csv do
 
       File.write(csv_path, csv_data)
     end
+
+    desc 'Export a CSV of misc items from JSON data'
+    task misc_items: :environment do
+      json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.json')
+      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.csv')
+      json_data = JSON.parse(File.read(json_path), symbolize_names: true)
+
+      headers = "#{json_data.first[:attributes].keys.map(&:to_s).join(',')}\n"
+
+      csv_data = CSV.generate(headers) do |csv|
+        json_data.each do |item|
+          item[:attributes][:item_types] = item.dig(:attributes, :item_types).join(',')
+
+          csv << item[:attributes].values
+        end
+      end
+
+      File.write(csv_path, csv_data)
+    end
   end
 end

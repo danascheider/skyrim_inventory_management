@@ -8,6 +8,7 @@ The following canonical models exist in the SIM database:
 * [`Canonical::Ingredient`](/app/models/canonical/ingredient.rb): actual ingredients available in the game; has many-to-many association to `AlchemicalProperty`, which it can have no more than 4 of without causing a validation error
 * [`Canonical::JewelryItem`](/app/models/canonical/jewelry_item.rb): actual jewelry items available in-game, including both generic and unique pieces
 * [`Canonical::Material`](/app/models/canonical/material.rb): actual building and smithing materials present in the game
+* [`Canonical::MiscItem`](/app/models/canonical/misc_item.rb): miscellaneous items occurring in the game that may be either useful or decorative
 * [`Canonical::Property`](/app/models/canonical/property.rb): actual properties (homes) the player character can own in the game
 * [`Canonical::Weapon`](/app/models/canonical/weapon.rb): actual weapons the player character can acquire in the game
 * [`Canonical::Staff`](/app/models/canonical/staff.rb): actual staves the player character can acquire in the game
