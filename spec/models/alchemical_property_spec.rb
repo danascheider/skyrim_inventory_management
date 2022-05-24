@@ -42,7 +42,7 @@ RSpec.describe AlchemicalProperty, type: :model do
         model = build(:alchemical_property, strength_unit: 'Foobar')
         model.validate
 
-        expect(model.errors[:strength_unit]).to include 'must be "point" or "percentage"'
+        expect(model.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
       end
     end
   end
