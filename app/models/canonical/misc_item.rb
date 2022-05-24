@@ -30,6 +30,10 @@ module Canonical
     validate :validate_boolean_values
     validate :verify_unique_item_also_rare
 
+    def self.unique_identifier
+      :item_code
+    end
+
     private
 
     def validate_item_type
