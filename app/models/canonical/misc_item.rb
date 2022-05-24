@@ -26,7 +26,7 @@ module Canonical
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :item_types, presence: true
 
-    validate :validate_item_type
+    validate :validate_item_types
     validate :validate_boolean_values
     validate :verify_unique_item_also_rare
 
@@ -36,7 +36,7 @@ module Canonical
 
     private
 
-    def validate_item_type
+    def validate_item_types
       errors.add(:item_types, 'must include at least one item type') if item_types.blank?
       errors.add(:item_types, 'can only include valid item types') if item_types&.any? {|type| VALID_ITEM_TYPES.exclude?(type) }
     end
