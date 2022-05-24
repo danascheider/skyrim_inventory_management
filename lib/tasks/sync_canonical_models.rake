@@ -132,6 +132,13 @@ namespace :canonical_models do
     end
     # rubocop:enable Layout/BlockAlignment
 
+    desc 'Sync canonical misc items in the database with JSON data'
+    task :misc_items, %i[preserve_existing_records] => :environment do |_t, args|
+      args.with_defaults(preserve_existing_records: false)
+
+      Canonical::Sync.perform(:misc_item, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+    end
+
     desc 'Sync all canonical models with JSON files'
     task :all, %i[preserve_existing_records] => :environment do |_t, args|
       args.with_defaults(preserve_existing_records: false)

@@ -1128,21 +1128,6 @@
   },
   {
     "attributes": {
-      "name": "Lisbet's Dibella Statue",
-      "item_code": "0008F997",
-      "unit_weight": 2.0,
-      "item_types": [
-        "miscellaneous"
-      ],
-      "description": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "quest_item": true
-    }
-  },
-  {
-    "attributes": {
       "name": "Lockpick",
       "item_code": "0000000A",
       "unit_weight": 0.0,
