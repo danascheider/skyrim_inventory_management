@@ -19,18 +19,19 @@ The following idempotent Rake tasks can be used to sync the database with the ca
 
 * `rails canonical_models:sync:all` (syncs all canonical models with JSON data)
 * `rails canonical_models:sync:alchemical_properties` (syncs canonical alchemical properties with JSON data)
+* `rails canonical_models:sync:armor` (syncs canonical armours with JSON data)
+* `rails canonical_models:sync:books` (sync canonical books with JSON data)
+* `rails canonical_models:sync:clothing` (syncs canonical clothing items with JSON data)
+* `rails canonical_models:sync:enchantments` (syncs canonical enchantments with JSON data)
+* `rails canonical_models:sync:ingredients` (sync canonical ingredients with JSON data)
+* `rails canonical_models:sync:jewelry` (syncs canonical jewellery with JSON data)
+* `rails canonical_models:sync:materials` (syncs canonical materials with JSON data)
+* `rails canonical_models:sync:misc_items` (syncs misc items with JSON data)
 * `rails canonical_models:sync:powers` (syncs powers and abilities with JSON data)
 * `rails canonical_models:sync:properties` (syncs canonical properties with JSON data)
-* `rails canonical_models:sync:enchantments` (syncs canonical enchantments with JSON data)
 * `rails canonical_models:sync:spells` (syncs canonical spells with JSON data)
-* `rails canonical_models:sync:ingredients` (sync canonical ingredients with JSON data)
-* `rails canonical_models:sync:materials` (syncs canonical materials with JSON data)
-* `rails canonical_models:sync:armor` (syncs canonical armours with JSON data)
-* `rails canonical_models:sync:jewelry` (syncs canonical jewellery with JSON data)
-* `rails canonical_models:sync:clothing` (syncs canonical clothing items with JSON data)
-* `rails canonical_models:sync:weapons` (sync canonical weapons with JSON data)
-* `rails canonical_models:sync:books` (sync canonical books with JSON data)
 * `rails canonical_models:sync:staves` (sync canonical staves with JSON data)
+* `rails canonical_models:sync:weapons` (sync canonical weapons with JSON data)
 
 These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models and associations that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 

@@ -1,0 +1,62 @@
+[
+  {
+    "attributes": {
+      "name": "Amethyst Paragon",
+      "item_code": "XX012F97",
+      "unit_weight": 0.3,
+      "item_types": [
+        "paragon"
+      ],
+      "description": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Ancient Traveler's Skull",
+      "item_code": "000F6767",
+      "unit_weight": 5.0,
+      "item_types": [
+        "animal part"
+      ],
+      "description": null,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Aretino Family Heirloom",
+      "item_code": "0001F6D4",
+      "unit_weight": 0.5,
+      "item_types": [
+        "miscellaneous"
+      ],
+      "description": null,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    }
+  },
+  {
+    "attributes": {
+      "name": "Attunement Sphere",
+      "item_code": "0003532C",
+      "unit_weight": 0.0,
+      "item_types": [
+        "Dwemer artifact"
+      ],
+      "description": null,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    }
+  }
+]

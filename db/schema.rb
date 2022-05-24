@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_032400) do
+ActiveRecord::Schema.define(version: 2022_05_24_004554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,21 @@ ActiveRecord::Schema.define(version: 2022_05_21_032400) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_materials_on_item_code", unique: true
+  end
+
+  create_table "canonical_misc_items", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "item_code", null: false
+    t.decimal "unit_weight", null: false
+    t.string "item_types", default: [], null: false, array: true
+    t.string "description"
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_code"], name: "index_canonical_misc_items_on_item_code", unique: true
   end
 
   create_table "canonical_powerables_powers", force: :cascade do |t|

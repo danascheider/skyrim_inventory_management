@@ -16,6 +16,7 @@ module Canonical
                 book:                Canonical::Sync::Books,
                 clothing:            Canonical::Sync::ClothingItems,
                 jewelry:             Canonical::Sync::JewelryItems,
+                misc_item:           Canonical::Sync::MiscItems,
                 property:            Canonical::Sync::Properties,
                 spell:               Canonical::Sync::Spells,
                 staff:               Canonical::Sync::Staves,
