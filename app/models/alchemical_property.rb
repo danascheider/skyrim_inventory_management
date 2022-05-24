@@ -1,13 +1,16 @@
 # frozen_string_literal: true
 
 class AlchemicalProperty < ApplicationRecord
+  VALID_STRENGTH_UNITS = %w[point percentage level].freeze
+
   has_many :canonical_ingredients_alchemical_properties,
            dependent:  :destroy,
            class_name: 'Canonical::IngredientsAlchemicalProperty'
   has_many :canonical_ingredients, through: :canonical_ingredients_alchemical_properties
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
+  validates :description, presence: true
+  validates :strength_unit, inclusion: { in: VALID_STRENGTH_UNITS, message: 'must be "point", "percentage", or the "level" of affected targets', allow_blank: true }
 
   def self.unique_identifier
     :name

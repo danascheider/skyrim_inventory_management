@@ -22,7 +22,7 @@ namespace :csv do
       csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
-      headers = "name,strength_unit,effects_cumulative\n"
+      headers = "name,description,strength_unit,effects_cumulative\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each {|property| csv << property[:attributes].values }

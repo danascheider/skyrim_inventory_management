@@ -3,5 +3,6 @@
 FactoryBot.define do
   factory :alchemical_property do
     sequence(:name) {|n| "Alchemical Property #{n}" }
+    description     { 'Something magical' }
   end
 end
