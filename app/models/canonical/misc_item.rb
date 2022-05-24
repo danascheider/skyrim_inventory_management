@@ -38,7 +38,7 @@ module Canonical
 
     def validate_item_types
       errors.add(:item_types, 'must include at least one item type') if item_types.blank?
-      errors.add(:item_types, 'can only include valid item types') if item_types&.any? {|type| VALID_ITEM_TYPES.exclude?(type) }
+      errors.add(:item_types, 'can only include valid item types') unless item_types&.all? {|type| VALID_ITEM_TYPES.include?(type) }
     end
 
     def validate_boolean_values
