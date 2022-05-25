@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_073420) do
+ActiveRecord::Schema.define(version: 2022_05_25_005131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,21 @@ ActiveRecord::Schema.define(version: 2022_05_24_073420) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_misc_items_on_item_code", unique: true
+  end
+
+  create_table "canonical_potions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "item_code", null: false
+    t.decimal "unit_weight", null: false
+    t.string "potion_type", null: false
+    t.string "magical_effects"
+    t.boolean "purchasable", default: true, null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", default: false, null: false
+    t.boolean "quest_item", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
   end
 
   create_table "canonical_powerables_powers", force: :cascade do |t|
