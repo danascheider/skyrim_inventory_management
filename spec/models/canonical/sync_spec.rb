@@ -202,5 +202,18 @@ RSpec.describe Canonical::Sync do
         expect(Canonical::Sync::MiscItems).to have_received(:perform).with(true)
       end
     end
+
+    context 'when the model is ":potion"' do
+      subject(:perform) { described_class.perform(:potion, true) }
+
+      before do
+        allow(Canonical::Sync::Potions).to receive(:perform)
+      end
+
+      it 'calls #perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::Potions).to have_received(:perform).with(true)
+      end
+    end
   end
 end

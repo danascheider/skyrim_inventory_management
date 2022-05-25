@@ -1877,7 +1877,7 @@
       "potion_type": "potion",
       "magical_effects": "Grants Dragon Infusion perk.",
       "purchasable": false,
-      "unique_item": false,
+      "unique_item": true,
       "rare_item": true,
       "quest_item": true
     },
