@@ -8,9 +8,9 @@ module Canonical
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     BOOK_TYPES = [
-                   'black book',
+                   'Black Book',
                    'document',
-                   'elder scroll',
+                   'Elder Scroll',
                    'journal',
                    'letter',
                    'lore book',

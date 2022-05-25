@@ -1885,7 +1885,7 @@
       "title_variants": null,
       "item_code": "XX016E2C",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "The Transparent One"
       ],
@@ -1904,7 +1904,7 @@
       "title_variants": null,
       "item_code": "XX01E99E",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Jelketheris"
       ],
@@ -1923,7 +1923,7 @@
       "title_variants": null,
       "item_code": "XX01E99F",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Carillius Melfus"
       ],
@@ -1942,7 +1942,7 @@
       "title_variants": null,
       "item_code": "XX01E99D",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Hawfip the Crafter"
       ],
@@ -1961,7 +1961,7 @@
       "title_variants": null,
       "item_code": "XX01E99C",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Liesl Grey-Heart"
       ],
@@ -1982,7 +1982,7 @@
       ],
       "item_code": "XX016E2D",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Anonymous"
       ],
@@ -2003,7 +2003,7 @@
       ],
       "item_code": "XX016E22",
       "unit_weight": 1.0,
-      "book_type": "black book",
+      "book_type": "Black Book",
       "authors": [
         "Bilius Felcrex"
       ],
@@ -3810,7 +3810,7 @@
       "title_variants": null,
       "item_code": "XX0118F9",
       "unit_weight": 20.0,
-      "book_type": "elder scroll",
+      "book_type": "Elder Scroll",
       "authors": null,
       "skill_name": null,
       "purchasable": false,
@@ -3827,7 +3827,7 @@
       "title_variants": null,
       "item_code": "0002D513",
       "unit_weight": 20.0,
-      "book_type": "elder scroll",
+      "book_type": "Elder Scroll",
       "authors": null,
       "skill_name": null,
       "purchasable": false,
@@ -3844,7 +3844,7 @@
       "title_variants": null,
       "item_code": "XX011A13",
       "unit_weight": 20.0,
-      "book_type": "elder scroll",
+      "book_type": "Elder Scroll",
       "authors": null,
       "skill_name": null,
       "purchasable": false,
