@@ -6,8 +6,10 @@ RSpec.describe Canonical::Sync::ClothingItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
   let!(:json_data) { File.read(json_path) }
+
+  let(:enchantment_names) { ['Fortify Magicka', 'Fortify Destruction', 'Fortify Magicka Regen'] }
 
   before do
     allow(File).to receive(:read).and_return(json_data)
@@ -23,9 +25,8 @@ RSpec.describe Canonical::Sync::ClothingItems do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          create(:enchantment, name: 'Fortify Magicka')
-          create(:enchantment, name: 'Fortify Destruction')
-          create(:enchantment, name: 'Fortify Magicka Regen')
+          enchantment_names.each {|name| create(:enchantment, name: name) }
+
           allow(described_class).to receive(:new).and_return(syncer)
         end
 
@@ -35,8 +36,8 @@ RSpec.describe Canonical::Sync::ClothingItems do
         end
 
         it 'populates the models from the JSON file' do
-          perform
-          expect(Canonical::ClothingItem.count).to eq 4
+          expect { perform }
+            .to change(Canonical::ClothingItem, :count).from(0).to(4)
         end
 
         it 'creates the associations to enchantments where they exist', :aggregate_failures do
@@ -54,9 +55,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          create(:enchantment, name: 'Fortify Magicka')
-          create(:enchantment, name: 'Fortify Destruction')
-          create(:enchantment, name: 'Fortify Magicka Regen')
+          enchantment_names.each {|name| create(:enchantment, name: name) }
         end
 
         it 'instantiates itself' do
@@ -88,12 +87,13 @@ RSpec.describe Canonical::Sync::ClothingItems do
             strength:    2,
           )
           perform
-          expect(item_in_json.enchantments.where(name: 'Fortify Destruction')).to be_empty
+          expect(item_in_json.enchantments.find_by(name: 'Fortify Destruction')).to be_nil
         end
 
-        it 'adds enchantments if they exist' do
+        it 'adds enchantments if they exist', :aggregate_failures do
           perform
           expect(item_in_json.enchantments.first.name).to eq 'Fortify Magicka'
+          expect(item_in_json.enchantments.length).to eq 1
         end
       end
 
@@ -105,7 +105,11 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Enchantment before canonical clothing items')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Prerequisite(s) not met: sync Enchantment before canonical clothing items')
+
           expect(Canonical::ClothingItem.count).to eq 0
         end
       end
@@ -115,13 +119,17 @@ RSpec.describe Canonical::Sync::ClothingItems do
           # prevent it from erroring out, which it will do if there are no
           # enchantments all
           create(:enchantment)
+
           allow(Rails.logger).to receive(:error).twice
         end
 
         it 'logs a validation error', :aggregate_failures do
           expect { perform }
             .to raise_error ActiveRecord::RecordInvalid
-          expect(Rails.logger).to have_received(:error).with('Validation error saving associations for canonical clothing item "0010DD3C": Validation failed: Enchantment must exist')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Validation error saving associations for canonical clothing item "0010DD3C": Validation failed: Enchantment must exist')
         end
       end
     end
@@ -133,14 +141,17 @@ RSpec.describe Canonical::Sync::ClothingItems do
       let!(:item_not_in_json)         { create(:canonical_clothing_item, item_code: '12345678') }
 
       before do
-        create(:enchantment, name: 'Fortify Magicka')
-        create(:enchantment, name: 'Fortify Destruction')
-        create(:enchantment, name: 'Fortify Magicka Regen')
-        create(:canonical_enchantables_enchantment, :for_clothing, enchantable: item_in_json, enchantment: create(:enchantment))
-        allow(described_class).to receive(:new).and_return(syncer)
+        enchantment_names.each {|name| create(:enchantment, name: name) }
+        create(
+          :canonical_enchantables_enchantment,
+          :for_clothing,
+          enchantable: item_in_json,
+          enchantment: create(:enchantment, name: 'Resist Magic'),
+        )
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -164,7 +175,12 @@ RSpec.describe Canonical::Sync::ClothingItems do
 
       it "doesn't destroy associations" do
         perform
-        expect(item_in_json.reload.enchantments.length).to eq 2
+        expect(item_in_json.reload.enchantments.find_by(name: 'Resist Magic')).to be_present
+      end
+
+      it 'adds new associations' do
+        perform
+        expect(item_in_json.reload.enchantments.find_by(name: 'Fortify Magicka')).to be_present
       end
     end
 
@@ -192,7 +208,10 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical clothing item \"0010DD3C\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical clothing item \"0010DD3C\": Validation failed: Name can't be blank")
         end
       end
 
@@ -207,7 +226,10 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical clothing item "0010DD3C": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical clothing item "0010DD3C": foobar')
         end
       end
 
@@ -222,7 +244,10 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical clothing items: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical clothing items: foobar')
         end
       end
     end

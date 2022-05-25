@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Enchantments do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -20,19 +20,19 @@ RSpec.describe Canonical::Sync::Enchantments do
       let(:preserve_existing_records) { false }
       let(:syncer)                    { described_class.new(preserve_existing_records) }
 
-      before do
-        allow(described_class).to receive(:new).and_return(syncer)
-      end
-
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
+        it 'populates the models from the JSON file', :aggregate_failures do
           perform
-          expect(Enchantment.count).to eq 4
+          expect(Enchantment.find_by(name: 'Banish')).to be_present
+          expect(Enchantment.find_by(name: 'Chaos Damage')).to be_present
+          expect(Enchantment.find_by(name: 'Fear')).to be_present
+          expect(Enchantment.find_by(name: 'Fiery Soul Trap')).to be_present
         end
       end
 
@@ -114,7 +114,10 @@ RSpec.describe Canonical::Sync::Enchantments do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving enchantment \"Banish\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving enchantment \"Banish\": Validation failed: Name can't be blank")
         end
       end
 
@@ -127,7 +130,10 @@ RSpec.describe Canonical::Sync::Enchantments do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving enchantment "Banish": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving enchantment "Banish": foobar')
         end
       end
 
@@ -140,7 +146,10 @@ RSpec.describe Canonical::Sync::Enchantments do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing enchantments: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing enchantments: foobar')
         end
       end
     end

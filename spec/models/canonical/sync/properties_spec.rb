@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Properties do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'properties.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'properties.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -31,8 +31,8 @@ RSpec.describe Canonical::Sync::Properties do
 
       context 'when there are no existing records in the database' do
         it 'populates the models from the JSON file' do
-          perform
-          expect(Canonical::Property.count).to eq 4
+          expect { perform }
+            .to change(Canonical::Property, :count).from(0).to(4)
         end
       end
 
@@ -121,7 +121,10 @@ RSpec.describe Canonical::Sync::Properties do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical property \"Hjerim\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical property \"Hjerim\": Validation failed: Name can't be blank")
         end
       end
 
@@ -134,7 +137,10 @@ RSpec.describe Canonical::Sync::Properties do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical property "Hjerim": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical property "Hjerim": foobar')
         end
       end
 
@@ -147,7 +153,10 @@ RSpec.describe Canonical::Sync::Properties do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical properties: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical properties: foobar')
         end
       end
     end

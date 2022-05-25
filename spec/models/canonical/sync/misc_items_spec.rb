@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::MiscItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'misc_items.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'misc_items.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -31,8 +31,8 @@ RSpec.describe Canonical::Sync::MiscItems do
 
       context 'when there are no existing records in the database' do
         it 'populates the models from the JSON file' do
-          perform
-          expect(Canonical::MiscItem.count).to eq 4
+          expect { perform }
+            .to change(Canonical::MiscItem, :count).from(0).to(4)
         end
       end
 
@@ -72,11 +72,8 @@ RSpec.describe Canonical::Sync::MiscItems do
       let!(:item_in_json)             { create(:canonical_misc_item, item_code: 'XX012F97', name: 'Quartz Paragon') }
       let!(:item_not_in_json)         { create(:canonical_misc_item, item_code: '12345678') }
 
-      before do
-        allow(described_class).to receive(:new).and_return(syncer)
-      end
-
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -115,13 +112,17 @@ RSpec.describe Canonical::Sync::MiscItems do
           allow_any_instance_of(Canonical::MiscItem)
             .to receive(:save!)
                   .and_raise(ActiveRecord::RecordInvalid, errored_model)
+
           allow(Rails.logger).to receive(:error)
         end
 
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical misc item \"XX012F97\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical misc item \"XX012F97\": Validation failed: Name can't be blank")
         end
       end
 
@@ -134,7 +135,10 @@ RSpec.describe Canonical::Sync::MiscItems do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical misc item "XX012F97": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical misc item "XX012F97": foobar')
         end
       end
 
@@ -147,7 +151,10 @@ RSpec.describe Canonical::Sync::MiscItems do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical misc items: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical misc items: foobar')
         end
       end
     end

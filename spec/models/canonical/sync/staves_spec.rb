@@ -6,8 +6,16 @@ RSpec.describe Canonical::Sync::Staves do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'staves.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'staves.json') }
   let!(:json_data) { File.read(json_path) }
+
+  let(:spell_names) do
+    [
+      'Soul Trap',
+      'Pacify',
+      'Turn Lesser Undead',
+    ]
+  end
 
   before do
     allow(File).to receive(:read).and_return(json_data)
@@ -23,14 +31,13 @@ RSpec.describe Canonical::Sync::Staves do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          create(:spell, name: 'Soul Trap')
-          create(:spell, name: 'Pacify')
-          create(:spell, name: 'Turn Lesser Undead')
+          spell_names.each {|name| create(:spell, name: name) }
+
           create(:power, name: "Mora's Agony")
-          allow(described_class).to receive(:new).and_return(syncer)
         end
 
         it 'instantiates itseslf' do
+          allow(described_class).to receive(:new).and_return(syncer)
           perform
           expect(described_class).to have_received(:new).with(preserve_existing_records)
         end
@@ -63,9 +70,8 @@ RSpec.describe Canonical::Sync::Staves do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          create(:spell, name: 'Soul Trap')
-          create(:spell, name: 'Pacify')
-          create(:spell, name: 'Turn Lesser Undead')
+          spell_names.each {|name| create(:spell, name: name) }
+
           create(:power, name: "Mora's Agony")
         end
 
@@ -112,7 +118,11 @@ RSpec.describe Canonical::Sync::Staves do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Power, Spell before canonical staves')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Prerequisite(s) not met: sync Power, Spell before canonical staves')
+
           expect(Canonical::Staff.count).to eq 0
         end
       end
@@ -122,9 +132,7 @@ RSpec.describe Canonical::Sync::Staves do
           # prevent it from erroring out, which it will do if there are no
           # powers or spells at all
           create(:power)
-          create(:spell, name: 'Soul Trap')
-          create(:spell, name: 'Pacify')
-          create(:spell, name: 'Turn Lesser Undead')
+          spell_names.each {|name| create(:spell, name: name) }
 
           allow(Rails.logger).to receive(:error).twice
         end
@@ -132,7 +140,10 @@ RSpec.describe Canonical::Sync::Staves do
         it 'logs a validation error', :aggregate_failures do
           expect { perform }
             .to raise_error ActiveRecord::RecordInvalid
-          expect(Rails.logger).to have_received(:error).with('Validation error saving associations for canonical staff "XX039FAC": Validation failed: Power must exist')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Validation error saving associations for canonical staff "XX039FAC": Validation failed: Power must exist')
         end
       end
     end
@@ -144,15 +155,13 @@ RSpec.describe Canonical::Sync::Staves do
       let!(:item_not_in_json)         { create(:canonical_staff, item_code: '12345678') }
 
       before do
-        create(:spell, name: 'Soul Trap')
-        create(:spell, name: 'Pacify')
-        create(:spell, name: 'Turn Lesser Undead')
+        spell_names.each {|name| create(:spell, name: name) }
         create(:power, name: "Mora's Agony")
         create(:canonical_powerables_power, powerable: item_in_json, power: create(:power))
-        allow(described_class).to receive(:new).and_return(syncer)
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -205,7 +214,10 @@ RSpec.describe Canonical::Sync::Staves do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical staff \"000AB704\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical staff \"000AB704\": Validation failed: Name can't be blank")
         end
       end
 
@@ -220,7 +232,10 @@ RSpec.describe Canonical::Sync::Staves do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical staff "000AB704": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical staff "000AB704": foobar')
         end
       end
 
@@ -236,7 +251,10 @@ RSpec.describe Canonical::Sync::Staves do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical staves: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical staves: foobar')
         end
       end
     end
