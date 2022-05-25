@@ -1,0 +1,5671 @@
+[
+  {
+    "attributes": {
+      "name": "Aversion to Fire",
+      "item_code": "00073F49",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Fire",
+        "strength": 55,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Aversion to Frost",
+      "item_code": "00073F4D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Frost",
+        "strength": 55,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Aversion to Magic",
+      "item_code": "00073F56",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Magic",
+        "strength": 55,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Aversion to Shock",
+      "item_code": "00065A6D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Shock",
+        "strength": 55,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blacksmith's Draught",
+      "item_code": "0003995D",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 30,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blacksmith's Elixir",
+      "item_code": "00039967",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 50,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blacksmith's Philter",
+      "item_code": "00039962",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 40,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Blacksmith's Potion",
+      "item_code": "0003EB2E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 20,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Cliff Racer",
+      "item_code": "00065C39",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Conjurer's Draught",
+      "item_code": "000398AD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Conjurer's Elixir",
+      "item_code": "000398ED",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Conjurer's Philter",
+      "item_code": "000398EC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 75,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Conjurer's Potion",
+      "item_code": "0003EB37",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Conjuration",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Aversion to Fire",
+      "item_code": "00073F4C",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Fire",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Aversion to Frost",
+      "item_code": "00073F50",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Frost",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Aversion to Magic",
+      "item_code": "00073F59",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Magic",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Aversion to Shock",
+      "item_code": "00073F55",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Shock",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Fear Poison",
+      "item_code": "00073F61",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fear",
+        "strength": 23,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Frenzy Poison",
+      "item_code": "00073F5D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Frenzy",
+        "strength": 23,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Lingering Poison",
+      "item_code": "00073F38",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 3,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Magicka Poison",
+      "item_code": "00073F3C",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka",
+        "strength": 130,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Paralysis Poison",
+      "item_code": "00074A3B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Paralysis",
+        "strength": null,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Poison",
+      "item_code": "00073F34",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Health",
+        "strength": 65,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Recovery Poison",
+      "item_code": "00073F94",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka Regen",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Deadly Stamina Poison",
+      "item_code": "00073F44",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina",
+        "strength": 130,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Alteration",
+      "item_code": "0003988E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Conflict",
+      "item_code": "000F84B6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 15,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Destruction",
+      "item_code": "000398EE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Enhanced Stamina",
+      "item_code": "0003EB00",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 40,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Escape",
+      "item_code": "000F84AF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 50
+      },
+      {
+        "name": "Restore Health",
+        "strength": 40,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Extra Magicka",
+      "item_code": "0003EAFA",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Glibness",
+      "item_code": "000D697F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Speech",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Haggling",
+      "item_code": "00039970",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Barter",
+        "strength": 15,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Health",
+      "item_code": "0003EAF4",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Illusion",
+      "item_code": "0003994F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Keenshot",
+      "item_code": "000F84BC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 20,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 7,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Larceny",
+      "item_code": "000F84A8",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 20,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Lasting Potency",
+      "item_code": "0003EB0E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Magicka",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Light Feet",
+      "item_code": "00039968",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Lockpicking",
+      "item_code": "00039945",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Pickpocketing",
+      "item_code": "00039957",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Plunder",
+      "item_code": "000F84C2",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 30,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 30,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Regeneration",
+      "item_code": "0003EB0A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Health",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Resist Cold",
+      "item_code": "0003EAED",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Frost",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Resist Fire",
+      "item_code": "0003EAE9",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Fire",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Resist Magic",
+      "item_code": "00039E53",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Magic",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Strength",
+      "item_code": "0003EB05",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 30,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of True Shot",
+      "item_code": "00039949",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Vigor",
+      "item_code": "0003EB12",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Stamina",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of Waterbreathing",
+      "item_code": "0003AC2F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Waterbreathing",
+        "strength": null,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of the Berserker",
+      "item_code": "00039974",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of the Defender",
+      "item_code": "0003989B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Block",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of the Healer",
+      "item_code": "0003995A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of the Knight",
+      "item_code": "000398F4",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Draught of the Warrior",
+      "item_code": "00039954",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Alteration",
+      "item_code": "0003989A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Conflict",
+      "item_code": "000F84B8",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 30,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 35,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Destruction",
+      "item_code": "000398F3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Enhanced Stamina",
+      "item_code": "000FFA01",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Escape",
+      "item_code": "000F84B1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 100
+      },
+      {
+        "name": "Restore Health",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Extra Magicka",
+      "item_code": "000FF9FD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Glibness",
+      "item_code": "000D6980",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Speech",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Haggling",
+      "item_code": "00039973",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Barter",
+        "strength": 25,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Health",
+      "item_code": "000FF9FC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Illusion",
+      "item_code": "00039951",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Keenshot",
+      "item_code": "000F84BE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 30,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 11,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Larceny",
+      "item_code": "000F84AA",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 30,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 30,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Lasting Potency",
+      "item_code": "000FFA00",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Magicka",
+        "strength": 100,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Light Feet",
+      "item_code": "0003996F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Lockpicking",
+      "item_code": "00039948",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Pickpocketing",
+      "item_code": "00039958",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Plunder",
+      "item_code": "000F84C4",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 50,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 50,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Regeneration",
+      "item_code": "000FF9FF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Health",
+        "strength": 100,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Resist Cold",
+      "item_code": "0003EAF0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Frost",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Resist Fire",
+      "item_code": "0003EAEF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Fire",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Resist Magic",
+      "item_code": "00039E55",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Magic",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Strength",
+      "item_code": "000FF9FE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of True Shot",
+      "item_code": "0003994E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Vigor",
+      "item_code": "000FFA02",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Stamina",
+        "strength": 100,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of Waterbreathing",
+      "item_code": "0003AC31",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Waterbreathing",
+        "strength": null,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of the Berserker",
+      "item_code": "00039AA6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of the Defender",
+      "item_code": "000398AC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Block",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of the Healer",
+      "item_code": "0003995C",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of the Knight",
+      "item_code": "000398F6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elixir of the Warrior",
+      "item_code": "00039956",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 50,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enchanter's Draught",
+      "item_code": "00039D02",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Enchanting",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enchanter's Elixir",
+      "item_code": "00039D12",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Enchanting",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enchanter's Philter",
+      "item_code": "00039D0A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Enchanting",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enchanter's Potion",
+      "item_code": "00039CFB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Enchanting",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enduring Magicka Poison",
+      "item_code": "00073F3D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Magicka",
+        "strength": 1,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Enduring Stamina Poison",
+      "item_code": "00073F45",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 2,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Esbern's Potion",
+      "item_code": "000E6DF5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Grants Dragon Infusion perk.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Falmer Blood Elixir",
+      "item_code": "00076F17",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 1,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fear Poison",
+      "item_code": "00073F5E",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fear",
+        "strength": 8,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Frenzy Poison",
+      "item_code": "00073F5A",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Frenzy",
+        "strength": 8,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Frostbite Venom",
+      "item_code": "000E41B8",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 5,
+        "duration": 4
+      },
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 5,
+        "duration": 4
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Conflict",
+      "item_code": "000F84B9",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 40,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 45,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Escape",
+      "item_code": "000F84B2",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 125
+      },
+      {
+        "name": "Restore Health",
+        "strength": 55,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Keenshot",
+      "item_code": "000F84BF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 35,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 13,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Larceny",
+      "item_code": "000F84AB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 35,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 35,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Plunder",
+      "item_code": "000F84C5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 60,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ice Wraith Bane",
+      "item_code": "000E2D3D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": "Does 50 points of poison damage if the target is an Ice Wraith",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Ice Wraith Essence",
+      "item_code": "000F9642",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Frost",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lasting Magicka Poison",
+      "item_code": "00073F3E",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Magicka",
+        "strength": 2,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lasting Stamina Poison",
+      "item_code": "00073F46",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 3,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lingering Magicka Poison",
+      "item_code": "00065A70",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Magicka",
+        "strength": 1,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lingering Poison",
+      "item_code": "00073F35",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 1,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lingering Stamina Poison",
+      "item_code": "00065A71",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 1,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Lotus Extract",
+      "item_code": "00058CFB",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 6,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Magicka Poison",
+      "item_code": "00073F39",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Magicka Recovery Poison",
+      "item_code": "00073F91",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka Regen",
+        "strength": 100,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Aversion to Fire",
+      "item_code": "00073F4B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Fire",
+        "strength": 85,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Aversion to Frost",
+      "item_code": "00073F4F",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Frost",
+        "strength": 85,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Aversion to Magic",
+      "item_code": "00073F58",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Magic",
+        "strength": 85,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Aversion to Shock",
+      "item_code": "00073F54",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Shock",
+        "strength": 85,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Lingering Poison",
+      "item_code": "00073F37",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 2,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Magicka Poison",
+      "item_code": "00073F3B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Recovery Poison",
+      "item_code": "00073F93",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka Regen",
+        "strength": 100,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Malign Vigor Poison",
+      "item_code": "00073F8E",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina Regen",
+        "strength": 100,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Nightshade Extact",
+      "item_code": "000CD883",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 1,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Paralysis Poison",
+      "item_code": "00074A38",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Paralysis",
+        "strength": null,
+        "duration": 5
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Persistent Stamina Poison",
+      "item_code": "00073F47",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 4,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Persisting Magicka Poison",
+      "item_code": "00073F3F",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Magicka",
+        "strength": 2,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Alteration",
+      "item_code": "00039899",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 75,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Conflict",
+      "item_code": "000F84B7",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 20,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Destruction",
+      "item_code": "000398F1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Enhanced Stamina",
+      "item_code": "0003EAFF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 80,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Escape",
+      "item_code": "000F84B0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 75
+      },
+      {
+        "name": "Restore Health",
+        "strength": 45,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Extra Magicka",
+      "item_code": "0003EAFC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 80,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Glibness",
+      "item_code": "000D6949",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Speech",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Haggling",
+      "item_code": "00039971",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Barter",
+        "strength": 20,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Health",
+      "item_code": "0003EAF5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 80,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Illusion",
+      "item_code": "00039950",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 75,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Keenshot",
+      "item_code": "000F84BD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 25,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 9,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Larceny",
+      "item_code": "000F84A9",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 25,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Lasting Potency",
+      "item_code": "0003EB10",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Magicka",
+        "strength": 80,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Light Feet",
+      "item_code": "00039969",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Lockpicking",
+      "item_code": "00039946",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Pickpocketing",
+      "item_code": "00039959",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Plunder",
+      "item_code": "000F84C3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 40,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 40,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Regeneration",
+      "item_code": "0003EB0C",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Health",
+        "strength": 80,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Resist Cold",
+      "item_code": "00039BDF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Frost",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Resist Fire",
+      "item_code": "00039B4B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Fire",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Resist Magic",
+      "item_code": "00039E54",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Magic",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Strength",
+      "item_code": "0003EB04",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 50,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of True Shot",
+      "item_code": "0003994B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Vigor",
+      "item_code": "0003EB14",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Stamina",
+        "strength": 80,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of Waterbreathing",
+      "item_code": "0003AC30",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Waterbreathing",
+        "strength": null,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Berserker",
+      "item_code": "00039980",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Defender",
+      "item_code": "000398AB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Block",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Healer",
+      "item_code": "0003995B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Knight",
+      "item_code": "000398F5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Phantom",
+      "item_code": "000663E1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Appear spectral for 30 seconds.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Philter of the Warrior",
+      "item_code": "00039955",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Poison",
+      "item_code": "00073F31",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Health",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Aversion to Fire",
+      "item_code": "00073F4A",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Fire",
+        "strength": 70,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Aversion to Frost",
+      "item_code": "00073F4E",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Frost",
+        "strength": 70,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Aversion to Magic",
+      "item_code": "00073F57",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Magic",
+        "strength": 70,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Aversion to Shock",
+      "item_code": "00073F53",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Shock",
+        "strength": 70,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Fear Poison",
+      "item_code": "00073F5F",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fear",
+        "strength": 13,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Frenzy Poison",
+      "item_code": "00073F5B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Frenzy",
+        "strength": 13,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Lingering Poison",
+      "item_code": "00073F36",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 2,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Magicka Poison",
+      "item_code": "00073F3A",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka",
+        "strength": 70,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Paralysis Poison",
+      "item_code": "00074A39",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Paralysis",
+        "strength": null,
+        "duration": 7
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Poison",
+      "item_code": "00073F32",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Health",
+        "strength": 35,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Recovery Poison",
+      "item_code": "00073F92",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka Regen",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Stamina Poison",
+      "item_code": "00073F42",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina",
+        "strength": 70,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potent Vigor Poison",
+      "item_code": "00073F8D",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina Regen",
+        "strength": 100,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Alteration",
+      "item_code": "0003EB36",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Alteration",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Blood",
+      "item_code": "XX018EF3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Equivalent to feeding on human blood for vampires. Vampires heal 100 points of health.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Brief Invisibility",
+      "item_code": "0003EB3E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Conflict",
+      "item_code": "000F84B5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 10,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Cure Disease",
+      "item_code": "000AE723",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Cures all diseases",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Cure Disease",
+        "strength": null,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Cure Poison",
+      "item_code": "00065A64",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Stops poison's continuing effects",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Destruction",
+      "item_code": "0003EB38",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Destruction",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Enduring Invisibility",
+      "item_code": "0003EB3F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 40
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Enhanced Stamina",
+      "item_code": "0003EAFD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 20,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Escape",
+      "item_code": "000F84AE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 30
+      },
+      {
+        "name": "Restore Health",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extended Invisibility",
+      "item_code": "0003EB40",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extra Magicka",
+      "item_code": "0003EAF7",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extreme Healing",
+      "item_code": "00039BE4",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 150,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extreme Magicka",
+      "item_code": "00039BE6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Magicka",
+        "strength": 150,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extreme Stamina",
+      "item_code": "00039CF3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 150,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Extreme Well-being",
+      "item_code": "XX01AAE1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 90,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 90,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 90,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Glibness",
+      "item_code": "000D6948",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Speech",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Haggling",
+      "item_code": "0003EB35",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Barter",
+        "strength": 10,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Healing",
+      "item_code": "0003EADE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Health",
+      "item_code": "0003EAF2",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Illusion",
+      "item_code": "0003EB39",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Illusion",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Keenshot",
+      "item_code": "000F84BB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 15,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 5,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Larceny",
+      "item_code": "000F84A7",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 15,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Lasting Potency",
+      "item_code": "0003EB0D",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Magicka",
+        "strength": 50,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Light Feet",
+      "item_code": "0003EB33",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Sneak",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Lockpicking",
+      "item_code": "00039930",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Magicka",
+      "item_code": "0003EAE1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Magicka",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Minor Healing",
+      "item_code": "0003EADD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Minor Magicka",
+      "item_code": "0003EAE0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Magicka",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Minor Stamina",
+      "item_code": "0003EAE5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Minor Well-being",
+      "item_code": "XX01AADD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 15,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 15,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 15,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Pickpocketing",
+      "item_code": "0003EB31",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Plentiful Healing",
+      "item_code": "0003EADF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 75,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Plentiful Magicka",
+      "item_code": "0003EAE2",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Magicka",
+        "strength": 75,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Plentiful Stamina",
+      "item_code": "0003EAE7",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 75,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Plentiful Well-being",
+      "item_code": "XX01AADF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 55,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 55,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 55,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Plunder",
+      "item_code": "000F84C1",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 20,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 20,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Prolonged Invisibility",
+      "item_code": "0003EB41",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 50
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Regeneration",
+      "item_code": "0003EB09",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Health",
+        "strength": 50,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Resist Cold",
+      "item_code": "00039B8A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Frost",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Resist Fire",
+      "item_code": "00039B4A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Fire",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Resist Magic",
+      "item_code": "00039E52",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Magic",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Stamina",
+      "item_code": "00039BE8",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Strength",
+      "item_code": "0003EB02",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 20,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of True Shot",
+      "item_code": "0003EB2C",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Ultimate Healing",
+      "item_code": "00039BE5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Completely restore Health.",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Ultimate Magicka",
+      "item_code": "00039BE7",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Completely restore Magicka.",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Ultimate Stamina",
+      "item_code": "00039CF3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Completely restore Stamina.",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Ultimate Well-being",
+      "item_code": "XX01AAE2",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 100,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 100,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Vigor",
+      "item_code": "0003EB11",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Stamina",
+        "strength": 50,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Vigorous Healing",
+      "item_code": "0003EAE3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Vigorous Magicka",
+      "item_code": "0003EAE4",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Magicka",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Vigorous Stamina",
+      "item_code": "0003EAE8",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Vigorous Well-being",
+      "item_code": "XX01AAE0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 75,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 75,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 75,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Waterbreathing",
+      "item_code": "0003AC2E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Waterbreathing",
+        "strength": null,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of Waterwalking",
+      "item_code": "XX0390E0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Walk on the surface of water for 30 seconds.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Potion of Well-being",
+      "item_code": "XX01AADE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Health",
+        "strength": 35,
+        "duration": null
+      },
+      {
+        "name": "Restore Magicka",
+        "strength": 35,
+        "duration": null
+      },
+      {
+        "name": "Restore Stamina",
+        "strength": 35,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of the Berserker",
+      "item_code": "0003EB2B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Two-Handed",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of the Defender",
+      "item_code": "0003EB32",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Block",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of the Healer",
+      "item_code": "0003EB3A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Restoration",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of the Knight",
+      "item_code": "0003EB2F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Heavy Armor",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Potion of the Warrior",
+      "item_code": "0003EB2A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify One-Handed",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Prime Elixir of Conflict",
+      "item_code": "000F84BA",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 50,
+        "duration": 60
+      },
+      {
+        "name": "Fortify One-Handed",
+        "strength": 55,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Prime Elixir of Escape",
+      "item_code": "000F84B3",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Invisibility",
+        "strength": null,
+        "duration": 150
+      },
+      {
+        "name": "Restore Health",
+        "strength": 60,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Prime Elixir of Keenshot",
+      "item_code": "000F84C0",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Marksman",
+        "strength": 40,
+        "duration": 60
+      },
+      {
+        "name": "Regenerate Stamina",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Prime Elixir of Larceny",
+      "item_code": "000F84AC",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 40,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 40,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Prime Elixir of Plunder",
+      "item_code": "000F84C6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 70,
+        "duration": 300
+      },
+      {
+        "name": "Fortify Stamina",
+        "strength": 70,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Redwater Skooma",
+      "item_code": "XX01391D",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Slowed movement. Environment becomes red and purple. Sight becomes blurry.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 40,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skirmisher's Draught",
+      "item_code": "000398FD",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 15,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skirmisher's Elixir",
+      "item_code": "00039904",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skirmisher's Philter",
+      "item_code": "00039903",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 20,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skirmisher's Potion",
+      "item_code": "0003EB30",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Light Armor",
+        "strength": 10,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Skooma",
+      "item_code": "00057A7A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Sleeping Tree Sap",
+      "item_code": "000AED90",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Drugged for 45 seconds.",
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 100,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Enhanced Stamina",
+      "item_code": "0003EAFE",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Stamina",
+        "strength": 60,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Extra Magicka",
+      "item_code": "0003EAFB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Magicka",
+        "strength": 60,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Health",
+      "item_code": "0003EAF6",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Health",
+        "strength": 60,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Lasting Potency",
+      "item_code": "0003EB0F",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Magicka",
+        "strength": 70,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Regeneration",
+      "item_code": "0003EB0B",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Health",
+        "strength": 70,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Strength",
+      "item_code": "0003EB03",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Carry Weight",
+        "strength": 40,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Solution of Vigor",
+      "item_code": "00039B0C",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Regenerate Stamina",
+        "strength": 70,
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Soul Husk Extract",
+      "item_code": "XX015A1E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Interrupts the Soul Drain effect in the Soul Cairn.",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Resist Magic",
+        "strength": 25,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Stamina Poison",
+      "item_code": "00073F41",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The White Phial",
+      "item_code": "0002C25A",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Contains an unlimited potion of your choice.",
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Unceasing Magicka Poison",
+      "item_code": "00073F40",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Magicka",
+        "strength": 3,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Unceasing Stamina Poison",
+      "item_code": "00073F48",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Stamina",
+        "strength": 5,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Vaermina's Torpor",
+      "item_code": "0005F6DF",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Enter \"The Dreamstride\" for an unknown length of time.",
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Velvet LeChance",
+      "item_code": "00065C37",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Vigor Poison",
+      "item_code": "00073F8C",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina Regen",
+        "strength": 100,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Virulent Fear Poison",
+      "item_code": "00073F60",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fear",
+        "strength": 18,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Virulent Frenzy Poison",
+      "item_code": "00073F5C",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Frenzy",
+        "strength": 18,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Virulent Paralysis Poison",
+      "item_code": "00074A3A",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Paralysis",
+        "strength": null,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Virulent Poison",
+      "item_code": "00073F33",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Health",
+        "strength": 50,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Virulent Stamina Poison",
+      "item_code": "00073F43",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina",
+        "strength": 100,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Aversion to Fire",
+      "item_code": "00065A6B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Fire",
+        "strength": 40,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Aversion to Frost",
+      "item_code": "00065A6C",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Frost",
+        "strength": 40,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Aversion to Magic",
+      "item_code": "00065A6E",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Magic",
+        "strength": 40,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Aversion to Shock",
+      "item_code": "00073F52",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Weakness to Shock",
+        "strength": 40,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Fear Poison",
+      "item_code": "00065A68",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fear",
+        "strength": 5,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Frenzy Poison",
+      "item_code": "00065A69",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Frenzy",
+        "strength": 5,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Lingering Poison",
+      "item_code": "00065A6F",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Lingering Damage Health",
+        "strength": 1,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Magicka Poison",
+      "item_code": "00065A65",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka",
+        "strength": 30,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Paralysis Poison",
+      "item_code": "00065A6A",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Paralysis",
+        "strength": null,
+        "duration": 3
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Poison",
+      "item_code": "0003A5A4",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Health",
+        "strength": 15,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Recovery Poison",
+      "item_code": "00073F90",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Magicka Regen",
+        "strength": 100,
+        "duration": 10
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Stamina Poison",
+      "item_code": "00065A66",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina",
+        "strength": 30,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Weak Vigor Poison",
+      "item_code": "00073F8B",
+      "unit_weight": 0.5,
+      "potion_type": "poison",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Damage Stamina Regen",
+        "strength": 100,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "White-Gold Tower",
+      "item_code": "00065C38",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  }
+]
