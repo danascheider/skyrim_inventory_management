@@ -3727,7 +3727,7 @@
   {
     "attributes": {
       "name": "Potion of Extreme Stamina",
-      "item_code": "00039CF3",
+      "item_code": "0003EAE6",
       "unit_weight": 0.5,
       "potion_type": "potion",
       "magical_effects": null,
