@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ main 166-update-object-modelling ]
 
 jobs:
   runner-job:
