@@ -103,7 +103,7 @@ RSpec.describe Canonical::Staff, type: :model do
         model = build(:canonical_staff, daedric: nil)
 
         model.validate
-        expect(model.errors[:daedric]).to include 'boolean value must be present'
+        expect(model.errors[:daedric]).to include 'must be true or false'
       end
     end
 
@@ -112,7 +112,7 @@ RSpec.describe Canonical::Staff, type: :model do
         model = build(:canonical_staff, unique_item: nil)
 
         model.validate
-        expect(model.errors[:unique_item]).to include 'boolean value must be present'
+        expect(model.errors[:unique_item]).to include 'must be true or false'
       end
     end
 
@@ -121,7 +121,7 @@ RSpec.describe Canonical::Staff, type: :model do
         model = build(:canonical_staff, quest_item: nil)
 
         model.validate
-        expect(model.errors[:quest_item]).to include 'boolean value must be present'
+        expect(model.errors[:quest_item]).to include 'must be true or false'
       end
     end
   end

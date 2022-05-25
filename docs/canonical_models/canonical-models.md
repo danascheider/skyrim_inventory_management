@@ -9,6 +9,7 @@ The following canonical models exist in the SIM database:
 * [`Canonical::JewelryItem`](/app/models/canonical/jewelry_item.rb): actual jewelry items available in-game, including both generic and unique pieces
 * [`Canonical::Material`](/app/models/canonical/material.rb): actual building and smithing materials present in the game
 * [`Canonical::MiscItem`](/app/models/canonical/misc_item.rb): miscellaneous items occurring in the game that may be either useful or decorative
+* [`Canonical::Potion`](/app/models/canonical/potion.rb): potions that may be purchased or found in-game (does not include player-created potions, which can be validated using only alchemical properties without needing an additional canonical model)
 * [`Canonical::Property`](/app/models/canonical/property.rb): actual properties (homes) the player character can own in the game
 * [`Canonical::Weapon`](/app/models/canonical/weapon.rb): actual weapons the player character can acquire in the game
 * [`Canonical::Staff`](/app/models/canonical/staff.rb): actual staves the player character can acquire in the game
@@ -26,6 +27,7 @@ Note that the lists above do not include join tables for the `has_many, :through
 
 * [`Canonical::EnchantablesEnchantment`](/app/models/canonical/enchantables_enchantment.rb): This polymorphic join table associates enchantments with any enchantable items, including armours, jewellery, clothing items, and weapons, adding a field called `strength` for the strength of the enchantment on that particular item
 * [`Canonical::CraftablesCraftingMaterial`](/app/models/canonical/craftables_crafting_material.rb): This polymorphic join table associates canonical materials with any items that are able to be crafted using those materials, including armours, jewellery, and weapons, adding a field called `quantity` for the quantity of a given material needed to craft that particular item
+* [`Canonical::PotionsAlchemicalProperty](/app/models/canonical/potions_alchemical_property.rb): This join table links canonical potions with their alchemical properties, setting a `strength` and `duration` on the association
 * [`Canonical::PowerablesPower](/app/models/canonical/powerables_power.rb): This polymorphic join table associates powers with any objects enchanted with them, including weapons and staves, adding no additional fields to the join table
 * [`Canonical::RecipesIngredient`](/app/models/canonical/recipes_ingredient.rb): This join table links canonical books that are recipes with the ingredients specified in the recipe; there are no fields on this table other than foreign keys and timestamps
 * [`Canonical::StavesSpell](/app/models/canonical/staves_spell.rb): This join table links enchanted staves to the spells they are enchanted with, adding a `strength` field in case the strength of the spell on the staff differs from the base strength of the spell

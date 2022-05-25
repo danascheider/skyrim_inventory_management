@@ -209,6 +209,14 @@
   },
   {
     "attributes": {
+      "name": "Fortify Speech",
+      "description": "+<strength> Speechcraft for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
       "name": "Fortify Stamina",
       "description": "Stamina is increased by <strength> points for <duration> seconds.",
       "strength_unit": "point",

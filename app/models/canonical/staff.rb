@@ -4,6 +4,9 @@ module Canonical
   class Staff < ApplicationRecord
     self.table_name = 'canonical_staves'
 
+    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
+
     VALID_SCHOOLS = %w[
                       Alteration
                       Conjuration
@@ -34,9 +37,9 @@ module Canonical
                               only_integer:             true,
                             }
     validates :school, inclusion: { in: VALID_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
-    validates :daedric, inclusion: { in: [true, false], message: 'boolean value must be present' }
-    validates :unique_item, inclusion: { in: [true, false], message: 'boolean value must be present' }
-    validates :quest_item, inclusion: { in: [true, false], message: 'boolean value must be present' }
+    validates :daedric, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
 
     def self.unique_identifier
       :item_code

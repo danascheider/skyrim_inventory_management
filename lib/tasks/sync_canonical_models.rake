@@ -130,6 +130,17 @@ namespace :canonical_models do
 
       Canonical::Sync.perform(:book, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
     end
+
+    desc 'Sync canonical potion models in the database with JSON data'
+    task :potions,
+         %i[preserve_existing_records] => %w[
+                                            environment
+                                            canonical_models:sync:alchemical_properties
+                                          ] do |_t, args|
+      args.with_defaults(preserve_existing_records: false)
+
+      Canonical::Sync.perform(:potion, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
+    end
     # rubocop:enable Layout/BlockAlignment
 
     desc 'Sync canonical misc items in the database with JSON data'

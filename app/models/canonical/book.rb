@@ -4,7 +4,8 @@ module Canonical
   class Book < ApplicationRecord
     self.table_name = 'canonical_books'
 
-    BOOLEAN_VALUES = [true, false].freeze
+    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     BOOK_TYPES = [
                    'black book',
@@ -52,14 +53,14 @@ module Canonical
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :book_type, inclusion: { in: BOOK_TYPES, message: 'must be a book type that exists in Skyrim' }
     validates :skill_name, inclusion: { in: SKILLS, message: 'must be a skill that exists in Skyrim', allow_blank: true }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: 'must be true or false' }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: 'must be true or false' }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: 'must be true or false' }
-    validates :solstheim_only, inclusion: { in: BOOLEAN_VALUES, message: 'must be true or false' }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: 'must be true or false' }
+    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :solstheim_only, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
 
     validate :validate_skill_name_presence
-    validate :verify_unique_item_rare
+    validate :verify_unique_item_rare, if: -> { unique_item == true }
 
     def self.unique_identifier
       :item_code
@@ -76,7 +77,7 @@ module Canonical
     end
 
     def verify_unique_item_rare
-      errors.add(:rare_item, 'must be true if item is unique') if unique_item && !rare_item
+      errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
   end
 end

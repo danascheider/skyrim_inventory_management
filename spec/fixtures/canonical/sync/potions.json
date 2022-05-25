@@ -1,0 +1,81 @@
+[
+  {
+    "attributes": {
+      "name": "Blacksmith's Potion",
+      "item_code": "0003EB2E",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Smithing",
+        "strength": 20,
+        "duration": 30
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Cliff Racer",
+      "item_code": "00065C39",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Restore Stamina",
+        "strength": 25,
+        "duration": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Esbern's Potion",
+      "item_code": "000E6DF5",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": "Grants Dragon Infusion perk.",
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": true
+    },
+    "alchemical_properties": []
+  },
+  {
+    "attributes": {
+      "name": "Grand Elixir of Larceny",
+      "item_code": "000F84AB",
+      "unit_weight": 0.5,
+      "potion_type": "potion",
+      "magical_effects": null,
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "name": "Fortify Lockpicking",
+        "strength": 35,
+        "duration": 60
+      },
+      {
+        "name": "Fortify Pickpocket",
+        "strength": 35,
+        "duration": 60
+      }
+    ]
+  }
+]
