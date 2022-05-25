@@ -11,7 +11,7 @@ def concatenate_values(array, *keys_to_concatenate)
     output_value[index] = values.empty? ? nil : values.join(',')
   end
 
-  output_value
+  output_value.map(&:presence)
 end
 
 namespace :csv do
@@ -264,7 +264,7 @@ namespace :csv do
       File.write(csv_path, csv_data)
     end
 
-    desc 'Export a CSV of misc items from JSON data'
+    desc 'Export a CSV of canonical misc items from JSON data'
     task misc_items: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.json')
       csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.csv')
@@ -277,6 +277,24 @@ namespace :csv do
           item[:attributes][:item_types] = item.dig(:attributes, :item_types).join(',')
 
           csv << item[:attributes].values
+        end
+      end
+
+      File.write(csv_path, csv_data)
+    end
+
+    desc 'Export a CSV of canonical potions from JSON data'
+    task potions: :environment do
+      json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_potions.json')
+      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_potions.csv')
+      json_data = JSON.parse(File.read(json_path), symbolize_names: true)
+
+      own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
+      headers              = "#{own_property_headers},alchemical_property_names,alchemical_property_strengths,alchemical_property_durations\n"
+
+      csv_data = CSV.generate(headers) do |csv|
+        json_data.each do |item|
+          csv << item[:attributes].values + concatenate_values(item[:alchemical_properties], :name, :strength, :duration)
         end
       end
 
