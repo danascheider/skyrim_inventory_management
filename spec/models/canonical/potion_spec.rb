@@ -97,6 +97,21 @@ RSpec.describe Canonical::Potion, type: :model do
     end
   end
 
+  describe 'associations' do
+    describe 'alchemical properties' do
+      let(:potion)              { create(:canonical_potion) }
+      let(:alchemical_property) { create(:alchemical_property) }
+
+      before do
+        potion.canonical_potions_alchemical_properties.create!(alchemical_property: alchemical_property, strength: 15, duration: 30)
+      end
+
+      it 'returns the alchemical property' do
+        expect(potion.alchemical_properties.first).to eq alchemical_property
+      end
+    end
+  end
+
   describe '::unique_identifier' do
     it 'returns ":item_code"' do
       expect(described_class.unique_identifier).to eq :item_code

@@ -7,6 +7,12 @@ module Canonical
     BOOLEAN_VALUES             = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
+    has_many :canonical_potions_alchemical_properties,
+             dependent:  :destroy,
+             class_name: 'Canonical::PotionsAlchemicalProperty',
+             inverse_of: :potion
+    has_many :alchemical_properties, through: :canonical_potions_alchemical_properties
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }

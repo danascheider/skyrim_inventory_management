@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_25_005131) do
+ActiveRecord::Schema.define(version: 2022_05_25_023945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,18 @@ ActiveRecord::Schema.define(version: 2022_05_25_005131) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
+  end
+
+  create_table "canonical_potions_alchemical_properties", force: :cascade do |t|
+    t.bigint "potion_id", null: false
+    t.bigint "alchemical_property_id", null: false
+    t.integer "strength"
+    t.integer "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alchemical_property_id"], name: "index_can_potions_properties_on_alc_property_id"
+    t.index ["potion_id", "alchemical_property_id"], name: "index_can_potions_properties_on_potion_and_property", unique: true
+    t.index ["potion_id"], name: "index_canonical_potions_alchemical_properties_on_potion_id"
   end
 
   create_table "canonical_powerables_powers", force: :cascade do |t|
@@ -396,6 +408,8 @@ ActiveRecord::Schema.define(version: 2022_05_25_005131) do
   add_foreign_key "canonical_enchantables_enchantments", "enchantments"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
+  add_foreign_key "canonical_potions_alchemical_properties", "alchemical_properties"
+  add_foreign_key "canonical_potions_alchemical_properties", "canonical_potions", column: "potion_id"
   add_foreign_key "canonical_powerables_powers", "powers"
   add_foreign_key "canonical_recipes_ingredients", "canonical_books", column: "recipe_id"
   add_foreign_key "canonical_recipes_ingredients", "canonical_ingredients", column: "ingredient_id"
