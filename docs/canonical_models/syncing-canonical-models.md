@@ -26,7 +26,8 @@ The following idempotent Rake tasks can be used to sync the database with the ca
 * `rails canonical_models:sync:ingredients` (sync canonical ingredients with JSON data)
 * `rails canonical_models:sync:jewelry` (syncs canonical jewellery with JSON data)
 * `rails canonical_models:sync:materials` (syncs canonical materials with JSON data)
-* `rails canonical_models:sync:misc_items` (syncs misc items with JSON data)
+* `rails canonical_models:sync:misc_items` (syncs canonical misc items with JSON data)
+* `rails canonical_models:sync:potions` (syncs canonical potions with JSON data)
 * `rails canonical_models:sync:powers` (syncs powers and abilities with JSON data)
 * `rails canonical_models:sync:properties` (syncs canonical properties with JSON data)
 * `rails canonical_models:sync:spells` (syncs canonical spells with JSON data)
@@ -77,8 +78,9 @@ The following models have prerequisites:
 | `Canonical::Armor`        | `Enchantment`, `Canonical::Material` |
 | `Canonical::Book`         | `Canonical::Ingredient`              |
 | `Canonical::ClothingItem` | `Enchantment`                        |
-| `Canonical::Ingredient`   | AlchemicalProperty                   |
+| `Canonical::Ingredient`   | `AlchemicalProperty`                 |
 | `Canonical::JewelryItem`  | `Enchantment`, `Canonical::Material` |
+| `Canonical::Potion`       | `AlchemicalProperty`                 |
 | `Canonical::Staff`        | `Spell`, `Power`                     |
 | `Canonical::Weapon`       | `Enchantment`, `Canonical::Material` |
 
