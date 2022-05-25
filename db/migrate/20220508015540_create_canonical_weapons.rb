@@ -13,8 +13,10 @@ class CreateCanonicalWeapons < ActiveRecord::Migration[6.1]
       t.decimal :unit_weight, null: false, precision: 5, scale: 2
       t.boolean :leveled, default: false
       t.boolean :enchantable, default: true
-      t.boolean :quest_item, default: false
+      t.boolean :purchasable
       t.boolean :unique_item, default: false
+      t.boolean :rare_item
+      t.boolean :quest_item, default: false
 
       t.index :item_code, unique: true
 

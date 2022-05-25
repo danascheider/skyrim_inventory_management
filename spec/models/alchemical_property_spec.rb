@@ -40,8 +40,8 @@ RSpec.describe AlchemicalProperty, type: :model do
 
       it 'must be one of "point" or "percentage"' do
         model = build(:alchemical_property, strength_unit: 'Foobar')
-        model.validate
 
+        model.validate
         expect(model.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
       end
     end
@@ -49,10 +49,8 @@ RSpec.describe AlchemicalProperty, type: :model do
 
   describe 'class methods' do
     describe '::unique_identifier' do
-      subject(:unique_identifier) { described_class.unique_identifier }
-
       it 'returns :name' do
-        expect(unique_identifier).to eq :name
+        expect(described_class.unique_identifier).to eq :name
       end
     end
   end

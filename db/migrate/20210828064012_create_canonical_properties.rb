@@ -5,12 +5,14 @@ class CreateCanonicalProperties < ActiveRecord::Migration[6.1]
     create_table :canonical_properties do |t|
       t.string :name, null: false, unique: true
       t.string :hold, null: false, unique: true
-      t.string :city
+      t.string :city, unique: true
       t.boolean :alchemy_lab_available, default: true
       t.boolean :arcane_enchanter_available, default: false
       t.boolean :forge_available, default: false
+
       t.index :name, unique: true
       t.index :hold, unique: true
+      t.index :city, unique: true
 
       t.timestamps
     end

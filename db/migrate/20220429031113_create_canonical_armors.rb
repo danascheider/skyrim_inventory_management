@@ -10,9 +10,12 @@ class CreateCanonicalArmors < ActiveRecord::Migration[6.1]
       t.string :magical_effects
       t.decimal :unit_weight, precision: 5, scale: 2, null: false
       t.boolean :dragon_priest_mask, default: false
-      t.boolean :quest_item, default: false
-      t.boolean :unique_item, default: false
       t.boolean :enchantable, default: true
+      t.boolean :leveled, default: false
+      t.boolean :purchasable
+      t.boolean :unique_item, default: false
+      t.boolean :rare_item
+      t.boolean :quest_item, default: false
 
       t.index :item_code, unique: true
 

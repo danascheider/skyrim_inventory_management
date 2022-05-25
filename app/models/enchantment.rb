@@ -1,14 +1,8 @@
 # frozen_string_literal: true
 
-class Enchantment < ApplicationRecord
-  SCHOOLS = %w[
-              Alteration
-              Conjuration
-              Destruction
-              Illusion
-              Restoration
-            ].freeze
+require 'skyrim'
 
+class Enchantment < ApplicationRecord
   ENCHANTABLE_WEAPONS = [
                           'sword',
                           'mace',
@@ -48,7 +42,7 @@ class Enchantment < ApplicationRecord
                          message:     'must be "point", "percentage", "second", or the "level" of affected targets',
                          allow_blank: true,
                        }
-  validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
+  validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
 
   def self.unique_identifier

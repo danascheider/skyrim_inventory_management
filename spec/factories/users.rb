@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory(:user) do
-    sequence(:uid) {|n| "foo#{n}@example.com" }
+    sequence(:uid)   {|n| "foo#{n}@example.com" }
     sequence(:email) {|n| "foo#{n}@example.com" }
-    name { 'Jane Doe' }
+    name             { 'Jane Doe' }
 
     factory :user_with_games do
       transient do

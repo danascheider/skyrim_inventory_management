@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 class Property < ApplicationRecord
   belongs_to :game
   belongs_to :canonical_property, class_name: 'Canonical::Property'
@@ -18,7 +20,7 @@ class Property < ApplicationRecord
 
   validates :hold,
             presence:   true,
-            inclusion:  { in: Canonical::Property::VALID_HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
+            inclusion:  { in: Skyrim::HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
             uniqueness: { scope: :game_id, message: 'must be unique per game' }
 
   validates :city,

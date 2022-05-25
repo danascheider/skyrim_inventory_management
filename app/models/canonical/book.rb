@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 module Canonical
   class Book < ApplicationRecord
     self.table_name = 'canonical_books'
@@ -20,27 +22,6 @@ module Canonical
                    'treasure map',
                  ].freeze
 
-    SKILLS = [
-               'Alchemy',
-               'Alteration',
-               'Archery',
-               'Block',
-               'Conjuration',
-               'Destruction',
-               'Enchanting',
-               'Heavy Armor',
-               'Illusion',
-               'Light Armor',
-               'Lockpicking',
-               'One-Handed',
-               'Pickpocket',
-               'Restoration',
-               'Smithing',
-               'Sneak',
-               'Speech',
-               'Two-Handed',
-             ].freeze
-
     has_many :canonical_recipes_ingredients,
              dependent:   :destroy,
              class_name:  'Canonical::RecipesIngredient',
@@ -52,7 +33,7 @@ module Canonical
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :book_type, inclusion: { in: BOOK_TYPES, message: 'must be a book type that exists in Skyrim' }
-    validates :skill_name, inclusion: { in: SKILLS, message: 'must be a skill that exists in Skyrim', allow_blank: true }
+    validates :skill_name, inclusion: { in: Skyrim::SKILLS, message: 'must be a skill that exists in Skyrim', allow_blank: true }
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }

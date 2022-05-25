@@ -93,10 +93,8 @@ RSpec.describe Canonical::ClothingItem, type: :model do
 
   describe 'class methods' do
     describe '::unique_identifier' do
-      subject(:unique_identifier) { described_class.unique_identifier }
-
       it 'returns :item_code' do
-        expect(unique_identifier).to eq :item_code
+        expect(described_class.unique_identifier).to eq :item_code
       end
     end
   end

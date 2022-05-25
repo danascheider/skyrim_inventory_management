@@ -1,24 +1,10 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 module Canonical
   class Weapon < ApplicationRecord
-    VALID_CATEGORIES   = %w[one-handed two-handed archery].freeze
-    VALID_WEAPON_TYPES = [
-                           'arrow',
-                           'battleaxe',
-                           'bolt',
-                           'bow',
-                           'crossbow',
-                           'dagger',
-                           'greatsword',
-                           'mace',
-                           'other',
-                           'sword',
-                           'war axe',
-                           'warhammer',
-                         ].freeze
-
-    VALID_COMBINATIONS = {
+    VALID_WEAPON_TYPES = {
                            'one-handed' => [
                                              'dagger',
                                              'mace',
@@ -38,19 +24,6 @@ module Canonical
                                              crossbow
                                            ],
                          }.freeze
-
-    VALID_SMITHING_PERKS = [
-                             'Steel Smithing',
-                             'Elven Smithing',
-                             'Advanced Armors',
-                             'Glass Smithing',
-                             'Dragon Armor',
-                             'Arcane Blacksmith',
-                             'Dwarven Smithing',
-                             'Orcish Smithing',
-                             'Ebony Smithing',
-                             'Daedric Smithing',
-                           ].freeze
 
     self.table_name = 'canonical_weapons'
 
@@ -91,13 +64,13 @@ module Canonical
     validates :category,
               presence:  true,
               inclusion: {
-                           in:      VALID_CATEGORIES,
+                           in:      VALID_WEAPON_TYPES.keys,
                            message: 'must be "one-handed", "two-handed", or "archery"',
                          }
     validates :weapon_type,
               presence:  true,
               inclusion: {
-                           in:      VALID_WEAPON_TYPES,
+                           in:      VALID_WEAPON_TYPES.values.flatten,
                            message: 'must be a valid type of weapon that occurs in Skyrim',
                          }
     validates :base_damage, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
@@ -113,12 +86,12 @@ module Canonical
     private
 
     def verify_category_type_combination
-      errors.add(:weapon_type, "is not included in category \"#{category}\"") unless VALID_COMBINATIONS[category]&.include?(weapon_type)
+      errors.add(:weapon_type, "is not included in category \"#{category}\"") unless VALID_WEAPON_TYPES[category]&.include?(weapon_type)
     end
 
     def verify_all_smithing_perks_valid
       smithing_perks&.each do |perk|
-        errors.add(:smithing_perks, "\"#{perk}\" is not a valid smithing perk") unless VALID_SMITHING_PERKS.include?(perk)
+        errors.add(:smithing_perks, "\"#{perk}\" is not a valid smithing perk") unless Skyrim::SMITHING_PERKS.include?(perk)
       end
     end
   end

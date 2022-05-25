@@ -1,22 +1,8 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 class Spell < ApplicationRecord
-  SCHOOLS = %w[
-              Alteration
-              Conjuration
-              Destruction
-              Illusion
-              Restoration
-            ].freeze
-
-  LEVELS = %w[
-             Novice
-             Apprentice
-             Adept
-             Expert
-             Master
-           ].freeze
-
   has_many :canonical_staves_spells,
            dependent:  :destroy,
            class_name: 'Canonical::StavesSpell',
@@ -24,8 +10,8 @@ class Spell < ApplicationRecord
   has_many :staves, through: :canonical_staves_spells
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :school, presence: true, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic' }
-  validates :level, presence: true, inclusion: { in: LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }
+  validates :school, presence: true, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic' }
+  validates :level, presence: true, inclusion: { in: Skyrim::DIFFICULTY_LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }
   validates :strength_unit,
             inclusion: {
                          in:          %w[point percentage level],

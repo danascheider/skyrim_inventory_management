@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 module Canonical
   class Property < ApplicationRecord
     self.table_name = 'canonical_properties'
@@ -25,19 +27,6 @@ module Canonical
                     'Windstad Manor',
                   ].freeze
 
-    VALID_HOLDS = [
-                    'Eastmarch',
-                    'Falkreath',
-                    'Haafingar',
-                    'Hjaalmarch',
-                    'Solstheim',
-                    'The Pale',
-                    'The Reach',
-                    'The Rift',
-                    'Whiterun',
-                    'Winterhold',
-                  ].freeze
-
     VALID_CITIES = [
                      'Markarth',
                      'Raven Rock',
@@ -57,7 +46,7 @@ module Canonical
 
     validates :hold,
               presence:   true,
-              inclusion:  { in: VALID_HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
+              inclusion:  { in: Skyrim::HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
               uniqueness: { message: 'must be unique' }
 
     validates :city,

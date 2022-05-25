@@ -7,9 +7,8 @@ FactoryBot.define do
     sequence(:title) {|n| "Inventory List #{n}" }
 
     factory :aggregate_inventory_list do
-      aggregate { true }
-
-      title { 'All Items' }
+      aggregate         { true }
+      title             { 'All Items' }
       aggregate_list_id { nil }
     end
 

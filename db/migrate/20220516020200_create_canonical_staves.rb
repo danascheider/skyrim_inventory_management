@@ -11,7 +11,9 @@ class CreateCanonicalStaves < ActiveRecord::Migration[6.1]
       t.string :school
       t.string :enemy
       t.boolean :daedric, null: false, default: false
+      t.boolean :purchasable
       t.boolean :unique_item, null: false, default: false
+      t.boolean :rare_item
       t.boolean :quest_item, null: false, default: false
       t.boolean :leveled, null: false, default: false
 

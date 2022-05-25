@@ -5,6 +5,6 @@ FactoryBot.define do
     association :list, factory: :shopping_list
 
     sequence(:description) {|n| "Item #{n}" }
-    quantity { 1 }
+    quantity               { 1 }
   end
 end

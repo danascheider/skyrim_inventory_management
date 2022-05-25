@@ -119,4 +119,12 @@ RSpec.describe Canonical::MiscItem, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      it 'returns ":item_code"' do
+        expect(described_class.unique_identifier).to eq :item_code
+      end
+    end
+  end
 end

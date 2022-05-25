@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'skyrim'
 
 RSpec.describe Canonical::Property, type: :model do
   subject(:property) { described_class.new }
@@ -64,7 +65,7 @@ RSpec.describe Canonical::Property, type: :model do
     before do
       allow(Rails.logger).to receive(:error)
 
-      names_and_holds = described_class::VALID_NAMES.zip(described_class::VALID_HOLDS)
+      names_and_holds = described_class::VALID_NAMES.zip(Skyrim::HOLDS)
 
       names_and_holds.each do |pair|
         described_class.find_or_create_by!(name: pair[0], hold: pair[1])
@@ -87,10 +88,8 @@ RSpec.describe Canonical::Property, type: :model do
 
   describe 'class methods' do
     describe '::unique_identifier' do
-      subject(:unique_identifier) { described_class.unique_identifier }
-
       it 'returns :name' do
-        expect(unique_identifier).to eq :name
+        expect(described_class.unique_identifier).to eq :name
       end
     end
   end
