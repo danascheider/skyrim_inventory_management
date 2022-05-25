@@ -2,9 +2,9 @@ name: Skyrim Inventory Management CI
 
 on:
   push:
-    branches: [ main, 166-update-object-modelling ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, 166-update-object-modelling ]
+    branches: [ main ]
 
 jobs:
   runner-job:
