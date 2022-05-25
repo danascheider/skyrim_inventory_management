@@ -871,30 +871,15 @@ RSpec.describe InventoryList, type: :model do
     end
   end
 
-  describe 'parent models' do
-    let(:game)               { create(:game) }
-    let(:aggregate_list)     { create(:aggregate_inventory_list, game: game) }
-    let(:canonical_property) { create(:canonical_property, name: 'Breezehome', hold: 'Whiterun', city: 'Whiterun', alchemy_lab_available: true) }
-    let(:property)           { create(:property, game: game, canonical_property: canonical_property, name: 'Breezehome', hold: 'Whiterun', city: 'Whiterun', has_alchemy_lab: false) }
+  describe 'parent model' do
+    let(:game)           { create(:game) }
+    let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
 
     it 'is invalid without a game' do
       list = described_class.new(aggregate_list: aggregate_list)
 
       list.validate
       expect(list.errors[:game]).to include 'must exist'
-    end
-
-    it "doesn't have to have a property" do
-      list = described_class.new(aggregate_list: aggregate_list)
-
-      list.validate
-      expect(list.errors[:property]).to be_blank
-    end
-
-    it 'can have a property' do
-      list = described_class.new(aggregate_list: aggregate_list, property: property)
-
-      expect(list.property).to eq property
     end
   end
 end

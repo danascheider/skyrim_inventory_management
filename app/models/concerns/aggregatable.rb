@@ -20,7 +20,6 @@
 #    | aggregate         | boolean | null: false, default: false |
 #    | aggregate_list_id | bigint  |                             |
 #    | game_id           | bigint  | null: false                 |
-#    | property_id       | bigint  |                             |
 #
 # There are a few other assumptions made:
 # - There is a `#list_item_class_name` method defined. For the `ShoppingList` model,
@@ -43,7 +42,6 @@ module Aggregatable
              foreign_key: :list_id,
              inverse_of:  :list
     belongs_to :aggregate_list, class_name: to_s, optional: true
-    belongs_to :property, optional: true
 
     has_many :child_lists, class_name: to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
 

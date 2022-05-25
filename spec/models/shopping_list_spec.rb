@@ -865,25 +865,12 @@ RSpec.describe ShoppingList, type: :model do
       end
     end
 
-    describe 'parent models' do
-      let(:list)               { described_class.new(aggregate_list: described_class.new) }
-      let(:canonical_property) { create(:canonical_property, name: 'Breezehome', hold: 'Whiterun', city: 'Whiterun', alchemy_lab_available: true) }
+    describe 'parent model' do
+      let(:list) { described_class.new(aggregate_list: described_class.new) }
 
       it 'is invalid without a game' do
         list.validate
         expect(list.errors[:game]).to include 'must exist'
-      end
-
-      it "doesn't have to have a property" do
-        list.validate
-        expect(list.errors[:property]).to be_blank
-      end
-
-      it 'can have a property' do
-        property         = create(:property, game: create(:game), canonical_property: canonical_property, name: 'Breezehome', hold: 'Whiterun', city: 'Whiterun')
-        list.property_id = property.id
-        list.validate
-        expect(list.errors[:property]).to be_blank
       end
     end
   end
