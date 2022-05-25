@@ -8,10 +8,6 @@ module Canonical
     belongs_to :ingredient, class_name: 'Canonical::Ingredient'
 
     validates :alchemical_property_id, uniqueness: { scope: :ingredient_id, message: 'must form a unique combination with canonical ingredient' }
-    # priority is allowed to be blank. Otherwise, there is no way to change the priority of properties
-    # in the database if there are already 4 alchemical properties for the ingredient, because of the
-    # uniqueness validations. In order to update the priority, you need to first clear priority for
-    # any models that conflict, save them, and then update them again to the correct values.
     validates :priority,
               allow_blank:  true,
               uniqueness:   { scope: :ingredient_id, message: 'must be unique per ingredient' },
