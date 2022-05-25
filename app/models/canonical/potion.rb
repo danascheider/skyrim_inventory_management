@@ -6,6 +6,7 @@ module Canonical
 
     BOOLEAN_VALUES             = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
+    VALID_POTION_TYPES         = %w[potion poison].freeze
 
     has_many :canonical_potions_alchemical_properties,
              dependent:  :destroy,
@@ -16,6 +17,7 @@ module Canonical
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :potion_type, presence: true, inclusion: { in: VALID_POTION_TYPES, message: 'must be "potion" or "poison"' }
 
     validate :validate_boolean_values
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }

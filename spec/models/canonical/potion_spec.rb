@@ -53,6 +53,22 @@ RSpec.describe Canonical::Potion, type: :model do
       end
     end
 
+    describe 'potion_type' do
+      it "can't be blank" do
+        model = build(:canonical_potion, potion_type: nil)
+
+        model.validate
+        expect(model.errors[:potion_type]).to include "can't be blank"
+      end
+
+      it 'must be a valid potion type' do
+        model = build(:canonical_potion, potion_type: 'beneficial')
+
+        model.validate
+        expect(model.errors[:potion_type]).to include 'must be "potion" or "poison"'
+      end
+    end
+
     describe 'purchasable' do
       it "can't be blank" do
         model = build(:canonical_potion, purchasable: nil)
