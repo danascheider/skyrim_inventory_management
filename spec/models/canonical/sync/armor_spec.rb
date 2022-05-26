@@ -165,11 +165,10 @@ RSpec.describe Canonical::Sync::Armor do
           temperable: item_in_json,
           material:   create(:canonical_material, name: 'Onyx Ore'),
         )
-
-        allow(described_class).to receive(:new).and_return(syncer)
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end

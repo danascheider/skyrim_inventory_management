@@ -25,11 +25,10 @@ RSpec.describe Canonical::Sync::Books do
         before do
           create(:canonical_ingredient, item_code: '00052695')
           create(:canonical_ingredient, item_code: '0006BC00')
-
-          allow(described_class).to receive(:new).and_return(syncer)
         end
 
         it 'instantiates itself' do
+          allow(described_class).to receive(:new).and_return(syncer)
           perform
           expect(described_class).to have_received(:new).with(preserve_existing_records)
         end
@@ -150,10 +149,10 @@ RSpec.describe Canonical::Sync::Books do
         create(:canonical_ingredient, item_code: '00052695')
         create(:canonical_ingredient, item_code: '0006BC00')
         create(:canonical_recipes_ingredient, recipe: book_in_json, ingredient: create(:canonical_ingredient))
-        allow(described_class).to receive(:new).and_return(syncer)
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -199,6 +198,7 @@ RSpec.describe Canonical::Sync::Books do
           allow_any_instance_of(Canonical::Book)
             .to receive(:save!)
                   .and_raise(ActiveRecord::RecordInvalid, errored_model)
+
           allow(Rails.logger).to receive(:error)
         end
 
@@ -216,7 +216,10 @@ RSpec.describe Canonical::Sync::Books do
         before do
           create(:canonical_ingredient)
 
-          allow(Canonical::Book).to receive(:find_or_initialize_by).and_raise(StandardError, 'foobar')
+          allow(Canonical::Book)
+            .to receive(:find_or_initialize_by)
+                  .and_raise(StandardError, 'foobar')
+
           allow(Rails.logger).to receive(:error)
         end
 
@@ -234,7 +237,10 @@ RSpec.describe Canonical::Sync::Books do
         before do
           create(:canonical_ingredient)
 
-          allow(Canonical::Book).to receive(:where).and_raise(StandardError, 'foobar')
+          allow(Canonical::Book)
+            .to receive(:where)
+                  .and_raise(StandardError, 'foobar')
+
           allow(Rails.logger).to receive(:error)
         end
 
