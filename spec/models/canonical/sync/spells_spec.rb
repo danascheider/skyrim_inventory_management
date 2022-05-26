@@ -30,9 +30,12 @@ RSpec.describe Canonical::Sync::Spells do
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
-          expect { perform }
-            .to change(Spell, :count).from(0).to(4)
+        it 'populates the models from the JSON file', :aggregate_failures do
+          perform
+          expect(Spell.find_by(name: 'Bound Battleaxe')).to be_present
+          expect(Spell.find_by(name: 'Bound Bow')).to be_present
+          expect(Spell.find_by(name: 'Bound Dagger')).to be_present
+          expect(Spell.find_by(name: 'Bound Sword')).to be_present
         end
       end
 

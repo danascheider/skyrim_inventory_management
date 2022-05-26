@@ -30,9 +30,12 @@ RSpec.describe Canonical::Sync::Powers do
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
-          expect { perform }
-            .to change(Power, :count).from(0).to(4)
+        it 'populates the models from the JSON file', :aggregate_failures do
+          perform
+          expect(Power.find_by(name: "Ahzidal's Genius")).to be_present
+          expect(Power.find_by(name: "Ancestor's Wrath")).to be_present
+          expect(Power.find_by(name: 'Bardic Knowledge')).to be_present
+          expect(Power.find_by(name: 'Bats')).to be_present
         end
       end
 

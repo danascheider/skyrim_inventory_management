@@ -30,9 +30,12 @@ RSpec.describe Canonical::Sync::Materials do
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
-          expect { perform }
-            .to change(Canonical::Material, :count).from(0).to(4)
+        it 'populates the models from the JSON file', :aggregate_failures do
+          perform
+          expect(Canonical::Material.find_by(item_code: 'XX00300F')).to be_present
+          expect(Canonical::Material.find_by(item_code: 'XX00306C')).to be_present
+          expect(Canonical::Material.find_by(item_code: 'XX00300E')).to be_present
+          expect(Canonical::Material.find_by(item_code: 'XX005A68')).to be_present
         end
       end
 
