@@ -38,3 +38,5 @@ skyrim_inventory_management.csr
 
 # Ignore CSV files exported from canonical data (or imported to generate canonical data)
 /lib/tasks/canonical_models/*.csv
+
+/**/*.crt
