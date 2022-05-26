@@ -1,0 +1,38 @@
+[
+  {
+    "attributes": {
+      "name": "Nails",
+      "item_code": "XX00300F",
+      "building_material": true,
+      "smithing_material": false,
+      "unit_weight": 0.1
+    }
+  },
+  {
+    "attributes": {
+      "name": "Quarried Stone",
+      "item_code": "XX00306C",
+      "building_material": true,
+      "smithing_material": false,
+      "unit_weight": 1
+    }
+  },
+  {
+    "attributes": {
+      "name": "Sawn Log",
+      "item_code": "XX00300E",
+      "building_material": true,
+      "smithing_material": false,
+      "unit_weight": 0
+    }
+  },
+  {
+    "attributes": {
+      "name": "Straw",
+      "item_code": "XX005A68",
+      "building_material": true,
+      "smithing_material": false,
+      "unit_weight": 1
+    }
+  }
+]

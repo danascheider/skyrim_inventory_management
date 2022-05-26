@@ -1,0 +1,89 @@
+[
+  {
+    "attributes": {
+      "title": "Cure Disease Potion Recipe",
+      "title_variants": null,
+      "item_code": "000F5CB8",
+      "unit_weight": 0.0,
+      "book_type": "recipe",
+      "authors": null,
+      "skill_name": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "solstheim_only": false,
+      "quest_item": false
+    },
+    "canonical_ingredients": [
+      {
+        "item_code": "00052695"
+      },
+      {
+        "item_code": "0006BC00"
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "title": "2920, vol 01 - Morning Star",
+      "title_variants": [
+        "2920, Morning Star, v1",
+        "Morning Star Book One of 2920 The Last Year of the First Era"
+      ],
+      "item_code": "0001AFD9",
+      "unit_weight": 1.0,
+      "book_type": "skill book",
+      "authors": [
+        "Carlovac Townway"
+      ],
+      "skill_name": "One-Handed",
+      "purchasable": false,
+      "unique_item": false,
+      "rare_item": true,
+      "solstheim_only": false,
+      "quest_item": false
+    },
+    "canonical_ingredients": []
+  },
+  {
+    "attributes": {
+      "title": "2920, vol 03 - First Seed",
+      "title_variants": [
+        "2920, First Seed, v3",
+        "First Seed, Book Three of 2920"
+      ],
+      "item_code": "0001ACE5",
+      "unit_weight": 1.0,
+      "book_type": "lore book",
+      "authors": [
+        "Carlovac Townway"
+      ],
+      "skill_name": null,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": false,
+      "solstheim_only": false,
+      "quest_item": false
+    },
+    "canonical_ingredients": []
+  },
+  {
+    "attributes": {
+      "title": "A Letter to Selina I",
+      "title_variants": null,
+      "item_code": "XX030C9A",
+      "unit_weight": 0.0,
+      "book_type": "letter",
+      "authors": [
+        "Maximian Axius"
+      ],
+      "skill_name": null,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "solstheim_only": true,
+      "quest_item": false
+    },
+    "canonical_ingredients": []
+  }
+]

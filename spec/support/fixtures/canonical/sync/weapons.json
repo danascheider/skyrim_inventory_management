@@ -1,0 +1,123 @@
+[
+  {
+    "attributes": {
+      "name": "Ancient Nord Arrow",
+      "item_code": "00034182",
+      "category": "archery",
+      "weapon_type": "arrow",
+      "unit_weight": 0.0,
+      "base_damage": 10,
+      "leveled": false,
+      "smithing_perks": null,
+      "magical_effects": null,
+      "enchantable": false,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "crafting_materials": [],
+    "tempering_materials": []
+  },
+  {
+    "attributes": {
+      "name": "Ancient Nord Battle Axe of Frost",
+      "item_code": "0005BF06",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 22.0,
+      "base_damage": 18,
+      "leveled": false,
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Steel Smithing"
+      ],
+      "magical_effects": null,
+      "enchantable": false,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [
+      {
+        "name": "Frost Damage",
+        "strength": 10.0
+      }
+    ],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Daedric Battleaxe",
+      "item_code": "000139B4",
+      "category": "two-handed",
+      "weapon_type": "battleaxe",
+      "unit_weight": 27.0,
+      "base_damage": 25,
+      "leveled": false,
+      "smithing_perks": [
+        "Daedric Smithing"
+      ],
+      "magical_effects": null,
+      "enchantable": true,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "crafting_materials": [
+      {
+        "item_code": "0003AD5B",
+        "quantity": 1
+      },
+      {
+        "item_code": "000800E4",
+        "quantity": 2
+      },
+      {
+        "item_code": "0005AD9D",
+        "quantity": 5
+      }
+    ],
+    "tempering_materials": [
+      {
+        "item_code": "0005AD9D",
+        "quantity": 1
+      }
+    ],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Glass Bow of the Stag Prince",
+      "item_code": "XX018ED5",
+      "category": "archery",
+      "weapon_type": "bow",
+      "unit_weight": 14.0,
+      "base_damage": 16,
+      "leveled": false,
+      "smithing_perks": [
+        "Glass Smithing"
+      ],
+      "magical_effects": "Wielder receives an increasingly powerful blessing for every 20 animals killed by the bow.",
+      "unique_item": true,
+      "quest_item": false
+    },
+    "enchantments": [],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ADA1",
+        "quantity": 1
+      }
+    ],
+    "powers": [
+      {
+        "name": "Blessing of the Stag Prince"
+      }
+    ]
+  }
+]

@@ -18,6 +18,7 @@ class Game < ApplicationRecord
   # before `dependent: :destroy` need to be defined before the
   # association is defined.
   before_destroy :destroy_aggregatable_child_models
+  has_many :properties, dependent: :destroy
   has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
   has_many :inventory_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
@@ -42,8 +43,8 @@ class Game < ApplicationRecord
     ShoppingListItem.belonging_to_game(self)
   end
 
-  def inventory_list_items
-    InventoryListItem.belonging_to_game(self)
+  def inventory_items
+    InventoryItem.belonging_to_game(self)
   end
 
   private

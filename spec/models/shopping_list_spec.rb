@@ -113,7 +113,7 @@ RSpec.describe ShoppingList, type: :model do
 
         it 'is invalid', :aggregate_failures do
           expect(aggregate_list).not_to be_valid
-          expect(aggregate_list.errors[:aggregate]).to eq ['can only be one list per game']
+          expect(aggregate_list.errors[:aggregate]).to include 'can only be one list per game'
         end
       end
     end
@@ -129,7 +129,7 @@ RSpec.describe ShoppingList, type: :model do
         it 'is not allowed for a regular list', :aggregate_failures do
           list = build(:shopping_list, title: 'all items')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['cannot be "All Items"'])
+          expect(list.errors[:title]).to include 'cannot be "All Items"'
         end
       end
 
@@ -149,19 +149,19 @@ RSpec.describe ShoppingList, type: :model do
         it "doesn't allow newlines", :aggregate_failures do
           list = build(:shopping_list, title: "My\nList 1  ")
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow other non-space whitespace", :aggregate_failures do
           list = build(:shopping_list, title: "My\tList 1")
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow special characters", :aggregate_failures do
           list = build(:shopping_list, title: 'My^List&1')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         # Leading and trailing whitespace characters will be stripped anyway so no need to validate
@@ -862,6 +862,15 @@ RSpec.describe ShoppingList, type: :model do
 
       it 'delegates to the game' do
         expect(shopping_list.user).to eq(shopping_list.game.user)
+      end
+    end
+
+    describe 'parent model' do
+      let(:list) { described_class.new(aggregate_list: described_class.new) }
+
+      it 'is invalid without a game' do
+        list.validate
+        expect(list.errors[:game]).to include 'must exist'
       end
     end
   end

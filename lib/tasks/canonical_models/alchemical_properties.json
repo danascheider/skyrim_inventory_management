@@ -1,277 +1,450 @@
 [
   {
-    "name": "Cure Disease",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Cure Disease",
+      "description": "Cures all diseases.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Health",
+      "description": "Causes <strength> points of poison damage.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Magicka",
+      "description": "Drains the target's Magicka by <strength> points.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Magicka Regen",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Magicka Regen",
+      "description": "Decreases the target's Magicka regeneration by <strength>% for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Stamina",
+      "description": "Drains the target's Stamina by <strength> points.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Damage Stamina Regen",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Damage Stamina Regen",
+      "description": "Decrease the target's Stamina regeneration by <strength>% for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fear",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fear",
+      "description": "Creatures and people up to level <strength> flee from combat for <duration> seconds.",
+      "strength_unit": "level",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Alteration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Alteration",
+      "description": "Alteration spells last <strength>% longer for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Barter",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Barter",
+      "description": "You haggle for <strength>% better prices for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Block",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Block",
+      "description": "Blocking absorbs <strength>% more damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Carry Weight",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Carry Weight",
+      "description": "Carrying capacity increases by <strength> for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Conjuration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Conjuration",
+      "description": "Conjuration spells last <strength>% longer for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Destruction",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Destruction",
+      "description": "Destruction spells are <strength>% stronger for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Enchanting",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Enchanting",
+      "description": "For <duration> seconds, items are enchanted <strength>% stronger.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Health",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Health",
+      "description": "Health is increased by <strength> points for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Heavy Armor",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Heavy Armor",
+      "description": "Increase Heavy Armor skill by <strength> points for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Illusion",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Illusion",
+      "description": "Illusion spells are <strength>% stronger for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Light Armor",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Light Armor",
+      "description": "Increases Light Armor skill by <strength> points for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Lockpicking",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Lockpicking",
+      "description": "Lockpicking is <strength>% easier for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Magicka",
+      "description": "Magicka is increased by <strength> points for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Marksman",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Marksman",
+      "description": "Bows do <strength>% more damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify One-Handed",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify One-Handed",
+      "description": "One-handed weapons do <strength>% more damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Pickpocket",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Pickpocket",
+      "description": "Pickpocketing is <strength>% easier for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Restoration",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Restoration",
+      "description": "Restoration spells are <strength>% stronger for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Smithing",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Smithing",
+      "description": "For <duration> seconds, weapon and armor improving is <strength>% better.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Sneak",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Sneak",
+      "description": "You are <strength>% harder to detect for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Speech",
+      "description": "+<strength> Speechcraft for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Fortify Two-Handed",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Stamina",
+      "description": "Stamina is increased by <strength> points for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Frenzy",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Fortify Two-Handed",
+      "description": "Two-handed weapons do <strength>% more damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Invisibility",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Frenzy",
+      "description": "Creatures and people up to level <strength> will attack anything nearby for <duration> seconds.",
+      "strength_unit": "level",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Lingering Damage Health",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Invisibility",
+      "description": "Invisibility for <duration> seconds.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Lingering Damage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Lingering Damage Health",
+      "description": "Causes <strength> points of poison damage for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Lingering Damage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": true
+    "attributes": {
+      "name": "Lingering Damage Magicka",
+      "description": "Drains the target's Magicka by <strength> points per second for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Paralysis",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Lingering Damage Stamina",
+      "description": "Drain the target's Stamina by <strength> points per second for <duration> seconds.",
+      "strength_unit": "point",
+      "effects_cumulative": true
+    }
   },
   {
-    "name": "Ravage Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Paralysis",
+      "description": "Target is paralyzed for <duration> seconds.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Ravage Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Health",
+      "description": "Causes <strength> points of concentrated poison damage.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Ravage Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Magicka",
+      "description": "Concentrated poison damages maximum Magicka by <strength> points.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Health",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Ravage Stamina",
+      "description": "Concentrated poison damages maximum Stamina by <strength> points.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Magicka",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Health",
+      "description": "Health regenerates <strength>% faster for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Regenerate Stamina",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Magicka",
+      "description": "Magicka regenerates <strength>% faster for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Fire",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Regenerate Stamina",
+      "description": "Stamina regenerates <strength>% faster for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Frost",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Fire",
+      "description": "Resist <strength>% of fire damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Magic",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Frost",
+      "description": "Resist <strength>% of frost damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Poison",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Magic",
+      "description": "Resist <strength>% of magic for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Resist Shock",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Poison",
+      "description": "Resist <strength>% of poison for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Health",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Resist Shock",
+      "description": "Resist <strength>% of shock damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Magicka",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Health",
+      "description": "Restore <strength> points of Health.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Restore Stamina",
-    "strength_unit": "point",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Magicka",
+      "description": "Restore <strength> points of Magicka.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Slow",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Restore Stamina",
+      "description": "Restore <strength> Stamina.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Waterbreathing",
-    "strength_unit": null,
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Slow",
+      "description": "Target moves at 50% speed for <duration> seconds.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Fire",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Waterbreathing",
+      "description": "Can breathe underwater for <duration> seconds.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Frost",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Fire",
+      "description": "Target is <strength>% weaker to fire damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Magic",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Frost",
+      "description": "Target is <strength>% weaker to frost damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Poison",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Magic",
+      "description": "Target is <strength>% weaker to magic for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   },
   {
-    "name": "Weakness to Shock",
-    "strength_unit": "percentage",
-    "effects_cumulative": false
+    "attributes": {
+      "name": "Weakness to Poison",
+      "description": "Target is <strength>% weaker to poison for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Weakness to Shock",
+      "description": "Target is <strength>% weaker to shock damage for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
   }
 ]

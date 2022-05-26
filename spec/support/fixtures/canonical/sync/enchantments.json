@@ -1,0 +1,78 @@
+[
+  {
+      "attributes": {
+      "name": "Banish",
+      "school": "Conjuration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "level"
+    }
+  },
+  {
+    "attributes": {
+      "name": "Chaos Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fear",
+      "school": "Illusion",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
+  },
+  {
+    "attributes": {
+      "name": "Fiery Soul Trap",
+      "school": "Conjuration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
+  }
+]

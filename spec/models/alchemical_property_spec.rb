@@ -6,32 +6,51 @@ RSpec.describe AlchemicalProperty, type: :model do
   describe 'validations' do
     describe 'name' do
       it 'must be present' do
-        property = described_class.new
+        model = build(:alchemical_property, name: nil)
 
-        property.validate
-        expect(property.errors[:name]).to eq ["can't be blank"]
+        model.validate
+        expect(model.errors[:name]).to include "can't be blank"
       end
 
       it 'must be unique' do
-        described_class.create!(name: 'Restore Health', strength_unit: 'point')
+        create(:alchemical_property, name: 'Restore Health', strength_unit: 'point')
+        model = build(:alchemical_property, name: 'Restore Health')
 
-        property = described_class.new(name: 'Restore Health')
-        property.validate
-        expect(property.errors[:name]).to eq ['must be unique']
+        model.validate
+        expect(model.errors[:name]).to include 'must be unique'
+      end
+    end
+
+    describe 'description' do
+      it "can't be blank" do
+        model = build(:alchemical_property, description: nil)
+
+        model.validate
+        expect(model.errors[:description]).to include "can't be blank"
       end
     end
 
     describe 'strength_unit' do
       it "isn't required" do
-        property = described_class.new
-        property.validate
-        expect(property.errors[:strength_unit]).to be_empty
+        model = build(:alchemical_property, strength_unit: nil)
+
+        model.validate
+        expect(model.errors[:strength_unit]).to be_empty
       end
 
       it 'must be one of "point" or "percentage"' do
-        property = described_class.new(strength_unit: 'Foobar')
-        property.validate
-        expect(property.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
+        model = build(:alchemical_property, strength_unit: 'Foobar')
+
+        model.validate
+        expect(model.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
+      end
+    end
+  end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      it 'returns :name' do
+        expect(described_class.unique_identifier).to eq :name
       end
     end
   end

@@ -1,0 +1,142 @@
+[
+  {
+    "attributes": {
+      "name": "Abecean Longfin",
+      "item_code": "00106E1B",
+      "unit_weight": 0.5,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Poison",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Fortify Restoration",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Ash Hopper Jelly",
+      "item_code": "XX01CD71",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Health",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Light Armor",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Resist Shock",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elves Ear",
+      "item_code": "00034D31",
+      "unit_weight": 0.1,
+      "unique_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Marksman",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Fire Salts",
+      "item_code": "0003AD5E",
+      "unit_weight": 0.25,
+      "unique_item": false,
+      "quest_item": true
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Weakness to Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Resist Fire",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Restore Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Regenerate Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  }
+]

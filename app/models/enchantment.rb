@@ -1,14 +1,8 @@
 # frozen_string_literal: true
 
-class Enchantment < ApplicationRecord
-  SCHOOLS = %w[
-              Alteration
-              Conjuration
-              Destruction
-              Illusion
-              Restoration
-            ].freeze
+require 'skyrim'
 
+class Enchantment < ApplicationRecord
   ENCHANTABLE_WEAPONS = [
                           'sword',
                           'mace',
@@ -20,8 +14,7 @@ class Enchantment < ApplicationRecord
                           'bow',
                           'crossbow',
                           'staff',
-                          'axe',
-                          'pickaxe',
+                          'other',
                         ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[
@@ -30,16 +23,31 @@ class Enchantment < ApplicationRecord
                                 hands
                                 feet
                                 shield
+                                circlet
                                 amulet
                                 ring
                               ].freeze
 
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
+  STRENGTH_UNITS = %w[percentage point second level].freeze
+
+  has_many :canonical_enchantables_enchantments, class_name: 'Canonical::EnchantablesEnchantment', dependent: :destroy
+  has_many :enchantables, through: :canonical_enchantables_enchantments
+
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :strength_unit, inclusion: { in: %w[point percentage], message: 'must be "point" or "percentage"', allow_blank: true }
-  validates :school, inclusion: { in: SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
+  validates :strength_unit,
+            inclusion: {
+                         in:          STRENGTH_UNITS,
+                         message:     'must be "point", "percentage", "second", or the "level" of affected targets',
+                         allow_blank: true,
+                       }
+  validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
+
+  def self.unique_identifier
+    :name
+  end
 
   private
 

@@ -111,8 +111,8 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#inventory_list_items' do
-    subject(:inventory_list_items) { user1.inventory_list_items.to_a.sort }
+  describe '#inventory_items' do
+    subject(:inventory_items) { user1.inventory_items.to_a.sort }
 
     let(:user1) { create(:user) }
     let(:user2) { create(:user) }
@@ -122,10 +122,10 @@ RSpec.describe User, type: :model do
     let(:game3) { create(:game_with_inventory_lists_and_items, user: user2) }
 
     it 'includes the inventory list items belonging to that user' do
-      user1_list_items = game1.inventory_list_items.to_a + game2.inventory_list_items.to_a
+      user1_list_items = game1.inventory_items.to_a + game2.inventory_items.to_a
       user1_list_items.sort!
 
-      expect(inventory_list_items).to eq user1_list_items
+      expect(inventory_items).to eq user1_list_items
     end
   end
 end

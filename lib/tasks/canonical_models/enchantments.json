@@ -1,706 +1,807 @@
 [
   {
-    "name": "Absorb Health",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Absorb Health",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Absorb Magicka",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Absorb Magicka",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Absorb Stamina",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Absorb Stamina",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Banish",
-    "school": "Conjuration",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Banish",
+      "school": "Conjuration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "level"
+    }
   },
   {
-    "name": "Chaos Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Chaos Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fear",
-    "school": "Illusion",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Fear",
+      "school": "Illusion",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
   },
   {
-    "name": "Fiery Soul Trap",
-    "school": "Conjuration",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Fiery Soul Trap",
+      "school": "Conjuration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
   },
   {
-    "name": "Fire Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fire Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Alchemy",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Alchemy",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "hands",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Alteration",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Alteration",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Alteration and Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Alteration and Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Archery",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Archery",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "hands",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Barter",
-    "school": null,
-    "enchantable_items": [
-      "amulet"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Barter",
+      "school": null,
+      "enchantable_items": [
+        "amulet"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Block",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Block",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "shield",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Carry Weight",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Carry Weight",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "feet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Conjuration",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Conjuration",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Conjuration and Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Conjuration and Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Destruction",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Destruction",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Destruction and Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Destruction and Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Healing Rate",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Healing Rate",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Health",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Health",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "shield",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Heavy Armor",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Heavy Armor",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "hands",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Illusion",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Illusion",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Illusion and Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Illusion and Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Light Armor",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Light Armor",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "hands",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Lockpicking",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Lockpicking",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "hands",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Magicka",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Magicka",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "hands",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify One-Handed",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify One-Handed",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "feet",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Pickpocket",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Pickpocket",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "feet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Restoration",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "chest",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Restoration",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "chest",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Restoration and Magicka Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Restoration and Magicka Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Smithing",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "hands",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Smithing",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "hands",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Sneak",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Sneak",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "feet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Stamina",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Fortify Stamina",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "feet",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Fortify Stamina Regen",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "feet",
-      "amulet"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Stamina Regen",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "feet",
+        "amulet"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Two-Handed",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "feet",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Two-Handed",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "feet",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Fortify Unarmed",
-    "school": null,
-    "enchantable_items": [
-      "hands",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Fortify Unarmed",
+      "school": null,
+      "enchantable_items": [
+        "hands",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Muffle",
-    "school": null,
-    "enchantable_items": [
-      "feet"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Frost Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Frost Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Huntsman's Prowess",
+      "school": null,
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Huntsman's Prowess",
-    "school": null,
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Magicka Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Magicka Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Muffle",
+      "school": null,
+      "enchantable_items": [
+        "feet"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Notched Pickaxe",
-    "school": null,
-    "enchantable_items": [
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Paralyze",
+      "school": "Alteration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
   },
   {
-    "name": "Paralyze",
-    "school": "Alteration",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Resist Disease",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "shield",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Disease",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Resist Fire",
+      "school": null,
+      "enchantable_items": [
+        "feet",
+        "shield",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Fire",
-    "school": null,
-    "enchantable_items": [
-      "feet",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Resist Frost",
+      "school": null,
+      "enchantable_items": [
+        "feet",
+        "shield",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Frost",
-    "school": null,
-    "enchantable_items": [
-      "feet",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Resist Magic",
+      "school": null,
+      "enchantable_items": [
+        "shield",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Magic",
-    "school": null,
-    "enchantable_items": [
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Resist Poison",
+      "school": null,
+      "enchantable_items": [
+        "chest",
+        "shield",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Poison",
-    "school": null,
-    "enchantable_items": [
-      "chest",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Resist Shock",
+      "school": null,
+      "enchantable_items": [
+        "feet",
+        "shield",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": "percentage"
+    }
   },
   {
-    "name": "Resist Shock",
-    "school": null,
-    "enchantable_items": [
-      "feet",
-      "shield",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": "percentage"
+    "attributes": {
+      "name": "Shock Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Shock Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Silent Moons Enchant",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Silent Moons Enchant",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Soul Trap",
+      "school": "Conjuration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "second"
+    }
   },
   {
-    "name": "Soul Trap",
-    "school": "Conjuration",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Stamina Damage",
+      "school": "Destruction",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "point"
+    }
   },
   {
-    "name": "Stamina Damage",
-    "school": "Destruction",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": "point"
+    "attributes": {
+      "name": "Turn Undead",
+      "school": "Restoration",
+      "enchantable_items": [
+        "dagger",
+        "sword",
+        "mace",
+        "war axe",
+        "greatsword",
+        "warhammer",
+        "battleaxe",
+        "bow",
+        "crossbow",
+        "other"
+      ],
+      "strength_unit": "level"
+    }
   },
   {
-    "name": "Turn Undead",
-    "school": "Restoration",
-    "enchantable_items": [
-      "dagger",
-      "sword",
-      "mace",
-      "war axe",
-      "greatsword",
-      "warhammer",
-      "battleaxe",
-      "bow",
-      "crossbow",
-      "axe",
-      "pickaxe"
-    ],
-    "strength_unit": null
-  },
-  {
-    "name": "Waterbreathing",
-    "school": null,
-    "enchantable_items": [
-      "head",
-      "amulet",
-      "ring"
-    ],
-    "strength_unit": null
+    "attributes": {
+      "name": "Waterbreathing",
+      "school": null,
+      "enchantable_items": [
+        "head",
+        "circlet",
+        "amulet",
+        "ring"
+      ],
+      "strength_unit": null
+    }
   }
 ]

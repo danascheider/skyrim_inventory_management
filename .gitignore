@@ -35,3 +35,12 @@ skyrim_inventory_management.csr
 /vendor/bundle/
 
 .pgdata
+
+# Ignore CSV files exported from canonical data (or imported to generate canonical data)
+/lib/tasks/canonical_models/*.csv
+
+# Ignore anything relating to SSL certs - something (thankfully not the private key)
+# once got committed.
+/**/*.crt
+/**/*.key
+/**/*.csr

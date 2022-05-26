@@ -129,13 +129,14 @@ RSpec.describe InventoryList, type: :model do
         it 'is not allowed for a regular list', :aggregate_failures do
           list = build(:inventory_list, title: 'all items')
           expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(['cannot be "All Items"'])
+          expect(list.errors[:title]).to include 'cannot be "All Items"'
         end
       end
 
       context 'when the title contains "all items" as well as other characters' do
         it 'is valid' do
           list = build(:inventory_list, title: 'aLL iTems the seQUel')
+
           expect(list).to be_valid
         end
       end
@@ -143,30 +144,35 @@ RSpec.describe InventoryList, type: :model do
       describe 'allowed characters' do
         it 'allows alphanumeric characters, spaces, commas, apostrophes, and hyphens' do
           list = build(:inventory_list, title: "aB 61 ,'-")
+
           expect(list).to be_valid
         end
 
         it "doesn't allow newlines", :aggregate_failures do
           list = build(:inventory_list, title: "My\nList 1  ")
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow other non-space whitespace", :aggregate_failures do
           list = build(:inventory_list, title: "My\tList 1")
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow special characters", :aggregate_failures do
           list = build(:inventory_list, title: 'My^List&1')
-          expect(list).not_to be_valid
-          expect(list.errors[:title]).to eq(["can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"])
+
+          list.validate
+          expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         # Leading and trailing whitespace characters will be stripped anyway so no need to validate
         it 'ignores leading or trailing whitespace characters' do
           list = build(:inventory_list, title: "My List 1\n\t")
+
           expect(list).to be_valid
         end
       end
@@ -301,9 +307,9 @@ RSpec.describe InventoryList, type: :model do
 
     let!(:aggregate_list) { create(:aggregate_inventory_list) }
     let(:inventory_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
-    let!(:item1)          { create(:inventory_list_item, list: inventory_list) }
-    let!(:item2)          { create(:inventory_list_item, list: inventory_list) }
-    let!(:item3)          { create(:inventory_list_item, list: inventory_list) }
+    let!(:item1)          { create(:inventory_item, list: inventory_list) }
+    let!(:item2)          { create(:inventory_item, list: inventory_list) }
+    let!(:item3)          { create(:inventory_item, list: inventory_list) }
 
     before do
       item2.update!(quantity: 2)
@@ -375,7 +381,7 @@ RSpec.describe InventoryList, type: :model do
       let(:aggregate_list) { create(:aggregate_inventory_list) }
 
       context 'when there is no matching item on the aggregate list' do
-        let(:list_item) { create(:inventory_list_item) }
+        let(:list_item) { create(:inventory_item) }
 
         it 'creates a corresponding item on the aggregate list' do
           expect { add_item }
@@ -394,11 +400,11 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when there is a matching item on the aggregate list' do
         let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-        let!(:item_on_other_list) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
+        let!(:item_on_other_list) { create(:inventory_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: 'notes 3') }
 
           it 'combines the notes and quantities', :aggregate_failures do
             add_item
@@ -408,8 +414,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when neither have notes' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: nil) }
-          let(:list_item)           { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: nil) }
+          let(:list_item)           { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: nil) }
 
           it 'combines the quantities and leaves the notes nil', :aggregate_failures do
             add_item
@@ -419,8 +425,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when one has notes and the other does not' do
-          let!(:existing_list_item) { create(:inventory_list_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2) }
+          let!(:existing_list_item) { create(:inventory_item, list: aggregate_list, quantity: 3, notes: 'notes 1 -- notes 2') }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2) }
 
           it 'combines the quantities and uses the existing notes value', :aggregate_failures do
             add_item
@@ -430,8 +436,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context "when the new item doesn't have a unit weight" do
-          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
-          let(:list_item) { create(:inventory_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
+          let!(:existing_list_item) { create(:inventory_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
+          let(:list_item) { create(:inventory_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
 
           it 'leaves the unit weight as-is on the existing item' do
             add_item
@@ -445,8 +451,8 @@ RSpec.describe InventoryList, type: :model do
         end
 
         context 'when the new item has a unit weight' do
-          let!(:existing_list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', unit_weight: 0.3, list: aggregate_list) }
-          let(:list_item) { create(:inventory_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: nil, unit_weight: 0.2) }
+          let!(:existing_list_item) { create(:inventory_item, description: 'Dwarven metal ingot', unit_weight: 0.3, list: aggregate_list) }
+          let(:list_item) { create(:inventory_item, description: 'Dwarven metal ingot', quantity: 2, notes: nil, unit_weight: 0.2) }
 
           it 'updates the unit weight of the existing item' do
             add_item
@@ -462,7 +468,7 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when called on a non-aggregate list' do
         let(:aggregate_list) { create(:inventory_list) }
-        let(:list_item)      { create(:inventory_list_item) }
+        let(:list_item)      { create(:inventory_item) }
 
         it 'raises an AggregateListError' do
           expect { add_item }
@@ -674,8 +680,8 @@ RSpec.describe InventoryList, type: :model do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
 
         let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-        let!(:item_on_other_list)  { create(:inventory_list_item, list: other_list, description: description, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:inventory_list_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
+        let!(:item_on_other_list)  { create(:inventory_item, list: other_list, description: description, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:inventory_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
 
         before do
           aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
@@ -862,6 +868,18 @@ RSpec.describe InventoryList, type: :model do
       it 'delegates to the game' do
         expect(inventory_list.user).to eq(inventory_list.game.user)
       end
+    end
+  end
+
+  describe 'parent model' do
+    let(:game)           { create(:game) }
+    let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+
+    it 'is invalid without a game' do
+      list = described_class.new(aggregate_list: aggregate_list)
+
+      list.validate
+      expect(list.errors[:game]).to include 'must exist'
     end
   end
 end

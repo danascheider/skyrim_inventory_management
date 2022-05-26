@@ -9,7 +9,7 @@ RSpec.describe Enchantment, type: :model do
         enchantment = described_class.new(strength_unit: 'percentage', enchantable_items: %w[sword mace])
 
         enchantment.validate
-        expect(enchantment.errors[:name]).to eq ["can't be blank"]
+        expect(enchantment.errors[:name]).to include "can't be blank"
       end
 
       it 'requires a unique name' do
@@ -18,7 +18,7 @@ RSpec.describe Enchantment, type: :model do
         enchantment = described_class.new(name: 'Absorb Health', strength_unit: 'percentage', enchantable_items: %w[sword mace greatsword])
 
         enchantment.validate
-        expect(enchantment.errors[:name]).to eq ['must be unique']
+        expect(enchantment.errors[:name]).to include 'must be unique'
       end
     end
 
@@ -27,16 +27,16 @@ RSpec.describe Enchantment, type: :model do
         enchantment = described_class.new(school: 'Foo')
 
         enchantment.validate
-        expect(enchantment.errors[:school]).to eq ['must be a valid school of magic']
+        expect(enchantment.errors[:school]).to include 'must be a valid school of magic'
       end
     end
 
     describe 'strength_unit' do
-      it 'must be one of "point" or "percentage"' do
+      it 'must be "point", "percentage", "second", or "level"' do
         enchantment = described_class.new(strength_unit: 'foobar')
 
         enchantment.validate
-        expect(enchantment.errors[:strength_unit]).to eq ['must be "point" or "percentage"']
+        expect(enchantment.errors[:strength_unit]).to include 'must be "point", "percentage", "second", or the "level" of affected targets'
       end
 
       it 'can be blank' do
@@ -53,7 +53,17 @@ RSpec.describe Enchantment, type: :model do
 
         enchantment.validate
 
-        expect(enchantment.errors[:enchantable_items]).to eq ['must consist of valid enchantable item types']
+        expect(enchantment.errors[:enchantable_items]).to include 'must consist of valid enchantable item types'
+      end
+    end
+  end
+
+  describe 'class methods' do
+    describe '::unique_identifier' do
+      subject(:unique_identifier) { described_class.unique_identifier }
+
+      it 'returns :name' do
+        expect(unique_identifier).to eq :name
       end
     end
   end

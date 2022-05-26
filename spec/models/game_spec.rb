@@ -12,7 +12,9 @@ RSpec.describe Game, type: :model do
 
         it 'is unique per user' do
           create(:game, name: 'My Game', user: user)
-          expect(game).not_to be_valid
+
+          game.validate
+          expect(game.errors[:name]).to include 'must be unique'
         end
 
         it "doesn't have to be unique across all users" do
@@ -24,7 +26,9 @@ RSpec.describe Game, type: :model do
       describe 'format' do
         it 'only contains alphanumeric characters, spaces, commas, hyphens, and apostrophes', :aggregate_failures do
           invalid_game = build(:game, name: "#\t&\n^")
-          expect(invalid_game).not_to be_valid
+
+          invalid_game.validate
+          expect(invalid_game.errors[:name]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
 
           valid_game = build(:game, name: "bA1 ,-'")
           expect(valid_game).to be_valid
@@ -80,7 +84,7 @@ RSpec.describe Game, type: :model do
 
     it "destroys all the game's inventory list items" do
       expect { game.destroy! }
-        .to change(InventoryListItem, :count).from(8).to(0)
+        .to change(InventoryItem, :count).from(8).to(0)
     end
   end
 
@@ -217,8 +221,8 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  describe '#inventory_list_items' do
-    subject(:inventory_list_items) { game.inventory_list_items.to_a.sort }
+  describe '#inventory_items' do
+    subject(:inventory_items) { game.inventory_items.to_a.sort }
 
     let(:game) { create(:game, user: user) }
 
@@ -232,7 +236,7 @@ RSpec.describe Game, type: :model do
       items.flatten!
       items.sort!
 
-      expect(inventory_list_items).to eq items
+      expect(inventory_items).to eq items
     end
   end
 end

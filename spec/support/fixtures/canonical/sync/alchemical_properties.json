@@ -1,0 +1,34 @@
+[
+  {
+    "attributes": {
+      "name": "Cure Disease",
+      "description": "Cures all diseases.",
+      "strength_unit": null,
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Damage Health",
+      "description": "Causes <strength> points of poison damage.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Damage Magicka",
+      "description": "Drains the target's Magicka by <strength> points.",
+      "strength_unit": "point",
+      "effects_cumulative": false
+    }
+  },
+  {
+    "attributes": {
+      "name": "Damage Magicka Regen",
+      "description": "Decreases the target's Magicka regeneration by <strength>% for <duration> seconds.",
+      "strength_unit": "percentage",
+      "effects_cumulative": false
+    }
+  }
+]

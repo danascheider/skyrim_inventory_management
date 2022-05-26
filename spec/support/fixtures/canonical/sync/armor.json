@@ -1,0 +1,125 @@
+[
+  {
+    "attributes": {
+      "name": "Ahzidal's Armor of Retribution",
+      "item_code": "XX01DB97",
+      "unit_weight": 38,
+      "body_slot": "body",
+      "weight": "heavy armor",
+      "magical_effects": "Enemies who strike you with a melee attack have a small chance of being paralyzed.",
+      "dragon_priest_mask": false,
+      "quest_item": true,
+      "unique_item": true,
+      "enchantable": false
+    },
+    "enchantments": [],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Steel Shield of Blocking",
+      "item_code": "000B50EF",
+      "unit_weight": 12,
+      "body_slot": "shield",
+      "weight": "heavy armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": false
+    },
+    "enchantments": [
+      {
+        "name": "Fortify Block",
+        "strength": 20
+      }
+    ],
+    "crafting_materials": [],
+    "tempering_materials": [
+      {
+        "item_code": "0005ACE5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elven Boots",
+      "item_code": "0001391A",
+      "unit_weight": 1,
+      "body_slot": "feet",
+      "weight": "light armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "enchantments": [],
+    "crafting_materials": [
+      {
+        "item_code": "0005AD9F",
+        "quantity": 2
+      },
+      {
+        "item_code": "0005ACE4",
+        "quantity": 1
+      },
+      {
+        "item_code": "000DB5D2",
+        "quantity": 1
+      },
+      {
+        "item_code": "000800E4",
+        "quantity": 2
+      }
+    ],
+    "tempering_materials": [
+      {
+        "item_code": "0005AD9F",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dragonplate Armor",
+      "item_code": "00013966",
+      "unit_weight": 40,
+      "body_slot": "body",
+      "weight": "heavy armor",
+      "magical_effects": null,
+      "dragon_priest_mask": false,
+      "quest_item": false,
+      "unique_item": false,
+      "enchantable": true
+    },
+    "enchantments": [],
+    "crafting_materials": [
+      {
+        "item_code": "0003ADA3",
+        "quantity": 3
+      },
+      {
+        "item_code": "0003ADA4",
+        "quantity": 2
+      },
+      {
+        "item_code": "000800E4",
+        "quantity": 3
+      }
+    ],
+    "tempering_materials": [
+      {
+        "item_code": "0003ADA4",
+        "quantity": 1
+      }
+    ]
+  }
+]
