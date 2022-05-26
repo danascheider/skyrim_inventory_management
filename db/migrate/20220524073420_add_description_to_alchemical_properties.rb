@@ -2,6 +2,6 @@
 
 class AddDescriptionToAlchemicalProperties < ActiveRecord::Migration[6.1]
   def change
-    add_column :alchemical_properties, :description, :string, null: false
+    add_column :alchemical_properties, :description, :string
   end
 end

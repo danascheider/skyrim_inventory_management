@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_05_25_023945) do
     t.boolean "effects_cumulative", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description", null: false
+    t.string "description"
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
   end
 
