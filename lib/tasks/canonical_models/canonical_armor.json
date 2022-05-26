@@ -6672,12 +6672,14 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6710,12 +6712,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6740,12 +6745,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6770,12 +6778,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6800,12 +6811,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6830,12 +6844,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6860,12 +6877,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6890,12 +6910,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6920,12 +6943,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6950,12 +6976,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6980,12 +7009,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7010,12 +7042,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7040,12 +7075,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7070,12 +7108,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7100,12 +7141,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7130,12 +7174,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7160,12 +7207,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7190,12 +7240,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7220,12 +7273,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7250,12 +7306,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7280,12 +7339,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7310,12 +7372,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7340,12 +7405,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7370,12 +7438,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7400,12 +7471,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7430,12 +7504,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7460,12 +7537,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7490,12 +7570,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7558,12 +7641,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7588,12 +7674,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7618,12 +7707,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7648,12 +7740,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7678,12 +7773,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7708,12 +7806,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7738,12 +7839,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7768,12 +7872,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7798,12 +7905,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7828,12 +7938,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7858,12 +7971,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7888,12 +8004,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7918,12 +8037,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7948,12 +8070,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7978,12 +8103,15 @@
       "body_slot": "feet",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8046,12 +8174,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8076,12 +8207,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8106,12 +8240,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8136,12 +8273,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8166,12 +8306,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8196,12 +8339,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8226,12 +8372,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8256,12 +8405,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8286,12 +8438,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8316,12 +8471,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8346,12 +8504,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8376,12 +8537,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8406,12 +8570,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8436,12 +8603,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8466,12 +8636,15 @@
       "body_slot": "hands",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8534,12 +8707,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8564,12 +8740,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8594,12 +8773,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8624,12 +8806,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8654,12 +8839,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8684,12 +8872,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8714,12 +8905,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8744,12 +8938,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8774,12 +8971,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8804,12 +9004,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8834,12 +9037,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8864,12 +9070,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8894,12 +9103,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8924,12 +9136,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8954,12 +9169,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -8984,12 +9202,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9014,12 +9235,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9044,12 +9268,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9074,12 +9301,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9104,12 +9334,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9134,12 +9367,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9164,12 +9400,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9194,12 +9433,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9224,12 +9466,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9254,12 +9499,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9284,12 +9532,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9314,12 +9565,15 @@
       "body_slot": "head",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9344,12 +9598,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9412,12 +9669,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9442,12 +9702,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9472,12 +9735,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9502,12 +9768,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9532,12 +9801,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9562,12 +9834,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9592,12 +9867,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9622,12 +9900,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9652,12 +9933,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9682,12 +9966,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9712,12 +9999,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9742,12 +10032,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9772,12 +10065,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9802,12 +10098,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9874,12 +10173,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9904,12 +10206,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9934,12 +10239,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9964,12 +10272,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -9994,12 +10305,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10024,12 +10338,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10054,12 +10371,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10084,12 +10404,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10114,12 +10437,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10144,12 +10470,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10174,12 +10503,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10204,12 +10536,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10234,12 +10569,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10264,12 +10602,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10294,12 +10635,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10324,12 +10668,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10354,12 +10701,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10384,12 +10734,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10414,12 +10767,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10444,12 +10800,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10474,12 +10833,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10504,12 +10866,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10534,12 +10899,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10564,12 +10932,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10594,12 +10965,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10624,12 +10998,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10654,12 +11031,15 @@
       "body_slot": "body",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10726,12 +11106,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10756,12 +11139,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10786,12 +11172,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10816,12 +11205,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10846,12 +11238,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10876,12 +11271,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10906,12 +11304,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10936,12 +11337,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10966,12 +11370,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -10996,12 +11403,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11026,12 +11436,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11056,12 +11469,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11086,12 +11502,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11116,12 +11535,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11146,12 +11568,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11176,12 +11601,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11206,12 +11634,15 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11278,12 +11709,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11308,12 +11742,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11338,12 +11775,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11368,12 +11808,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11398,12 +11841,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11428,12 +11874,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11458,12 +11907,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11488,12 +11940,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11518,12 +11973,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11548,12 +12006,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11578,12 +12039,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11608,12 +12072,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11638,12 +12105,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11668,12 +12138,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11698,12 +12171,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11728,12 +12204,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11758,12 +12237,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11788,12 +12270,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11818,12 +12303,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11848,12 +12336,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11878,12 +12369,15 @@
       "body_slot": "hands",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11950,12 +12444,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -11980,12 +12477,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12010,12 +12510,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12040,12 +12543,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12070,12 +12576,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12100,12 +12609,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12130,12 +12642,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12160,12 +12675,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12190,12 +12708,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12220,12 +12741,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12250,12 +12774,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12280,12 +12807,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12310,12 +12840,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12340,12 +12873,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12370,12 +12906,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12400,12 +12939,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12430,12 +12972,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12460,12 +13005,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12490,12 +13038,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12520,12 +13071,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12550,12 +13104,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12580,12 +13137,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12610,12 +13170,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12640,12 +13203,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12670,12 +13236,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12700,12 +13269,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12730,12 +13302,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12760,12 +13335,15 @@
       "body_slot": "head",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12828,12 +13406,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12858,12 +13439,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12888,12 +13472,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12918,12 +13505,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12948,12 +13538,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -12978,12 +13571,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13008,12 +13604,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13038,12 +13637,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13068,12 +13670,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13098,12 +13703,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13128,12 +13736,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13158,12 +13769,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13188,12 +13802,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -13218,12 +13835,15 @@
       "body_slot": "shield",
       "weight": "light armor",
       "magical_effects": null,
-      "smithing_perks": [],
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
-      "purchasable": null,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
