@@ -6,8 +6,17 @@ RSpec.describe Canonical::Sync::Potions do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'potions.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'potions.json') }
   let!(:json_data) { File.read(json_path) }
+
+  let(:alchemical_property_names) do
+    [
+      'Fortify Smithing',
+      'Restore Stamina',
+      'Fortify Lockpicking',
+      'Fortify Pickpocket',
+    ]
+  end
 
   before do
     allow(File).to receive(:read).and_return(json_data)
@@ -23,22 +32,18 @@ RSpec.describe Canonical::Sync::Potions do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          create(:alchemical_property, name: 'Fortify Smithing')
-          create(:alchemical_property, name: 'Restore Stamina')
-          create(:alchemical_property, name: 'Fortify Lockpicking')
-          create(:alchemical_property, name: 'Fortify Pickpocket')
-
-          allow(described_class).to receive(:new).and_return(syncer)
+          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
         end
 
         it 'instantiates itseslf' do
+          allow(described_class).to receive(:new).and_return(syncer)
           perform
           expect(described_class).to have_received(:new).with(preserve_existing_records)
         end
 
         it 'populates the models from the JSON file' do
-          perform
-          expect(Canonical::Potion.count).to eq 4
+          expect { perform }
+            .to change(Canonical::Potion, :count).from(0).to(4)
         end
 
         it 'creates the associations to alchemical properties where they exist', :aggregate_failures do
@@ -56,10 +61,7 @@ RSpec.describe Canonical::Sync::Potions do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          create(:alchemical_property, name: 'Fortify Smithing')
-          create(:alchemical_property, name: 'Restore Stamina')
-          create(:alchemical_property, name: 'Fortify Lockpicking')
-          create(:alchemical_property, name: 'Fortify Pickpocket')
+          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
         end
 
         it 'instantiates itself' do
@@ -92,12 +94,12 @@ RSpec.describe Canonical::Sync::Potions do
             duration:            30,
           )
           perform
-          expect(item_in_json.alchemical_properties.where(name: 'Fortify Destruction')).to be_empty
+          expect(item_in_json.alchemical_properties.find_by(name: 'Fortify Destruction')).to be_nil
         end
 
         it 'adds alchemical properties if they exist' do
           perform
-          expect(item_in_json.alchemical_properties.first.name).to eq 'Fortify Smithing'
+          expect(item_in_json.alchemical_properties.pluck(:name)).to eq ['Fortify Smithing']
         end
       end
 
@@ -109,7 +111,11 @@ RSpec.describe Canonical::Sync::Potions do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync AlchemicalProperty before canonical potions')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Prerequisite(s) not met: sync AlchemicalProperty before canonical potions')
+
           expect(Canonical::Potion.count).to eq 0
         end
       end
@@ -125,7 +131,10 @@ RSpec.describe Canonical::Sync::Potions do
         it 'logs a validation error', :aggregate_failures do
           expect { perform }
             .to raise_error ActiveRecord::RecordInvalid
-          expect(Rails.logger).to have_received(:error).with('Validation error saving associations for canonical potion "0003EB2E": Validation failed: Alchemical property must exist')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Validation error saving associations for canonical potion "0003EB2E": Validation failed: Alchemical property must exist')
         end
       end
     end
@@ -137,16 +146,13 @@ RSpec.describe Canonical::Sync::Potions do
       let!(:item_not_in_json)         { create(:canonical_potion, item_code: '12345678') }
 
       before do
-        create(:alchemical_property, name: 'Fortify Smithing')
-        create(:alchemical_property, name: 'Restore Stamina')
-        create(:alchemical_property, name: 'Fortify Lockpicking')
-        create(:alchemical_property, name: 'Fortify Pickpocket')
+        alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
 
         create(:canonical_potions_alchemical_property, potion: item_in_json, alchemical_property: create(:alchemical_property))
-        allow(described_class).to receive(:new).and_return(syncer)
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -198,7 +204,10 @@ RSpec.describe Canonical::Sync::Potions do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical potion \"0003EB2E\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical potion \"0003EB2E\": Validation failed: Name can't be blank")
         end
       end
 
@@ -213,7 +222,10 @@ RSpec.describe Canonical::Sync::Potions do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical potion "0003EB2E": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical potion "0003EB2E": foobar')
         end
       end
 
@@ -228,7 +240,10 @@ RSpec.describe Canonical::Sync::Potions do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical potions: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical potions: foobar')
         end
       end
     end

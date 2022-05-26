@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::AlchemicalProperties do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'alchemical_properties.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'alchemical_properties.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -30,9 +30,12 @@ RSpec.describe Canonical::Sync::AlchemicalProperties do
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
+        it 'populates the models from the JSON file', :aggregate_failures do
           perform
-          expect(AlchemicalProperty.count).to eq 4
+          expect(AlchemicalProperty.find_by(name: 'Cure Disease')).to be_present
+          expect(AlchemicalProperty.find_by(name: 'Damage Health')).to be_present
+          expect(AlchemicalProperty.find_by(name: 'Damage Magicka')).to be_present
+          expect(AlchemicalProperty.find_by(name: 'Damage Magicka Regen')).to be_present
         end
       end
 

@@ -6,20 +6,10 @@ RSpec.describe Canonical::Sync::Armor do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'armor.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'armor.json') }
   let!(:json_data) { File.read(json_path) }
 
-  let(:material_codes) do
-    %w[
-      0005ACE5
-      0005AD9F
-      0005ACE4
-      000DB5D2
-      000800E4
-      0003ADA3
-      0003ADA4
-    ]
-  end
+  let(:material_codes) { %w[0005ACE5 0005AD9F 0005ACE4 000DB5D2 000800E4 0003ADA3 0003ADA4] }
 
   before do
     allow(File).to receive(:read).and_return(json_data)
@@ -45,9 +35,9 @@ RSpec.describe Canonical::Sync::Armor do
           expect(described_class).to have_received(:new).with(preserve_existing_records)
         end
 
-        it 'populates the models from the JSON file' do
-          perform
-          expect(Canonical::Armor.count).to eq 4
+        it 'populates the models from the JSON file', :aggregate_failures do
+          expect { perform }
+            .to change(Canonical::Armor, :count).from(0).to(4)
         end
 
         it 'creates the associations to enchantments where they exist', :aggregate_failures do
@@ -131,7 +121,11 @@ RSpec.describe Canonical::Sync::Armor do
         it "logs an error and doesn't create models", :aggregate_failures do
           expect { perform }
             .to raise_error(Canonical::Sync::PrerequisiteNotMetError)
-          expect(Rails.logger).to have_received(:error).with('Prerequisite(s) not met: sync Enchantment, Canonical::Material before canonical armors')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Prerequisite(s) not met: sync Enchantment, Canonical::Material before canonical armors')
+
           expect(Canonical::JewelryItem.count).to eq 0
         end
       end
@@ -148,7 +142,10 @@ RSpec.describe Canonical::Sync::Armor do
         it 'logs a validation error', :aggregate_failures do
           expect { perform }
             .to raise_error ActiveRecord::RecordInvalid
-          expect(Rails.logger).to have_received(:error).with('Validation error saving associations for canonical armor "XX01DB97": Validation failed: Material must exist')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Validation error saving associations for canonical armor "XX01DB97": Validation failed: Material must exist')
         end
       end
     end
@@ -162,11 +159,16 @@ RSpec.describe Canonical::Sync::Armor do
       before do
         create(:enchantment, name: 'Fortify Block')
         material_codes.each {|code| create(:canonical_material, item_code: code) }
-        create(:canonical_temperables_tempering_material, temperable: item_in_json, material: create(:canonical_material))
-        allow(described_class).to receive(:new).and_return(syncer)
+
+        create(
+          :canonical_temperables_tempering_material,
+          temperable: item_in_json,
+          material:   create(:canonical_material, name: 'Onyx Ore'),
+        )
       end
 
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -190,7 +192,12 @@ RSpec.describe Canonical::Sync::Armor do
 
       it "doesn't destroy associations" do
         perform
-        expect(item_in_json.reload.tempering_materials.length).to eq 2
+        expect(item_in_json.reload.tempering_materials.find_by(name: 'Onyx Ore')).to be_present
+      end
+
+      it 'adds associations present in the JSON data' do
+        perform
+        expect(item_in_json.reload.tempering_materials.find_by(item_code: '0005ACE5')).to be_present
       end
     end
 
@@ -219,7 +226,10 @@ RSpec.describe Canonical::Sync::Armor do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving canonical armor \"XX01DB97\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving canonical armor \"XX01DB97\": Validation failed: Name can't be blank")
         end
       end
 
@@ -227,14 +237,21 @@ RSpec.describe Canonical::Sync::Armor do
         before do
           create(:enchantment)
           create(:canonical_material)
-          allow(Canonical::Armor).to receive(:find_or_initialize_by).and_raise(StandardError, 'foobar')
+
+          allow(Canonical::Armor)
+            .to receive(:find_or_initialize_by)
+                  .and_raise(StandardError, 'foobar')
+
           allow(Rails.logger).to receive(:error)
         end
 
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError saving canonical armor "XX01DB97": foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError saving canonical armor "XX01DB97": foobar')
         end
       end
 
@@ -250,7 +267,10 @@ RSpec.describe Canonical::Sync::Armor do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing canonical armors: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing canonical armors: foobar')
         end
       end
     end

@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Powers do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'fixtures', 'canonical', 'sync', 'powers.json') }
+  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'powers.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -30,9 +30,12 @@ RSpec.describe Canonical::Sync::Powers do
       end
 
       context 'when there are no existing records in the database' do
-        it 'populates the models from the JSON file' do
+        it 'populates the models from the JSON file', :aggregate_failures do
           perform
-          expect(Power.count).to eq 4
+          expect(Power.find_by(name: "Ahzidal's Genius")).to be_present
+          expect(Power.find_by(name: "Ancestor's Wrath")).to be_present
+          expect(Power.find_by(name: 'Bardic Knowledge')).to be_present
+          expect(Power.find_by(name: 'Bats')).to be_present
         end
       end
 
@@ -65,11 +68,8 @@ RSpec.describe Canonical::Sync::Powers do
       let!(:power_in_json)            { create(:power, name: "Ancestor's Wrath", power_type: 'ability') }
       let!(:power_not_in_json)        { create(:power, name: 'My Power') }
 
-      before do
-        allow(described_class).to receive(:new).and_return(syncer)
-      end
-
       it 'instantiates itself' do
+        allow(described_class).to receive(:new).and_return(syncer)
         perform
         expect(described_class).to have_received(:new).with(preserve_existing_records)
       end
@@ -114,7 +114,10 @@ RSpec.describe Canonical::Sync::Powers do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(ActiveRecord::RecordInvalid)
-          expect(Rails.logger).to have_received(:error).with("Error saving power \"Ahzidal's Genius\": Validation failed: Name can't be blank")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Error saving power \"Ahzidal's Genius\": Validation failed: Name can't be blank")
         end
       end
 
@@ -127,7 +130,10 @@ RSpec.describe Canonical::Sync::Powers do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with("Unexpected error StandardError saving power \"Ahzidal's Genius\": foobar")
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with("Unexpected error StandardError saving power \"Ahzidal's Genius\": foobar")
         end
       end
 
@@ -140,7 +146,10 @@ RSpec.describe Canonical::Sync::Powers do
         it 'logs and reraises the error', :aggregate_failures do
           expect { perform }
             .to raise_error(StandardError)
-          expect(Rails.logger).to have_received(:error).with('Unexpected error StandardError while syncing powers: foobar')
+
+          expect(Rails.logger)
+            .to have_received(:error)
+                  .with('Unexpected error StandardError while syncing powers: foobar')
         end
       end
     end
