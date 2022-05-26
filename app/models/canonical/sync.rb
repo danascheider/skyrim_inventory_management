@@ -10,6 +10,7 @@ module Canonical
                 enchantment:         Canonical::Sync::Enchantments,
                 material:            Canonical::Sync::Materials,
                 power:               Canonical::Sync::Powers,
+                spell:               Canonical::Sync::Spells,
                 ingredient:          Canonical::Sync::Ingredients,
                 # Syncers that are not prerequisites for other syncers
                 armor:               Canonical::Sync::Armor,
@@ -19,7 +20,6 @@ module Canonical
                 misc_item:           Canonical::Sync::MiscItems,
                 potion:              Canonical::Sync::Potions,
                 property:            Canonical::Sync::Properties,
-                spell:               Canonical::Sync::Spells,
                 staff:               Canonical::Sync::Staves,
                 weapon:              Canonical::Sync::Weapons,
               }.freeze
