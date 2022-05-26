@@ -107,7 +107,7 @@ RSpec.describe Canonical::Sync::Armor do
           expect(item_in_json.tempering_materials.find_by(name: 'Titanium Ingot')).to be_nil
         end
 
-        it 'adds associations to tempering materials if they exist' do
+        it 'adds associations if they exist' do
           perform
           expect(item_in_json.tempering_materials.find_by(item_code: '0005ACE5')).to be_present
         end
