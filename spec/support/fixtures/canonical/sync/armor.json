@@ -7,9 +7,15 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": "Enemies who strike you with a melee attack have a small chance of being paralyzed.",
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Daedric Smithing"
+      ],
       "dragon_priest_mask": false,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -29,9 +35,15 @@
       "body_slot": "shield",
       "weight": "heavy armor",
       "magical_effects": null,
+      "smithing_perks": [
+        "Arcane Blacksmith",
+        "Steel Smithing"
+      ],
       "dragon_priest_mask": false,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -56,9 +68,14 @@
       "body_slot": "feet",
       "weight": "light armor",
       "magical_effects": null,
+      "smithing_perks": [
+        "Elven Smithing"
+      ],
       "dragon_priest_mask": false,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -95,9 +112,14 @@
       "body_slot": "body",
       "weight": "heavy armor",
       "magical_effects": null,
+      "smithing_perks": [
+        "Dragon Armor"
+      ],
       "dragon_priest_mask": false,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": [],

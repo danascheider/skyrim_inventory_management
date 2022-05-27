@@ -96,6 +96,76 @@ RSpec.describe Canonical::Armor, type: :model do
         expect(armor).to be_valid
       end
     end
+
+    describe 'smithing_perks' do
+      it 'must include only valid smithing perks' do
+        model = build(:canonical_armor, smithing_perks: ['Titanium Smithing'])
+
+        model.validate
+        expect(model.errors[:smithing_perks]).to include '"Titanium Smithing" is not a valid smithing perk'
+      end
+    end
+
+    describe 'leveled' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, leveled: nil)
+
+        model.validate
+        expect(model.errors[:leveled]).to include 'must be true or false'
+      end
+    end
+
+    describe 'purchasable' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, purchasable: nil)
+
+        model.validate
+        expect(model.errors[:purchasable]).to include 'must be true or false'
+      end
+    end
+
+    describe 'unique_item' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, unique_item: nil)
+
+        model.validate
+        expect(model.errors[:unique_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'rare_item' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, rare_item: nil)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true or false'
+      end
+
+      it 'must be true if the item is unique' do
+        model = build(:canonical_armor, unique_item: true, rare_item: false)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+      end
+    end
+
+    describe 'quest_item' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, quest_item: nil)
+
+        model.validate
+        expect(model.errors[:quest_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'enchantable' do
+      it 'must be true or false' do
+        model = build(:canonical_armor, enchantable: nil)
+
+        model.validate
+        expect(model.errors[:enchantable]).to include 'must be true or false'
+      end
+    end
   end
 
   describe 'associations' do
