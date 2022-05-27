@@ -33,13 +33,15 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "dragon_priest_mask", default: false
-    t.boolean "quest_item", default: false
-    t.boolean "unique_item", default: false
     t.boolean "enchantable", default: true
+    t.boolean "leveled", default: false
+    t.boolean "purchasable"
+    t.boolean "unique_item", default: false
+    t.boolean "rare_item"
+    t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "smithing_perks", default: [], array: true
-    t.string "leveled", default: "f"
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
@@ -67,8 +69,10 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "body_slot", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable"
     t.boolean "unique_item", default: false
+    t.boolean "rare_item"
+    t.boolean "quest_item", default: false
     t.boolean "enchantable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,8 +105,10 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "name", null: false
     t.string "item_code", null: false
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable"
     t.boolean "unique_item", default: false
+    t.boolean "rare_item"
+    t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
@@ -128,8 +134,10 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "jewelry_type", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable"
     t.boolean "unique_item", default: false
+    t.boolean "rare_item"
+    t.boolean "quest_item", default: false
     t.boolean "enchantable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -232,7 +240,9 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "school"
     t.string "enemy"
     t.boolean "daedric", default: false, null: false
+    t.boolean "purchasable"
     t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item"
     t.boolean "quest_item", default: false, null: false
     t.boolean "leveled", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -273,8 +283,10 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "leveled", default: false
     t.boolean "enchantable", default: true
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable"
     t.boolean "unique_item", default: false
+    t.boolean "rare_item"
+    t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
@@ -319,10 +331,8 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.boolean "aggregate", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "property_id"
     t.index ["aggregate_list_id"], name: "index_inventory_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_inventory_lists_on_game_id"
-    t.index ["property_id"], name: "index_inventory_lists_on_property_id"
     t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
   end
 
@@ -374,10 +384,8 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.string "title", null: false
     t.bigint "game_id", null: false
     t.bigint "aggregate_list_id"
-    t.bigint "property_id"
     t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_shopping_lists_on_game_id"
-    t.index ["property_id"], name: "index_shopping_lists_on_property_id"
     t.index ["title", "game_id"], name: "index_shopping_lists_on_title_and_game_id", unique: true
   end
 
@@ -422,11 +430,9 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
   add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
-  add_foreign_key "inventory_lists", "properties"
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
-  add_foreign_key "shopping_lists", "properties"
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
 end
