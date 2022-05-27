@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "smithing_perks", default: [], array: true
+    t.string "leveled", default: "f"
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
