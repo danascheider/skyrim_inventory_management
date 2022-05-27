@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
+require 'skyrim'
+
 module Canonical
   class Armor < ApplicationRecord
     self.table_name = 'canonical_armors'
+
+    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
@@ -45,9 +50,30 @@ module Canonical
                            message: 'must be "head", "body", "hands", "feet", "hair", or "shield"',
                          }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :enchantable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+
+    validate :verify_all_smithing_perks_valid
+    validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
     def self.unique_identifier
       :item_code
+    end
+
+    private
+
+    def verify_all_smithing_perks_valid
+      smithing_perks&.each do |perk|
+        errors.add(:smithing_perks, "\"#{perk}\" is not a valid smithing perk") unless Skyrim::SMITHING_PERKS.include?(perk)
+      end
+    end
+
+    def validate_unique_item_also_rare
+      errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
   end
 end
