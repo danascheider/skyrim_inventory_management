@@ -46,6 +46,8 @@ namespace :csv do
           crafting_material_codes, crafting_material_quantities   = concatenate_values(item[:crafting_materials], :item_code, :quantity)
           tempering_material_codes, tempering_material_quantities = concatenate_values(item[:tempering_materials], :item_code, :quantity)
 
+          item[:attributes][:smithing_perks] = item[:attributes][:smithing_perks].join(',')
+
           csv << item[:attributes].values + [enchantment_names, enchantment_strengths, tempering_material_codes, tempering_material_quantities, crafting_material_codes, crafting_material_quantities]
         end
       end
