@@ -6,26 +6,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 50
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Adept Hood",
-      "item_code": "0010DD3C",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -42,8 +26,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -60,8 +46,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -82,39 +70,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Conjuration",
-        "strength": 17
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 100
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Adept Robes of Conjuration \u0026 Illusion",
-      "item_code": "FEXXX837",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 17
-      },
-      {
-        "name": "Fortify Illusion",
         "strength": 17
       },
       {
@@ -130,39 +94,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Destruction",
-        "strength": 17
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 100
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Adept Robes of Destruction \u0026 Alteration",
-      "item_code": "FEXXX82A",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 17
-      },
-      {
-        "name": "Fortify Alteration",
         "strength": 17
       },
       {
@@ -178,8 +118,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -200,8 +142,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -222,8 +166,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -235,8 +181,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -252,9 +200,11 @@
       "item_code": "0010D67D",
       "magical_effects": null,
       "body_slot": "body",
+      "purchasable": true,
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -271,8 +221,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -293,39 +245,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Conjuration",
-        "strength": 15
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 75
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Apprentice Robes of Conjuration \u0026 Illusion",
-      "item_code": "FEXXX836",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 15
-      },
-      {
-        "name": "Fortify Illusion",
         "strength": 15
       },
       {
@@ -341,39 +269,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Destruction",
-        "strength": 15
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 75
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Apprentice Robes of Destruction \u0026 Alteration",
-      "item_code": "FEXXX829",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 15
-      },
-      {
-        "name": "Fortify Alteration",
         "strength": 15
       },
       {
@@ -389,8 +293,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -411,8 +317,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -428,31 +336,15 @@
   },
   {
     "attributes": {
-      "name": "Arcane Blacksmith's Apron",
-      "item_code": "XX000AE4",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Smithing",
-        "strength": 20
-      }
-    ]
-  },
-  {
-    "attributes": {
       "name": "Arch-Mage's Boots",
       "item_code": "0007C92E",
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -464,39 +356,15 @@
   },
   {
     "attributes": {
-      "name": "Ascendant Necromancer Robes",
-      "item_code": "FEXXX90F",
-      "magical_effects": "Conjuration spells last 25% longer. Increases summon limit by 1 for lesser conjured or reanimated undead.",
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
       "name": "Belted Tunic",
       "item_code": "0001BE1A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Black Mage Hood",
-      "item_code": "XX017E9B",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 0.5,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -508,8 +376,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -539,8 +409,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -552,8 +424,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -570,8 +444,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -583,9 +459,86 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Boy's Blue Tunic",
+      "item_code": "XX00C744",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Boy's Green Tunic",
+      "item_code": "XX00C743",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Boy's Grey Tunic",
+      "item_code": "XX00C745",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Boy's Red Tunic",
+      "item_code": "XX00C742",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Boy's Yellow Tunic",
+      "item_code": "XX00C746",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -596,8 +549,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -609,22 +564,11 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Child's Clothes",
-      "item_code": "XX03C819",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
     },
     "enchantments": []
   },
@@ -635,8 +579,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -653,8 +599,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -675,8 +623,10 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -688,8 +638,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -706,8 +658,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -719,8 +673,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -732,8 +688,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -745,21 +703,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Cuffed Boots",
-      "item_code": "000CEE78",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -771,8 +718,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -784,8 +733,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -797,39 +748,15 @@
   },
   {
     "attributes": {
-      "name": "Cyrus' Boots",
-      "item_code": "XX00089B",
-      "magical_effects": null,
-      "body_slot": "feet",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Cyrus' Clothes",
-      "item_code": "XX00089E",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": true,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
       "name": "Dunmer Outfit",
       "item_code": "XX03706A",
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -846,8 +773,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -859,8 +788,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -872,8 +803,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -890,8 +823,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -912,8 +847,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -934,39 +871,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Destruction",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 125
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Expert Robes of Destruction \u0026 Alteration",
-      "item_code": "FEXXX82B",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 20
-      },
-      {
-        "name": "Fortify Alteration",
         "strength": 20
       },
       {
@@ -982,8 +895,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1004,8 +919,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1026,8 +943,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1039,8 +958,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1052,8 +973,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1065,8 +988,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1078,8 +1003,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1091,9 +1018,86 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Girl's Blue Dress",
+      "item_code": "XX00D81E",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Girl's Green Dress",
+      "item_code": "XX00D81F",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Girl's Grey Dress",
+      "item_code": "XX00D820",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Girl's Red Dress",
+      "item_code": "XX00D821",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Girl's Yellow Dress",
+      "item_code": "XX00D822",
+      "magical_effects": null,
+      "body_slot": "body",
+      "unit_weight": 2,
+      "purchasable": true,
+      "quest_item": false,
+      "unique_item": false,
+      "rare_item": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1104,8 +1108,10 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1117,8 +1123,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1130,8 +1138,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1143,8 +1153,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1156,8 +1168,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1174,8 +1188,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1187,8 +1203,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
-      "unique_item": false,
+      "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1200,8 +1218,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1213,8 +1233,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1231,8 +1253,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1267,8 +1291,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1289,8 +1315,10 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -1302,8 +1330,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1320,8 +1350,10 @@
       "magical_effects": "When worn, rainstorms occur while fishing at temperate lakes and streams.",
       "body_slot": "head",
       "unit_weight": "0.5",
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -1333,8 +1365,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1346,8 +1380,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
-      "unique_item": false,
+      "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1359,8 +1395,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1377,8 +1415,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1399,8 +1439,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1421,8 +1463,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1447,39 +1491,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Destruction",
-        "strength": 22
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 150
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Master Robes of Destruction \u0026 Alteration",
-      "item_code": "FEXXX82C",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 22
-      },
-      {
-        "name": "Fortify Alteration",
         "strength": 22
       },
       {
@@ -1495,8 +1515,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1517,8 +1539,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1539,8 +1563,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1552,8 +1578,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1565,8 +1593,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -1578,8 +1608,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1591,8 +1623,10 @@
       "magical_effects": "Adds a hidden bonus to your Magicka Regen",
       "body_slot": "hands",
       "unit_weight": 0.25,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -1604,8 +1638,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1617,8 +1653,10 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1630,8 +1668,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1648,8 +1688,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 3,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1661,26 +1703,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Magicka",
-        "strength": 30
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Novice Hood",
-      "item_code": "0010DD3A",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1697,8 +1723,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1715,8 +1743,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1737,8 +1767,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1759,8 +1791,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1785,39 +1819,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Destruction",
-        "strength": 12
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 50
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Novice Robes of Destruction \u0026 Alteration",
-      "item_code": "FEXXX827",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Destruction",
-        "strength": 12
-      },
-      {
-        "name": "Fortify Alteration",
         "strength": 12
       },
       {
@@ -1833,8 +1843,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1855,8 +1867,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1877,8 +1891,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1890,8 +1906,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1903,21 +1921,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Prisoner's Cuffs",
-      "item_code": "0010E039",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 0,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1929,8 +1936,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1942,8 +1951,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1955,8 +1966,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1968,8 +1981,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1981,8 +1996,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -1994,8 +2011,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2007,8 +2026,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2020,8 +2041,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2033,22 +2056,11 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
-      "unique_item": false,
+      "unique_item": true,
+      "rare_item": true,
       "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Refined Tunic",
-      "item_code": "000E84C6",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 3,
-      "quest_item": false,
-      "unique_item": false,
-      "enchantable": false
     },
     "enchantments": []
   },
@@ -2059,8 +2071,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2081,8 +2095,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2103,13 +2119,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
       {
-        "name": "Fortify Destruction",
+        "name": "Fortify Conjuration",
         "strength": 15
       },
       {
@@ -2125,8 +2143,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2147,8 +2167,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2169,8 +2191,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2191,8 +2215,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2213,8 +2239,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2235,8 +2263,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2256,9 +2286,11 @@
       "item_code": "00101741",
       "magical_effects": null,
       "body_slot": "body",
+      "purchasable": false,
       "unit_weight": 1,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2279,8 +2311,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2301,8 +2335,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2323,8 +2359,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2345,8 +2383,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2367,8 +2407,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2389,8 +2431,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2411,8 +2455,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2433,8 +2479,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2455,8 +2503,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2477,8 +2527,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2499,8 +2551,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2521,8 +2575,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2543,8 +2599,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2565,8 +2623,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2587,8 +2647,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2609,8 +2671,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2631,8 +2695,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2653,8 +2719,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2675,8 +2743,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2715,8 +2785,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2733,8 +2805,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2751,8 +2825,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2773,8 +2849,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2791,8 +2869,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2804,8 +2884,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -2816,9 +2898,11 @@
       "item_code": "0005B69E",
       "magical_effects": null,
       "body_slot": "feet",
-      "unit_weight": 2,
+      "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -2830,8 +2914,10 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -2861,8 +2947,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2879,14 +2967,16 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
+      "purchasable": true,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
       {
         "name": "Muffle",
-        "strength": null
+        "strength": 1.0
       }
     ]
   },
@@ -2897,8 +2987,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2919,8 +3011,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -2932,8 +3026,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2945,8 +3041,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
-      "unique_item": false,
+      "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -2958,8 +3056,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2976,8 +3076,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
@@ -2989,8 +3091,10 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3002,8 +3106,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 4,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3020,8 +3126,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3033,8 +3141,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3046,8 +3156,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3059,8 +3171,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3072,8 +3186,10 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3085,21 +3201,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
-      "enchantable": true
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Vampire Leather Hood",
-      "item_code": "XX089EEF",
-      "magical_effects": null,
-      "body_slot": "head",
-      "unit_weight": 1,
-      "quest_item": false,
-      "unique_item": false,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3111,8 +3216,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": []
@@ -3124,8 +3231,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []
@@ -3137,8 +3246,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": true
     },
     "enchantments": []

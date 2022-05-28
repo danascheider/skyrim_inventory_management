@@ -5,73 +5,133 @@ require 'rails_helper'
 RSpec.describe Canonical::ClothingItem, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
-      item = described_class.new(name: 'Clothes', item_code: 'foo', unit_weight: 1, body_slot: 'body')
+      model = described_class.new(
+                name:        'Clothes',
+                item_code:   'foo',
+                unit_weight: 1,
+                body_slot:   'body',
+                purchasable: true,
+                unique_item: false,
+                rare_item:   false,
+              )
 
-      expect(item).to be_valid
+      expect(model).to be_valid
     end
 
     describe 'name' do
-      it 'is invalid without a name' do
-        item = described_class.new(item_code: 'xxx', body_slot: 'hands', unit_weight: 4.2)
+      it "can't be blank" do
+        model = build(:canonical_clothing_item, name: nil)
 
-        item.validate
-        expect(item.errors[:name]).to include "can't be blank"
+        model.validate
+        expect(model.errors[:name]).to include "can't be blank"
       end
     end
 
     describe 'item_code' do
-      it 'is invalid without an item code' do
-        item = described_class.new(name: 'Fine Clothes', unit_weight: 1, body_slot: 'body')
+      it "can't be blank" do
+        model = build(:canonical_clothing_item, item_code: nil)
 
-        item.validate
-        expect(item.errors[:item_code]).to include "can't be blank"
+        model.validate
+        expect(model.errors[:item_code]).to include "can't be blank"
       end
 
-      it 'is invalid with a non-unique item code' do
+      it 'must be unique' do
         create(:canonical_clothing_item, item_code: 'xxx')
-        item = build(:canonical_clothing_item, item_code: 'xxx')
+        model = build(:canonical_clothing_item, item_code: 'xxx')
 
-        item.validate
-        expect(item.errors[:item_code]).to include 'must be unique'
+        model.validate
+        expect(model.errors[:item_code]).to include 'must be unique'
       end
     end
 
     describe 'unit_weight' do
-      it 'is invalid with no unit weight' do
-        item = described_class.new(name: 'Fine Clothes', item_code: 'foo', body_slot: 'body')
+      it "can't be blank" do
+        model = build(:canonical_clothing_item, unit_weight: nil)
 
-        item.validate
-        expect(item.errors[:unit_weight]).to include "can't be blank"
+        model.validate
+        expect(model.errors[:unit_weight]).to include "can't be blank"
       end
 
-      it 'is invalid with a non-numeric unit weight' do
-        item = build(:canonical_clothing_item, unit_weight: 'bar')
+      it 'must be a number' do
+        model = build(:canonical_clothing_item, unit_weight: 'bar')
 
-        item.validate
-        expect(item.errors[:unit_weight]).to include 'is not a number'
+        model.validate
+        expect(model.errors[:unit_weight]).to include 'is not a number'
       end
 
-      it 'is invalid with a negative unit weight' do
-        item = build(:canonical_clothing_item, unit_weight: -34)
+      it 'must be at least zero' do
+        model = build(:canonical_clothing_item, unit_weight: -34)
 
-        item.validate
-        expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+        model.validate
+        expect(model.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe 'body_slot' do
-      it 'is invalid without a body_slot' do
-        item = described_class.new(name: 'foo', unit_weight: 2.0)
+      it "can't be blank" do
+        model = build(:canonical_clothing_item, body_slot: nil)
 
-        item.validate
-        expect(item.errors[:body_slot]).to include "can't be blank"
+        model.validate
+        expect(model.errors[:body_slot]).to include "can't be blank"
       end
 
-      it 'is invalid with an invalid body_slot value' do
-        item = build(:canonical_clothing_item, body_slot: 'bar')
+      it 'must have one of the valid values' do
+        model = build(:canonical_clothing_item, body_slot: 'bar')
 
-        item.validate
-        expect(item.errors[:body_slot]).to include 'must be "head", "hands", "body", or "feet"'
+        model.validate
+        expect(model.errors[:body_slot]).to include 'must be "head", "hands", "body", or "feet"'
+      end
+    end
+
+    describe 'purchasable' do
+      it 'must be true or false' do
+        model = build(:canonical_clothing_item, purchasable: nil)
+
+        model.validate
+        expect(model.errors[:purchasable]).to include 'must be true or false'
+      end
+    end
+
+    describe 'unique_item' do
+      it 'must be true or false' do
+        model = build(:canonical_clothing_item, unique_item: nil)
+
+        model.validate
+        expect(model.errors[:unique_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'rare_item' do
+      it 'must be true or false' do
+        model = build(:canonical_clothing_item, rare_item: nil)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true or false'
+      end
+
+      it 'must be true if item is unique' do
+        model = build(:canonical_clothing_item, unique_item: true, rare_item: false)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+      end
+    end
+
+    describe 'quest_item' do
+      it 'must be true or false' do
+        model = build(:canonical_clothing_item, quest_item: nil)
+
+        model.validate
+        expect(model.errors[:quest_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'enchantable' do
+      it 'must be true or false' do
+        model = build(:canonical_clothing_item, enchantable: nil)
+
+        model.validate
+        expect(model.errors[:enchantable]).to include 'must be true or false'
       end
     end
   end
