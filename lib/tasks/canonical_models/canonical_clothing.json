@@ -396,8 +396,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": true,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": false,
       "enchantable": true
     },
     "enchantments": []
