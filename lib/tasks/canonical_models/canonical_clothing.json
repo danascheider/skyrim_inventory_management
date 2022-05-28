@@ -1275,8 +1275,10 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2769,8 +2771,10 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "purchasable": false,
       "quest_item": false,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -2931,8 +2935,10 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
