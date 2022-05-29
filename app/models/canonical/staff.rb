@@ -32,11 +32,22 @@ module Canonical
                             }
     validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
     validates :daedric, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+
+    validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
     def self.unique_identifier
       :item_code
+    end
+
+    private
+
+    def validate_unique_item_also_rare
+      errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
   end
 end

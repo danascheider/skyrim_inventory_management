@@ -7,7 +7,9 @@ FactoryBot.define do
     unit_weight          { 8 }
     base_damage          { 0 }
     daedric              { false }
+    purchasable          { true }
     unique_item          { false }
+    rare_item            { false }
     quest_item           { false }
     leveled              { false }
   end

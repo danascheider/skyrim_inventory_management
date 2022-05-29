@@ -107,6 +107,15 @@ RSpec.describe Canonical::Staff, type: :model do
       end
     end
 
+    describe 'purchasable' do
+      it "can't be blank" do
+        model = build(:canonical_staff, purchasable: nil)
+
+        model.validate
+        expect(model.errors[:purchasable]).to include 'must be true or false'
+      end
+    end
+
     describe 'unique_item' do
       it "can't be blank" do
         model = build(:canonical_staff, unique_item: nil)
@@ -116,12 +125,37 @@ RSpec.describe Canonical::Staff, type: :model do
       end
     end
 
+    describe 'rare_item' do
+      it "can't be blank" do
+        model = build(:canonical_staff, rare_item: nil)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true or false'
+      end
+
+      it 'must be true if the item is unique' do
+        model = build(:canonical_staff, unique_item: true, rare_item: false)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+      end
+    end
+
     describe 'quest_item' do
       it "can't be blank" do
         model = build(:canonical_staff, quest_item: nil)
 
         model.validate
         expect(model.errors[:quest_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'leveled' do
+      it "can't be blank" do
+        model = build(:canonical_staff, leveled: nil)
+
+        model.validate
+        expect(model.errors[:leveled]).to include 'must be true or false'
       end
     end
   end
