@@ -9,7 +9,9 @@
       "school": "Illusion",
       "enemy": "Halldir",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -35,7 +37,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -57,7 +61,9 @@
       "school": null,
       "enemy": "Miraak",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": true
     },
@@ -76,7 +82,9 @@
       "school": "Conjuration",
       "enemy": "Sanguine",
       "daedric": true,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
