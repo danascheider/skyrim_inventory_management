@@ -24,6 +24,7 @@ module Canonical
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :ingredient_type, inclusion: { in: VALID_TYPES, message: TYPE_VALIDATION_MESSAGE, allow_blank: true }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :purchase_requires_perk,
               inclusion: {
                            in:      BOOLEAN_VALUES,
@@ -34,7 +35,8 @@ module Canonical
     validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
 
-    validate :validate_purchasable
+    validate :validate_ingredient_type_not_set, if: -> { purchasable == false }
+    validate :validate_ingredient_type_set, if: -> { purchasable == true }
     validate :validate_purchase_requires_perk
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
@@ -44,9 +46,12 @@ module Canonical
 
     private
 
-    def validate_purchasable
-      errors.add(:purchasable, BOOLEAN_VALIDATION_MESSAGE) unless BOOLEAN_VALUES.include?(purchasable)
-      errors.add(:purchasable, 'must be true if ingredient_type is set') if ingredient_type && !purchasable
+    def validate_ingredient_type_not_set
+      errors.add(:ingredient_type, 'can only be set for purchasable ingredients') unless ingredient_type.nil?
+    end
+
+    def validate_ingredient_type_set
+      errors.add(:ingredient_type, "can't be blank for purchasable ingredients") if ingredient_type.blank?
     end
 
     def validate_purchase_requires_perk

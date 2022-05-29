@@ -53,10 +53,24 @@ RSpec.describe Canonical::Ingredient, type: :model do
         expect(model.errors[:ingredient_type]).to include 'must be "common", "uncommon", "rare", or "Solstheim"'
       end
 
-      it 'can be blank' do
-        model = build(:canonical_ingredient, ingredient_type: nil)
+      it 'can be blank if purchasable is false' do
+        model = build(:canonical_ingredient, ingredient_type: nil, purchasable: false, purchase_requires_perk: nil)
 
         expect(model).to be_valid
+      end
+
+      it 'must be blank if purchasable is false' do
+        model = build(:canonical_ingredient, purchasable: false, ingredient_type: 'uncommon')
+
+        model.validate
+        expect(model.errors[:ingredient_type]).to include 'can only be set for purchasable ingredients'
+      end
+
+      it "can't be blank if purchasable is true" do
+        model = build(:canonical_ingredient, purchasable: true, ingredient_type: nil)
+
+        model.validate
+        expect(model.errors[:ingredient_type]).to include "can't be blank for purchasable ingredients"
       end
     end
 
@@ -82,13 +96,6 @@ RSpec.describe Canonical::Ingredient, type: :model do
 
         model.validate
         expect(model.errors[:purchasable]).to include 'must be true or false'
-      end
-
-      it 'must be true if ingredient_type is defined' do
-        model = build(:canonical_ingredient, ingredient_type: 'rare', purchasable: false)
-
-        model.validate
-        expect(model.errors[:purchasable]).to include 'must be true if ingredient_type is set'
       end
     end
 
