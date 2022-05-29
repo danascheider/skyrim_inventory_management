@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_213259) do
+ActiveRecord::Schema.define(version: 2022_05_28_233912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 2022_05_26_213259) do
     t.boolean "quest_item", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ingredient_type"
+    t.boolean "purchase_requires_perk"
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
   end
 

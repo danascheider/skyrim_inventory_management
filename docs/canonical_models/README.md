@@ -14,6 +14,7 @@ The documentation in this directory covers the purpose of canonical models, the 
 * [Canonical Models](/docs/canonical_models/canonical-models.md): An overview of canonical models, which canonical models exist, and associations between them
 * [Canonical Data](/docs/canonical_models/canonical-data.md): Working with the JSON data and exporting CSV files
 * [Syncing Canonical Models](/docs/canonical_models/syncing-canonical-models.md): Using Rake tasks to sync canonical models in the database with authoritative JSON data
-* Specific Models
+* Specific Models:
   * [Canonical::Book](/docs/canonical_models/canonical-book.md): Additional details about special characteristics of the `Canonical::Book` model
+  * [`Canonical::Ingredient`](/docs/canonical_models/canonical-ingredient.md): Additional details about special characteristics of the `Canonical::Ingredient` model
   * [Canonical::IngredientsAlchemicalProperty](/docs/canonical_models//canonical-ingredients-alchemical-property.md): Additional details about special characteristics of the `Canonical::IngredientsAlchemicalProperty` model

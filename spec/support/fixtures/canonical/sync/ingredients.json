@@ -3,8 +3,12 @@
     "attributes": {
       "name": "Abecean Longfin",
       "item_code": "00106E1B",
+      "ingredient_type": "common",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -38,8 +42,12 @@
     "attributes": {
       "name": "Ash Hopper Jelly",
       "item_code": "XX01CD71",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -73,8 +81,12 @@
     "attributes": {
       "name": "Elves Ear",
       "item_code": "00034D31",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -108,8 +120,12 @@
     "attributes": {
       "name": "Fire Salts",
       "item_code": "0003AD5E",
+      "ingredient_type": "rare",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
