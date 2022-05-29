@@ -117,6 +117,15 @@ RSpec.describe Canonical::JewelryItem, type: :model do
         expect(model.errors[:quest_item]).to include 'must be true or false'
       end
     end
+
+    describe 'enchantable' do
+      it 'must be true or false' do
+        model = build(:canonical_jewelry_item, enchantable: nil)
+
+        model.validate
+        expect(model.errors[:enchantable]).to include 'must be true or false'
+      end
+    end
   end
 
   describe 'associations' do
