@@ -3,8 +3,12 @@
     "attributes": {
       "name": "Abecean Longfin",
       "item_code": "00106E1B",
+      "ingredient_type": "common",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -38,8 +42,12 @@
     "attributes": {
       "name": "Ancestor Moth Wing",
       "item_code": "XX0059BA",
+      "ingredient_type": null,
       "unit_weight": 0.1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -73,8 +81,12 @@
     "attributes": {
       "name": "Ash Creep Cluster",
       "item_code": "XX01CD74",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -108,8 +120,12 @@
     "attributes": {
       "name": "Ash Hopper Jelly",
       "item_code": "XX01CD71",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -143,8 +159,12 @@
     "attributes": {
       "name": "Ashen Grass Pod",
       "item_code": "XX016E26",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -178,8 +198,12 @@
     "attributes": {
       "name": "Bear Claws",
       "item_code": "0006BC02",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -213,8 +237,12 @@
     "attributes": {
       "name": "Bee",
       "item_code": "000A9195",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -248,8 +276,12 @@
     "attributes": {
       "name": "Beehive Husk",
       "item_code": "000A9191",
+      "ingredient_type": "common",
       "unit_weight": 1,
+      "purchasable": true,
+      "purchase_requires_perk":true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -283,8 +315,12 @@
     "attributes": {
       "name": "Bleeding Crown",
       "item_code": "0004DA20",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.3,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -318,8 +354,12 @@
     "attributes": {
       "name": "Blisterwort",
       "item_code": "0004DA25",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -353,8 +393,12 @@
     "attributes": {
       "name": "Blue Butterfly Wing",
       "item_code": "000727DE",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -388,8 +432,12 @@
     "attributes": {
       "name": "Blue Dartwing",
       "item_code": "000E4F0C",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -423,8 +471,12 @@
     "attributes": {
       "name": "Blue Mountain Flower",
       "item_code": "00077E1C",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -458,8 +510,12 @@
     "attributes": {
       "name": "Boar Tusk",
       "item_code": "XX01CD6F",
+      "ingredient_type": null,
       "unit_weight": 0.5,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -493,8 +549,12 @@
     "attributes": {
       "name": "Bone Meal",
       "item_code": "00034CDD",
+      "ingredient_type": "common",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -528,8 +588,12 @@
     "attributes": {
       "name": "Briar Heart",
       "item_code": "0003AD61",
+      "ingredient_type": "rare",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -562,9 +626,13 @@
   {
     "attributes": {
       "name": "Burnt Spriggan Wood",
+      "ingredient_type": "Solstheim",
       "item_code": "XX01CD6E",
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unit_weight": 0.5,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -598,8 +666,12 @@
     "attributes": {
       "name": "Butterfly Wing",
       "item_code": "000727E0",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -633,8 +705,12 @@
     "attributes": {
       "name": "Canis Root",
       "item_code": "0006ABCB",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -668,8 +744,12 @@
     "attributes": {
       "name": "Charred Skeever Hide",
       "item_code": "00052695",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -703,8 +783,12 @@
     "attributes": {
       "name": "Chaurus Eggs",
       "item_code": "0003AD56",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -738,8 +822,12 @@
     "attributes": {
       "name": "Chaurus Hunter Antennae",
       "item_code": "XX0183B7",
+      "ingredient_type": null,
       "unit_weight": 0.1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -773,8 +861,12 @@
     "attributes": {
       "name": "Chicken's Egg",
       "item_code": "00023D77",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -808,8 +900,12 @@
     "attributes": {
       "name": "Creep Cluster",
       "item_code": "000B2183",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -843,8 +939,12 @@
     "attributes": {
       "name": "Crimson Nirnroot",
       "item_code": "000B701A",
+      "ingredient_type": null,
       "unit_weight": 0.2,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -878,8 +978,12 @@
     "attributes": {
       "name": "Cyrodilic Spadetail",
       "item_code": "00106E19",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -913,8 +1017,12 @@
     "attributes": {
       "name": "Daedra Heart",
       "item_code": "0003AD5B",
+      "ingredient_type": "rare",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -948,8 +1056,12 @@
     "attributes": {
       "name": "Deathbell",
       "item_code": "000516C8",
+      "ingredient_type": "rare",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -983,8 +1095,12 @@
     "attributes": {
       "name": "Dragon's Tongue",
       "item_code": "000889A2",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1018,8 +1134,12 @@
     "attributes": {
       "name": "Dwarven Oil",
       "item_code": "000F11C0",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1053,8 +1173,12 @@
     "attributes": {
       "name": "Ectoplasm",
       "item_code": "0003AD63",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1088,8 +1212,12 @@
     "attributes": {
       "name": "Elves Ear",
       "item_code": "00034D31",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1123,8 +1251,12 @@
     "attributes": {
       "name": "Emperor Parasol Moss",
       "item_code": "XX01FF75",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1158,8 +1290,12 @@
     "attributes": {
       "name": "Eye of Sabre Cat",
       "item_code": "0006BC07",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1193,8 +1329,12 @@
     "attributes": {
       "name": "Falmer Ear",
       "item_code": "0003AD5D",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1228,8 +1368,12 @@
     "attributes": {
       "name": "Felsaad Tern Feathers",
       "item_code": "XX03CD8E",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1263,8 +1407,12 @@
     "attributes": {
       "name": "Fire Salts",
       "item_code": "0003AD5E",
+      "ingredient_type": "rare",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -1298,8 +1446,12 @@
     "attributes": {
       "name": "Fly Amanita",
       "item_code": "0004DA00",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1331,10 +1483,53 @@
   },
   {
     "attributes": {
+      "name": "Frost Mirriam",
+      "item_code": "00034D32",
+      "ingredient_type": "uncommon",
+      "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
+      "unique_item": false,
+      "rare_item": false,
+      "quest_item": false
+    },
+    "alchemical_properties": [
+      {
+        "priority": 1,
+        "name": "Resist Frost",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 2,
+        "name": "Fortify Sneak",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 3,
+        "name": "Ravage Magicka",
+        "strength_modifier": null,
+        "duration_modifier": null
+      },
+      {
+        "priority": 4,
+        "name": "Damage Stamina Regen",
+        "strength_modifier": null,
+        "duration_modifier": null
+      }
+    ]
+  },
+  {
+    "attributes": {
       "name": "Frost Salts",
       "item_code": "0003AD5F",
+      "ingredient_type": "rare",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1368,8 +1563,12 @@
     "attributes": {
       "name": "Garlic",
       "item_code": "00034D22",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1403,8 +1602,12 @@
     "attributes": {
       "name": "Giant Lichen",
       "item_code": "0007E8C1",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1438,8 +1641,12 @@
     "attributes": {
       "name": "Giant's Toe",
       "item_code": "0003AD64",
+      "ingredient_type": "rare",
       "unit_weight": 1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1473,9 +1680,13 @@
     "attributes": {
       "name": "Gleamblossom",
       "item_code": "XX00B097",
+      "ingredient_type": null,
       "unit_weight": 0.1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
-      "quest_item": false
+      "rare_item": true,
+      "quest_item": true
     },
     "alchemical_properties": [
       {
@@ -1508,8 +1719,12 @@
     "attributes": {
       "name": "Glow Dust",
       "item_code": "0003AD73",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1543,8 +1758,12 @@
     "attributes": {
       "name": "Glowing Mushroom",
       "item_code": "0007EE01",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1578,8 +1797,12 @@
     "attributes": {
       "name": "Grass Pod",
       "item_code": "00083E64",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1613,8 +1836,12 @@
     "attributes": {
       "name": "Hagraven Claw",
       "item_code": "0006B689",
+      "ingredient_type": "rare",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1648,8 +1875,12 @@
     "attributes": {
       "name": "Hagraven Feathers",
       "item_code": "0003AD66",
+      "ingredient_type": "rare",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1683,8 +1914,12 @@
     "attributes": {
       "name": "Hanging Moss",
       "item_code": "00057F91",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1718,8 +1953,12 @@
     "attributes": {
       "name": "Hawk Beak",
       "item_code": "000E7EBC",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1753,8 +1992,12 @@
     "attributes": {
       "name": "Hawk Feathers",
       "item_code": "000E7ED0",
+      "ingredient_type": null,
       "unit_weight": 0.1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1788,8 +2031,12 @@
     "attributes": {
       "name": "Hawk's Egg",
       "item_code": "XX00F1CC",
+      "ingredient_type": null,
       "unit_weight": 0.5,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1823,8 +2070,12 @@
     "attributes": {
       "name": "Histcarp",
       "item_code": "00106E18",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1858,8 +2109,12 @@
     "attributes": {
       "name": "Honeycomb",
       "item_code": "000B08C5",
+      "ingredient_type": "common",
       "unit_weight": 1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1893,8 +2148,12 @@
     "attributes": {
       "name": "Human Flesh",
       "item_code": "001016B3",
+      "ingredient_type": null,
       "unit_weight": 0.25,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1928,8 +2187,12 @@
     "attributes": {
       "name": "Human Heart",
       "item_code": "000B18CD",
+      "ingredient_type": null,
       "unit_weight": 1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -1963,8 +2226,12 @@
     "attributes": {
       "name": "Ice Wraith Teeth",
       "item_code": "0003AD6A",
+      "ingredient_type": "rare",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -1998,8 +2265,12 @@
     "attributes": {
       "name": "Imp Stool",
       "item_code": "0004DA23",
+      "ingredient_type": "rare",
       "unit_weight": 0.3,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2033,8 +2304,12 @@
     "attributes": {
       "name": "Jazbay Grapes",
       "item_code": "0006AC4A",
+      "ingredient_type": "rare",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -2068,8 +2343,12 @@
     "attributes": {
       "name": "Juniper Berries",
       "item_code": "0005076E",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2103,8 +2382,12 @@
     "attributes": {
       "name": "Large Antlers",
       "item_code": "0006BC0A",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2138,8 +2421,12 @@
     "attributes": {
       "name": "Lavender",
       "item_code": "00045C28",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2173,8 +2460,12 @@
     "attributes": {
       "name": "Luna Moth Wing",
       "item_code": "000727DF",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2208,8 +2499,12 @@
     "attributes": {
       "name": "Moon Sugar",
       "item_code": "000D8E3F",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2243,8 +2538,12 @@
     "attributes": {
       "name": "Mora Tapinella",
       "item_code": "000EC870",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2278,8 +2577,12 @@
     "attributes": {
       "name": "Mudcrab Chitin",
       "item_code": "0006BC00",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2313,8 +2616,12 @@
     "attributes": {
       "name": "Namira's Rot",
       "item_code": "0004DA24",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2348,8 +2655,12 @@
     "attributes": {
       "name": "Netch Jelly",
       "item_code": "XX01CD72",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2383,8 +2694,12 @@
     "attributes": {
       "name": "Nightshade",
       "item_code": "XX042A41",
+      "ingredient_type": "rare",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -2418,8 +2733,12 @@
     "attributes": {
       "name": "Nirnroot",
       "item_code": "00059B86",
+      "ingredient_type": "rare",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -2453,8 +2772,12 @@
     "attributes": {
       "name": "Nordic Barnacle",
       "item_code": "0007EDF5",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2488,8 +2811,12 @@
     "attributes": {
       "name": "Orange Dartwing",
       "item_code": "000BB956",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2523,8 +2850,12 @@
     "attributes": {
       "name": "Pearl",
       "item_code": "000854FE",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2558,8 +2889,12 @@
     "attributes": {
       "name": "Pine Thrush Egg",
       "item_code": "00023D6F",
+      "ingredient_type": "common",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2593,8 +2928,12 @@
     "attributes": {
       "name": "Poison Bloom",
       "item_code": "XX0185FB",
+      "ingredient_type": null,
       "unit_weight": 0.25,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2628,8 +2967,12 @@
     "attributes": {
       "name": "Powdered Mammoth Tusk",
       "item_code": "0006BC10",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2663,8 +3006,12 @@
     "attributes": {
       "name": "Purple Mountain Flower",
       "item_code": "00077E1E",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2698,8 +3045,12 @@
     "attributes": {
       "name": "Red Mountain Flower",
       "item_code": "00077E1D",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2733,8 +3084,12 @@
     "attributes": {
       "name": "River Betty",
       "item_code": "00106E1A",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2768,8 +3123,12 @@
     "attributes": {
       "name": "Rock Warbler Egg",
       "item_code": "0007E8C8",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2803,8 +3162,12 @@
     "attributes": {
       "name": "Sabre Tooth Cat",
       "item_code": "0006BC04",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2838,8 +3201,12 @@
     "attributes": {
       "name": "Salmon Roe",
       "item_code": "XX003545",
+      "ingredient_type": null,
       "unit_weight": 0.2,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2873,8 +3240,12 @@
     "attributes": {
       "name": "Salt Pile",
       "item_code": "00074A19",
+      "ingredient_type": "common",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2908,8 +3279,12 @@
     "attributes": {
       "name": "Scaly Pholiota",
       "item_code": "0006F950",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2943,8 +3318,12 @@
     "attributes": {
       "name": "Scathecraw",
       "item_code": "XX017E97",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -2978,8 +3357,12 @@
     "attributes": {
       "name": "Silverside Perch",
       "item_code": "00106E1C",
+      "ingredient_type": "common",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3013,8 +3396,12 @@
     "attributes": {
       "name": "Skeever Tail",
       "item_code": "0003AD6F",
+      "ingredient_type": "common",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3048,8 +3435,12 @@
     "attributes": {
       "name": "Slaughterfish Egg",
       "item_code": "0007E8C5",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3083,8 +3474,12 @@
     "attributes": {
       "name": "Slaughterfish Scales",
       "item_code": "0003AD70",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3118,8 +3513,12 @@
     "attributes": {
       "name": "Small Antlers",
       "item_code": "0006BC0B",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3153,8 +3552,12 @@
     "attributes": {
       "name": "Small Pearl",
       "item_code": "00085500",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3188,8 +3591,12 @@
     "attributes": {
       "name": "Snowberries",
       "item_code": "0001B3BD",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3223,8 +3630,12 @@
     "attributes": {
       "name": "Spawn Ash",
       "item_code": "XX01CD6D",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3258,8 +3669,12 @@
     "attributes": {
       "name": "Spider Egg",
       "item_code": "0009151B",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3293,8 +3708,12 @@
     "attributes": {
       "name": "Spriggan Sap",
       "item_code": "00063B5F",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3328,8 +3747,12 @@
     "attributes": {
       "name": "Swamp Fungal Pod",
       "item_code": "0007E8B7",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.25,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3363,8 +3786,12 @@
     "attributes": {
       "name": "Taproot",
       "item_code": "0003AD71",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.5,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3398,8 +3825,12 @@
     "attributes": {
       "name": "Thistle Branch",
       "item_code": "000134AA",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3433,8 +3864,12 @@
     "attributes": {
       "name": "Torchbug Thorax",
       "item_code": "0004DA73",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3468,8 +3903,12 @@
     "attributes": {
       "name": "Trama Root",
       "item_code": "XX017008",
+      "ingredient_type": "Solstheim",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3503,8 +3942,12 @@
     "attributes": {
       "name": "Troll Fat",
       "item_code": "0003AD72",
+      "ingredient_type": "uncommon",
       "unit_weight": 1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -3538,8 +3981,12 @@
     "attributes": {
       "name": "Tundra Cotton",
       "item_code": "0003F7F8",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3573,8 +4020,12 @@
     "attributes": {
       "name": "Vampire Dust",
       "item_code": "0003AD76",
+      "ingredient_type": "rare",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3608,8 +4059,12 @@
     "attributes": {
       "name": "Void Salts",
       "item_code": "0003AD60",
+      "ingredient_type": "rare",
       "unit_weight": 0.2,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3643,8 +4098,12 @@
     "attributes": {
       "name": "Wheat",
       "item_code": "0004B0BA",
+      "ingredient_type": "common",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3678,8 +4137,12 @@
     "attributes": {
       "name": "White Cap",
       "item_code": "0004DA22",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.3,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3713,8 +4176,12 @@
     "attributes": {
       "name": "Wisp Wrappings",
       "item_code": "0006BC0E",
+      "ingredient_type": "uncommon",
       "unit_weight": 0.1,
+      "purchasable": true,
+      "purchase_requires_perk": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3748,8 +4215,12 @@
     "attributes": {
       "name": "Yellow Mountain Flower",
       "item_code": "XX002A78",
+      "ingredient_type": null,
       "unit_weight": 0.1,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false
     },
     "alchemical_properties": [
@@ -3783,8 +4254,12 @@
     "attributes": {
       "name": "Berit's Ashes",
       "item_code": "000705B7",
+      "ingredient_type": null,
       "unit_weight": 0.2,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true
     },
     "alchemical_properties": [
@@ -3818,8 +4293,12 @@
     "attributes": {
       "name": "Jarrin Root",
       "item_code": "0001BCBC",
+      "ingredient_type": null,
       "unit_weight": 0.5,
+      "purchasable": false,
+      "purchase_requires_perk": null,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true
     },
     "alchemical_properties": [
