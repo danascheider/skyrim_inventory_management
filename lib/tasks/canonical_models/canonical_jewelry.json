@@ -6,6 +6,7 @@
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "magical_effects": "Retain effects of the last two Standing Stones selected when equipped",
+      "purchasable": false,
       "unique_item": true,
       "rare_item": true,
       "quest_item": true,
