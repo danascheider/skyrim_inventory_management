@@ -5,9 +5,11 @@
       "item_code": "XX00575A",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": true,
       "magical_effects": "Retain effects of the last two Standing Stones selected when equipped",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -19,9 +21,11 @@
       "item_code": "XX01DB9B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": "Allows you to cast the Destruction spells Ignite and Freeze",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -33,9 +37,11 @@
       "item_code": "XX01DB9A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": "Whenever a creature you have reanimated takes damage, they explode for 50 points of Frost damage and die",
+      "purchasable": false,
+      "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -47,9 +53,11 @@
       "item_code": "000C8911",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -66,9 +74,11 @@
       "item_code": "000CC848",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -85,9 +95,11 @@
       "item_code": "000F6911",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": "Persuade checks in dialogue will almost always succeed and Speechcraft is 5-35% better",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -99,9 +111,11 @@
       "item_code": "XX0068AE",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": "While wearing this amulet, bats will drain life from any nearby enemies",
+      "purchasable": false,
+      "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -113,9 +127,11 @@
       "item_code": "000C8915",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": "+15 Speechcraft",
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -127,9 +143,11 @@
       "item_code": "000C8917",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -146,9 +164,11 @@
       "item_code": "000C8919",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -165,9 +185,11 @@
       "item_code": "000C891B",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -184,9 +206,11 @@
       "item_code": "000CC844",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -203,9 +227,11 @@
       "item_code": "000CC846",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": "Time between Shouts is reduced by 20%",
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -217,9 +243,11 @@
       "item_code": "000878BB",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": "Prices are 10% better",
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -231,9 +259,11 @@
       "item_code": "XX00F4D5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": "While wearing this amulet, your Summon Gargoyle spell summons an additional gargoyle for 30 seconds",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -245,9 +275,11 @@
       "item_code": "000CC842",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -259,9 +291,11 @@
       "item_code": "00094E3E",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -278,9 +312,11 @@
       "item_code": "000F5A1D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -292,9 +328,11 @@
       "item_code": "000DA735",
       "jewelry_type": "ring",
       "unit_weight": 3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -306,9 +344,11 @@
       "item_code": "XX02C8AD",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": true
     },
     "enchantments": [],
@@ -320,9 +360,11 @@
       "item_code": "XX01AA0B",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -347,9 +389,11 @@
       "item_code": "XX011CF5",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -361,9 +405,11 @@
       "item_code": "000D8482",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -375,9 +421,11 @@
       "item_code": "000C72E8",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -395,7 +443,9 @@
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -413,7 +463,10 @@
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -431,7 +484,10 @@
       "jewelry_type": "circlet",
       "unit_weight": 2,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -448,9 +504,11 @@
       "item_code": "000FC00D",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -467,9 +525,11 @@
       "item_code": "000FC013",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -486,9 +546,11 @@
       "item_code": "000FC003",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -505,9 +567,11 @@
       "item_code": "000FC009",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -524,9 +588,11 @@
       "item_code": "000FC02D",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -543,9 +609,11 @@
       "item_code": "000FC00F",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -562,9 +630,11 @@
       "item_code": "000FC015",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -581,9 +651,11 @@
       "item_code": "000FC021",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -600,9 +672,11 @@
       "item_code": "000FC033",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -619,9 +693,11 @@
       "item_code": "000FC004",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -638,9 +714,11 @@
       "item_code": "000FC02E",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -657,9 +735,11 @@
       "item_code": "000FC010",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -676,9 +756,11 @@
       "item_code": "000FC016",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -695,9 +777,11 @@
       "item_code": "000FC022",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -714,9 +798,11 @@
       "item_code": "000FC028",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -733,9 +819,11 @@
       "item_code": "000FC027",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -752,9 +840,11 @@
       "item_code": "000FC034",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -771,9 +861,11 @@
       "item_code": "000FC01F",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -790,9 +882,11 @@
       "item_code": "000FC025",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -809,9 +903,11 @@
       "item_code": "000FC002",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -828,9 +924,11 @@
       "item_code": "000FC008",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -847,9 +945,11 @@
       "item_code": "000FC02C",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -866,9 +966,11 @@
       "item_code": "000FC00E",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -885,9 +987,11 @@
       "item_code": "000FC014",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -904,9 +1008,11 @@
       "item_code": "000FC020",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -923,9 +1029,11 @@
       "item_code": "000FC026",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -942,9 +1050,11 @@
       "item_code": "000FC032",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -961,9 +1071,11 @@
       "item_code": "000FC000",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -980,9 +1092,11 @@
       "item_code": "000FC006",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -999,9 +1113,11 @@
       "item_code": "000FC02A",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1018,9 +1134,11 @@
       "item_code": "000FC00C",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1037,9 +1155,11 @@
       "item_code": "000FC012",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1056,9 +1176,11 @@
       "item_code": "000FC01E",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1075,9 +1197,11 @@
       "item_code": "000FC024",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1094,9 +1218,11 @@
       "item_code": "000FC030",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1113,9 +1239,11 @@
       "item_code": "000FC005",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1132,9 +1260,11 @@
       "item_code": "000FC00B",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1151,9 +1281,11 @@
       "item_code": "000FC02F",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1170,9 +1302,11 @@
       "item_code": "000FC011",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1189,9 +1323,11 @@
       "item_code": "000FC017",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1208,9 +1344,11 @@
       "item_code": "000FC023",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1227,9 +1365,11 @@
       "item_code": "000FC029",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1246,9 +1386,11 @@
       "item_code": "000FC035",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1265,9 +1407,11 @@
       "item_code": "000FC031",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1284,9 +1428,11 @@
       "item_code": "000FC036",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
-      "unique_item": true,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1303,9 +1449,11 @@
       "item_code": "00016730",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1317,9 +1465,11 @@
       "item_code": "000166FF",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1331,9 +1481,11 @@
       "item_code": "00016731",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1345,9 +1497,11 @@
       "item_code": "000166FE",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1359,9 +1513,11 @@
       "item_code": "XX024FA4",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1373,9 +1529,11 @@
       "item_code": "0002584C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1392,9 +1550,11 @@
       "item_code": "000D3BDB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": true
     },
     "enchantments": [],
@@ -1406,9 +1566,11 @@
       "item_code": "0007D678",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1420,9 +1582,11 @@
       "item_code": "0002D75A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1439,9 +1603,11 @@
       "item_code": "0002D74F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1458,9 +1624,11 @@
       "item_code": "0002D753",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1477,9 +1645,11 @@
       "item_code": "000877F1",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1500,9 +1670,11 @@
       "item_code": "000877C9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1523,9 +1695,11 @@
       "item_code": "000877CA",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1546,9 +1720,11 @@
       "item_code": "00087835",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1569,9 +1745,11 @@
       "item_code": "000877D5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1588,9 +1766,11 @@
       "item_code": "0001CF2B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1607,9 +1787,11 @@
       "item_code": "000877DC",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1630,9 +1812,11 @@
       "item_code": "000877CB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1653,9 +1837,11 @@
       "item_code": "0001672F",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1667,9 +1853,11 @@
       "item_code": "000166FD",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1681,9 +1869,11 @@
       "item_code": "0006BBB5",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1695,9 +1885,11 @@
       "item_code": "0002AC60",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": "Provides additional transformations for werewolves",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1709,9 +1901,11 @@
       "item_code": "000D5047",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": true
     },
     "enchantments": [],
@@ -1723,9 +1917,11 @@
       "item_code": "000166D6",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1737,9 +1933,11 @@
       "item_code": "0001671A",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -1751,9 +1949,11 @@
       "item_code": "0006B217",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1765,9 +1965,11 @@
       "item_code": "000DA733",
       "jewelry_type": "ring",
       "unit_weight": 3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1779,9 +1981,11 @@
       "item_code": "00107E2D",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": "Damage taken from animals is reduced 10%",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1798,9 +2002,11 @@
       "item_code": "XX018B91",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1821,9 +2027,11 @@
       "item_code": "00076F12",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1835,9 +2043,11 @@
       "item_code": "000F1B2C",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": true,
       "magical_effects": "Increases your Magicka by 20-70 points",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1849,9 +2059,11 @@
       "item_code": "000D9394",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -1863,9 +2075,11 @@
       "item_code": "0006B218",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -1882,9 +2096,11 @@
       "item_code": "0010DF46",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1901,9 +2117,11 @@
       "item_code": "0010DF1C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1920,9 +2138,11 @@
       "item_code": "0010DF34",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1939,9 +2159,11 @@
       "item_code": "00100E65",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1958,9 +2180,11 @@
       "item_code": "00100E64",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1977,9 +2201,11 @@
       "item_code": "000FC045",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -1996,9 +2222,11 @@
       "item_code": "000FC04B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2015,9 +2243,11 @@
       "item_code": "000FC063",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2034,9 +2264,11 @@
       "item_code": "000FC051",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2053,9 +2285,11 @@
       "item_code": "0010DF48",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2072,9 +2306,11 @@
       "item_code": "0010DF1E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2091,9 +2327,11 @@
       "item_code": "0010DF36",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2110,9 +2348,11 @@
       "item_code": "0010DF4E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2129,9 +2369,11 @@
       "item_code": "000FC03A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2148,9 +2390,11 @@
       "item_code": "0010DF3C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2167,9 +2411,11 @@
       "item_code": "0010DF54",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2186,9 +2432,11 @@
       "item_code": "0010DF24",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2205,9 +2453,11 @@
       "item_code": "0010DF42",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2224,9 +2474,11 @@
       "item_code": "000FC058",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2243,9 +2495,11 @@
       "item_code": "0010DF18",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2262,9 +2516,11 @@
       "item_code": "0010DF13",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2281,9 +2537,11 @@
       "item_code": "0010DF49",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2300,9 +2558,11 @@
       "item_code": "0010DF1F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2319,9 +2579,11 @@
       "item_code": "0010DF37",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2338,9 +2600,11 @@
       "item_code": "0010DF4F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2357,9 +2621,11 @@
       "item_code": "000FC03B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2376,9 +2642,11 @@
       "item_code": "0010DF3D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2395,9 +2663,11 @@
       "item_code": "0010DF55",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2414,9 +2684,11 @@
       "item_code": "0010DF25",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2433,9 +2705,11 @@
       "item_code": "0010DF43",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2452,9 +2726,11 @@
       "item_code": "000FC059",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2471,9 +2747,11 @@
       "item_code": "0010DF19",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2490,9 +2768,11 @@
       "item_code": "0010DF14",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2509,9 +2789,11 @@
       "item_code": "000FC047",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2528,9 +2810,11 @@
       "item_code": "000FC046",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2547,9 +2831,11 @@
       "item_code": "000FC04D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2566,9 +2852,11 @@
       "item_code": "000FC04C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2585,9 +2873,11 @@
       "item_code": "000FC054",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2604,9 +2894,11 @@
       "item_code": "0010DF4C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2623,9 +2915,11 @@
       "item_code": "000FC038",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2642,9 +2936,11 @@
       "item_code": "0010DF5D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2661,9 +2957,11 @@
       "item_code": "0010DF3A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2680,9 +2978,11 @@
       "item_code": "000FC065",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2699,9 +2999,11 @@
       "item_code": "000FC064",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2718,9 +3020,11 @@
       "item_code": "0010DF52",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2737,9 +3041,11 @@
       "item_code": "0010DF47",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2756,9 +3062,11 @@
       "item_code": "0010DF1D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2775,9 +3083,11 @@
       "item_code": "0010DF35",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2794,9 +3104,11 @@
       "item_code": "0010DF4D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2813,9 +3125,11 @@
       "item_code": "000FC039",
       "jewelry_type": "ring",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2832,9 +3146,11 @@
       "item_code": "0010DF3B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2851,9 +3167,11 @@
       "item_code": "0010DF53",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2870,9 +3188,11 @@
       "item_code": "0010DF23",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2889,9 +3209,11 @@
       "item_code": "0010DF41",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2908,9 +3230,11 @@
       "item_code": "000FC057",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2927,9 +3251,11 @@
       "item_code": "0010DF17",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2946,9 +3272,11 @@
       "item_code": "0010DF12",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2965,9 +3293,11 @@
       "item_code": "0010DF58",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -2984,9 +3314,11 @@
       "item_code": "0010DF45",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3003,9 +3335,11 @@
       "item_code": "0010DF1B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3022,9 +3356,11 @@
       "item_code": "0010DF33",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3041,9 +3377,11 @@
       "item_code": "0010DF4B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3060,9 +3398,11 @@
       "item_code": "000FC037",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3079,9 +3419,11 @@
       "item_code": "0010DF39",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3098,9 +3440,11 @@
       "item_code": "0010DF51",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3117,9 +3461,11 @@
       "item_code": "0010DF21",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3136,9 +3482,11 @@
       "item_code": "0010DF3F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3155,9 +3503,11 @@
       "item_code": "000FC055",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3174,9 +3524,11 @@
       "item_code": "0010DF15",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3193,9 +3545,11 @@
       "item_code": "0010DF10",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3212,9 +3566,11 @@
       "item_code": "000FC066",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3231,9 +3587,11 @@
       "item_code": "0010DF4A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3250,9 +3608,11 @@
       "item_code": "0010DF20",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3269,9 +3629,11 @@
       "item_code": "0010DF38",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3288,9 +3650,11 @@
       "item_code": "0010DF50",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3307,9 +3671,11 @@
       "item_code": "000FC03C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3326,9 +3692,11 @@
       "item_code": "0010DF3E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3345,9 +3713,11 @@
       "item_code": "0010DF56",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3364,9 +3734,11 @@
       "item_code": "0010DF26",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3383,9 +3755,11 @@
       "item_code": "0010DF44",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3402,9 +3776,11 @@
       "item_code": "000FC05A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3421,9 +3797,11 @@
       "item_code": "0010DF1A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3440,9 +3818,11 @@
       "item_code": "0010DF67",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3459,9 +3839,11 @@
       "item_code": "00100E5F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3478,9 +3860,11 @@
       "item_code": "000FC03D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3497,9 +3881,11 @@
       "item_code": "0010DF5B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3516,9 +3902,11 @@
       "item_code": "0010DF59",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3535,9 +3923,11 @@
       "item_code": "0010DF5C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3554,9 +3944,11 @@
       "item_code": "0010DF57",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3573,9 +3965,11 @@
       "item_code": "0010DF5E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3592,9 +3986,11 @@
       "item_code": "000FC043",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3611,9 +4007,11 @@
       "item_code": "000FC049",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3630,9 +4028,11 @@
       "item_code": "000FC061",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3649,9 +4049,11 @@
       "item_code": "000FC04F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3668,9 +4070,11 @@
       "item_code": "0010DF5A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3687,9 +4091,11 @@
       "item_code": "000FC053",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3706,9 +4112,11 @@
       "item_code": "000FC052",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3725,9 +4133,11 @@
       "item_code": "0010DF22",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3744,9 +4154,11 @@
       "item_code": "0010DF40",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3763,9 +4175,11 @@
       "item_code": "000FC056",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3782,9 +4196,11 @@
       "item_code": "0010DF16",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3801,9 +4217,11 @@
       "item_code": "000FC044",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3820,9 +4238,11 @@
       "item_code": "000FC04A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3839,9 +4259,11 @@
       "item_code": "000FC062",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3858,9 +4280,11 @@
       "item_code": "000FC050",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3877,9 +4301,11 @@
       "item_code": "000FC04E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3896,9 +4322,11 @@
       "item_code": "000FC067",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3915,9 +4343,11 @@
       "item_code": "0010DF11",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3934,9 +4364,11 @@
       "item_code": "0010DF2A",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3953,9 +4385,11 @@
       "item_code": "0010DF30",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3972,9 +4406,11 @@
       "item_code": "0010DF2B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -3991,9 +4427,11 @@
       "item_code": "0010DF31",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4010,9 +4448,11 @@
       "item_code": "000FC048",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4029,9 +4469,11 @@
       "item_code": "0010DF28",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4048,9 +4490,11 @@
       "item_code": "0010DF29",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4067,9 +4511,11 @@
       "item_code": "0010DF2F",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4086,9 +4532,11 @@
       "item_code": "0010DF27",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4105,9 +4553,11 @@
       "item_code": "0010DF2D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4124,9 +4574,11 @@
       "item_code": "0010DF2C",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4143,9 +4595,11 @@
       "item_code": "0010DF32",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4162,9 +4616,11 @@
       "item_code": "0010DF2E",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4181,9 +4637,11 @@
       "item_code": "000C891D",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": "Health and Stamina regenerate 75% slower",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -4204,9 +4662,11 @@
       "item_code": "XX01961C",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -4218,9 +4678,11 @@
       "item_code": "00068B83",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -4241,9 +4703,11 @@
       "item_code": "00064796",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": "Time between Shouts is reduced by 20%",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -4255,9 +4719,11 @@
       "item_code": "000DA734",
       "jewelry_type": "ring",
       "unit_weight": 3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -4269,9 +4735,11 @@
       "item_code": "000663DA",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -4283,9 +4751,11 @@
       "item_code": "00100DEE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4302,9 +4772,11 @@
       "item_code": "00100E25",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4321,9 +4793,11 @@
       "item_code": "00100DF4",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4340,9 +4814,11 @@
       "item_code": "XX0275B6",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": false,
       "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
-      "unique_item": false,
+      "purchasable": true,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -4354,9 +4830,11 @@
       "item_code": "00100DFA",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4373,9 +4851,11 @@
       "item_code": "00100E30",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4392,9 +4872,11 @@
       "item_code": "00100E00",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4407,27 +4889,15 @@
   },
   {
     "attributes": {
-      "name": "Ring of Disrobing",
-      "item_code": "XX183E63",
-      "jewelry_type": "ring",
-      "unit_weight": 0.2,
-      "quest_item": true,
-      "magical_effects": "When worn, removes your chest slot armour immediately.",
-      "unique_item": true,
-      "enchantable": false
-    },
-    "enchantments": [],
-    "crafting_materials": []
-  },
-  {
-    "attributes": {
       "name": "Ring of Dwindling Magic",
       "item_code": "0010DFCA",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4444,9 +4914,11 @@
       "item_code": "00100DF0",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4463,9 +4935,11 @@
       "item_code": "00100E26",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4482,9 +4956,11 @@
       "item_code": "00100DF6",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4501,9 +4977,11 @@
       "item_code": "00100DFC",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4520,9 +4998,11 @@
       "item_code": "00100E32",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4539,9 +5019,11 @@
       "item_code": "00100E02",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4558,9 +5040,11 @@
       "item_code": "000FCF00",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4577,9 +5061,11 @@
       "item_code": "00100E14",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4596,9 +5082,11 @@
       "item_code": "00100E20",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4615,9 +5103,11 @@
       "item_code": "000FF7D5",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4634,9 +5124,11 @@
       "item_code": "00100E37",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4653,9 +5145,11 @@
       "item_code": "00100E3E",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4672,9 +5166,11 @@
       "item_code": "00100E43",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4691,9 +5187,11 @@
       "item_code": "000FCEFA",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4710,9 +5208,11 @@
       "item_code": "00100E4F",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4729,9 +5229,11 @@
       "item_code": "00100E2C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4748,9 +5250,11 @@
       "item_code": "00100DF1",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4767,9 +5271,11 @@
       "item_code": "00100E27",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4786,9 +5292,11 @@
       "item_code": "00100DF7",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4805,9 +5313,11 @@
       "item_code": "00100DFD",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4824,9 +5334,11 @@
       "item_code": "00100E33",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4843,9 +5355,11 @@
       "item_code": "00100E03",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4862,9 +5376,11 @@
       "item_code": "000FCF01",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4881,9 +5397,11 @@
       "item_code": "00100E15",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4900,9 +5418,11 @@
       "item_code": "00100E21",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4919,9 +5439,11 @@
       "item_code": "000FF7D6",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4938,9 +5460,11 @@
       "item_code": "00100E38",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4957,9 +5481,11 @@
       "item_code": "00100E3F",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4976,9 +5502,11 @@
       "item_code": "00100E44",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -4995,9 +5523,11 @@
       "item_code": "000FCEFB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5014,9 +5544,11 @@
       "item_code": "00100E50",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5033,9 +5565,11 @@
       "item_code": "00100E2D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5052,9 +5586,11 @@
       "item_code": "000FCEFE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5071,9 +5607,11 @@
       "item_code": "00100E12",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5090,9 +5628,11 @@
       "item_code": "XX0275B7",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": false,
       "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
+      "purchasable": true,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -5104,9 +5644,11 @@
       "item_code": "00100E57",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5123,9 +5665,11 @@
       "item_code": "00100E1E",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5142,9 +5686,11 @@
       "item_code": "0010DFCC",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5161,9 +5707,11 @@
       "item_code": "0010DFCB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5180,9 +5728,11 @@
       "item_code": "000FF7D3",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5199,9 +5749,11 @@
       "item_code": "00100DEF",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5218,9 +5770,11 @@
       "item_code": "00100E24",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5237,9 +5791,11 @@
       "item_code": "00100DF5",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5256,9 +5812,11 @@
       "item_code": "00100DFB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5275,9 +5833,11 @@
       "item_code": "00100E31",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5294,9 +5854,11 @@
       "item_code": "00100E01",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5313,9 +5875,11 @@
       "item_code": "000FCEFF",
       "jewelry_type": "amulet",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5332,9 +5896,11 @@
       "item_code": "00100E13",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5351,9 +5917,11 @@
       "item_code": "00100E1F",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5370,9 +5938,11 @@
       "item_code": "000FF7D4",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5389,9 +5959,11 @@
       "item_code": "00100E36",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5408,9 +5980,11 @@
       "item_code": "00100E3D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5427,9 +6001,11 @@
       "item_code": "00100E42",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5446,9 +6022,11 @@
       "item_code": "000FCEF9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5465,9 +6043,11 @@
       "item_code": "00100E4E",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5484,9 +6064,11 @@
       "item_code": "00100E2B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5503,9 +6085,11 @@
       "item_code": "00100E52",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5522,9 +6106,11 @@
       "item_code": "000FF7DE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5541,9 +6127,11 @@
       "item_code": "00100E23",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5560,9 +6148,11 @@
       "item_code": "00100DF3",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5579,9 +6169,11 @@
       "item_code": "00100DF9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5598,9 +6190,11 @@
       "item_code": "00100E2F",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5617,9 +6211,11 @@
       "item_code": "00100DFF",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5636,9 +6232,11 @@
       "item_code": "000FCEFD",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5655,9 +6253,11 @@
       "item_code": "00100E11",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5674,9 +6274,11 @@
       "item_code": "00100E17",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5693,9 +6295,11 @@
       "item_code": "000FF7D2",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5712,9 +6316,11 @@
       "item_code": "00100E34",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5731,9 +6337,11 @@
       "item_code": "00100E3B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5750,9 +6358,11 @@
       "item_code": "00100E3A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5769,9 +6379,11 @@
       "item_code": "000FCEF7",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5788,9 +6400,11 @@
       "item_code": "00100E4C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5807,9 +6421,11 @@
       "item_code": "00100E29",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5826,9 +6442,11 @@
       "item_code": "0002C37B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": "Stamina is increased by 50 points. Feeding on corpses grants you increased Health and Health regeneration.",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -5840,9 +6458,11 @@
       "item_code": "0010DFCD",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5855,13 +6475,15 @@
   },
   {
     "attributes": {
-      "name": "Ring of Peeless Destruction",
+      "name": "Ring of Peerless Destruction",
       "item_code": "00100E04",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5878,9 +6500,11 @@
       "item_code": "00100DF2",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5897,9 +6521,11 @@
       "item_code": "00100E28",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5916,9 +6542,11 @@
       "item_code": "00100DF8",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5935,9 +6563,11 @@
       "item_code": "00100DFE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5954,9 +6584,11 @@
       "item_code": "00100E7B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5973,9 +6605,11 @@
       "item_code": "000FCF02",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -5992,9 +6626,11 @@
       "item_code": "00100E16",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6011,9 +6647,11 @@
       "item_code": "00100E22",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6030,9 +6668,11 @@
       "item_code": "000FF7D7",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6049,9 +6689,11 @@
       "item_code": "00100E39",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6068,9 +6710,11 @@
       "item_code": "00100E40",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6087,9 +6731,11 @@
       "item_code": "00100E45",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6106,9 +6752,11 @@
       "item_code": "000FCEFC",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6125,9 +6773,11 @@
       "item_code": "00100E84",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6144,9 +6794,11 @@
       "item_code": "00100E2E",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6163,9 +6815,11 @@
       "item_code": "00090E32",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6182,9 +6836,11 @@
       "item_code": "00100E59",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6201,9 +6857,11 @@
       "item_code": "00100E5C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6220,9 +6878,11 @@
       "item_code": "00100E55",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6239,9 +6899,11 @@
       "item_code": "00100E53",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6258,9 +6920,11 @@
       "item_code": "00100E56",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6277,9 +6941,11 @@
       "item_code": "00100E51",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6296,9 +6962,11 @@
       "item_code": "00100E58",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6315,9 +6983,11 @@
       "item_code": "00100E5A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6334,9 +7004,11 @@
       "item_code": "0010DFC8",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6353,9 +7025,11 @@
       "item_code": "00100E35",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6372,9 +7046,11 @@
       "item_code": "00100E5B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6391,9 +7067,11 @@
       "item_code": "00100E54",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6410,9 +7088,11 @@
       "item_code": "00100E3C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6429,9 +7109,11 @@
       "item_code": "00100E41",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6448,9 +7130,11 @@
       "item_code": "000FCEF8",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6467,9 +7151,11 @@
       "item_code": "00100E4D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6486,9 +7172,11 @@
       "item_code": "0010DFC9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6505,9 +7193,11 @@
       "item_code": "00100E2A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6524,9 +7214,11 @@
       "item_code": "XX00E7FD",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": "While wearing this ring, you will receive 100 extra health and your claw attacks will do an additional 20 damage",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -6538,9 +7230,11 @@
       "item_code": "00100E0E",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6557,9 +7251,11 @@
       "item_code": "00100E1B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6576,9 +7272,11 @@
       "item_code": "XX00E7FE",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": "Regenerate Magicka faster",
+      "purchasable": true,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6595,9 +7293,11 @@
       "item_code": "00100E0F",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6614,9 +7314,11 @@
       "item_code": "00100E1C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6633,9 +7335,11 @@
       "item_code": "XX0275B9",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": false,
       "magical_effects": "While in Beast Form, your health regenerates",
+      "purchasable": true,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -6647,9 +7351,11 @@
       "item_code": "00100E0C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6666,9 +7372,11 @@
       "item_code": "00100E0D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6685,9 +7393,11 @@
       "item_code": "00100E1A",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6704,9 +7414,11 @@
       "item_code": "00100E0B",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6723,9 +7435,11 @@
       "item_code": "00100E18",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6742,9 +7456,11 @@
       "item_code": "XX0275B8",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": false,
       "magical_effects": "Increases the duration of your Howls by 25%",
+      "purchasable": true,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -6756,9 +7472,11 @@
       "item_code": "00100E10",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6775,9 +7493,11 @@
       "item_code": "00100E1D",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6794,9 +7514,11 @@
       "item_code": "00100E19",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -6813,9 +7535,11 @@
       "item_code": "000233D0",
       "jewelry_type": "amulet",
       "unit_weight": 0.75,
-      "quest_item": true,
       "magical_effects": "Spells cost 3% less to cast",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6848,9 +7572,11 @@
       "item_code": "000F1B33",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -6867,9 +7593,11 @@
       "item_code": "000BFA0A",
       "jewelry_type": "amulet",
       "unit_weight": 1,
-      "quest_item": true,
       "magical_effects": "Prices are 10% better",
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -6881,9 +7609,11 @@
       "item_code": "000877A7",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6904,9 +7634,11 @@
       "item_code": "00087833",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6927,9 +7659,11 @@
       "item_code": "000877AB",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6950,9 +7684,11 @@
       "item_code": "00087834",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6973,9 +7709,11 @@
       "item_code": "0009171B",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -6992,9 +7730,11 @@
       "item_code": "0003B97C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7011,9 +7751,11 @@
       "item_code": "000877B1",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7034,9 +7776,11 @@
       "item_code": "00087832",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7057,9 +7801,11 @@
       "item_code": "000166E0",
       "jewelry_type": "circlet",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7071,9 +7817,11 @@
       "jewelry_type": "circlet",
       "item_code": "00016719",
       "unit_weight": 2,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7085,9 +7833,11 @@
       "item_code": "00024CFF",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7104,9 +7854,11 @@
       "item_code": "XX039D4A",
       "jewelry_type": "amulet",
       "unit_weight": 0,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7118,9 +7870,11 @@
       "item_code": "000C5809",
       "jewelry_type": "ring",
       "unit_weight": 0.3,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [
@@ -7137,9 +7891,11 @@
       "item_code": "0002D75B",
       "jewelry_type": "amulet",
       "unit_weight": 0,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [
@@ -7164,9 +7920,11 @@
       "item_code": "000DA732",
       "jewelry_type": "ring",
       "unit_weight": 3,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -7178,9 +7936,11 @@
       "item_code": "000403A9",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": false
     },
     "enchantments": [],
@@ -7192,9 +7952,11 @@
       "item_code": "000F5A1C",
       "jewelry_type": "ring",
       "unit_weight": 0.25,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": true
     },
     "enchantments": [],
@@ -7206,9 +7968,11 @@
       "item_code": "0008895A",
       "jewelry_type": "circlet",
       "unit_weight": 0.5,
-      "quest_item": false,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
       "enchantable": false
     },
     "enchantments": [],
@@ -7220,9 +7984,11 @@
       "item_code": "000D4FF7",
       "jewelry_type": "amulet",
       "unit_weight": 0.5,
-      "quest_item": true,
       "magical_effects": null,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
+      "quest_item": true,
       "enchantable": true
     },
     "enchantments": [],
