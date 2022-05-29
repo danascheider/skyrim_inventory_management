@@ -9,7 +9,9 @@
       "school": "Destruction",
       "enemy": "Rahgot",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -31,7 +33,9 @@
       "school": "Destruction",
       "enemy": "Nahkriin",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -53,7 +57,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -75,7 +81,9 @@
       "school": null,
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -92,7 +100,9 @@
       "school": null,
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -109,7 +119,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -131,8 +143,10 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
       "quest_item": true,
+      "rare_item": true,
       "leveled": false
     },
     "spells": [
@@ -153,7 +167,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -175,7 +191,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -197,7 +215,9 @@
       "school": "Illusion",
       "enemy": "Halldir",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -223,7 +243,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -245,7 +267,9 @@
       "school": null,
       "enemy": "Miraak",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": true
     },
@@ -266,7 +290,9 @@
       "school": "Conjuration",
       "enemy": "Sanguine",
       "daedric": true,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -283,7 +309,9 @@
       "school": null,
       "enemy": "Vaermina",
       "daedric": true,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -300,7 +328,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -322,7 +352,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -344,7 +376,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -366,7 +400,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -388,7 +424,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -410,7 +448,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -432,7 +472,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -454,7 +496,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -476,7 +520,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -498,7 +544,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -520,7 +568,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -542,7 +592,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -564,7 +616,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -586,7 +640,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -608,7 +664,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -630,7 +688,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -652,7 +712,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -674,7 +736,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -696,7 +760,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -718,7 +784,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -740,7 +808,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -762,7 +832,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -784,7 +856,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -806,7 +880,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -828,7 +904,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -850,7 +928,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -872,7 +952,9 @@
       "school": "Destruction",
       "enemy": "Jyrik Gauldurson",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -894,7 +976,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -916,7 +1000,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -938,7 +1024,9 @@
       "school": "Alteration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -960,7 +1048,9 @@
       "school": "Destruction",
       "enemy": "Morokei",
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -977,7 +1067,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -999,7 +1091,9 @@
       "school": "Alteration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1021,7 +1115,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1043,7 +1139,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1065,7 +1163,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1087,7 +1187,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1109,7 +1211,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -1131,7 +1235,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
@@ -1153,7 +1259,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1175,7 +1283,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1197,7 +1307,9 @@
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1219,7 +1331,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1241,7 +1355,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -1263,7 +1379,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1285,7 +1403,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1307,7 +1427,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1329,7 +1451,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1351,7 +1475,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": false,
       "quest_item": false,
       "leveled": false
     },
@@ -1373,7 +1499,9 @@
       "school": "Destruction",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1395,7 +1523,9 @@
       "school": "Restoration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1417,7 +1547,9 @@
       "school": "Conjuration",
       "enemy": null,
       "daedric": false,
+      "purchasable": true,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1437,9 +1569,11 @@
       "base_damage": 0,
       "magical_effects": null,
       "school": "Destruction",
-      "enemy": null,
+      "enemy": "Otar the Mad",
       "daedric": false,
+      "purchasable": false,
       "unique_item": false,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false
     },
@@ -1461,7 +1595,9 @@
       "school": null,
       "enemy": "Sheogorath",
       "daedric": true,
+      "purchasable": false,
       "unique_item": true,
+      "rare_item": true,
       "quest_item": true,
       "leveled": false
     },
