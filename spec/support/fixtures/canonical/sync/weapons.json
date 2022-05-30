@@ -7,12 +7,14 @@
       "weapon_type": "arrow",
       "unit_weight": 0.0,
       "base_damage": 10,
-      "leveled": false,
       "smithing_perks": null,
       "magical_effects": null,
-      "enchantable": false,
+      "purchasable": false,
       "unique_item": false,
-      "quest_item": false
+      "rare_item": false,
+      "quest_item": false,
+      "leveled": false,
+      "enchantable": false
     },
     "enchantments": [],
     "crafting_materials": [],
@@ -26,15 +28,17 @@
       "weapon_type": "battleaxe",
       "unit_weight": 22.0,
       "base_damage": 18,
-      "leveled": false,
       "smithing_perks": [
         "Arcane Blacksmith",
         "Steel Smithing"
       ],
       "magical_effects": null,
-      "enchantable": false,
+      "purchasable": false,
       "unique_item": false,
-      "quest_item": false
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -58,14 +62,16 @@
       "weapon_type": "battleaxe",
       "unit_weight": 27.0,
       "base_damage": 25,
-      "leveled": false,
       "smithing_perks": [
         "Daedric Smithing"
       ],
       "magical_effects": null,
-      "enchantable": true,
+      "purchasable": true,
       "unique_item": false,
-      "quest_item": false
+      "rare_item": false,
+      "quest_item": false,
+      "leveled": false,
+      "enchantable": true
     },
     "enchantments": [],
     "crafting_materials": [
@@ -98,13 +104,16 @@
       "weapon_type": "bow",
       "unit_weight": 14.0,
       "base_damage": 16,
-      "leveled": false,
       "smithing_perks": [
         "Glass Smithing"
       ],
       "magical_effects": "Wielder receives an increasingly powerful blessing for every 20 animals killed by the bow.",
+      "purchasable": false,
       "unique_item": true,
-      "quest_item": false
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "enchantable": false
     },
     "enchantments": [],
     "crafting_materials": [],
