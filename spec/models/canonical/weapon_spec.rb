@@ -17,6 +17,8 @@ RSpec.describe Canonical::Weapon, type: :model do
                  unique_item:    false,
                  rare_item:      false,
                  quest_item:     false,
+                 leveled:        false,
+                 enchantable:    true,
                )
 
       expect(weapon).to be_valid
