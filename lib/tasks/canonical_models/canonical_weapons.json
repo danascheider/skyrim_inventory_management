@@ -472,9 +472,9 @@
         "Arcane Blacksmith",
         "Steel Smithing"
       ],
-      "purchasable": null,
+      "purchasable": false,
       "unique_item": false,
-      "rare_item": null,
+      "rare_item": true,
       "quest_item": false,
       "leveled": false,
       "enchantable": false
@@ -44829,7 +44829,7 @@
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
-      "enchantable": null
+      "enchantable": false
     },
     "enchantments": [],
     "crafting_materials": [],
