@@ -143,7 +143,7 @@ RSpec.describe Canonical::Sync::Weapons do
       context 'when an association is missing' do
         before do
           # prevent it from erroring out, which it will do if there are no
-          # enchantments or materials at all
+          # enchantments/materials/powers at all
           create(:enchantment)
           create(:canonical_material)
           create(:power)
