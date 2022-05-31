@@ -42,6 +42,37 @@ Note that weapons and armour items have multiple associations to the same table 
 
 All canonical models, not including join tables, must have a class method, `::unique_identifier`, defined, which returns a symbol that is the column (other than the primary key) to be used as the unique identifier for that model. If a table includes an `:item_code` column, this will be the unique identifier. For models that don't include an item code, another unique identifier, such as `:name`, may be used. The `::unique_identifier` method is called in the [syncer](/app/models/canonical/sync/syncer.rb) to indicate how models being synced should be uniquely identified and matched with corresponding records already existing in the database. The Rake tasks that [sync the canonical models](/docs/canonical_models/syncing-canonical-models.md) will not function without this method defined.
 
+### Instance API
+
+While there are no fields common to every canonical model, there are a few that are worth mentioning as common to most. These fields are present on every canonical model except `Canonical::Property` and `Canonical::Material`. (They are not defined on the pseudo-canonical models `AlchemicalProperty`, `Spell`, `Enchantment`, and `Power`.) Each of these columns is a boolean and is required to have a non-`NULL` value.
+
+#### `purchasable`
+
+The `purchasable` field indicates whether an item can be purchased from a merchant or other NPC. Having a `purchasable` value of `true` does not mean that an item will be consistently or frequently available from merchants - it only means that it's worth checking with merchants if you're looking for it.
+
+#### `unique_item`
+
+The `unique_item` field is set to `true` on items that only occur at one location in the game. That location cannot be a merchant, random loot, or random drops. Items that respawn can still be considered unique if they adhere to these criteria.
+
+#### `rare_item`
+
+The `rare_item` field indicates whether an item is rare. Unique items are also rare, and there is a validation ensuring that they are. The definition of a rare item varies slightly by the model in question (and, also, whether the item is consumable - this includes canonical ingredients and arrows). In general, with these exceptions, rare items are defined as:
+
+* Items that are not purchasable and are available in fewer than 10 fixed locations in the game
+* Items that are purchasable and are available in fewer than 3 other fixed locations in the game
+
+##### Purchasability of Rare Items
+
+As noted above, the `purchasable` designation indicates only that an item is _potentially_ available from at least one vendor at some point in the game. The designation does not mean that the item is consistently or reliably available for sale. In some cases, items are not available before certain levels, or items may become available for purchase only after a certain quest has been started or finished. In the case of ingredients, some require the [Merchant perk](https://en.uesp.net/wiki/Skyrim:Speech#Skill_Perks) to purchase (this is indicated by the special `purchase_requires_perk` field on the `Canonical::Ingredient` model).
+
+If an item is readily available from more than one vendor, that item is automatically not rare. For items that are available inconsistently or from only one vendor, these items may also be rare depending on the number of other locations they can be found in as described above.
+
+The only exceptions to these rules are items that are consumable, including arrows, bolts, [ingredients](/docs/canonical_models/canonical-ingredient.md#treatment-of-rare-ingredients), and potions. In these cases, a more complex calculus goes into determining whether they are rare, including the subjective experience of how hard they seem to be to find when playing the game.
+
+#### `quest_item`
+
+In Skyrim, a quest item is considered to be an item that is required to complete a quest. This is distinct from a quest reward, which is an item obtained by completing a quest. In SIM, both of these types of items are designated with the `quest_item` field. **An item that is a quest reward will not be designated as a `quest_item` if there is any other way of obtaining the item in the game.**
+
 ## Syncing Canonical Models
 
 For more information about syncing canonical models and the `Canonical::Sync` module, which powers the Rake tasks that sync the models, see the [docs for that module](/docs/canonical_models/syncing-canonical-models.md).

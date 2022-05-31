@@ -73,16 +73,16 @@ Certain models can't be synced until their associations are already present in t
 
 The following models have prerequisites:
 
-| model                     | prerequisites                        |
-| ------------------------- | ------------------------------------ |
-| `Canonical::Armor`        | `Enchantment`, `Canonical::Material` |
-| `Canonical::Book`         | `Canonical::Ingredient`              |
-| `Canonical::ClothingItem` | `Enchantment`                        |
-| `Canonical::Ingredient`   | `AlchemicalProperty`                 |
-| `Canonical::JewelryItem`  | `Enchantment`, `Canonical::Material` |
-| `Canonical::Potion`       | `AlchemicalProperty`                 |
-| `Canonical::Staff`        | `Spell`, `Power`                     |
-| `Canonical::Weapon`       | `Enchantment`, `Canonical::Material` |
+| model                     | prerequisites                                 |
+| ------------------------- | --------------------------------------------- |
+| `Canonical::Armor`        | `Enchantment`, `Canonical::Material`          |
+| `Canonical::Book`         | `Canonical::Ingredient`                       |
+| `Canonical::ClothingItem` | `Enchantment`                                 |
+| `Canonical::Ingredient`   | `AlchemicalProperty`                          |
+| `Canonical::JewelryItem`  | `Enchantment`, `Canonical::Material`          |
+| `Canonical::Potion`       | `AlchemicalProperty`                          |
+| `Canonical::Staff`        | `Spell`, `Power`                              |
+| `Canonical::Weapon`       | `Enchantment`, `Power`, `Canonical::Material` |
 
 The only model that both has a prerequisite and is itself a prerequisite to another model is `Canonical::Ingredient`.
 
