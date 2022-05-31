@@ -4,28 +4,30 @@ require 'skyrim'
 
 module Canonical
   class Weapon < ApplicationRecord
-    VALID_WEAPON_TYPES = {
-                           'one-handed' => [
-                                             'dagger',
-                                             'mace',
-                                             'other',
-                                             'sword',
-                                             'war axe',
-                                           ],
-                           'two-handed' => %w[
-                                             battleaxe
-                                             greatsword
-                                             warhammer
-                                           ],
-                           'archery'    => %w[
-                                             arrow
-                                             bolt
-                                             bow
-                                             crossbow
-                                           ],
-                         }.freeze
-
     self.table_name = 'canonical_weapons'
+
+    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
+    VALID_WEAPON_TYPES         = {
+                                   'one-handed' => [
+                                                     'dagger',
+                                                     'mace',
+                                                     'other',
+                                                     'sword',
+                                                     'war axe',
+                                                   ],
+                                   'two-handed' => %w[
+                                                     battleaxe
+                                                     greatsword
+                                                     warhammer
+                                                   ],
+                                   'archery'    => %w[
+                                                     arrow
+                                                     bolt
+                                                     bow
+                                                     crossbow
+                                                   ],
+                                 }.freeze
 
     has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,
@@ -75,9 +77,16 @@ module Canonical
                          }
     validates :base_damage, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :enchantable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
 
     validate :verify_category_type_combination
     validate :verify_all_smithing_perks_valid
+    validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
     def self.unique_identifier
       :item_code
@@ -93,6 +102,10 @@ module Canonical
       smithing_perks&.each do |perk|
         errors.add(:smithing_perks, "\"#{perk}\" is not a valid smithing perk") unless Skyrim::SMITHING_PERKS.include?(perk)
       end
+    end
+
+    def validate_unique_item_also_rare
+      errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
   end
 end

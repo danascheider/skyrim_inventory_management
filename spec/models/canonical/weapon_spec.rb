@@ -13,6 +13,12 @@ RSpec.describe Canonical::Weapon, type: :model do
                  smithing_perks: ['Ebony Smithing'],
                  base_damage:    18,
                  unit_weight:    22,
+                 purchasable:    true,
+                 unique_item:    false,
+                 rare_item:      false,
+                 quest_item:     false,
+                 leveled:        false,
+                 enchantable:    true,
                )
 
       expect(weapon).to be_valid
@@ -123,7 +129,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'unit weight' do
+    describe 'unit_weight' do
       it 'must be present' do
         weapon = build(:canonical_weapon, unit_weight: nil)
 
@@ -143,6 +149,67 @@ RSpec.describe Canonical::Weapon, type: :model do
 
         weapon.validate
         expect(weapon.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+      end
+    end
+
+    describe 'purchasable' do
+      it "can't be blank" do
+        model = build(:canonical_weapon, purchasable: nil)
+
+        model.validate
+        expect(model.errors[:purchasable]).to include 'must be true or false'
+      end
+    end
+
+    describe 'unique_item' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, unique_item: nil)
+
+        model.validate
+        expect(model.errors[:unique_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'rare_item' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, rare_item: nil)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true or false'
+      end
+
+      it 'must be true if the item is unique' do
+        model = build(:canonical_weapon, unique_item: true, rare_item: false)
+
+        model.validate
+        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+      end
+    end
+
+    describe 'quest_item' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, quest_item: nil)
+
+        model.validate
+        expect(model.errors[:quest_item]).to include 'must be true or false'
+      end
+    end
+
+    describe 'leveled' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, leveled: nil)
+
+        model.validate
+        expect(model.errors[:leveled]).to include 'must be true or false'
+      end
+    end
+
+    describe 'enchantable' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, enchantable: nil)
+
+        model.validate
+        expect(model.errors[:enchantable]).to include 'must be true or false'
       end
     end
   end

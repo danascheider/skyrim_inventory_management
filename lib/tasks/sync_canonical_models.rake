@@ -101,6 +101,7 @@ namespace :canonical_models do
          %i[preserve_existing_records] => %w[
                                             environment
                                             canonical_models:sync:enchantments
+                                            canonical_models:sync:powers
                                             canonical_models:sync:materials
                                           ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
