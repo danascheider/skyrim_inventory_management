@@ -193,6 +193,15 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
+    describe 'leveled' do
+      it 'must be true or false' do
+        model = build(:canonical_weapon, leveled: nil)
+
+        model.validate
+        expect(model.errors[:leveled]).to include 'must be true or false'
+      end
+    end
+
     describe 'enchantable' do
       it 'must be true or false' do
         model = build(:canonical_weapon, enchantable: nil)
