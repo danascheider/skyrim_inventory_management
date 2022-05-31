@@ -13,6 +13,7 @@ FactoryBot.define do
     unique_item          { false }
     rare_item            { false }
     quest_item           { false }
+    leveled              { false }
     enchantable          { true }
   end
 end
