@@ -16,6 +16,7 @@ module Canonical
       def prerequisites
         [
           Enchantment,
+          Power,
           Canonical::Material,
         ]
       end

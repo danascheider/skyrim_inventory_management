@@ -134,13 +134,13 @@ RSpec.describe Canonical::Sync::Weapons do
 
           expect(Rails.logger)
             .to have_received(:error)
-                  .with('Prerequisite(s) not met: sync Enchantment, Canonical::Material before canonical weapons')
+                  .with('Prerequisite(s) not met: sync Enchantment, Power, Canonical::Material before canonical weapons')
 
           expect(Canonical::Weapon.count).to eq 0
         end
       end
 
-      context 'when an enchantment or material is missing' do
+      context 'when an association is missing' do
         before do
           # prevent it from erroring out, which it will do if there are no
           # enchantments or materials at all
@@ -245,6 +245,7 @@ RSpec.describe Canonical::Sync::Weapons do
       context 'when another error is raised pertaining to a specific model' do
         before do
           create(:enchantment)
+          create(:power)
           create(:canonical_material)
 
           allow(Canonical::Weapon).to receive(:find_or_initialize_by).and_raise(StandardError, 'foobar')
@@ -264,6 +265,7 @@ RSpec.describe Canonical::Sync::Weapons do
       context 'when an error is raised not pertaining to a specific model' do
         before do
           create(:enchantment)
+          create(:power)
           create(:canonical_material)
 
           allow(Canonical::Weapon).to receive(:where).and_raise(StandardError, 'foobar')
