@@ -71,7 +71,7 @@ The only exceptions to these rules are items that are consumable, including arro
 
 #### `quest_item`
 
-In Skyrim, a quest item is considered to be an item that is required to complete a quest. This is distinct from a quest reward, which is an item obtained by completing a quest. In SIM, both of these types of items are designated with the `quest_item` field. **An item that is a quest reward will not be designated as a `quest_item` if there is any other way of obtaining the item in the game.**
+In Skyrim, a quest item is considered to be an item that is required to complete a quest. This is distinct from a quest reward, which is an item obtained by completing a quest. In SIM, both of these types of items are designated with the `quest_item` field. **An item that is a quest reward will not be designated as a `quest_item` if there is any other way of obtaining the item in the game.** Additionally, items that are not quest rewards but are only found or able to be purchased after starting or completing a certain quest or questline are not designated as quest items in SIM.
 
 ## Syncing Canonical Models
 

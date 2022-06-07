@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_233912) do
+ActiveRecord::Schema.define(version: 2022_06_07_214236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.boolean "dragon_priest_mask", default: false
     t.boolean "enchantable", default: true
     t.boolean "leveled", default: false
-    t.boolean "purchasable"
-    t.boolean "unique_item", default: false
-    t.boolean "rare_item"
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "smithing_perks", default: [], array: true
@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.string "body_slot", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "purchasable"
-    t.boolean "unique_item", default: false
-    t.boolean "rare_item"
-    t.boolean "quest_item", default: false
-    t.boolean "enchantable", default: true
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
+    t.boolean "enchantable", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
@@ -105,10 +105,10 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.string "name", null: false
     t.string "item_code", null: false
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "purchasable"
-    t.boolean "unique_item", default: false
-    t.boolean "rare_item"
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ingredient_type"
@@ -136,11 +136,11 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.string "jewelry_type", null: false
     t.string "magical_effects"
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.boolean "purchasable"
-    t.boolean "unique_item", default: false
-    t.boolean "rare_item"
-    t.boolean "quest_item", default: false
-    t.boolean "enchantable", default: true
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
+    t.boolean "enchantable", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
@@ -242,9 +242,9 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.string "school"
     t.string "enemy"
     t.boolean "daedric", default: false, null: false
-    t.boolean "purchasable"
+    t.boolean "purchasable", null: false
     t.boolean "unique_item", default: false, null: false
-    t.boolean "rare_item"
+    t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
     t.boolean "leveled", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -285,10 +285,10 @@ ActiveRecord::Schema.define(version: 2022_05_28_233912) do
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.boolean "leveled", default: false
     t.boolean "enchantable", default: true
-    t.boolean "purchasable"
-    t.boolean "unique_item", default: false
-    t.boolean "rare_item"
-    t.boolean "quest_item", default: false
+    t.boolean "purchasable", null: false
+    t.boolean "unique_item", default: false, null: false
+    t.boolean "rare_item", null: false
+    t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
