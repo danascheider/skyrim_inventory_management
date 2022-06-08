@@ -11,12 +11,12 @@ RSpec.describe InventoryListsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
-    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let(:user)            { create(:user) }
-    let(:game)            { create(:game, user: user) }
+    let(:game)            { create(:game, user:) }
 
     context 'when all goes well' do
-      let(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+      let(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
       let(:params)         { { title: 'My New Title' } }
 
       it 'updates the inventory list' do
@@ -42,7 +42,7 @@ RSpec.describe InventoryListsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:inventory_list) { create(:inventory_list, game:) }
       let(:params)         { { title: '|nvalid Tit|e' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -69,7 +69,7 @@ RSpec.describe InventoryListsController::UpdateService do
     end
 
     context "when the inventory list doesn't belong to the user" do
-      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:inventory_list) { create(:inventory_list, game:) }
       let(:game)           { create(:game) }
       let(:params)         { { title: 'Valid New Title' } }
 
@@ -102,7 +102,7 @@ RSpec.describe InventoryListsController::UpdateService do
     end
 
     context 'when the request tries to set aggregate to true' do
-      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:inventory_list) { create(:inventory_list, game:) }
       let(:params)         { { aggregate: true } }
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -115,7 +115,7 @@ RSpec.describe InventoryListsController::UpdateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:inventory_list) { create(:inventory_list, game: game) }
+      let(:inventory_list) { create(:inventory_list, game:) }
       let(:params)         { { title: 'New Title' } }
 
       before do

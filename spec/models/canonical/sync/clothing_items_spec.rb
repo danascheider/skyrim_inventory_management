@@ -25,7 +25,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          enchantment_names.each {|name| create(:enchantment, name: name) }
+          enchantment_names.each {|name| create(:enchantment, name:) }
 
           allow(described_class).to receive(:new).and_return(syncer)
         end
@@ -55,7 +55,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          enchantment_names.each {|name| create(:enchantment, name: name) }
+          enchantment_names.each {|name| create(:enchantment, name:) }
         end
 
         it 'instantiates itself' do
@@ -141,7 +141,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
       let!(:item_not_in_json)         { create(:canonical_clothing_item, item_code: '12345678') }
 
       before do
-        enchantment_names.each {|name| create(:enchantment, name: name) }
+        enchantment_names.each {|name| create(:enchantment, name:) }
         create(
           :canonical_enchantables_enchantment,
           :for_clothing,
@@ -190,7 +190,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::ClothingItem,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::ClothingItem, i18n_scope: :activerecord)
         end
 

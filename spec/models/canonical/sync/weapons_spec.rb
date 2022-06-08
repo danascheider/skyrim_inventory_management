@@ -215,7 +215,7 @@ RSpec.describe Canonical::Sync::Weapons do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::Weapon,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::Weapon, i18n_scope: :activerecord)
         end
 

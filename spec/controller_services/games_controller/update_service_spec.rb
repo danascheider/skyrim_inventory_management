@@ -31,7 +31,7 @@ RSpec.describe GamesController::UpdateService do
 
     context 'when the params are invalid' do
       let!(:game)       { create(:game) }
-      let!(:other_game) { create(:game, user: user) }
+      let!(:other_game) { create(:game, user:) }
       let(:user)        { game.user }
       let(:params)      { { name: other_game.name } }
 

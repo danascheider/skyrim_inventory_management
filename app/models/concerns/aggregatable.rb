@@ -118,7 +118,7 @@ module Aggregatable
       other_items = child_lists.all.map(&:list_items)
       other_items.flatten!
 
-      other_items.each {|item| item.update!(unit_weight: unit_weight) if item.description.casecmp(description).zero? }
+      other_items.each {|item| item.update!(unit_weight:) if item.description.casecmp(description).zero? }
     end
 
     existing_item.save!
@@ -136,11 +136,11 @@ module Aggregatable
   end
 
   def set_aggregate_list
-    self.aggregate_list ||= self.class.find_or_create_by!(game: game, aggregate: true)
+    self.aggregate_list ||= self.class.find_or_create_by!(game:, aggregate: true)
   end
 
   def create_aggregate_list
-    self.class.find_or_create_by!(game: game, aggregate: true)
+    self.class.find_or_create_by!(game:, aggregate: true)
   end
 
   def set_title_to_all_items
@@ -167,7 +167,7 @@ module Aggregatable
   end
 
   def one_aggregate_list_per_game
-    scope = self.class.where(game: game, aggregate: true)
+    scope = self.class.where(game:, aggregate: true)
 
     errors.add(:aggregate, 'can only be one list per game') if scope.count > 1 || (scope.count > 0 && scope.exclude?(self))
   end

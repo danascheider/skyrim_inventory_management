@@ -14,11 +14,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
     subject(:create_item) do
       post "/shopping_lists/#{shopping_list.id}/shopping_list_items",
            params:  params.to_json,
-           headers: headers
+           headers:
     end
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let!(:shopping_list)  { create(:shopping_list, aggregate_list: aggregate_list, game: aggregate_list.game) }
+    let!(:shopping_list)  { create(:shopping_list, aggregate_list:, game: aggregate_list.game) }
 
     context 'when authenticated' do
       let!(:user)     { aggregate_list.user }
@@ -128,7 +128,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when there is an existing matching item on the same list' do
-          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
           let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
           let!(:list_item)  { create(:shopping_list_item, list: shopping_list, description: 'Corundum ingot', quantity: 3) }
 
@@ -313,11 +313,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
   end
 
   describe 'PATCH /shopping_list_items/:id' do
-    subject(:update_item) { patch "/shopping_list_items/#{list_item.id}", headers: headers, params: params.to_json }
+    subject(:update_item) { patch "/shopping_list_items/#{list_item.id}", headers:, params: params.to_json }
 
     let(:game)            { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+    let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
       let!(:user)     { game.user }
@@ -392,7 +392,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when there is a matching item on another list' do
           let!(:list_item)          { create(:shopping_list_item, list: shopping_list) }
-          let!(:other_list)         { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_list)         { create(:shopping_list, game:, aggregate_list:) }
           let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
@@ -562,7 +562,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the attributes are invalid' do
         let!(:list_item)          { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-        let(:other_list)          { create(:shopping_list, game: game) }
+        let(:other_list)          { create(:shopping_list, game:) }
         let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params)              { { shopping_list_item: { quantity: -4, unit_weight: 2 } } }
@@ -634,11 +634,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
   end
 
   describe 'PUT /shopping_list_items/:id' do
-    subject(:update_item) { put "/shopping_list_items/#{list_item.id}", headers: headers, params: params.to_json }
+    subject(:update_item) { put "/shopping_list_items/#{list_item.id}", headers:, params: params.to_json }
 
     let(:game)            { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+    let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
       let!(:user)     { game.user }
@@ -689,7 +689,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when there is a matching item on another list' do
           let!(:list_item)          { create(:shopping_list_item, list: shopping_list) }
-          let!(:other_list)         { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+          let!(:other_list)         { create(:shopping_list, game:, aggregate_list:) }
           let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
@@ -803,7 +803,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the attributes are invalid' do
         let!(:list_item)          { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-        let(:other_list)          { create(:shopping_list, game: game) }
+        let(:other_list)          { create(:shopping_list, game:) }
         let!(:other_item)         { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params)              { { shopping_list_item: { quantity: -4, unit_weight: 2 } } }
@@ -875,11 +875,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
   end
 
   describe 'DELETE /shopping_list_items/:id' do
-    subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: headers }
+    subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: }
 
     context 'when authenticated' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+      let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
       let(:game)      { create(:game) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
@@ -951,7 +951,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when the quantity on the aggregate list exceeds that on the regular list' do
-          let(:second_list) { create(:shopping_list, game: game) }
+          let(:second_list) { create(:shopping_list, game:) }
           let(:second_item) { create(:shopping_list_item, list: second_list, description: list_item.description, quantity: 2, notes: 'bar') }
 
           before do

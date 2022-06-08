@@ -12,9 +12,9 @@ RSpec.describe InventoryItemsController::UpdateService do
     subject(:perform) { described_class.new(user, list_item.id, params).perform }
 
     let(:user)            { create(:user) }
-    let(:game)            { create(:game, user: user) }
-    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-    let!(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+    let(:game)            { create(:game, user:) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+    let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
       context 'when there is no matching item on another list' do
@@ -49,7 +49,7 @@ RSpec.describe InventoryItemsController::UpdateService do
 
       context 'when there is a matching item on another list' do
         let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 4) }
-        let(:other_list)          { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+        let(:other_list)          { create(:inventory_list, game:, aggregate_list:) }
         let!(:other_item)         { create(:inventory_item, description: list_item.description, list: other_list, quantity: 3) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
 
@@ -155,7 +155,7 @@ RSpec.describe InventoryItemsController::UpdateService do
 
     context 'when the attributes are invalid' do
       let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 2) }
-      let(:other_list)          { create(:inventory_list, game: game) }
+      let(:other_list)          { create(:inventory_list, game:) }
       let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
       let(:aggregate_list_item) { aggregate_list.list_items.first }
       let(:params)              { { quantity: -4, unit_weight: 2 } }

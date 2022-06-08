@@ -7,7 +7,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
     it 'is valid with valid attributes' do
       armor    = create(:canonical_armor)
       material = create(:canonical_material)
-      model    = described_class.new(quantity: 2, craftable: armor, material: material)
+      model    = described_class.new(quantity: 2, craftable: armor, material:)
 
       expect(model).to be_valid
     end
@@ -16,7 +16,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
       it 'must be greater than zero' do
         weapon   = create(:canonical_weapon)
         material = create(:canonical_material)
-        model    = described_class.new(quantity: 0, craftable: weapon, material: material)
+        model    = described_class.new(quantity: 0, craftable: weapon, material:)
 
         model.validate
         expect(model.errors[:quantity]).to include 'must be greater than 0'
@@ -25,7 +25,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
       it 'must be an integer' do
         item     = create(:canonical_jewelry_item)
         material = create(:canonical_material)
-        model    = described_class.new(quantity: 1.3, craftable: item, material: material)
+        model    = described_class.new(quantity: 1.3, craftable: item, material:)
 
         model.validate
         expect(model.errors[:quantity]).to include 'must be an integer'
@@ -37,8 +37,8 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
       let(:armor)    { create(:canonical_armor) }
 
       it 'must form a unique combination' do
-        create(:canonical_craftables_crafting_material, material: material, craftable: armor)
-        model = build(:canonical_craftables_crafting_material, quantity: 2, material: material, craftable: armor)
+        create(:canonical_craftables_crafting_material, material:, craftable: armor)
+        model = build(:canonical_craftables_crafting_material, quantity: 2, material:, craftable: armor)
 
         model.validate
         expect(model.errors[:material_id]).to include 'must form a unique combination with craftable item'

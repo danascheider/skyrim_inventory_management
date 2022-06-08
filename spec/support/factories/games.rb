@@ -12,8 +12,8 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        create(:aggregate_shopping_list, game: game)
-        create_list(:shopping_list, evaluator.shopping_list_count, game: game)
+        create(:aggregate_shopping_list, game:)
+        create_list(:shopping_list, evaluator.shopping_list_count, game:)
       end
     end
 
@@ -23,7 +23,7 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game: game)
+        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game:)
 
         shopping_lists.each do |list|
           list.list_items.each do |item|
@@ -39,8 +39,8 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        create(:aggregate_inventory_list, game: game)
-        create_list(:inventory_list, evaluator.inventory_list_count, game: game)
+        create(:aggregate_inventory_list, game:)
+        create_list(:inventory_list, evaluator.inventory_list_count, game:)
       end
     end
 
@@ -50,7 +50,7 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game: game)
+        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game:)
 
         inventory_lists.each do |list|
           list.list_items.each do |item|
@@ -67,7 +67,7 @@ FactoryBot.define do
       end
 
       after(:create) do |game, evaluator|
-        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game: game)
+        inventory_lists = create_list(:inventory_list_with_list_items, evaluator.inventory_list_count, game:)
 
         inventory_lists.each do |list|
           list.list_items.each do |item|
@@ -75,7 +75,7 @@ FactoryBot.define do
           end
         end
 
-        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game: game)
+        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game:)
 
         shopping_lists.each do |list|
           list.list_items.each do |item|

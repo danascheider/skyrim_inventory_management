@@ -220,7 +220,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:enchantment) { create(:enchantment) }
 
       before do
-        weapon.canonical_enchantables_enchantments.create!(enchantment: enchantment, strength: 40)
+        weapon.canonical_enchantables_enchantments.create!(enchantment:, strength: 40)
       end
 
       it 'gives the enchantment strength' do
@@ -233,7 +233,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:power)  { create(:power) }
 
       before do
-        weapon.canonical_powerables_powers.create!(power: power)
+        weapon.canonical_powerables_powers.create!(power:)
       end
 
       it 'retrieves the power' do
@@ -246,7 +246,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        weapon.canonical_craftables_crafting_materials.create!(material: material, quantity: 4)
+        weapon.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
       end
 
       it 'gives the quantity needed' do
@@ -259,7 +259,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        weapon.canonical_temperables_tempering_materials.create!(material: material, quantity: 4)
+        weapon.canonical_temperables_tempering_materials.create!(material:, quantity: 4)
       end
 
       it 'gives the quantity needed' do

@@ -12,8 +12,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
     let(:game)            { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-    let!(:shopping_list)  { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+    let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
@@ -58,7 +58,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
       context 'when the quantity on the aggregate list exceeds the quantity on the regular list' do
         let(:user) { game.user }
-        let(:second_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+        let(:second_list) { create(:shopping_list, game:, aggregate_list:) }
         let(:second_list_item) do
           create(:shopping_list_item,
                  list:        second_list,

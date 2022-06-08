@@ -12,7 +12,7 @@ RSpec.describe InventoryListsController::IndexService do
     let(:user) { create(:user) }
 
     context 'when there are no inventory lists for that game' do
-      let(:game) { create(:game, user: user) }
+      let(:game) { create(:game, user:) }
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
@@ -24,7 +24,7 @@ RSpec.describe InventoryListsController::IndexService do
     end
 
     context 'when there are inventory lists for that game' do
-      let(:game) { create(:game_with_inventory_lists, user: user) }
+      let(:game) { create(:game_with_inventory_lists, user:) }
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
@@ -60,7 +60,7 @@ RSpec.describe InventoryListsController::IndexService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game) { create(:game, user: user) }
+      let(:game) { create(:game, user:) }
 
       before do
         allow(user.games).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))

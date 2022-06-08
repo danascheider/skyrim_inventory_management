@@ -36,7 +36,7 @@ RSpec.describe Controller::Response do
     context 'when there is a resource' do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:options)    { {} }
-      let(:result)     { Service::OKResult.new(resource: resource) }
+      let(:result)     { Service::OKResult.new(resource:) }
 
       let(:resource) do
         {
@@ -58,11 +58,11 @@ RSpec.describe Controller::Response do
       let(:controller) { instance_double(ShoppingListsController, render: nil) }
       let(:errors)     { ['Cannot manually update an aggregate shopping list'] }
       let(:options)    { {} }
-      let(:result)     { Service::MethodNotAllowedResult.new(errors: errors) }
+      let(:result)     { Service::MethodNotAllowedResult.new(errors:) }
 
       it 'renders the errors with the result status' do
         execute
-        expect(controller).to have_received(:render).with(json: { errors: errors }, status: :method_not_allowed)
+        expect(controller).to have_received(:render).with(json: { errors: }, status: :method_not_allowed)
       end
     end
 
@@ -71,11 +71,11 @@ RSpec.describe Controller::Response do
         let(:controller) { instance_double(ShoppingListsController, render: nil) }
         let(:options)    { {} }
         let(:errors)     { ['Title is already taken', 'Cannot manually create or update an aggregate shopping list'] }
-        let(:result)     { Service::UnprocessableEntityResult.new(errors: errors, resource: { foo: 'bar' }) }
+        let(:result)     { Service::UnprocessableEntityResult.new(errors:, resource: { foo: 'bar' }) }
 
         it 'renders the errors' do
           execute
-          expect(controller).to have_received(:render).with(json: { errors: errors }, status: :unprocessable_entity)
+          expect(controller).to have_received(:render).with(json: { errors: }, status: :unprocessable_entity)
         end
       end
     end

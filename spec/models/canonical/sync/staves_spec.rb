@@ -31,7 +31,7 @@ RSpec.describe Canonical::Sync::Staves do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          spell_names.each {|name| create(:spell, name: name) }
+          spell_names.each {|name| create(:spell, name:) }
 
           create(:power, name: "Mora's Agony")
         end
@@ -70,7 +70,7 @@ RSpec.describe Canonical::Sync::Staves do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          spell_names.each {|name| create(:spell, name: name) }
+          spell_names.each {|name| create(:spell, name:) }
 
           create(:power, name: "Mora's Agony")
         end
@@ -132,7 +132,7 @@ RSpec.describe Canonical::Sync::Staves do
           # prevent it from erroring out, which it will do if there are no
           # powers or spells at all
           create(:power)
-          spell_names.each {|name| create(:spell, name: name) }
+          spell_names.each {|name| create(:spell, name:) }
 
           allow(Rails.logger).to receive(:error).twice
         end
@@ -155,7 +155,7 @@ RSpec.describe Canonical::Sync::Staves do
       let!(:item_not_in_json)         { create(:canonical_staff, item_code: '12345678') }
 
       before do
-        spell_names.each {|name| create(:spell, name: name) }
+        spell_names.each {|name| create(:spell, name:) }
         create(:power, name: "Mora's Agony")
         create(:canonical_powerables_power, powerable: item_in_json, power: create(:power))
       end
@@ -195,7 +195,7 @@ RSpec.describe Canonical::Sync::Staves do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::Staff,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::Staff, i18n_scope: :activerecord)
         end
 

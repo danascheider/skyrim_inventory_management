@@ -98,7 +98,7 @@ RSpec.describe Canonical::Sync::Powers do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Power,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Power, i18n_scope: :activerecord)
         end
 

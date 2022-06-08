@@ -174,7 +174,7 @@ RSpec.describe Canonical::Armor, type: :model do
       let(:enchantment) { create(:enchantment) }
 
       before do
-        armor.canonical_enchantables_enchantments.create!(enchantment: enchantment, strength: 40)
+        armor.canonical_enchantables_enchantments.create!(enchantment:, strength: 40)
       end
 
       it 'gives the enchantment strength' do
@@ -187,7 +187,7 @@ RSpec.describe Canonical::Armor, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        armor.canonical_craftables_crafting_materials.create!(material: material, quantity: 4)
+        armor.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
       end
 
       it 'gives the quantity needed' do
@@ -200,7 +200,7 @@ RSpec.describe Canonical::Armor, type: :model do
       let(:material) { create(:canonical_material) }
 
       before do
-        armor.canonical_temperables_tempering_materials.create!(material: material, quantity: 1)
+        armor.canonical_temperables_tempering_materials.create!(material:, quantity: 1)
       end
 
       it 'gives the quantity needed' do
