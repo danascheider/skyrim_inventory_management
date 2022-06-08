@@ -89,7 +89,7 @@ RSpec.describe 'Games', type: :request do
   end
 
   describe 'POST /games' do
-    subject(:create_game) { post '/games', headers:, params: params.to_json }
+    subject(:create_game) { post '/games', headers:, params: }
 
     context 'when authenticated' do
       let(:user) { create(:user) }
@@ -108,7 +108,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when all goes well' do
-        let(:params) { { game: { name: 'My Game' } } }
+        let(:params) { { game: { name: 'My Game' } }.to_json }
 
         it 'creates a game' do
           expect { create_game }
@@ -127,7 +127,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the params are invalid' do
-        let(:params) { { game: { name: '@#*!)&' } } }
+        let(:params) { { game: { name: '@#*!)&' } }.to_json }
 
         it "doesn't create a game" do
           expect { create_game }
@@ -146,7 +146,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let(:params) { { name: 'My Game' } }
+        let(:params) { { name: 'My Game' }.to_json }
 
         before do
           allow_any_instance_of(Game).to receive(:save).and_raise(StandardError, 'Something has gone horribly wrong')
@@ -165,7 +165,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:params) { { game: { name: 'My Game' } } }
+      let(:params) { { game: { name: 'My Game' } }.to_json }
 
       it 'returns status 401' do
         create_game
@@ -180,7 +180,7 @@ RSpec.describe 'Games', type: :request do
   end
 
   describe 'PATCH /games/:id' do
-    subject(:update_game) { patch "/games/#{game.id}", headers:, params: params.to_json }
+    subject(:update_game) { patch "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
       let(:user) { create(:user) }
@@ -200,7 +200,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
-        let(:params) { { game: { name: 'New Name' } } }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'updates the game' do
           update_game
@@ -228,7 +228,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the params are invalid' do
         let!(:game) { create(:game, user:) }
         let!(:other_game) { create(:game, user:) }
-        let(:params)      { { game: { name: other_game.name } } }
+        let(:params)      { { game: { name: other_game.name } }.to_json }
 
         it 'returns status 422' do
           update_game
@@ -244,7 +244,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the game does not exist' do
         let(:game) { double(id: 829_315) }
         let(:user)   { create(:user) }
-        let(:params) { { game: { name: 'New Name' } } }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
           update_game
@@ -259,7 +259,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not belong to the authenticated user' do
         let(:game) { create(:game) }
-        let(:params) { { game: { description: 'New description' } } }
+        let(:params) { { game: { description: 'New description' } }.to_json }
 
         it 'returns status 404' do
           update_game
@@ -274,7 +274,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when something unexpected goes wrong' do
         let(:game) { create(:game, user:) }
-        let(:params) { { game: { description: 'New description' } } }
+        let(:params) { { game: { description: 'New description' } }.to_json }
 
         before do
           allow_any_instance_of(Game).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')
@@ -294,7 +294,7 @@ RSpec.describe 'Games', type: :request do
 
     context 'when unauthenticated' do
       let(:game) { create(:game) }
-      let(:params) { { game: { name: 'New Name' } } }
+      let(:params) { { game: { name: 'New Name' } }.to_json }
 
       it 'returns status 401' do
         update_game
@@ -309,7 +309,7 @@ RSpec.describe 'Games', type: :request do
   end
 
   describe 'PUT /games/:id' do
-    subject(:update_game) { put "/games/#{game.id}", headers:, params: params.to_json }
+    subject(:update_game) { put "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
       let(:user) { create(:user) }
@@ -329,7 +329,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when all goes well' do
         let(:game) { create(:game, user:) }
-        let(:params) { { game: { name: 'New Name' } } }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'updates the game' do
           update_game
@@ -357,7 +357,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the params are invalid' do
         let!(:game) { create(:game, user:) }
         let!(:other_game) { create(:game, user:) }
-        let(:params)      { { game: { name: other_game.name } } }
+        let(:params)      { { game: { name: other_game.name } }.to_json }
 
         it 'returns status 422' do
           update_game
@@ -373,7 +373,7 @@ RSpec.describe 'Games', type: :request do
       context 'when the game does not exist' do
         let(:game) { double(id: 829_315) }
         let(:user)   { create(:user) }
-        let(:params) { { game: { name: 'New Name' } } }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
           update_game
@@ -388,7 +388,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not belong to the authenticated user' do
         let(:game) { create(:game) }
-        let(:params) { { game: { description: 'New description' } } }
+        let(:params) { { game: { description: 'New description' } }.to_json }
 
         it 'returns status 404' do
           update_game
@@ -403,7 +403,7 @@ RSpec.describe 'Games', type: :request do
 
       context 'when something unexpected goes wrong' do
         let(:game) { create(:game, user:) }
-        let(:params) { { game: { description: 'New description' } } }
+        let(:params) { { game: { description: 'New description' } }.to_json }
 
         before do
           allow_any_instance_of(Game).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')
@@ -423,7 +423,7 @@ RSpec.describe 'Games', type: :request do
 
     context 'when unauthenticated' do
       let(:game) { create(:game) }
-      let(:params) { { game: { name: 'New Name' } } }
+      let(:params) { { game: { name: 'New Name' } }.to_json }
 
       it 'returns status 401' do
         update_game
