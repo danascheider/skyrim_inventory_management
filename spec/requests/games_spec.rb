@@ -226,7 +226,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the params are invalid' do
-        let!(:game) { create(:game, user:) }
+        let!(:game)       { create(:game, user:) }
         let!(:other_game) { create(:game, user:) }
         let(:params)      { { game: { name: other_game.name } }.to_json }
 
@@ -242,7 +242,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not exist' do
-        let(:game) { double(id: 829_315) }
+        let(:game)   { double(id: 829_315) }
         let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
@@ -258,7 +258,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not belong to the authenticated user' do
-        let(:game) { create(:game) }
+        let(:game)   { create(:game) }
         let(:params) { { game: { description: 'New description' } }.to_json }
 
         it 'returns status 404' do
@@ -273,7 +273,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let(:game) { create(:game, user:) }
+        let(:game)   { create(:game, user:) }
         let(:params) { { game: { description: 'New description' } }.to_json }
 
         before do
@@ -293,7 +293,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:game) { create(:game) }
+      let(:game)   { create(:game) }
       let(:params) { { game: { name: 'New Name' } }.to_json }
 
       it 'returns status 401' do
@@ -328,7 +328,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when all goes well' do
-        let(:game) { create(:game, user:) }
+        let(:game)   { create(:game, user:) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'updates the game' do
@@ -355,7 +355,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the params are invalid' do
-        let!(:game) { create(:game, user:) }
+        let!(:game)       { create(:game, user:) }
         let!(:other_game) { create(:game, user:) }
         let(:params)      { { game: { name: other_game.name } }.to_json }
 
@@ -371,7 +371,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not exist' do
-        let(:game) { double(id: 829_315) }
+        let(:game)   { double(id: 829_315) }
         let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
@@ -387,7 +387,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game does not belong to the authenticated user' do
-        let(:game) { create(:game) }
+        let(:game)   { create(:game) }
         let(:params) { { game: { description: 'New description' } }.to_json }
 
         it 'returns status 404' do
@@ -402,7 +402,7 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let(:game) { create(:game, user:) }
+        let(:game)   { create(:game, user:) }
         let(:params) { { game: { description: 'New description' } }.to_json }
 
         before do
@@ -422,7 +422,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:game) { create(:game) }
+      let(:game)   { create(:game) }
       let(:params) { { game: { name: 'New Name' } }.to_json }
 
       it 'returns status 401' do
