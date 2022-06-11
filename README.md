@@ -1,6 +1,6 @@
 # Skyrim Inventory Management API
 
-[Skyrim Inventory Management](https://sim.danascheider.com) is a fully featured, split-stack Rails/React app enabling users to manage inventory and tasks across multiple properties in Skyrim. The back end API found in this repo is hosted on [Heroku](https://heroku.com) at https://sim-api.danascheider.com. 
+[Skyrim Inventory Management](https://sim.danascheider.com) is a fully featured, split-stack Rails/React app enabling users to manage inventory and tasks across multiple properties in Skyrim. The back end API found in this repo is hosted on [Heroku](https://heroku.com) at https://sim-api.danascheider.com.
 
 ## Disclaimer
 
@@ -82,13 +82,13 @@ notes: string
 
 ### Local Setup
 
-The Skyrim Inventory Management API is a basic Rails API running on Rails 6 and Ruby 3.0.2. You can set it up locally by cloning the repository, `cd`ing into it, and running:
+The Skyrim Inventory Management API is a basic Rails API running on Rails 7 and Ruby 3.1.2. You can set it up locally by cloning the repository, `cd`ing into it, and running:
 ```bash
 ./script/setup.sh
 ```
 The setup script installs dependencies (including Bundler), sets up the database, and populates [canonical models](/docs/canonical-models.md), including alchemical properties, enchantments, and spells.
 
-Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#rubocop). **Running the setup script will overwrite any existing precommit hooks you have in the repo.** Since these are not saved in Git, they are not recoverable if you overwrite them (unless you've committed them to Git somewhere outside this repo). 
+Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#rubocop). **Running the setup script will overwrite any existing precommit hooks you have in the repo.** Since these are not saved in Git, they are not recoverable if you overwrite them (unless you've committed them to Git somewhere outside this repo).
 
 To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.
 
@@ -146,7 +146,7 @@ The `run_rubocop.sh` script runs Rubocop against the same files that will be che
 
 ### Workflows
 
-We use [Trello](https://trello.com/b/ZoVvVBJc/sim-project-board) to track work for both SIM applications. To work on an issue, first check out a branch for your dev work and do the work on that branch. Push to GitHub and open a pull request. The pull request should link to the Trello card as well as providing context, a summary of changes, and an explanation for any design choices you made or anything that might not make sense to a reviewer or future developer looking at Git history. Link to the PR in the Trello card and move the card to reviewing. Once your PR has been approved and CI has passed, you are free to merge.
+We use [Trello](https://trello.com/b/Jo7Z3oUh/sim-project-board) to track work for both SIM applications. To work on an issue, first check out a branch for your dev work and do the work on that branch. Push to GitHub and open a pull request. The pull request should link to the Trello card as well as providing context, a summary of changes, and an explanation for any design choices you made or anything that might not make sense to a reviewer or future developer looking at Git history. Link to the PR in the Trello card and move the card to reviewing. Once your PR has been approved and CI has passed, you are free to merge.
 
 ### CI
 
@@ -171,6 +171,11 @@ You should only deploy from `main` and only after any running CI build has passe
 Note that Heroku will not automatically run any migrations so if your deployment includes migrations, you will need to run them manually:
 ```
 heroku run bundle exec rails db:migrate
+```
+
+Additionally, if you have changed any config or initializers, you will need to restart the app in production. Generally, this includes any changes you've made to the `/config` directory:
+```
+heroku restart --app=whispering-scrubland-92626
 ```
 
 ### Troubleshooting in Production
