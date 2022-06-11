@@ -101,7 +101,7 @@ RSpec.describe Canonical::Sync::AlchemicalProperties do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double AlchemicalProperty,
-                          errors: errors,
+                          errors:,
                           class:  class_double(AlchemicalProperty, i18n_scope: :activerecord)
         end
 

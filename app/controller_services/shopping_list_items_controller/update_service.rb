@@ -31,7 +31,7 @@ class ShoppingListItemsController < ApplicationController
 
       resource = params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item]
 
-      Service::OKResult.new(resource: resource)
+      Service::OKResult.new(resource:)
     rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound

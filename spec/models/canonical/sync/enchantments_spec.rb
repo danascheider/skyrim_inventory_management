@@ -98,7 +98,7 @@ RSpec.describe Canonical::Sync::Enchantments do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Enchantment,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Enchantment, i18n_scope: :activerecord)
         end
 

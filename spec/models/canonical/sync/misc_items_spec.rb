@@ -102,7 +102,7 @@ RSpec.describe Canonical::Sync::MiscItems do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::MiscItem,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::MiscItem, i18n_scope: :activerecord)
         end
 

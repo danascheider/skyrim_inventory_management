@@ -23,7 +23,7 @@ class InventoryListsController < ApplicationController
 
       if inventory_list.save
         resource = preexisting_aggregate_list ? inventory_list : [game.aggregate_inventory_list, inventory_list]
-        Service::CreatedResult.new(resource: resource)
+        Service::CreatedResult.new(resource:)
       else
         Service::UnprocessableEntityResult.new(errors: inventory_list.error_array)
       end

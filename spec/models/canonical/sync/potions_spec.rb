@@ -32,7 +32,7 @@ RSpec.describe Canonical::Sync::Potions do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+          alchemical_property_names.each {|name| create(:alchemical_property, name:) }
         end
 
         it 'instantiates itseslf' do
@@ -61,7 +61,7 @@ RSpec.describe Canonical::Sync::Potions do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+          alchemical_property_names.each {|name| create(:alchemical_property, name:) }
         end
 
         it 'instantiates itself' do
@@ -146,7 +146,7 @@ RSpec.describe Canonical::Sync::Potions do
       let!(:item_not_in_json)         { create(:canonical_potion, item_code: '12345678') }
 
       before do
-        alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+        alchemical_property_names.each {|name| create(:alchemical_property, name:) }
 
         create(:canonical_potions_alchemical_property, potion: item_in_json, alchemical_property: create(:alchemical_property))
       end
@@ -186,7 +186,7 @@ RSpec.describe Canonical::Sync::Potions do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::Potion,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::Potion, i18n_scope: :activerecord)
         end
 

@@ -21,7 +21,7 @@ class ShoppingListItemsController < ApplicationController
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
       preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
-      item             = ShoppingListItem.combine_or_new(params.merge(list_id: list_id))
+      item             = ShoppingListItem.combine_or_new(params.merge(list_id:))
 
       ActiveRecord::Base.transaction do
         item.save!
@@ -31,13 +31,13 @@ class ShoppingListItemsController < ApplicationController
 
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 
-          Service::CreatedResult.new(resource: resource)
+          Service::CreatedResult.new(resource:)
         else
           aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
 
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 
-          Service::OKResult.new(resource: resource)
+          Service::OKResult.new(resource:)
         end
       end
     rescue ActiveRecord::RecordInvalid

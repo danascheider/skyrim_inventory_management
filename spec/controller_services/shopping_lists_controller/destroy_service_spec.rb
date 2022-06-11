@@ -13,12 +13,12 @@ RSpec.describe ShoppingListsController::DestroyService do
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
-      let!(:shopping_list)  { create(:shopping_list_with_list_items, game: game) }
-      let(:game)            { create(:game, user: user) }
+      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+      let!(:shopping_list)  { create(:shopping_list_with_list_items, game:) }
+      let(:game)            { create(:game, user:) }
 
       context 'when the game has additional regular lists' do
-        let!(:third_list) { create(:shopping_list, game: game, aggregate_list: aggregate_list) }
+        let!(:third_list) { create(:shopping_list, game:, aggregate_list:) }
 
         before do
           shopping_list.list_items.each do |list_item|
@@ -99,8 +99,8 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when the list is an aggregate list' do
-      let!(:shopping_list) { create(:aggregate_shopping_list, game: game) }
-      let(:game)           { create(:game, user: user) }
+      let!(:shopping_list) { create(:aggregate_shopping_list, game:) }
+      let(:game)           { create(:game, user:) }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -138,8 +138,8 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, game: game) }
-      let(:game)           { create(:game, user: user) }
+      let!(:shopping_list) { create(:shopping_list, game:) }
+      let(:game)           { create(:game, user:) }
 
       before do
         allow_any_instance_of(ShoppingList).to receive(:aggregate_list).and_raise(StandardError.new('Something went horribly wrong'))

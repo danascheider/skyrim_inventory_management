@@ -18,7 +18,7 @@ FactoryBot.define do
       end
 
       after(:create) do |list, evaluator|
-        create_list(:shopping_list_item, evaluator.list_item_count, list: list)
+        create_list(:shopping_list_item, evaluator.list_item_count, list:)
       end
     end
   end

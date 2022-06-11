@@ -9,8 +9,8 @@ RSpec.describe Canonical::PowerablesPower, type: :model do
       let(:staff) { create(:canonical_staff) }
 
       it 'must form a unique combination' do
-        create(:canonical_powerables_power, :for_staff, powerable: staff, power: power)
-        model = build(:canonical_powerables_power, :for_staff, powerable: staff, power: power)
+        create(:canonical_powerables_power, :for_staff, powerable: staff, power:)
+        model = build(:canonical_powerables_power, :for_staff, powerable: staff, power:)
 
         model.validate
         expect(model.errors[:power_id]).to include 'must form a unique combination with powerable item'

@@ -166,7 +166,7 @@ RSpec.describe Canonical::Staff, type: :model do
       let(:power) { create(:power) }
 
       it 'returns the power' do
-        staff.canonical_powerables_powers.create!(power: power)
+        staff.canonical_powerables_powers.create!(power:)
         expect(staff.powers.first).to eq power
       end
     end
@@ -176,7 +176,7 @@ RSpec.describe Canonical::Staff, type: :model do
       let(:spell) { create(:spell) }
 
       it 'returns the spell' do
-        staff.canonical_staves_spells.create!(spell: spell)
+        staff.canonical_staves_spells.create!(spell:)
         expect(staff.spells.first).to eq spell
       end
     end
