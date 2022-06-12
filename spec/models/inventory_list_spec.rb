@@ -8,10 +8,10 @@ RSpec.describe InventoryList, type: :model do
       subject(:index_order) { game.inventory_lists.index_order.to_a }
 
       let!(:game)            { create(:game) }
-      let!(:aggregate_list)  { create(:aggregate_inventory_list, game: game) }
-      let!(:inventory_list1) { create(:inventory_list, game: game) }
-      let!(:inventory_list2) { create(:inventory_list, game: game) }
-      let!(:inventory_list3) { create(:inventory_list, game: game) }
+      let!(:aggregate_list)  { create(:aggregate_inventory_list, game:) }
+      let!(:inventory_list1) { create(:inventory_list, game:) }
+      let!(:inventory_list2) { create(:inventory_list, game:) }
+      let!(:inventory_list3) { create(:inventory_list, game:) }
 
       before do
         inventory_list2.update!(title: 'Windstad Manor')
@@ -27,8 +27,8 @@ RSpec.describe InventoryList, type: :model do
       subject(:includes_items) { game.inventory_lists.includes_items }
 
       let!(:game)           { create(:game) }
-      let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-      let!(:lists)          { create_list(:inventory_list_with_list_items, 2, game: game) }
+      let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+      let!(:lists)          { create_list(:inventory_list_with_list_items, 2, game:) }
 
       it 'includes the inventory list items' do
         expect(includes_items).to eq game.inventory_lists.includes(:list_items)
@@ -40,8 +40,8 @@ RSpec.describe InventoryList, type: :model do
       subject(:aggregate_first) { game.inventory_lists.aggregate_first.to_a }
 
       let!(:game)           { create(:game) }
-      let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-      let!(:inventory_list) { create(:inventory_list, game: game) }
+      let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+      let!(:inventory_list) { create(:inventory_list, game:) }
 
       it 'returns the inventory lists with the aggregate list first' do
         expect(aggregate_first).to eq([aggregate_list, inventory_list])
@@ -50,9 +50,9 @@ RSpec.describe InventoryList, type: :model do
 
     describe '::belongs_to_user' do
       let(:user)   { create(:user) }
-      let!(:game1) { create(:game_with_inventory_lists, user: user) }
-      let!(:game2) { create(:game_with_inventory_lists, user: user) }
-      let!(:game3) { create(:game_with_inventory_lists, user: user) }
+      let!(:game1) { create(:game_with_inventory_lists, user:) }
+      let!(:game2) { create(:game_with_inventory_lists, user:) }
+      let!(:game3) { create(:game_with_inventory_lists, user:) }
 
       it "returns all the inventory lists from all the user's games" do
         # These are going to be rearranged in the output since game.inventory_lists
@@ -83,7 +83,7 @@ RSpec.describe InventoryList, type: :model do
     describe 'aggregate lists' do
       context 'when there are no aggregate lists' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game:) }
 
         it 'is valid' do
           expect(aggregate_list).to be_valid
@@ -92,7 +92,7 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when there is an existing aggregate list belonging to another user' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game:) }
 
         before do
           create(:aggregate_inventory_list)
@@ -105,10 +105,10 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when the user already has an aggregate list' do
         let(:game)           { create(:game) }
-        let(:aggregate_list) { build(:aggregate_inventory_list, game: game) }
+        let(:aggregate_list) { build(:aggregate_inventory_list, game:) }
 
         before do
-          create(:aggregate_inventory_list, game: game)
+          create(:aggregate_inventory_list, game:)
         end
 
         it 'is invalid', :aggregate_failures do
@@ -214,7 +214,7 @@ RSpec.describe InventoryList, type: :model do
               # Create lists for a different game to make sure the name of this game's
               # list isn't affected by them
               create_list(:inventory_list, 2, title: nil)
-              create_list(:inventory_list, 2, title: nil, game: game)
+              create_list(:inventory_list, 2, title: nil, game:)
             end
 
             it 'sets the title based on the highest numbered default title' do
@@ -225,9 +225,9 @@ RSpec.describe InventoryList, type: :model do
           context 'when the game has differently titled regular lists' do
             before do
               create(:inventory_list, title: nil)
-              create(:inventory_list, game: game, title: nil)
-              create(:inventory_list, game: game, title: 'Windstad Manor')
-              create(:inventory_list, game: game, title: nil)
+              create(:inventory_list, game:, title: nil)
+              create(:inventory_list, game:, title: 'Windstad Manor')
+              create(:inventory_list, game:, title: nil)
             end
 
             it 'uses the next highest number in default lists' do
@@ -237,8 +237,8 @@ RSpec.describe InventoryList, type: :model do
 
           context 'when the game has an inventory list with a similar title' do
             before do
-              create(:inventory_list, game: game, title: 'This List is Called My List 4')
-              create_list(:inventory_list, 2, game: game, title: nil)
+              create(:inventory_list, game:, title: 'This List is Called My List 4')
+              create_list(:inventory_list, 2, game:, title: nil)
             end
 
             it 'sets the title based on the highest numbered list called "My List N"' do
@@ -248,8 +248,8 @@ RSpec.describe InventoryList, type: :model do
 
           context 'when there is an inventory list called "My List <non-integer>"' do
             before do
-              create(:inventory_list, game: game, title: 'My List Is the Best List')
-              create_list(:inventory_list, 2, game: game, title: nil)
+              create(:inventory_list, game:, title: 'My List Is the Best List')
+              create_list(:inventory_list, 2, game:, title: nil)
             end
 
             it 'sets the title based on the highest numbered list called "My List N"' do
@@ -259,7 +259,7 @@ RSpec.describe InventoryList, type: :model do
 
           context 'when there is an inventory list called "My List <negative integer>"' do
             before do
-              create(:inventory_list, game: game, title: 'My List -4')
+              create(:inventory_list, game:, title: 'My List -4')
             end
 
             it 'ignores the list title with the negative integer' do
@@ -351,13 +351,13 @@ RSpec.describe InventoryList, type: :model do
   describe 'after destroy hook' do
     subject(:destroy_list) { inventory_list.destroy! }
 
-    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-    let!(:inventory_list) { create(:inventory_list, game: game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+    let!(:inventory_list) { create(:inventory_list, game:) }
     let(:game)            { create(:game) }
 
     context 'when the game has additional regular lists' do
       before do
-        create(:inventory_list, game: game)
+        create(:inventory_list, game:)
       end
 
       it "doesn't destroy the aggregate list" do
@@ -399,7 +399,7 @@ RSpec.describe InventoryList, type: :model do
       end
 
       context 'when there is a matching item on the aggregate list' do
-        let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
+        let(:other_list)          { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
         let!(:item_on_other_list) { create(:inventory_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
@@ -636,7 +636,7 @@ RSpec.describe InventoryList, type: :model do
         let(:new_notes) { 'another thing' }
 
         before do
-          aggregate_list.list_items.create(description: description, quantity: 3, notes: old_notes)
+          aggregate_list.list_items.create(description:, quantity: 3, notes: old_notes)
         end
 
         it 'adds the negative quantity delta to the existing one' do
@@ -654,7 +654,7 @@ RSpec.describe InventoryList, type: :model do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 0, unit_weight, 'something', 'another thing') }
 
         before do
-          aggregate_list.list_items.create(description: description, quantity: 3, notes: 'something')
+          aggregate_list.list_items.create(description:, quantity: 3, notes: 'something')
         end
 
         it "doesn't change the quantity" do
@@ -667,7 +667,7 @@ RSpec.describe InventoryList, type: :model do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'another thing') }
 
         before do
-          aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
+          aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
         end
 
         it 'leaves the existing unit_weight as-is' do
@@ -679,12 +679,12 @@ RSpec.describe InventoryList, type: :model do
       context 'when there is a unit_weight given' do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
 
-        let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list: aggregate_list) }
-        let!(:item_on_other_list)  { create(:inventory_item, list: other_list, description: description, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:inventory_item, list: aggregate_list, description: description, quantity: 3, unit_weight: 1, notes: 'something') }
+        let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
+        let!(:item_on_other_list)  { create(:inventory_item, list: other_list, description:, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:inventory_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
 
         before do
-          aggregate_list.list_items.create(description: description, quantity: 3, unit_weight: 1, notes: 'something')
+          aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
         end
 
         it 'updates the unit_weight on the aggregate list' do
@@ -704,7 +704,7 @@ RSpec.describe InventoryList, type: :model do
         let(:new_notes) { 'something' }
 
         before do
-          aggregate_list.list_items.create(description: description, quantity: 3, notes: "#{old_notes} -- something else")
+          aggregate_list.list_items.create(description:, quantity: 3, notes: "#{old_notes} -- something else")
         end
 
         it "doesn't mess with the notes" do
@@ -718,7 +718,7 @@ RSpec.describe InventoryList, type: :model do
         let(:existing_notes) { 'notes 1 -- notes 2 -- notes 3' }
 
         before do
-          aggregate_list.list_items.create!(description: description, quantity: 3, notes: existing_notes)
+          aggregate_list.list_items.create!(description:, quantity: 3, notes: existing_notes)
         end
 
         context 'when replacing the middle notes' do
@@ -811,7 +811,7 @@ RSpec.describe InventoryList, type: :model do
         let(:new_notes)   { nil }
 
         before do
-          aggregate_list.list_items.create!(description: description)
+          aggregate_list.list_items.create!(description:)
         end
 
         it 'raises an error' do
@@ -827,7 +827,7 @@ RSpec.describe InventoryList, type: :model do
         let(:new_notes)   { nil }
 
         before do
-          aggregate_list.list_items.create!(description: description, quantity: 1)
+          aggregate_list.list_items.create!(description:, quantity: 1)
         end
 
         it 'raises an error' do
@@ -873,10 +873,10 @@ RSpec.describe InventoryList, type: :model do
 
   describe 'parent model' do
     let(:game)           { create(:game) }
-    let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let(:aggregate_list) { create(:aggregate_inventory_list, game:) }
 
     it 'is invalid without a game' do
-      list = described_class.new(aggregate_list: aggregate_list)
+      list = described_class.new(aggregate_list:)
 
       list.validate
       expect(list.errors[:game]).to include 'must exist'

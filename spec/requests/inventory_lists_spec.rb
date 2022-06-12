@@ -11,14 +11,14 @@ RSpec.describe 'InventoryLists', type: :request do
   end
 
   describe 'GET /games/:game_id/inventory_lists' do
-    subject(:get_index) { get "/games/#{game.id}/inventory_lists", headers: headers }
+    subject(:get_index) { get "/games/#{game.id}/inventory_lists", headers: }
 
     context 'when unauthenticated' do
       let(:game) { create(:game) }
 
       before do
         # create some data to not be returned
-        create_list(:inventory_list, 3, game: game)
+        create_list(:inventory_list, 3, game:)
       end
 
       it 'returns 401' do
@@ -107,7 +107,7 @@ RSpec.describe 'InventoryLists', type: :request do
   end
 
   describe 'POST games/:game_id/inventory_lists' do
-    subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: {} }.to_json, headers: headers }
+    subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: {} }.to_json, headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -126,7 +126,7 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when all goes well' do
-        let(:game) { create(:game, user: user) }
+        let(:game) { create(:game, user:) }
 
         context 'when an aggregate list has also been created' do
           it 'creates a new inventory list' do
@@ -146,7 +146,7 @@ RSpec.describe 'InventoryLists', type: :request do
         end
 
         context 'when only the new inventory list has been created' do
-          let!(:aggregate_list) { create(:aggregate_inventory_list, game: game, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
+          let!(:aggregate_list) { create(:aggregate_inventory_list, game:, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
 
           it 'creates one list' do
             expect { create_inventory_list }
@@ -160,11 +160,11 @@ RSpec.describe 'InventoryLists', type: :request do
         end
 
         context 'when the request does not include a body' do
-          subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", headers: headers }
+          subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", headers: }
 
           before do
             # let's not have this request create an aggregate list too
-            create(:aggregate_inventory_list, game: game)
+            create(:aggregate_inventory_list, game:)
           end
 
           it 'returns status 201' do
@@ -214,10 +214,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the params are invalid' do
-        subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { title: existing_list.title } }.to_json, headers: headers }
+        subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { title: existing_list.title } }.to_json, headers: }
 
-        let(:game)          { create(:game, user: user) }
-        let(:existing_list) { create(:inventory_list, game: game) }
+        let(:game)          { create(:game, user:) }
+        let(:existing_list) { create(:inventory_list, game:) }
 
         it 'returns status 422' do
           create_inventory_list
@@ -231,9 +231,9 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the client attempts to create an aggregate list' do
-        subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { aggregate: true } }.to_json, headers: headers }
+        subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { aggregate: true } }.to_json, headers: }
 
-        let(:game) { create(:game, user: user) }
+        let(:game) { create(:game, user:) }
 
         it "doesn't create a list" do
           expect { create_inventory_list }
@@ -263,7 +263,7 @@ RSpec.describe 'InventoryLists', type: :request do
   end
 
   describe 'PATCH /inventory_lists/:id' do
-    subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: headers }
+    subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -282,8 +282,8 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when all goes well' do
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
         let(:list_id)         { inventory_list.id }
 
         it 'updates the title' do
@@ -306,12 +306,12 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the params are invalid' do
-        subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: headers }
+        subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
         let(:list_id)         { inventory_list.id }
-        let(:other_list)      { create(:inventory_list, game: game) }
+        let(:other_list)      { create(:inventory_list, game:) }
 
         it 'returns status 422' do
           update_inventory_list
@@ -359,10 +359,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the client attempts to update an aggregate list' do
-        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: headers }
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:aggregate_inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         it "doesn't update the list" do
           update_inventory_list
@@ -381,10 +381,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to an aggregate list' do
-        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: headers }
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         it "doesn't update the list" do
           update_inventory_list
@@ -403,10 +403,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: headers }
+        subject(:update_inventory_list) { patch "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         before do
           allow_any_instance_of(User).to receive(:inventory_lists).and_raise(StandardError, 'Something went catastrophically wrong')
@@ -435,7 +435,7 @@ RSpec.describe 'InventoryLists', type: :request do
   end
 
   describe 'PUT /inventory_lists/:id' do
-    subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: headers }
+    subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
@@ -454,8 +454,8 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when all goes well' do
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
         let(:list_id)         { inventory_list.id }
 
         it 'updates the title' do
@@ -478,12 +478,12 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the params are invalid' do
-        subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: headers }
+        subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: other_list.title } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
         let(:list_id)         { inventory_list.id }
-        let(:other_list)      { create(:inventory_list, game: game) }
+        let(:other_list)      { create(:inventory_list, game:) }
 
         it 'returns status 422' do
           update_inventory_list
@@ -531,10 +531,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the client attempts to update an aggregate list' do
-        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: headers }
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Foo' } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:aggregate_inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         it "doesn't update the list" do
           update_inventory_list
@@ -553,10 +553,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the client attempts to change a regular list to an aggregate list' do
-        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: headers }
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { aggregate: true } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         it "doesn't update the list" do
           update_inventory_list
@@ -575,10 +575,10 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: headers }
+        subject(:update_inventory_list) { put "/inventory_lists/#{inventory_list.id}", params: { inventory_list: { title: 'Some New Title' } }.to_json, headers: }
 
-        let!(:inventory_list) { create(:inventory_list, game: game) }
-        let(:game)            { create(:game, user: user) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
+        let(:game)            { create(:game, user:) }
 
         before do
           allow_any_instance_of(User).to receive(:inventory_lists).and_raise(StandardError, 'Something went catastrophically wrong')
@@ -607,7 +607,7 @@ RSpec.describe 'InventoryLists', type: :request do
   end
 
   describe 'DELETE /inventory_lists/:id' do
-    subject(:delete_inventory_list) { delete "/inventory_lists/#{inventory_list.id}", headers: headers }
+    subject(:delete_inventory_list) { delete "/inventory_lists/#{inventory_list.id}", headers: }
 
     context 'when unauthenticated' do
       let!(:inventory_list) { create(:inventory_list) }
@@ -630,7 +630,7 @@ RSpec.describe 'InventoryLists', type: :request do
 
     context 'when authenticated' do
       let(:user)      { create(:user) }
-      let(:game)      { create(:game, user: user) }
+      let(:game)      { create(:game, user:) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
 
       let(:validation_data) do
@@ -646,7 +646,7 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the inventory list exists' do
-        let!(:inventory_list) { create(:inventory_list, game: game) }
+        let!(:inventory_list) { create(:inventory_list, game:) }
 
         context "when this is the game's last regular inventory list" do
           it 'deletes the inventory list and the aggregate list' do
@@ -667,7 +667,7 @@ RSpec.describe 'InventoryLists', type: :request do
 
         context "when this is not the game's last regular inventory list" do
           before do
-            create(:inventory_list, game: game, aggregate_list: game.aggregate_inventory_list)
+            create(:inventory_list, game:, aggregate_list: game.aggregate_inventory_list)
           end
 
           it 'deletes the requested inventory list' do
@@ -721,7 +721,7 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when attempting to delete the aggregate list' do
-        let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
+        let!(:inventory_list) { create(:aggregate_inventory_list, game:) }
 
         it "doesn't delete the list" do
           expect { delete_inventory_list }

@@ -11,11 +11,11 @@ RSpec.describe InventoryListsController::DestroyService do
     subject(:perform) { described_class.new(user, inventory_list.id).perform }
 
     let(:user) { create(:user) }
-    let(:game) { create(:game, user: user) }
+    let(:game) { create(:game, user:) }
 
     context 'when all goes well' do
-      let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-      let!(:inventory_list) { create(:inventory_list_with_list_items, game: game) }
+      let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+      let!(:inventory_list) { create(:inventory_list_with_list_items, game:) }
 
       before do
         inventory_list.list_items.each do |list_item|
@@ -24,7 +24,7 @@ RSpec.describe InventoryListsController::DestroyService do
       end
 
       context 'when the game has additional regular lists' do
-        let!(:third_list) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
+        let!(:third_list) { create(:inventory_list_with_list_items, game:, aggregate_list:) }
 
         before do
           third_list.list_items.each do |list_item|
@@ -85,7 +85,7 @@ RSpec.describe InventoryListsController::DestroyService do
     end
 
     context 'when the list is an aggregate list' do
-      let!(:inventory_list) { create(:aggregate_inventory_list, game: game) }
+      let!(:inventory_list) { create(:aggregate_inventory_list, game:) }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -128,7 +128,7 @@ RSpec.describe InventoryListsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:inventory_list) { create(:inventory_list, game: game) }
+      let!(:inventory_list) { create(:inventory_list, game:) }
 
       before do
         allow_any_instance_of(InventoryList).to receive(:aggregate_list).and_raise(StandardError.new('Something went horribly wrong'))

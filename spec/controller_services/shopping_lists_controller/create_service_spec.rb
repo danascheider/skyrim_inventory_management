@@ -39,7 +39,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when the request tries to create an aggregate list' do
-      let(:game) { create(:game, user: user) }
+      let(:game) { create(:game, user:) }
       let(:params) do
         {
           title:     'All Items',
@@ -57,12 +57,12 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are valid' do
-      let!(:game)  { create(:game, user: user) }
+      let!(:game)  { create(:game, user:) }
       let(:params) { { title: 'Proudspire Manor' } }
 
       context 'when the game has an aggregate shopping list' do
         before do
-          create(:aggregate_shopping_list, game: game)
+          create(:aggregate_shopping_list, game:)
         end
 
         it 'creates a shopping list for the given game' do
@@ -122,7 +122,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when params are invalid' do
-      let(:game)    { create(:game, user: user) }
+      let(:game)    { create(:game, user:) }
       let(:game_id) { game.id }
       let(:params)  { { title: '|nvalid Tit|e' } }
 
@@ -141,7 +141,7 @@ RSpec.describe ShoppingListsController::CreateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game)   { create(:game, user: user) }
+      let(:game)   { create(:game, user:) }
       let(:params) { { title: 'Foobar' } }
 
       before do

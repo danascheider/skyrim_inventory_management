@@ -110,7 +110,7 @@ RSpec.describe Canonical::Sync::Spells do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Spell,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Spell, i18n_scope: :activerecord)
         end
 

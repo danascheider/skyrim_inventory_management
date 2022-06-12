@@ -33,7 +33,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
-          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+          alchemical_property_names.each {|name| create(:alchemical_property, name:) }
         end
 
         it 'instantiates itseslf' do
@@ -62,7 +62,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         let(:syncer)            { described_class.new(preserve_existing_records) }
 
         before do
-          alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+          alchemical_property_names.each {|name| create(:alchemical_property, name:) }
         end
 
         it 'instantiates itself' do
@@ -148,7 +148,7 @@ RSpec.describe Canonical::Sync::Ingredients do
       let!(:item_not_in_json)         { create(:canonical_ingredient, item_code: '12345678') }
 
       before do
-        alchemical_property_names.each {|name| create(:alchemical_property, name: name) }
+        alchemical_property_names.each {|name| create(:alchemical_property, name:) }
 
         create(
           :canonical_ingredients_alchemical_property,
@@ -203,7 +203,7 @@ RSpec.describe Canonical::Sync::Ingredients do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::Ingredient,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::Ingredient, i18n_scope: :activerecord)
         end
 

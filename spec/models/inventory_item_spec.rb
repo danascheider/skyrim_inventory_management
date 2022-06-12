@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe InventoryItem, type: :model do
   let!(:game)          { create(:game) }
-  let(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
-  let(:inventory_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+  let(:aggregate_list) { create(:aggregate_inventory_list, game:) }
+  let(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
   describe 'delegation' do
     let(:list_item) { create(:inventory_item, list: inventory_list) }
@@ -25,11 +25,11 @@ RSpec.describe InventoryItem, type: :model do
 
   describe 'scopes' do
     describe '::index_order' do
-      let!(:list_item1) { create(:inventory_item, list: list) }
-      let!(:list_item2) { create(:inventory_item, list: list) }
-      let!(:list_item3) { create(:inventory_item, list: list) }
+      let!(:list_item1) { create(:inventory_item, list:) }
+      let!(:list_item2) { create(:inventory_item, list:) }
+      let!(:list_item3) { create(:inventory_item, list:) }
 
-      let(:list) { create(:inventory_list, game: game) }
+      let(:list) { create(:inventory_list, game:) }
 
       before do
         list_item2.update!(quantity: 3)
@@ -41,9 +41,9 @@ RSpec.describe InventoryItem, type: :model do
     end
 
     describe '::belonging_to_game' do
-      let!(:list1) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
-      let!(:list2) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
-      let!(:list3) { create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list) }
+      let!(:list1) { create(:inventory_list_with_list_items, game:, aggregate_list:) }
+      let!(:list2) { create(:inventory_list_with_list_items, game:, aggregate_list:) }
+      let!(:list3) { create(:inventory_list_with_list_items, game:, aggregate_list:) }
 
       before do
         # There should be some that don't belong to the game to make sure they
@@ -71,9 +71,9 @@ RSpec.describe InventoryItem, type: :model do
       let(:user) { game.user }
 
       before do
-        create(:inventory_list_with_list_items, game: game, aggregate_list: aggregate_list)
-        create(:game_with_inventory_lists_and_items, user: user)
-        create(:game_with_inventory_lists_and_items, user: user)
+        create(:inventory_list_with_list_items, game:, aggregate_list:)
+        create(:game_with_inventory_lists_and_items, user:)
+        create(:game_with_inventory_lists_and_items, user:)
         create(:inventory_list_with_list_items) # one from a different user
       end
 
@@ -128,7 +128,7 @@ RSpec.describe InventoryItem, type: :model do
     context 'when there is an existing item on a different list with the same (case-insensitive) description' do
       subject(:combine_or_create) { described_class.combine_or_create!(description: 'New Item', quantity: 1, list: inventory_list, unit_weight: nil) }
 
-      let(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+      let(:other_list) { create(:inventory_list, game:, aggregate_list:) }
       let!(:other_item) { create(:inventory_item, description: 'New Item', list: other_list, unit_weight: 1) }
 
       before do
@@ -199,7 +199,7 @@ RSpec.describe InventoryItem, type: :model do
       end
 
       context 'when unit weight is nil and there are matching items on other lists' do
-        let!(:other_list) { create(:inventory_list, game: game, aggregate_list: aggregate_list) }
+        let!(:other_list) { create(:inventory_list, game:, aggregate_list:) }
         let!(:other_item) { create(:inventory_item, description: 'new item', list: other_list, unit_weight: 1) }
 
         before do

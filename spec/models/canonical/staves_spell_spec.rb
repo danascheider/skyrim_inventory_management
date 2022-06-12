@@ -38,8 +38,8 @@ RSpec.describe Canonical::StavesSpell, type: :model do
       let(:staff) { create(:canonical_staff) }
 
       it 'must form a unique combination' do
-        create(:canonical_staves_spell, staff: staff, spell: spell)
-        model = build(:canonical_staves_spell, staff: staff, spell: spell)
+        create(:canonical_staves_spell, staff:, spell:)
+        model = build(:canonical_staves_spell, staff:, spell:)
 
         model.validate
         expect(model.errors[:staff_id]).to include 'must form a unique combination with spell'

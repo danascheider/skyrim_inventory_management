@@ -36,7 +36,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when there are no shopping lists for that game' do
-      let(:game) { create(:game, user: user) }
+      let(:game) { create(:game, user:) }
       let(:game_id) { game.id }
 
       it 'returns a Service::OKResult' do
@@ -49,7 +49,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when there are shopping lists for that game' do
-      let(:game) { create(:game_with_shopping_lists, user: user) }
+      let(:game) { create(:game_with_shopping_lists, user:) }
       let(:game_id) { game.id }
 
       it 'returns a Service::OKResult' do
@@ -62,7 +62,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game) { create(:game, user: user) }
+      let(:game) { create(:game, user:) }
       let(:game_id) { game.id }
 
       before do

@@ -60,7 +60,7 @@ RSpec.describe Property, type: :model do
     it 'only allows up to 10 per game', :aggregate_failures do
       Canonical::Property.all.each do |canonical_property|
         game.properties.create!(
-          canonical_property: canonical_property,
+          canonical_property:,
           name:               canonical_property.name,
           hold:               canonical_property.hold,
           city:               canonical_property.city,
@@ -80,7 +80,7 @@ RSpec.describe Property, type: :model do
 
       before do
         game.properties.create!(
-          canonical_property: canonical_property,
+          canonical_property:,
           name:               canonical_property.name,
           hold:               canonical_property.hold,
           city:               canonical_property.city,

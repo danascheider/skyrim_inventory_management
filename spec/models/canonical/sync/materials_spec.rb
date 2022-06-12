@@ -105,7 +105,7 @@ RSpec.describe Canonical::Sync::Materials do
       context 'when an ActiveRecord::RecordInvalid error is raised' do
         let(:errored_model) do
           instance_double Canonical::Material,
-                          errors: errors,
+                          errors:,
                           class:  class_double(Canonical::Material, i18n_scope: :activerecord)
         end
 

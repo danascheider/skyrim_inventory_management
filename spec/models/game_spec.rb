@@ -8,10 +8,10 @@ RSpec.describe Game, type: :model do
   describe 'validations' do
     describe 'name' do
       describe 'uniqueness' do
-        let(:game) { build(:game, name: 'My Game', user: user) }
+        let(:game) { build(:game, name: 'My Game', user:) }
 
         it 'is unique per user' do
-          create(:game, name: 'My Game', user: user)
+          create(:game, name: 'My Game', user:)
 
           game.validate
           expect(game.errors[:name]).to include 'must be unique'
@@ -57,7 +57,7 @@ RSpec.describe Game, type: :model do
   end
 
   describe '#destroy!' do
-    let!(:game) { create(:game_with_everything, user: user) }
+    let!(:game) { create(:game_with_everything, user:) }
 
     # This is a regression test. Games were failing to be destroyed because, when
     # destroying their shopping lists, the aggregate list wasn't necessarily
@@ -105,7 +105,7 @@ RSpec.describe Game, type: :model do
           # Create games for a different user to make sure the name of this game's
           # name isn't affected by them
           create_list(:game, 2, name: nil)
-          create_list(:game, 2, name: nil, user: user)
+          create_list(:game, 2, name: nil, user:)
         end
 
         it 'sets the title based on the highest numbered default title' do
@@ -116,9 +116,9 @@ RSpec.describe Game, type: :model do
       context 'when the user has differently titled games' do
         before do
           create(:game, name: nil)
-          create(:game, user: user, name: nil)
-          create(:game, user: user, name: 'New Game')
-          create(:game, user: user, name: nil)
+          create(:game, user:, name: nil)
+          create(:game, user:, name: 'New Game')
+          create(:game, user:, name: nil)
         end
 
         it 'uses the next highest number in default-named games' do
@@ -128,8 +128,8 @@ RSpec.describe Game, type: :model do
 
       context 'when the user has a game with a similar name' do
         before do
-          create(:game, user: user, name: 'This Game is Called My Game 4')
-          create_list(:game, 2, user: user, name: nil)
+          create(:game, user:, name: 'This Game is Called My Game 4')
+          create_list(:game, 2, user:, name: nil)
         end
 
         it 'sets the name based on the highest numbered game called "My Game N"' do
@@ -139,8 +139,8 @@ RSpec.describe Game, type: :model do
 
       context 'when there is a game called "My Game <non-integer>"' do
         before do
-          create(:game, user: user, name: 'My Game Is the Best Game')
-          create_list(:game, 2, user: user, name: nil)
+          create(:game, user:, name: 'My Game Is the Best Game')
+          create_list(:game, 2, user:, name: nil)
         end
 
         it 'sets the name based on the highest numbered game called "My Game N"' do
@@ -150,7 +150,7 @@ RSpec.describe Game, type: :model do
 
       context 'when there is a game called "My Game <negative integer>"' do
         before do
-          create(:game, user: user, name: 'My Game -4')
+          create(:game, user:, name: 'My Game -4')
         end
 
         it 'ignores the game name with the negative integer' do
@@ -176,10 +176,10 @@ RSpec.describe Game, type: :model do
     subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
 
     let(:game)            { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game: game) }
+    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
 
     before do
-      create_list(:shopping_list, 2, game: game)
+      create_list(:shopping_list, 2, game:)
     end
 
     it "returns that game's aggregate shopping list" do
@@ -191,10 +191,10 @@ RSpec.describe Game, type: :model do
     subject(:aggregate_inventory_list) { game.aggregate_inventory_list }
 
     let(:game)            { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_inventory_list, game: game) }
+    let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
 
     before do
-      create_list(:inventory_list, 2, game: game)
+      create_list(:inventory_list, 2, game:)
     end
 
     it "returns that game's aggregate inventory list" do
@@ -205,11 +205,11 @@ RSpec.describe Game, type: :model do
   describe '#shopping_list_items' do
     subject(:shopping_list_items) { game.shopping_list_items.to_a.sort }
 
-    let(:game) { create(:game, user: user) }
+    let(:game) { create(:game, user:) }
 
     before do
-      create_list(:shopping_list_with_list_items, 2, game: game)
-      create(:game_with_shopping_lists_and_items, user: user) # one that shouldn't be included
+      create_list(:shopping_list_with_list_items, 2, game:)
+      create(:game_with_shopping_lists_and_items, user:) # one that shouldn't be included
     end
 
     it 'returns all list items belonging to the game' do
@@ -224,11 +224,11 @@ RSpec.describe Game, type: :model do
   describe '#inventory_items' do
     subject(:inventory_items) { game.inventory_items.to_a.sort }
 
-    let(:game) { create(:game, user: user) }
+    let(:game) { create(:game, user:) }
 
     before do
-      create_list(:inventory_list_with_list_items, 2, game: game)
-      create(:game_with_inventory_lists_and_items, user: user) # one that shouldn't be included
+      create_list(:inventory_list_with_list_items, 2, game:)
+      create(:game_with_inventory_lists_and_items, user:) # one that shouldn't be included
     end
 
     it 'returns all list items belonging to the game' do

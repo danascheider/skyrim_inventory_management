@@ -12,7 +12,7 @@ FactoryBot.define do
       end
 
       after(:create) do |user, evaluator|
-        create_list(:game, evaluator.game_count, user: user)
+        create_list(:game, evaluator.game_count, user:)
       end
     end
   end
