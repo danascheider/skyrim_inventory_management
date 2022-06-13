@@ -5,15 +5,10 @@ require 'rails_helper'
 RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
   describe 'validations' do
     describe 'number of records per ingredient' do
-      let(:ingredient) { create(:canonical_ingredient) }
+      let!(:ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
 
       it 'cannot have more than 4 records corresponding to one ingredient' do
-        4.times do |n|
-          ingredient.canonical_ingredients_alchemical_properties.create!(
-            alchemical_property: create(:alchemical_property),
-            priority:            n + 1,
-          )
-        end
+        ingredient.reload
 
         new_association = build(:canonical_ingredients_alchemical_property, ingredient:)
 
