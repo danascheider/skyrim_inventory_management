@@ -12,7 +12,7 @@ gem 'rails', '~> 7.0.3'
 gem 'pg', '~> 1.3'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.3.2'
+gem 'puma', '~> 5.6.4'
 
 # Use google-id-token gem to verify tokens sent from Google OAuth
 gem 'google-id-token', '~> 1.4.2'
