@@ -25,7 +25,7 @@ module Canonical
     private
 
     def ensure_max_of_four_per_ingredient
-      errors.add(:ingredient, "already has #{MAX_PER_INGREDIENT} alchemical properties") if ingredient.alchemical_properties.count >= MAX_PER_INGREDIENT
+      errors.add(:ingredient, "already has #{MAX_PER_INGREDIENT} alchemical properties") if ingredient.alchemical_properties.length >= MAX_PER_INGREDIENT
     end
   end
 end

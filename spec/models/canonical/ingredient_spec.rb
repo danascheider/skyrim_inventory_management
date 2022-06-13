@@ -172,4 +172,20 @@ RSpec.describe Canonical::Ingredient, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    let!(:ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
+
+    # Ensure that a key attribute from the join model can be retrieved directly from
+    # the alchemical property
+    it 'can get the priority from its alchemical properties' do
+      expect(ingredient.reload.alchemical_properties.first.priority).to eq 1
+    end
+
+    # Ensure that a key attribute from the associated model can also be retrieved
+    # directly
+    it 'can get the name from its alchemical properties' do
+      expect(ingredient.reload.alchemical_properties.last.name).to eq AlchemicalProperty.last.name
+    end
+  end
 end

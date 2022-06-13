@@ -10,5 +10,13 @@ FactoryBot.define do
     purchase_requires_perk { false }
     unique_item            { false }
     rare_item              { false }
+
+    trait :with_alchemical_properties do
+      after(:create) do |ingredient, _evaluator|
+        4.times do |n|
+          create(:canonical_ingredients_alchemical_property, ingredient:, priority: n + 1)
+        end
+      end
+    end
   end
 end
