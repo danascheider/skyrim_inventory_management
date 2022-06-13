@@ -43,7 +43,14 @@ Say you have four `Canonical::IngredientsAlchemicalProperty` models:
 ```
 If you want to change switch the priority of the model with ID `22` to `3`, you will first need to clear priorities from that model and the one whose priority is currently 3 (the one with ID of `23`) and then change both. If you aren't simply swapping values on two models, you may have to set the priority on three or even all four of the models to `nil` before you can update the values.
 
-Note that, because of the possible necessity of changing priorities, there is no `presence` validation on the `priority` attribute - it is allowed to be blank.
+**Note that, because of the possible necessity of changing priorities, there is no `presence` validation on the `priority` attribute - it is allowed to be blank.**
+
+The priority of an alchemical property on a given ingredient can be accessed from the ingredient:
+
+```ruby
+ingredient = Canonical::Ingredient.first
+ingredient.alchemical_properties.first.priority #=> the priority defined on the join model
+```
 
 ## `strength_modifier` and `duration_modifier`
 
