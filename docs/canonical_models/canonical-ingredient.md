@@ -47,3 +47,13 @@ Because purchasability can be determined based on the `ingredient_type` field, t
 #### Merchant Perk
 
 Some ingredients are purchasable only with the Merchant perk (which requires a Speech level of 50). These ingredients are designated by the `purchase_requires_perk` boolean column. This column will be `NULL` if the ingredient is not purchasable at all. Purchasable ingredients will have this column set to `true` (if the ingredient can only be purchased with the perk) or `false` (if they are always purchasable).
+
+## Accessing Alchemical Properties
+
+Alchemical properties are accessible using `ingredient.alchemical_properties`. It is possible to retrieve the attributes of a given alchemical property, along with its priority on a particular ingredient, using code like this:
+
+```ruby
+ingredient = Canonical::Ingredient.first
+ingredient.alchemical_properties.first.name #=> name of alchemical property, defined on AlchemicalProperty model
+ingredient.alchemical_properties.first.priority #=> priority of property on this ingredient, defined on join model
+```
