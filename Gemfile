@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 2.11', require: false
 
   # Use Rubocop to enforce performance standards
-  gem 'rubocop-performance', '~> 1.11.4', require: false
+  gem 'rubocop-performance', '~> 1.14', require: false
 end
 
 group :development do
