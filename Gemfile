@@ -9,16 +9,16 @@ ruby '3.1.2'
 gem 'rails', '~> 7.0.3'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.2'
+gem 'pg', '~> 1.3'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.3.2'
+gem 'puma', '~> 5.6.4'
 
 # Use google-id-token gem to verify tokens sent from Google OAuth
 gem 'google-id-token', '~> 1.4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.7.6', require: false
+gem 'bootsnap', '>= 1.12.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', '~> 1.1.1'
@@ -31,10 +31,10 @@ group :development, :test do
   gem 'byebug', '~> 11.1', platforms: %i[mri mingw x64_mingw]
 
   # Use RSpec for unit and integration testing
-  gem 'rspec-rails', '~> 5.0.1'
+  gem 'rspec-rails', '~> 5.1'
 
   # Use Timecop to freeze time in tests (for testing timestamps, etc.)
-  gem 'timecop', '~> 0.9.4'
+  gem 'timecop', '~> 0.9.5'
 
   # Use DatabaseCleaner to clear the database between specs
   gem 'database_cleaner-active_record', '~> 2.0.1'
@@ -43,19 +43,19 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
 
   # Use Rubocop to enforce style guide
-  gem 'rubocop-rails', '~> 2.11.3', require: false
+  gem 'rubocop-rails', '~> 2.14', require: false
 
   # Use Rubocop to enforce RSpec styles
-  gem 'rubocop-rspec', '~> 2.4.0', require: false
+  gem 'rubocop-rspec', '~> 2.11', require: false
 
   # Use Rubocop to enforce performance standards
-  gem 'rubocop-performance', '~> 1.11.4', require: false
+  gem 'rubocop-performance', '~> 1.14', require: false
 end
 
 group :development do
   # Use listen to hot-reload app code
-  gem 'listen', '~> 3.6'
+  gem 'listen', '~> 3.7'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.1'
+  gem 'spring', '~> 4.0'
 end
