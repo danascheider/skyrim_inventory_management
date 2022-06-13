@@ -40,11 +40,12 @@ jobs:
           cp config/database.github-actions.yml config/database.yml
           bundle exec rails db:create
           bundle exec rails db:migrate
+        env:
+          RAILS_ENV: test
       - name: Run Rubocop
         run: bundle exec rails rubocop
       - name: Run RSpec
         run: |
-          bundle exec rails db:environment:set RAILS_ENV=test
           bundle exec rails db:prepare
           bundle exec rails spec
         env:
