@@ -10,7 +10,3 @@ default: &default
 test:
   <<: *default
   database: skyrim_inventory_management_test
-
-development:
-  <<: *default
-  database: skyrim_inventory_management_development
