@@ -43,6 +43,8 @@ module Canonical
     validate :validate_skill_name_presence
     validate :verify_unique_item_rare, if: -> { unique_item == true }
 
+    before_validation :upcase_item_code, if: -> { item_code_changed? }
+
     def self.unique_identifier
       :item_code
     end
@@ -59,6 +61,10 @@ module Canonical
 
     def verify_unique_item_rare
       errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
+    end
+
+    def upcase_item_code
+      item_code.upcase!
     end
   end
 end

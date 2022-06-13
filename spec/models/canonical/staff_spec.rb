@@ -160,6 +160,13 @@ RSpec.describe Canonical::Staff, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      staff = create(:canonical_staff, item_code: 'abc123')
+      expect(staff.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'associations' do
     describe 'powers' do
       let(:staff) { create(:canonical_staff) }

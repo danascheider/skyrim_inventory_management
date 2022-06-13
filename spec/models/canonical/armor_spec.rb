@@ -168,6 +168,13 @@ RSpec.describe Canonical::Armor, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      armor = create(:canonical_armor, item_code: 'abc123')
+      expect(armor.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'associations' do
     describe 'enchantments' do
       let(:armor)       { create(:canonical_armor) }

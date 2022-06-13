@@ -43,6 +43,8 @@ module Canonical
     validate :validate_purchase_requires_perk
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
+    before_validation :upcase_item_code, if: -> { item_code_changed? }
+
     def self.unique_identifier
       :item_code
     end
@@ -63,6 +65,10 @@ module Canonical
 
     def validate_unique_item_also_rare
       errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
+    end
+
+    def upcase_item_code
+      item_code.upcase!
     end
   end
 end

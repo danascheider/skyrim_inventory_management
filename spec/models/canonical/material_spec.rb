@@ -60,6 +60,13 @@ RSpec.describe Canonical::Material, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      material = create(:canonical_material, item_code: 'abc123')
+      expect(material.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'class methods' do
     describe '::unique_identifier' do
       it 'returns :item_code' do

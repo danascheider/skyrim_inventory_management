@@ -113,6 +113,13 @@ RSpec.describe Canonical::Potion, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      potion = create(:canonical_potion, item_code: 'abc123')
+      expect(potion.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'associations' do
     describe 'alchemical properties' do
       let(:potion)              { create(:canonical_potion) }

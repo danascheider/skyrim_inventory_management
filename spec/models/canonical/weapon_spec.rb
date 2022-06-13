@@ -214,6 +214,13 @@ RSpec.describe Canonical::Weapon, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      weapon = create(:canonical_weapon, item_code: 'abc123')
+      expect(weapon.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'associations' do
     describe 'enchantments' do
       let(:weapon)      { create(:canonical_weapon) }
