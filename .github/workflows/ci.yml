@@ -44,7 +44,7 @@ jobs:
         run: bundle exec rails rubocop
       - name: Run RSpec
         run: |
-          bundle exec rails db:prepare
+          bundle exec rails db:test:prepare
           bundle exec rails spec
         env:
           PGHOST: localhost
