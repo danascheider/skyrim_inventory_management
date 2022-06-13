@@ -18,7 +18,7 @@ gem 'puma', '~> 5.6.4'
 gem 'google-id-token', '~> 1.4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.7.6', require: false
+gem 'bootsnap', '>= 1.12.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', '~> 1.1.1'
