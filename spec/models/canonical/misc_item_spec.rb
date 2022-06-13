@@ -120,6 +120,13 @@ RSpec.describe Canonical::MiscItem, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases the item code' do
+      item = create(:canonical_misc_item, item_code: 'abc123')
+      expect(item.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'class methods' do
     describe '::unique_identifier' do
       it 'returns ":item_code"' do

@@ -128,6 +128,13 @@ RSpec.describe Canonical::JewelryItem, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      item = create(:canonical_jewelry_item, item_code: 'abc123')
+      expect(item.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'associations' do
     describe 'enchantments' do
       let(:item)        { create(:canonical_jewelry_item) }

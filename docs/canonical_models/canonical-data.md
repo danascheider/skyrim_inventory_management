@@ -29,7 +29,7 @@ Since associated models are not created or updated as part of each sync, it is i
 
 ### Important Note on Item Codes
 
-Codes representing particular items are not case sensitive in-game and are therefore listed using different casing (or inconsistent casing) in different sources. **Item codes in SIM are always upper-case.** Since items are generally looked up by unique identifier rather than primary key, it is critical that these codes be meticulously upcased when generating and cleansing JSON data. Failing to do can will result in duplicate item codes or failure to return a model that exists in the database but whose item code contains lower-case characters.
+Codes representing particular items are not case sensitive in-game and are therefore listed using different casing (or inconsistent casing) in different sources. **Item codes in SIM are always upper-case.** Having mixed-case codes could be problematic due to the fact that item code is the unique identifier for all classes that have them, and mixed cases could mean they were not actually unique. Previously, we relied on data cleansing to ensure all codes in SIM were upcased, however, now model classes that have item codes also automatically upcase them prior to doing the uniqueness validation.
 
 ### Example
 

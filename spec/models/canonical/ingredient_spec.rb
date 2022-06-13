@@ -165,6 +165,13 @@ RSpec.describe Canonical::Ingredient, type: :model do
     end
   end
 
+  describe 'default behavior' do
+    it 'upcases item codes' do
+      ingredient = create(:canonical_ingredient, item_code: 'abc123')
+      expect(ingredient.reload.item_code).to eq 'ABC123'
+    end
+  end
+
   describe 'class methods' do
     describe '::unique_identifier' do
       it 'returns :item_code' do
