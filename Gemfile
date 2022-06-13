@@ -54,7 +54,7 @@ end
 
 group :development do
   # Use listen to hot-reload app code
-  gem 'listen', '~> 3.6'
+  gem 'listen', '~> 3.7'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1'
