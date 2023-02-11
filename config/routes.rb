@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   root to: 'health_checks#index'
 
-  get '/auth/verify_token', to: 'verifications#verify_token', as: 'verify_token'
   get '/users/current', to: 'users#current', as: 'current_user'
 
   resources :games do
