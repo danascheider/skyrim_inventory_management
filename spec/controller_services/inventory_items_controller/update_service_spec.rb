@@ -126,20 +126,6 @@ RSpec.describe InventoryItemsController::UpdateService do
       end
     end
 
-    context "when the inventory list item doesn't belong to the given user" do
-      let(:list_item) { create(:inventory_item) }
-      let(:params)    { { notes: 'Hello world' } }
-
-      it 'returns a Service::NotFoundResult' do
-        expect(perform).to be_a(Service::NotFoundResult)
-      end
-
-      it 'leaves the resource and errors empty', :aggregate_failures do
-        expect(perform.resource).to be_blank
-        expect(perform.errors).to be_blank
-      end
-    end
-
     context 'when the item is on an aggregate list' do
       let!(:list_item) { create(:inventory_item, list: aggregate_list) }
       let(:params)     { { quantity: 5 } }

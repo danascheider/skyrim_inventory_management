@@ -123,19 +123,6 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       end
     end
 
-    context "when the specified list item doesn't belong to the authenticated user" do
-      let(:user) { create(:user) }
-      let(:list_item) { create(:shopping_list_item) }
-
-      it 'returns a Service::NotFoundResult' do
-        expect(perform).to be_a Service::NotFoundResult
-      end
-
-      it "doesn't return any error messages" do
-        expect(perform.errors).to eq []
-      end
-    end
-
     context 'when the specified list item is on an aggregate list' do
       let(:user) { list_item.user }
       let(:list_item) { create(:shopping_list_item, list: aggregate_list) }

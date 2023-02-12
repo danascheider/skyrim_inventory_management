@@ -13,12 +13,8 @@ class ApplicationController < ActionController::API
   private
 
   def validate_google_oauth_token
-    result = AuthorizationService.new(self, id_token).perform
+    result = AuthorizationService.new(self).perform
 
     ::Controller::Response.new(self, result).execute if result.present?
-  end
-
-  def id_token
-    request.headers['Authorization']&.gsub('Bearer ', '')
   end
 end

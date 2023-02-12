@@ -14,9 +14,6 @@ gem 'pg', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.6.4'
 
-# Use google-id-token gem to verify tokens sent from Google OAuth
-gem 'google-id-token', '~> 1.4.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.12.0', require: false
 

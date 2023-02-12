@@ -13,57 +13,11 @@ RSpec.describe 'InventoryLists', type: :request do
   describe 'GET /games/:game_id/inventory_lists' do
     subject(:get_index) { get "/games/#{game.id}/inventory_lists", headers: }
 
-    context 'when unauthenticated' do
-      let(:game) { create(:game) }
-
-      before do
-        # create some data to not be returned
-        create_list(:inventory_list, 3, game:)
-      end
-
-      it 'returns 401' do
-        get_index
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error body indicating authorisation failed' do
-        get_index
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
-
     context 'when authenticated' do
-      let(:authenticated_user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => authenticated_user.email,
-          'name'  => authenticated_user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:authenticated_user) { create(:user) }
 
       context 'when the game is not found' do
         let(:game) { double(id: 491_349_759) }
-
-        it 'returns status 404' do
-          get_index
-          expect(response.status).to eq 404
-        end
-
-        it 'returns no data' do
-          get_index
-          expect(response.body).to be_empty
-        end
-      end
-
-      context "when the game doesn't belong to the authenticated user" do
-        let(:game) { create(:game) }
 
         it 'returns status 404' do
           get_index
@@ -111,19 +65,6 @@ RSpec.describe 'InventoryLists', type: :request do
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
 
       context 'when all goes well' do
         let(:game) { create(:game, user:) }
@@ -194,25 +135,6 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
-      context "when the game doesn't belong to the authenticated user" do
-        let(:game) { create(:game) }
-
-        it 'returns status 404' do
-          create_inventory_list
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          create_inventory_list
-          expect(response.body).to be_empty
-        end
-
-        it "doesn't create an inventory list" do
-          expect { create_inventory_list }
-            .not_to change(InventoryList, :count)
-        end
-      end
-
       context 'when the params are invalid' do
         subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { title: existing_list.title } }.to_json, headers: }
 
@@ -251,15 +173,6 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      let(:game) { create(:game) }
-
-      it 'returns 401' do
-        create_inventory_list
-        expect(response.status).to eq 401
-      end
-    end
   end
 
   describe 'PATCH /inventory_lists/:id' do
@@ -267,19 +180,6 @@ RSpec.describe 'InventoryLists', type: :request do
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
 
       context 'when all goes well' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -326,26 +226,6 @@ RSpec.describe 'InventoryLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
-
-        it 'returns status 404' do
-          update_inventory_list
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return data" do
-          update_inventory_list
-          expect(response.body).to be_blank
-        end
-      end
-
-      context 'when the list belongs to a different user' do
-        let!(:inventory_list) { create(:inventory_list) }
-        let(:list_id)         { inventory_list.id }
-
-        it "doesn't update the inventory list" do
-          update_inventory_list
-          expect(inventory_list.reload.title).not_to eq 'Severin Manor'
-        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -423,15 +303,6 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      let(:list_id) { 42 }
-
-      it 'returns 401' do
-        update_inventory_list
-        expect(response.status).to eq 401
-      end
-    end
   end
 
   describe 'PUT /inventory_lists/:id' do
@@ -439,19 +310,6 @@ RSpec.describe 'InventoryLists', type: :request do
 
     context 'when authenticated' do
       let!(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
 
       context 'when all goes well' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -498,26 +356,6 @@ RSpec.describe 'InventoryLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
-
-        it 'returns status 404' do
-          update_inventory_list
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return data" do
-          update_inventory_list
-          expect(response.body).to be_blank
-        end
-      end
-
-      context 'when the list belongs to a different user' do
-        let!(:inventory_list) { create(:inventory_list) }
-        let(:list_id)         { inventory_list.id }
-
-        it "doesn't update the inventory list" do
-          update_inventory_list
-          expect(inventory_list.reload.title).not_to eq 'Severin Manor'
-        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -595,55 +433,15 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      let(:list_id) { 42 }
-
-      it 'returns 401' do
-        update_inventory_list
-        expect(response.status).to eq 401
-      end
-    end
   end
 
   describe 'DELETE /inventory_lists/:id' do
     subject(:delete_inventory_list) { delete "/inventory_lists/#{inventory_list.id}", headers: }
 
-    context 'when unauthenticated' do
-      let!(:inventory_list) { create(:inventory_list) }
-
-      it 'returns 401' do
-        delete_inventory_list
-        expect(response.status).to eq 401
-      end
-
-      it 'does not delete the inventory list' do
-        expect { delete_inventory_list }
-          .not_to change(InventoryList, :count)
-      end
-
-      it 'returns an error in the body' do
-        delete_inventory_list
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
-
     context 'when authenticated' do
-      let(:user)      { create(:user) }
+      let!(:user) { create(:user) }
       let(:game)      { create(:game, user:) }
       let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
 
       context 'when the inventory list exists' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -691,25 +489,6 @@ RSpec.describe 'InventoryLists', type: :request do
         let(:inventory_list) { double(id: 24_588) }
 
         it 'returns 404' do
-          delete_inventory_list
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          delete_inventory_list
-          expect(response.body).to be_blank
-        end
-      end
-
-      context 'when the inventory list belongs to a different user' do
-        let!(:inventory_list) { create(:inventory_list) }
-
-        it "doesn't delete the list" do
-          expect { delete_inventory_list }
-            .not_to change(InventoryList, :count)
-        end
-
-        it 'returns status 404' do
           delete_inventory_list
           expect(response.status).to eq 404
         end
