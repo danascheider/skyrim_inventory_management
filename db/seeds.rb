@@ -19,3 +19,5 @@ module Seeds
     Rails.logger.info "User '#{USER_DATA[:uid]}' with email '#{USER_DATA[:email]}' already exists."
   end
 end
+
+Seeds.seed!
