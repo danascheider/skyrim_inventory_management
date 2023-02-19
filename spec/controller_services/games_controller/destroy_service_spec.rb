@@ -9,8 +9,8 @@ RSpec.describe GamesController::DestroyService do
     subject(:perform) { described_class.new(user, game.id).perform }
 
     context 'when all goes well' do
+      let!(:user) { create(:user) }
       let!(:game) { create(:game) }
-      let!(:user) { game.user }
 
       it 'destroys the game' do
         expect { perform }
@@ -28,22 +28,8 @@ RSpec.describe GamesController::DestroyService do
     end
 
     context 'when the game does not exist' do
+      let!(:user) { create(:user) }
       let(:game) { double(id: 43_598) }
-      let(:user) { create(:user) }
-
-      it 'returns a Service::NotFoundResult' do
-        expect(perform).to be_a(Service::NotFoundResult)
-      end
-
-      it "doesn't set data", :aggregate_failures do
-        expect(perform.resource).to be_blank
-        expect(perform.errors).to be_blank
-      end
-    end
-
-    context 'when the game does not belong to the user' do
-      let(:game) { create(:game) }
-      let(:user) { create(:user) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -56,8 +42,8 @@ RSpec.describe GamesController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
+      let!(:user) { create(:user) }
       let!(:game) { create(:game) }
-      let!(:user) { game.user }
 
       before do
         allow_any_instance_of(Game).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')

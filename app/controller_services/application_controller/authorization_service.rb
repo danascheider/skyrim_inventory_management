@@ -5,38 +5,22 @@ require 'service/internal_server_error_result'
 
 class ApplicationController < ActionController::API
   class AuthorizationService
-    def initialize(controller, token)
+    def initialize(controller)
       @controller = controller
-      @token      = token
     end
 
     def perform
-      validator = GoogleIDToken::Validator.new
-      payload   = validator.check(token, configatron.google_oauth_client_id)
-
-      if current?(payload['exp'])
-        controller.current_user = User.create_or_update_for_google(payload)
-        return
+      if User.first.nil?
+        Rails.logger.error 'No users exist'
+        return Service::InternalServerErrorResult.new(errors: ['Attempted to set current user but there are no users'])
       end
 
-      Service::UnauthorizedResult.new(errors: ['Expired authentication token. Try logging out and logging in again'])
-    rescue GoogleIDToken::ValidationError => e
-      Rails.logger.error "Token validation failed -- #{e.message}"
-      Service::UnauthorizedResult.new(errors: ['Google OAuth token validation failed'])
-    rescue GoogleIDToken::CertificateError => e
-      Rails.logger.error "Problem with OAuth certificate -- #{e.message}"
-      Service::UnauthorizedResult.new(errors: ['Invalid OAuth certificate'])
-    rescue StandardError => e
-      Rails.logger.error "Internal Server Error: #{e.message}"
-      Service::InternalServerErrorResult.new(errors: [e.message])
+      controller.current_user = User.first
+      nil
     end
 
     private
 
-    def current?(seconds_since_unix_epoch)
-      Time.zone.at(seconds_since_unix_epoch) >= Time.zone.now
-    end
-
-    attr_reader :controller, :token
+    attr_reader :controller
   end
 end

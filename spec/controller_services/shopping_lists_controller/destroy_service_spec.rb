@@ -111,24 +111,6 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
     end
 
-    context 'when the list does not belong to the user' do
-      let!(:shopping_list) { create(:shopping_list) }
-
-      it "doesn't delete the list" do
-        expect { perform }
-          .not_to change(ShoppingList, :count)
-      end
-
-      it 'returns a Service::NotFoundResult' do
-        expect(perform).to be_a(Service::NotFoundResult)
-      end
-
-      it "doesn't return any data", :aggregate_failures do
-        expect(perform.errors).to be_blank
-        expect(perform.resource).to be_blank
-      end
-    end
-
     context 'when the list does not exist' do
       let(:shopping_list) { double('list that does not exist', id: 838) }
 

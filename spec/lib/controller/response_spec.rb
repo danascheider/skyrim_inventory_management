@@ -12,7 +12,7 @@ RSpec.describe Controller::Response do
     subject(:execute) { described_class.new(controller, result, options).execute }
 
     context 'when the result has no resource and the errors are empty' do
-      let(:controller) { instance_double(VerificationsController, head: nil) }
+      let(:controller) { instance_double(ShoppingListsController, head: nil) }
       let(:options)    { {} }
       let(:result)     { Service::NoContentResult.new(resource: nil, errors: []) }
 

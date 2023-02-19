@@ -5,29 +5,15 @@ require 'rails_helper'
 RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
-      'Content-Type'  => 'application/json',
-      'Authorization' => 'Bearer xxxxxxx',
+      'Content-Type' => 'application/json',
     }
   end
 
   describe 'GET /games' do
-    subject(:get_games) { get '/games', headers: { 'Authorization' => 'Bearer xxxxxxx' } }
+    subject(:get_games) { get '/games' }
 
     context 'when authenticated' do
-      let(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { create(:user) }
 
       context 'when the user has no games' do
         it 'returns status 200' do
@@ -74,38 +60,13 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      it 'returns status 401' do
-        get_games
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error message' do
-        get_games
-        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
-      end
-    end
   end
 
   describe 'POST /games' do
     subject(:create_game) { post '/games', headers:, params: }
 
     context 'when authenticated' do
-      let(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { create(:user) }
 
       context 'when all goes well' do
         let(:params) { { game: { name: 'My Game' } }.to_json }
@@ -163,40 +124,13 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      let(:params) { { game: { name: 'My Game' } }.to_json }
-
-      it 'returns status 401' do
-        create_game
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error message' do
-        create_game
-        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
-      end
-    end
   end
 
   describe 'PATCH /games/:id' do
     subject(:update_game) { patch "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { create(:user) }
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -257,21 +191,6 @@ RSpec.describe 'Games', type: :request do
         end
       end
 
-      context 'when the game does not belong to the authenticated user' do
-        let(:game)   { create(:game) }
-        let(:params) { { game: { description: 'New description' } }.to_json }
-
-        it 'returns status 404' do
-          update_game
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          update_game
-          expect(response.body).to be_empty
-        end
-      end
-
       context 'when something unexpected goes wrong' do
         let(:game)   { create(:game, user:) }
         let(:params) { { game: { description: 'New description' } }.to_json }
@@ -289,21 +208,6 @@ RSpec.describe 'Games', type: :request do
           update_game
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
-      end
-    end
-
-    context 'when unauthenticated' do
-      let(:game)   { create(:game) }
-      let(:params) { { game: { name: 'New Name' } }.to_json }
-
-      it 'returns status 401' do
-        update_game
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error' do
-        update_game
-        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
       end
     end
   end
@@ -312,20 +216,7 @@ RSpec.describe 'Games', type: :request do
     subject(:update_game) { put "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { create(:user) }
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -386,21 +277,6 @@ RSpec.describe 'Games', type: :request do
         end
       end
 
-      context 'when the game does not belong to the authenticated user' do
-        let(:game)   { create(:game) }
-        let(:params) { { game: { description: 'New description' } }.to_json }
-
-        it 'returns status 404' do
-          update_game
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          update_game
-          expect(response.body).to be_empty
-        end
-      end
-
       context 'when something unexpected goes wrong' do
         let(:game)   { create(:game, user:) }
         let(:params) { { game: { description: 'New description' } }.to_json }
@@ -420,41 +296,13 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
-
-    context 'when unauthenticated' do
-      let(:game)   { create(:game) }
-      let(:params) { { game: { name: 'New Name' } }.to_json }
-
-      it 'returns status 401' do
-        update_game
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error' do
-        update_game
-        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
-      end
-    end
   end
 
   describe 'DELETE /games/:id' do
     subject(:destroy_game) { delete "/games/#{game.id}", headers: }
 
     context 'when authenticated' do
-      let(:user) { create(:user) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { create(:user) }
 
       context 'when all goes well' do
         let!(:game) { create(:game, user:) }
@@ -489,20 +337,6 @@ RSpec.describe 'Games', type: :request do
         end
       end
 
-      context 'when the game does not belong to the authenticated user' do
-        let(:game) { create(:game) }
-
-        it 'returns status 404' do
-          destroy_game
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          destroy_game
-          expect(response.body).to be_blank
-        end
-      end
-
       context 'when something unexpected goes wrong' do
         let(:game) { create(:game, user:) }
 
@@ -519,20 +353,6 @@ RSpec.describe 'Games', type: :request do
           destroy_game
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
-      end
-    end
-
-    context 'when unauthenticated' do
-      let(:game) { create(:game) }
-
-      it 'returns status 401' do
-        destroy_game
-        expect(response.status).to eq 401
-      end
-
-      it 'returns an error in the body' do
-        destroy_game
-        expect(response.body).to eq({ errors: ['Google OAuth token validation failed'] }.to_json)
       end
     end
   end

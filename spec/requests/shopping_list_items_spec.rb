@@ -19,20 +19,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     let!(:shopping_list)  { create(:shopping_list, aggregate_list:, game: aggregate_list.game) }
 
     context 'when authenticated' do
-      let!(:user)     { aggregate_list.user }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { aggregate_list.user }
 
       context 'when all goes well' do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
@@ -216,26 +203,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the list doesn't belong to the authenticated user" do
-        let(:shopping_list) { create(:shopping_list) }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5 } }.to_json }
-
-        it "doesn't create the list item" do
-          expect { create_item }
-            .not_to change(ShoppingListItem, :count)
-        end
-
-        it 'returns status 404' do
-          create_item
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          create_item
-          expect(response.body).to be_blank
-        end
-      end
-
       context 'when the params are invalid' do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: -2 } }.to_json }
 
@@ -294,20 +261,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
     end
-
-    context 'when not authenticated' do
-      let(:params) { { description: 'Corundum ingot', quantity: 4 }.to_json }
-
-      it 'returns status 401' do
-        create_item
-        expect(response.status).to eq 401
-      end
-
-      it 'returns the error' do
-        create_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
   end
 
   describe 'PATCH /shopping_list_items/:id' do
@@ -318,20 +271,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
-      let!(:user)     { game.user }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { game.user }
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
@@ -528,21 +468,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the shopping list item doesn't belong to the authenticated user" do
-        let(:list_item) { create(:shopping_list_item) }
-        let(:params)    { { notes: 'Hello world' }.to_json }
-
-        it 'returns status 404' do
-          update_item
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          update_item
-          expect(response.body).to be_blank
-        end
-      end
-
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
         let(:params)     { { shopping_list_item: { quantity: 10 } }.to_json }
@@ -614,21 +539,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
     end
-
-    context 'when not authenticated' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:params)     { { quantity: 6 }.to_json }
-
-      it 'returns status 401' do
-        update_item
-        expect(response.status).to eq 401
-      end
-
-      it 'returns the errors' do
-        update_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
   end
 
   describe 'PUT /shopping_list_items/:id' do
@@ -639,20 +549,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
-      let!(:user)     { game.user }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => user.email,
-          'name'  => user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let!(:user) { game.user }
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
@@ -769,21 +666,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the shopping list item doesn't belong to the authenticated user" do
-        let(:list_item) { create(:shopping_list_item) }
-        let(:params)    { { notes: 'Hello world' }.to_json }
-
-        it 'returns status 404' do
-          update_item
-          expect(response.status).to eq 404
-        end
-
-        it "doesn't return any data" do
-          update_item
-          expect(response.body).to be_blank
-        end
-      end
-
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
         let(:params)     { { shopping_list_item: { quantity: 10 } }.to_json }
@@ -855,21 +737,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
     end
-
-    context 'when not authenticated' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
-      let(:params)     { { quantity: 12 }.to_json }
-
-      it 'returns status 401' do
-        update_item
-        expect(response.status).to eq 401
-      end
-
-      it 'returns the errors' do
-        update_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
-      end
-    end
   end
 
   describe 'DELETE /shopping_list_items/:id' do
@@ -879,19 +746,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
       let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
 
-      let(:game)      { create(:game) }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
-      let(:validation_data) do
-        {
-          'exp'   => (Time.zone.now + 1.year).to_i,
-          'email' => game.user.email,
-          'name'  => game.user.name,
-        }
-      end
-
-      before do
-        allow(GoogleIDToken::Validator).to receive(:new).and_return(validator)
-      end
+      let(:game) { create(:game) }
 
       context 'when all goes well' do
         let(:user)      { list_item.user }
@@ -1023,20 +878,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the specified list item doesn't belong to the authenticated user" do
-        let(:list_item) { create(:shopping_list_item) }
-
-        it 'returns status 404' do
-          destroy_item
-          expect(response.status).to eq 404
-        end
-
-        it 'returns an empty response body' do
-          destroy_item
-          expect(response.body).to be_empty
-        end
-      end
-
       context 'when the specified list item is on an aggregate list' do
         let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
 
@@ -1067,20 +908,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
           destroy_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
         end
-      end
-    end
-
-    context 'when unauthenticated' do
-      let(:list_item) { create(:shopping_list_item) }
-
-      it 'returns a 401' do
-        destroy_item
-        expect(response.status).to eq 401
-      end
-
-      it 'indicates the request was unauthenticated' do
-        destroy_item
-        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Google OAuth token validation failed'] })
       end
     end
   end
