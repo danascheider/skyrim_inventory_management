@@ -92,7 +92,7 @@ Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#r
 
 To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.
 
-Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will expect the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
+Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will expect the backend to run on `localhost:3000` in development. CORS settings on the API require the front end to run on `localhost:5173`.
 
 ### Testing
 
