@@ -2,4 +2,4 @@
 
 # Override your default settings for the Development environment here.
 #
-configatron.client_origin = 'http://localhost:3001'
+configatron.client_origin = 'http://localhost:5173'
