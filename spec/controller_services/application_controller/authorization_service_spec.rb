@@ -10,7 +10,7 @@ RSpec.describe ApplicationController::AuthorizationService do
     let(:controller) { instance_double(ApplicationController) }
 
     context 'when a user exists' do
-      let!(:user) { create(:user, name: 'Jane Doe', email: 'jane.doe@gmail.com', uid: 'jane.doe@gmail.com') }
+      let!(:user) { create(:user, display_name: 'Jane Doe', email: 'jane.doe@gmail.com', uid: 'jane.doe@gmail.com') }
 
       before do
         allow(controller).to receive(:current_user=)

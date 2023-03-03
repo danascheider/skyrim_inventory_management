@@ -32,8 +32,8 @@ There are no admin users or other special user accounts and thus no way to view 
 id: integer, primary key, unique, not null
 uid: string, unique, not null
 email: string, unique, not null, generally equal to `uid`
-image_url: string or null
-name: string or null
+photo_url: string or null
+display_name: string or null
 ```
 
 ### Shopping Lists

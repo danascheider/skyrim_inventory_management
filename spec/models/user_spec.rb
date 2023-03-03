@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
 
     let(:payload) do
       {
-        'exp'     => (Time.zone.now + 2.days).to_i,
-        'email'   => 'jane.doe@gmail.com',
-        'name'    => 'Jane Doe',
-        'picture' => 'https://example.com/user_images/89',
+        'uid'         => 'foobar',
+        'email'       => 'jane.doe@gmail.com',
+        'displayName' => 'Jane Doe',
+        'photoURL'    => 'https://example.com/user_images/89',
       }
     end
 
@@ -24,16 +24,16 @@ RSpec.describe User, type: :model do
       it 'sets the attributes' do
         create_or_update
         expect(described_class.last.attributes).to include(
-                                                     'uid'       => 'jane.doe@gmail.com',
-                                                     'email'     => 'jane.doe@gmail.com',
-                                                     'name'      => 'Jane Doe',
-                                                     'image_url' => 'https://example.com/user_images/89',
+                                                     'uid'          => 'foobar',
+                                                     'email'        => 'jane.doe@gmail.com',
+                                                     'display_name' => 'Jane Doe',
+                                                     'photo_url'    => 'https://example.com/user_images/89',
                                                    )
       end
     end
 
-    context 'when there is already a user with that email as uid' do
-      let!(:user) { create(:user, uid: 'jane.doe@gmail.com', email: 'jane.doe@gmail.com', name: 'Jane Doe', image_url: nil) }
+    context 'when there is already a user with that uid' do
+      let!(:user) { create(:user, uid: 'foobar', email: 'jane.doe@gmail.com', display_name: 'Jane Doe', photo_url: nil) }
 
       it 'does not create a new user' do
         expect { create_or_update }
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
 
       it 'updates the attributes' do
         create_or_update
-        expect(user.reload.image_url).to eq 'https://example.com/user_images/89'
+        expect(user.reload.photo_url).to eq 'https://example.com/user_images/89'
       end
     end
   end
