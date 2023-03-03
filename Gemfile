@@ -23,6 +23,9 @@ gem 'rack-cors', '~> 1.1.1'
 # Use configatron for app config
 gem 'configatron', '~> 4.5.1'
 
+# Use Faraday to make API requests
+gem 'faraday', '~> 2.7.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1', platforms: %i[mri mingw x64_mingw]
