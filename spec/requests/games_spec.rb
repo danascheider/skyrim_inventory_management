@@ -13,7 +13,11 @@ RSpec.describe 'Games', type: :request do
     subject(:get_games) { get '/games' }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the user has no games' do
         it 'returns status 200' do
@@ -66,7 +70,11 @@ RSpec.describe 'Games', type: :request do
     subject(:create_game) { post '/games', headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:params) { { game: { name: 'My Game' } }.to_json }
@@ -130,7 +138,11 @@ RSpec.describe 'Games', type: :request do
     subject(:update_game) { patch "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -216,7 +228,11 @@ RSpec.describe 'Games', type: :request do
     subject(:update_game) { put "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -302,7 +318,11 @@ RSpec.describe 'Games', type: :request do
     subject(:destroy_game) { delete "/games/#{game.id}", headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:game) { create(:game, user:) }
