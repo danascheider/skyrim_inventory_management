@@ -50,6 +50,9 @@ group :development, :test do
 
   # Use Rubocop to enforce performance standards
   gem 'rubocop-performance', '~> 1.14', require: false
+
+  # Use WebMock to mock HTTP requests, mainly for auth purposes
+  gem 'webmock', '~> 3.18.1'
 end
 
 group :development do

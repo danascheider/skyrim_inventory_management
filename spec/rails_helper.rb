@@ -10,6 +10,8 @@ require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'webmock/rspec'
+
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each {|file| require file }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -40,6 +42,7 @@ DatabaseCleaner.clean_with :transaction
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include AuthHelper
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
