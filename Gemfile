@@ -23,7 +23,7 @@ gem 'rack-cors', '~> 1.1.1'
 # Use configatron for app config
 gem 'configatron', '~> 4.5.1'
 
-# Use Faraday to make API requests
+# Use Faraday to validate Google auth access tokens
 gem 'faraday', '~> 2.7.4'
 
 group :development, :test do
@@ -58,4 +58,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 4.0'
+
+  # Load environment variables in dev
+  gem 'dotenv', '~> 2.8'
 end
