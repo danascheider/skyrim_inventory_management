@@ -101,6 +101,19 @@ RSpec.describe InventoryListsController::CreateService do
       end
     end
 
+    context 'when the game belongs to another user' do
+      let(:game)   { create(:game) }
+      let(:params) { { title: 'My Inventory List' } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
     context 'when the request tries to create an aggregate list' do
       let(:game) { create(:game, user:) }
       let(:params) do

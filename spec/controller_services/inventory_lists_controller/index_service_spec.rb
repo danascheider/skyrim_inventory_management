@@ -47,6 +47,18 @@ RSpec.describe InventoryListsController::IndexService do
       end
     end
 
+    context 'when the game belongs to another user' do
+      let(:game) { create(:game) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any error messages" do
+        expect(perform.errors).to be_empty
+      end
+    end
+
     context 'when something unexpected goes wrong' do
       let(:game) { create(:game, user:) }
 
