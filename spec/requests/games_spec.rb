@@ -203,6 +203,16 @@ RSpec.describe 'Games', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let(:game)   { create(:game) }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
+
+        it 'returns status 404' do
+          update_game
+          expect(response.status).to eq 404
+        end
+      end
+
       context 'when something unexpected goes wrong' do
         let(:game)   { create(:game, user:) }
         let(:params) { { game: { description: 'New description' } }.to_json }

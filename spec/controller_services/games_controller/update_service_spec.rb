@@ -12,7 +12,7 @@ RSpec.describe GamesController::UpdateService do
 
     context 'when all goes well' do
       let!(:user)  { create(:user) }
-      let!(:game)  { create(:game) }
+      let!(:game)  { create(:game, user:) }
       let(:params) { { description: 'New description' } }
 
       it 'updates the game' do
@@ -31,7 +31,7 @@ RSpec.describe GamesController::UpdateService do
 
     context 'when the params are invalid' do
       let!(:user)       { create(:user) }
-      let!(:game)       { create(:game) }
+      let!(:game)       { create(:game, user:) }
       let!(:other_game) { create(:game, user:) }
       let(:params)      { { name: other_game.name } }
 
@@ -64,9 +64,24 @@ RSpec.describe GamesController::UpdateService do
       end
     end
 
+    context "when the game doesn't belong to the user" do
+      let!(:user) { create(:user) }
+      let!(:game)  { create(:game) }
+      let(:params) { { name: 'Valid name' } }
+
+      it "doesn't update the game" do
+        perform
+        expect(game.reload.name).not_to eq 'Valid name'
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+    end
+
     context 'when something unexpected goes wrong' do
       let!(:user)  { create(:user) }
-      let(:game)   { create(:game) }
+      let(:game)   { create(:game, user:) }
       let(:params) { { description: 'New description' } }
 
       before do
