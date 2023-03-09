@@ -5,12 +5,13 @@ require 'rails_helper'
 RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
-      'Content-Type' => 'application/json',
+      'Content-Type'  => 'application/json',
+      'Authorization' => 'Bearer xxxxxxx',
     }
   end
 
   describe 'GET /games' do
-    subject(:get_games) { get '/games' }
+    subject(:get_games) { get '/games', headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -62,6 +63,17 @@ RSpec.describe 'Games', type: :request do
           get_games
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      before do
+        stub_unsuccessful_login
+      end
+
+      it 'returns status 401' do
+        get_games
+        expect(response.status).to eq 401
       end
     end
   end
@@ -130,6 +142,26 @@ RSpec.describe 'Games', type: :request do
           create_game
           expect(response.body).to eq({ errors: ['Something has gone horribly wrong'] }.to_json)
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:user) }
+      let!(:game)  { create(:game, user:) }
+      let(:params) { { game: { name: 'Skyrim Game 1' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't create a game" do
+        expect { create_game }
+          .not_to change(Game, :count)
+      end
+
+      it 'returns status 401' do
+        create_game
+        expect(response.status).to eq 401
       end
     end
   end
@@ -232,6 +264,26 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:user) }
+      let!(:game)  { create(:game, user:) }
+      let(:params) { { game: { name: 'Changed Name' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the game" do
+        update_game
+        expect(game.reload.name).not_to eq 'Changed Name'
+      end
+
+      it 'returns status 401' do
+        update_game
+        expect(response.status).to eq 401
+      end
+    end
   end
 
   describe 'PUT /games/:id' do
@@ -332,6 +384,26 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:user) }
+      let!(:game)  { create(:game, user:) }
+      let(:params) { { game: { name: 'Changed Name' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the game" do
+        update_game
+        expect(game.reload.name).not_to eq 'Changed Name'
+      end
+
+      it 'returns status 401' do
+        update_game
+        expect(response.status).to eq 401
+      end
+    end
   end
 
   describe 'DELETE /games/:id' do
@@ -407,6 +479,25 @@ RSpec.describe 'Games', type: :request do
           destroy_game
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:user) }
+      let!(:game) { create(:game, user:) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't destroy the game" do
+        expect { destroy_game }
+          .not_to change(Game, :count)
+      end
+
+      it 'returns status 401' do
+        destroy_game
+        expect(response.status).to eq 401
       end
     end
   end
