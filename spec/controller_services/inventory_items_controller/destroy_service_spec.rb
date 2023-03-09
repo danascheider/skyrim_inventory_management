@@ -78,6 +78,19 @@ RSpec.describe InventoryItemsController::DestroyService do
       end
     end
 
+    context 'when the list item belongs to another user' do
+      let(:list_item) { create(:inventory_item) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't set a resource or errors array", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the list item is on an aggregate list' do
       let!(:list_item) { create(:inventory_item, list: aggregate_list) }
 

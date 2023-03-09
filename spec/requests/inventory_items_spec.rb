@@ -906,12 +906,15 @@ RSpec.describe 'InventoryItems', type: :request do
   describe 'DELETE /inventory_items/:id' do
     subject(:destroy_item) { delete "/inventory_items/#{list_item.id}", headers: }
 
-    let(:game)            { create(:game) }
+    let!(:user)           { create(:authenticated_user) }
+    let(:game)            { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
-      let!(:user) { game.user }
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         context 'when there is no matching list item on another list' do
@@ -1021,6 +1024,20 @@ RSpec.describe 'InventoryItems', type: :request do
         end
       end
 
+      context 'when the list item belongs to another user' do
+        let(:list_item) { create(:inventory_item) }
+
+        it 'returns status 404' do
+          destroy_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          destroy_item
+          expect(response.body).to be_blank
+        end
+      end
+
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:inventory_item, list: aggregate_list) }
 
@@ -1056,6 +1073,29 @@ RSpec.describe 'InventoryItems', type: :request do
           destroy_item
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Something went horribly wrong'] })
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:list_item) { create(:inventory_item) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't destroy any inventory items" do
+        expect { destroy_item }
+          .not_to change(InventoryItem, :count)
+      end
+
+      it 'returns status 401' do
+        destroy_item
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        destroy_item
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
