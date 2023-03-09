@@ -38,7 +38,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-DatabaseCleaner.clean_with :transaction
+DatabaseCleaner[:active_record].strategy = :transaction
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
@@ -76,6 +76,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.around do |example|
-    DatabaseCleaner.cleaning { example.run }
+    DatabaseCleaner.start
+    example.run
+    DatabaseCleaner.clean
   end
 end
