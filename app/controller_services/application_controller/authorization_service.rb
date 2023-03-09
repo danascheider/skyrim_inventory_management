@@ -14,6 +14,8 @@ class ApplicationController < ActionController::API
     end
 
     def perform
+      return Service::UnauthorizedResult.new(errors: 'No Google OAuth 2.0 access token found') if access_token.blank?
+
       token_response = connection.post {|req| req.body = { idToken: access_token }.to_json }
 
       if token_response.success?

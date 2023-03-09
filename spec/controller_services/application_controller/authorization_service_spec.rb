@@ -17,6 +17,26 @@ RSpec.describe ApplicationController::AuthorizationService do
       allow(controller).to receive(:current_user=)
     end
 
+    context 'when the token is nil' do
+      let(:token) { nil }
+      let(:status)  { nil }
+      let(:success) { nil }
+      let(:body)    { nil }
+
+      it 'returns a Service::UnauthorizedResult' do
+        expect(perform).to be_a(Service::UnauthorizedResult)
+      end
+
+      it 'sets an error' do
+        expect(perform.errors).to include 'No Google OAuth 2.0 access token found'
+      end
+
+      it "doesn't set current user" do
+        perform
+        expect(controller).not_to have_received(:current_user=)
+      end
+    end
+
     context 'when login is successful' do
       let(:status)  { 200 }
       let(:success) { true }
