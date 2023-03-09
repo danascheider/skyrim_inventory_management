@@ -7,11 +7,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def self.create_or_update_for_google(data)
-    where(uid: data['uid']).first_or_initialize.tap do |user|
-      user.uid       = data['uid']
-      user.email     = data['email']
-      user.name      = data['displayName']
-      user.photo_url = data['photoURL']
+    where(uid: data['localId']).first_or_initialize.tap do |user|
+      user.uid          = data['localId']
+      user.email        = data['email']
+      user.display_name = data['displayName']
+      user.photo_url    = data['photoUrl']
       user.save!
     end
   end

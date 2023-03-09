@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
 
     let(:payload) do
       {
-        'uid'         => 'foobar',
+        'localId'     => 'foobar',
         'email'       => 'jane.doe@gmail.com',
         'displayName' => 'Jane Doe',
-        'photoURL'    => 'https://example.com/user_images/89',
+        'photoUrl'    => 'https://example.com/user_images/89',
       }
     end
 

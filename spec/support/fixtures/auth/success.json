@@ -1,0 +1,26 @@
+{
+  "kind": "identitytoolkit#GetAccountInfoResponse",
+  "users": [
+    {
+      "localId": "somestring",
+      "email": "someuser@gmail.com",
+      "displayName": "Jane Doe",
+      "photoUrl": "https://lh3.googleusercontent.com/a/userprofilephotourl",
+      "emailVerified": true,
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "displayName": "Jane Doe",
+          "photoUrl": "https://lh3.googleusercontent.com/a/userprofilephotourl",
+          "federatedId": "102936205639625087729",
+          "email": "someuser@gmail.com",
+          "rawId": "102936205639625087729"
+        }
+      ],
+      "validSince": "1677533238",
+      "lastLoginAt": "1678307939591",
+      "createdAt": "1677533238988",
+      "lastRefreshAt": "2023-03-08T23:05:56.946Z"
+    }
+  ]
+}

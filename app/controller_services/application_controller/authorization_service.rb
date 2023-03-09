@@ -1,26 +1,49 @@
 # frozen_string_literal: true
 
 require 'service/unauthorized_result'
-require 'service/internal_server_error_result'
 
 class ApplicationController < ActionController::API
   class AuthorizationService
-    def initialize(controller)
-      @controller = controller
+    FIREBASE_VERIFICATION_URI = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo'
+
+    class AmbiguousUserError < StandardError; end
+
+    def initialize(controller, access_token)
+      @controller   = controller
+      @access_token = access_token
     end
 
     def perform
-      if User.first.nil?
-        Rails.logger.error 'No users exist'
-        return Service::InternalServerErrorResult.new(errors: ['Attempted to set current user but there are no users'])
-      end
+      token_response = connection.post {|req| req.body = { idToken: access_token }.to_json }
 
-      controller.current_user = User.first
-      nil
+      if token_response.success?
+        users = JSON.parse(token_response.body)['users']
+
+        raise AmbiguousUserError.new('Token validation response did not include a user') if users.blank?
+        raise AmbiguousUserError.new('Token validation response included multiple users') if users.length > 1
+
+        controller.current_user = User.create_or_update_for_google(users.first)
+        nil
+      else
+        Rails.logger.debug token_response.body
+        Rails.logger.error "Error validating user access token: #{token_response.status}"
+        Service::UnauthorizedResult.new(errors: ['Unable to validate user access token.'])
+      end
+    rescue StandardError => e
+      Rails.logger.error "#{e.class} validating user access token: #{e.message}"
+      Service::UnauthorizedResult.new(errors: [e.message])
     end
 
     private
 
-    attr_reader :controller
+    attr_reader :controller, :access_token
+
+    def connection
+      @connection ||= Faraday.new(
+                        url:     FIREBASE_VERIFICATION_URI,
+                        params:  { key: Rails.application.credentials[:google][:firebase_web_api_key] },
+                        headers: { 'Content-Type' => 'application/json' },
+                      )
+    end
   end
 end
