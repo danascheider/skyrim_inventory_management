@@ -189,6 +189,20 @@ RSpec.describe InventoryItemsController::CreateService do
       end
     end
 
+    context 'when the list belongs to a different user' do
+      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let(:inventory_list) { create(:inventory_list) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the params are invalid' do
       let(:params) { { description: 'Necklace', quantity: -2 } }
 
