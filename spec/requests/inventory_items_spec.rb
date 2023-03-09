@@ -314,12 +314,15 @@ RSpec.describe 'InventoryItems', type: :request do
   describe 'PATCH /inventory_items/:id' do
     subject(:update_item) { patch "/inventory_items/#{list_item.id}", headers:, params: }
 
-    let(:game)            { create(:game) }
+    let!(:user)           { create(:authenticated_user) }
+    let(:game)            { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
-      let!(:user) { game.user }
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
@@ -479,6 +482,21 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context "when the inventory list item doesn't exist" do
         let(:list_item) { double(id: 234_567) }
+        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+
+        it 'returns status 404' do
+          update_item
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          update_item
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the inventory list item belongs to another user' do
+        let(:list_item) { create(:inventory_item) }
         let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it 'returns status 404' do
