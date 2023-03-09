@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
       }
     end
 
-    context 'when a user with that email as uid does not exist' do
+    context 'when a user with that uid does not exist' do
       it 'creates a user' do
         expect { create_or_update }
           .to change(described_class, :count).from(0).to(1)

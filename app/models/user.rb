@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :games, dependent: :destroy
 
   validates :uid, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true
 
   def self.create_or_update_for_google(data)
     where(uid: data['localId']).first_or_initialize.tap do |user|
