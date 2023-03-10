@@ -135,6 +135,10 @@ Layout/DotPosition:
   EnforcedStyle: leading
 Layout/ElseAlignment:
   Enabled: true
+Layout/EmptyComment:
+  Enabled: true
+  AllowBorderComment: true
+  AllowMarginComment: true
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
 Layout/EmptyLineAfterMagicComment:
