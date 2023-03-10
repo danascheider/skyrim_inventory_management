@@ -123,6 +123,7 @@ Layout/ClosingParenthesisIndentation:
 Layout/CommentIndentation:
   Description: 'Indentation of comments.'
   Enabled: true
+  AllowForAlignment: true
 Layout/ConditionPosition:
   Enabled: true
 Layout/DefEndAlignment:
