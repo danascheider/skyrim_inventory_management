@@ -69,8 +69,13 @@ RSpec.describe InventoryListsController::UpdateService do
     end
 
     context 'when the inventory list belongs to another user' do
-      let(:inventory_list) { create(:inventory_list) }
-      let(:params)         { { title: 'Valid New Title' } }
+      let!(:inventory_list) { create(:inventory_list) }
+      let(:params)          { { title: 'Valid New Title' } }
+
+      it "doesn't update the inventory list" do
+        expect { perform }
+          .not_to change(inventory_list.reload, :title)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

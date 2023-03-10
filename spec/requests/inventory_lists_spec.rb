@@ -176,7 +176,12 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the game belongs to another user' do
-        let(:game) { create(:game) }
+        let!(:game) { create(:game) }
+
+        it "doesn't create an inventory list" do
+          expect { create_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
 
         it 'returns status 404' do
           create_inventory_list
@@ -320,7 +325,13 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the list belongs to another user' do
-        let(:list_id) { create(:inventory_list).id }
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          expect { update_inventory_list }
+            .not_to change(inventory_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -492,7 +503,13 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the list belongs to another user' do
-        let(:list_id) { create(:inventory_list).id }
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          expect { update_inventory_list }
+            .not_to change(inventory_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -664,7 +681,12 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when the inventory list belongs to another user' do
-        let(:inventory_list) { create(:inventory_list) }
+        let!(:inventory_list) { create(:inventory_list) }
+
+        it "doesn't destroy the inventory list" do
+          expect { delete_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
 
         it 'returns 404' do
           delete_inventory_list

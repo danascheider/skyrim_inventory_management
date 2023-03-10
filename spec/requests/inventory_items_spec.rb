@@ -216,6 +216,11 @@ RSpec.describe 'InventoryItems', type: :request do
         let(:params)         { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
         let(:inventory_list) { create(:inventory_list) }
 
+        it "doesn't create an inventory item" do
+          expect { create_item }
+            .not_to change(InventoryItem, :count)
+        end
+
         it 'returns status 404' do
           create_item
           expect(response.status).to eq 404
@@ -496,8 +501,13 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the inventory list item belongs to another user' do
-        let(:list_item) { create(:inventory_item) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let!(:list_item) { create(:inventory_item) }
+        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+
+        it "doesn't update the item" do
+          expect { update_item }
+            .not_to change(list_item.reload, :attributes)
+        end
 
         it 'returns status 404' do
           update_item
@@ -792,8 +802,13 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the inventory list item belongs to another user' do
-        let(:list_item) { create(:inventory_item) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let!(:list_item) { create(:inventory_item) }
+        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+
+        it "doesn't update the item" do
+          expect { update_item }
+            .not_to change(list_item.reload, :attributes)
+        end
 
         it 'returns status 404' do
           update_item
@@ -1025,7 +1040,12 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the list item belongs to another user' do
-        let(:list_item) { create(:inventory_item) }
+        let!(:list_item) { create(:inventory_item) }
+
+        it "doesn't destroy the item" do
+          expect { destroy_item }
+            .not_to change(InventoryItem, :count)
+        end
 
         it 'returns status 404' do
           destroy_item

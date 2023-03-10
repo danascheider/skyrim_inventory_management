@@ -102,8 +102,13 @@ RSpec.describe InventoryListsController::CreateService do
     end
 
     context 'when the game belongs to another user' do
-      let(:game)   { create(:game) }
+      let!(:game)  { create(:game) }
       let(:params) { { title: 'My Inventory List' } }
+
+      it "doesn't create an inventory list" do
+        expect { perform }
+          .not_to change(InventoryList, :count)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

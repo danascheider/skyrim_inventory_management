@@ -64,7 +64,7 @@ RSpec.describe GamesController::UpdateService do
       end
     end
 
-    context "when the game doesn't belong to the user" do
+    context 'when the game belongs to another user' do
       let!(:user) { create(:user) }
       let!(:game)  { create(:game) }
       let(:params) { { name: 'Valid name' } }

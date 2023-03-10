@@ -190,8 +190,13 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list belongs to another user' do
-      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let(:shopping_list)  { create(:shopping_list) }
+      let(:params)          { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let!(:shopping_list)  { create(:shopping_list) }
+
+      it "doesn't create a list item" do
+        expect { perform }
+          .not_to change(ShoppingListItem, :count)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

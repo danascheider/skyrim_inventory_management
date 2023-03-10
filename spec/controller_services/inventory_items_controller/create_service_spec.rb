@@ -189,9 +189,14 @@ RSpec.describe InventoryItemsController::CreateService do
       end
     end
 
-    context 'when the list belongs to a different user' do
-      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let(:inventory_list) { create(:inventory_list) }
+    context 'when the list belongs to another user' do
+      let(:params)          { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let!(:inventory_list) { create(:inventory_list) }
+
+      it "doesn't create an inventory item" do
+        expect { perform }
+          .not_to change(InventoryItem, :count)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

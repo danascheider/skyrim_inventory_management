@@ -236,8 +236,13 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game belongs to another user' do
-        let(:game)   { create(:game) }
+        let!(:game)  { create(:game) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
+
+        it "doesn't update the game" do
+          expect { update_game }
+            .not_to change(game.reload, :name)
+        end
 
         it 'returns status 404' do
           update_game
@@ -356,8 +361,13 @@ RSpec.describe 'Games', type: :request do
       end
 
       context 'when the game belongs to another user' do
-        let(:game)   { create(:game) }
+        let!(:game)  { create(:game) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
+
+        it "doesn't update the game" do
+          expect { update_game }
+            .not_to change(game.reload, :name)
+        end
 
         it 'returns status 404' do
           update_game

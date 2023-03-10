@@ -127,8 +127,13 @@ RSpec.describe InventoryItemsController::UpdateService do
     end
 
     context 'when the inventory list item belongs to another user' do
-      let(:list_item) { create(:inventory_item) }
-      let(:params)    { { quantity: 4 } }
+      let!(:list_item) { create(:inventory_item) }
+      let(:params)     { { quantity: 4 } }
+
+      it "doesn't update the item" do
+        expect { perform }
+          .not_to change(list_item.reload, :quantity)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)

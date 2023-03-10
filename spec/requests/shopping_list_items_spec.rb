@@ -209,7 +209,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the list belongs to another user' do
         let(:params)         { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
-        let(:shopping_list)  { create(:shopping_list) }
+        let!(:shopping_list) { create(:shopping_list) }
+
+        it "doesn't create a list item" do
+          expect { create_item }
+            .not_to change(ShoppingListItem, :count)
+        end
 
         it 'returns status 404' do
           create_item
@@ -514,8 +519,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list item belongs to another user' do
-        let(:list_item) { create(:shopping_list_item) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let!(:list_item) { create(:shopping_list_item) }
+        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+
+        it "doesn't update the item" do
+          expect { update_item }
+            .not_to change(list_item.reload, :attributes)
+        end
 
         it 'returns status 404' do
           update_item
@@ -754,8 +764,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the shopping list item belongs to another user' do
-        let(:list_item) { create(:shopping_list_item) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let!(:list_item) { create(:shopping_list_item) }
+        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+
+        it "doesn't update the item" do
+          expect { update_item }
+            .not_to change(list_item.reload, :attributes)
+        end
 
         it 'returns status 404' do
           update_item
@@ -1008,7 +1023,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the specified list item belongs to another user' do
-        let(:list_item) { create(:shopping_list_item) }
+        let!(:list_item) { create(:shopping_list_item) }
+
+        it "doesn't destroy the item" do
+          expect { destroy_item }
+            .not_to change(ShoppingListItem, :count)
+        end
 
         it 'returns status 404' do
           destroy_item

@@ -79,7 +79,12 @@ RSpec.describe InventoryItemsController::DestroyService do
     end
 
     context 'when the list item belongs to another user' do
-      let(:list_item) { create(:inventory_item) }
+      let!(:list_item) { create(:inventory_item) }
+
+      it "doesn't destroy the item" do
+        expect { perform }
+          .not_to change(InventoryItem, :count)
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
