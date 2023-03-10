@@ -126,6 +126,20 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
     end
 
+    context 'when the shopping list item belongs to another user' do
+      let(:list_item) { create(:shopping_list_item) }
+      let(:params)    { { quantity: 4 } }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it 'leaves the resource and errors empty', :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the item is on an aggregate list' do
       let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
       let(:params)     { { quantity: 5 } }
