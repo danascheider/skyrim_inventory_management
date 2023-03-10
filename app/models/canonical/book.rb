@@ -23,9 +23,9 @@ module Canonical
     ].freeze
 
     has_many :canonical_recipes_ingredients,
-             dependent:   :destroy,
-             class_name:  'Canonical::RecipesIngredient',
-             inverse_of:  :recipe,
+             dependent: :destroy,
+             class_name: 'Canonical::RecipesIngredient',
+             inverse_of: :recipe,
              foreign_key: :recipe_id
     has_many :canonical_ingredients, through: :canonical_recipes_ingredients, class_name: 'Canonical::Ingredient', source: :ingredient
 

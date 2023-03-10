@@ -2,9 +2,9 @@
 
 module Seeds
   USER_DATA = {
-    uid:   'uruser',
+    uid: 'uruser',
     email: 'uruser@gmail.com',
-    name:  'Uruser',
+    name: 'Uruser',
   }.freeze
 
   module_function

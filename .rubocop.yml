@@ -192,12 +192,12 @@ Layout/FirstHashElementLineBreak:
   Enabled: true
 Layout/FirstParameterIndentation:
   Enabled: true
-  EnforcedStyle: align_parentheses
+  EnforcedStyle: consistent
 Layout/HashAlignment:
   Enabled: true
   AllowMultipleStyles: false
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
   EnforcedLastArgumentHashStyle: always_inspect
 Layout/HeredocArgumentClosingParenthesis:
   Enabled: true

@@ -91,7 +91,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         it "removes alchemical properties that don't exist in the JSON data" do
           item_in_json.canonical_ingredients_alchemical_properties.create!(
             alchemical_property: create(:alchemical_property, name: 'Fortify Awesomeness'),
-            priority:            1,
+            priority: 1,
           )
 
           perform
@@ -152,9 +152,9 @@ RSpec.describe Canonical::Sync::Ingredients do
 
         create(
           :canonical_ingredients_alchemical_property,
-          ingredient:          item_in_json,
+          ingredient: item_in_json,
           alchemical_property: create(:alchemical_property, name: 'Fortify Awesomeness'),
-          priority:            1,
+          priority: 1,
         )
 
         allow(Rails.logger).to receive(:warn)
@@ -204,7 +204,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         let(:errored_model) do
           instance_double Canonical::Ingredient,
                           errors:,
-                          class:  class_double(Canonical::Ingredient, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Ingredient, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

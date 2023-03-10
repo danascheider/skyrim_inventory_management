@@ -14,17 +14,17 @@ class Property < ApplicationRecord
   validates :canonical_property, uniqueness: { scope: :game_id, message: 'must be unique per game' }
 
   validates :name,
-            presence:   true,
-            inclusion:  { in: Canonical::Property::VALID_NAMES, message: "must be an ownable property in Skyrim, or the Arch-Mage's Quarters" },
+            presence: true,
+            inclusion: { in: Canonical::Property::VALID_NAMES, message: "must be an ownable property in Skyrim, or the Arch-Mage's Quarters" },
             uniqueness: { scope: :game_id, message: 'must be unique per game' }
 
   validates :hold,
-            presence:   true,
-            inclusion:  { in: Skyrim::HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
+            presence: true,
+            inclusion: { in: Skyrim::HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
             uniqueness: { scope: :game_id, message: 'must be unique per game' }
 
   validates :city,
-            inclusion:  { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
+            inclusion: { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
             uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_blank: true }
 
   validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && !canonical_property&.alchemy_lab_available }

@@ -61,10 +61,10 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         let(:second_list) { create(:shopping_list, game:, aggregate_list:) }
         let(:second_list_item) do
           create(:shopping_list_item,
-                 list:        second_list,
+                 list: second_list,
                  description: list_item.description.upcase, # make sure comparison is case insensitive
-                 quantity:    2,
-                 notes:       'some other notes',)
+                 quantity: 2,
+                 notes: 'some other notes',)
         end
 
         before do

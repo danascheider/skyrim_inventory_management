@@ -386,8 +386,8 @@ RSpec.describe ShoppingList, type: :model do
           add_item
           expect(aggregate_list.list_items.last.attributes).to include(
             'description' => list_item.description,
-            'quantity'    => list_item.quantity,
-            'notes'       => list_item.notes,
+            'quantity' => list_item.quantity,
+            'notes' => list_item.notes,
             'unit_weight' => list_item.unit_weight,
           )
         end

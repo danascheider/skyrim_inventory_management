@@ -6,13 +6,13 @@ RSpec.describe Canonical::ClothingItem, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       model = described_class.new(
-        name:        'Clothes',
-        item_code:   'foo',
+        name: 'Clothes',
+        item_code: 'foo',
         unit_weight: 1,
-        body_slot:   'body',
+        body_slot: 'body',
         purchasable: true,
         unique_item: false,
-        rare_item:   false,
+        rare_item: false,
       )
 
       expect(model).to be_valid

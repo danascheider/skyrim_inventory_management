@@ -392,8 +392,8 @@ RSpec.describe InventoryList, type: :model do
           add_item
           expect(aggregate_list.list_items.last.attributes).to include(
             'description' => list_item.description,
-            'quantity'    => list_item.quantity,
-            'notes'       => list_item.notes,
+            'quantity' => list_item.quantity,
+            'notes' => list_item.notes,
           )
         end
       end

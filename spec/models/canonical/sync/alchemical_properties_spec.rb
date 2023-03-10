@@ -102,7 +102,7 @@ RSpec.describe Canonical::Sync::AlchemicalProperties do
         let(:errored_model) do
           instance_double AlchemicalProperty,
                           errors:,
-                          class:  class_double(AlchemicalProperty, i18n_scope: :activerecord)
+                          class: class_double(AlchemicalProperty, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

@@ -21,7 +21,7 @@ module Canonical
         greatsword
         warhammer
       ],
-      'archery'    => %w[
+      'archery' => %w[
         arrow
         bolt
         bow
@@ -30,49 +30,49 @@ module Canonical
     }.freeze
 
     has_many :canonical_enchantables_enchantments,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::EnchantablesEnchantment',
-             as:         :enchantable
+             as: :enchantable
     has_many :enchantments,
              -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
              through: :canonical_enchantables_enchantments
 
     has_many :canonical_powerables_powers,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::PowerablesPower',
-             as:         :powerable
+             as: :powerable
     has_many :powers, through: :canonical_powerables_powers
 
     has_many :canonical_craftables_crafting_materials,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::CraftablesCraftingMaterial',
-             as:         :craftable
+             as: :craftable
     has_many :crafting_materials,
              -> { select 'canonical_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
              through: :canonical_craftables_crafting_materials,
-             source:  :material
+             source: :material
 
     has_many :canonical_temperables_tempering_materials,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::TemperablesTemperingMaterial',
-             as:         :temperable
+             as: :temperable
     has_many :tempering_materials,
              -> { select 'canonical_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
              through: :canonical_temperables_tempering_materials,
-             source:  :material
+             source: :material
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :category,
-              presence:  true,
+              presence: true,
               inclusion: {
-                in:      VALID_WEAPON_TYPES.keys,
+                in: VALID_WEAPON_TYPES.keys,
                 message: 'must be "one-handed", "two-handed", or "archery"',
               }
     validates :weapon_type,
-              presence:  true,
+              presence: true,
               inclusion: {
-                in:      VALID_WEAPON_TYPES.values.flatten,
+                in: VALID_WEAPON_TYPES.values.flatten,
                 message: 'must be a valid type of weapon that occurs in Skyrim',
               }
     validates :base_damage, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }

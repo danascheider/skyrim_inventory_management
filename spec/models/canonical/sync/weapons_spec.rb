@@ -176,7 +176,7 @@ RSpec.describe Canonical::Sync::Weapons do
         create(
           :canonical_temperables_tempering_material,
           temperable: item_in_json,
-          material:   create(:canonical_material, name: 'Aluminum Ingot'),
+          material: create(:canonical_material, name: 'Aluminum Ingot'),
         )
       end
 
@@ -216,7 +216,7 @@ RSpec.describe Canonical::Sync::Weapons do
         let(:errored_model) do
           instance_double Canonical::Weapon,
                           errors:,
-                          class:  class_double(Canonical::Weapon, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Weapon, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

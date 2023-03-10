@@ -111,7 +111,7 @@ RSpec.describe Canonical::Sync::Spells do
         let(:errored_model) do
           instance_double Spell,
                           errors:,
-                          class:  class_double(Spell, i18n_scope: :activerecord)
+                          class: class_double(Spell, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

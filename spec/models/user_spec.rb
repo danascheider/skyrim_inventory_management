@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
 
     let(:payload) do
       {
-        'localId'     => 'foobar',
-        'email'       => 'jane.doe@gmail.com',
+        'localId' => 'foobar',
+        'email' => 'jane.doe@gmail.com',
         'displayName' => 'Jane Doe',
-        'photoUrl'    => 'https://example.com/user_images/89',
+        'photoUrl' => 'https://example.com/user_images/89',
       }
     end
 
@@ -24,10 +24,10 @@ RSpec.describe User, type: :model do
       it 'sets the attributes' do
         create_or_update
         expect(described_class.last.attributes).to include(
-          'uid'          => 'foobar',
-          'email'        => 'jane.doe@gmail.com',
+          'uid' => 'foobar',
+          'email' => 'jane.doe@gmail.com',
           'display_name' => 'Jane Doe',
-          'photo_url'    => 'https://example.com/user_images/89',
+          'photo_url' => 'https://example.com/user_images/89',
         )
       end
     end

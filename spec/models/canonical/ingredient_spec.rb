@@ -6,14 +6,14 @@ RSpec.describe Canonical::Ingredient, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       ingredient = described_class.new(
-        name:                   'Skeever Tail',
-        item_code:              'foo',
-        ingredient_type:        'common',
-        unit_weight:            1,
-        purchasable:            true,
+        name: 'Skeever Tail',
+        item_code: 'foo',
+        ingredient_type: 'common',
+        unit_weight: 1,
+        purchasable: true,
         purchase_requires_perk: false,
-        unique_item:            false,
-        rare_item:              true,
+        unique_item: false,
+        rare_item: true,
       )
 
       expect(ingredient).to be_valid

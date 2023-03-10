@@ -61,9 +61,9 @@ RSpec.describe Property, type: :model do
       Canonical::Property.all.each do |canonical_property|
         game.properties.create!(
           canonical_property:,
-          name:               canonical_property.name,
-          hold:               canonical_property.hold,
-          city:               canonical_property.city,
+          name: canonical_property.name,
+          hold: canonical_property.hold,
+          city: canonical_property.city,
         )
       end
 
@@ -81,9 +81,9 @@ RSpec.describe Property, type: :model do
       before do
         game.properties.create!(
           canonical_property:,
-          name:               canonical_property.name,
-          hold:               canonical_property.hold,
-          city:               canonical_property.city,
+          name: canonical_property.name,
+          hold: canonical_property.hold,
+          city: canonical_property.city,
         )
       end
 

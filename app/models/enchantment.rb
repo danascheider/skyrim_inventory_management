@@ -38,8 +38,8 @@ class Enchantment < ApplicationRecord
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,
             inclusion: {
-              in:          STRENGTH_UNITS,
-              message:     'must be "point", "percentage", "second", or the "level" of affected targets',
+              in: STRENGTH_UNITS,
+              message: 'must be "point", "percentage", "second", or the "level" of affected targets',
               allow_blank: true,
             }
   validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }

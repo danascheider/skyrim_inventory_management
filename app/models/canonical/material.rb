@@ -5,13 +5,13 @@ module Canonical
     self.table_name = 'canonical_materials'
 
     has_many :canonical_craftables_crafting_materials,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::CraftablesCraftingMaterial',
              inverse_of: :material
     has_many :craftables, through: :canonical_craftables_crafting_materials
 
     has_many :canonical_temperables_tempering_materials,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::TemperablesTemperingMaterial',
              inverse_of: :material
     has_many :temperables, through: :canonical_temperables_tempering_materials

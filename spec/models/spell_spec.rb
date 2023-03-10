@@ -65,12 +65,12 @@ RSpec.describe Spell, type: :model do
     describe 'strength and strength_unit' do
       it 'is valid with both a strength and a strength_unit' do
         spell = described_class.new(
-          strength:      50,
+          strength: 50,
           strength_unit: 'point',
-          name:          'Fire Rune',
-          level:         'Adept',
-          school:        'Destruction',
-          description:   'Hello world',
+          name: 'Fire Rune',
+          level: 'Adept',
+          school: 'Destruction',
+          description: 'Hello world',
         )
 
         expect(spell).to be_valid

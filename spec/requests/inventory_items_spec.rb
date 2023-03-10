@@ -6,7 +6,7 @@ RSpec.describe 'InventoryItems', type: :request do
   let!(:user) { create(:authenticated_user) }
   let(:headers) do
     {
-      'Content-Type'  => 'application/json',
+      'Content-Type' => 'application/json',
       'Authorization' => 'Bearer xxxxxxxxx',
     }
   end

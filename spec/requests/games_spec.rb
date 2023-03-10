@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
-      'Content-Type'  => 'application/json',
+      'Content-Type' => 'application/json',
       'Authorization' => 'Bearer xxxxxxx',
     }
   end

@@ -106,7 +106,7 @@ RSpec.describe Canonical::Sync::Properties do
         let(:errored_model) do
           instance_double Canonical::Property,
                           errors:,
-                          class:  class_double(Spell, i18n_scope: :activerecord)
+                          class: class_double(Spell, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

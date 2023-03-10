@@ -124,7 +124,7 @@ RSpec.describe InventoryListsController::CreateService do
       let(:game) { create(:game, user:) }
       let(:params) do
         {
-          title:     'All Items',
+          title: 'All Items',
           aggregate: true,
         }
       end

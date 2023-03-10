@@ -19,22 +19,22 @@ RSpec.describe Service::Result do
       let(:options) do
         {
           resource: {
-            id:           32,
-            uid:          'foobar',
-            email:        'jane.doe@gmail.com',
+            id: 32,
+            uid: 'foobar',
+            email: 'jane.doe@gmail.com',
             display_name: 'Jane Doe',
-            photo_url:    nil,
+            photo_url: nil,
           },
         }
       end
 
       it 'sets the resource if one is given' do
         expect(result.resource).to eq({
-          id:           32,
-          uid:          'foobar',
-          email:        'jane.doe@gmail.com',
+          id: 32,
+          uid: 'foobar',
+          email: 'jane.doe@gmail.com',
           display_name: 'Jane Doe',
-          photo_url:    nil,
+          photo_url: nil,
         })
       end
     end

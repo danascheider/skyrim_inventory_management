@@ -57,8 +57,8 @@ RSpec.describe ApplicationController::AuthorizationService do
           create(
             :user,
             display_name: 'Jane Doe',
-            email:        'someuser@gmail.com',
-            uid:          'somestring',
+            email: 'someuser@gmail.com',
+            uid: 'somestring',
           )
         end
 

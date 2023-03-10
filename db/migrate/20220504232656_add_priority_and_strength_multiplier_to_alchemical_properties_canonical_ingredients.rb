@@ -15,6 +15,6 @@ class AddPriorityAndStrengthMultiplierToAlchemicalPropertiesCanonicalIngredients
     add_index :canonical_ingredients_alchemical_properties,
               %i[priority ingredient_id],
               unique: true,
-              name:   :index_can_ingrs_alc_props_on_priority_and_ingr_id
+              name: :index_can_ingrs_alc_props_on_priority_and_ingr_id
   end
 end
