@@ -14,7 +14,11 @@ RSpec.describe 'ShoppingLists', type: :request do
     subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: {} }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game) { create(:game, user:) }
@@ -85,6 +89,25 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let(:game) { create(:game) }
+
+        it "doesn't create a shopping list" do
+          expect { create_shopping_list }
+            .not_to change(ShoppingList, :count)
+        end
+
+        it 'returns status 404' do
+          create_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          create_shopping_list
+          expect(response.body).to be_empty
+        end
+      end
+
       context 'when the params are invalid' do
         subject(:create_shopping_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: { title: existing_list.title } }.to_json, headers: }
 
@@ -123,13 +146,40 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:game) { create(:game) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't create a shopping list" do
+        expect { create_shopping_list }
+          .not_to change(ShoppingList, :count)
+      end
+
+      it 'returns status 401' do
+        create_shopping_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        create_shopping_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'PUT /shopping_lists/:id' do
     subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, game:) }
@@ -176,6 +226,26 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to another user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:list_id)        { shopping_list.id }
+
+        it "doesn't update the shopping list" do
+          expect { update_shopping_list }
+            .not_to change(shopping_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_shopping_list
@@ -253,13 +323,41 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:shopping_list) { create(:shopping_list) }
+      let(:list_id)        { shopping_list.id }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the shopping list" do
+        expect { update_shopping_list }
+          .not_to change(shopping_list.reload, :title)
+      end
+
+      it 'returns status 401' do
+        update_shopping_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_shopping_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'PATCH /shopping_lists/:id' do
     subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:shopping_list) { create(:shopping_list, game:) }
@@ -306,6 +404,26 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
+
+        it 'returns status 404' do
+          update_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_shopping_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to another user' do
+        let!(:shopping_list) { create(:shopping_list) }
+        let(:list_id)        { shopping_list.id }
+
+        it "doesn't update the shopping list" do
+          expect { update_shopping_list }
+            .not_to change(shopping_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_shopping_list
@@ -383,13 +501,41 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:shopping_list) { create(:shopping_list) }
+      let(:list_id)        { shopping_list.id }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the shopping list" do
+        expect { update_shopping_list }
+          .not_to change(shopping_list.reload, :title)
+      end
+
+      it 'returns status 401' do
+        update_shopping_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_shopping_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'GET games/:game_id/shopping_lists' do
     subject(:get_index) { get "/games/#{game.id}/shopping_lists", headers: }
 
     context 'when authenticated' do
-      let!(:authenticated_user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the game is not found' do
         let(:game) { double(id: 491_349_759) }
@@ -405,8 +551,22 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let(:game) { create(:game) }
+
+        it 'returns status 404' do
+          get_index
+          expect(response.status).to eq 404
+        end
+
+        it 'returns no data' do
+          get_index
+          expect(response.body).to be_empty
+        end
+      end
+
       context 'when there are no shopping lists for that game' do
-        let(:game) { create(:game, user: authenticated_user) }
+        let(:game) { create(:game, user:) }
 
         it 'returns status 200' do
           get_index
@@ -420,7 +580,7 @@ RSpec.describe 'ShoppingLists', type: :request do
       end
 
       context 'when there are shopping lists for that game' do
-        let(:game) { create(:game_with_shopping_lists, user: authenticated_user) }
+        let(:game) { create(:game_with_shopping_lists, user:) }
 
         it 'returns status 200' do
           get_index
@@ -433,14 +593,36 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:game) { create(:game) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it 'returns status 401' do
+        get_index
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        get_index
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'DELETE /shopping_lists/:id' do
     subject(:delete_shopping_list) { delete "/shopping_lists/#{shopping_list.id}", headers: }
 
     context 'when authenticated' do
-      let!(:user)     { create(:user) }
-      let(:game)      { create(:game, user:) }
+      let!(:user) { create(:authenticated_user) }
+      let(:game)  { create(:game, user:) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the shopping list exists' do
         let!(:shopping_list) { create(:shopping_list, game:) }
@@ -498,6 +680,25 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
       end
 
+      context 'when the shopping list belongs to another user' do
+        let!(:shopping_list) { create(:shopping_list) }
+
+        it "doesn't destroy the shopping list" do
+          expect { delete_shopping_list }
+            .not_to change(ShoppingList, :count)
+        end
+
+        it 'returns 404' do
+          delete_shopping_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_shopping_list
+          expect(response.body).to be_blank
+        end
+      end
+
       context 'when attempting to delete the aggregate list' do
         let!(:shopping_list) { create(:aggregate_shopping_list, game:) }
 
@@ -515,6 +716,29 @@ RSpec.describe 'ShoppingLists', type: :request do
           delete_shopping_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete an aggregate shopping list'] })
         end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let!(:shopping_list) { create(:shopping_list) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't destroy the shopping list" do
+        expect { delete_shopping_list }
+          .not_to change(ShoppingList, :count)
+      end
+
+      it 'returns status 401' do
+        delete_shopping_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        delete_shopping_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end

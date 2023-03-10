@@ -119,6 +119,19 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
     end
 
+    context 'when the list belongs to another user' do
+      let!(:shopping_list) { create(:shopping_list) }
+
+      it "doesn't destroy the shopping list" do
+        expect { perform }
+          .not_to change(ShoppingList, :count)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+    end
+
     context 'when something unexpected goes wrong' do
       let!(:shopping_list) { create(:shopping_list, game:) }
       let(:game)           { create(:game, user:) }
