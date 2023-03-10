@@ -69,19 +69,19 @@ namespace :csv do
           ingredients = item[:canonical_ingredients].pluck(:item_code)
                           .join(',')
           csv << [
-                   item.dig(:attributes, :title),
-                   item.dig(:attributes, :title_variants)&.join(';'),
-                   item.dig(:attributes, :item_code),
-                   item.dig(:attributes, :unit_weight),
-                   item.dig(:attributes, :book_type),
-                   item.dig(:attributes, :skill_name),
-                   item.dig(:attributes, :purchasable),
-                   item.dig(:attributes, :unique_item),
-                   item.dig(:attributes, :rare_item),
-                   item.dig(:attributes, :solstheim_only),
-                   item.dig(:attributes, :quest_item),
-                   ingredients.empty? ? nil : ingredients,
-                 ]
+            item.dig(:attributes, :title),
+            item.dig(:attributes, :title_variants)&.join(';'),
+            item.dig(:attributes, :item_code),
+            item.dig(:attributes, :unit_weight),
+            item.dig(:attributes, :book_type),
+            item.dig(:attributes, :skill_name),
+            item.dig(:attributes, :purchasable),
+            item.dig(:attributes, :unique_item),
+            item.dig(:attributes, :rare_item),
+            item.dig(:attributes, :solstheim_only),
+            item.dig(:attributes, :quest_item),
+            ingredients.empty? ? nil : ingredients,
+          ]
         end
       end
 

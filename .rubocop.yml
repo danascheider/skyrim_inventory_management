@@ -182,7 +182,7 @@ Layout/FirstArgumentIndentation:
   EnforcedStyle: special_for_inner_method_call_in_parentheses
 Layout/FirstArrayElementIndentation:
   Enabled: true
-  EnforcedStyle: align_brackets
+  EnforcedStyle: consistent
 Layout/FirstArrayElementLineBreak:
   Enabled: true
 Layout/FirstHashElementIndentation:

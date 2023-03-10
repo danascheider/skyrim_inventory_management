@@ -55,10 +55,10 @@ RSpec.describe InventoryItem, type: :model do
         # We don't actually care what order these are in since we currently only use this
         # scope to determine whether a given item belongs to a particular game
         items = [
-                  list1.list_items.to_a,
-                  list2.list_items.to_a,
-                  list3.list_items.to_a,
-                ].flatten!
+          list1.list_items.to_a,
+          list2.list_items.to_a,
+          list3.list_items.to_a,
+        ].flatten!
 
         expect(described_class.belonging_to_game(game).to_a.sort).to eq(items.sort)
       end

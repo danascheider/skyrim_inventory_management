@@ -64,16 +64,16 @@ RSpec.describe ShoppingList, type: :model do
         agg_list3, game3_list1, game3_list2 = game3.shopping_lists.to_a
 
         expect(described_class.belonging_to_user(user).to_a).to eq([
-                                                                     game3_list1,
-                                                                     game3_list2,
-                                                                     agg_list3,
-                                                                     game2_list1,
-                                                                     game2_list2,
-                                                                     agg_list2,
-                                                                     game1_list1,
-                                                                     game1_list2,
-                                                                     agg_list1,
-                                                                   ])
+          game3_list1,
+          game3_list2,
+          agg_list3,
+          game2_list1,
+          game2_list2,
+          agg_list2,
+          game1_list1,
+          game1_list2,
+          agg_list1,
+        ])
       end
     end
   end

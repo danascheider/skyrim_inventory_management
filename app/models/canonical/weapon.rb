@@ -10,23 +10,23 @@ module Canonical
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
     VALID_WEAPON_TYPES = {
                            'one-handed' => [
-                                             'dagger',
-                                             'mace',
-                                             'other',
-                                             'sword',
-                                             'war axe',
-                                           ],
+                             'dagger',
+                             'mace',
+                             'other',
+                             'sword',
+                             'war axe',
+                           ],
                            'two-handed' => %w[
-                                             battleaxe
-                                             greatsword
-                                             warhammer
-                                           ],
+                             battleaxe
+                             greatsword
+                             warhammer
+                           ],
                            'archery'    => %w[
-                                             arrow
-                                             bolt
-                                             bow
-                                             crossbow
-                                           ],
+                             arrow
+                             bolt
+                             bow
+                             crossbow
+                           ],
                          }.freeze
 
     has_many :canonical_enchantables_enchantments,

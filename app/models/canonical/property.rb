@@ -15,27 +15,27 @@ module Canonical
     TOTAL_PROPERTY_COUNT = 10
 
     VALID_NAMES = [
-                    "Arch-Mage's Quarters",
-                    'Breezehome',
-                    'Heljarchen Hall',
-                    'Hjerim',
-                    'Honeyside',
-                    'Lakeview Manor',
-                    'Proudspire Manor',
-                    'Severin Manor',
-                    'Vlindrel Hall',
-                    'Windstad Manor',
-                  ].freeze
+      "Arch-Mage's Quarters",
+      'Breezehome',
+      'Heljarchen Hall',
+      'Hjerim',
+      'Honeyside',
+      'Lakeview Manor',
+      'Proudspire Manor',
+      'Severin Manor',
+      'Vlindrel Hall',
+      'Windstad Manor',
+    ].freeze
 
     VALID_CITIES = [
-                     'Markarth',
-                     'Raven Rock',
-                     'Riften',
-                     'Solitude',
-                     'Whiterun',
-                     'Windhelm',
-                     'Winterhold',
-                   ].freeze
+      'Markarth',
+      'Raven Rock',
+      'Riften',
+      'Solitude',
+      'Whiterun',
+      'Windhelm',
+      'Winterhold',
+    ].freeze
 
     validate :ensure_max, on: :create, if: :count_is_max
 

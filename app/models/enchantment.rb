@@ -4,29 +4,29 @@ require 'skyrim'
 
 class Enchantment < ApplicationRecord
   ENCHANTABLE_WEAPONS = [
-                          'sword',
-                          'mace',
-                          'war axe',
-                          'greatsword',
-                          'warhammer',
-                          'battleaxe',
-                          'dagger',
-                          'bow',
-                          'crossbow',
-                          'staff',
-                          'other',
-                        ].freeze
+    'sword',
+    'mace',
+    'war axe',
+    'greatsword',
+    'warhammer',
+    'battleaxe',
+    'dagger',
+    'bow',
+    'crossbow',
+    'staff',
+    'other',
+  ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[
-                                head
-                                chest
-                                hands
-                                feet
-                                shield
-                                circlet
-                                amulet
-                                ring
-                              ].freeze
+    head
+    chest
+    hands
+    feet
+    shield
+    circlet
+    amulet
+    ring
+  ].freeze
 
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 

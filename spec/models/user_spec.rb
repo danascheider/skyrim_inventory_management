@@ -62,11 +62,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the shopping lists for the user's games" do
       expect(user1.shopping_lists).to eq([
-                                           shopping_list4,
-                                           shopping_list3,
-                                           shopping_list2,
-                                           shopping_list1,
-                                         ])
+        shopping_list4,
+        shopping_list3,
+        shopping_list2,
+        shopping_list1,
+      ])
     end
   end
 
@@ -85,11 +85,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the inventory lists for the user's games" do
       expect(user1.inventory_lists).to eq([
-                                            inventory_list4,
-                                            inventory_list3,
-                                            inventory_list2,
-                                            inventory_list1,
-                                          ])
+        inventory_list4,
+        inventory_list3,
+        inventory_list2,
+        inventory_list1,
+      ])
     end
   end
 

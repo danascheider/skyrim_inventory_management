@@ -10,17 +10,17 @@ module Canonical
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     BOOK_TYPES = [
-                   'Black Book',
-                   'document',
-                   'Elder Scroll',
-                   'journal',
-                   'letter',
-                   'lore book',
-                   'quest book',
-                   'recipe',
-                   'skill book',
-                   'treasure map',
-                 ].freeze
+      'Black Book',
+      'document',
+      'Elder Scroll',
+      'journal',
+      'letter',
+      'lore book',
+      'quest book',
+      'recipe',
+      'skill book',
+      'treasure map',
+    ].freeze
 
     has_many :canonical_recipes_ingredients,
              dependent:   :destroy,
