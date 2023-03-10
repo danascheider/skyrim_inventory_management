@@ -411,10 +411,10 @@ RSpec.describe 'Games', type: :request do
 
     context 'when not authenticated' do
       let!(:game)  { create(:game, user:) }
+      let(:user)   { create(:authenticated_user) }
       let(:params) { { game: { name: 'Changed Name' } } }
 
       before do
-        create(:authenticated_user)
         stub_unsuccessful_login
       end
 
