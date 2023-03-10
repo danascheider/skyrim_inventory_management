@@ -153,6 +153,8 @@ Layout/EmptyLinesAroundAccessModifier:
   Enabled: true
 Layout/EmptyLinesAroundArguments:
   Enabled: true
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
 Layout/EmptyLinesAroundBeginBody:
   Enabled: true
 Layout/EmptyLinesAroundBlockBody:
