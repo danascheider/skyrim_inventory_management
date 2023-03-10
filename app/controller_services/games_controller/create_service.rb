@@ -7,7 +7,7 @@ require 'service/internal_server_error_result'
 class GamesController < ApplicationController
   class CreateService
     def initialize(user, params)
-      @user   = user
+      @user = user
       @params = params
     end
 

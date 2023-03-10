@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
     class AmbiguousUserError < StandardError; end
 
     def initialize(controller, access_token)
-      @controller   = controller
+      @controller = controller
       @access_token = access_token
     end
 

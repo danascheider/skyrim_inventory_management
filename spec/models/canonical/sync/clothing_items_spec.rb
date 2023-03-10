@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:enchantment_names) { ['Fortify Magicka', 'Fortify Destruction', 'Fortify Magicka Regen'] }
@@ -50,9 +50,9 @@ RSpec.describe Canonical::Sync::ClothingItems do
       end
 
       context 'when there are existing clothing item records in the database' do
-        let!(:item_in_json)     { create(:canonical_clothing_item, item_code: '0010DD3C', body_slot: 'feet') }
+        let!(:item_in_json) { create(:canonical_clothing_item, item_code: '0010DD3C', body_slot: 'feet') }
         let!(:item_not_in_json) { create(:canonical_clothing_item, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           enchantment_names.each {|name| create(:enchantment, name:) }
@@ -136,9 +136,9 @@ RSpec.describe Canonical::Sync::ClothingItems do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_clothing_item, item_code: '0010DD3C', body_slot: 'body') }
-      let!(:item_not_in_json)         { create(:canonical_clothing_item, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_clothing_item, item_code: '0010DD3C', body_slot: 'body') }
+      let!(:item_not_in_json) { create(:canonical_clothing_item, item_code: '12345678') }
 
       before do
         enchantment_names.each {|name| create(:enchantment, name:) }

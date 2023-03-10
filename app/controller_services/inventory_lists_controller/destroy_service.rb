@@ -11,7 +11,7 @@ class InventoryListsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate inventory list'
 
     def initialize(user, list_id)
-      @user    = user
+      @user = user
       @list_id = list_id
     end
 
@@ -33,7 +33,7 @@ class InventoryListsController < ApplicationController
 
     def destroy_and_update_aggregate_list_items
       aggregate_list = inventory_list.aggregate_list
-      list_items     = inventory_list.list_items.map(&:attributes)
+      list_items = inventory_list.list_items.map(&:attributes)
 
       ActiveRecord::Base.transaction do
         # If inventory_list is the user's last regular inventory list, this will also

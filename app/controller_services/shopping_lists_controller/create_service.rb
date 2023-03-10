@@ -12,15 +12,15 @@ class ShoppingListsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate shopping list'
 
     def initialize(user, game_id, params)
-      @user    = user
+      @user = user
       @game_id = game_id
-      @params  = params
+      @params = params
     end
 
     def perform
       return Service::UnprocessableEntityResult.new(errors: [AGGREGATE_LIST_ERROR]) if params[:aggregate]
 
-      shopping_list              = game.shopping_lists.new(params)
+      shopping_list = game.shopping_lists.new(params)
       preexisting_aggregate_list = game.aggregate_shopping_list
 
       if shopping_list.save

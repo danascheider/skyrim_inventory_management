@@ -175,8 +175,8 @@ Layout/EndAlignment:
   EnforcedStyleAlignWith: keyword
 Layout/ExtraSpacing:
   Enabled: true
-  AllowForAlignment: true
-  ForceEqualSignAlignment: true
+  AllowBeforeTrailingComments: true
+  AllowForAlignment: false
 Layout/FirstArgumentIndentation:
   Enabled: true
   EnforcedStyle: consistent_relative_to_receiver
@@ -1389,8 +1389,6 @@ Rails/WhereNot:
 ### RSpec Requirements ###
 ##########################
 
-RSpec/AlignLeftLetBrace:
-  Enabled: true
 RSpec/AroundBlock:
   Enabled: true
 RSpec/Be:

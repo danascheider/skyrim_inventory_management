@@ -19,7 +19,7 @@ namespace :csv do
     desc 'Export a CSV of canonical alchemical properties from JSON data'
     task alchemical_properties: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'alchemical_properties.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "name,description,strength_unit,effects_cumulative\n"
@@ -34,16 +34,16 @@ namespace :csv do
     desc 'Export a CSV of canonical armor items from JSON data'
     task armor: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_armor.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},enchantment_names,enchantment_strengths,tempering_material_codes,tempering_material_quantities,crafting_material_codes,crafting_material_quantities\n"
+      headers = "#{own_property_headers},enchantment_names,enchantment_strengths,tempering_material_codes,tempering_material_quantities,crafting_material_codes,crafting_material_quantities\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
-          enchantment_names, enchantment_strengths                = concatenate_values(item[:enchantments], :name, :strength)
-          crafting_material_codes, crafting_material_quantities   = concatenate_values(item[:crafting_materials], :item_code, :quantity)
+          enchantment_names, enchantment_strengths = concatenate_values(item[:enchantments], :name, :strength)
+          crafting_material_codes, crafting_material_quantities = concatenate_values(item[:crafting_materials], :item_code, :quantity)
           tempering_material_codes, tempering_material_quantities = concatenate_values(item[:tempering_materials], :item_code, :quantity)
 
           item[:attributes][:smithing_perks] = item[:attributes][:smithing_perks].join(',')
@@ -58,11 +58,11 @@ namespace :csv do
     desc 'Export a CSV of canonical books from JSON data'
     task books: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_books.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_books.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_books.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},canonical_ingredient_codes\n"
+      headers = "#{own_property_headers},canonical_ingredient_codes\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
@@ -91,11 +91,11 @@ namespace :csv do
     desc 'Export a CSV of canonical clothing items from JSON data'
     task clothing: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_clothing.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},enchantment_names,enchantment_strengths\n"
+      headers = "#{own_property_headers},enchantment_names,enchantment_strengths\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
@@ -109,11 +109,11 @@ namespace :csv do
     desc 'Export a CSV of canonical ingredients from JSON data'
     task ingredients: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_ingredients.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},alchemical_property_names,alchemical_property_priorities\n"
+      headers = "#{own_property_headers},alchemical_property_names,alchemical_property_priorities\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
@@ -127,11 +127,11 @@ namespace :csv do
     desc 'Export a CSV of canonical jewelry items from JSON data'
     task jewelry: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_jewelry.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},enchantment_names,enchantment_strengths,crafting_material_codes,crafting_material_quantities\n"
+      headers = "#{own_property_headers},enchantment_names,enchantment_strengths,crafting_material_codes,crafting_material_quantities\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
@@ -145,7 +145,7 @@ namespace :csv do
     desc 'Export a CSV of canonical materials from JSON data'
     task materials: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "name,item_code,building_material,smithing_material,unit_weight\n"
@@ -160,7 +160,7 @@ namespace :csv do
     desc 'Export a CSV of canonical properties from JSON data'
     task properties: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_properties.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_properties.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_properties.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "name,hold,city,alchemy_lab_available,arcane_enchanter_available,forge_available\n"
@@ -175,11 +175,11 @@ namespace :csv do
     desc 'Export a CSV of canonical staves from JSON data'
     task staves: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_staves.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_staves.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_staves.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},spell_names,spell_strengths,power_names\n"
+      headers = "#{own_property_headers},spell_names,spell_strengths,power_names\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
@@ -196,18 +196,18 @@ namespace :csv do
     desc 'Export a CSV of canonical weapons from JSON data'
     task weapons: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_weapons.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_weapons.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_weapons.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},enchantment_names,enchantment_strengths,tempering_material_codes,tempering_material_quantities,crafting_material_codes,crafting_material_quantities\n"
+      headers = "#{own_property_headers},enchantment_names,enchantment_strengths,tempering_material_codes,tempering_material_quantities,crafting_material_codes,crafting_material_quantities\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|
           item[:attributes][:smithing_perks] = item.dig(:attributes, :smithing_perks)&.join(',')
 
-          enchantment_names, enchantment_strengths                = concatenate_values(item[:enchantments], :name, :strength)
-          crafting_material_codes, crafting_material_quantities   = concatenate_values(item[:crafting_materials], :item_code, :quantity)
+          enchantment_names, enchantment_strengths = concatenate_values(item[:enchantments], :name, :strength)
+          crafting_material_codes, crafting_material_quantities = concatenate_values(item[:crafting_materials], :item_code, :quantity)
           tempering_material_codes, tempering_material_quantities = concatenate_values(item[:tempering_materials], :item_code, :quantity)
 
           csv << item[:attributes].values + [enchantment_names, enchantment_strengths, tempering_material_codes, tempering_material_quantities, crafting_material_codes, crafting_material_quantities]
@@ -220,7 +220,7 @@ namespace :csv do
     desc 'Export a CSV of enchantments from JSON data'
     task enchantments: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'enchantments.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'enchantments.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'enchantments.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "#{json_data.first[:attributes].keys.map(&:to_s).join(',')}\n"
@@ -239,7 +239,7 @@ namespace :csv do
     desc 'Export a CSV of powers from JSON data'
     task powers: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'powers.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'powers.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'powers.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "#{json_data.first[:attributes].keys.map(&:to_s).join(',')}\n"
@@ -254,7 +254,7 @@ namespace :csv do
     desc 'Export a CSV of spells from JSON data'
     task spells: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'spells.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'spells.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'spells.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "#{json_data.first[:attributes].keys.map(&:to_s).join(',')}\n"
@@ -269,7 +269,7 @@ namespace :csv do
     desc 'Export a CSV of canonical misc items from JSON data'
     task misc_items: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_misc_items.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       headers = "#{json_data.first[:attributes].keys.map(&:to_s).join(',')}\n"
@@ -288,11 +288,11 @@ namespace :csv do
     desc 'Export a CSV of canonical potions from JSON data'
     task potions: :environment do
       json_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_potions.json')
-      csv_path  = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_potions.csv')
+      csv_path = Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_potions.csv')
       json_data = JSON.parse(File.read(json_path), symbolize_names: true)
 
       own_property_headers = json_data.first[:attributes].keys.map(&:to_s).join(',')
-      headers              = "#{own_property_headers},alchemical_property_names,alchemical_property_strengths,alchemical_property_durations\n"
+      headers = "#{own_property_headers},alchemical_property_names,alchemical_property_strengths,alchemical_property_durations\n"
 
       csv_data = CSV.generate(headers) do |csv|
         json_data.each do |item|

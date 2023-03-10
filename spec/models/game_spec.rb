@@ -171,7 +171,7 @@ RSpec.describe Game, type: :model do
   describe '#aggregate_shopping_list' do
     subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
 
-    let(:game)            { create(:game) }
+    let(:game) { create(:game) }
     let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
 
     before do
@@ -186,7 +186,7 @@ RSpec.describe Game, type: :model do
   describe '#aggregate_inventory_list' do
     subject(:aggregate_inventory_list) { game.aggregate_inventory_list }
 
-    let(:game)            { create(:game) }
+    let(:game) { create(:game) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
 
     before do

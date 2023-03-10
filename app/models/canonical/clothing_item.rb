@@ -4,8 +4,8 @@ module Canonical
   class ClothingItem < ApplicationRecord
     self.table_name = 'canonical_clothing_items'
 
-    BODY_SLOTS                 = %w[head hands body feet].freeze
-    BOOLEAN_VALUES             = [true, false].freeze
+    BODY_SLOTS = %w[head hands body feet].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_enchantables_enchantments,

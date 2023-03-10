@@ -35,8 +35,8 @@ class InventoryList < ApplicationRecord
     if title.blank?
       max_existing_number = game.inventory_lists.where("title LIKE 'My List %'").pluck(:title).map {|t| t.gsub('My List ', '').to_i }
                               .max || 0
-      next_number         = max_existing_number >= 0 ? max_existing_number + 1 : 1
-      self.title          = "My List #{next_number}"
+      next_number = max_existing_number >= 0 ? max_existing_number + 1 : 1
+      self.title = "My List #{next_number}"
     else
       self.title = Titlecase.titleize(title.strip)
     end

@@ -11,10 +11,10 @@ RSpec.describe ShoppingListItemsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
 
-    let(:user)            { create(:user) }
-    let(:game)            { create(:game, user:) }
+    let(:user) { create(:user) }
+    let(:game) { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
+    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
       let(:params) { { description: 'Necklace', quantity: 2, notes: 'Hello world' } }
@@ -41,7 +41,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
         end
 
         context 'when there is an existing matching item on another list' do
-          let(:other_list)  { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
           let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 1) }
 
           before do
@@ -102,9 +102,9 @@ RSpec.describe ShoppingListItemsController::CreateService do
       end
 
       context 'when there is an existing matching item on the same list' do
-        let(:other_list)  { create(:shopping_list, game:) }
+        let(:other_list) { create(:shopping_list, game:) }
         let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 2) }
-        let!(:list_item)  { create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 1) }
+        let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)
@@ -176,8 +176,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context "when the list doesn't exist" do
-      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let(:shopping_list)  { double(id: 234_980) }
+      let(:params) { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let(:shopping_list) { double(id: 234_980) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -190,8 +190,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list belongs to another user' do
-      let(:params)          { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
-      let!(:shopping_list)  { create(:shopping_list) }
+      let(:params) { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let!(:shopping_list) { create(:shopping_list) }
 
       it "doesn't create a list item" do
         expect { perform }
@@ -221,8 +221,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
     end
 
     context 'when the list is an aggregate list' do
-      let(:shopping_list)   { aggregate_list }
-      let!(:params)         { { description: 'Necklace', quantity: 2 } }
+      let(:shopping_list) { aggregate_list }
+      let!(:params) { { description: 'Necklace', quantity: 2 } }
 
       it "doesn't create an item" do
         expect { perform }

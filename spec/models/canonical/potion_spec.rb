@@ -122,7 +122,7 @@ RSpec.describe Canonical::Potion, type: :model do
 
   describe 'associations' do
     describe 'alchemical properties' do
-      let(:potion)              { create(:canonical_potion) }
+      let(:potion) { create(:canonical_potion) }
       let(:alchemical_property) { create(:alchemical_property) }
 
       before do

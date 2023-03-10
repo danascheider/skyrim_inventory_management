@@ -20,16 +20,16 @@ module Canonical
             next unless associations.any?
 
             associations.each do |association|
-              reflection                   = model_class.reflect_on_association(association)
-              association_name             = reflection.through_reflection.name
-              associated_model             = reflection.source_reflection.name
-              associated_model_class       = reflection.klass
-              associated_model_identifier  = associated_model_class.unique_identifier
-              associated_fk                = reflection.foreign_key.to_sym
+              reflection = model_class.reflect_on_association(association)
+              association_name = reflection.through_reflection.name
+              associated_model = reflection.source_reflection.name
+              associated_model_class = reflection.klass
+              associated_model_identifier = associated_model_class.unique_identifier
+              associated_fk = reflection.foreign_key.to_sym
 
               if !preserve_existing_records || !preserve_associations?
                 identifiers = object[association].pluck(associated_model_identifier)
-                assn_ids    = associated_model_class.where(associated_model_identifier => identifiers).ids
+                assn_ids = associated_model_class.where(associated_model_identifier => identifiers).ids
                 model.send(association_name).where.not(associated_fk => assn_ids).destroy_all
               end
 

@@ -2,15 +2,15 @@
 
 FactoryBot.define do
   factory :canonical_armor, class: Canonical::Armor do
-    name                 { 'Steel Plate Armor' }
+    name { 'Steel Plate Armor' }
     sequence(:item_code) {|n| "123abc#{n}" }
-    weight               { 'heavy armor' }
-    body_slot            { 'body' }
-    unit_weight          { 1.0 }
-    smithing_perks       { ['Steel Smithing'] }
-    purchasable          { true }
-    unique_item          { false }
-    rare_item            { false }
-    quest_item           { false }
+    weight { 'heavy armor' }
+    body_slot { 'body' }
+    unit_weight { 1.0 }
+    smithing_perks { ['Steel Smithing'] }
+    purchasable { true }
+    unique_item { false }
+    rare_item { false }
+    quest_item { false }
   end
 end

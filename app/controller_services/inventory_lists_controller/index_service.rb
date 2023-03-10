@@ -6,7 +6,7 @@ require 'service/not_found_result'
 class InventoryListsController < ApplicationController
   class IndexService
     def initialize(user, game_id)
-      @user    = user
+      @user = user
       @game_id = game_id
     end
 

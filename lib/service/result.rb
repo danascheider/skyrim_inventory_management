@@ -2,7 +2,7 @@
 
 module Service
   class Result
-    ERROR_KEYS    = [:error, 'error', :errors, 'errors'].freeze
+    ERROR_KEYS = [:error, 'error', :errors, 'errors'].freeze
     RESOURCE_KEYS = [:resource, 'resource'].freeze
 
     attr_reader :errors, :resource

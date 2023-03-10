@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe InventoryItem, type: :model do
-  let!(:game)          { create(:game) }
+  let!(:game) { create(:game) }
   let(:aggregate_list) { create(:aggregate_inventory_list, game:) }
   let(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 

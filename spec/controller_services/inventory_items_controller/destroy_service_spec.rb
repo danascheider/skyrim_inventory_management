@@ -41,8 +41,8 @@ RSpec.describe InventoryItemsController::DestroyService do
       end
 
       context 'when there is a matching item on another list' do
-        let!(:list_item)  { create(:inventory_item, list: inventory_list) }
-        let(:other_list)  { create(:inventory_list, game:) }
+        let!(:list_item) { create(:inventory_item, list: inventory_list) }
+        let(:other_list) { create(:inventory_list, game:) }
         let!(:other_item) { create(:inventory_item, description: list_item.description, list: other_list) }
 
         before do

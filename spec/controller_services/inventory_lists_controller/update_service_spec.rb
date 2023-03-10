@@ -12,12 +12,12 @@ RSpec.describe InventoryListsController::UpdateService do
     subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
-    let(:user)            { create(:user) }
-    let(:game)            { create(:game, user:) }
+    let(:user) { create(:user) }
+    let(:game) { create(:game, user:) }
 
     context 'when all goes well' do
       let(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
-      let(:params)         { { title: 'My New Title' } }
+      let(:params) { { title: 'My New Title' } }
 
       it 'updates the inventory list' do
         perform
@@ -43,7 +43,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context 'when the params are invalid' do
       let(:inventory_list) { create(:inventory_list, game:) }
-      let(:params)         { { title: '|nvalid Tit|e' } }
+      let(:params) { { title: '|nvalid Tit|e' } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
@@ -56,7 +56,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context "when the inventory list doesn't exist" do
       let(:inventory_list) { double(id: 23_859) }
-      let(:params)         { { title: 'Valid New Title' } }
+      let(:params) { { title: 'Valid New Title' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -70,7 +70,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context 'when the inventory list belongs to another user' do
       let!(:inventory_list) { create(:inventory_list) }
-      let(:params)          { { title: 'Valid New Title' } }
+      let(:params) { { title: 'Valid New Title' } }
 
       it "doesn't update the inventory list" do
         expect { perform }
@@ -89,7 +89,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context 'when the inventory list is an aggregate list' do
       let(:inventory_list) { aggregate_list }
-      let(:params)         { { title: 'New Title' } }
+      let(:params) { { title: 'New Title' } }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -102,7 +102,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context 'when the request tries to set aggregate to true' do
       let(:inventory_list) { create(:inventory_list, game:) }
-      let(:params)         { { aggregate: true } }
+      let(:params) { { aggregate: true } }
 
       it 'returns a Service::UnprocessableEntityResult' do
         expect(perform).to be_a(Service::UnprocessableEntityResult)
@@ -115,7 +115,7 @@ RSpec.describe InventoryListsController::UpdateService do
 
     context 'when something unexpected goes wrong' do
       let(:inventory_list) { create(:inventory_list, game:) }
-      let(:params)         { { title: 'New Title' } }
+      let(:params) { { title: 'New Title' } }
 
       before do
         allow_any_instance_of(InventoryList).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')

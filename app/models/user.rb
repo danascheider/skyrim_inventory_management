@@ -8,10 +8,10 @@ class User < ApplicationRecord
 
   def self.create_or_update_for_google(data)
     where(uid: data['localId']).first_or_initialize.tap do |user|
-      user.uid          = data['localId']
-      user.email        = data['email']
+      user.uid = data['localId']
+      user.email = data['email']
       user.display_name = data['displayName']
-      user.photo_url    = data['photoUrl']
+      user.photo_url = data['photoUrl']
       user.save!
     end
   end

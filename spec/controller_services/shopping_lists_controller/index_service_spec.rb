@@ -37,7 +37,7 @@ RSpec.describe ShoppingListsController::IndexService do
     end
 
     context 'when there are no shopping lists for that game' do
-      let(:game)    { create(:game, user:) }
+      let(:game) { create(:game, user:) }
       let(:game_id) { game.id }
 
       it 'returns a Service::OKResult' do

@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :enchantment do
     sequence(:name) {|n| "Enchantment #{n}" }
-    strength_unit   { 'point' }
+    strength_unit { 'point' }
   end
 end

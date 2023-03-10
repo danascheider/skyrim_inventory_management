@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::JewelryItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'jewelry_items.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'jewelry_items.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:material_codes) { %w[XX002993 XX002994 000800E4] }
@@ -58,9 +58,9 @@ RSpec.describe Canonical::Sync::JewelryItems do
       end
 
       context 'when there are existing jewelry item records in the database' do
-        let!(:item_in_json)     { create(:canonical_jewelry_item, item_code: '00094E3E', jewelry_type: 'ring') }
+        let!(:item_in_json) { create(:canonical_jewelry_item, item_code: '00094E3E', jewelry_type: 'ring') }
         let!(:item_not_in_json) { create(:canonical_jewelry_item, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           create(:enchantment, name: 'Fortify Health')
@@ -146,9 +146,9 @@ RSpec.describe Canonical::Sync::JewelryItems do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_jewelry_item, item_code: '00094E3E', jewelry_type: 'circlet') }
-      let!(:item_not_in_json)         { create(:canonical_jewelry_item, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_jewelry_item, item_code: '00094E3E', jewelry_type: 'circlet') }
+      let!(:item_not_in_json) { create(:canonical_jewelry_item, item_code: '12345678') }
 
       before do
         create(:enchantment, name: 'Fortify Health')

@@ -11,9 +11,9 @@ RSpec.describe ShoppingListItemsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
-    let(:game)            { create(:game) }
+    let(:game) { create(:game) }
     let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
+    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
       let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
@@ -125,7 +125,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     end
 
     context 'when the specified list item belongs to another user' do
-      let(:user)       { game.user }
+      let(:user) { game.user }
       let!(:list_item) { create(:shopping_list_item) }
 
       it "doesn't destroy the list item" do
