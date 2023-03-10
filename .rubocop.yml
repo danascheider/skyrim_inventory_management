@@ -84,6 +84,8 @@ Layout/ArgumentAlignment:
 Layout/ArrayAlignment:
   Enabled: true
   EnforcedStyle: with_first_element
+Layout/AssignmentIndentation:
+  Enabled: true
 Layout/BeginEndAlignment:
   Enabled: true
   EnforcedStyleAlignWith: start_of_line
