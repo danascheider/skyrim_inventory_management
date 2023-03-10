@@ -4,7 +4,7 @@ module Canonical
   class MiscItem < ApplicationRecord
     self.table_name = 'canonical_misc_items'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     VALID_ITEM_TYPES = [

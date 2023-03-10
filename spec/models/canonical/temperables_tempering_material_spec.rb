@@ -6,8 +6,8 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       material = create(:canonical_material)
-      armor    = create(:canonical_armor)
-      model    = described_class.new(quantity: 3, material:, temperable: armor)
+      armor = create(:canonical_armor)
+      model = described_class.new(quantity: 3, material:, temperable: armor)
 
       expect(model).to be_valid
     end
@@ -30,7 +30,7 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
 
     describe 'temperable and canonical material' do
       let(:material) { create(:canonical_material) }
-      let(:weapon)   { create(:canonical_weapon) }
+      let(:weapon) { create(:canonical_weapon) }
 
       it 'must be a unique combination' do
         create(:canonical_temperables_tempering_material, material:, temperable: weapon)

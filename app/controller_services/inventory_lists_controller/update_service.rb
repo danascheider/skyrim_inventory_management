@@ -8,13 +8,13 @@ require 'service/internal_server_error_result'
 
 class InventoryListsController < ApplicationController
   class UpdateService
-    AGGREGATE_LIST_ERROR    = 'Cannot manually update an aggregate inventory list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update an aggregate inventory list'
     DISALLOWED_UPDATE_ERROR = 'Cannot make a regular inventory list an aggregate list'
 
     def initialize(user, list_id, params)
-      @user    = user
+      @user = user
       @list_id = list_id
-      @params  = params
+      @params = params
     end
 
     def perform

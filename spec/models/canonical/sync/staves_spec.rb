@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Staves do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'staves.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'staves.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:spell_names) do
@@ -65,9 +65,9 @@ RSpec.describe Canonical::Sync::Staves do
       end
 
       context 'when there are existing staff records in the database' do
-        let!(:item_in_json)     { create(:canonical_staff, item_code: '000AB704', magical_effects: 'Fucks up the target severely') }
+        let!(:item_in_json) { create(:canonical_staff, item_code: '000AB704', magical_effects: 'Fucks up the target severely') }
         let!(:item_not_in_json) { create(:canonical_staff, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           spell_names.each {|name| create(:spell, name:) }
@@ -150,9 +150,9 @@ RSpec.describe Canonical::Sync::Staves do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_staff, item_code: '000AB704', unit_weight: 27) }
-      let!(:item_not_in_json)         { create(:canonical_staff, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_staff, item_code: '000AB704', unit_weight: 27) }
+      let!(:item_not_in_json) { create(:canonical_staff, item_code: '12345678') }
 
       before do
         spell_names.each {|name| create(:spell, name:) }

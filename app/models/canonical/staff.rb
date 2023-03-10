@@ -6,7 +6,7 @@ module Canonical
   class Staff < ApplicationRecord
     self.table_name = 'canonical_staves'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_powerables_powers,

@@ -27,9 +27,9 @@ class Property < ApplicationRecord
             inclusion:  { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
             uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_blank: true }
 
-  validate :ensure_alchemy_lab_available,      if: -> { has_alchemy_lab == true && !canonical_property&.alchemy_lab_available }
+  validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && !canonical_property&.alchemy_lab_available }
   validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && !canonical_property&.arcane_enchanter_available }
-  validate :ensure_forge_available,            if: -> { has_forge == true && !canonical_property&.forge_available }
+  validate :ensure_forge_available, if: -> { has_forge == true && !canonical_property&.forge_available }
   validate :ensure_matches_canonical_property
 
   private

@@ -6,7 +6,7 @@ module Canonical
   class Armor < ApplicationRecord
     self.table_name = 'canonical_armors'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_enchantables_enchantments,

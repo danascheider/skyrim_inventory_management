@@ -10,15 +10,15 @@ class InventoryListsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate inventory list'
 
     def initialize(user, game_id, params)
-      @user    = user
+      @user = user
       @game_id = game_id
-      @params  = params
+      @params = params
     end
 
     def perform
       return Service::UnprocessableEntityResult.new(errors: [AGGREGATE_LIST_ERROR]) if params[:aggregate]
 
-      inventory_list             = game.inventory_lists.new(params)
+      inventory_list = game.inventory_lists.new(params)
       preexisting_aggregate_list = game.aggregate_inventory_list
 
       if inventory_list.save

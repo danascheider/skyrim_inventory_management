@@ -177,7 +177,7 @@ RSpec.describe Canonical::Armor, type: :model do
 
   describe 'associations' do
     describe 'enchantments' do
-      let(:armor)       { create(:canonical_armor) }
+      let(:armor) { create(:canonical_armor) }
       let(:enchantment) { create(:enchantment) }
 
       before do
@@ -190,7 +190,7 @@ RSpec.describe Canonical::Armor, type: :model do
     end
 
     describe 'smithing materials' do
-      let(:armor)    { create(:canonical_armor) }
+      let(:armor) { create(:canonical_armor) }
       let(:material) { create(:canonical_material) }
 
       before do

@@ -7,11 +7,11 @@ class CreateCanonicalTemperablesTemperingMaterials < ActiveRecord::Migration[6.1
                    null:        false,
                    foreign_key: { to_table: 'canonical_materials' },
                    index:       { name: :index_canonical_armors_tempering_mats_on_canonical_material_id }
-      t.bigint     :temperable_id, null: false
-      t.string     :temperable_type, null: false
-      t.integer    :quantity,
-                   default: 1,
-                   null:    false
+      t.bigint :temperable_id, null: false
+      t.string :temperable_type, null: false
+      t.integer :quantity,
+                default: 1,
+                null:    false
 
       t.index %i[material_id temperable_id temperable_type],
               unique: true,

@@ -12,16 +12,16 @@ class InventoryItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate inventory list'
 
     def initialize(user, list_id, params)
-      @user    = user
+      @user = user
       @list_id = list_id
-      @params  = params
+      @params = params
     end
 
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if inventory_list.aggregate == true
 
       preexisting_item = inventory_list.list_items.find_by('description ILIKE ?', params[:description])
-      item             = InventoryItem.combine_or_new(params.merge(list_id:))
+      item = InventoryItem.combine_or_new(params.merge(list_id:))
 
       ActiveRecord::Base.transaction do
         item.save!

@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::MiscItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'misc_items.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'misc_items.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -18,7 +18,7 @@ RSpec.describe Canonical::Sync::MiscItems do
 
     context 'when preserve_existing_records is false' do
       let(:preserve_existing_records) { false }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
+      let(:syncer) { described_class.new(preserve_existing_records) }
 
       before do
         allow(described_class).to receive(:new).and_return(syncer)
@@ -37,9 +37,9 @@ RSpec.describe Canonical::Sync::MiscItems do
       end
 
       context 'when there are existing records in the database' do
-        let!(:item_in_json)     { create(:canonical_misc_item, item_code: 'XX012F97', name: 'Quartz Paragon') }
+        let!(:item_in_json) { create(:canonical_misc_item, item_code: 'XX012F97', name: 'Quartz Paragon') }
         let!(:item_not_in_json) { create(:canonical_misc_item, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         it 'instantiates itself' do
           allow(described_class).to receive(:new).and_return(syncer)
@@ -68,9 +68,9 @@ RSpec.describe Canonical::Sync::MiscItems do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_misc_item, item_code: 'XX012F97', name: 'Quartz Paragon') }
-      let!(:item_not_in_json)         { create(:canonical_misc_item, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_misc_item, item_code: 'XX012F97', name: 'Quartz Paragon') }
+      let!(:item_not_in_json) { create(:canonical_misc_item, item_code: '12345678') }
 
       it 'instantiates itself' do
         allow(described_class).to receive(:new).and_return(syncer)

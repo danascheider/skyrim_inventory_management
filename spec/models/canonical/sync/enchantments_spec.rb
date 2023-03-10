@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Enchantments do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -18,7 +18,7 @@ RSpec.describe Canonical::Sync::Enchantments do
 
     context 'when preserve_existing_records is false' do
       let(:preserve_existing_records) { false }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
+      let(:syncer) { described_class.new(preserve_existing_records) }
 
       it 'instantiates itself' do
         allow(described_class).to receive(:new).and_return(syncer)
@@ -37,7 +37,7 @@ RSpec.describe Canonical::Sync::Enchantments do
       end
 
       context 'when there are existing records in the database' do
-        let!(:enchantment_in_json)     { create(:enchantment, name: 'Banish', strength_unit: 'point') }
+        let!(:enchantment_in_json) { create(:enchantment, name: 'Banish', strength_unit: 'point') }
         let!(:enchantment_not_in_json) { create(:enchantment, name: 'Shock Damage') }
 
         it 'updates models that were already in the database' do
@@ -61,9 +61,9 @@ RSpec.describe Canonical::Sync::Enchantments do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:enchantment_in_json)      { create(:enchantment, name: 'Banish', strength_unit: 'percentage') }
-      let!(:enchantment_not_in_json)  { create(:enchantment, name: 'Shock Damage') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:enchantment_in_json) { create(:enchantment, name: 'Banish', strength_unit: 'percentage') }
+      let!(:enchantment_not_in_json) { create(:enchantment, name: 'Shock Damage') }
 
       before do
         allow(described_class).to receive(:new).and_return(syncer)

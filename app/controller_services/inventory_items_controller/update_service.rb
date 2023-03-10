@@ -11,9 +11,9 @@ class InventoryItemsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate inventory list'
 
     def initialize(user, item_id, params)
-      @user    = user
+      @user = user
       @item_id = item_id
-      @params  = params
+      @params = params
     end
 
     def perform

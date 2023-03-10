@@ -3,14 +3,6 @@
 class UtilitiesController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def privacy
-    render plain: PRIVACY, status: :ok
-  end
-
-  def tos
-    render plain: TOS, status: :ok
-  end
-
   PRIVACY = <<~HEREDOC
     Thank you for using Skyrim Inventory Management. This app was intended
     for my personal use and offers no guarantees of security, privacy, or
@@ -31,4 +23,12 @@ class UtilitiesController < ApplicationController
     the documentation, which may be found in the README at
     https://github.com/danascheider/skyrim_inventory_management.
   HEREDOC
+
+  def privacy
+    render plain: PRIVACY, status: :ok
+  end
+
+  def tos
+    render plain: TOS, status: :ok
+  end
 end

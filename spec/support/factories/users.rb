@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory(:user) do
-    sequence(:uid)   {|n| "foobar#{n}" }
+    sequence(:uid) {|n| "foobar#{n}" }
     sequence(:email) { 'foo@example.com' }
-    display_name     { 'Jane Doe' }
+    display_name { 'Jane Doe' }
 
     # This factory uses data from /spec/support/fixtures/auth/success.json
     # to mock an existing user to authenticate with WebMock.

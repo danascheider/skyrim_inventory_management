@@ -145,7 +145,7 @@ RSpec.describe Canonical::ClothingItem, type: :model do
 
   describe 'associations' do
     describe 'enchantments' do
-      let(:item)        { create(:canonical_clothing_item) }
+      let(:item) { create(:canonical_clothing_item) }
       let(:enchantment) { create(:enchantment) }
 
       before do

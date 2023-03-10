@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
-  let!(:game)          { create(:game) }
+  let!(:game) { create(:game) }
   let(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-  let(:shopping_list)  { create(:shopping_list, game:, aggregate_list:) }
+  let(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
 
   describe 'delegation' do
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }

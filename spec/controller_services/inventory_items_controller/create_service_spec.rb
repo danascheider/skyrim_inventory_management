@@ -11,8 +11,8 @@ RSpec.describe InventoryItemsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, inventory_list.id, params).perform }
 
-    let(:user)            { create(:user) }
-    let(:game)            { create(:game, user:) }
+    let(:user) { create(:user) }
+    let(:game) { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
@@ -41,7 +41,7 @@ RSpec.describe InventoryItemsController::CreateService do
         end
 
         context 'when there is an existing matching item on another list' do
-          let(:other_list)  { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
+          let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
           let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 1) }
 
           before do
@@ -102,9 +102,9 @@ RSpec.describe InventoryItemsController::CreateService do
       end
 
       context 'when there is an existing matching item on the same list' do
-        let(:other_list)  { create(:inventory_list, game:) }
+        let(:other_list) { create(:inventory_list, game:) }
         let!(:other_item) { create(:inventory_item, list: other_list, description: 'Necklace', quantity: 2) }
-        let!(:list_item)  { create(:inventory_item, list: inventory_list, description: 'Necklace', quantity: 1) }
+        let!(:list_item) { create(:inventory_item, list: inventory_list, description: 'Necklace', quantity: 1) }
 
         before do
           aggregate_list.add_item_from_child_list(other_item)
@@ -176,7 +176,7 @@ RSpec.describe InventoryItemsController::CreateService do
     end
 
     context "when the list doesn't exist" do
-      let(:params)         { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let(:params) { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
       let(:inventory_list) { double(id: 234_980) }
 
       it 'returns a Service::NotFoundResult' do
@@ -190,7 +190,7 @@ RSpec.describe InventoryItemsController::CreateService do
     end
 
     context 'when the list belongs to another user' do
-      let(:params)          { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
+      let(:params) { { description: 'Necklace', quantity: 4, unit_weight: 0.5 } }
       let!(:inventory_list) { create(:inventory_list) }
 
       it "doesn't create an inventory item" do
@@ -221,8 +221,8 @@ RSpec.describe InventoryItemsController::CreateService do
     end
 
     context 'when the list is an aggregate list' do
-      let(:inventory_list)  { aggregate_list }
-      let!(:params)         { { description: 'Necklace', quantity: 2 } }
+      let(:inventory_list) { aggregate_list }
+      let!(:params) { { description: 'Necklace', quantity: 2 } }
 
       it "doesn't create an item" do
         expect { perform }

@@ -16,9 +16,9 @@ RSpec.describe 'InventoryItems', type: :request do
       post "/inventory_lists/#{inventory_list.id}/inventory_items", params:, headers:
     end
 
-    let!(:game)            { create(:game, user:) }
-    let!(:inventory_list)  { create(:inventory_list, game:) }
-    let!(:aggregate_list)  { game.aggregate_inventory_list }
+    let!(:game) { create(:game, user:) }
+    let!(:inventory_list) { create(:inventory_list, game:) }
+    let!(:aggregate_list) { game.aggregate_inventory_list }
 
     context 'when authenticated' do
       before do
@@ -54,7 +54,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
           context 'when there is an existing matching item on another list' do
             let!(:other_item) { create(:inventory_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
-            let(:other_list)  { create(:inventory_list, game:) }
+            let(:other_list) { create(:inventory_list, game:) }
 
             before do
               aggregate_list.add_item_from_child_list(other_item)
@@ -120,9 +120,9 @@ RSpec.describe 'InventoryItems', type: :request do
         end
 
         context 'when there is an existing matching item on the same list' do
-          let(:other_list)  { create(:inventory_list, game:, aggregate_list:) }
+          let(:other_list) { create(:inventory_list, game:, aggregate_list:) }
           let!(:other_item) { create(:inventory_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
-          let!(:list_item)  { create(:inventory_item, list: inventory_list, description: 'Corundum ingot', quantity: 3) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list, description: 'Corundum ingot', quantity: 3) }
 
           before do
             aggregate_list.add_item_from_child_list(other_item)
@@ -198,7 +198,7 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context "when the list doesn't exist" do
-        let(:params)         { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
+        let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
         let(:inventory_list) { double(id: 23_498) }
 
         it 'returns status 404' do
@@ -213,7 +213,7 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the list belongs to another user' do
-        let(:params)         { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
+        let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
         let(:inventory_list) { create(:inventory_list) }
 
         it "doesn't create an inventory item" do
@@ -252,8 +252,8 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the list is an aggregate list' do
-        let(:inventory_list)  { create(:aggregate_inventory_list, game:) }
-        let(:params)          { { inventory_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
+        let(:inventory_list) { create(:aggregate_inventory_list, game:) }
+        let(:params) { { inventory_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
 
         it "doesn't create an item" do
           expect { create_item }
@@ -319,8 +319,8 @@ RSpec.describe 'InventoryItems', type: :request do
   describe 'PATCH /inventory_items/:id' do
     subject(:update_item) { patch "/inventory_items/#{list_item.id}", headers:, params: }
 
-    let!(:user)           { create(:authenticated_user) }
-    let(:game)            { create(:game, user:) }
+    let!(:user) { create(:authenticated_user) }
+    let(:game) { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
@@ -331,9 +331,9 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
-          let!(:list_item)          { create(:inventory_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
-          let(:params)              { { inventory_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
+          let(:params) { { inventory_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
           before do
             aggregate_list.add_item_from_child_list(list_item)
@@ -361,9 +361,9 @@ RSpec.describe 'InventoryItems', type: :request do
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item)          { create(:inventory_item, list: inventory_list) }
-          let!(:other_list)         { create(:inventory_list, game:, aggregate_list:) }
-          let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 4) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list) }
+          let!(:other_list) { create(:inventory_list, game:, aggregate_list:) }
+          let!(:other_item) { create(:inventory_item, list: other_list, description: list_item.description, quantity: 4) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -487,7 +487,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context "when the inventory list item doesn't exist" do
         let(:list_item) { double(id: 234_567) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it 'returns status 404' do
           update_item
@@ -502,7 +502,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when the inventory list item belongs to another user' do
         let!(:list_item) { create(:inventory_item) }
-        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it "doesn't update the item" do
           expect { update_item }
@@ -522,7 +522,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:inventory_item, list: aggregate_list) }
-        let(:params)     { { inventory_item: { quantity: 10 } }.to_json }
+        let(:params) { { inventory_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
           update_item
@@ -536,11 +536,11 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the attributes are invalid' do
-        let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 2) }
-        let(:other_list)          { create(:inventory_list, game:) }
-        let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
+        let!(:list_item) { create(:inventory_item, list: inventory_list, quantity: 2) }
+        let(:other_list) { create(:inventory_list, game:) }
+        let!(:other_item) { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
-        let(:params)              { { inventory_item: { quantity: -4, unit_weight: 2 } }.to_json }
+        let(:params) { { inventory_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -571,7 +571,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when something unexpected goes wrong' do
         let!(:list_item) { create(:inventory_item, list: inventory_list) }
-        let(:params)     { { notes: 'Hello world' }.to_json }
+        let(:params) { { notes: 'Hello world' }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -594,7 +594,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
     context 'when not authenticated' do
       let!(:list_item) { create(:inventory_item) }
-      let(:params)     { { inventory_item: { description: 'Dwarven metal ingot' } }.to_json }
+      let(:params) { { inventory_item: { description: 'Dwarven metal ingot' } }.to_json }
 
       before do
         stub_unsuccessful_login
@@ -620,8 +620,8 @@ RSpec.describe 'InventoryItems', type: :request do
   describe 'PUT /inventory_items/:id' do
     subject(:update_item) { put "/inventory_items/#{list_item.id}", headers:, params: }
 
-    let!(:user)           { create(:authenticated_user) }
-    let(:game)            { create(:game, user:) }
+    let!(:user) { create(:authenticated_user) }
+    let(:game) { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
@@ -632,9 +632,9 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
-          let!(:list_item)          { create(:inventory_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
-          let(:params)              { { inventory_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
+          let(:params) { { inventory_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
           before do
             aggregate_list.add_item_from_child_list(list_item)
@@ -662,9 +662,9 @@ RSpec.describe 'InventoryItems', type: :request do
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item)          { create(:inventory_item, list: inventory_list) }
-          let!(:other_list)         { create(:inventory_list, game:, aggregate_list:) }
-          let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 4) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list) }
+          let!(:other_list) { create(:inventory_list, game:, aggregate_list:) }
+          let!(:other_item) { create(:inventory_item, list: other_list, description: list_item.description, quantity: 4) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -788,7 +788,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context "when the inventory list item doesn't exist" do
         let(:list_item) { double(id: 234_567) }
-        let(:params)    { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it 'returns status 404' do
           update_item
@@ -803,7 +803,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when the inventory list item belongs to another user' do
         let!(:list_item) { create(:inventory_item) }
-        let(:params)     { { quantity: 4, unit_weight: 0.3 }.to_json }
+        let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it "doesn't update the item" do
           expect { update_item }
@@ -823,7 +823,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:inventory_item, list: aggregate_list) }
-        let(:params)     { { inventory_item: { quantity: 10 } }.to_json }
+        let(:params) { { inventory_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
           update_item
@@ -837,11 +837,11 @@ RSpec.describe 'InventoryItems', type: :request do
       end
 
       context 'when the attributes are invalid' do
-        let!(:list_item)          { create(:inventory_item, list: inventory_list, quantity: 2) }
-        let(:other_list)          { create(:inventory_list, game:) }
-        let!(:other_item)         { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
+        let!(:list_item) { create(:inventory_item, list: inventory_list, quantity: 2) }
+        let(:other_list) { create(:inventory_list, game:) }
+        let!(:other_item) { create(:inventory_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
-        let(:params)              { { inventory_item: { quantity: -4, unit_weight: 2 } }.to_json }
+        let(:params) { { inventory_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -872,7 +872,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
       context 'when something unexpected goes wrong' do
         let!(:list_item) { create(:inventory_item, list: inventory_list) }
-        let(:params)     { { notes: 'Hello world' }.to_json }
+        let(:params) { { notes: 'Hello world' }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -895,7 +895,7 @@ RSpec.describe 'InventoryItems', type: :request do
 
     context 'when not authenticated' do
       let!(:list_item) { create(:inventory_item) }
-      let(:params)     { { inventory_item: { description: 'Dwarven metal ingot' } }.to_json }
+      let(:params) { { inventory_item: { description: 'Dwarven metal ingot' } }.to_json }
 
       before do
         stub_unsuccessful_login
@@ -921,8 +921,8 @@ RSpec.describe 'InventoryItems', type: :request do
   describe 'DELETE /inventory_items/:id' do
     subject(:destroy_item) { delete "/inventory_items/#{list_item.id}", headers: }
 
-    let!(:user)           { create(:authenticated_user) }
-    let(:game)            { create(:game, user:) }
+    let!(:user) { create(:authenticated_user) }
+    let(:game) { create(:game, user:) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
     let!(:inventory_list) { create(:inventory_list, game:, aggregate_list:) }
 
@@ -975,8 +975,8 @@ RSpec.describe 'InventoryItems', type: :request do
         end
 
         context 'when there is a matching list item on another list' do
-          let!(:list_item)  { create(:inventory_item, list: inventory_list) }
-          let(:other_list)  { create(:inventory_list, game:) }
+          let!(:list_item) { create(:inventory_item, list: inventory_list) }
+          let(:other_list) { create(:inventory_list, game:) }
           let!(:other_item) { create(:inventory_item, description: list_item.description, list: other_list) }
 
           before do

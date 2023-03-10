@@ -6,28 +6,28 @@ module Canonical
   class Weapon < ApplicationRecord
     self.table_name = 'canonical_weapons'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
-    VALID_WEAPON_TYPES         = {
-                                   'one-handed' => [
-                                                     'dagger',
-                                                     'mace',
-                                                     'other',
-                                                     'sword',
-                                                     'war axe',
-                                                   ],
-                                   'two-handed' => %w[
-                                                     battleaxe
-                                                     greatsword
-                                                     warhammer
-                                                   ],
-                                   'archery'    => %w[
-                                                     arrow
-                                                     bolt
-                                                     bow
-                                                     crossbow
-                                                   ],
-                                 }.freeze
+    VALID_WEAPON_TYPES = {
+                           'one-handed' => [
+                                             'dagger',
+                                             'mace',
+                                             'other',
+                                             'sword',
+                                             'war axe',
+                                           ],
+                           'two-handed' => %w[
+                                             battleaxe
+                                             greatsword
+                                             warhammer
+                                           ],
+                           'archery'    => %w[
+                                             arrow
+                                             bolt
+                                             bow
+                                             crossbow
+                                           ],
+                         }.freeze
 
     has_many :canonical_enchantables_enchantments,
              dependent:  :destroy,

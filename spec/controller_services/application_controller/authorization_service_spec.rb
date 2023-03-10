@@ -7,10 +7,10 @@ RSpec.describe ApplicationController::AuthorizationService do
   describe '#perform' do
     subject(:perform) { described_class.new(controller, token).perform }
 
-    let(:controller)           { instance_double(ApplicationController) }
-    let(:faraday)              { instance_double(Faraday::Connection, post: google_auth_response) }
+    let(:controller) { instance_double(ApplicationController) }
+    let(:faraday) { instance_double(Faraday::Connection, post: google_auth_response) }
     let(:google_auth_response) { instance_double(Faraday::Response, status:, body:, success?: success) }
-    let(:token)                { 'xxxxxxx' }
+    let(:token) { 'xxxxxxx' }
 
     before do
       allow(Faraday).to receive(:new).and_return(faraday)
@@ -19,9 +19,9 @@ RSpec.describe ApplicationController::AuthorizationService do
 
     context 'when the token is nil' do
       let(:token) { nil }
-      let(:status)  { nil }
+      let(:status) { nil }
       let(:success) { nil }
-      let(:body)    { nil }
+      let(:body) { nil }
 
       it 'returns a Service::UnauthorizedResult' do
         expect(perform).to be_a(Service::UnauthorizedResult)
@@ -38,7 +38,7 @@ RSpec.describe ApplicationController::AuthorizationService do
     end
 
     context 'when login is successful' do
-      let(:status)  { 200 }
+      let(:status) { 200 }
       let(:success) { true }
       let(:body) do
         File.read(
@@ -110,7 +110,7 @@ RSpec.describe ApplicationController::AuthorizationService do
     end
 
     context 'when an unexpected response body is returned' do
-      let(:status)  { 200 }
+      let(:status) { 200 }
       let(:success) { true }
 
       before do
@@ -236,7 +236,7 @@ RSpec.describe ApplicationController::AuthorizationService do
     end
 
     context 'when a non-200-range response is returned' do
-      let(:status)  { 400 }
+      let(:status) { 400 }
       let(:success) { false }
 
       # Note: We don't actually know what an unsuccessful response body would look like
@@ -282,9 +282,9 @@ RSpec.describe ApplicationController::AuthorizationService do
     end
 
     context 'when an unexpected error is raised' do
-      let(:status)  { 200 }
+      let(:status) { 200 }
       let(:success) { true }
-      let(:body)    { 'oops' }
+      let(:body) { 'oops' }
 
       before do
         allow(Rails.logger).to receive(:error)

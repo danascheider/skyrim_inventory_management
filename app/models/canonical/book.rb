@@ -6,7 +6,7 @@ module Canonical
   class Book < ApplicationRecord
     self.table_name = 'canonical_books'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     BOOK_TYPES = [

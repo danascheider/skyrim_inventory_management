@@ -13,7 +13,7 @@ RSpec.describe InventoryListsController::CreateService do
     let(:user) { create(:user) }
 
     context 'when the params are valid' do
-      let!(:game)  { create(:game, user:) }
+      let!(:game) { create(:game, user:) }
       let(:params) { { title: 'Hjerim' } }
 
       context 'when the game has no aggregate inventory list' do
@@ -70,9 +70,9 @@ RSpec.describe InventoryListsController::CreateService do
     end
 
     context 'when the params are invalid' do
-      let(:game)    { create(:game, user:) }
+      let(:game) { create(:game, user:) }
       let(:game_id) { game.id }
-      let(:params)  { { title: '|nvalid Tit|e' } }
+      let(:params) { { title: '|nvalid Tit|e' } }
 
       it "doesn't create an inventory list" do
         expect { perform }
@@ -89,7 +89,7 @@ RSpec.describe InventoryListsController::CreateService do
     end
 
     context 'when the game is not found' do
-      let(:game)   { double(id: 898_243) }
+      let(:game) { double(id: 898_243) }
       let(:params) { { title: 'My Inventory List' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -102,7 +102,7 @@ RSpec.describe InventoryListsController::CreateService do
     end
 
     context 'when the game belongs to another user' do
-      let!(:game)  { create(:game) }
+      let!(:game) { create(:game) }
       let(:params) { { title: 'My Inventory List' } }
 
       it "doesn't create an inventory list" do
@@ -139,7 +139,7 @@ RSpec.describe InventoryListsController::CreateService do
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game)   { create(:game, user:) }
+      let(:game) { create(:game, user:) }
       let(:params) { { title: 'Foobar' } }
 
       before do

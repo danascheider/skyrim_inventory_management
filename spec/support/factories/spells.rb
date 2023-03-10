@@ -3,9 +3,9 @@
 FactoryBot.define do
   factory :spell do
     sequence(:name) {|n| "Awesome Spell #{n}" }
-    school          { 'Conjuration' }
-    level           { 'Adept' }
-    description     { 'Destroys enemies on sight' }
-    base_duration   { 5 }
+    school { 'Conjuration' }
+    level { 'Adept' }
+    description { 'Destroys enemies on sight' }
+    base_duration { 5 }
   end
 end
