@@ -179,7 +179,7 @@ Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/FirstArgumentIndentation:
   Enabled: true
-  EnforcedStyle: consistent_relative_to_receiver
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
 Layout/FirstArrayElementIndentation:
   Enabled: true
   EnforcedStyle: align_brackets
