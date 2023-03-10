@@ -14,10 +14,10 @@ class Spell < ApplicationRecord
   validates :level, presence: true, inclusion: { in: Skyrim::DIFFICULTY_LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }
   validates :strength_unit,
             inclusion: {
-                         in:          %w[point percentage level],
-                         message:     'must be "point", "percentage", or the "level" of affected targets',
-                         allow_blank: true,
-                       }
+              in:          %w[point percentage level],
+              message:     'must be "point", "percentage", or the "level" of affected targets',
+              allow_blank: true,
+            }
   validates :description, presence: true
   validate :strength_and_strength_unit_both_or_neither_present
 

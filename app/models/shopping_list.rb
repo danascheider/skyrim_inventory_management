@@ -10,9 +10,9 @@ class ShoppingList < ApplicationRecord
   validates :title,
             uniqueness: { scope: :game_id, message: 'must be unique per game', case_sensitive: false },
             format:     {
-                          with:    /\A\s*[a-z0-9 \-',]*\s*\z/i,
-                          message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')",
-                        }
+              with:    /\A\s*[a-z0-9 \-',]*\s*\z/i,
+              message: "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')",
+            }
 
   before_save :format_title
 

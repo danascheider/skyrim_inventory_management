@@ -10,9 +10,9 @@ class Power < ApplicationRecord
   validates :power_type,
             presence:  true,
             inclusion: {
-                         in:      %w[greater lesser ability],
-                         message: 'must be "greater", "lesser", or "ability"',
-                       }
+              in:      %w[greater lesser ability],
+              message: 'must be "greater", "lesser", or "ability"',
+            }
   validates :source, presence: true
   validates :description, presence: true
 

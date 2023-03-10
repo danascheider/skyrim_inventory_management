@@ -27,9 +27,9 @@ module Canonical
     validates :base_damage,
               presence:     true,
               numericality: {
-                              greater_than_or_equal_to: 0,
-                              only_integer:             true,
-                            }
+                greater_than_or_equal_to: 0,
+                only_integer:             true,
+              }
     validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
     validates :daedric, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }

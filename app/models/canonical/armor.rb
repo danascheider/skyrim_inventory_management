@@ -40,15 +40,15 @@ module Canonical
     validates :weight,
               presence:  true,
               inclusion: {
-                           in:      ['light armor', 'heavy armor'],
-                           message: 'must be "light armor" or "heavy armor"',
-                         }
+                in:      ['light armor', 'heavy armor'],
+                message: 'must be "light armor" or "heavy armor"',
+              }
     validates :body_slot,
               presence:  true,
               inclusion: {
-                           in:      %w[head body hands feet hair shield],
-                           message: 'must be "head", "body", "hands", "feet", "hair", or "shield"',
-                         }
+                in:      %w[head body hands feet hair shield],
+                message: 'must be "head", "body", "hands", "feet", "hair", or "shield"',
+              }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :enchantable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }

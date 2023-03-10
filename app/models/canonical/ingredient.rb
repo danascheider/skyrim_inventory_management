@@ -30,9 +30,9 @@ module Canonical
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :purchase_requires_perk,
               inclusion: {
-                           in:      BOOLEAN_VALUES,
-                           message: "#{BOOLEAN_VALIDATION_MESSAGE} if purchasable is true",
-                         },
+                in:      BOOLEAN_VALUES,
+                message: "#{BOOLEAN_VALIDATION_MESSAGE} if purchasable is true",
+              },
               if:        -> { purchasable == true }
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }

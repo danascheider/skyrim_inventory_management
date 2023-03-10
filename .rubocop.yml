@@ -187,7 +187,7 @@ Layout/FirstArrayElementLineBreak:
   Enabled: true
 Layout/FirstHashElementIndentation:
   Enabled: true
-  EnforcedStyle: align_braces
+  EnforcedStyle: consistent
 Layout/FirstHashElementLineBreak:
   Enabled: true
 Layout/FirstParameterIndentation:
