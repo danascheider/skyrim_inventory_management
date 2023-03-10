@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +18,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.string "name", null: false
     t.string "strength_unit"
     t.boolean "effects_cumulative", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "description", null: false
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
   end
@@ -39,8 +38,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "unique_item", default: false, null: false
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "smithing_perks", default: [], array: true
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
@@ -58,8 +57,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "rare_item", default: false, null: false
     t.boolean "solstheim_only", default: false, null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_books_on_item_code", unique: true
   end
 
@@ -74,8 +73,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
     t.boolean "enchantable", default: true, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
@@ -84,8 +83,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "craftable_id", null: false
     t.string "craftable_type", null: false
     t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["material_id", "craftable_id", "craftable_type"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
     t.index ["material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
   end
@@ -95,8 +94,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "enchantable_id", null: false
     t.string "enchantable_type", null: false
     t.decimal "strength", precision: 5, scale: 2
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["enchantment_id", "enchantable_id", "enchantable_type"], name: "index_enchantables_enchantments_on_enchmnt_id_enchble_id_type", unique: true
     t.index ["enchantment_id"], name: "index_canonical_enchantables_enchantments_on_enchantment_id"
   end
@@ -109,8 +108,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "unique_item", default: false, null: false
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "ingredient_type"
     t.boolean "purchase_requires_perk"
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
@@ -119,8 +118,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
   create_table "canonical_ingredients_alchemical_properties", force: :cascade do |t|
     t.bigint "alchemical_property_id", null: false
     t.bigint "ingredient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "priority", null: false
     t.decimal "strength_modifier"
     t.decimal "duration_modifier"
@@ -141,8 +140,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
     t.boolean "enchantable", default: true, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
@@ -152,8 +151,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "building_material", default: false
     t.boolean "smithing_material", default: false
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_materials_on_item_code", unique: true
   end
 
@@ -167,8 +166,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "unique_item", null: false
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_misc_items_on_item_code", unique: true
   end
 
@@ -182,8 +181,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "unique_item", default: false, null: false
     t.boolean "rare_item", default: false, null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
   end
 
@@ -192,8 +191,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "alchemical_property_id", null: false
     t.integer "strength"
     t.integer "duration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["alchemical_property_id"], name: "index_can_potions_properties_on_alc_property_id"
     t.index ["potion_id", "alchemical_property_id"], name: "index_can_potions_properties_on_potion_and_property", unique: true
     t.index ["potion_id"], name: "index_canonical_potions_alchemical_properties_on_potion_id"
@@ -203,8 +202,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "power_id", null: false
     t.bigint "powerable_id", null: false
     t.string "powerable_type", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["power_id", "powerable_id", "powerable_type"], name: "index_powerables_powers_on_power_id_and_powerable", unique: true
     t.index ["power_id"], name: "index_canonical_powerables_powers_on_power_id"
   end
@@ -216,8 +215,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "alchemy_lab_available", default: true
     t.boolean "arcane_enchanter_available", default: false
     t.boolean "forge_available", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
@@ -226,8 +225,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
   create_table "canonical_recipes_ingredients", force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "ingredient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_canonical_recipes_ingredients_on_ingredient_id"
     t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
     t.index ["recipe_id"], name: "index_canonical_recipes_ingredients_on_recipe_id"
@@ -247,8 +246,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
     t.boolean "leveled", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_staves_on_item_code", unique: true
   end
 
@@ -256,8 +255,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "spell_id", null: false
     t.bigint "staff_id", null: false
     t.integer "strength"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["spell_id", "staff_id"], name: "index_canonical_staves_spells_on_spell_id_and_staff_id", unique: true
     t.index ["spell_id"], name: "index_canonical_staves_spells_on_spell_id"
     t.index ["staff_id"], name: "index_canonical_staves_spells_on_staff_id"
@@ -268,8 +267,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "temperable_id", null: false
     t.string "temperable_type", null: false
     t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["material_id", "temperable_id", "temperable_type"], name: "index_temperables_tempering_mats_on_mat_id_and_temperable", unique: true
     t.index ["material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
   end
@@ -289,8 +288,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "unique_item", default: false, null: false
     t.boolean "rare_item", null: false
     t.boolean "quest_item", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
@@ -298,8 +297,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.string "name", null: false
     t.string "enchantable_items", default: [], array: true
     t.string "strength_unit"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "school"
     t.index ["name"], name: "index_enchantments_on_name", unique: true
   end
@@ -308,8 +307,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name", "user_id"], name: "index_games_on_name_and_user_id", unique: true
     t.index ["user_id"], name: "index_games_on_user_id"
   end
@@ -320,8 +319,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.string "notes"
     t.integer "quantity", default: 1, null: false
     t.decimal "unit_weight", precision: 5, scale: 1
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["description", "list_id"], name: "index_inventory_items_on_description_and_list_id", unique: true
     t.index ["list_id"], name: "index_inventory_items_on_list_id"
   end
@@ -331,8 +330,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.bigint "aggregate_list_id"
     t.string "title", null: false
     t.boolean "aggregate", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["aggregate_list_id"], name: "index_inventory_lists_on_aggregate_list_id"
     t.index ["game_id"], name: "index_inventory_lists_on_game_id"
     t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
@@ -343,8 +342,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.string "power_type", null: false
     t.string "source", null: false
     t.string "description", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_powers_on_name", unique: true
   end
 
@@ -357,8 +356,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.boolean "has_alchemy_lab", default: false
     t.boolean "has_arcane_enchanter", default: false
     t.boolean "has_forge", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["canonical_property_id"], name: "index_properties_on_canonical_property_id"
     t.index ["game_id", "canonical_property_id"], name: "index_properties_on_game_id_and_canonical_property_id", unique: true
     t.index ["game_id", "city"], name: "index_properties_on_game_id_and_city", unique: true
@@ -371,8 +370,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.string "description", null: false
     t.string "notes"
     t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "list_id", null: false
     t.decimal "unit_weight", precision: 5, scale: 1
     t.index ["description", "list_id"], name: "index_shopping_list_items_on_description_and_list_id", unique: true
@@ -380,8 +379,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
   end
 
   create_table "shopping_lists", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "aggregate", default: false
     t.string "title", null: false
     t.bigint "game_id", null: false
@@ -397,8 +396,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
     t.integer "strength"
     t.integer "base_duration"
     t.boolean "effects_cumulative", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "school", null: false
     t.string "level", null: false
     t.string "strength_unit"
@@ -408,11 +407,10 @@ ActiveRecord::Schema[6.1].define(version: 2022_06_07_214236) do
   create_table "users", force: :cascade do |t|
     t.string "uid", null: false
     t.string "email", null: false
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image_url"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "display_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_url"
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 

@@ -70,6 +70,26 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
+    context 'when the shopping list belongs to another user' do
+      let!(:shopping_list) { create(:shopping_list) }
+      let(:game)           { create(:game) }
+      let(:params)         { { title: 'Valid New Title' } }
+
+      it "doesn't update the shopping list" do
+        expect { perform }
+          .not_to change(shopping_list.reload, :title)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the shopping list is an aggregate shopping list' do
       let(:shopping_list) { aggregate_list }
       let(:game)          { create(:game, user:) }

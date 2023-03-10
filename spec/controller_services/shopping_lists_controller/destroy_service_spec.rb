@@ -117,6 +117,29 @@ RSpec.describe ShoppingListsController::DestroyService do
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
       end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the list belongs to another user' do
+      let!(:shopping_list) { create(:shopping_list) }
+
+      it "doesn't destroy the shopping list" do
+        expect { perform }
+          .not_to change(ShoppingList, :count)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
     end
 
     context 'when something unexpected goes wrong' do

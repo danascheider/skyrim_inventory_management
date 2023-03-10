@@ -4,7 +4,7 @@ require 'service/ok_result'
 require 'controller/response'
 
 class HealthChecksController < ApplicationController
-  skip_before_action :validate_google_oauth_token
+  skip_before_action :authenticate_user!
 
   def index
     result = Service::OKResult.new(resource: {})

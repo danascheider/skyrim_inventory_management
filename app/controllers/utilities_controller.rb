@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UtilitiesController < ApplicationController
-  skip_before_action :validate_google_oauth_token
+  skip_before_action :authenticate_user!
 
   def privacy
     render plain: PRIVACY, status: :ok

@@ -20,8 +20,28 @@ RSpec.describe ShoppingListsController::CreateService do
         expect(perform).to be_a(Service::NotFoundResult)
       end
 
-      it "doesn't return any data" do
-        expect(perform.errors).to be_empty
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the game belongs to another user' do
+      let(:game)   { create(:game) }
+      let(:params) { { title: 'My Shopping List' } }
+
+      it "doesn't create a shopping list" do
+        expect { perform }
+          .not_to change(ShoppingList, :count)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 

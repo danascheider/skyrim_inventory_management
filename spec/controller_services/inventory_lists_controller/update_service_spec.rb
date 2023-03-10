@@ -68,6 +68,25 @@ RSpec.describe InventoryListsController::UpdateService do
       end
     end
 
+    context 'when the inventory list belongs to another user' do
+      let!(:inventory_list) { create(:inventory_list) }
+      let(:params)          { { title: 'Valid New Title' } }
+
+      it "doesn't update the inventory list" do
+        expect { perform }
+          .not_to change(inventory_list.reload, :title)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
     context 'when the inventory list is an aggregate list' do
       let(:inventory_list) { aggregate_list }
       let(:params)         { { title: 'New Title' } }

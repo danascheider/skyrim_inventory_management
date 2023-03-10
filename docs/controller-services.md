@@ -4,7 +4,7 @@ The SIM back end uses a controller service pattern to extract heavy controller l
 
 ## The Service Class
 
-A service class lives in the `/app/controller_services` directory, in a subdirectory for the controller it serves. Consistent with [Zeitwerk](https://medium.com/cedarcode/understanding-zeitwerk-in-rails-6-f168a9f09a1f) requirements, the service classes are namespaced under the controller itself. For example, `/app/controller_services/users_controller/show_service.rb` contains a class called `UsersController::ShowService`.
+A service class lives in the `/app/controller_services` directory, in a subdirectory for the controller it serves. Consistent with [Zeitwerk](https://medium.com/cedarcode/understanding-zeitwerk-in-rails-6-f168a9f09a1f) requirements, the service classes are namespaced under the controller itself. For example, `/app/controller_services/games_controller/update_service.rb` contains a class called `GamesController::UpdateService`.
 
 The service class is instantiated with exactly the data it needs to figure out what kind of response to make (i.e., status code) and what the payload should be. It has a single instance method, `perform`, that identifies the correct type of response and returns a result object with the response type and payload.
 
@@ -21,6 +21,7 @@ Existing result classes are:
 * `Service::NotFoundResult`
 * `Service::MethodNotAllowedResult`
 * `Service::UnprocessableEntityResult`
+* `Service::InternalServerErrorResult`
 
 An example of their use might be (inside a controller service's `#perform` method):
 ```ruby
@@ -44,7 +45,7 @@ class ShoppingListsController < ApplicationController
     # params to do it with. If successful, it will return a
     # Service::CreatedResponse object.
     result = CreateService.new(current_user, shopping_list_params).perform
-    
+
     # Renders the right JSON response and status code
     response = ::Controller::Response.new(self, result).execute
   end

@@ -5,15 +5,20 @@ require 'rails_helper'
 RSpec.describe 'Games', type: :request do
   let(:headers) do
     {
-      'Content-Type' => 'application/json',
+      'Content-Type'  => 'application/json',
+      'Authorization' => 'Bearer xxxxxxx',
     }
   end
 
   describe 'GET /games' do
-    subject(:get_games) { get '/games' }
+    subject(:get_games) { get '/games', headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the user has no games' do
         it 'returns status 200' do
@@ -60,13 +65,34 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      before do
+        create(:authenticated_user)
+        stub_unsuccessful_login
+      end
+
+      it 'returns status 401' do
+        get_games
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        get_games
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'POST /games' do
     subject(:create_game) { post '/games', headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:params) { { game: { name: 'My Game' } }.to_json }
@@ -124,13 +150,42 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:authenticated_user) }
+      let!(:game)  { create(:game, user:) }
+      let(:params) { { game: { name: 'Skyrim Game 1' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't create a game" do
+        expect { create_game }
+          .not_to change(Game, :count)
+      end
+
+      it 'returns status 401' do
+        create_game
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        create_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'PATCH /games/:id' do
     subject(:update_game) { patch "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -177,7 +232,6 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game)   { double(id: 829_315) }
-        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
@@ -188,6 +242,21 @@ RSpec.describe 'Games', type: :request do
         it "doesn't return any data" do
           update_game
           expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the game belongs to another user' do
+        let!(:game)  { create(:game) }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
+
+        it "doesn't update the game" do
+          expect { update_game }
+            .not_to change(game.reload, :name)
+        end
+
+        it 'returns status 404' do
+          update_game
+          expect(response.status).to eq 404
         end
       end
 
@@ -208,6 +277,31 @@ RSpec.describe 'Games', type: :request do
           update_game
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:authenticated_user) }
+      let!(:game)  { create(:game, user:) }
+      let(:params) { { game: { name: 'Changed Name' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the game" do
+        update_game
+        expect(game.reload.name).not_to eq 'Changed Name'
+      end
+
+      it 'returns status 401' do
+        update_game
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
@@ -216,7 +310,11 @@ RSpec.describe 'Games', type: :request do
     subject(:update_game) { put "/games/#{game.id}", headers:, params: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game)   { create(:game, user:) }
@@ -263,7 +361,6 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game)   { double(id: 829_315) }
-        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
@@ -274,6 +371,21 @@ RSpec.describe 'Games', type: :request do
         it "doesn't return any data" do
           update_game
           expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the game belongs to another user' do
+        let!(:game)  { create(:game) }
+        let(:params) { { game: { name: 'New Name' } }.to_json }
+
+        it "doesn't update the game" do
+          expect { update_game }
+            .not_to change(game.reload, :name)
+        end
+
+        it 'returns status 404' do
+          update_game
+          expect(response.status).to eq 404
         end
       end
 
@@ -296,13 +408,42 @@ RSpec.describe 'Games', type: :request do
         end
       end
     end
+
+    context 'when not authenticated' do
+      let!(:game)  { create(:game, user:) }
+      let(:user)   { create(:authenticated_user) }
+      let(:params) { { game: { name: 'Changed Name' } } }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the game" do
+        update_game
+        expect(game.reload.name).not_to eq 'Changed Name'
+      end
+
+      it 'returns status 401' do
+        update_game
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'DELETE /games/:id' do
     subject(:destroy_game) { delete "/games/#{game.id}", headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:game) { create(:game, user:) }
@@ -337,8 +478,22 @@ RSpec.describe 'Games', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let!(:game) { create(:game) }
+
+        it "doesn't destroy the game" do
+          expect { destroy_game }
+            .not_to change(Game, :count)
+        end
+
+        it 'returns status 404' do
+          destroy_game
+          expect(response.status).to eq 404
+        end
+      end
+
       context 'when something unexpected goes wrong' do
-        let(:game) { create(:game, user:) }
+        let!(:game) { create(:game, user:) }
 
         before do
           allow_any_instance_of(Game).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')
@@ -353,6 +508,30 @@ RSpec.describe 'Games', type: :request do
           destroy_game
           expect(response.body).to eq({ errors: ['Something went horribly wrong'] }.to_json)
         end
+      end
+    end
+
+    context 'when not authenticated' do
+      let!(:user) { create(:authenticated_user) }
+      let!(:game) { create(:game, user:) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't destroy the game" do
+        expect { destroy_game }
+          .not_to change(Game, :count)
+      end
+
+      it 'returns status 401' do
+        destroy_game
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        destroy_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end

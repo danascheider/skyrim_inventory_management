@@ -4,14 +4,14 @@ class User < ApplicationRecord
   has_many :games, dependent: :destroy
 
   validates :uid, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true
 
   def self.create_or_update_for_google(data)
-    where(uid: data['email']).first_or_initialize.tap do |user|
-      user.uid       = data['email']
-      user.email     = data['email']
-      user.name      = data['name']
-      user.image_url = data['picture']
+    where(uid: data['localId']).first_or_initialize.tap do |user|
+      user.uid          = data['localId']
+      user.email        = data['email']
+      user.display_name = data['displayName']
+      user.photo_url    = data['photoUrl']
       user.save!
     end
   end

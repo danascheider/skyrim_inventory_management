@@ -17,8 +17,22 @@ RSpec.describe ShoppingListsController::IndexService do
         expect(perform).to be_a(Service::NotFoundResult)
       end
 
-      it "doesn't return any error messages" do
-        expect(perform.errors).to be_empty
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the game belongs to another user' do
+      let(:game_id) { create(:game).id }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 

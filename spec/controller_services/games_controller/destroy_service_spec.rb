@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'service/no_content_result'
+require 'service/not_found_result'
 require 'service/internal_server_error_result'
 
 RSpec.describe GamesController::DestroyService do
@@ -10,7 +11,7 @@ RSpec.describe GamesController::DestroyService do
 
     context 'when all goes well' do
       let!(:user) { create(:user) }
-      let!(:game) { create(:game) }
+      let!(:game) { create(:game, user:) }
 
       it 'destroys the game' do
         expect { perform }
@@ -41,9 +42,23 @@ RSpec.describe GamesController::DestroyService do
       end
     end
 
-    context 'when something unexpected goes wrong' do
+    context 'when the game belongs to another user' do
       let!(:user) { create(:user) }
       let!(:game) { create(:game) }
+
+      it "doesn't destroy the game" do
+        expect { perform }
+          .not_to change(Game, :count)
+      end
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+    end
+
+    context 'when something unexpected goes wrong' do
+      let!(:user) { create(:user) }
+      let!(:game) { create(:game, user:) }
 
       before do
         allow_any_instance_of(Game).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')

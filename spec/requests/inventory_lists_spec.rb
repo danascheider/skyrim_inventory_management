@@ -14,7 +14,11 @@ RSpec.describe 'InventoryLists', type: :request do
     subject(:get_index) { get "/games/#{game.id}/inventory_lists", headers: }
 
     context 'when authenticated' do
-      let!(:authenticated_user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the game is not found' do
         let(:game) { double(id: 491_349_759) }
@@ -30,8 +34,22 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let(:game) { create(:game) }
+
+        it 'returns status 404' do
+          get_index
+          expect(response.status).to eq 404
+        end
+
+        it 'returns no data' do
+          get_index
+          expect(response.body).to be_empty
+        end
+      end
+
       context 'when there are no inventory lists for that game' do
-        let(:game) { create(:game, user: authenticated_user) }
+        let(:game) { create(:game, user:) }
 
         it 'returns status 200' do
           get_index
@@ -45,7 +63,7 @@ RSpec.describe 'InventoryLists', type: :request do
       end
 
       context 'when there are inventory lists for that game' do
-        let(:game) { create(:game_with_inventory_lists, user: authenticated_user) }
+        let(:game) { create(:game_with_inventory_lists, user:) }
 
         it 'returns status 200' do
           get_index
@@ -58,13 +76,35 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:game) { create(:game) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it 'returns status 401' do
+        get_index
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        get_index
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'POST games/:game_id/inventory_lists' do
     subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: {} }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let(:game) { create(:game, user:) }
@@ -135,6 +175,25 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
+      context 'when the game belongs to another user' do
+        let!(:game) { create(:game) }
+
+        it "doesn't create an inventory list" do
+          expect { create_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
+
+        it 'returns status 404' do
+          create_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          create_inventory_list
+          expect(response.body).to be_empty
+        end
+      end
+
       context 'when the params are invalid' do
         subject(:create_inventory_list) { post "/games/#{game.id}/inventory_lists", params: { inventory_list: { title: existing_list.title } }.to_json, headers: }
 
@@ -173,13 +232,40 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:game) { create(:game) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't create inventory lists" do
+        expect { create_inventory_list }
+          .not_to change(InventoryList, :count)
+      end
+
+      it 'returns status 401' do
+        create_inventory_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't include any data" do
+        create_inventory_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'PATCH /inventory_lists/:id' do
     subject(:update_inventory_list) { patch "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -226,6 +312,26 @@ RSpec.describe 'InventoryLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to another user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          expect { update_inventory_list }
+            .not_to change(inventory_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -303,13 +409,41 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:inventory_list) { create(:inventory_list) }
+      let(:list_id) { inventory_list.id }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the inventory list" do
+        expect { update_inventory_list }
+          .not_to change(inventory_list.reload, :title)
+      end
+
+      it 'returns status 401' do
+        update_inventory_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_inventory_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'PUT /inventory_lists/:id' do
     subject(:update_inventory_list) { put "/inventory_lists/#{list_id}", params: { inventory_list: { title: 'Severin Manor' } }.to_json, headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when all goes well' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -356,6 +490,26 @@ RSpec.describe 'InventoryLists', type: :request do
 
       context 'when the list does not exist' do
         let(:list_id) { 245_285 }
+
+        it 'returns status 404' do
+          update_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return data" do
+          update_inventory_list
+          expect(response.body).to be_blank
+        end
+      end
+
+      context 'when the list belongs to another user' do
+        let!(:inventory_list) { create(:inventory_list) }
+        let(:list_id)         { inventory_list.id }
+
+        it "doesn't update the inventory list" do
+          expect { update_inventory_list }
+            .not_to change(inventory_list.reload, :title)
+        end
 
         it 'returns status 404' do
           update_inventory_list
@@ -433,15 +587,42 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
     end
+
+    context 'when unauthenticated' do
+      let!(:inventory_list) { create(:inventory_list) }
+      let(:list_id) { inventory_list.id }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't update the inventory list" do
+        expect { update_inventory_list }
+          .not_to change(inventory_list.reload, :title)
+      end
+
+      it 'returns status 401' do
+        update_inventory_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_inventory_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
+      end
+    end
   end
 
   describe 'DELETE /inventory_lists/:id' do
     subject(:delete_inventory_list) { delete "/inventory_lists/#{inventory_list.id}", headers: }
 
     context 'when authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user)     { create(:authenticated_user) }
       let(:game)      { create(:game, user:) }
-      let(:validator) { instance_double(GoogleIDToken::Validator, check: validation_data) }
+
+      before do
+        stub_successful_login
+      end
 
       context 'when the inventory list exists' do
         let!(:inventory_list) { create(:inventory_list, game:) }
@@ -499,6 +680,25 @@ RSpec.describe 'InventoryLists', type: :request do
         end
       end
 
+      context 'when the inventory list belongs to another user' do
+        let!(:inventory_list) { create(:inventory_list) }
+
+        it "doesn't destroy the inventory list" do
+          expect { delete_inventory_list }
+            .not_to change(InventoryList, :count)
+        end
+
+        it 'returns 404' do
+          delete_inventory_list
+          expect(response.status).to eq 404
+        end
+
+        it "doesn't return any data" do
+          delete_inventory_list
+          expect(response.body).to be_blank
+        end
+      end
+
       context 'when attempting to delete the aggregate list' do
         let!(:inventory_list) { create(:aggregate_inventory_list, game:) }
 
@@ -516,6 +716,29 @@ RSpec.describe 'InventoryLists', type: :request do
           delete_inventory_list
           expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete an aggregate inventory list'] })
         end
+      end
+    end
+
+    context 'when unauthenticated' do
+      let!(:inventory_list) { create(:inventory_list) }
+
+      before do
+        stub_unsuccessful_login
+      end
+
+      it "doesn't destroy the inventory list" do
+        expect { delete_inventory_list }
+          .not_to change(InventoryList, :count)
+      end
+
+      it 'returns status 401' do
+        delete_inventory_list
+        expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        delete_inventory_list
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
