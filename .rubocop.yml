@@ -143,6 +143,8 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: true
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: true
 Layout/EmptyLineBetweenDefs:
   Enabled: true
 Layout/EmptyLines:
