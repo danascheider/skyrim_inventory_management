@@ -58,6 +58,12 @@ Bundler/DuplicatedGem:
     - '**/Gemfile'
 Bundler/GemComment:
   Enabled: true
+Bundler/GemFilename:
+  Enabled: true
+  EnforcedStyle: Gemfile
+Bundler/OrderedGems:
+  Enabled: true
+  TreatCommentsAsGroupSeparators: false
 Bundler/GemVersion:
   Enabled: true
   EnforcedStyle: 'required'
