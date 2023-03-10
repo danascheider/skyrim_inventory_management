@@ -68,12 +68,18 @@ RSpec.describe 'Games', type: :request do
 
     context 'when not authenticated' do
       before do
+        create(:authenticated_user)
         stub_unsuccessful_login
       end
 
       it 'returns status 401' do
         get_games
         expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        get_games
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
@@ -146,7 +152,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when not authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
       let!(:game)  { create(:game, user:) }
       let(:params) { { game: { name: 'Skyrim Game 1' } } }
 
@@ -162,6 +168,11 @@ RSpec.describe 'Games', type: :request do
       it 'returns status 401' do
         create_game
         expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        create_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
@@ -221,7 +232,6 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game)   { double(id: 829_315) }
-        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
@@ -271,7 +281,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when not authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
       let!(:game)  { create(:game, user:) }
       let(:params) { { game: { name: 'Changed Name' } } }
 
@@ -287,6 +297,11 @@ RSpec.describe 'Games', type: :request do
       it 'returns status 401' do
         update_game
         expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
@@ -346,7 +361,6 @@ RSpec.describe 'Games', type: :request do
 
       context 'when the game does not exist' do
         let(:game)   { double(id: 829_315) }
-        let(:user)   { create(:user) }
         let(:params) { { game: { name: 'New Name' } }.to_json }
 
         it 'returns status 404' do
@@ -396,11 +410,11 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when not authenticated' do
-      let!(:user) { create(:user) }
       let!(:game)  { create(:game, user:) }
       let(:params) { { game: { name: 'Changed Name' } } }
 
       before do
+        create(:authenticated_user)
         stub_unsuccessful_login
       end
 
@@ -412,6 +426,11 @@ RSpec.describe 'Games', type: :request do
       it 'returns status 401' do
         update_game
         expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        update_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end
@@ -493,7 +512,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'when not authenticated' do
-      let!(:user) { create(:user) }
+      let!(:user) { create(:authenticated_user) }
       let!(:game) { create(:game, user:) }
 
       before do
@@ -508,6 +527,11 @@ RSpec.describe 'Games', type: :request do
       it 'returns status 401' do
         destroy_game
         expect(response.status).to eq 401
+      end
+
+      it "doesn't return any data" do
+        destroy_game
+        expect(JSON.parse(response.body)).to eq({ 'errors' => ['Token validation response did not include a user'] })
       end
     end
   end

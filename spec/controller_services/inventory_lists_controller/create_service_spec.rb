@@ -114,8 +114,9 @@ RSpec.describe InventoryListsController::CreateService do
         expect(perform).to be_a(Service::NotFoundResult)
       end
 
-      it "doesn't return any data" do
-        expect(perform.errors).to be_empty
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
       end
     end
 

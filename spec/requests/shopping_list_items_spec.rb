@@ -1016,9 +1016,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect(response.status).to eq 404
         end
 
-        it "doesn't return any error messages" do
+        it "doesn't return any data" do
           destroy_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
@@ -1035,9 +1035,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
           expect(response.status).to eq 404
         end
 
-        it "doesn't return any error messages" do
+        it "doesn't return any data" do
           destroy_item
-          expect(response.body).to be_empty
+          expect(response.body).to be_blank
         end
       end
 
