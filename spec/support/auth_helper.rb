@@ -9,7 +9,7 @@ module AuthHelper
     stub_request(:post, auth_uri)
       .to_return(
         status: 200,
-        body:   File.read(Rails.root.join('spec', 'support', 'fixtures', 'auth', 'success.json')),
+        body: File.read(Rails.root.join('spec', 'support', 'fixtures', 'auth', 'success.json')),
       )
   end
 
@@ -17,7 +17,7 @@ module AuthHelper
     stub_request(:post, auth_uri)
       .to_return(
         status: 200,
-        body:   File.read(Rails.root.join('spec', 'support', 'fixtures', 'auth', 'empty_users_array.json')),
+        body: File.read(Rails.root.join('spec', 'support', 'fixtures', 'auth', 'empty_users_array.json')),
       )
   end
 

@@ -40,9 +40,9 @@ RSpec.describe Controller::Response do
 
       let(:resource) do
         {
-          id:         927,
-          user_id:    72,
-          title:      'My List 2',
+          id: 927,
+          user_id: 72,
+          title: 'My List 2',
           created_at: Time.zone.now - 2.days,
           updated_at: Time.zone.now,
         }

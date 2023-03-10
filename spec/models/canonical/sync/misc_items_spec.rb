@@ -103,7 +103,7 @@ RSpec.describe Canonical::Sync::MiscItems do
         let(:errored_model) do
           instance_double Canonical::MiscItem,
                           errors:,
-                          class:  class_double(Canonical::MiscItem, i18n_scope: :activerecord)
+                          class: class_double(Canonical::MiscItem, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

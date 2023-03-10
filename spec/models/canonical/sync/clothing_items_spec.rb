@@ -84,7 +84,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         it "removes enchantments that don't exist in the JSON data" do
           item_in_json.canonical_enchantables_enchantments.create!(
             enchantment: Enchantment.find_by(name: 'Fortify Destruction'),
-            strength:    2,
+            strength: 2,
           )
           perform
           expect(item_in_json.enchantments.find_by(name: 'Fortify Destruction')).to be_nil
@@ -191,7 +191,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         let(:errored_model) do
           instance_double Canonical::ClothingItem,
                           errors:,
-                          class:  class_double(Canonical::ClothingItem, i18n_scope: :activerecord)
+                          class: class_double(Canonical::ClothingItem, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

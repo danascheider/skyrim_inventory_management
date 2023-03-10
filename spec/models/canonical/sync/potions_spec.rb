@@ -90,8 +90,8 @@ RSpec.describe Canonical::Sync::Potions do
         it "removes alchemical properties that don't exist in the JSON data" do
           item_in_json.canonical_potions_alchemical_properties.create!(
             alchemical_property: AlchemicalProperty.find_by(name: 'Fortify Lockpicking'),
-            strength:            20,
-            duration:            30,
+            strength: 20,
+            duration: 30,
           )
           perform
           expect(item_in_json.alchemical_properties.find_by(name: 'Fortify Destruction')).to be_nil
@@ -187,7 +187,7 @@ RSpec.describe Canonical::Sync::Potions do
         let(:errored_model) do
           instance_double Canonical::Potion,
                           errors:,
-                          class:  class_double(Canonical::Potion, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Potion, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

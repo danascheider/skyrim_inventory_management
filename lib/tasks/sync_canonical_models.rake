@@ -52,10 +52,10 @@ namespace :canonical_models do
     # rubocop:disable Layout/BlockAlignment
     task :jewelry,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:materials
-                                            canonical_models:sync:enchantments
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:materials
+           canonical_models:sync:enchantments
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:jewelry, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -64,10 +64,10 @@ namespace :canonical_models do
     desc 'Sync canonical clothing items in the database with JSON data'
     task :clothing,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:materials
-                                            canonical_models:sync:enchantments
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:materials
+           canonical_models:sync:enchantments
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:clothing, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -76,10 +76,10 @@ namespace :canonical_models do
     desc 'Sync canonical armor models in the database with JSON data'
     task :armor,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:materials
-                                            canonical_models:sync:enchantments
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:materials
+           canonical_models:sync:enchantments
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:armor, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -88,9 +88,9 @@ namespace :canonical_models do
     desc 'Sync canonical ingredient models in the database with JSON data'
     task :ingredients,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:alchemical_properties
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:alchemical_properties
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:ingredient, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -99,11 +99,11 @@ namespace :canonical_models do
     desc 'Sync canonical weapon models in the database with JSON data'
     task :weapons,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:enchantments
-                                            canonical_models:sync:powers
-                                            canonical_models:sync:materials
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:enchantments
+           canonical_models:sync:powers
+           canonical_models:sync:materials
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:weapon, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -112,10 +112,10 @@ namespace :canonical_models do
     desc 'Sync canonical staff models in the database with JSON data'
     task :staves,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:spells
-                                            canonical_models:sync:powers
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:spells
+           canonical_models:sync:powers
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:staff, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -124,9 +124,9 @@ namespace :canonical_models do
     desc 'Sync canonical book models in the database with JSON data'
     task :books,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:ingredients
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:ingredients
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:book, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))
@@ -135,9 +135,9 @@ namespace :canonical_models do
     desc 'Sync canonical potion models in the database with JSON data'
     task :potions,
          %i[preserve_existing_records] => %w[
-                                            environment
-                                            canonical_models:sync:alchemical_properties
-                                          ] do |_t, args|
+           environment
+           canonical_models:sync:alchemical_properties
+         ] do |_t, args|
       args.with_defaults(preserve_existing_records: false)
 
       Canonical::Sync.perform(:potion, FALSEY_VALUES.exclude?(args[:preserve_existing_records]))

@@ -6,20 +6,20 @@ RSpec.describe Canonical::Weapon, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       weapon = described_class.new(
-                 name:           'Ebony Battleaxe',
-                 item_code:      '123xxx',
-                 category:       'two-handed',
-                 weapon_type:    'battleaxe',
-                 smithing_perks: ['Ebony Smithing'],
-                 base_damage:    18,
-                 unit_weight:    22,
-                 purchasable:    true,
-                 unique_item:    false,
-                 rare_item:      false,
-                 quest_item:     false,
-                 leveled:        false,
-                 enchantable:    true,
-               )
+        name: 'Ebony Battleaxe',
+        item_code: '123xxx',
+        category: 'two-handed',
+        weapon_type: 'battleaxe',
+        smithing_perks: ['Ebony Smithing'],
+        base_damage: 18,
+        unit_weight: 22,
+        purchasable: true,
+        unique_item: false,
+        rare_item: false,
+        quest_item: false,
+        leveled: false,
+        enchantable: true,
+      )
 
       expect(weapon).to be_valid
     end

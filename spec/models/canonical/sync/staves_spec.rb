@@ -196,7 +196,7 @@ RSpec.describe Canonical::Sync::Staves do
         let(:errored_model) do
           instance_double Canonical::Staff,
                           errors:,
-                          class:  class_double(Canonical::Staff, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Staff, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

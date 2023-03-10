@@ -106,7 +106,7 @@ RSpec.describe Canonical::Sync::Materials do
         let(:errored_model) do
           instance_double Canonical::Material,
                           errors:,
-                          class:  class_double(Canonical::Material, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Material, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

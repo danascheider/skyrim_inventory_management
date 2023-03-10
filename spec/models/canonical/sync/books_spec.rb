@@ -52,7 +52,7 @@ RSpec.describe Canonical::Sync::Books do
           create(
             :canonical_recipe,
             item_code: '000F5CB8',
-            title:     'The Seven Habits of Highly Successful People',
+            title: 'The Seven Habits of Highly Successful People',
           )
         end
 
@@ -187,7 +187,7 @@ RSpec.describe Canonical::Sync::Books do
         let(:errored_model) do
           instance_double Canonical::Book,
                           errors:,
-                          class:  class_double(Canonical::Book, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Book, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Title can't be blank"]) }

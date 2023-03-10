@@ -53,14 +53,7 @@ RSpec.describe ApplicationController::AuthorizationService do
       end
 
       context 'when a matching user exists' do
-        let!(:user) do
-          create(
-            :user,
-            display_name: 'Jane Doe',
-            email:        'someuser@gmail.com',
-            uid:          'somestring',
-          )
-        end
+        let!(:user) { create(:authenticated_user) }
 
         it 'sets the current user' do
           perform

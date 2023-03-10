@@ -9,7 +9,7 @@ module Canonical
     VALID_POTION_TYPES = %w[potion poison].freeze
 
     has_many :canonical_potions_alchemical_properties,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::PotionsAlchemicalProperty',
              inverse_of: :potion
     has_many :alchemical_properties, through: :canonical_potions_alchemical_properties

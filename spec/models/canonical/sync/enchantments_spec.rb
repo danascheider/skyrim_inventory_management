@@ -99,7 +99,7 @@ RSpec.describe Canonical::Sync::Enchantments do
         let(:errored_model) do
           instance_double Enchantment,
                           errors:,
-                          class:  class_double(Enchantment, i18n_scope: :activerecord)
+                          class: class_double(Enchantment, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

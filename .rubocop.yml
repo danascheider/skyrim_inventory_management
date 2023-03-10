@@ -179,25 +179,25 @@ Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/FirstArgumentIndentation:
   Enabled: true
-  EnforcedStyle: consistent_relative_to_receiver
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
 Layout/FirstArrayElementIndentation:
   Enabled: true
-  EnforcedStyle: align_brackets
+  EnforcedStyle: consistent
 Layout/FirstArrayElementLineBreak:
   Enabled: true
 Layout/FirstHashElementIndentation:
   Enabled: true
-  EnforcedStyle: align_braces
+  EnforcedStyle: consistent
 Layout/FirstHashElementLineBreak:
   Enabled: true
 Layout/FirstParameterIndentation:
   Enabled: true
-  EnforcedStyle: align_parentheses
+  EnforcedStyle: consistent
 Layout/HashAlignment:
   Enabled: true
   AllowMultipleStyles: false
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
   EnforcedLastArgumentHashStyle: always_inspect
 Layout/HeredocArgumentClosingParenthesis:
   Enabled: true

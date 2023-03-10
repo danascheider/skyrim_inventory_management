@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
 
     let(:payload) do
       {
-        'localId'     => 'foobar',
-        'email'       => 'jane.doe@gmail.com',
+        'localId' => 'foobar',
+        'email' => 'jane.doe@gmail.com',
         'displayName' => 'Jane Doe',
-        'photoUrl'    => 'https://example.com/user_images/89',
+        'photoUrl' => 'https://example.com/user_images/89',
       }
     end
 
@@ -24,11 +24,11 @@ RSpec.describe User, type: :model do
       it 'sets the attributes' do
         create_or_update
         expect(described_class.last.attributes).to include(
-                                                     'uid'          => 'foobar',
-                                                     'email'        => 'jane.doe@gmail.com',
-                                                     'display_name' => 'Jane Doe',
-                                                     'photo_url'    => 'https://example.com/user_images/89',
-                                                   )
+          'uid' => 'foobar',
+          'email' => 'jane.doe@gmail.com',
+          'display_name' => 'Jane Doe',
+          'photo_url' => 'https://example.com/user_images/89',
+        )
       end
     end
 
@@ -62,11 +62,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the shopping lists for the user's games" do
       expect(user1.shopping_lists).to eq([
-                                           shopping_list4,
-                                           shopping_list3,
-                                           shopping_list2,
-                                           shopping_list1,
-                                         ])
+        shopping_list4,
+        shopping_list3,
+        shopping_list2,
+        shopping_list1,
+      ])
     end
   end
 
@@ -85,11 +85,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the inventory lists for the user's games" do
       expect(user1.inventory_lists).to eq([
-                                            inventory_list4,
-                                            inventory_list3,
-                                            inventory_list2,
-                                            inventory_list1,
-                                          ])
+        inventory_list4,
+        inventory_list3,
+        inventory_list2,
+        inventory_list1,
+      ])
     end
   end
 
