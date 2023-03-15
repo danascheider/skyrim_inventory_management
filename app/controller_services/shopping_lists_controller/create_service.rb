@@ -21,12 +21,9 @@ class ShoppingListsController < ApplicationController
       return Service::UnprocessableEntityResult.new(errors: [AGGREGATE_LIST_ERROR]) if params[:aggregate]
 
       shopping_list = game.shopping_lists.new(params)
-      preexisting_aggregate_list = game.aggregate_shopping_list
 
       if shopping_list.save
-        # Check if the aggregate shopping list is newly created and return it too if so
-        resource = preexisting_aggregate_list ? shopping_list : [game.aggregate_shopping_list, shopping_list]
-        Service::CreatedResult.new(resource:)
+        Service::CreatedResult.new(resource: game.shopping_lists.index_order)
       else
         Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
       end
