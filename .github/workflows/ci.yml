@@ -2,9 +2,9 @@ name: Skyrim Inventory Management CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, shopping-lists-page-feature-branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, shopping-lists-page-feature-branch ]
 
 jobs:
   runner-job:
