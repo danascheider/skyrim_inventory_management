@@ -153,7 +153,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all shopping lists belonging to the specified game. Each shopping list also includes an array with any shopping list items on that list. The JSON schema for the shopping list items is described in the [docs for shopping list items](/docs/api/resources/shopping-list-items.md). The shopping lists are returned with the aggregate list first and subsequent lists in order of most recently updated. (Adding, removing, or updating a list item on a list counts as updating the list.)
 
-The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
+The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via this or any endpoint. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
@@ -209,7 +209,18 @@ Authorization: Bearer xxxxxxxxxx
     "title": "All Items",
     "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": []
+    "list_items": [
+      {
+        "id": 33,
+        "list_id": 4,
+        "description": "Ebony sword",
+        "quantity": 1,
+        "notes": "To enchant with Soul Trap",
+        "unit_weight": 14.0,
+        "created_at": "Tue, 15 Jun 2021 12:34:32.713458000 UTC +00:00",
+        "updated_at": "Tue, 15 Jun 2021 12:34:32.713458000 UTC +00:00"
+      }
+    ]
   },
   {
     "id": 12,
@@ -229,7 +240,18 @@ Authorization: Bearer xxxxxxxxxx
     "title": "My List 1",
     "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": []
+    "list_items": [
+      {
+        "id": 32,
+        "list_id": 5,
+        "description": "Ebony sword",
+        "quantity": 1,
+        "notes": "To enchant with Soul Trap",
+        "unit_weight": 14.0,
+        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+        "updated_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00"
+      }
+    ]
   }
 ]
 ```
@@ -269,13 +291,16 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## PATCH|PUT /shopping_lists/:id
 
-If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
+If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method. There is no  difference in application behaviour whether `PATCH` or `PUT` is used.
 
 ### Example Requests
 
-Requests must include a `"shopping_list"` object with a `"title"` key.
+Requests should include a `"shopping_list"` object with a `"title"` key. The `"title"` may be `null`; in this case, a default title will be assigned as described [above](#post-gamesgame_idshopping_lists). If the `"shopping_list"` object is empty or nonexistent, or if no request body is given, the list will not be updated but will be returned as-is. `"title"` is the only attribute that may be set on shopping lists via the SIM API.
 
-Using a `PATCH` request:
+#### PATCH Requests
+
+Normal usage:
+
 ```
 PATCH /shopping_lists/3
 Authorization: Bearer xxxxxxxxxx
@@ -287,15 +312,66 @@ Content-Type: application/json
 }
 ```
 
-Using a `PUT` request:
+Null title (will result in a default title being assigned):
+
+```
+PATCH /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {
+    "title": null
+  }
+}
+```
+
+Empty `"shopping_list"` object (shopping list will be returned as-is):
+
+```
+PATCH /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {}
+}
+```
+
+#### PUT Requests
+
+Normal usage:
+
 ```
 PUT /shopping_lists/3
-Authorization: Bearer xxxxxxxxxxx
+Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
   "shopping_list": {
     "title": "New List Title"
   }
+}
+```
+
+Null title (will result in a default title being assigned):
+
+```
+PUT /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {
+    "title": null
+  }
+}
+```
+
+Empty `"shopping_list"` object (shopping list will be returned as-is):
+
+```
+PUT /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {}
 }
 ```
 
@@ -345,6 +421,7 @@ Content-Type: application/json
 For a 404 response, no response body is returned.
 
 For a 422 response due to title uniqueness constraint:
+
 ```json
 {
   "errors": ["Title must be unique per game"]
@@ -352,6 +429,7 @@ For a 422 response due to title uniqueness constraint:
 ```
 
 For a 405 response due to attempting to update an aggregate list or convert a regular list to an aggregate list:
+
 ```json
 {
   "errors": ["Cannot manually update an aggregate shopping list"]
@@ -359,6 +437,7 @@ For a 405 response due to attempting to update an aggregate list or convert a re
 ```
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+
 ```json
 {
   "errors": ["Something went horribly wrong"]
