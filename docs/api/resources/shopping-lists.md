@@ -47,12 +47,14 @@ For a game with no lists:
 []
 ```
 For a game with multiple lists:
+
 ```json
 [
   {
     "id": 43,
     "game_id": 8234,
     "aggregate": true,
+    "aggregate_list_id": null,
     "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",

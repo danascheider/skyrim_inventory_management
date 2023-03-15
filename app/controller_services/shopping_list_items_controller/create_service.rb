@@ -27,17 +27,13 @@ class ShoppingListItemsController < ApplicationController
         item.save!
 
         if preexisting_item.blank?
-          aggregate_list_item = aggregate_list.add_item_from_child_list(item)
+          aggregate_list.add_item_from_child_list(item)
 
-          resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
-
-          Service::CreatedResult.new(resource:)
+          Service::CreatedResult.new(resource: shopping_list.game.shopping_lists.index_order)
         else
-          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
+          aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
 
-          resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
-
-          Service::OKResult.new(resource:)
+          Service::OKResult.new(resource: shopping_list.game.shopping_lists.index_order)
         end
       end
     rescue ActiveRecord::RecordInvalid

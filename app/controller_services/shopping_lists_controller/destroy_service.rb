@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'service/no_content_result'
 require 'service/method_not_allowed_result'
 require 'service/not_found_result'
 require 'service/ok_result'

@@ -45,9 +45,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 201
             end
 
-            it 'returns the regular list item and the aggregate list item' do
+            it 'returns all shopping lists for the same game' do
               create_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.last, shopping_list.list_items.last].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
 
@@ -77,9 +77,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns the aggregate list item and the regular list item' do
+              it 'returns all shopping lists from the same game' do
                 create_item
-                expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, shopping_list.list_items.first].to_json))
+                expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
               end
             end
 
@@ -108,9 +108,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all items that were created or updated' do
+              it 'returns all shopping lists for the same game' do
                 create_item
-                expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, other_item.reload, shopping_list.list_items.first].to_json))
+                expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
               end
             end
           end
@@ -147,9 +147,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns the requested item and the aggregate list item' do
+            it 'returns all shopping lists for the same game' do
               create_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
 
@@ -184,9 +184,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all items that have been updated' do
+            it 'returns all shopping lists for the same game' do
               create_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list.list_items.first, other_item.reload, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
         end
