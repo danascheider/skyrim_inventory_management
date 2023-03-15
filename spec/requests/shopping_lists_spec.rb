@@ -29,9 +29,9 @@ RSpec.describe 'ShoppingLists', type: :request do
               .to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
-          it 'returns the aggregate list as well as the new list' do
+          it 'returns all shopping lists for that game' do
             create_shopping_list
-            expect(response.body).to eq([game.aggregate_shopping_list, game.shopping_lists.last].to_json)
+            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
           end
 
           it 'returns status 201' do
@@ -48,9 +48,14 @@ RSpec.describe 'ShoppingLists', type: :request do
               .to change(game.shopping_lists, :count).from(1).to(2)
           end
 
-          it 'returns only the newly created list' do
+          it 'returns all shopping lists for that game' do
             create_shopping_list
-            expect(response.body).to eq(game.shopping_lists.last.to_json)
+            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
+          end
+
+          it 'returns status 201' do
+            create_shopping_list
+            expect(response.status).to eq 201
           end
         end
 
@@ -69,8 +74,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
           it 'creates the shopping list with a default title' do
             create_shopping_list
-            list_attributes = JSON.parse(response.body)
-            expect(list_attributes['title']).to eq 'My List 1'
+            expect(game.shopping_lists.last.title).to eq 'My List 1'
           end
         end
       end

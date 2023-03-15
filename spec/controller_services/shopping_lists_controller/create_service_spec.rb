@@ -82,7 +82,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to the created list' do
-          expect(perform.resource).to eq game.shopping_lists.last
+          expect(perform.resource).to eq game.shopping_lists.index_order
         end
 
         it 'updates the game' do
@@ -123,7 +123,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to include both lists' do
-          expect(perform.resource).to eq([game.aggregate_shopping_list, game.shopping_lists.last])
+          expect(perform.resource).to eq(game.shopping_lists.index_order)
         end
       end
     end
