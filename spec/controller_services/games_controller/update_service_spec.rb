@@ -11,8 +11,8 @@ RSpec.describe GamesController::UpdateService do
     subject(:perform) { described_class.new(user, game.id, params).perform }
 
     context 'when all goes well' do
-      let!(:game)  { create(:game) }
-      let(:user)   { game.user }
+      let!(:user) { create(:user) }
+      let!(:game) { create(:game, user:) }
       let(:params) { { description: 'New description' } }
 
       it 'updates the game' do
@@ -30,10 +30,10 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let!(:game)       { create(:game) }
+      let!(:user) { create(:user) }
+      let!(:game) { create(:game, user:) }
       let!(:other_game) { create(:game, user:) }
-      let(:user)        { game.user }
-      let(:params)      { { name: other_game.name } }
+      let(:params) { { name: other_game.name } }
 
       it "doesn't update the game" do
         perform
@@ -50,8 +50,8 @@ RSpec.describe GamesController::UpdateService do
     end
 
     context "when the game doesn't exist" do
-      let(:game)   { double(id: 823_589) }
-      let(:user)   { create(:user) }
+      let(:user) { create(:user) }
+      let(:game) { double(id: 823_589) }
       let(:params) { { description: 'New description' } }
 
       it 'returns a Service::NotFoundResult' do
@@ -64,24 +64,24 @@ RSpec.describe GamesController::UpdateService do
       end
     end
 
-    context "when the game doesn't belong to the user" do
-      let(:game)   { create(:game) }
-      let(:user)   { create(:user) }
-      let(:params) { { description: 'New description' } }
+    context 'when the game belongs to another user' do
+      let!(:user) { create(:user) }
+      let!(:game) { create(:game) }
+      let(:params) { { name: 'Valid name' } }
+
+      it "doesn't update the game" do
+        perform
+        expect(game.reload.name).not_to eq 'Valid name'
+      end
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
-      end
-
-      it "doesn't set a response body", :aggregate_failures do
-        expect(perform.resource).to be_blank
-        expect(perform.errors).to be_blank
       end
     end
 
     context 'when something unexpected goes wrong' do
-      let(:game)   { create(:game) }
-      let(:user)   { game.user }
+      let!(:user) { create(:user) }
+      let(:game) { create(:game, user:) }
       let(:params) { { description: 'New description' } }
 
       before do

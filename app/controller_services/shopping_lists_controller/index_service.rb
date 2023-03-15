@@ -7,7 +7,7 @@ require 'service/internal_server_error_result'
 class ShoppingListsController < ApplicationController
   class IndexService
     def initialize(user, game_id)
-      @user    = user
+      @user = user
       @game_id = game_id
     end
 

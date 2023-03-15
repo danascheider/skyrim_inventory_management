@@ -8,13 +8,13 @@ require 'service/internal_server_error_result'
 
 class ShoppingListsController < ApplicationController
   class UpdateService
-    AGGREGATE_LIST_ERROR    = 'Cannot manually update an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update an aggregate shopping list'
     DISALLOWED_UPDATE_ERROR = 'Cannot make a regular shopping list an aggregate list'
 
     def initialize(user, list_id, params)
-      @user    = user
+      @user = user
       @list_id = list_id
-      @params  = params
+      @params = params
     end
 
     def perform

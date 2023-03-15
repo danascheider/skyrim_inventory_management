@@ -11,7 +11,7 @@ class ShoppingListsController < ApplicationController
     AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate shopping list'
 
     def initialize(user, list_id)
-      @user    = user
+      @user = user
       @list_id = list_id
     end
 

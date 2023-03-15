@@ -14,9 +14,6 @@ gem 'pg', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.6.4'
 
-# Use google-id-token gem to verify tokens sent from Google OAuth
-gem 'google-id-token', '~> 1.4.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.12.0', require: false
 
@@ -25,6 +22,9 @@ gem 'rack-cors', '~> 1.1.1'
 
 # Use configatron for app config
 gem 'configatron', '~> 4.5.1'
+
+# Use Faraday to validate Google auth access tokens
+gem 'faraday', '~> 2.7.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +50,9 @@ group :development, :test do
 
   # Use Rubocop to enforce performance standards
   gem 'rubocop-performance', '~> 1.14', require: false
+
+  # Use WebMock to mock HTTP requests, mainly for auth purposes
+  gem 'webmock', '~> 3.18.1'
 end
 
 group :development do
@@ -58,4 +61,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 4.0'
+
+  # Load environment variables in dev
+  gem 'dotenv', '~> 2.8'
 end

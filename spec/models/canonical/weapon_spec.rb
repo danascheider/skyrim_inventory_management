@@ -6,20 +6,20 @@ RSpec.describe Canonical::Weapon, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       weapon = described_class.new(
-                 name:           'Ebony Battleaxe',
-                 item_code:      '123xxx',
-                 category:       'two-handed',
-                 weapon_type:    'battleaxe',
-                 smithing_perks: ['Ebony Smithing'],
-                 base_damage:    18,
-                 unit_weight:    22,
-                 purchasable:    true,
-                 unique_item:    false,
-                 rare_item:      false,
-                 quest_item:     false,
-                 leveled:        false,
-                 enchantable:    true,
-               )
+        name: 'Ebony Battleaxe',
+        item_code: '123xxx',
+        category: 'two-handed',
+        weapon_type: 'battleaxe',
+        smithing_perks: ['Ebony Smithing'],
+        base_damage: 18,
+        unit_weight: 22,
+        purchasable: true,
+        unique_item: false,
+        rare_item: false,
+        quest_item: false,
+        leveled: false,
+        enchantable: true,
+      )
 
       expect(weapon).to be_valid
     end
@@ -223,7 +223,7 @@ RSpec.describe Canonical::Weapon, type: :model do
 
   describe 'associations' do
     describe 'enchantments' do
-      let(:weapon)      { create(:canonical_weapon) }
+      let(:weapon) { create(:canonical_weapon) }
       let(:enchantment) { create(:enchantment) }
 
       before do
@@ -237,7 +237,7 @@ RSpec.describe Canonical::Weapon, type: :model do
 
     describe 'powers' do
       let(:weapon) { create(:canonical_weapon) }
-      let(:power)  { create(:power) }
+      let(:power) { create(:power) }
 
       before do
         weapon.canonical_powerables_powers.create!(power:)
@@ -249,7 +249,7 @@ RSpec.describe Canonical::Weapon, type: :model do
     end
 
     describe 'crafting materials' do
-      let(:weapon)   { create(:canonical_weapon) }
+      let(:weapon) { create(:canonical_weapon) }
       let(:material) { create(:canonical_material) }
 
       before do
@@ -262,7 +262,7 @@ RSpec.describe Canonical::Weapon, type: :model do
     end
 
     describe 'tempering materials' do
-      let(:weapon)   { create(:canonical_weapon) }
+      let(:weapon) { create(:canonical_weapon) }
       let(:material) { create(:canonical_material) }
 
       before do

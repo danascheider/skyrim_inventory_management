@@ -102,9 +102,6 @@ RSpec.describe Game, type: :model do
 
       context 'when the user has all default-named games' do
         before do
-          # Create games for a different user to make sure the name of this game's
-          # name isn't affected by them
-          create_list(:game, 2, name: nil)
           create_list(:game, 2, name: nil, user:)
         end
 
@@ -115,7 +112,6 @@ RSpec.describe Game, type: :model do
 
       context 'when the user has differently titled games' do
         before do
-          create(:game, name: nil)
           create(:game, user:, name: nil)
           create(:game, user:, name: 'New Game')
           create(:game, user:, name: nil)
@@ -175,7 +171,7 @@ RSpec.describe Game, type: :model do
   describe '#aggregate_shopping_list' do
     subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
 
-    let(:game)            { create(:game) }
+    let(:game) { create(:game) }
     let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
 
     before do
@@ -190,7 +186,7 @@ RSpec.describe Game, type: :model do
   describe '#aggregate_inventory_list' do
     subject(:aggregate_inventory_list) { game.aggregate_inventory_list }
 
-    let(:game)            { create(:game) }
+    let(:game) { create(:game) }
     let!(:aggregate_list) { create(:aggregate_inventory_list, game:) }
 
     before do

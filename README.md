@@ -8,15 +8,13 @@ This application is my hobby project intended for my personal use and all other 
 
 ## Authentication
 
-Skyrim Inventory Management uses [Sign In With Google](https://developers.google.com/identity/sign-in/web/sign-in) to handle authentication. Indeed, I undertook development of this app with a primary goal of learning to implement OAuth/Sign In With Google on a split-stack app. All API routes are authenticated and resources are automatically scoped to the authenticated user. Sessions are maintained on the [front end](https://github.com/danascheider/skyrim_inventory_management_frontend) and the Google OAuth token is verified by the back end on each request using the wonderfully user-friendly [google-id-token](https://github.com/google/google-id-token) gem. The API itself is stateless--it keeps no user session data and each request has to be individually authenticated.
+Skyrim Inventory Management uses [Sign In With Google](https://developers.google.com/identity/sign-in/web/sign-in) to handle authentication. This is implemented using [Firebase](https://firebase.google.com). The front end signs in users and receives access tokens from Google. When the front end requests data from the back end, it includes these tokens as [bearer token]s(https://oauth.net/2/bearer-tokens/#:~:text=Bearer%20Tokens%20are%20the%20predominant,such%20as%20JSON%20Web%20Tokens.) in the `"Authorization"` header of each request. The back end then validates these tokens by contacting Google's API and including the app's Firebase credentials (stored as Rails credentials). The token is verified in a `before_action` defined on the `ApplicationController`, and a 401 response is sent from that `before_action` if the response indicates the token is invalid or the response body has an unexpected shape. Specifically, the response body from Google is expected to be a JSON object containing a `"users"` key with an array of objects. If this array is empty, absent, or contains more than one user, a `401 Unauthorized` response is returned to the front end.
 
-Authentication is handled using the Google-issued OAuth token as a [bearer token](https://oauth.net/2/bearer-tokens/#:~:text=Bearer%20Tokens%20are%20the%20predominant,such%20as%20JSON%20Web%20Tokens.). The token is included in the `Authorization` header on every API request. The token is verified in a `before_action` defined on the `ApplicationController`, and a 401 response is sent from that `before_action` if the token isn't present, can't be verified, or has expired. If the front-end receives a 401 response from the server, it invalidates the token and the user has to log in again.
-
-Users are uniquely identified by the email address associated with the Google account they use to sign in. The API does not intelligently link accounts if a user has logged in under multiple Google accounts at different times - each account they log in with will have its own SIM user and no access to resources associated with other accounts.
+Users are uniquely identified by the UID of the Google account they use to sign in. This value corresponds to the `"localId"` key of the user object returned from the token validation endpoint. On authentication, the user's account will be updated with any other information in the response, for example, if their email address, display name, or photo URL have changed. If the same user logs in with another UID for some reason, a new account will be created for them. There is no way to intelligently link accounts with different UIDs based on email or other profile data.
 
 ### Authenticating Resources
 
-All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `ShoppingList` with ID 24, requesting `/shopping_lists/24` with User 2's token will simply result in the resource not being found, and not in a 401 response.
+All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `ShoppingList` with ID 24, requesting `/shopping_lists/24` with a valid token belonging to User 2 will simply result in the resource not being found, and not in a 401 response. All requests lacking a valid token will return 401 responses.
 
 ## Resources
 
@@ -32,51 +30,13 @@ There are no admin users or other special user accounts and thus no way to view 
 id: integer, primary key, unique, not null
 uid: string, unique, not null
 email: string, unique, not null, generally equal to `uid`
-image_url: string or null
-name: string or null
+photo_url: string or null
+display_name: string or null
 ```
 
-### Shopping Lists
+### RESTful Resources
 
-Shopping lists provide a flexible way to track which items you need. The only property of a shopping list is its `"user_id"`. Every shopping list has many [shopping list items](/#shopping-list-items), which are included in `GET` requests that return that list.
-
-#### Schema
-
-```
-id: integer, primary key, unique, not null
-user_id: integer, foreign key, not null
-aggregate: boolean, only one aggregate allowed per user
-title: string, unique per user, default value of 'All Items' if aggregate and 'My List n' otherwise
-```
-
-#### Aggregate Shopping Lists
-
-Users can have multiple shopping lists. In the future, each list will correspond to a location or property where the items are needed. For example, a user might need 10 iron ingots at Heljarchen Hall and 4 iron ingots at Lakeview Manor. In this case, the user might have a shopping list for Heljarchen Hall including 10 iron ingots and another list for Lakeview Manor including 4 iron ingots.
-
-It is also useful to know the total quantity of an item that a user needs. For this reason, every user also has an aggregate list that is created when the user creates their first shopping list. This list is automatically updated to include all shopping list items on any of the user's other lists. If there are items with the same (case-insensitive) `description` on multiple lists, those items will be combined into a single item on the aggregate list with the `quantity` being the sum of the quantities specified on each other list where the item occurs. Every time an item is added, updated, or removed from another list, the aggregate list is automatically updated to reflect changes to the items or quantities.
-
-The title of all aggregate shopping lists is "All Items". Aggregate lists can be retrieved through the API but cannot be created, updated, or destroyed, including adding or removing items, as these functions are all handled automatically.
-
-### Shopping List Items
-
-Shopping list items have three properties: a text `description`, an integer `quantity`, and text `notes`. To provide maximum flexibility, there are no restrictions on the `description` field - it can be any description of an item needed and doesn't have to be in terms that are specific or meaningful to the game as long as it is unique on the list it's on. Examples could be:
-
-* "Unenchanted ebony sword"
-* "Item with Fortify Carry Weight enchantment"
-* "Necklace with Resist Frost enchantment"
-* "Helmet or circlet"
-* "Iron, steel, or imperial sword"
-* "Ingredient with Fortify Sneak property"
-
-#### Schema
-
-```
-id: integer, primary key, unique, not null
-list_id: integer, foreign key, not null
-description: string, unique on each shopping list, not null
-quantity: integer, not null
-notes: string
-```
+See the [API docs](/docs/api/README.md) for information about resources like games, shopping lists, and more. For information about models not exposed as RESTful resources, see docs on [canonical models](/docs/canonical_models/README.md).
 
 ## Developer Info
 
@@ -92,7 +52,7 @@ Note that the setup script installs a Git pre-commit hook that runs [Rubocop](#r
 
 To run the server, simply run `bundle exec rails s` and your server will start on `localhost:3000`.
 
-Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will expect the backend to run on localhost:3000 in development. CORS settings on the API require the front end to run on `localhost:3001`.
+Note that if you are also running the [SIM front end](https://github.com/danascheider/skyrim_inventory_management_frontend), it will expect the backend to run on `localhost:3000` in development. CORS settings on the API require the front end to run on `localhost:5173`.
 
 ### Testing
 
@@ -157,23 +117,29 @@ Rubocop and RSpec are run against all pull requests using [GitHub Actions](https
 The Skyrim Inventory Management API is deployed to Heroku under the app name `whispering-scrubland-92626`. Deployments are done manually from the command line using Git.
 
 To deploy, first run `heroku login --app=whispering-scrubland-92626` and press any key to be taken to the browser login screen. After following the prompts and getting logged in, return to your command line. If you haven't configured the Heroku Git remote yet, from the root directory of this repository, run:
+
 ```
 heroku git:remote --app=whispering-scrubland-92626
 ```
+
 Now, you will have a Git remote called `heroku` that you can use to deploy.
 
 Once the git remote is configured, you can run the following to deploy:
+
 ```
 git push heroku main
 ```
+
 You should only deploy from `main` and only after any running CI build has passed. **Do not deploy from any branch but `main` or if any steps are failing in CI.**
 
 Note that Heroku will not automatically run any migrations so if your deployment includes migrations, you will need to run them manually:
+
 ```
 heroku run bundle exec rails db:migrate
 ```
 
 Additionally, if you have changed any config or initializers, you will need to restart the app in production. Generally, this includes any changes you've made to the `/config` directory:
+
 ```
 heroku restart --app=whispering-scrubland-92626
 ```
@@ -185,14 +151,19 @@ Heroku offers several tools to troubleshoot.
 #### Viewing Logs
 
 You can tail logs in Heroku by running:
+
 ```
 heroku logs
 ```
+
 If you would like to see more or less log output, you can specify the number of lines of output using the `-n` flag:
+
 ```
 heroku logs -n 200
 ```
+
 If you'd like to see the logs updating live, you can run the following for a similar effect to `tail -f` on Linux:
+
 ```
 heroku logs --tail
 ```
@@ -200,6 +171,7 @@ heroku logs --tail
 #### Using the Rails Console
 
 Heroku gives you access to the Rails console as well through its command line tool:
+
 ```
 heroku run rails console
 ```
@@ -207,6 +179,7 @@ heroku run rails console
 #### Other Heroku Commands
 
 You can run arbitrary commands in Heroku using:
+
 ```
 heroku run <command>
 ```

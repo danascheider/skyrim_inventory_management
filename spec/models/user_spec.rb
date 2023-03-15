@@ -8,14 +8,14 @@ RSpec.describe User, type: :model do
 
     let(:payload) do
       {
-        'exp'     => (Time.zone.now + 2.days).to_i,
-        'email'   => 'jane.doe@gmail.com',
-        'name'    => 'Jane Doe',
-        'picture' => 'https://example.com/user_images/89',
+        'localId' => 'foobar',
+        'email' => 'jane.doe@gmail.com',
+        'displayName' => 'Jane Doe',
+        'photoUrl' => 'https://example.com/user_images/89',
       }
     end
 
-    context 'when a user with that email as uid does not exist' do
+    context 'when a user with that uid does not exist' do
       it 'creates a user' do
         expect { create_or_update }
           .to change(described_class, :count).from(0).to(1)
@@ -24,16 +24,16 @@ RSpec.describe User, type: :model do
       it 'sets the attributes' do
         create_or_update
         expect(described_class.last.attributes).to include(
-                                                     'uid'       => 'jane.doe@gmail.com',
-                                                     'email'     => 'jane.doe@gmail.com',
-                                                     'name'      => 'Jane Doe',
-                                                     'image_url' => 'https://example.com/user_images/89',
-                                                   )
+          'uid' => 'foobar',
+          'email' => 'jane.doe@gmail.com',
+          'display_name' => 'Jane Doe',
+          'photo_url' => 'https://example.com/user_images/89',
+        )
       end
     end
 
-    context 'when there is already a user with that email as uid' do
-      let!(:user) { create(:user, uid: 'jane.doe@gmail.com', email: 'jane.doe@gmail.com', name: 'Jane Doe', image_url: nil) }
+    context 'when there is already a user with that uid' do
+      let!(:user) { create(:user, uid: 'foobar', email: 'jane.doe@gmail.com', display_name: 'Jane Doe', photo_url: nil) }
 
       it 'does not create a new user' do
         expect { create_or_update }
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
 
       it 'updates the attributes' do
         create_or_update
-        expect(user.reload.image_url).to eq 'https://example.com/user_images/89'
+        expect(user.reload.photo_url).to eq 'https://example.com/user_images/89'
       end
     end
   end
@@ -62,11 +62,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the shopping lists for the user's games" do
       expect(user1.shopping_lists).to eq([
-                                           shopping_list4,
-                                           shopping_list3,
-                                           shopping_list2,
-                                           shopping_list1,
-                                         ])
+        shopping_list4,
+        shopping_list3,
+        shopping_list2,
+        shopping_list1,
+      ])
     end
   end
 
@@ -85,11 +85,11 @@ RSpec.describe User, type: :model do
 
     it "returns all the inventory lists for the user's games" do
       expect(user1.inventory_lists).to eq([
-                                            inventory_list4,
-                                            inventory_list3,
-                                            inventory_list2,
-                                            inventory_list1,
-                                          ])
+        inventory_list4,
+        inventory_list3,
+        inventory_list2,
+        inventory_list1,
+      ])
     end
   end
 

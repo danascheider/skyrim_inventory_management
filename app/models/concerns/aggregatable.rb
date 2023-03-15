@@ -37,27 +37,27 @@ module Aggregatable
     belongs_to :game, touch: true
     has_many :list_items,
              -> { index_order },
-             class_name:  list_item_class_name,
-             dependent:   :destroy,
+             class_name: list_item_class_name,
+             dependent: :destroy,
              foreign_key: :list_id,
-             inverse_of:  :list
+             inverse_of: :list
     belongs_to :aggregate_list, class_name: to_s, optional: true
 
     has_many :child_lists, class_name: to_s, foreign_key: :aggregate_list_id, inverse_of: :aggregate_list
 
     serialize :list_items, class_name: 'Array'
 
-    validate :one_aggregate_list_per_game,        if: :aggregate_list?
-    validate :not_named_all_items,                unless: :aggregate_list?
+    validate :one_aggregate_list_per_game, if: :aggregate_list?
+    validate :not_named_all_items, unless: :aggregate_list?
     validate :ensure_aggregate_list_is_aggregate, unless: :aggregate_list?
 
-    before_create :create_aggregate_list,    unless: :aggregate_list?
-    before_validation :set_aggregate_list,   unless: :aggregate_list?
+    before_create :create_aggregate_list, unless: :aggregate_list?
+    before_validation :set_aggregate_list, unless: :aggregate_list?
     before_save :abort_if_aggregate_changed
-    before_save :remove_aggregate_list_id,   if: :aggregate_list?
-    before_save :set_title_to_all_items,     if: :aggregate_list?
-    before_destroy :abort_if_aggregate,      if: :has_child_lists?
-    after_destroy :destroy_aggregate_list,   unless: -> { aggregate_list? || aggregate_has_other_children? }
+    before_save :remove_aggregate_list_id, if: :aggregate_list?
+    before_save :set_title_to_all_items, if: :aggregate_list?
+    before_destroy :abort_if_aggregate, if: :has_child_lists?
+    after_destroy :destroy_aggregate_list, unless: -> { aggregate_list? || aggregate_has_other_children? }
 
     scope :aggregate_first, -> { order(aggregate: :desc) }
     scope :includes_items, -> { includes(:list_items) }
@@ -91,7 +91,7 @@ module Aggregatable
       existing_item.destroy!
     else
       existing_item.quantity -= attrs['quantity']
-      existing_item.notes     = extract_notes(attrs['notes'], existing_item.notes)
+      existing_item.notes = extract_notes(attrs['notes'], existing_item.notes)
       existing_item.save!
     end
 
@@ -106,11 +106,11 @@ module Aggregatable
     raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
 
     existing_item.quantity += delta_quantity
-    existing_item.notes     = if old_notes.nil? && new_notes.present?
-                                [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
-                              else
-                                existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
-                              end
+    existing_item.notes = if old_notes.nil? && new_notes.present?
+                            [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
+                          else
+                            existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
+                          end
 
     unless unit_weight.nil?
       existing_item.unit_weight = unit_weight

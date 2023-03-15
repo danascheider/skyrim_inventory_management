@@ -34,10 +34,10 @@ module Listable
       # result in problems if the key types of the attrs differ
       # (e.g., if there is a :unit_weight key and a 'unit_weight'
       # key, only the value of the second one will be preserved)
-      new_attrs                                      = {}
+      new_attrs = {}
       attrs.each {|key, value| new_attrs[key.to_sym] = value }
 
-      list          = new_attrs[:list] || list_class.find(new_attrs[:list_id])
+      list = new_attrs[:list] || list_class.find(new_attrs[:list_id])
       existing_item = list.list_items.find_by('description ILIKE ?', new_attrs[:description])
 
       if existing_item.nil?
@@ -49,13 +49,13 @@ module Listable
 
         new new_attrs
       else
-        qty        = new_attrs[:quantity] || 1
-        new_notes  = new_attrs[:notes]
+        qty = new_attrs[:quantity] || 1
+        new_notes = new_attrs[:notes]
         new_weight = new_attrs[:unit_weight] || existing_item.unit_weight
-        old_notes  = existing_item.notes
+        old_notes = existing_item.notes
 
         new_quantity = existing_item.quantity + qty
-        new_notes    = [old_notes, new_notes].compact.join(' -- ').presence
+        new_notes = [old_notes, new_notes].compact.join(' -- ').presence
 
         existing_item.assign_attributes(quantity: new_quantity, notes: new_notes, unit_weight: new_weight)
         existing_item

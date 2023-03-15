@@ -1,8 +1,23 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+module Seeds
+  USER_DATA = {
+    uid: 'uruser',
+    email: 'uruser@gmail.com',
+    name: 'Uruser',
+  }.freeze
+
+  module_function
+
+  def seed!
+    seed_user!
+  end
+
+  def seed_user!
+    User.create!(**USER_DATA)
+  rescue ActiveRecord::RecordInvalid
+    Rails.logger.info "User '#{USER_DATA[:uid]}' with email '#{USER_DATA[:email]}' already exists."
+  end
+end
+
+Seeds.seed!

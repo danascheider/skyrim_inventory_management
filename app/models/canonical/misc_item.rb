@@ -4,23 +4,23 @@ module Canonical
   class MiscItem < ApplicationRecord
     self.table_name = 'canonical_misc_items'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     VALID_ITEM_TYPES = [
-                         'animal part',
-                         'book',
-                         'daedric artifact',
-                         'dragon claw',
-                         'Dwemer artifact',
-                         'gemstone',
-                         'key',
-                         'larceny trophy',
-                         'map',
-                         'miscellaneous',
-                         'paragon',
-                         'pelt',
-                       ].freeze
+      'animal part',
+      'book',
+      'daedric artifact',
+      'dragon claw',
+      'Dwemer artifact',
+      'gemstone',
+      'key',
+      'larceny trophy',
+      'map',
+      'miscellaneous',
+      'paragon',
+      'pelt',
+    ].freeze
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

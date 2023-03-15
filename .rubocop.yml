@@ -58,6 +58,12 @@ Bundler/DuplicatedGem:
     - '**/Gemfile'
 Bundler/GemComment:
   Enabled: true
+Bundler/GemFilename:
+  Enabled: true
+  EnforcedStyle: Gemfile
+Bundler/OrderedGems:
+  Enabled: true
+  TreatCommentsAsGroupSeparators: false
 Bundler/GemVersion:
   Enabled: true
   EnforcedStyle: 'required'
@@ -78,6 +84,8 @@ Layout/ArgumentAlignment:
 Layout/ArrayAlignment:
   Enabled: true
   EnforcedStyle: with_first_element
+Layout/AssignmentIndentation:
+  Enabled: true
 Layout/BeginEndAlignment:
   Enabled: true
   EnforcedStyleAlignWith: start_of_line
@@ -92,8 +100,7 @@ Layout/CaseIndentation:
 Layout/ClassStructure:
   Description: 'Enforces a configured order of definitions within a class body.'
   StyleGuide: '#consistent-classes'
-  Enabled: false
-  VersionAdded: '0.52'
+  Enabled: true
   Categories:
     module_inclusion:
       - include
@@ -116,6 +123,7 @@ Layout/ClosingParenthesisIndentation:
 Layout/CommentIndentation:
   Description: 'Indentation of comments.'
   Enabled: true
+  AllowForAlignment: true
 Layout/ConditionPosition:
   Enabled: true
 Layout/DefEndAlignment:
@@ -127,9 +135,15 @@ Layout/DotPosition:
   EnforcedStyle: leading
 Layout/ElseAlignment:
   Enabled: true
+Layout/EmptyComment:
+  Enabled: true
+  AllowBorderComment: true
+  AllowMarginComment: true
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
 Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+Layout/EmptyLineAfterMultilineCondition:
   Enabled: true
 Layout/EmptyLineBetweenDefs:
   Enabled: true
@@ -138,6 +152,8 @@ Layout/EmptyLines:
 Layout/EmptyLinesAroundAccessModifier:
   Enabled: true
 Layout/EmptyLinesAroundArguments:
+  Enabled: true
+Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 Layout/EmptyLinesAroundBeginBody:
   Enabled: true
@@ -159,29 +175,29 @@ Layout/EndAlignment:
   EnforcedStyleAlignWith: keyword
 Layout/ExtraSpacing:
   Enabled: true
-  AllowForAlignment: true
-  ForceEqualSignAlignment: true
+  AllowBeforeTrailingComments: true
+  AllowForAlignment: false
 Layout/FirstArgumentIndentation:
   Enabled: true
-  EnforcedStyle: consistent_relative_to_receiver
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
 Layout/FirstArrayElementIndentation:
   Enabled: true
-  EnforcedStyle: align_brackets
+  EnforcedStyle: consistent
 Layout/FirstArrayElementLineBreak:
   Enabled: true
 Layout/FirstHashElementIndentation:
   Enabled: true
-  EnforcedStyle: align_braces
+  EnforcedStyle: consistent
 Layout/FirstHashElementLineBreak:
   Enabled: true
 Layout/FirstParameterIndentation:
   Enabled: true
-  EnforcedStyle: align_parentheses
+  EnforcedStyle: consistent
 Layout/HashAlignment:
   Enabled: true
   AllowMultipleStyles: false
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
   EnforcedLastArgumentHashStyle: always_inspect
 Layout/HeredocArgumentClosingParenthesis:
   Enabled: true
@@ -1373,8 +1389,6 @@ Rails/WhereNot:
 ### RSpec Requirements ###
 ##########################
 
-RSpec/AlignLeftLetBrace:
-  Enabled: true
 RSpec/AroundBlock:
   Enabled: true
 RSpec/Be:

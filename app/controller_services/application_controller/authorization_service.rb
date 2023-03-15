@@ -1,42 +1,51 @@
 # frozen_string_literal: true
 
 require 'service/unauthorized_result'
-require 'service/internal_server_error_result'
 
 class ApplicationController < ActionController::API
   class AuthorizationService
-    def initialize(controller, token)
+    FIREBASE_VERIFICATION_URI = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo'
+
+    class AmbiguousUserError < StandardError; end
+
+    def initialize(controller, access_token)
       @controller = controller
-      @token      = token
+      @access_token = access_token
     end
 
     def perform
-      validator = GoogleIDToken::Validator.new
-      payload   = validator.check(token, configatron.google_oauth_client_id)
+      return Service::UnauthorizedResult.new(errors: 'No Google OAuth 2.0 access token found') if access_token.blank?
 
-      if current?(payload['exp'])
-        controller.current_user = User.create_or_update_for_google(payload)
-        return
+      token_response = connection.post {|req| req.body = { idToken: access_token }.to_json }
+
+      if token_response.success?
+        users = JSON.parse(token_response.body)['users']
+
+        raise AmbiguousUserError.new('Token validation response did not include a user') if users.blank?
+        raise AmbiguousUserError.new('Token validation response included multiple users') if users.length > 1
+
+        controller.current_user = User.create_or_update_for_google(users.first)
+        nil
+      else
+        Rails.logger.debug token_response.body
+        Rails.logger.error "Error validating user access token: #{token_response.status}"
+        Service::UnauthorizedResult.new(errors: ['Unable to validate user access token.'])
       end
-
-      Service::UnauthorizedResult.new(errors: ['Expired authentication token. Try logging out and logging in again'])
-    rescue GoogleIDToken::ValidationError => e
-      Rails.logger.error "Token validation failed -- #{e.message}"
-      Service::UnauthorizedResult.new(errors: ['Google OAuth token validation failed'])
-    rescue GoogleIDToken::CertificateError => e
-      Rails.logger.error "Problem with OAuth certificate -- #{e.message}"
-      Service::UnauthorizedResult.new(errors: ['Invalid OAuth certificate'])
     rescue StandardError => e
-      Rails.logger.error "Internal Server Error: #{e.message}"
-      Service::InternalServerErrorResult.new(errors: [e.message])
+      Rails.logger.error "#{e.class} validating user access token: #{e.message}"
+      Service::UnauthorizedResult.new(errors: [e.message])
     end
 
     private
 
-    def current?(seconds_since_unix_epoch)
-      Time.zone.at(seconds_since_unix_epoch) >= Time.zone.now
-    end
+    attr_reader :controller, :access_token
 
-    attr_reader :controller, :token
+    def connection
+      @connection ||= Faraday.new(
+        url: FIREBASE_VERIFICATION_URI,
+        params: { key: Rails.application.credentials[:google][:firebase_web_api_key] },
+        headers: { 'Content-Type' => 'application/json' },
+      )
+    end
   end
 end

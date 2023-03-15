@@ -6,26 +6,26 @@ module Canonical
   class Book < ApplicationRecord
     self.table_name = 'canonical_books'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     BOOK_TYPES = [
-                   'Black Book',
-                   'document',
-                   'Elder Scroll',
-                   'journal',
-                   'letter',
-                   'lore book',
-                   'quest book',
-                   'recipe',
-                   'skill book',
-                   'treasure map',
-                 ].freeze
+      'Black Book',
+      'document',
+      'Elder Scroll',
+      'journal',
+      'letter',
+      'lore book',
+      'quest book',
+      'recipe',
+      'skill book',
+      'treasure map',
+    ].freeze
 
     has_many :canonical_recipes_ingredients,
-             dependent:   :destroy,
-             class_name:  'Canonical::RecipesIngredient',
-             inverse_of:  :recipe,
+             dependent: :destroy,
+             class_name: 'Canonical::RecipesIngredient',
+             inverse_of: :recipe,
              foreign_key: :recipe_id
     has_many :canonical_ingredients, through: :canonical_recipes_ingredients, class_name: 'Canonical::Ingredient', source: :ingredient
 

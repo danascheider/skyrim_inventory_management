@@ -4,12 +4,12 @@ module Canonical
   class Potion < ApplicationRecord
     self.table_name = 'canonical_potions'
 
-    BOOLEAN_VALUES             = [true, false].freeze
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
-    VALID_POTION_TYPES         = %w[potion poison].freeze
+    VALID_POTION_TYPES = %w[potion poison].freeze
 
     has_many :canonical_potions_alchemical_properties,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::PotionsAlchemicalProperty',
              inverse_of: :potion
     has_many :alchemical_properties, through: :canonical_potions_alchemical_properties

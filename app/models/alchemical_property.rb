@@ -4,12 +4,12 @@ class AlchemicalProperty < ApplicationRecord
   VALID_STRENGTH_UNITS = %w[point percentage level].freeze
 
   has_many :canonical_ingredients_alchemical_properties,
-           dependent:  :destroy,
+           dependent: :destroy,
            class_name: 'Canonical::IngredientsAlchemicalProperty'
   has_many :canonical_ingredients, through: :canonical_ingredients_alchemical_properties
 
   has_many :canonical_potions_alchemical_properties,
-           dependent:  :destroy,
+           dependent: :destroy,
            class_name: 'Canonical::PotionsAlchemicalProperty'
   has_many :canonical_potions, through: :canonical_potions_alchemical_properties, source: :potion
 

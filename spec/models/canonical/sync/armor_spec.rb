@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Armor do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'armor.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'armor.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:material_codes) { %w[0005ACE5 0005AD9F 0005ACE4 000DB5D2 000800E4 0003ADA3 0003ADA4] }
@@ -66,9 +66,9 @@ RSpec.describe Canonical::Sync::Armor do
       end
 
       context 'when there are existing armor item records in the database' do
-        let!(:item_in_json)     { create(:canonical_armor, item_code: 'XX01DB97', body_slot: 'feet') }
+        let!(:item_in_json) { create(:canonical_armor, item_code: 'XX01DB97', body_slot: 'feet') }
         let!(:item_not_in_json) { create(:canonical_armor, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           create(:enchantment, name: 'Fortify Block')
@@ -152,9 +152,9 @@ RSpec.describe Canonical::Sync::Armor do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_armor, item_code: 'XX01DB97', body_slot: 'hands') }
-      let!(:item_not_in_json)         { create(:canonical_armor, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_armor, item_code: 'XX01DB97', body_slot: 'hands') }
+      let!(:item_not_in_json) { create(:canonical_armor, item_code: '12345678') }
 
       before do
         create(:enchantment, name: 'Fortify Block')
@@ -163,7 +163,7 @@ RSpec.describe Canonical::Sync::Armor do
         create(
           :canonical_temperables_tempering_material,
           temperable: item_in_json,
-          material:   create(:canonical_material, name: 'Onyx Ore'),
+          material: create(:canonical_material, name: 'Onyx Ore'),
         )
       end
 
@@ -208,7 +208,7 @@ RSpec.describe Canonical::Sync::Armor do
         let(:errored_model) do
           instance_double Canonical::Armor,
                           errors:,
-                          class:  class_double(Canonical::Armor, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Armor, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

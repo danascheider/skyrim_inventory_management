@@ -24,17 +24,17 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
         before do
           create(
             :canonical_ingredients_alchemical_property,
-            priority:   1,
+            priority: 1,
             ingredient:,
           )
         end
 
         it 'must be unique per ingredient' do
           model = build(
-                    :canonical_ingredients_alchemical_property,
-                    priority:   1,
-                    ingredient:,
-                  )
+            :canonical_ingredients_alchemical_property,
+            priority: 1,
+            ingredient:,
+          )
 
           model.validate
           expect(model.errors[:priority]).to include 'must be unique per ingredient'

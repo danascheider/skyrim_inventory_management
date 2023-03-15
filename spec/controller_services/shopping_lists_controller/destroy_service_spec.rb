@@ -14,8 +14,8 @@ RSpec.describe ShoppingListsController::DestroyService do
 
     context 'when all goes well' do
       let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:shopping_list)  { create(:shopping_list_with_list_items, game:) }
-      let(:game)            { create(:game, user:) }
+      let!(:shopping_list) { create(:shopping_list_with_list_items, game:) }
+      let(:game) { create(:game, user:) }
 
       context 'when the game has additional regular lists' do
         let!(:third_list) { create(:shopping_list, game:, aggregate_list:) }
@@ -100,7 +100,7 @@ RSpec.describe ShoppingListsController::DestroyService do
 
     context 'when the list is an aggregate list' do
       let!(:shopping_list) { create(:aggregate_shopping_list, game:) }
-      let(:game)           { create(:game, user:) }
+      let(:game) { create(:game, user:) }
 
       it 'returns a Service::MethodNotAllowedResult' do
         expect(perform).to be_a(Service::MethodNotAllowedResult)
@@ -111,10 +111,23 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
     end
 
-    context 'when the list does not belong to the user' do
+    context 'when the list does not exist' do
+      let(:shopping_list) { double('list that does not exist', id: 838) }
+
+      it 'returns a Service::NotFoundResult' do
+        expect(perform).to be_a(Service::NotFoundResult)
+      end
+
+      it "doesn't return any data", :aggregate_failures do
+        expect(perform.resource).to be_blank
+        expect(perform.errors).to be_blank
+      end
+    end
+
+    context 'when the list belongs to another user' do
       let!(:shopping_list) { create(:shopping_list) }
 
-      it "doesn't delete the list" do
+      it "doesn't destroy the shopping list" do
         expect { perform }
           .not_to change(ShoppingList, :count)
       end
@@ -124,22 +137,14 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
 
       it "doesn't return any data", :aggregate_failures do
-        expect(perform.errors).to be_blank
         expect(perform.resource).to be_blank
-      end
-    end
-
-    context 'when the list does not exist' do
-      let(:shopping_list) { double('list that does not exist', id: 838) }
-
-      it 'returns a Service::NotFoundResult' do
-        expect(perform).to be_a(Service::NotFoundResult)
+        expect(perform.errors).to be_blank
       end
     end
 
     context 'when something unexpected goes wrong' do
       let!(:shopping_list) { create(:shopping_list, game:) }
-      let(:game)           { create(:game, user:) }
+      let(:game) { create(:game, user:) }
 
       before do
         allow_any_instance_of(ShoppingList).to receive(:aggregate_list).and_raise(StandardError.new('Something went horribly wrong'))

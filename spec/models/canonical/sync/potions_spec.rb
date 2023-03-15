@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Potions do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'potions.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'potions.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:alchemical_property_names) do
@@ -56,9 +56,9 @@ RSpec.describe Canonical::Sync::Potions do
       end
 
       context 'when there are existing potion records in the database' do
-        let!(:item_in_json)     { create(:canonical_potion, item_code: '0003EB2E', unit_weight: 1) }
+        let!(:item_in_json) { create(:canonical_potion, item_code: '0003EB2E', unit_weight: 1) }
         let!(:item_not_in_json) { create(:canonical_potion, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           alchemical_property_names.each {|name| create(:alchemical_property, name:) }
@@ -90,8 +90,8 @@ RSpec.describe Canonical::Sync::Potions do
         it "removes alchemical properties that don't exist in the JSON data" do
           item_in_json.canonical_potions_alchemical_properties.create!(
             alchemical_property: AlchemicalProperty.find_by(name: 'Fortify Lockpicking'),
-            strength:            20,
-            duration:            30,
+            strength: 20,
+            duration: 30,
           )
           perform
           expect(item_in_json.alchemical_properties.find_by(name: 'Fortify Destruction')).to be_nil
@@ -141,9 +141,9 @@ RSpec.describe Canonical::Sync::Potions do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_potion, item_code: '0003EB2E', unit_weight: 1) }
-      let!(:item_not_in_json)         { create(:canonical_potion, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_potion, item_code: '0003EB2E', unit_weight: 1) }
+      let!(:item_not_in_json) { create(:canonical_potion, item_code: '12345678') }
 
       before do
         alchemical_property_names.each {|name| create(:alchemical_property, name:) }
@@ -187,7 +187,7 @@ RSpec.describe Canonical::Sync::Potions do
         let(:errored_model) do
           instance_double Canonical::Potion,
                           errors:,
-                          class:  class_double(Canonical::Potion, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Potion, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

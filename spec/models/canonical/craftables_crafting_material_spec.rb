@@ -5,27 +5,27 @@ require 'rails_helper'
 RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
-      armor    = create(:canonical_armor)
+      armor = create(:canonical_armor)
       material = create(:canonical_material)
-      model    = described_class.new(quantity: 2, craftable: armor, material:)
+      model = described_class.new(quantity: 2, craftable: armor, material:)
 
       expect(model).to be_valid
     end
 
     describe 'quantity' do
       it 'must be greater than zero' do
-        weapon   = create(:canonical_weapon)
+        weapon = create(:canonical_weapon)
         material = create(:canonical_material)
-        model    = described_class.new(quantity: 0, craftable: weapon, material:)
+        model = described_class.new(quantity: 0, craftable: weapon, material:)
 
         model.validate
         expect(model.errors[:quantity]).to include 'must be greater than 0'
       end
 
       it 'must be an integer' do
-        item     = create(:canonical_jewelry_item)
+        item = create(:canonical_jewelry_item)
         material = create(:canonical_material)
-        model    = described_class.new(quantity: 1.3, craftable: item, material:)
+        model = described_class.new(quantity: 1.3, craftable: item, material:)
 
         model.validate
         expect(model.errors[:quantity]).to include 'must be an integer'
@@ -34,7 +34,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
 
     describe 'canonical material and craftable item' do
       let(:material) { create(:canonical_material) }
-      let(:armor)    { create(:canonical_armor) }
+      let(:armor) { create(:canonical_armor) }
 
       it 'must form a unique combination' do
         create(:canonical_craftables_crafting_material, material:, craftable: armor)

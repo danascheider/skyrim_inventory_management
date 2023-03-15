@@ -61,9 +61,9 @@ RSpec.describe Property, type: :model do
       Canonical::Property.all.each do |canonical_property|
         game.properties.create!(
           canonical_property:,
-          name:               canonical_property.name,
-          hold:               canonical_property.hold,
-          city:               canonical_property.city,
+          name: canonical_property.name,
+          hold: canonical_property.hold,
+          city: canonical_property.city,
         )
       end
 
@@ -81,14 +81,14 @@ RSpec.describe Property, type: :model do
       before do
         game.properties.create!(
           canonical_property:,
-          name:               canonical_property.name,
-          hold:               canonical_property.hold,
-          city:               canonical_property.city,
+          name: canonical_property.name,
+          hold: canonical_property.hold,
+          city: canonical_property.city,
         )
       end
 
       it 'has a unique combination of game and canonical property' do
-        property.game               = game
+        property.game = game
         property.canonical_property = canonical_property
         property.validate
         expect(property.errors[:canonical_property]).to include 'must be unique per game'
@@ -114,9 +114,9 @@ RSpec.describe Property, type: :model do
 
       it 'must have the same name, hold, and city as the canonical property' do
         property.canonical_property_id = canonical_property.id
-        property.name                  = canonical_property.name
-        property.hold                  = canonical_property.hold
-        property.city                  = nil
+        property.name = canonical_property.name
+        property.hold = canonical_property.hold
+        property.city = nil
         property.validate
         expect(property.errors[:base]).to include 'property attributes must match attributes of a property that exists in Skyrim'
       end
@@ -128,7 +128,7 @@ RSpec.describe Property, type: :model do
 
         it 'cannot have an arcane enchanter' do
           property.canonical_property_id = canonical_property.id
-          property.has_arcane_enchanter  = true
+          property.has_arcane_enchanter = true
           property.validate
           expect(property.errors[:has_arcane_enchanter]).to include 'cannot be true because this property cannot have an arcane enchanter in Skyrim'
         end
@@ -139,14 +139,14 @@ RSpec.describe Property, type: :model do
 
         it 'can have an arcane enchanter' do
           property.canonical_property_id = canonical_property.id
-          property.has_arcane_enchanter  = true
+          property.has_arcane_enchanter = true
           property.validate
           expect(property.errors[:has_arcane_enchanter]).to be_blank
         end
 
         it "doesn't have to have an arcane enchanter" do
           property.canonical_property_id = canonical_property.id
-          property.has_arcane_enchanter  = false
+          property.has_arcane_enchanter = false
           property.validate
           expect(property.errors[:has_arcane_enchanter]).to be_blank
         end
@@ -159,7 +159,7 @@ RSpec.describe Property, type: :model do
 
         it 'cannot have a forge' do
           property.canonical_property_id = canonical_property.id
-          property.has_forge             = true
+          property.has_forge = true
           property.validate
           expect(property.errors[:has_forge]).to include 'cannot be true because this property cannot have a forge in Skyrim'
         end
@@ -170,14 +170,14 @@ RSpec.describe Property, type: :model do
 
         it 'can have a forge' do
           property.canonical_property_id = canonical_property.id
-          property.has_forge             = true
+          property.has_forge = true
           property.validate
           expect(property.errors[:has_forge]).to be_blank
         end
 
         it "doesn't have to have a forge" do
           property.canonical_property_id = canonical_property.id
-          property.has_forge             = false
+          property.has_forge = false
           property.validate
           expect(property.errors[:has_forge]).to be_blank
         end

@@ -109,10 +109,10 @@ RSpec.describe InventoryListsController::DestroyService do
       end
     end
 
-    context "when the list doesn't belong to the user" do
+    context 'when the list belongs to another user' do
       let!(:inventory_list) { create(:inventory_list) }
 
-      it "doesn't delete the list" do
+      it "doesn't destroy the inventory list" do
         expect { perform }
           .not_to change(InventoryList, :count)
       end

@@ -137,7 +137,7 @@ RSpec.describe Canonical::JewelryItem, type: :model do
 
   describe 'associations' do
     describe 'enchantments' do
-      let(:item)        { create(:canonical_jewelry_item) }
+      let(:item) { create(:canonical_jewelry_item) }
       let(:enchantment) { create(:enchantment) }
 
       before do
@@ -150,7 +150,7 @@ RSpec.describe Canonical::JewelryItem, type: :model do
     end
 
     describe 'materials' do
-      let(:item)     { create(:canonical_jewelry_item) }
+      let(:item) { create(:canonical_jewelry_item) }
       let(:material) { create(:canonical_material) }
 
       before do

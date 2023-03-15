@@ -53,25 +53,25 @@
 
 module Titlecase
   LOWERCASE_WORDS = %w[
-                      a
-                      an
-                      the
-                      and
-                      but
-                      for
-                      at
-                      by
-                      from
-                      with
-                      to
-                      in
-                      of
-                      into
-                      onto
-                      on
-                      without
-                      within
-                    ].freeze
+    a
+    an
+    the
+    and
+    but
+    for
+    at
+    by
+    from
+    with
+    to
+    in
+    of
+    into
+    onto
+    on
+    without
+    within
+  ].freeze
 
   module_function
 

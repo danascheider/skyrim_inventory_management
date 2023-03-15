@@ -7,7 +7,7 @@ RSpec.describe ShoppingList, type: :model do
     describe '::index_order' do
       subject(:index_order) { game.shopping_lists.index_order.to_a }
 
-      let!(:game)           { create(:game) }
+      let!(:game) { create(:game) }
       let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
       let!(:shopping_list1) { create(:shopping_list, game:) }
       let!(:shopping_list2) { create(:shopping_list, game:) }
@@ -26,9 +26,9 @@ RSpec.describe ShoppingList, type: :model do
     describe '::includes_items' do
       subject(:includes_items) { game.shopping_lists.includes_items }
 
-      let!(:game)           { create(:game) }
+      let!(:game) { create(:game) }
       let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:lists)          { create_list(:shopping_list_with_list_items, 2, game:) }
+      let!(:lists) { create_list(:shopping_list_with_list_items, 2, game:) }
 
       it 'includes the shopping list items' do
         expect(includes_items).to eq game.shopping_lists.includes(:list_items)
@@ -39,9 +39,9 @@ RSpec.describe ShoppingList, type: :model do
     describe '::aggregates_first' do
       subject(:aggregate_first) { game.shopping_lists.aggregate_first.to_a }
 
-      let!(:game)           { create(:game) }
+      let!(:game) { create(:game) }
       let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:shopping_list)  { create(:shopping_list, game:) }
+      let!(:shopping_list) { create(:shopping_list, game:) }
 
       it 'returns the shopping lists with the aggregate list first' do
         expect(aggregate_first).to eq([aggregate_list, shopping_list])
@@ -49,7 +49,7 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     describe '::belongs_to_user' do
-      let(:user)   { create(:user) }
+      let(:user) { create(:user) }
       let!(:game1) { create(:game_with_shopping_lists, user:) }
       let!(:game2) { create(:game_with_shopping_lists, user:) }
       let!(:game3) { create(:game_with_shopping_lists, user:) }
@@ -64,16 +64,16 @@ RSpec.describe ShoppingList, type: :model do
         agg_list3, game3_list1, game3_list2 = game3.shopping_lists.to_a
 
         expect(described_class.belonging_to_user(user).to_a).to eq([
-                                                                     game3_list1,
-                                                                     game3_list2,
-                                                                     agg_list3,
-                                                                     game2_list1,
-                                                                     game2_list2,
-                                                                     agg_list2,
-                                                                     game1_list1,
-                                                                     game1_list2,
-                                                                     agg_list1,
-                                                                   ])
+          game3_list1,
+          game3_list2,
+          agg_list3,
+          game2_list1,
+          game2_list2,
+          agg_list2,
+          game1_list1,
+          game1_list2,
+          agg_list1,
+        ])
       end
     end
   end
@@ -82,7 +82,7 @@ RSpec.describe ShoppingList, type: :model do
     # Aggregatable
     describe 'aggregate lists' do
       context 'when there are no aggregate lists' do
-        let(:game)           { create(:game) }
+        let(:game) { create(:game) }
         let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
 
         it 'is valid' do
@@ -91,7 +91,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when there is an existing aggregate list belonging to another user' do
-        let(:game)           { create(:game) }
+        let(:game) { create(:game) }
         let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
 
         before do
@@ -104,7 +104,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the user already has an aggregate list' do
-        let(:game)           { create(:game) }
+        let(:game) { create(:game) }
         let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
 
         before do
@@ -176,7 +176,7 @@ RSpec.describe ShoppingList, type: :model do
   # Aggregatable
   describe '#aggregate_list' do
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list)   { create(:shopping_list, game: aggregate_list.game) }
+    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
 
     it 'returns the aggregate list that tracks it' do
       expect(shopping_list.aggregate_list).to eq aggregate_list
@@ -300,10 +300,10 @@ RSpec.describe ShoppingList, type: :model do
     subject(:items) { shopping_list.list_items }
 
     let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list)   { create(:shopping_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
-    let!(:item1)          { create(:shopping_list_item, list: shopping_list) }
-    let!(:item2)          { create(:shopping_list_item, list: shopping_list) }
-    let!(:item3)          { create(:shopping_list_item, list: shopping_list) }
+    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
+    let!(:item1) { create(:shopping_list_item, list: shopping_list) }
+    let!(:item2) { create(:shopping_list_item, list: shopping_list) }
+    let!(:item3) { create(:shopping_list_item, list: shopping_list) }
 
     before do
       item2.update!(quantity: 2)
@@ -346,8 +346,8 @@ RSpec.describe ShoppingList, type: :model do
     subject(:destroy_list) { shopping_list.destroy! }
 
     let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list)  { create(:shopping_list, game:) }
-    let(:game)            { create(:game) }
+    let!(:shopping_list) { create(:shopping_list, game:) }
+    let(:game) { create(:game) }
 
     context 'when the user has additional regular lists' do
       before do
@@ -385,21 +385,21 @@ RSpec.describe ShoppingList, type: :model do
         it 'sets the correct attributes' do
           add_item
           expect(aggregate_list.list_items.last.attributes).to include(
-                                                                 'description' => list_item.description,
-                                                                 'quantity'    => list_item.quantity,
-                                                                 'notes'       => list_item.notes,
-                                                                 'unit_weight' => list_item.unit_weight,
-                                                               )
+            'description' => list_item.description,
+            'quantity' => list_item.quantity,
+            'notes' => list_item.notes,
+            'unit_weight' => list_item.unit_weight,
+          )
         end
       end
 
       context 'when there is a matching item on the aggregate list' do
-        let(:other_list)          { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
         let!(:item_on_other_list) { create(:shopping_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
 
         context 'when both have notes' do
           let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', notes: 'notes 1 -- notes 2', quantity: 3, unit_weight: 0.3, list: aggregate_list) }
-          let(:list_item)           { create(:shopping_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: 'notes 3') }
+          let(:list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: 'notes 3') }
 
           it 'combines the notes and quantities', :aggregate_failures do
             add_item
@@ -410,7 +410,7 @@ RSpec.describe ShoppingList, type: :model do
 
         context 'when neither have notes' do
           let!(:existing_list_item) { create(:shopping_list_item, list: aggregate_list, quantity: 3, notes: nil) }
-          let(:list_item)           { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
 
           it 'combines the quantities and leaves the notes nil', :aggregate_failures do
             add_item
@@ -421,7 +421,7 @@ RSpec.describe ShoppingList, type: :model do
 
         context 'when one has notes and the other does not' do
           let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', quantity: 3, unit_weight: 0.3, notes: 'notes 1 -- notes 2', list: aggregate_list) }
-          let(:list_item)           { create(:shopping_list_item, description: existing_list_item.description, quantity: 2) }
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2) }
 
           it 'combines the quantities and uses the existing notes value', :aggregate_failures do
             add_item
@@ -432,7 +432,7 @@ RSpec.describe ShoppingList, type: :model do
 
         context "when the new item doesn't have a unit weight" do
           let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
-          let(:list_item)           { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
 
           it 'leaves the unit weight as-is on the existing item' do
             add_item
@@ -447,7 +447,7 @@ RSpec.describe ShoppingList, type: :model do
 
         context 'when the new item has a unit weight' do
           let!(:existing_list_item) { create(:shopping_list_item, description: item_on_other_list.description, list: aggregate_list) }
-          let(:list_item)           { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: 0.2) }
+          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: 0.2) }
 
           it 'updates the unit weight of the existing item' do
             add_item
@@ -463,7 +463,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when called on a non-aggregate list' do
         let(:aggregate_list) { create(:shopping_list) }
-        let(:list_item)      { create(:shopping_list_item) }
+        let(:list_item) { create(:shopping_list_item) }
 
         it 'raises an AggregateListError' do
           expect { add_item }
@@ -477,7 +477,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when there is no matching item on the aggregate list' do
         let(:aggregate_list) { create(:aggregate_shopping_list) }
-        let(:item_attrs)     { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+        let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
           expect { remove_item }
@@ -487,7 +487,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the quantity is greater than the quantity on the aggregate list' do
         let(:aggregate_list) { create(:aggregate_shopping_list) }
-        let(:item_attrs)     { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
 
         before do
           aggregate_list.list_items.create(description: 'Necklace', quantity: 2)
@@ -501,7 +501,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the quantity is equal to the quantity on the aggregate list' do
         let(:aggregate_list) { create(:aggregate_shopping_list) }
-        let(:item_attrs)     { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
 
         before do
           aggregate_list.list_items.create(description: 'Necklace', quantity: 3)
@@ -588,7 +588,7 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when called on a non-aggregate list' do
         let(:aggregate_list) { create(:shopping_list) }
-        let(:item_attrs)     { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
+        let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
           expect { remove_item }
@@ -601,11 +601,11 @@ RSpec.describe ShoppingList, type: :model do
       subject(:update_item) { aggregate_list.update_item_from_child_list(description, delta, unit_weight, old_notes, new_notes) }
 
       let(:aggregate_list) { create(:aggregate_shopping_list) }
-      let(:description)    { 'Corundum ingot' }
-      let(:unit_weight)    { 1 }
+      let(:description) { 'Corundum ingot' }
+      let(:unit_weight) { 1 }
 
       context 'when adjusting quantity up' do
-        let(:delta)     { 2 }
+        let(:delta) { 2 }
         let(:old_notes) { 'something' }
         let(:new_notes) { 'another thing' }
 
@@ -626,7 +626,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when adjusting quantity down' do
-        let(:delta)     { -2 }
+        let(:delta) { -2 }
         let(:old_notes) { 'something' }
         let(:new_notes) { 'another thing' }
 
@@ -675,7 +675,7 @@ RSpec.describe ShoppingList, type: :model do
         subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
 
         let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-        let!(:item_on_other_list)  { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
+        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
         let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
 
         before do
@@ -694,7 +694,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the notes have not changed' do
-        let(:delta)     { -2 }
+        let(:delta) { -2 }
         let(:old_notes) { 'something' }
         let(:new_notes) { 'something' }
 
@@ -709,7 +709,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when there are edge cases with the notes' do
-        let(:delta)          { 5 }
+        let(:delta) { 5 }
         let(:existing_notes) { 'notes 1 -- notes 2 -- notes 3' }
 
         before do
@@ -758,8 +758,8 @@ RSpec.describe ShoppingList, type: :model do
 
         context 'when there are multiple identical note values' do
           let(:existing_notes) { 'notes 1 -- notes 1 -- notes 2' }
-          let(:old_notes)      { 'notes 1' }
-          let(:new_notes)      { 'something else' }
+          let(:old_notes) { 'notes 1' }
+          let(:new_notes) { 'something else' }
 
           it 'only replaces one instance' do
             update_item
@@ -789,7 +789,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the delta would bring the quantity below zero' do
-        let(:delta)     { -20 }
+        let(:delta) { -20 }
         let(:old_notes) { nil }
         let(:new_notes) { 'something else' }
 
@@ -801,9 +801,9 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the unit_weight is not a number' do
         let(:unit_weight) { 'carrot' }
-        let(:delta)       { 1 }
-        let(:old_notes)   { nil }
-        let(:new_notes)   { nil }
+        let(:delta) { 1 }
+        let(:old_notes) { nil }
+        let(:new_notes) { nil }
 
         before do
           aggregate_list.list_items.create!(description:)
@@ -817,9 +817,9 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the unit_weight value is invalid' do
         let(:unit_weight) { -0.3 }
-        let(:delta)       { 1 }
-        let(:old_notes)   { nil }
-        let(:new_notes)   { nil }
+        let(:delta) { 1 }
+        let(:old_notes) { nil }
+        let(:new_notes) { nil }
 
         before do
           aggregate_list.list_items.create!(description:, quantity: 1)
@@ -833,9 +833,9 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when there is no matching item on the aggregate list' do
         let(:description) { 'Iron ore' }
-        let(:delta)       { 2 }
-        let(:old_notes)   { 'something' }
-        let(:new_notes)   { 'something else' }
+        let(:delta) { 2 }
+        let(:old_notes) { 'something' }
+        let(:new_notes) { 'something else' }
 
         it 'raises an error' do
           expect { update_item }
@@ -845,10 +845,10 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when called on a regular list' do
         let(:aggregate_list) { create(:shopping_list) }
-        let(:description)    { 'Corundum ingot' }
-        let(:delta)          { 2 }
-        let(:old_notes)      { 'to build things' }
-        let(:new_notes)      { 'to make locks' }
+        let(:description) { 'Corundum ingot' }
+        let(:delta) { 2 }
+        let(:old_notes) { 'to build things' }
+        let(:new_notes) { 'to make locks' }
 
         it 'raises an error' do
           expect { update_item }

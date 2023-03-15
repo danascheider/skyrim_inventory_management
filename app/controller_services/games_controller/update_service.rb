@@ -3,13 +3,14 @@
 require 'service/ok_result'
 require 'service/unprocessable_entity_result'
 require 'service/not_found_result'
+require 'service/internal_server_error_result'
 
 class GamesController < ApplicationController
   class UpdateService
     def initialize(user, game_id, params)
-      @user    = user
+      @user = user
       @game_id = game_id
-      @params  = params
+      @params = params
     end
 
     def perform

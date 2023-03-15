@@ -4,13 +4,13 @@ module Canonical
   class Ingredient < ApplicationRecord
     self.table_name = 'canonical_ingredients'
 
-    VALID_TYPES                = %w[common uncommon rare Solstheim].freeze
-    TYPE_VALIDATION_MESSAGE    = 'must be "common", "uncommon", "rare", or "Solstheim"'
-    BOOLEAN_VALUES             = [true, false].freeze
+    VALID_TYPES = %w[common uncommon rare Solstheim].freeze
+    TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "Solstheim"'
+    BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_ingredients_alchemical_properties,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::IngredientsAlchemicalProperty',
              inverse_of: :ingredient
     has_many :alchemical_properties,
@@ -18,7 +18,7 @@ module Canonical
              through: :canonical_ingredients_alchemical_properties
 
     has_many :canonical_recipes_ingredients,
-             dependent:  :destroy,
+             dependent: :destroy,
              class_name: 'Canonical::RecipesIngredient',
              inverse_of: :ingredient
     has_many :recipes, through: :canonical_recipes_ingredients, class_name: 'Canonical::Book', source: :recipe
@@ -30,10 +30,10 @@ module Canonical
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :purchase_requires_perk,
               inclusion: {
-                           in:      BOOLEAN_VALUES,
-                           message: "#{BOOLEAN_VALIDATION_MESSAGE} if purchasable is true",
-                         },
-              if:        -> { purchasable == true }
+                in: BOOLEAN_VALUES,
+                message: "#{BOOLEAN_VALIDATION_MESSAGE} if purchasable is true",
+              },
+              if: -> { purchasable == true }
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }

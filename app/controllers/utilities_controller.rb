@@ -1,15 +1,7 @@
 # frozen_string_literal: true
 
 class UtilitiesController < ApplicationController
-  skip_before_action :validate_google_oauth_token
-
-  def privacy
-    render plain: PRIVACY, status: :ok
-  end
-
-  def tos
-    render plain: TOS, status: :ok
-  end
+  skip_before_action :authenticate_user!
 
   PRIVACY = <<~HEREDOC
     Thank you for using Skyrim Inventory Management. This app was intended
@@ -31,4 +23,12 @@ class UtilitiesController < ApplicationController
     the documentation, which may be found in the README at
     https://github.com/danascheider/skyrim_inventory_management.
   HEREDOC
+
+  def privacy
+    render plain: PRIVACY, status: :ok
+  end
+
+  def tos
+    render plain: TOS, status: :ok
+  end
 end

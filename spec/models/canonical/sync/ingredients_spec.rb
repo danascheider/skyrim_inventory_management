@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Ingredients do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'ingredients.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'ingredients.json') }
   let!(:json_data) { File.read(json_path) }
 
   let(:alchemical_property_names) do
@@ -57,9 +57,9 @@ RSpec.describe Canonical::Sync::Ingredients do
       end
 
       context 'when there are existing canonical ingredient records in the database' do
-        let!(:item_in_json)     { create(:canonical_ingredient, item_code: '00106E1B', unit_weight: 1.2) }
+        let!(:item_in_json) { create(:canonical_ingredient, item_code: '00106E1B', unit_weight: 1.2) }
         let!(:item_not_in_json) { create(:canonical_ingredient, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           alchemical_property_names.each {|name| create(:alchemical_property, name:) }
@@ -91,7 +91,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         it "removes alchemical properties that don't exist in the JSON data" do
           item_in_json.canonical_ingredients_alchemical_properties.create!(
             alchemical_property: create(:alchemical_property, name: 'Fortify Awesomeness'),
-            priority:            1,
+            priority: 1,
           )
 
           perform
@@ -143,18 +143,18 @@ RSpec.describe Canonical::Sync::Ingredients do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:item_in_json)             { create(:canonical_ingredient, item_code: '00106E1B', unit_weight: 1.2) }
-      let!(:item_not_in_json)         { create(:canonical_ingredient, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:item_in_json) { create(:canonical_ingredient, item_code: '00106E1B', unit_weight: 1.2) }
+      let!(:item_not_in_json) { create(:canonical_ingredient, item_code: '12345678') }
 
       before do
         alchemical_property_names.each {|name| create(:alchemical_property, name:) }
 
         create(
           :canonical_ingredients_alchemical_property,
-          ingredient:          item_in_json,
+          ingredient: item_in_json,
           alchemical_property: create(:alchemical_property, name: 'Fortify Awesomeness'),
-          priority:            1,
+          priority: 1,
         )
 
         allow(Rails.logger).to receive(:warn)
@@ -204,7 +204,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         let(:errored_model) do
           instance_double Canonical::Ingredient,
                           errors:,
-                          class:  class_double(Canonical::Ingredient, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Ingredient, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Name can't be blank"]) }

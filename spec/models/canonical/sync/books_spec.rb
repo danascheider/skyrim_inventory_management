@@ -6,7 +6,7 @@ RSpec.describe Canonical::Sync::Books do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path)  { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'books.json') }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'books.json') }
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -52,12 +52,12 @@ RSpec.describe Canonical::Sync::Books do
           create(
             :canonical_recipe,
             item_code: '000F5CB8',
-            title:     'The Seven Habits of Highly Successful People',
+            title: 'The Seven Habits of Highly Successful People',
           )
         end
 
         let!(:book_not_in_json) { create(:canonical_book, item_code: '12345678') }
-        let(:syncer)            { described_class.new(preserve_existing_records) }
+        let(:syncer) { described_class.new(preserve_existing_records) }
 
         before do
           create(:canonical_ingredient, item_code: '00052695')
@@ -141,9 +141,9 @@ RSpec.describe Canonical::Sync::Books do
 
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
-      let(:syncer)                    { described_class.new(preserve_existing_records) }
-      let!(:book_in_json)             { create(:canonical_recipe, item_code: '000F5CB8', title: 'Rich Dad, Poor Dad') }
-      let!(:book_not_in_json)         { create(:canonical_book, item_code: '12345678') }
+      let(:syncer) { described_class.new(preserve_existing_records) }
+      let!(:book_in_json) { create(:canonical_recipe, item_code: '000F5CB8', title: 'Rich Dad, Poor Dad') }
+      let!(:book_not_in_json) { create(:canonical_book, item_code: '12345678') }
 
       before do
         create(:canonical_ingredient, item_code: '00052695')
@@ -187,7 +187,7 @@ RSpec.describe Canonical::Sync::Books do
         let(:errored_model) do
           instance_double Canonical::Book,
                           errors:,
-                          class:  class_double(Canonical::Book, i18n_scope: :activerecord)
+                          class: class_double(Canonical::Book, i18n_scope: :activerecord)
         end
 
         let(:errors) { double('errors', full_messages: ["Title can't be blank"]) }

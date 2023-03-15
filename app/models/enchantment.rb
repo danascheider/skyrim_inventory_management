@@ -4,29 +4,29 @@ require 'skyrim'
 
 class Enchantment < ApplicationRecord
   ENCHANTABLE_WEAPONS = [
-                          'sword',
-                          'mace',
-                          'war axe',
-                          'greatsword',
-                          'warhammer',
-                          'battleaxe',
-                          'dagger',
-                          'bow',
-                          'crossbow',
-                          'staff',
-                          'other',
-                        ].freeze
+    'sword',
+    'mace',
+    'war axe',
+    'greatsword',
+    'warhammer',
+    'battleaxe',
+    'dagger',
+    'bow',
+    'crossbow',
+    'staff',
+    'other',
+  ].freeze
 
   ENCHANTABLE_APPAREL_ITEMS = %w[
-                                head
-                                chest
-                                hands
-                                feet
-                                shield
-                                circlet
-                                amulet
-                                ring
-                              ].freeze
+    head
+    chest
+    hands
+    feet
+    shield
+    circlet
+    amulet
+    ring
+  ].freeze
 
   ENCHANTABLE_ITEMS = (ENCHANTABLE_WEAPONS + ENCHANTABLE_APPAREL_ITEMS).freeze
 
@@ -38,10 +38,10 @@ class Enchantment < ApplicationRecord
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,
             inclusion: {
-                         in:          STRENGTH_UNITS,
-                         message:     'must be "point", "percentage", "second", or the "level" of affected targets',
-                         allow_blank: true,
-                       }
+              in: STRENGTH_UNITS,
+              message: 'must be "point", "percentage", "second", or the "level" of affected targets',
+              allow_blank: true,
+            }
   validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
   validate :validate_enchantable_items
 
