@@ -436,24 +436,92 @@ Authorization: Bearer xxxxxxxxxxx
 #### Statuses
 
 * 200 OK
-* 204 No Content
 
 #### Example Body
 
-The API will return a 204 response if the list item has been destroyed along with the corresponding item on the aggregate list. This response does not include a body. On the other hand, if the aggregate list item has been updated rather than destroyed, it will be returned and the status code will be 200.
+The response body will be an array of all shopping lists belonging to the game to which the deleted list item ultimately belongs. This object also includes the shopping list items on each list.
 
-Example 200 response body containing the updated aggregate list item:
 ```json
-{
-  "id": 87,
-  "list_id": 238,
-  "description": "Ebony sword",
-  "quantity": 9,
-  "unit_weight": 14.0,
-  "notes": "To sell -- To enchant with 'Absorb Health'",
-  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
-}
+[
+  {
+    "id": 43,
+    "game_id": 8234,
+    "aggregate": true,
+    "aggregate_list_id": null,
+    "title": "All Items",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 43,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 43,
+        "description": "Iron ingot",
+        "quantity": 4,
+        "notes": "3 locks -- 2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Lakeview Manor",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 46,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 46,
+        "description": "Iron ingot",
+        "quantity": 3,
+        "notes": "3 locks",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Severin Manor",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 52,
+        "description": "Iron ingot",
+        "quantity": 1,
+        "notes": "2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  }
+]
 ```
 
 ### Error Responses
@@ -471,15 +539,15 @@ Three error responses are possible.
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
 A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
+
 ```json
 {
-  "errors": [
-    "Cannot manually delete an item from an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually delete an item from an aggregate shopping list"]
 }
 ```
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+
 ```json
 {
   "errors": ["Something went horribly wrong"]
