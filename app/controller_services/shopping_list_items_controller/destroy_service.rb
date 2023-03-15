@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
@@ -18,14 +17,12 @@ class ShoppingListItemsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      aggregate_list_item = nil
-
       ActiveRecord::Base.transaction do
         shopping_list_item.destroy!
-        aggregate_list_item = aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
+        aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
       end
 
-      aggregate_list_item.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list_item)
+      Service::OKResult.new(resource: game.shopping_lists.index_order)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
@@ -37,8 +34,12 @@ class ShoppingListItemsController < ApplicationController
 
     attr_reader :user, :item_id
 
+    def game
+      @game ||= shopping_list.game
+    end
+
     def aggregate_list
-      @aggregate_list ||= shopping_list_item.list.aggregate_list
+      @aggregate_list ||= shopping_list.aggregate_list
     end
 
     def shopping_list
