@@ -18,8 +18,9 @@ class ShoppingListsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      aggregate_list = destroy_and_update_aggregate_list_items
-      aggregate_list.nil? ? Service::NoContentResult.new : Service::OKResult.new(resource: aggregate_list)
+      game = shopping_list.game
+      destroy_and_update_aggregate_list_items!
+      Service::OKResult.new(resource: game.shopping_lists.index_order)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
@@ -35,20 +36,17 @@ class ShoppingListsController < ApplicationController
       @shopping_list ||= user.shopping_lists.find(list_id)
     end
 
-    def destroy_and_update_aggregate_list_items
+    def destroy_and_update_aggregate_list_items!
       aggregate_list = shopping_list.aggregate_list
 
       list_items = shopping_list.list_items.map(&:attributes)
 
       ActiveRecord::Base.transaction do
         # If shopping_list is the user's last regular shopping list, this will also
-        # destroy their aggregate list
+        # destroy their aggregate list (see the Aggregatable concern)
         shopping_list.destroy!
 
-        if aggregate_list&.persisted?
-          list_items.each {|item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) }
-          aggregate_list
-        end
+        list_items.each {|item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) } if aggregate_list&.persisted?
       end
     end
   end

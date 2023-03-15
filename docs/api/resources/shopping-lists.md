@@ -446,7 +446,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed. The response body will include any remaining shopping lists belonging to the game to which the requested list belongs.
 
 ### Example Request
 
@@ -459,34 +459,65 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Statuses
 
-* 204 No Content
 * 200 OK
 
-#### Example Body
+#### Example Bodies
 
-If the resource deleted was the user's last regular list, the aggregate list will also be destroyed and no content will be returned in the response. If the user had at least one other regular list (as well as an aggregate list), then the aggregate list will be returned with its values updated to reflect removal of the items on the list that was deleted.
+The response body will be an array of any remaining shopping lists belonging to the same game as the destroyed list(s).
+
+Body including an aggregate list and an additional list that was not destroyed:
 
 ```json
-{
-  "id": 834,
-  "user_id": 16,
-  "aggregate": true,
-  "title": "All Items",
-  "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "list_items": [
-    {
-      "id": 32,
-      "list_id": 834,
-      "description": "Ebony sword",
-      "quantity": 1,
-      "notes": "To enchant with Soul Trap",
-      "unit_weight": 14.0,
-      "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-      "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-    }
-  ]
-}
+[
+  {
+    "id": 834,
+    "user_id": 16,
+    "aggregate": true,
+    "aggregate_list_id": null,
+    "title": "All Items",
+    "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "id": 32,
+        "list_id": 834,
+        "description": "Ebony sword",
+        "quantity": 1,
+        "notes": "To enchant with Soul Trap",
+        "unit_weight": 14.0,
+        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  },
+  {
+    "id": 835,
+    "user_id": 16,
+    "aggregate": false,
+    "aggregate_list_id": 834,
+    "title": "All Items",
+    "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "id": 31,
+        "list_id": 835,
+        "description": "Ebony sword",
+        "quantity": 1,
+        "notes": "To enchant with Soul Trap",
+        "unit_weight": 14.0,
+        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  }
+]
+```
+
+Empty body indicating aggregate list was also destroyed:
+
+```json
+[]
 ```
 
 ### Error Responses
@@ -504,6 +535,7 @@ If the specified list does not exist or does not belong to the authenticated use
 For a 404 response, no response body will be returned.
 
 For a 405 response:
+
 ```json
 {
   "errors": ["Cannot manually delete an aggregate shopping list"]
@@ -511,6 +543,7 @@ For a 405 response:
 ```
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+
 ```json
 {
   "errors": ["Something went horribly wrong"]

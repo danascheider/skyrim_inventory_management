@@ -18,10 +18,14 @@ RSpec.describe ShoppingListsController::DestroyService do
       let(:game) { create(:game, user:) }
 
       context 'when the game has additional regular lists' do
-        let!(:third_list) { create(:shopping_list, game:, aggregate_list:) }
+        let!(:third_list) { create(:shopping_list_with_list_items, game:, aggregate_list:) }
 
         before do
           shopping_list.list_items.each do |list_item|
+            aggregate_list.add_item_from_child_list(list_item)
+          end
+
+          third_list.list_items.each do |list_item|
             aggregate_list.add_item_from_child_list(list_item)
           end
         end
@@ -43,8 +47,8 @@ RSpec.describe ShoppingListsController::DestroyService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'sets the resource as the aggregate list' do
-          expect(perform.resource).to eq aggregate_list
+        it "sets the resources as the game's remaining lists" do
+          expect(perform.resource).to eq game.shopping_lists.index_order
         end
 
         describe 'updating the aggregate list' do
@@ -92,8 +96,12 @@ RSpec.describe ShoppingListsController::DestroyService do
           end
         end
 
-        it 'returns a Service::NoContentResult' do
-          expect(perform).to be_a(Service::NoContentResult)
+        it 'returns a Service::OKResult' do
+          expect(perform).to be_a(Service::OKResult)
+        end
+
+        it 'returns an empty resource body' do
+          expect(perform.resource).to eq []
         end
       end
     end
