@@ -1,6 +1,6 @@
 # Shopping List Items
 
-Shopping list items represent the items on a [shopping list](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on aggregate shopping lists are managed automatically as the items on their other lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
+Shopping list items represent the items on a [shopping list](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on aggregate shopping lists are managed automatically as the items on their child lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
 
 There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:shopping_list_id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
 
@@ -8,7 +8,7 @@ All requests to shopping list item endpoints must be [authenticated](/docs/api/r
 
 ## Automatically Managed Aggregate Lists
 
-Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties in each game. The aggregate list is created automatically when the client creates a the first regular shopping list for a game, and is destroyed automatically when the client deletes the game's last regular shopping list. When items are added, updated, or destroyed from any of a game's regular lists, aggregate list items are updated as described in this section.
+Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties or purposes in each game. The aggregate list is created automatically when the client creates a the first regular shopping list for a game, and is destroyed automatically when the client deletes the game's last regular shopping list. When items are added, updated, or destroyed from any of a game's regular lists, aggregate list items are updated as described in this section.
 
 (Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`Aggregatable` docs](/docs/aggregate-lists.md).)
 
@@ -70,7 +70,7 @@ Allowed fields are:
 * `notes` (string, optional): Any notes about the item or what it is for
 * `unit_weight` (decimal, optional): The unit weight of the item as given in the game, precise to one decimal place
 
-A successful response will return a JSON array of any items created or updated while handling the request. These may come in any order and will include the item requested, the aggregate list item, and, if `unit_weight` is given in the request, any other items with the same description belonging to the same game that have had their `unit_weight` changed.
+A successful response will return a JSON array of all shopping lists for the game to which the created or updated list item ultimately belongs, including all the list items on each list.
 
 ### Example Request
 
@@ -96,28 +96,87 @@ Content-Type: application/json
 
 If there is no item with a matching description on the requested shopping list, a new item will be created and the server will return a 201 response. If there is an item with a matching description, its notes and quantity will be combined with the notes and quantity in the client request and a 200 response will be returned.
 
-The body for both responses is a JSON array containing all list items that were created or updated while handling the request, including the requested item, the corresponding aggregate list item, and, if setting `unit_weight`, any other list items with the same description belonging to the same game.
+The body for both responses is a JSON array containing all shopping lists for the game to which the created or updated list item ultimately belongs. Each shopping list includes its list items.
+
 ```json
 [
   {
-    "id": 87,
-    "list_id": 238,
-    "description": "Ebony sword",
-    "quantity": 9,
-    "unit_weight": 14.0,
-    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "id": 43,
+    "game_id": 8234,
+    "aggregate": true,
+    "aggregate_list_id": null,
+    "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 43,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 43,
+        "description": "Iron ingot",
+        "quantity": 4,
+        "notes": "3 locks -- 2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
   },
   {
-    "id": 126,
-    "list_id": 237,
-    "description": "Ebony sword",
-    "quantity": 7,
-    "unit_weight": 14.0,
-    "notes": "To enchant with 'Absorb Health'",
-    "created_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+    "id": 46,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Lakeview Manor",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 46,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 46,
+        "description": "Iron ingot",
+        "quantity": 3,
+        "notes": "3 locks",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Severin Manor",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 52,
+        "description": "Iron ingot",
+        "quantity": 1,
+        "notes": "2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
   }
 ]
 ```
@@ -140,9 +199,7 @@ No body will be returned with a 404 error, which is returned if the specified sh
 A 405 error, which is returned if the specified shopping list is an aggregate shopping list, comes with the following body:
 ```json
 {
-  "errors": [
-    "Cannot manually manage items on an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually manage items on an aggregate shopping list"]
 }
 ```
 
