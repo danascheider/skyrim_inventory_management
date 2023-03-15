@@ -777,14 +777,14 @@ RSpec.describe 'ShoppingLists', type: :request do
               .to change(game.shopping_lists, :count).from(2).to(0)
           end
 
-          it 'returns status 204' do
+          it 'returns status 200' do
             delete_shopping_list
-            expect(response.status).to eq 204
+            expect(response.status).to eq 200
           end
 
-          it "doesn't return any data" do
+          it 'returns an empty response body' do
             delete_shopping_list
-            expect(response.body).to be_blank
+            expect(response.body).to eq [].to_json
           end
         end
 
@@ -803,9 +803,9 @@ RSpec.describe 'ShoppingLists', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns the aggregate list in the body' do
+          it "returns the game's remaining shopping lists" do
             delete_shopping_list
-            expect(response.body).to eq(game.aggregate_shopping_list.to_json)
+            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
           end
         end
       end
