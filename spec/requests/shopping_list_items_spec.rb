@@ -372,9 +372,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns the regular list item and the aggregate list item' do
+          it "returns all the game's shopping lists" do
             update_item
-            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
           end
         end
 
@@ -431,9 +431,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns the list item and the aggregate list item' do
+            it "returns all the game's shopping lists" do
               update_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
 
@@ -495,9 +495,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all items that were changed' do
+            it "returns all the game's shopping lists" do
               update_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
         end
@@ -668,14 +668,38 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(aggregate_list_item.quantity).to eq 10
           end
 
+          it 'updates the regular list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the aggregate list' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
+          it 'updates the game' do
+            t = Time.zone.now + 3.days
+            Timecop.freeze(t) do
+              update_item
+              expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+            end
+          end
+
           it 'returns status 200' do
             update_item
             expect(response.status).to eq 200
           end
 
-          it 'returns the regular list item and the aggregate list item' do
+          it "returns all the game's shopping lists" do
             update_item
-            expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
           end
         end
 
@@ -703,14 +727,38 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(aggregate_list_item.quantity).to eq 14
             end
 
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
             it 'returns status 200' do
               update_item
               expect(response.status).to eq 200
             end
 
-            it 'returns the list item and the aggregate list item' do
+            it "returns all the game's shopping lists" do
               update_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
 
@@ -735,14 +783,46 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(other_item.unit_weight).to eq 2
             end
 
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
             it 'returns status 200' do
               update_item
               expect(response.status).to eq 200
             end
 
-            it 'returns all items that were changed' do
+            it "returns all the game's shopping lists" do
               update_item
-              expect(JSON.parse(response.body)).to eq(JSON.parse([aggregate_list_item, other_item.reload, list_item.reload].to_json))
+              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
             end
           end
         end

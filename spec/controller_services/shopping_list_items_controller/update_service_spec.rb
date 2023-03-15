@@ -42,8 +42,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'returns the list item and aggregate list item as the resource' do
-          expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
+        it "returns all the game's shopping lists as the resource" do
+          expect(perform.resource).to eq(game.shopping_lists.reload.index_order)
         end
       end
 
@@ -75,8 +75,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'sets the resource to the aggregate list item and the regular list item' do
-            expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
+          it "returns all the game's shopping lists as the resource" do
+            expect(perform.resource).to eq(game.shopping_lists.reload.index_order)
           end
         end
 
@@ -105,8 +105,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'returns all the list items that were changed' do
-            expect(perform.resource).to eq [aggregate_list_item, other_item.reload, list_item.reload]
+          it "returns all the game's shopping lists as the resource" do
+            expect(perform.resource).to eq(game.shopping_lists.reload.index_order)
           end
         end
       end

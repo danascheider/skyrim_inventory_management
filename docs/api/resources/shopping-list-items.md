@@ -232,6 +232,7 @@ Updates a given shopping list item provided the list the item is on:
 When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
 
 Requests may specify up to three fields to update:
+
 * `quantity` (integer, greater than zero)
 * `notes` (any string)
 * `unit_weight` (decimal, 1 decimal place, greater than or equal to zero)
@@ -240,17 +241,20 @@ Requests attempting to update `description` will result in a validation error.
 
 When updating `unit_weight`, the `unit_weight` value will be updated for all shopping list items belonging to the same game and matching the description. This is to prevent the aggregate list from getting out of sync with the values on its child list items.
 
-This route supports both `PATCH` and `PUT` requests. The only difference between these requests is the HTTP method; requests are handled by the same code regardless of the method.
+This route supports both `PATCH` and `PUT` requests. Application behaviour does not differ depending on which method is used.
 
 ### Example Requests
 
-Request bodies must contain a `"shopping_list_item"` key containing attributes to be changed. Attributes that can be changed include:
+Request bodies must contain a `"shopping_list_item"` key containing attributes to be changed. Request bodies lacking this key may result in an error or unexpected behaviour. If the `"shopping_list_item"` object is empty, the item will not be changed. Attributes that can be changed include:
 
 * `quantity` (integer greater than zero)
 * `notes` (string)
 * `unit_weight` (decimal greater than or equal to zero with up to one decimal place)
 
-Using a `PATCH` request:
+Note that, while `unit_weight` is an editable value, it cannot be reset to `null` once it is set to a numeric value; it can only be changed to another value.
+
+#### PATCH Requests
+
 ```
 PATCH /shopping_list_items/72
 Authorization: Bearer xxxxxxxxxxx
@@ -263,7 +267,8 @@ Content-Type: application/json
 }
 ```
 
-Using a `PUT` request:
+#### PUT Requests
+
 ```
 PUT /shopping_list_items/72
 Authorization: Bearer xxxxxxxxxxx
@@ -284,38 +289,87 @@ Content-Type: application/json
 
 #### Example Body
 
-The body is a JSON array containing all list items that were updated while handling the request, including the requested item, the corresponding aggregate list item, and, if setting `unit_weight`, any other list items with the same description belonging to the same game. (This is because, when `unit_weight` is set on any list item, all matching list items belonging to the same game are updated with the same value.)
+The body is a JSON array containing all shopping lists belonging to the same game, including the items on each list. This is because items on any of the lists may have been changed and it is easier for clients to receive the relevant data in its context.
+
 ```json
 [
   {
-    "id": 87,
-    "list_id": 236,
-    "description": "Ebony sword",
-    "quantity": 9,
-    "unit_weight": 14.0,
-    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "id": 43,
+    "game_id": 8234,
+    "aggregate": true,
+    "aggregate_list_id": null,
+    "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 43,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 43,
+        "description": "Iron ingot",
+        "quantity": 4,
+        "notes": "3 locks -- 2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
   },
   {
-    "id": 126,
-    "list_id": 237,
-    "description": "Ebony sword",
-    "quantity": 7,
-    "unit_weight": 14.0,
-    "notes": "To enchant with 'Absorb Health'",
-    "created_at": "Fri, 18 Jun 2021 02:32:31.762797000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+    "id": 46,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Lakeview Manor",
+    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 46,
+        "description": "Unenchanted ebony sword",
+        "quantity": 1,
+        "notes": "Need an unenchanted sword to start Companions questline",
+        "unit_weight": null,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      },
+      {
+        "list_id": 46,
+        "description": "Iron ingot",
+        "quantity": 3,
+        "notes": "3 locks",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
   },
   {
-    "id": 102,
-    "list_id": 238,
-    "description": "Ebony sword",
-    "quantity": 7,
-    "unit_weight": 14.0,
-    "notes": "To sell",
+    "id": 52,
+    "game_id": 8234,
+    "aggregate": false,
+    "aggregate_list_id": 43,
+    "title": "Severin Manor",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "list_id": 52,
+        "description": "Iron ingot",
+        "quantity": 1,
+        "notes": "2 hinges",
+        "unit_weight": 1.0,
+        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
   }
 ]
 ```
@@ -336,15 +390,15 @@ Four error responses are possible.
 No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
 
 A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
+
 ```json
 {
-  "errors": [
-    "Cannot manually update list items on an aggregate shopping list"
-  ]
+  "errors": ["Cannot manually update list items on an aggregate shopping list"]
 }
 ```
 
 A 422 error, returned as a result of a validation error, includes whichever errors prevented the list item from being created:
+
 ```json
 {
   "errors": [
