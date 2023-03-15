@@ -495,7 +495,7 @@ Body including an aggregate list and an additional list that was not destroyed:
     "user_id": 16,
     "aggregate": false,
     "aggregate_list_id": 834,
-    "title": "All Items",
+    "title": "Vlindrel Hall",
     "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [

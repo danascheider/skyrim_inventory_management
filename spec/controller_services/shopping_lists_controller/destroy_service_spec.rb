@@ -47,7 +47,7 @@ RSpec.describe ShoppingListsController::DestroyService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it "sets the resources as the game's remaining lists" do
+        it "sets the resource as the game's remaining lists" do
           expect(perform.resource).to eq game.shopping_lists.index_order
         end
 
