@@ -251,6 +251,8 @@ Request bodies must contain a `"shopping_list_item"` key containing attributes t
 * `notes` (string)
 * `unit_weight` (decimal greater than or equal to zero with up to one decimal place)
 
+Note that, while `unit_weight` is an editable value, it cannot be reset to `null` once it is set to a numeric value; it can only be changed to another value.
+
 #### PATCH Requests
 
 ```
