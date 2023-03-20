@@ -44,7 +44,7 @@ class ShoppingListsController < ApplicationController
     end
 
     def game_has_other_lists?
-      game.shopping_lists.reload.count > 2
+      game.shopping_lists.count > 2
     end
   end
 end
