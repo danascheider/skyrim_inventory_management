@@ -67,14 +67,14 @@ RSpec.describe ShoppingListsController::CreateService do
       let!(:game) { create(:game, user:) }
       let(:params) { { title: 'Proudspire Manor' } }
 
-      context 'when the game has an aggregate shopping list' do
+      context 'when the game has other shopping lists' do
         before do
-          create(:aggregate_shopping_list, game:)
+          create(:shopping_list, game:)
         end
 
         it 'creates a shopping list for the given game' do
           expect { perform }
-            .to change(game.shopping_lists, :count).from(1).to(2)
+            .to change(game.shopping_lists, :count).from(2).to(3)
         end
 
         it 'returns a Service::CreatedResult' do
@@ -82,7 +82,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to the created list' do
-          expect(perform.resource).to eq game.shopping_lists.index_order
+          expect(perform.resource).to eq [game.shopping_lists.find_by(title: 'Proudspire Manor')]
         end
 
         it 'updates the game' do

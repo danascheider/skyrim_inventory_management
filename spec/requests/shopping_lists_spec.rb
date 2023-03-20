@@ -29,7 +29,7 @@ RSpec.describe 'ShoppingLists', type: :request do
               .to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
-          it 'returns all shopping lists for that game' do
+          it 'returns both shopping lists' do
             create_shopping_list
             expect(response.body).to eq(game.shopping_lists.index_order.to_json)
           end
@@ -41,16 +41,18 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when only the new shopping list has been created' do
-          let!(:aggregate_list) { create(:aggregate_shopping_list, game:, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
+          before do
+            create(:shopping_list, game:)
+          end
 
           it 'creates one list' do
             expect { create_shopping_list }
-              .to change(game.shopping_lists, :count).from(1).to(2)
+              .to change(game.shopping_lists, :count).from(2).to(3)
           end
 
-          it 'returns all shopping lists for that game' do
+          it 'returns only the created list' do
             create_shopping_list
-            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
+            expect(response.body).to eq([game.shopping_lists.unscoped.last].to_json)
           end
 
           it 'returns status 201' do
