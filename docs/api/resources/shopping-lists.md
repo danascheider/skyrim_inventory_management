@@ -60,6 +60,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 689
         "list_id": 43,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -69,6 +70,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 134,
         "list_id": 43,
         "description": "Iron ingot",
         "quantity": 4,
@@ -89,6 +91,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 845,
         "list_id": 46,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -98,6 +101,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 76,
         "list_id": 46,
         "description": "Iron ingot",
         "quantity": 3,
@@ -118,6 +122,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 11,
         "list_id": 52,
         "description": "Iron ingot",
         "quantity": 1,
