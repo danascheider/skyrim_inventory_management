@@ -60,6 +60,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 689
         "list_id": 43,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -69,6 +70,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 134,
         "list_id": 43,
         "description": "Iron ingot",
         "quantity": 4,
@@ -89,6 +91,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 845,
         "list_id": 46,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -98,6 +101,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 76,
         "list_id": 46,
         "description": "Iron ingot",
         "quantity": 3,
@@ -118,6 +122,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 11,
         "list_id": 52,
         "description": "Iron ingot",
         "quantity": 1,
@@ -153,7 +158,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## POST /games/:game_id/shopping_lists
 
-Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all shopping lists belonging to the specified game. Each shopping list also includes an array with any shopping list items on that list. The JSON schema for the shopping list items is described in the [docs for shopping list items](/docs/api/resources/shopping-list-items.md). The shopping lists are returned with the aggregate list first and subsequent lists in order of most recently updated. (Adding, removing, or updating a list item on a list counts as updating the list.)
+Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all shopping lists that were created. The shopping lists are returned with the aggregate list first, if one was created while handling this request, and the regular list the user requested.
 
 The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via this or any endpoint. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to one plus the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
@@ -201,6 +206,8 @@ Authorization: Bearer xxxxxxxxxx
 
 #### Example Body
 
+##### When an Aggregate List Is Created
+
 ```json
 [
   {
@@ -211,27 +218,6 @@ Authorization: Bearer xxxxxxxxxx
     "title": "All Items",
     "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "id": 33,
-        "list_id": 4,
-        "description": "Ebony sword",
-        "quantity": 1,
-        "notes": "To enchant with Soul Trap",
-        "unit_weight": 14.0,
-        "created_at": "Tue, 15 Jun 2021 12:34:32.713458000 UTC +00:00",
-        "updated_at": "Tue, 15 Jun 2021 12:34:32.713458000 UTC +00:00"
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "user_id": 6,
-    "aggregate": false,
-    "aggregate_list_id": 4,
-    "title": "Custom Titled List",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": []
   },
   {
@@ -242,18 +228,24 @@ Authorization: Bearer xxxxxxxxxx
     "title": "My List 1",
     "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "id": 32,
-        "list_id": 5,
-        "description": "Ebony sword",
-        "quantity": 1,
-        "notes": "To enchant with Soul Trap",
-        "unit_weight": 14.0,
-        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-        "updated_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00"
-      }
-    ]
+    "list_items": []
+  }
+]
+```
+
+##### When Only a Regular List Is Created
+
+```json
+[
+  {
+    "id": 5,
+    "user_id": 6,
+    "aggregate": false,
+    "aggregate_list_id": 4,
+    "title": "My List 1",
+    "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": []
   }
 ]
 ```
