@@ -17,9 +17,13 @@ class ShoppingListsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      game = shopping_list.game
+      ids = game.shopping_lists.count == 2 ? [aggregate_list.id, shopping_list.id] : [shopping_list.id]
+
       destroy_and_update_aggregate_list_items!
-      Service::OKResult.new(resource: game.shopping_lists.index_order)
+
+      resource = aggregate_list&.persisted? ? { deleted: ids, aggregate: aggregate_list } : { deleted: ids }
+
+      Service::OKResult.new(resource:)
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
@@ -33,6 +37,14 @@ class ShoppingListsController < ApplicationController
 
     def shopping_list
       @shopping_list ||= user.shopping_lists.find(list_id)
+    end
+
+    def aggregate_list
+      game.aggregate_shopping_list
+    end
+
+    def game
+      @game ||= shopping_list.game
     end
 
     def destroy_and_update_aggregate_list_items!
