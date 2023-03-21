@@ -772,8 +772,17 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the shopping list exists' do
         let!(:shopping_list) { create(:shopping_list, game:) }
+        let!(:shopping_list_id) { shopping_list.id }
 
         context "when this is the game's last regular shopping list" do
+          let!(:aggregate_list_id) { game.aggregate_shopping_list.id }
+
+          let(:expected_response_body) do
+            {
+              deleted: [aggregate_list_id, shopping_list_id],
+            }.to_json
+          end
+
           it 'deletes the shopping list and the aggregate list' do
             expect { delete_shopping_list }
               .to change(game.shopping_lists, :count).from(2).to(0)
@@ -784,15 +793,22 @@ RSpec.describe 'ShoppingLists', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns an empty response body' do
+          it 'returns the IDs of the deleted lists' do
             delete_shopping_list
-            expect(response.body).to eq [].to_json
+            expect(response.body).to eq expected_response_body
           end
         end
 
         context "when this is not the game's last regular shopping list" do
+          let(:expected_response_body) do
+            {
+              'deleted': [shopping_list_id],
+              'aggregate': game.aggregate_shopping_list,
+            }.to_json
+          end
+
           before do
-            create(:shopping_list, game:, aggregate_list: game.aggregate_shopping_list)
+            create(:shopping_list, game:)
           end
 
           it 'deletes the requested shopping list' do
@@ -805,9 +821,9 @@ RSpec.describe 'ShoppingLists', type: :request do
             expect(response.status).to eq 200
           end
 
-          it "returns the game's remaining shopping lists" do
+          it 'returns the deleted list ID and the aggregate list' do
             delete_shopping_list
-            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
+            expect(response.body).to eq(expected_response_body)
           end
         end
       end
