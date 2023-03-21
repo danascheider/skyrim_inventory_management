@@ -440,7 +440,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed. The response body will include any remaining shopping lists belonging to the game to which the requested list belongs.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed. The body of a successful response includes an array of deleted list IDs and the updated aggregate list (unless it was also deleted).
 
 ### Example Request
 
@@ -457,13 +457,14 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Example Bodies
 
-The response body will be an array of any remaining shopping lists belonging to the same game as the destroyed list(s).
+The response body will be a JSON object with a `"deleted"` key pointing to an array of deleted lists. If only the target list was destroyed, this array will include one member. If the target list was the game's last regular shopping list and the aggregate list was therefore also destroyed, the array will include two members. If the aggregate list was not destroyed, it will be returned as well, with its updated list items, under the `"aggregate"` key.
 
-Body including an aggregate list and an additional list that was not destroyed:
+Body including an aggregate list that was not destroyed:
 
 ```json
-[
-  {
+{
+  "deleted": [835],
+  "aggregate": {
     "id": 834,
     "user_id": 16,
     "aggregate": true,
@@ -483,35 +484,16 @@ Body including an aggregate list and an additional list that was not destroyed:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       }
     ]
-  },
-  {
-    "id": 835,
-    "user_id": 16,
-    "aggregate": false,
-    "aggregate_list_id": 834,
-    "title": "Vlindrel Hall",
-    "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "id": 31,
-        "list_id": 835,
-        "description": "Ebony sword",
-        "quantity": 1,
-        "notes": "To enchant with Soul Trap",
-        "unit_weight": 14.0,
-        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
   }
-]
+}
 ```
 
-Empty body indicating aggregate list was also destroyed:
+Body when the aggregate list was also destroyed:
 
 ```json
-[]
+{
+  "deleted": [834, 835]
+}
 ```
 
 ### Error Responses
