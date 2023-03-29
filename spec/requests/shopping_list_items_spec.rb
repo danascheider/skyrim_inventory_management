@@ -392,7 +392,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it "returns all the game's shopping lists" do
             update_item
-            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+            expect(response.body).to eq(game.shopping_lists.to_json)
           end
         end
 
@@ -451,7 +451,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
             it "returns all the game's shopping lists" do
               update_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.to_json)
             end
           end
 
@@ -515,7 +515,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
             it "returns all the game's shopping lists" do
               update_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.to_json)
             end
           end
         end
@@ -717,7 +717,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it "returns all the game's shopping lists" do
             update_item
-            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+            expect(response.body).to eq(game.shopping_lists.to_json)
           end
         end
 
@@ -776,7 +776,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
             it "returns all the game's shopping lists" do
               update_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.to_json)
             end
           end
 
@@ -840,7 +840,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
             it "returns all the game's shopping lists" do
               update_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.to_json)
             end
           end
         end
@@ -1041,7 +1041,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns an empty response' do
             destroy_item
-            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+            expect(response.body).to eq(game.shopping_lists.to_json)
           end
         end
 
@@ -1101,7 +1101,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it "returns all the game's shopping lists" do
             destroy_item
-            expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+            expect(response.body).to eq(game.shopping_lists.to_json)
           end
         end
       end
