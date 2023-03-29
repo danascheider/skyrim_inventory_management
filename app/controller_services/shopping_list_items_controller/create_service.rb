@@ -24,16 +24,18 @@ class ShoppingListItemsController < ApplicationController
       item = ShoppingListItem.combine_or_new(params.merge(list_id:))
 
       ActiveRecord::Base.transaction do
+        lists_changed = lists_to_be_changed
+
         item.save!
 
         if preexisting_item.blank?
           aggregate_list.add_item_from_child_list(item)
 
-          Service::CreatedResult.new(resource: shopping_list.game.shopping_lists.index_order)
+          Service::CreatedResult.new(resource: lists_changed)
         else
           aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
 
-          Service::OKResult.new(resource: shopping_list.game.shopping_lists.index_order)
+          Service::OKResult.new(resource: lists_changed)
         end
       end
     rescue ActiveRecord::RecordInvalid
@@ -57,8 +59,28 @@ class ShoppingListItemsController < ApplicationController
       @aggregate_list ||= shopping_list.aggregate_list
     end
 
+    def game
+      @game ||= aggregate_list.game
+    end
+
+    def aggregate_list_item
+      @aggregate_list_item ||= aggregate_list.list_items.find_by('description ILIKE ?', params[:description])
+    end
+
     def all_matching_list_items
-      aggregate_list.game.shopping_list_items.where('description ILIKE ?', params[:description])
+      @all_matching_list_items ||= game.shopping_list_items.where(
+        'description ILIKE ?', params[:description],
+      )
+    end
+
+    def lists_to_be_changed
+      list_ids = if params[:unit_weight] && params[:unit_weight] != aggregate_list_item&.unit_weight
+                   all_matching_list_items.pluck(:list_id).push(shopping_list.id)
+                 else
+                   [aggregate_list.id, shopping_list.id]
+                 end
+
+      game.shopping_lists.where(id: list_ids)
     end
   end
 end
