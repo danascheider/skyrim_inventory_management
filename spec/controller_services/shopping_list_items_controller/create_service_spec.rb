@@ -181,7 +181,7 @@ RSpec.describe ShoppingListItemsController::CreateService do
           end
 
           it 'sets all the changed shopping lists as the resource' do
-            expect(perform.resource).to eq(game.shopping_lists.where(id: [aggregate_list.id, shopping_list.id, other_list.id]))
+            expect(perform.resource).to eq([aggregate_list, other_list, shopping_list])
           end
         end
       end
