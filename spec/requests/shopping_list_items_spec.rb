@@ -45,17 +45,21 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 201
             end
 
-            it 'returns all shopping lists for the same game' do
+            it 'returns all changed shopping lists for the same game' do
               create_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.to_json)
             end
           end
 
           context 'when there is an existing matching item on another list' do
-            let(:other_list) { create(:shopping_list, game: aggregate_list.game) }
+            let(:other_list) { create(:shopping_list, game:) }
             let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
 
             before do
+              # This list has nothing to do with things and should not be included in the
+              # response bodies.
+              create(:shopping_list, game:)
+
               aggregate_list.add_item_from_child_list(other_item)
             end
 
@@ -77,9 +81,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all shopping lists from the same game' do
+              it 'returns all changed shopping lists from the same game' do
                 create_item
-                expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+                expect(response.body).to eq(game.shopping_lists.where(id: [aggregate_list.id, shopping_list.id]).to_json)
               end
             end
 
@@ -108,9 +112,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all shopping lists for the same game' do
+              it 'returns all changed shopping lists for the same game' do
                 create_item
-                expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+                expect(response.body).to eq(
+                  game
+                    .shopping_lists
+                    .where(id: [aggregate_list.id, shopping_list.id, other_list.id])
+                    .to_json,
+                )
               end
             end
           end
@@ -122,6 +131,10 @@ RSpec.describe 'ShoppingListItems', type: :request do
           let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Corundum ingot', quantity: 3) }
 
           before do
+            # This list has nothing to do with things and should not be included in the
+            # response bodies.
+            create(:shopping_list, game:)
+
             aggregate_list.add_item_from_child_list(other_item)
             aggregate_list.add_item_from_child_list(list_item)
           end
@@ -147,9 +160,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all shopping lists for the same game' do
+            it 'returns all changed shopping lists for the same game' do
               create_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(game.shopping_lists.where(id: [aggregate_list.id, shopping_list.id]).to_json)
             end
           end
 
@@ -184,9 +197,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all shopping lists for the same game' do
+            it 'returns all changed shopping lists for the same game' do
               create_item
-              expect(response.body).to eq(game.shopping_lists.reload.index_order.to_json)
+              expect(response.body).to eq(
+                game
+                  .shopping_lists
+                  .where(id: [aggregate_list.id, shopping_list.id, other_list.id])
+                  .to_json,
+              )
             end
           end
         end

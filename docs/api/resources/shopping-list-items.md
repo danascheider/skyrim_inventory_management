@@ -70,7 +70,7 @@ Allowed fields are:
 * `notes` (string, optional): Any notes about the item or what it is for
 * `unit_weight` (decimal, optional): The unit weight of the item as given in the game, precise to one decimal place
 
-A successful response will return a JSON array of all shopping lists for the game to which the created or updated list item ultimately belongs, including all the list items on each list.
+A successful response will return a JSON array of all changed shopping lists for the game to which the created or updated list item ultimately belongs, including all the list items on each list.
 
 ### Example Request
 
@@ -96,7 +96,7 @@ Content-Type: application/json
 
 If there is no item with a matching description on the requested shopping list, a new item will be created and the server will return a 201 response. If there is an item with a matching description, its notes and quantity will be combined with the notes and quantity in the client request and a 200 response will be returned.
 
-The body for both responses is a JSON array containing all shopping lists for the game to which the created or updated list item ultimately belongs. Each shopping list includes its list items.
+The body for both responses is a JSON array containing all _changed_ shopping lists for the game to which the created or updated list item ultimately belongs, i.e., those that have had items added, updated, or removed. Each shopping list includes its list items.
 
 ```json
 [
@@ -152,26 +152,6 @@ The body for both responses is a JSON array containing all shopping lists for th
         "description": "Iron ingot",
         "quantity": 3,
         "notes": "3 locks",
-        "unit_weight": 1.0,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
-  },
-  {
-    "id": 52,
-    "game_id": 8234,
-    "aggregate": false,
-    "aggregate_list_id": 43,
-    "title": "Severin Manor",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "list_id": 52,
-        "description": "Iron ingot",
-        "quantity": 1,
-        "notes": "2 hinges",
         "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
