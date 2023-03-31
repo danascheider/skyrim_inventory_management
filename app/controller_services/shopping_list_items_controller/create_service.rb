@@ -74,7 +74,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def lists_to_be_changed
-      list_ids = if params[:unit_weight] && params[:unit_weight] != aggregate_list_item&.unit_weight
+      list_ids = if all_matching_list_items.count > 0 && params[:unit_weight] && params[:unit_weight] != aggregate_list_item&.unit_weight
                    all_matching_list_items.pluck(:list_id).push(shopping_list.id)
                  else
                    [aggregate_list.id, shopping_list.id]

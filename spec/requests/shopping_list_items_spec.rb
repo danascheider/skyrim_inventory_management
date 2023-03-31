@@ -30,24 +30,50 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when there is no existing matching item on the same list' do
           context 'when there is no existing matching item on any list' do
-            it 'creates a new item on the requested list' do
-              expect { create_item }
-                .to change(shopping_list.list_items, :count).from(0).to(1)
+            context 'when unit weight is not set' do
+              it 'creates a new item on the requested list' do
+                expect { create_item }
+                  .to change(shopping_list.list_items, :count).from(0).to(1)
+              end
+
+              it 'creates a new item on the aggregate list' do
+                expect { create_item }
+                  .to change(aggregate_list.list_items, :count).from(0).to(1)
+              end
+
+              it 'returns status 201' do
+                create_item
+                expect(response.status).to eq 201
+              end
+
+              it 'returns all changed shopping lists for the same game' do
+                create_item
+                expect(response.body).to eq(game.shopping_lists.to_json)
+              end
             end
 
-            it 'creates a new item on the aggregate list' do
-              expect { create_item }
-                .to change(aggregate_list.list_items, :count).from(0).to(1)
-            end
+            context 'when unit weight is set' do
+              let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
 
-            it 'returns status 201' do
-              create_item
-              expect(response.status).to eq 201
-            end
+              it 'creates a new item on the requested list' do
+                expect { create_item }
+                  .to change(shopping_list.list_items, :count).from(0).to(1)
+              end
 
-            it 'returns all changed shopping lists for the same game' do
-              create_item
-              expect(response.body).to eq(game.shopping_lists.to_json)
+              it 'creates a new item on the aggregate list' do
+                expect { create_item }
+                  .to change(aggregate_list.list_items, :count).from(0).to(1)
+              end
+
+              it 'returns status 201' do
+                create_item
+                expect(response.status).to eq 201
+              end
+
+              it 'returns all changed shopping lists for the same game' do
+                create_item
+                expect(response.body).to eq(game.shopping_lists.to_json)
+              end
             end
           end
 

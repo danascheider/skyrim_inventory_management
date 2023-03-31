@@ -21,22 +21,46 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
       context 'when there is no existing matching item on the same list' do
         context 'when there is no existing matching item on any list' do
-          it 'creates a new item on the list' do
-            expect { perform }
-              .to change(shopping_list.list_items, :count).from(0).to(1)
+          context 'when unit weight is not set' do
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(shopping_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'creates a new item on the aggregate list' do
+              expect { perform }
+                .to change(aggregate_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource to all the changed shopping lists' do
+              expect(perform.resource).to eq [aggregate_list, shopping_list]
+            end
           end
 
-          it 'creates a new item on the aggregate list' do
-            expect { perform }
-              .to change(aggregate_list.list_items, :count).from(0).to(1)
-          end
+          context 'when unit weight is set' do
+            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.3, notes: 'Hello world' } }
 
-          it 'returns a Service::CreatedResult' do
-            expect(perform).to be_a(Service::CreatedResult)
-          end
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(shopping_list.list_items, :count).from(0).to(1)
+            end
 
-          it 'sets the resource to all the changed shopping lists' do
-            expect(perform.resource).to eq [aggregate_list, shopping_list]
+            it 'creates a new item on the aggregate list' do
+              expect { perform }
+                .to change(aggregate_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource to all the changed shopping lists' do
+              expect(perform.resource).to eq [aggregate_list, shopping_list]
+            end
           end
         end
 
