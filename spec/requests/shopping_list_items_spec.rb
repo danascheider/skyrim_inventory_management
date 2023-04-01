@@ -418,7 +418,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the modified shopping list items' do
             update_item
-            expect(response.body).to eq([aggregate_list_item.reload, list_item.reload].to_json)
+            expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
           end
         end
 
@@ -743,7 +743,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the modified shopping list items' do
             update_item
-            expect(response.body).to eq([aggregate_list_item.reload, list_item.reload].to_json)
+            expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
           end
         end
 
