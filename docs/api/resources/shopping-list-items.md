@@ -269,87 +269,28 @@ Content-Type: application/json
 
 #### Example Body
 
-The body is a JSON array containing all shopping lists belonging to the same game, including the items on each list. This is because items on any of the lists may have been changed and it is easier for clients to receive the relevant data in its context.
+The body is a JSON array containing all shopping list items modified in the course of handling the request. Clients should take note of each item's `list_id` value to associate the item to a shopping list. Note that, if an item's unit weight is updated, this weight will be updated on any lists with a corresponding list item, so there may be more than two list items included in the response.
 
 ```json
 [
   {
-    "id": 43,
-    "game_id": 8234,
-    "aggregate": true,
-    "aggregate_list_id": null,
-    "title": "All Items",
+    "list_id": 43,
+    "description": "Unenchanted ebony sword",
+    "quantity": 1,
+    "notes": "Need an unenchanted sword to start Companions questline",
+    "unit_weight": null,
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "list_id": 43,
-        "description": "Unenchanted ebony sword",
-        "quantity": 1,
-        "notes": "Need an unenchanted sword to start Companions questline",
-        "unit_weight": null,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      },
-      {
-        "list_id": 43,
-        "description": "Iron ingot",
-        "quantity": 4,
-        "notes": "3 locks -- 2 hinges",
-        "unit_weight": 1.0,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
   },
   {
-    "id": 46,
-    "game_id": 8234,
-    "aggregate": false,
-    "aggregate_list_id": 43,
-    "title": "Lakeview Manor",
+    "list_id": 46,
+    "description": "Unenchanted ebony sword",
+    "quantity": 1,
+    "notes": "Need an unenchanted sword to start Companions questline",
+    "unit_weight": null,
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "list_id": 46,
-        "description": "Unenchanted ebony sword",
-        "quantity": 1,
-        "notes": "Need an unenchanted sword to start Companions questline",
-        "unit_weight": null,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      },
-      {
-        "list_id": 46,
-        "description": "Iron ingot",
-        "quantity": 3,
-        "notes": "3 locks",
-        "unit_weight": 1.0,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
-  },
-  {
-    "id": 52,
-    "game_id": 8234,
-    "aggregate": false,
-    "aggregate_list_id": 43,
-    "title": "Severin Manor",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "list_id": 52,
-        "description": "Iron ingot",
-        "quantity": 1,
-        "notes": "2 hinges",
-        "unit_weight": 1.0,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+  }
   }
 ]
 ```
