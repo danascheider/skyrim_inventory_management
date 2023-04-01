@@ -38,8 +38,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform).to be_a Service::OKResult
         end
 
-        it "sets all the game's shopping lists as the resource" do
-          expect(perform.resource).to eq(game.shopping_lists.reload.index_order)
+        it 'sets the aggregate list and the regular list as the resource' do
+          expect(perform.resource).to eq([aggregate_list, shopping_list])
         end
 
         it 'sets the updated_at timestamp on the shopping list' do
@@ -103,8 +103,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform).to be_a Service::OKResult
         end
 
-        it "returns all the game's shopping lists as the resource" do
-          expect(perform.resource).to eq(game.shopping_lists.reload.index_order)
+        it 'sets the aggregate list and the regular list as the resource' do
+          expect(perform.resource).to eq([aggregate_list, shopping_list])
         end
       end
     end

@@ -1065,9 +1065,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns an empty response' do
+          it 'returns the aggregate list and the regular list' do
             destroy_item
-            expect(response.body).to eq(game.shopping_lists.to_json)
+            expect(response.body).to eq([aggregate_list.reload, shopping_list.reload].to_json)
           end
         end
 
@@ -1125,9 +1125,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it "returns all the game's shopping lists" do
+          it 'returns the aggregate list and the regular list' do
             destroy_item
-            expect(response.body).to eq(game.shopping_lists.to_json)
+            expect(response.body).to eq([aggregate_list.reload, shopping_list.reload].to_json)
           end
         end
       end

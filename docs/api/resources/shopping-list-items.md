@@ -419,7 +419,7 @@ Authorization: Bearer xxxxxxxxxxx
 
 #### Example Body
 
-The response body will be an array of all shopping lists belonging to the game to which the deleted list item ultimately belongs. This object also includes the shopping list items on each list.
+The response body includes the shopping list from which the item was deleted as well as the aggregate list, with the aggregate list first.
 
 ```json
 [
@@ -444,8 +444,8 @@ The response body will be an array of all shopping lists belonging to the game t
       {
         "list_id": 43,
         "description": "Iron ingot",
-        "quantity": 4,
-        "notes": "3 locks -- 2 hinges",
+        "quantity": 3,
+        "notes": "3 locks",
         "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -475,26 +475,6 @@ The response body will be an array of all shopping lists belonging to the game t
         "description": "Iron ingot",
         "quantity": 3,
         "notes": "3 locks",
-        "unit_weight": 1.0,
-        "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-      }
-    ]
-  },
-  {
-    "id": 52,
-    "game_id": 8234,
-    "aggregate": false,
-    "aggregate_list_id": 43,
-    "title": "Severin Manor",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "list_items": [
-      {
-        "list_id": 52,
-        "description": "Iron ingot",
-        "quantity": 1,
-        "notes": "2 hinges",
         "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"

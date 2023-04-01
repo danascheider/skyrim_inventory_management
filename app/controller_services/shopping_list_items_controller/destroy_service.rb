@@ -22,7 +22,7 @@ class ShoppingListItemsController < ApplicationController
         aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
       end
 
-      Service::OKResult.new(resource: game.shopping_lists.index_order)
+      Service::OKResult.new(resource: [aggregate_list.reload, shopping_list.reload])
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
