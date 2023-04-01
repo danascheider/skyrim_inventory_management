@@ -103,7 +103,7 @@ module Aggregatable
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
-    raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
+    raise AggregateListError.new('Invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
 
     existing_item.quantity += delta_quantity
     existing_item.notes = if old_notes.nil? && new_notes.present?
