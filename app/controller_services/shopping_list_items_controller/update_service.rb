@@ -28,7 +28,7 @@ class ShoppingListItemsController < ApplicationController
         aggregate_list.update_item_from_child_list(list_item.description, delta_qty, params[:unit_weight], old_notes, params[:notes])
       end
 
-      Service::OKResult.new(resource: game.shopping_lists.index_order)
+      Service::OKResult.new(resource: params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item.reload])
     rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
@@ -56,6 +56,10 @@ class ShoppingListItemsController < ApplicationController
 
     def game
       @game ||= shopping_list.game
+    end
+
+    def aggregate_list_item
+      aggregate_list.list_items.find_by('description ILIKE ?', list_item.description)
     end
 
     def all_matching_items

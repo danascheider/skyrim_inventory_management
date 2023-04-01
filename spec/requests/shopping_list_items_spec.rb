@@ -416,9 +416,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it "returns all the game's shopping lists" do
+          it 'returns the modified shopping list items' do
             update_item
-            expect(response.body).to eq(game.shopping_lists.to_json)
+            expect(response.body).to eq([aggregate_list_item.reload, list_item.reload].to_json)
           end
         end
 
@@ -475,9 +475,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it "returns all the game's shopping lists" do
+            it 'returns the two modified list items' do
               update_item
-              expect(response.body).to eq(game.shopping_lists.to_json)
+              expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
             end
           end
 
@@ -539,9 +539,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it "returns all the game's shopping lists" do
+            it 'returns all the modified list items' do
               update_item
-              expect(response.body).to eq(game.shopping_lists.to_json)
+              expect(response.body).to eq([aggregate_list_item, other_item.reload, list_item.reload].to_json)
             end
           end
         end
@@ -741,9 +741,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it "returns all the game's shopping lists" do
+          it 'returns the modified shopping list items' do
             update_item
-            expect(response.body).to eq(game.shopping_lists.to_json)
+            expect(response.body).to eq([aggregate_list_item.reload, list_item.reload].to_json)
           end
         end
 
@@ -800,9 +800,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it "returns all the game's shopping lists" do
+            it 'returns the two modified list items' do
               update_item
-              expect(response.body).to eq(game.shopping_lists.to_json)
+              expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
             end
           end
 
@@ -864,9 +864,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it "returns all the game's shopping lists" do
+            it 'returns all the modified list items' do
               update_item
-              expect(response.body).to eq(game.shopping_lists.to_json)
+              expect(response.body).to eq([aggregate_list_item, other_item.reload, list_item.reload].to_json)
             end
           end
         end
