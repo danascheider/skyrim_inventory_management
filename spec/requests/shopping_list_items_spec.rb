@@ -423,9 +423,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+          let!(:list_item) { create(:shopping_list_item, list: shopping_list, unit_weight: 1) }
           let!(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -500,6 +500,70 @@ RSpec.describe 'ShoppingListItems', type: :request do
               update_item
               expect(other_item.reload.quantity).to eq 4
               expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all the modified list items' do
+              update_item
+              expect(response.body).to eq([aggregate_list_item, other_item.reload, list_item.reload].to_json)
+            end
+          end
+
+          context 'when unit_weight is set to nil' do
+            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: nil } }.to_json }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to be_nil
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to be_nil
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to be_nil
             end
 
             it 'updates the regular list' do
@@ -748,9 +812,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+          let!(:list_item) { create(:shopping_list_item, list: shopping_list, unit_weight: 1) }
           let!(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4) }
+          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -825,6 +889,70 @@ RSpec.describe 'ShoppingListItems', type: :request do
               update_item
               expect(other_item.reload.quantity).to eq 4
               expect(other_item.unit_weight).to eq 2
+            end
+
+            it 'updates the regular list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the aggregate list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(aggregate_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the other list' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(other_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'updates the game' do
+              t = Time.zone.now + 3.days
+              Timecop.freeze(t) do
+                update_item
+                expect(game.reload.updated_at).to be_within(0.005.seconds).of(t)
+              end
+            end
+
+            it 'returns status 200' do
+              update_item
+              expect(response.status).to eq 200
+            end
+
+            it 'returns all the modified list items' do
+              update_item
+              expect(response.body).to eq([aggregate_list_item, other_item.reload, list_item.reload].to_json)
+            end
+          end
+
+          context 'when unit_weight is set to nil' do
+            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: nil } }.to_json }
+
+            it 'updates the list item', :aggregate_failures do
+              update_item
+              expect(list_item.reload.quantity).to eq 10
+              expect(list_item.unit_weight).to be_nil
+            end
+
+            it 'updates the aggregate list item', :aggregate_failures do
+              update_item
+              expect(aggregate_list_item.quantity).to eq 14
+              expect(aggregate_list_item.unit_weight).to be_nil
+            end
+
+            it 'updates only the unit weight of the other list item', :aggregate_failures do
+              update_item
+              expect(other_item.reload.quantity).to eq 4
+              expect(other_item.unit_weight).to be_nil
             end
 
             it 'updates the regular list' do

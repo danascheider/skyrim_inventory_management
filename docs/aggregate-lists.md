@@ -203,7 +203,7 @@ Before including the `Listable` module in your class, you will need to define th
 
 ## Aggregatable
 
-The `Aggregatable` module provides aggregate list functionality to a list model. 
+The `Aggregatable` module provides aggregate list functionality to a list model.
 
 ### Associations
 
@@ -261,7 +261,7 @@ Should be called on an aggregate list any time an item is added to one of its ch
 
 Should be called on an aggregate list any time an item is removed/destroyed from one of its child lists. Handles logic for removing or updating list items on the aggregate list. Raises an `Aggregatable::AggregateListError` if called on a regular list. Returns the updated item from the aggregate list if its quantity is higher than that of the item removed and  otherwise `nil`.
 
-#### `update_item_from_child_list(description, delta_quantity, old_notes, new_notes)`
+#### `update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes, unit_weight_changed)`
 
 Should be called on an aggregate list any time an item is updated on a child list. Raises an `Aggregatable::AggregateListError` if called on a regular list. Handles logic for updating items that already exist on a child list. Returns the updated list item from the aggregate list.
 
@@ -269,8 +269,10 @@ Arguments:
 
 * `description`: The `description` of the item that has been changed (descriptions are not editable).
 * `delta_quantity`: The difference between the new and old quantity on the updated item. Should be negative if the new quantity is lower and positive if it is higher.
+* `unit_weight`: The new `unit_weight` value of the item that has been changed
 * `old_notes`: The previous `notes` value of the item that has been changed
-* `new_notes`: Thee updated `notes` value of the item that has been changed
+* `new_notes`: The updated `notes` value of the item that has been changed
+* `unit_weight_changed`: If `unit_weight` param is `nil`, whether it was changed to `nil` (as opposed to just not being specified)
 
 #### `aggregate_list`
 
