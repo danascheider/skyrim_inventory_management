@@ -21,14 +21,22 @@ class ShoppingListItemsController < ApplicationController
 
       delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
       old_notes = list_item.notes
+      unit_weight_changed = params.has_key?(:unit_weight) && params[:unit_weight] != list_item.unit_weight
 
       ActiveRecord::Base.transaction do
         list_item.update!(params)
 
-        aggregate_list.update_item_from_child_list(list_item.description, delta_qty, params[:unit_weight], old_notes, params[:notes])
+        aggregate_list.update_item_from_child_list(
+          list_item.description,
+          delta_qty,
+          params[:unit_weight],
+          old_notes,
+          params[:notes],
+          unit_weight_changed,
+        )
       end
 
-      Service::OKResult.new(resource: params[:unit_weight] ? all_matching_items : [aggregate_list_item, list_item.reload])
+      Service::OKResult.new(resource: unit_weight_changed ? all_matching_items : [aggregate_list_item, list_item.reload])
     rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
