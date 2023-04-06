@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'service/no_content_result'
 require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/method_not_allowed_result'
@@ -35,12 +34,12 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             .to change(aggregate_list.list_items, :count).from(1).to(0)
         end
 
-        it 'returns a Service::NoContentResult' do
-          expect(perform).to be_a Service::NoContentResult
+        it 'returns a Service::OKResult' do
+          expect(perform).to be_a Service::OKResult
         end
 
-        it 'does not return data' do
-          expect(perform.resource).to be nil
+        it 'sets the aggregate list and the regular list as the resource' do
+          expect(perform.resource).to eq([aggregate_list, shopping_list])
         end
 
         it 'sets the updated_at timestamp on the shopping list' do
@@ -104,8 +103,8 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(perform).to be_a Service::OKResult
         end
 
-        it 'returns the updated aggregate list item' do
-          expect(perform.resource).to eq aggregate_list.list_items.first
+        it 'sets the aggregate list and the regular list as the resource' do
+          expect(perform.resource).to eq([aggregate_list, shopping_list])
         end
       end
     end

@@ -29,9 +29,9 @@ RSpec.describe 'ShoppingLists', type: :request do
               .to change(game.shopping_lists, :count).from(0).to(2) # because of the aggregate list
           end
 
-          it 'returns the aggregate list as well as the new list' do
+          it 'returns both shopping lists' do
             create_shopping_list
-            expect(response.body).to eq([game.aggregate_shopping_list, game.shopping_lists.last].to_json)
+            expect(response.body).to eq(game.shopping_lists.index_order.to_json)
           end
 
           it 'returns status 201' do
@@ -41,16 +41,23 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when only the new shopping list has been created' do
-          let!(:aggregate_list) { create(:aggregate_shopping_list, game:, created_at: 2.seconds.ago, updated_at: 2.seconds.ago) }
+          before do
+            create(:shopping_list, game:)
+          end
 
           it 'creates one list' do
             expect { create_shopping_list }
-              .to change(game.shopping_lists, :count).from(1).to(2)
+              .to change(game.shopping_lists, :count).from(2).to(3)
           end
 
-          it 'returns only the newly created list' do
+          it 'returns only the created list' do
             create_shopping_list
-            expect(response.body).to eq(game.shopping_lists.last.to_json)
+            expect(response.body).to eq([game.shopping_lists.unscoped.last].to_json)
+          end
+
+          it 'returns status 201' do
+            create_shopping_list
+            expect(response.status).to eq 201
           end
         end
 
@@ -69,8 +76,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
           it 'creates the shopping list with a default title' do
             create_shopping_list
-            list_attributes = JSON.parse(response.body)
-            expect(list_attributes['title']).to eq 'My List 1'
+            expect(game.shopping_lists.last.title).to eq 'My List 1'
           end
         end
       end
@@ -172,7 +178,9 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PUT /shopping_lists/:id' do
-    subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: }
+    subject(:update_shopping_list) { put "/shopping_lists/#{list_id}", params:, headers: }
+
+    let(:params) { { shopping_list: { title: 'Severin Manor' } }.to_json }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -186,22 +194,90 @@ RSpec.describe 'ShoppingLists', type: :request do
         let(:game) { create(:game, user:) }
         let(:list_id) { shopping_list.id }
 
-        it 'updates the title' do
-          update_shopping_list
-          expect(shopping_list.reload.title).to eq 'Severin Manor'
+        context 'when the request body sets a valid title' do
+          it 'updates the title' do
+            update_shopping_list
+            expect(shopping_list.reload.title).to eq 'Severin Manor'
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
 
-        it 'returns the updated list' do
-          update_shopping_list
-          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
-          # if everything isn't in the exact same order, but if we just use shopping_list.attributes
-          # it won't include the list_items. Ugly.
-          expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+        context 'when the params include a null title' do
+          let(:params) { { shopping_list: { title: nil } }.to_json }
+
+          it 'sets a default title' do
+            update_shopping_list
+            expect(shopping_list.reload.title).to eq 'My List 1'
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
 
-        it 'returns status 200' do
-          update_shopping_list
-          expect(response.status).to eq 200
+        context 'when the "shopping_list" param is empty"' do
+          let(:params) { { shopping_list: {} }.to_json }
+
+          it "doesn't change the attributes" do
+            expect { update_shopping_list }
+              .not_to change(shopping_list.reload, :attributes)
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
+        end
+
+        context 'when there is no request body"' do
+          let(:params) { nil }
+
+          it "doesn't change the attributes" do
+            expect { update_shopping_list }
+              .not_to change(shopping_list.reload, :attributes)
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
       end
 
@@ -350,7 +426,9 @@ RSpec.describe 'ShoppingLists', type: :request do
   end
 
   describe 'PATCH /shopping_lists/:id' do
-    subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params: { shopping_list: { title: 'Severin Manor' } }.to_json, headers: }
+    subject(:update_shopping_list) { patch "/shopping_lists/#{list_id}", params:, headers: }
+
+    let(:params) { { shopping_list: { title: 'Severin Manor' } }.to_json }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -364,22 +442,90 @@ RSpec.describe 'ShoppingLists', type: :request do
         let(:game) { create(:game, user:) }
         let(:list_id) { shopping_list.id }
 
-        it 'updates the title' do
-          update_shopping_list
-          expect(shopping_list.reload.title).to eq 'Severin Manor'
+        context 'when the request body sets a valid title' do
+          it 'updates the title' do
+            update_shopping_list
+            expect(shopping_list.reload.title).to eq 'Severin Manor'
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
 
-        it 'returns the updated list' do
-          update_shopping_list
-          # This ugly hack is needed because if we don't parse the JSON, it'll make an error
-          # if everything isn't in the exact same order, but if we just use shopping_list.attributes
-          # it won't include the list_items. Ugly.
-          expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+        context 'when the params include a null title' do
+          let(:params) { { shopping_list: { title: nil } }.to_json }
+
+          it 'sets a default title' do
+            update_shopping_list
+            expect(shopping_list.reload.title).to eq 'My List 1'
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
 
-        it 'returns status 200' do
-          update_shopping_list
-          expect(response.status).to eq 200
+        context 'when the "shopping_list" param is empty"' do
+          let(:params) { { shopping_list: {} }.to_json }
+
+          it "doesn't change the attributes" do
+            expect { update_shopping_list }
+              .not_to change(shopping_list.reload, :attributes)
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
+        end
+
+        context 'when there is no request body"' do
+          let(:params) { nil }
+
+          it "doesn't change the attributes" do
+            expect { update_shopping_list }
+              .not_to change(shopping_list.reload, :attributes)
+          end
+
+          it 'returns the updated list' do
+            update_shopping_list
+            # This ugly hack is needed because if we don't parse the JSON, it'll make an error
+            # if everything isn't in the exact same order, but if we just use shopping_list.attributes
+            # it won't include the list_items. Ugly.
+            expect(JSON.parse(response.body)).to eq(JSON.parse(shopping_list.reload.to_json))
+          end
+
+          it 'returns status 200' do
+            update_shopping_list
+            expect(response.status).to eq 200
+          end
         end
       end
 
@@ -626,27 +772,43 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the shopping list exists' do
         let!(:shopping_list) { create(:shopping_list, game:) }
+        let!(:shopping_list_id) { shopping_list.id }
 
         context "when this is the game's last regular shopping list" do
+          let!(:aggregate_list_id) { game.aggregate_shopping_list.id }
+
+          let(:expected_response_body) do
+            {
+              deleted: [aggregate_list_id, shopping_list_id],
+            }.to_json
+          end
+
           it 'deletes the shopping list and the aggregate list' do
             expect { delete_shopping_list }
               .to change(game.shopping_lists, :count).from(2).to(0)
           end
 
-          it 'returns status 204' do
+          it 'returns status 200' do
             delete_shopping_list
-            expect(response.status).to eq 204
+            expect(response.status).to eq 200
           end
 
-          it "doesn't return any data" do
+          it 'returns the IDs of the deleted lists' do
             delete_shopping_list
-            expect(response.body).to be_blank
+            expect(response.body).to eq expected_response_body
           end
         end
 
         context "when this is not the game's last regular shopping list" do
+          let(:expected_response_body) do
+            {
+              'deleted': [shopping_list_id],
+              'aggregate': game.aggregate_shopping_list,
+            }.to_json
+          end
+
           before do
-            create(:shopping_list, game:, aggregate_list: game.aggregate_shopping_list)
+            create(:shopping_list, game:)
           end
 
           it 'deletes the requested shopping list' do
@@ -659,9 +821,9 @@ RSpec.describe 'ShoppingLists', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns the aggregate list in the body' do
+          it 'returns the deleted list ID and the aggregate list' do
             delete_shopping_list
-            expect(response.body).to eq(game.aggregate_shopping_list.to_json)
+            expect(response.body).to eq(expected_response_body)
           end
         end
       end

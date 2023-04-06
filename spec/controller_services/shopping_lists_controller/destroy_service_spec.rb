@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'service/no_content_result'
 require 'service/method_not_allowed_result'
 require 'service/not_found_result'
 require 'service/ok_result'
@@ -13,16 +12,26 @@ RSpec.describe ShoppingListsController::DestroyService do
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
       let!(:shopping_list) { create(:shopping_list_with_list_items, game:) }
       let(:game) { create(:game, user:) }
 
       context 'when the game has additional regular lists' do
-        let!(:third_list) { create(:shopping_list, game:, aggregate_list:) }
+        let!(:third_list) { create(:shopping_list_with_list_items, game:) }
+
+        let(:expected_resource) do
+          {
+            deleted: [shopping_list.id],
+            aggregate: game.aggregate_shopping_list,
+          }
+        end
 
         before do
           shopping_list.list_items.each do |list_item|
-            aggregate_list.add_item_from_child_list(list_item)
+            game.aggregate_shopping_list.add_item_from_child_list(list_item)
+          end
+
+          third_list.list_items.each do |list_item|
+            game.aggregate_shopping_list.add_item_from_child_list(list_item)
           end
         end
 
@@ -43,14 +52,14 @@ RSpec.describe ShoppingListsController::DestroyService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'sets the resource as the aggregate list' do
-          expect(perform.resource).to eq aggregate_list
+        it 'includes the deleted list ID and the aggregate list as the resource' do
+          expect(perform.resource).to eq expected_resource
         end
 
         describe 'updating the aggregate list' do
           before do
             items = create_list(:shopping_list_item, 2, list: third_list)
-            items.each {|item| aggregate_list.add_item_from_child_list(item) }
+            items.each {|item| shopping_list.aggregate_list.add_item_from_child_list(item) }
 
             # Because in the code it finds the shopping list by ID and then gets the aggregate list
             # off that instance, the tests don't have access to the instance of the aggregate list that
@@ -58,8 +67,8 @@ RSpec.describe ShoppingListsController::DestroyService do
             user_lists = user.shopping_lists
             allow(user).to receive(:shopping_lists).and_return(user_lists)
             allow(user_lists).to receive(:find).and_return(shopping_list)
-            allow(shopping_list).to receive(:aggregate_list).and_return(aggregate_list)
-            allow(aggregate_list).to receive(:remove_item_from_child_list).twice
+            allow(shopping_list).to receive(:aggregate_list).and_return(shopping_list.aggregate_list)
+            allow(shopping_list.aggregate_list).to receive(:remove_item_from_child_list).twice
           end
 
           it 'calls #remove_item_from_child_list for each item', :aggregate_failures do
@@ -73,9 +82,15 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
 
       context "when this is the game's last regular list" do
+        let(:expected_resource) do
+          {
+            deleted: [shopping_list.aggregate_list_id, shopping_list.id],
+          }
+        end
+
         before do
           shopping_list.list_items.each do |item|
-            shopping_list.aggregate_list.add_item_from_child_list(item)
+            game.aggregate_shopping_list.add_item_from_child_list(item)
           end
         end
 
@@ -92,8 +107,12 @@ RSpec.describe ShoppingListsController::DestroyService do
           end
         end
 
-        it 'returns a Service::NoContentResult' do
-          expect(perform).to be_a(Service::NoContentResult)
+        it 'returns a Service::OKResult' do
+          expect(perform).to be_a(Service::OKResult)
+        end
+
+        it 'returns an array of deleted list IDs as the resource' do
+          expect(perform.resource).to eq expected_resource
         end
       end
     end

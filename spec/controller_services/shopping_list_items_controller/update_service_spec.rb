@@ -42,15 +42,15 @@ RSpec.describe ShoppingListItemsController::UpdateService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'returns the list item and aggregate list item as the resource' do
+        it 'returns the modified shopping list items as the resource' do
           expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
         end
       end
 
       context 'when there is a matching item on another list' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 4) }
+        let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 4, unit_weight: 1) }
         let(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-        let!(:other_item) { create(:shopping_list_item, description: list_item.description, list: other_list, quantity: 3) }
+        let!(:other_item) { create(:shopping_list_item, description: list_item.description, list: other_list, unit_weight: 1, quantity: 3) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
 
         before do
@@ -75,8 +75,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'sets the resource to the aggregate list item and the regular list item' do
-            expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
+          it 'returns the two modified list items as the resource' do
+            expect(perform.resource).to eq([aggregate_list_item, list_item.reload])
           end
         end
 
@@ -105,8 +105,38 @@ RSpec.describe ShoppingListItemsController::UpdateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'returns all the list items that were changed' do
-            expect(perform.resource).to eq [aggregate_list_item, other_item.reload, list_item.reload]
+          it 'returns all modified list items as the resource' do
+            expect(perform.resource).to eq([aggregate_list_item, other_item.reload, list_item.reload])
+          end
+        end
+
+        context 'when the unit weight is set to nil' do
+          let(:params) { { quantity: 10, unit_weight: nil } }
+
+          it 'updates the list item', :aggregate_failures do
+            perform
+            expect(list_item.reload.quantity).to eq 10
+            expect(list_item.unit_weight).to be_nil
+          end
+
+          it 'updates the aggregate list item', :aggregate_failures do
+            perform
+            expect(aggregate_list_item.quantity).to eq 13
+            expect(aggregate_list_item.unit_weight).to be_nil
+          end
+
+          it 'updates only the unit weight of the other list item', :aggregate_failures do
+            perform
+            expect(other_item.reload.quantity).to eq 3
+            expect(other_item.unit_weight).to be_nil
+          end
+
+          it 'returns a Service::OKResult' do
+            expect(perform).to be_a(Service::OKResult)
+          end
+
+          it 'returns all modified list items as the resource' do
+            expect(perform.resource).to eq([aggregate_list_item, other_item.reload, list_item.reload])
           end
         end
       end

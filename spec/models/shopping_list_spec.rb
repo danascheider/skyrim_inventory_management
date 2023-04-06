@@ -658,21 +658,41 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
 
-      context 'when there is no unit_weight given' do
-        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'another thing') }
+      context 'when unit_weight is nil' do
+        context 'when the unit weight is being unset' do
+          subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'something', true) }
 
-        before do
-          aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
+          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+          let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
+          let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
+
+          it 'updates the aggregate list item unit weight' do
+            update_item
+            expect(aggregate_list_item.reload.unit_weight).to be_nil
+          end
+
+          it 'updates the item on the other list' do
+            update_item
+            expect(item_on_other_list.reload.unit_weight).to be_nil
+          end
         end
 
-        it 'leaves the existing unit_weight as-is' do
-          update_item
-          expect(aggregate_list.list_items.first.unit_weight).to eq 1
+        context 'when the unit weight is not being updated' do
+          subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'another thing', false) }
+
+          before do
+            aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
+          end
+
+          it 'leaves the existing unit_weight as-is' do
+            update_item
+            expect(aggregate_list.reload.list_items.first.unit_weight).to eq 1
+          end
         end
       end
 
       context 'when there is a unit_weight given' do
-        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing') }
+        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing', false) }
 
         let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
         let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }

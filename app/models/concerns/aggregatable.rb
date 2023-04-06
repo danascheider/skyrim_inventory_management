@@ -98,12 +98,12 @@ module Aggregatable
     existing_item&.persisted? ? existing_item : nil
   end
 
-  def update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes)
+  def update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes, unit_weight_changed = false)
     raise AggregateListError.new('update_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
-    raise AggregateListError.new('invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
+    raise AggregateListError.new('Invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
 
     existing_item.quantity += delta_quantity
     existing_item.notes = if old_notes.nil? && new_notes.present?
@@ -112,7 +112,7 @@ module Aggregatable
                             existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
                           end
 
-    unless unit_weight.nil?
+    if unit_weight.present? || unit_weight_changed
       existing_item.unit_weight = unit_weight
 
       other_items = child_lists.all.map(&:list_items)

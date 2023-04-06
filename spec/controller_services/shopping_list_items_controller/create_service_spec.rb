@@ -21,41 +21,74 @@ RSpec.describe ShoppingListItemsController::CreateService do
 
       context 'when there is no existing matching item on the same list' do
         context 'when there is no existing matching item on any list' do
-          it 'creates a new item on the list' do
-            expect { perform }
-              .to change(shopping_list.list_items, :count).from(0).to(1)
+          context 'when unit weight is not set' do
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(shopping_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'creates a new item on the aggregate list' do
+              expect { perform }
+                .to change(aggregate_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource to all the changed shopping lists' do
+              expect(perform.resource).to eq [aggregate_list, shopping_list]
+            end
           end
 
-          it 'creates a new item on the aggregate list' do
-            expect { perform }
-              .to change(aggregate_list.list_items, :count).from(0).to(1)
-          end
+          context 'when unit weight is set' do
+            let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.3, notes: 'Hello world' } }
 
-          it 'returns a Service::CreatedResult' do
-            expect(perform).to be_a(Service::CreatedResult)
-          end
+            it 'creates a new item on the list' do
+              expect { perform }
+                .to change(shopping_list.list_items, :count).from(0).to(1)
+            end
 
-          it 'sets the new and aggregate list items as the resource' do
-            expect(perform.resource).to eq [aggregate_list.list_items.last, shopping_list.list_items.last]
+            it 'creates a new item on the aggregate list' do
+              expect { perform }
+                .to change(aggregate_list.list_items, :count).from(0).to(1)
+            end
+
+            it 'returns a Service::CreatedResult' do
+              expect(perform).to be_a(Service::CreatedResult)
+            end
+
+            it 'sets the resource to all the changed shopping lists' do
+              expect(perform.resource).to eq [aggregate_list, shopping_list]
+            end
           end
         end
 
         context 'when there is an existing matching item on another list' do
           let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', quantity: 1) }
+          let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Necklace', unit_weight: 1, quantity: 1) }
 
           before do
+            # This should not be included in the resource body
+            create(:shopping_list, game:)
+
             aggregate_list.add_item_from_child_list(other_item)
           end
 
           context 'when the unit_weight is not set' do
             it 'creates a new item on the list' do
               expect { perform }
-                .to change(shopping_list.list_items, :count).from(0).to(1)
+                .to change(shopping_list.list_items, :count).from(0).to eq 1
+            end
+
+            it 'sets the unit weight on the new item' do
+              perform
+              expect(shopping_list.list_items.unscoped.last.unit_weight).to eq 1
             end
 
             it 'updates the item on the aggregate list', :aggregate_failures do
               perform
+              expect(aggregate_list.list_items.first.unit_weight).to eq 1
               expect(aggregate_list.list_items.first.quantity).to eq 3
               expect(aggregate_list.list_items.first.notes).to eq 'Hello world'
             end
@@ -64,8 +97,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
               expect(perform).to be_a(Service::CreatedResult)
             end
 
-            it 'sets the resource as the aggregate list item and the regular list item' do
-              expect(perform.resource).to eq([aggregate_list.list_items.first, shopping_list.list_items.first])
+            it 'sets all the changed shopping lists as the resource' do
+              expect(perform.resource).to eq([aggregate_list, shopping_list])
             end
           end
 
@@ -94,8 +127,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
               expect(perform).to be_a(Service::CreatedResult)
             end
 
-            it 'sets the resource as the all created or changed list items' do
-              expect(perform.resource).to eq([aggregate_list.list_items.first, other_item, shopping_list.list_items.first])
+            it 'sets all the changed shopping lists as the resource' do
+              expect(perform.resource).to eq([aggregate_list, other_list, shopping_list])
             end
           end
         end
@@ -107,6 +140,9 @@ RSpec.describe ShoppingListItemsController::CreateService do
         let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Necklace', quantity: 1) }
 
         before do
+          # This should not be included in the resource body
+          create(:shopping_list, game:)
+
           aggregate_list.add_item_from_child_list(other_item)
           aggregate_list.add_item_from_child_list(list_item)
         end
@@ -133,8 +169,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'returns the requested item and the aggregate list item' do
-            expect(perform.resource).to eq([aggregate_list.list_items.first, list_item.reload])
+          it 'sets all the changed shopping lists as the resource' do
+            expect(perform.resource).to eq([aggregate_list, shopping_list])
           end
         end
 
@@ -168,8 +204,8 @@ RSpec.describe ShoppingListItemsController::CreateService do
             expect(perform).to be_a(Service::OKResult)
           end
 
-          it 'returns all the items that have been updated' do
-            expect(perform.resource).to eq [aggregate_list.list_items.first, other_item.reload, list_item.reload]
+          it 'sets all the changed shopping lists as the resource' do
+            expect(perform.resource).to eq([aggregate_list, other_list, shopping_list])
           end
         end
       end

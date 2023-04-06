@@ -47,17 +47,20 @@ For a game with no lists:
 []
 ```
 For a game with multiple lists:
+
 ```json
 [
   {
     "id": 43,
     "game_id": 8234,
     "aggregate": true,
+    "aggregate_list_id": null,
     "title": "All Items",
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 689
         "list_id": 43,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -67,6 +70,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 134,
         "list_id": 43,
         "description": "Iron ingot",
         "quantity": 4,
@@ -87,6 +91,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 845,
         "list_id": 46,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
@@ -96,6 +101,7 @@ For a game with multiple lists:
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
       },
       {
+        "id": 76,
         "list_id": 46,
         "description": "Iron ingot",
         "quantity": 3,
@@ -116,6 +122,7 @@ For a game with multiple lists:
     "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "list_items": [
       {
+        "id": 11,
         "list_id": 52,
         "description": "Iron ingot",
         "quantity": 1,
@@ -151,9 +158,9 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## POST /games/:game_id/shopping_lists
 
-Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes the newly created shopping list(s).
+Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all shopping lists that were created. The shopping lists are returned with the aggregate list first, if one was created while handling this request, and the regular list the user requested.
 
-The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via request data. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
+The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via this or any endpoint. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to one plus the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
@@ -197,32 +204,21 @@ Authorization: Bearer xxxxxxxxxx
 
 * 201 Created
 
-#### Example Bodies
+#### Example Body
 
-When there hasn't been an aggregate list created:
-```json
-{
-  "id": 4,
-  "user_id": 6,
-  "aggregate": false,
-  "aggregate_list_id": 3,
-  "title": "My List 1",
-  "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "list_items": []
-}
-```
+##### When an Aggregate List Is Created
 
-When the aggregate list has also been created:
 ```json
 [
   {
     "id": 4,
     "user_id": 6,
     "aggregate": true,
+    "aggregate_list_id": null,
     "title": "All Items",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": []
   },
   {
     "id": 5,
@@ -230,8 +226,26 @@ When the aggregate list has also been created:
     "aggregate": false,
     "aggregate_list_id": 4,
     "title": "My List 1",
-    "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+    "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": []
+  }
+]
+```
+
+##### When Only a Regular List Is Created
+
+```json
+[
+  {
+    "id": 5,
+    "user_id": 6,
+    "aggregate": false,
+    "aggregate_list_id": 4,
+    "title": "My List 1",
+    "created_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "updated_at": "Tue, 15 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": []
   }
 ]
 ```
@@ -271,13 +285,16 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## PATCH|PUT /shopping_lists/:id
 
-If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method.
+If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method. There is no  difference in application behaviour whether `PATCH` or `PUT` is used.
 
 ### Example Requests
 
-Requests must include a `"shopping_list"` object with a `"title"` key.
+Requests should include a `"shopping_list"` object with a `"title"` key. The `"title"` may be `null`; in this case, a default title will be assigned as described [above](#post-gamesgame_idshopping_lists). If the `"shopping_list"` object is empty or nonexistent, or if no request body is given, the list will not be updated but will be returned as-is. `"title"` is the only attribute that may be set on shopping lists via the SIM API.
 
-Using a `PATCH` request:
+#### PATCH Requests
+
+Normal usage:
+
 ```
 PATCH /shopping_lists/3
 Authorization: Bearer xxxxxxxxxx
@@ -289,15 +306,66 @@ Content-Type: application/json
 }
 ```
 
-Using a `PUT` request:
+Null title (will result in a default title being assigned):
+
+```
+PATCH /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {
+    "title": null
+  }
+}
+```
+
+Empty `"shopping_list"` object (shopping list will be returned as-is):
+
+```
+PATCH /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {}
+}
+```
+
+#### PUT Requests
+
+Normal usage:
+
 ```
 PUT /shopping_lists/3
-Authorization: Bearer xxxxxxxxxxx
+Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
   "shopping_list": {
     "title": "New List Title"
   }
+}
+```
+
+Null title (will result in a default title being assigned):
+
+```
+PUT /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {
+    "title": null
+  }
+}
+```
+
+Empty `"shopping_list"` object (shopping list will be returned as-is):
+
+```
+PUT /shopping_lists/3
+Authorization: Bearer xxxxxxxxxx
+Content-Type: application/json
+{
+  "shopping_list": {}
 }
 ```
 
@@ -347,6 +415,7 @@ Content-Type: application/json
 For a 404 response, no response body is returned.
 
 For a 422 response due to title uniqueness constraint:
+
 ```json
 {
   "errors": ["Title must be unique per game"]
@@ -354,6 +423,7 @@ For a 422 response due to title uniqueness constraint:
 ```
 
 For a 405 response due to attempting to update an aggregate list or convert a regular list to an aggregate list:
+
 ```json
 {
   "errors": ["Cannot manually update an aggregate shopping list"]
@@ -361,6 +431,7 @@ For a 405 response due to attempting to update an aggregate list or convert a re
 ```
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+
 ```json
 {
   "errors": ["Something went horribly wrong"]
@@ -369,7 +440,7 @@ A 500 error response, which is always a result of an unforeseen problem, include
 
 ## DELETE /shopping_lists/:id
 
-Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed.
+Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed. The body of a successful response includes an array of deleted list IDs and the updated aggregate list (unless it was also deleted).
 
 ### Example Request
 
@@ -382,33 +453,46 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Statuses
 
-* 204 No Content
 * 200 OK
 
-#### Example Body
+#### Example Bodies
 
-If the resource deleted was the user's last regular list, the aggregate list will also be destroyed and no content will be returned in the response. If the user had at least one other regular list (as well as an aggregate list), then the aggregate list will be returned with its values updated to reflect removal of the items on the list that was deleted.
+The response body will be a JSON object with a `"deleted"` key pointing to an array of deleted lists. If only the target list was destroyed, this array will include one member. If the target list was the game's last regular shopping list and the aggregate list was therefore also destroyed, the array will include two members. If the aggregate list was not destroyed, it will be returned as well, with its updated list items, under the `"aggregate"` key.
+
+Body including an aggregate list that was not destroyed:
 
 ```json
 {
-  "id": 834,
-  "user_id": 16,
-  "aggregate": true,
-  "title": "All Items",
-  "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-  "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
-  "list_items": [
-    {
-      "id": 32,
-      "list_id": 834,
-      "description": "Ebony sword",
-      "quantity": 1,
-      "notes": "To enchant with Soul Trap",
-      "unit_weight": 14.0,
-      "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
-      "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
-    }
-  ] 
+  "deleted": [835],
+  "aggregate": {
+    "id": 834,
+    "user_id": 16,
+    "aggregate": true,
+    "aggregate_list_id": null,
+    "title": "All Items",
+    "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+    "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
+    "list_items": [
+      {
+        "id": 32,
+        "list_id": 834,
+        "description": "Ebony sword",
+        "quantity": 1,
+        "notes": "To enchant with Soul Trap",
+        "unit_weight": 14.0,
+        "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
+        "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
+      }
+    ]
+  }
+}
+```
+
+Body when the aggregate list was also destroyed:
+
+```json
+{
+  "deleted": [834, 835]
 }
 ```
 
@@ -427,6 +511,7 @@ If the specified list does not exist or does not belong to the authenticated use
 For a 404 response, no response body will be returned.
 
 For a 405 response:
+
 ```json
 {
   "errors": ["Cannot manually delete an aggregate shopping list"]
@@ -434,6 +519,7 @@ For a 405 response:
 ```
 
 A 500 error response, which is always a result of an unforeseen problem, includes the error message:
+
 ```json
 {
   "errors": ["Something went horribly wrong"]
