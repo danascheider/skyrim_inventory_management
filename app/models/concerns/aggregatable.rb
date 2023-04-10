@@ -91,7 +91,6 @@ module Aggregatable
       existing_item.destroy!
     else
       existing_item.quantity -= attrs['quantity']
-      existing_item.notes = extract_notes(attrs['notes'], existing_item.notes)
       existing_item.save!
     end
 

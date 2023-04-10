@@ -90,12 +90,13 @@ RSpec.describe InventoryList, type: :model do
         end
       end
 
-      context 'when there is an existing aggregate list belonging to another user' do
+      context 'when there is an existing aggregate list belonging to another game' do
         let(:game) { create(:game) }
         let(:aggregate_list) { build(:aggregate_inventory_list, game:) }
 
         before do
-          create(:aggregate_inventory_list)
+          other_game = create(:game, user: game.user)
+          create(:aggregate_inventory_list, game: other_game)
         end
 
         it 'is valid' do
@@ -514,7 +515,10 @@ RSpec.describe InventoryList, type: :model do
 
         it 'raises an error' do
           expect { remove_item }
-            .to raise_error(Aggregatable::AggregateListError)
+            .to raise_error(
+              Aggregatable::AggregateListError,
+              'item passed to remove_item_from_child_list method is not represented on the aggregate list',
+            )
         end
       end
 
@@ -548,74 +552,20 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when the quantity is less than the quantity on the aggregate list' do
         let(:aggregate_list) { create(:aggregate_inventory_list) }
+        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
 
-        context 'with complicated notes situations' do
-          before do
-            aggregate_list.list_items.create!(description: 'Necklace', quantity: 4, 'notes' => 'notes 1 -- notes 2 -- notes 3')
-          end
+        before do
+          create(
+            :inventory_item,
+            description: 'Necklace',
+            quantity: 4,
+            list: aggregate_list,
+          )
+        end
 
-          context 'when removing the middle note value' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2' } }
-
-            it 'cleans up extra separators' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 3'
-            end
-          end
-
-          context 'when removing the end note value' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 3' } }
-
-            it 'cleans up the trailing separator' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 2'
-            end
-          end
-
-          context 'when removing the first note value' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1' } }
-
-            it 'cleans up the trailing separator' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 2 -- notes 3'
-            end
-          end
-
-          context 'when removing the first two notes values' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2' } }
-
-            it 'cleans up the separators' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 3'
-            end
-          end
-
-          context 'when removing the last two notes values' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2 -- notes 3' } }
-
-            it 'cleans up separators' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 1'
-            end
-          end
-
-          context 'when removing all notes' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 1 -- notes 2 -- notes 3' } }
-
-            it 'cleans up the trailing separator' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to be nil
-            end
-          end
-
-          context 'when removing an item without notes' do
-            let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3 } }
-
-            it 'leaves the notes on the aggregate list alone' do
-              remove_item
-              expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- notes 2 -- notes 3'
-            end
-          end
+        it 'adjusts the quantity on the aggregate list' do
+          remove_item
+          expect(aggregate_list.list_items.last.quantity).to eq 1
         end
       end
 
