@@ -20,10 +20,10 @@ If the client requests a new list item be created on a regular list, one of the 
 * If there is an item with the same (case-insensitive) `description` on the aggregate list, then that item will be updated:
   * The `description` will not be changed
   * The `quantity` will be increased by the quantity of the new list item
-  * The `unit_weight` will be changed to the new item's `unit_weight` unless that value is `nil`
-  * The `notes` value of the aggregate item will remain unchanged as `nil`
+  * The `unit_weight` will be changed to the new item's `unit_weight` unless that value is `null`
+  * The `notes` value of the aggregate item will remain unchanged as `null`
 
-If the new item sets a `unit_weight` that is not `nil` and is different to the `unit_weight` of any existing matching list items belonging to the same game, those items will also be updated to have the same unit weight as the new item.
+If the new item sets a `unit_weight` that is not `null` and is different to the `unit_weight` of any existing matching list items belonging to the same game, those items will also be updated to have the same unit weight as the new item.
 
 ### Updating a List Item
 
@@ -32,8 +32,8 @@ When a client updates a list item on a regular list for a given game, one (or mo
 * If the `quantity` is increased, the `quantity` of the item on the aggregate list will be increased by the same amount
 * If the `quantity` is decreased, the `quantity` of the item on the aggregate list will be decreased by the same amount
 * If the `quantity` has not changed, the `quantity` of the item on the aggregate list will also be unchanged
-* If the `notes` are changed, this will not be updated on the aggregate list, whose `notes` will remain `nil`
-* If the `unit_weight` is changed to `nil` or a valid numeric value, the value will be updated on the aggregate list item as well as any other list items with the same (case-insensitive) description belonging to the same game
+* If the `notes` are changed, this will not be updated on the aggregate list, whose `notes` will remain `null`
+* If the `unit_weight` is changed to `null` or a valid numeric value, the value will be updated on the aggregate list item as well as any other list items with the same (case-insensitive) description belonging to the same game
 
 ### Destroying a List Item
 
@@ -59,7 +59,7 @@ Creates a shopping list item on the given list if the shopping list with the giv
 3. Is not an aggregate list AND
 4. Does not have an existing shopping list item with the same description
 
-If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `nil`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
+If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `null`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
 
 In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `unit_weight`. Again, aggregate lists do not track `notes`.
 
@@ -209,7 +209,7 @@ Updates a given shopping list item provided the list the item is on:
 2. Belongs to the authenticated user AND
 3. Is not an aggregate list
 
-When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value is left as `nil` as this is a value aggregate lists no longer track.
+When this happens, the corresponding list item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value is left as `null` as this is a value aggregate lists no longer track.
 
 Requests may specify up to three fields to update:
 
@@ -229,7 +229,7 @@ Request bodies must contain a `"shopping_list_item"` key containing attributes t
 
 * `quantity` (integer greater than zero)
 * `notes` (string)
-* `unit_weight` (`nil` or decimal greater than or equal to zero with up to one decimal place)
+* `unit_weight` (`null` or decimal greater than or equal to zero with up to one decimal place)
 
 #### PATCH Requests
 
@@ -341,7 +341,7 @@ Deletes the given shopping list item provided the item exists and the list it is
 1. Belongs to the authenticated user AND
 2. Is not an aggregate list
 
-When this happens, the corresponding list item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced and the `notes` value will remain `nil`.
+When this happens, the corresponding list item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the list item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced and the `notes` value will remain `null`.
 
 ### Example Request
 
