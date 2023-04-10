@@ -61,7 +61,7 @@ Creates a shopping list item on the given list if the shopping list with the giv
 
 If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `nil`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
 
-In both cases, the aggregate list for the same game is also updated to reflect the new `quantity`, `notes`, and `unit_weight`.
+In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `unit_weight`. Again, aggregate lists do not track `notes`.
 
 Allowed fields are:
 
