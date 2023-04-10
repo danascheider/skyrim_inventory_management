@@ -140,9 +140,28 @@ RSpec.describe InventoryItem, type: :model do
 
   describe '::combine_or_create!' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, notes: 'notes 2') }
+      subject(:combine_or_create) do
+        described_class.combine_or_create!(
+          description: 'existing item',
+          quantity: 1,
+          list: inventory_list,
+          notes: notes2,
+        )
+      end
 
-      let!(:existing_item) { create(:inventory_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: inventory_list, notes: 'notes 1') }
+      let!(:existing_item) do
+        create(
+          :inventory_item,
+          description: 'ExIsTiNg ItEm',
+          quantity: 2,
+          unit_weight: 0.3,
+          list: inventory_list,
+          notes: notes1,
+        )
+      end
+
+      let(:notes1) { 'notes 1' }
+      let(:notes2) { 'notes 2' }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -156,7 +175,7 @@ RSpec.describe InventoryItem, type: :model do
 
       it 'concatenates the notes for the two items' do
         combine_or_create
-        expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
+        expect(existing_item.reload.notes).to eq "#{notes1} -- #{notes2}"
       end
 
       context "when the new item doesn't have a unit_weight" do
@@ -167,17 +186,43 @@ RSpec.describe InventoryItem, type: :model do
       end
 
       context 'when the new item has a unit_weight' do
-        subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: inventory_list, unit_weight: 0.2, notes: 'notes 2') }
+        subject(:combine_or_create) do
+          described_class.combine_or_create!(
+            description: 'existing item',
+            quantity: 1,
+            list: inventory_list,
+            unit_weight: 0.2,
+            notes: notes2,
+          )
+        end
 
         it 'uses the unit_weight from the new item' do
           combine_or_create
           expect(existing_item.reload.unit_weight).to eq 0.2
         end
       end
+
+      context 'when the list is an aggregate list' do
+        let(:inventory_list) { aggregate_list }
+        let(:notes1) { nil }
+        let(:notes2) { 'notes 2' }
+
+        it 'leaves the notes as nil' do
+          combine_or_create
+          expect(inventory_list.list_items.last.reload.notes).to be_nil
+        end
+      end
     end
 
     context 'when there is an existing item on a different list with the same (case-insensitive) description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'New Item', quantity: 1, list: inventory_list, unit_weight: nil) }
+      subject(:combine_or_create) do
+        described_class.combine_or_create!(
+          description: 'New Item',
+          quantity: 1,
+          list: inventory_list,
+          unit_weight: nil,
+        )
+      end
 
       let(:other_list) { create(:inventory_list, game:, aggregate_list:) }
       let!(:other_item) { create(:inventory_item, description: 'New Item', list: other_list, unit_weight: 1) }

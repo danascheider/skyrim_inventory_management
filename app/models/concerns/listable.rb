@@ -41,36 +41,29 @@ module Listable
       list = new_attrs[:list] || list_class.find(new_attrs[:list_id])
       existing_item = list.list_items.find_by('description ILIKE ?', new_attrs[:description])
 
-      if existing_item.nil?
-        if list.aggregate_list
-          aggregate_list_item = list.aggregate_list.list_items.find_by('description ILIKE ?', new_attrs[:description])
+      new_attrs.delete(:notes) if list.aggregate_list?
 
-          new_attrs[:unit_weight] ||= aggregate_list_item&.unit_weight
-        else
-          # A list without an aggregate list is, as of this writing, an aggregate
-          # list itself. Aggregate lists no longer have notes.
-          new_attrs.delete(:notes)
-        end
+      new_attrs[:quantity] ||= 1
+      new_attrs[:quantity] += existing_item&.quantity.to_i
+      new_attrs[:unit_weight] ||= existing_item&.unit_weight
+      new_attrs[:notes] = [existing_item&.notes, new_attrs[:notes]].compact.join(' -- ').presence
 
-        new new_attrs
-      else
-        qty = new_attrs[:quantity] || 1
-        new_weight = new_attrs[:unit_weight] || existing_item.unit_weight
-        new_quantity = existing_item.quantity + qty
+      if new_attrs[:unit_weight].nil? && !list.aggregate_list?
+        aggregate_item = list
+                           .aggregate_list
+                           .list_items.find_by(
+                             'description ILIKE ?',
+                             new_attrs[:description],
+                           )
 
-        if !list.aggregate
-          new_notes = new_attrs[:notes]
-          old_notes = existing_item.notes
-          new_notes = [old_notes, new_notes].compact.join(' -- ').presence
-        end
+        new_attrs[:unit_weight] = aggregate_item&.unit_weight
+      end
 
-        existing_item.assign_attributes(
-          quantity: new_quantity,
-          notes: new_notes,
-          unit_weight: new_weight,
-        )
-
+      if existing_item.present?
+        existing_item.assign_attributes(new_attrs.except(:description))
         existing_item
+      else
+        new(new_attrs)
       end
     end
   end
