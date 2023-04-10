@@ -97,8 +97,8 @@ module Aggregatable
     existing_item&.persisted? ? existing_item : nil
   end
 
-  # Example: agg_list.update_item_from_child_list('Existing item', quantity: { from: 3, to: 2 }, unit_weight: 0.1)
-  # Note: unit_weight is a hash with only a `to:` value, while `quantity` and `notes` are hashes with `from:` and `to:` values
+  # Example: agg_list.update_item_from_child_list('Existing item', quantity: { from: 3, to: 2 }, unit_weight: { to: 0.1 })
+  # Note: unit_weight is a hash with only a `to:` value, while `quantity` is a hash with `from:` and `to:` values
   def update_item_from_child_list(description, changed_attributes = {})
     raise AggregateListError.new('update_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
