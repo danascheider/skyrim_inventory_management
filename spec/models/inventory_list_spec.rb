@@ -640,7 +640,16 @@ RSpec.describe InventoryList, type: :model do
 
         let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
         let!(:item_on_other_list) { create(:inventory_item, list: other_list, description:, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:inventory_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
+
+        let!(:aggregate_list_item) do
+          create(
+            :inventory_item,
+            list: aggregate_list,
+            description:,
+            quantity: 3,
+            unit_weight: 1,
+          )
+        end
 
         it 'updates the aggregate list item unit weight' do
           update_item

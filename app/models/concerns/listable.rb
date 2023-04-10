@@ -9,6 +9,7 @@ module Listable
     validates :description, presence: true, uniqueness: { scope: :list_id, case_sensitive: false }
     validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+    validate :no_notes_on_aggregate_item, if: -> { list.aggregate }
     validate :prevent_changed_description, on: :update
 
     before_save :clean_up_notes
@@ -76,6 +77,10 @@ module Listable
 
   def prevent_changed_description
     errors.add(:description, 'cannot be updated on an existing list item') if description_changed?
+  end
+
+  def no_notes_on_aggregate_item
+    errors.add(:notes, 'cannot be present on an aggregate list item') if notes.present?
   end
 
   def clean_up_notes

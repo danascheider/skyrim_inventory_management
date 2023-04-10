@@ -7,6 +7,57 @@ RSpec.describe ShoppingListItem, type: :model do
   let(:aggregate_list) { create(:aggregate_shopping_list, game:) }
   let(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
 
+  describe 'validation' do
+    let(:item) { build(:shopping_list_item) }
+
+    it 'is invalid with a quantity less than 1' do
+      item.quantity = 0
+      item.validate
+      expect(item.errors[:quantity]).to include('must be greater than 0')
+    end
+
+    it 'is invalid with a decimal quantity' do
+      item.quantity = 1.5
+      item.validate
+      expect(item.errors[:quantity]).to include('must be an integer')
+    end
+
+    it 'is invalid with a non-numeric quantity' do
+      item.quantity = 'foo'
+      item.validate
+      expect(item.errors[:quantity]).to include('is not a number')
+    end
+
+    it 'is invalid with a negative unit weight' do
+      item.unit_weight = -1
+      item.validate
+      expect(item.errors[:unit_weight]).to include('must be greater than or equal to 0')
+    end
+
+    it 'is invalid with a non-numeric unit weight' do
+      item.unit_weight = 'foo'
+      item.validate
+      expect(item.errors[:unit_weight]).to include('is not a number')
+    end
+
+    it 'is valid with a decimal unit weight' do
+      item.unit_weight = 0.1
+      expect(item).to be_valid
+    end
+
+    it 'is valid with notes if not on an aggregate list' do
+      item.notes = 'hello world'
+      expect(item).to be_valid
+    end
+
+    it 'is invalid with notes if on an aggregate list' do
+      item.list = aggregate_list
+      item.notes = 'hello world'
+      item.validate
+      expect(item.errors[:notes]).to include('cannot be present on an aggregate list item')
+    end
+  end
+
   describe 'delegation' do
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
