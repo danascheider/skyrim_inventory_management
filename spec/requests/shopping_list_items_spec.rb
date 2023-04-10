@@ -1201,7 +1201,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         context 'when the quantity on the aggregate list exceeds that on the regular list' do
           let(:second_list) { create(:shopping_list, game:) }
-          let(:second_item) { create(:shopping_list_item, list: second_list, description: list_item.description, quantity: 2, notes: 'bar') }
+
+          let(:second_item) do
+            create(
+              :shopping_list_item,
+              list: second_list,
+              description: list_item.description,
+              quantity: 2,
+              notes: 'bar',
+            )
+          end
 
           before do
             aggregate_list.add_item_from_child_list(second_item)
@@ -1216,12 +1225,6 @@ RSpec.describe 'ShoppingListItems', type: :request do
           it 'updates the quantity of the item on the aggregate list' do
             destroy_item
             expect(aggregate_list.list_items.first.quantity).to eq 2
-          end
-
-          it 'updates the notes of the item on the aggregate list', :aggregate_failures do
-            destroy_item
-            expect(aggregate_list.list_items.first.notes).to match(/bar/)
-            expect(aggregate_list.list_items.first.notes).not_to match(/foo/)
           end
 
           it 'updates the regular list' do

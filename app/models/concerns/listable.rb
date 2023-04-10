@@ -45,19 +45,30 @@ module Listable
           aggregate_list_item = list.aggregate_list.list_items.find_by('description ILIKE ?', new_attrs[:description])
 
           new_attrs[:unit_weight] ||= aggregate_list_item&.unit_weight
+        else
+          # A list without an aggregate list is, as of this writing, an aggregate
+          # list itself. Aggregate lists no longer have notes.
+          new_attrs.delete(:notes)
         end
 
         new new_attrs
       else
         qty = new_attrs[:quantity] || 1
-        new_notes = new_attrs[:notes]
         new_weight = new_attrs[:unit_weight] || existing_item.unit_weight
-        old_notes = existing_item.notes
-
         new_quantity = existing_item.quantity + qty
-        new_notes = [old_notes, new_notes].compact.join(' -- ').presence
 
-        existing_item.assign_attributes(quantity: new_quantity, notes: new_notes, unit_weight: new_weight)
+        if !list.aggregate
+          new_notes = new_attrs[:notes]
+          old_notes = existing_item.notes
+          new_notes = [old_notes, new_notes].compact.join(' -- ').presence
+        end
+
+        existing_item.assign_attributes(
+          quantity: new_quantity,
+          notes: new_notes,
+          unit_weight: new_weight,
+        )
+
         existing_item
       end
     end

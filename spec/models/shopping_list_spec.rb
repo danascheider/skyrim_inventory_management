@@ -379,7 +379,7 @@ RSpec.describe ShoppingList, type: :model do
       let(:aggregate_list) { create(:aggregate_shopping_list) }
 
       context 'when there is no matching item on the aggregate list' do
-        let(:list_item) { create(:shopping_list_item) }
+        let(:list_item) { create(:shopping_list_item, notes: "shouldn't be on aggregate list") }
 
         it 'creates a corresponding item on the aggregate list' do
           expect { add_item }
@@ -391,77 +391,9 @@ RSpec.describe ShoppingList, type: :model do
           expect(aggregate_list.list_items.last.attributes).to include(
             'description' => list_item.description,
             'quantity' => list_item.quantity,
-            'notes' => list_item.notes,
+            'notes' => nil,
             'unit_weight' => list_item.unit_weight,
           )
-        end
-      end
-
-      context 'when there is a matching item on the aggregate list' do
-        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-        let!(:item_on_other_list) { create(:shopping_list_item, description: 'Dwarven metal ingot', list: other_list, unit_weight: 0.3) }
-
-        context 'when both have notes' do
-          let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', notes: 'notes 1 -- notes 2', quantity: 3, unit_weight: 0.3, list: aggregate_list) }
-          let(:list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', quantity: 2, notes: 'notes 3') }
-
-          it 'combines the notes and quantities', :aggregate_failures do
-            add_item
-            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2 -- notes 3'
-            expect(existing_list_item.reload.quantity).to eq 5
-          end
-        end
-
-        context 'when neither have notes' do
-          let!(:existing_list_item) { create(:shopping_list_item, list: aggregate_list, quantity: 3, notes: nil) }
-          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil) }
-
-          it 'combines the quantities and leaves the notes nil', :aggregate_failures do
-            add_item
-            expect(existing_list_item.reload.quantity).to eq 5
-            expect(existing_list_item.reload.notes).to be nil
-          end
-        end
-
-        context 'when one has notes and the other does not' do
-          let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', quantity: 3, unit_weight: 0.3, notes: 'notes 1 -- notes 2', list: aggregate_list) }
-          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2) }
-
-          it 'combines the quantities and uses the existing notes value', :aggregate_failures do
-            add_item
-            expect(existing_list_item.reload.quantity).to eq 5
-            expect(existing_list_item.reload.notes).to eq 'notes 1 -- notes 2'
-          end
-        end
-
-        context "when the new item doesn't have a unit weight" do
-          let!(:existing_list_item) { create(:shopping_list_item, description: 'Dwarven metal ingot', list: aggregate_list, unit_weight: 0.3) }
-          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: nil) }
-
-          it 'leaves the unit weight as-is on the existing item' do
-            add_item
-            expect(existing_list_item.reload.unit_weight).to eq 0.3
-          end
-
-          it 'leaves the unit weight as-is on the other regular list item' do
-            add_item
-            expect(item_on_other_list.reload.unit_weight).to eq 0.3
-          end
-        end
-
-        context 'when the new item has a unit weight' do
-          let!(:existing_list_item) { create(:shopping_list_item, description: item_on_other_list.description, list: aggregate_list) }
-          let(:list_item) { create(:shopping_list_item, description: existing_list_item.description, quantity: 2, notes: nil, unit_weight: 0.2) }
-
-          it 'updates the unit weight of the existing item' do
-            add_item
-            expect(existing_list_item.reload.unit_weight).to eq 0.2
-          end
-
-          it 'updates the unit weight of the item on the other list' do
-            add_item
-            expect(item_on_other_list.reload.unit_weight).to eq 0.2
-          end
         end
       end
 
