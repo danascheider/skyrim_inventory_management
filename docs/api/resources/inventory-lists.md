@@ -30,7 +30,7 @@ Returns all inventory lists for the game indicated by the `:game_id` param, prov
 ### Example Request
 
 ```
-GET /inventory_lists
+GET games/25/inventory_lists
 Authorization: Bearer xxxxxxxxxxxxx
 ```
 
@@ -61,7 +61,7 @@ For a game with multiple lists:
         "list_id": 43,
         "description": "Ebony sword",
         "quantity": 1,
-        "notes": "Enchanted with Absorb Health",
+        "notes": null,
         "unit_weight": 14.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -404,12 +404,12 @@ If the resource deleted was the user's last regular inventory list, the aggregat
       "list_id": 834,
       "description": "Ebony sword",
       "quantity": 1,
-      "notes": "To enchant with Soul Trap",
+      "notes": null,
       "unit_weight": 14.0,
       "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
       "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
     }
-  ] 
+  ]
 }
 ```
 

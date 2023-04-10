@@ -16,12 +16,12 @@ Skyrim Inventory Management makes use of automatically managed aggregate lists t
 
 If the client requests a new item be created on a regular inventory list, one of the following things will happen:
 
-* If there is not an item with the same (case-insensitive) `description` on the aggregate list, then an item with the same `description`, `quantity`, `unit_weight`, and `notes` will be created on the aggregate list.
+* If there is not an item with the same (case-insensitive) `description` on the aggregate list, then an item with the same `description`, `quantity`, and `unit_weight` will be created on the aggregate list. `notes` values on aggregate lists are always `nil`.
 * If there is an item with the same (case-insensitive) `description` on the aggregate list, then that item will be updated:
   * The `description` will not be changed
   * The `quantity` will be increased by the quantity of the new item
-  * The `notes` for the two items, if any, will be concatenated and separated by ` -- `
   * The `unit_weight` will be changed to the new item's `unit_weight` unless that value is `nil`
+  * The `notes` value on the aggregate list item will remain `nil`
 
 If the new item sets a `unit_weight` that is not `nil` and is different to the `unit_weight` of any existing matching items belonging to the same game, those items will also be updated to have the same unit weight as the new item.
 
@@ -32,8 +32,9 @@ When a client updates a item on a regular list for a given game, one (or two) of
 * If the `quantity` is increased, the `quantity` of the item on the aggregate list will be increased by the same amount
 * If the `quantity` is decreased, the `quantity` of the item on the aggregate list will be decreased by the same amount
 * If the `quantity` has not changed, the `quantity` of the item on the aggregate list will also be unchanged
-* If the `notes` are changed, SIM will ensure that the new (or added or removed) `notes` are reflected in the aggregate list item
-* If the `unit_weight` is changed to a non-`nil` value, the value will be updated on the aggregate list item as well as any other items with the same (case-insensitive) description belonging to the same game
+* If the `unit_weight` is changed, the value will be updated on the aggregate list item as well as any other items with the same (case-insensitive) description belonging to the same game. This is true whether the `unit_weight` is `nil` or another value
+
+Again, aggregate list items do not track `notes` of child lists, so these values will not be updated.
 
 ### Destroying a List Item
 
@@ -61,14 +62,14 @@ Creates an inventory item on the given list if the inventory list with the given
 
 If the first three conditions are met but the list does have an existing inventory item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `nil`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
 
-In both cases, the aggregate list for the same game is also updated to reflect the new `quantity`, `notes`, and `unit_weight`.
+In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `unit_weight`.
 
 Allowed fields are:
 
 * `description` (string, required): A name or description of the item on the list
 * `quantity` (integer, required): The quantity of the item
-* `notes` (string, optional): Any notes about the item or what it is for
 * `unit_weight` (decimal, optional): The unit weight of the item as given in the game, precise to one decimal place
+* `notes` (string, optional): Any notes about the item or what it is for
 
 A successful response will return a JSON array of any items created or updated while handling the request. These may come in any order and will include the item requested, the aggregate list item, and, if `unit_weight` is given in the request, any other items with the same description belonging to the same game that have had their `unit_weight` changed.
 
@@ -105,7 +106,7 @@ The body for both responses is a JSON array containing all items that were creat
     "description": "Ebony sword",
     "quantity": 9,
     "unit_weight": 14.0,
-    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "notes": null,
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
   },
@@ -172,7 +173,7 @@ Updates a given inventory item provided the list the item is on:
 2. Belongs to the authenticated user AND
 3. Is not an aggregate list
 
-When this happens, the corresponding item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value may be shortened, changed, or concatenated with notes from matching items on other lists, depending on which changes were requested.
+When this happens, the corresponding item on the aggregate list is also automatically updated to stay synced with the other lists. When the aggregate list is synced, the `notes` value remains `nil` regardless of the value on the regular list item.
 
 Requests may specify up to three fields to update:
 * `quantity` (integer, greater than zero)
@@ -236,7 +237,7 @@ The body is a JSON array containing all items that were updated while handling t
     "description": "Ebony sword",
     "quantity": 9,
     "unit_weight": 14.0,
-    "notes": "To sell -- To enchant with 'Absorb Health'",
+    "notes": null,
     "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
     "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
   },
@@ -311,7 +312,7 @@ Deletes the given inventory item provided the item exists and the list it is on:
 1. Belongs to the authenticated user AND
 2. Is not an aggregate list
 
-When this happens, the corresponding item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced and the `notes` value may be shortened or set to `nil`, depending on the existing `notes` value on the aggregate list and whether there are notes on that list other than the ones from the deleted item.
+When this happens, the corresponding item on the aggregate list is also automatically destroyed (if the quantity is equal to that of the item being deleted) or updated (if the quantity on the aggregate list is greater) to stay synced with the other lists. When the aggregate list is synced, the `quantity` will be reduced.
 
 ### Example Request
 
@@ -339,7 +340,7 @@ Example 200 response body containing the updated aggregate list item:
   "description": "Ebony sword",
   "quantity": 9,
   "unit_weight": 14.0,
-  "notes": "To sell -- To enchant with 'Absorb Health'",
+  "notes": null,
   "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
   "updated_at": "Fri, 02 Jul 2021 12:04:27.161932000 UTC +00:00"
 }

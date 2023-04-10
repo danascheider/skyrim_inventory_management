@@ -76,7 +76,7 @@ The database schema for all models that include the `Aggregatable` concern must 
 | ------------------- | ------- | ----------- | ------- |
 | `aggregate`         | boolean | NOT NULL    | false   |
 | `aggregate_list_id` | integer |             |         |
-| `user_id`           | integer | NOT NULL    |         |
+| `game_id`           | integer | NOT NULL    |         |
 | `title`             | string  | NOT NULL    |         |
 
 The title for all aggregate lists is "All Items". The titles for other lists may be validated or set to a default value by the individual model if desired. Other than the title, these values should not be changed after initial creation.
@@ -106,8 +106,9 @@ Aggregate list behaviour is complex and involves both list items and the lists t
 Best practice for aggregate lists is to never create or destroy an aggregate list manually. The `Aggregatable` concern ensures that aggregate lists are created and destroyed automatically.
 
 When a user creates their first regular list, an aggregate list will be automatically created for them and set as that list's aggregate list. Subsequent lists of the same class belonging to the same user should be created with that as the aggregate list:
+
 ```ruby
-user.aggregate_shopping_list.child_lists.create!(title: 'My Title')
+game.aggregate_shopping_list.child_lists.create!(title: 'My Title')
 ```
 
 When a user destroys a regular list, and it is their last regular list of that class, the aggregate list will also be destroyed.
@@ -119,6 +120,7 @@ The `Aggregatable` module does not automatically update an aggregate list when a
 #### Adding an Item to a Child List
 
 When an item is added to a regular list, the corresponding aggregate list should also be updated. This can be done using the `#add_item_from_child_list` method, which handles all logic around adding items. This method will raise an `Aggregatable::AggregateListError` if it is called on a regular list.
+
 ```ruby
 aggregate_list.add_item_from_child_list(item)
 ```
@@ -127,14 +129,11 @@ There are two possible cases: there is an item already on the aggregate list wit
 
 ##### When There Is No Exising Item
 
-If there is no item with the same description on the aggregate list already, one should be created on the aggregate list with the same attributes.
+If there is no item with the same description on the aggregate list already, one should be created on the aggregate list with the same attributes. Note that aggregate lists no longer have `notes` values.
 
 ##### When There Is an Existing Item
 
-If there is an item with the same description on the aggregate list already, that item will be updated as follows:
-
-1. The `quantity` of the item on the aggregate list will be increased by the quantity of the item being added.
-2. The `notes` of the item on the aggregate list will be concatenated with the new item's notes, separated with ` -- `
+If there is an item with the same description on the aggregate list already, the `quantity` of the item on the aggregate list will be increased by the quantity of the item being added.
 
 One of two things will happen with the `unit_weight` value:
 
@@ -146,6 +145,7 @@ Setting an invalid `quantity` or `unit_weight` will result in an `Aggregatable::
 #### Removing an Item from a Child List
 
 When an item is removed from a regular list, the corresponding aggregate list should also be updated. this can be done using the `#remove_item_from_child_list` method, which handles all logic around removing items. This method will raise an `Aggregatable::AggregateListError` if it is called on a regular list.
+
 ```ruby
 aggregate_list.remove_item_from_child_list(item)
 ```
@@ -163,35 +163,34 @@ When the quantity of an item on the aggregate list is equal to the quantity of t
 
 ##### When the Quantity Is Greater
 
-When the quantity of an item on the aggregate list is greater than the quantity of the list item being removed, the quantity and notes are updated on the aggregate list item.
+When the quantity of an item on the aggregate list is greater than the quantity of the list item being removed, the quantity is updated on the aggregate list item.
 
-The quantity of the aggregate list item is reduced by the amount of the quantity of the item being removed. The notes are also updated to remove the notes associated with the item being removed. For example, if the aggregate list item's notes are `"notes 1 -- notes 2"` and the item being removed has notes `"notes 1"`, then the notes should be changed to `" -- notes 2"`. These straggling values can be cleaned up in the [list item model](#list-item-model-requirements).
+The quantity of the aggregate list item is reduced by the amount of the quantity of the item being removed. Since aggregate list items have no `notes` value, this value is not changed.
 
 #### Editing an Item on a Child List
 
-There are three values that can be edited on a child list item: `notes`, `quantity`, and `unit_weight`. Any or all may be updated at a given time. The aggregate list values can be updated using the `#update_item_from_child_list` method. In order to call this method, you'll need to know four things:
+There are three values that can be edited on a child list item: `notes`, `quantity`, and `unit_weight`. Any or all may be updated at a given time. The aggregate list values can be updated using the `#update_item_from_child_list` method. In order to call this method, you'll two arguments:
 
 * The `description` of the item being edited (to find on the aggregate list - remember that description should not be editable)
-* The change in quantity, if any (should be negative if the quantity was reduced, positive if it was increased, and zero if it did not change)
-* The new `unit_weight` (can be set to either `nil` or the old `unit_weight` value if the value hasn't changed)
-* The old `notes` value
-* The new `notes` value
+* A hash of changed attributes, with possible key/value pairs as follows:
+  * `quantity: { to: <initial>, from: <final> }`
+  * `unit_weight: { to: <final> }`
+
+Either or both of the keys in the `changed_attributes` hash may be missing or blank. Note that, for the `quantity` value, the initial and final values are the initial and final quantities of the _regular_ list item, not the aggregate list item.
 
 The method will raise an `Aggregatable::AggregateListError` if called on a regular list or if the item being edited does not appear on the aggregate list.
 
 ##### Updating the Quantity
 
-Once the item is found on the aggregate list, its `quantity` will be _increased_ by the value of the `delta_quantity` argument passed in. It is important that this value be negative if the `quantity` is to be reduced.
+Once the item is found on the aggregate list, its `quantity` will be _increased_ by the difference between `quantity[:to]` and `quantity[:from]`. If `quantity[:to]` < `quantity[:from]`, the difference will be negative and the `quantity` therefore decreased.
 
 ##### Updating the Notes
 
-Once the item is found on the aggregate list, its `notes` value will be updated if there is a difference between the old and new values passed in. If the old value is changed, it will be replaced in the aggregate list item notes. If the value is changed to a blank or `nil` value, then the old value will be removed from the aggregate list item notes.
+In the past, the aggregate list item also tracked notes from items on its child lists. However, this functionality proved too complex and buggy, and it was easier just to remove it. Now, `notes` values are ignored when adding, updating, or removing items from aggregate lists.
 
 ##### Updating the Unit Weight
 
-If the unit weight has been updated and the new value is `nil`, nothing will happen. Once set, `unit_weight` can be changed to another valid value but not unset.
-
-If the unit weight value has been updated and the new value is numeric and greater than or equal to zero, the unit weight will be updated not only on the requested list item and corresponding aggregate list item, but on all items that match the description and belong to the same game. This is to make sure that list items don't get out of sync with the aggregate list while still enabling `unit_weight` to be edited.
+If the unit weight value has been updated and the new value is either (a) `nil` or (b) numeric and at least zero, the unit weight will be updated not only on the requested list item and corresponding aggregate list item, but on all items that match the description and belong to the same game. This is to make sure that list items don't get out of sync with the aggregate list while still enabling `unit_weight` to be edited. If `unit_weight[:to]` is set to `nil`, the unit weight will be unset on all corresponding list items.
 
 ## List Model Requirements
 
@@ -261,18 +260,16 @@ Should be called on an aggregate list any time an item is added to one of its ch
 
 Should be called on an aggregate list any time an item is removed/destroyed from one of its child lists. Handles logic for removing or updating list items on the aggregate list. Raises an `Aggregatable::AggregateListError` if called on a regular list. Returns the updated item from the aggregate list if its quantity is higher than that of the item removed and  otherwise `nil`.
 
-#### `update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes, unit_weight_changed)`
+#### `update_item_from_child_list(description, changed_attributes = {})`
 
 Should be called on an aggregate list any time an item is updated on a child list. Raises an `Aggregatable::AggregateListError` if called on a regular list. Handles logic for updating items that already exist on a child list. Returns the updated list item from the aggregate list.
 
 Arguments:
 
 * `description`: The `description` of the item that has been changed (descriptions are not editable).
-* `delta_quantity`: The difference between the new and old quantity on the updated item. Should be negative if the new quantity is lower and positive if it is higher.
-* `unit_weight`: The new `unit_weight` value of the item that has been changed
-* `old_notes`: The previous `notes` value of the item that has been changed
-* `new_notes`: The updated `notes` value of the item that has been changed
-* `unit_weight_changed`: If `unit_weight` param is `nil`, whether it was changed to `nil` (as opposed to just not being specified)
+* `changed_attributes`: A hash indicating what attributes have been changed, with the following possible key/value pairs:
+  * `quantity: { from: <initial>, to: <final> }`: Note that the values given should be for the regular list item being updated, not the aggregate list item
+  * `unit_weight: { to: <final> }`: The new `unit_weight` value of the item that has been changed; may be `nil` or a numeric value of at least 0
 
 #### `aggregate_list`
 
@@ -307,6 +304,7 @@ The `Listable` concern provides the following validations.
 * `description`: Verifies that the description is present and unique on the list it is on (descriptions are case insensitive)
 * `quantity`: Verifies that the quantity is present and is an integer greater than 0
 * `unit_weight`: Verifies that the unit weight is a number greater than or equal to zero; `nil` values are allowed
+* `notes`: Verifies that only regular list items, and not aggregate list items, can have non-`nil` `notes` values
 
 There is an additional validation that prevents the description from being changed on an existing item (i.e., the description is set on `create` and cannot be changed on `update`).
 
@@ -328,4 +326,4 @@ For example:
 
 ### Methods
 
-The `Listable` concern implements `::combine_or_new` and `::combine_or_create!` class methods. These methods look for a model on the same list matching the description passed in as an attribute. If no item on the same list matches that description, a new one is instantiated (or created). If there is a matching item on the same list, the quantity passed in will be added to the existing item's quantities and the notes fields on the existing and new items will be updated to aggregate the notes for both items. The `unit_weight` will be set to the value set in the attributes passed into `::combine_or_new`, if that value is defined and not `nil`.
+The `Listable` concern implements `::combine_or_new` and `::combine_or_create!` class methods. These methods look for a model on the same list matching the description passed in as an attribute. If no item on the same list matches that description, a new one is instantiated (or created). If there is a matching item on the same list, the quantity passed in will be added to the existing item's quantities and the notes fields on the existing and new items will be updated to aggregate the notes for both items. The `notes` field will only be aggregated when combining items on a regular list; aggregate list items always have a `notes` value of `nil`. The `unit_weight` will be set to the value set in the attributes passed into `::combine_or_new`, if that value is defined and not `nil`.
