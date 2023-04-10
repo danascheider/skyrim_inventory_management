@@ -54,6 +54,10 @@ RSpec.describe ShoppingList, type: :model do
       let!(:game2) { create(:game_with_shopping_lists, user:) }
       let!(:game3) { create(:game_with_shopping_lists, user:) }
 
+      before do
+        create(:game_with_shopping_lists)
+      end
+
       it "returns all the shopping lists from all the user's games" do
         # These are going to be rearranged in the output since game.shopping_lists
         # comes back aggregate list first and the scope will return them in descending
@@ -598,220 +602,133 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     describe '#update_item_from_child_list' do
-      subject(:update_item) { aggregate_list.update_item_from_child_list(description, delta, unit_weight, old_notes, new_notes) }
-
       let(:aggregate_list) { create(:aggregate_shopping_list) }
       let(:description) { 'Corundum ingot' }
-      let(:unit_weight) { 1 }
 
       context 'when adjusting quantity up' do
-        let(:delta) { 2 }
-        let(:old_notes) { 'something' }
-        let(:new_notes) { 'another thing' }
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            quantity: {
+              from: 1,
+              to: 3,
+            },
+          )
+        end
 
         before do
           # upcase the description to test that the comparison is case insensitive
-          aggregate_list.list_items.create(description: description.upcase, quantity: 1, notes: "#{old_notes} -- something else")
+          aggregate_list.list_items.create(description: description.upcase, quantity: 2)
         end
 
-        it 'adds the quantity delta to the existing one' do
+        it 'increases the quantity by the delta' do
           update_item
-          expect(aggregate_list.list_items.first.quantity).to eq 3
-        end
-
-        it 'replaces the notes' do
-          update_item
-          expect(aggregate_list.list_items.first.notes).to eq "#{new_notes} -- something else"
+          expect(aggregate_list.list_items.first.quantity).to eq 4
         end
       end
 
       context 'when adjusting quantity down' do
-        let(:delta) { -2 }
-        let(:old_notes) { 'something' }
-        let(:new_notes) { 'another thing' }
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            quantity: {
+              from: 3,
+              to: 1,
+            },
+          )
+        end
 
         before do
-          aggregate_list.list_items.create(description:, quantity: 3, notes: old_notes)
+          aggregate_list.list_items.create!(description:, quantity: 5)
         end
 
-        it 'adds the negative quantity delta to the existing one' do
-          update_item
-          expect(aggregate_list.list_items.first.quantity).to eq 1
-        end
-
-        it 'replaces the notes' do
-          update_item
-          expect(aggregate_list.list_items.first.notes).to eq new_notes
-        end
-      end
-
-      context "when quantity doesn't change" do
-        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 0, unit_weight, 'something', 'another thing') }
-
-        before do
-          aggregate_list.list_items.create(description:, quantity: 3, notes: 'something')
-        end
-
-        it "doesn't change the quantity" do
+        it 'decreases the quantity by the delta' do
           update_item
           expect(aggregate_list.list_items.first.quantity).to eq 3
         end
       end
 
-      context 'when unit_weight is nil' do
-        context 'when the unit weight is being unset' do
-          subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'something', true) }
-
-          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-          let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
-          let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
-
-          it 'updates the aggregate list item unit weight' do
-            update_item
-            expect(aggregate_list_item.reload.unit_weight).to be_nil
-          end
-
-          it 'updates the item on the other list' do
-            update_item
-            expect(item_on_other_list.reload.unit_weight).to be_nil
-          end
+      context 'when unsetting unit weight' do
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            unit_weight: {
+              to: nil,
+            },
+          )
         end
 
-        context 'when the unit weight is not being updated' do
-          subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, nil, 'something', 'another thing', false) }
+        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
+        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
 
-          before do
-            aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
-          end
+        it 'unsets the unit weight on the aggregate list' do
+          update_item
+          expect(aggregate_list_item.reload.unit_weight).to be_nil
+        end
 
-          it 'leaves the existing unit_weight as-is' do
-            update_item
-            expect(aggregate_list.reload.list_items.first.unit_weight).to eq 1
-          end
+        it 'unsets the unit weight on the other existing list item' do
+          update_item
+          expect(item_on_other_list.reload.unit_weight).to be_nil
         end
       end
 
-      context 'when there is a unit_weight given' do
-        subject(:update_item) { aggregate_list.update_item_from_child_list(description, 1, 2, 'something', 'another thing', false) }
-
-        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1, notes: 'something') }
-
-        before do
-          aggregate_list.list_items.create(description:, quantity: 3, unit_weight: 1, notes: 'something')
+      context 'when updating unit weight' do
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            unit_weight: {
+              to: 2,
+            },
+          )
         end
 
-        it 'updates the unit_weight on the aggregate list' do
+        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
+        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+
+        it 'unsets the unit weight on the aggregate list' do
           update_item
           expect(aggregate_list_item.reload.unit_weight).to eq 2
         end
 
-        it 'updates the other matching list item' do
+        it 'unsets the unit weight on the other existing list item' do
           update_item
           expect(item_on_other_list.reload.unit_weight).to eq 2
         end
       end
 
-      context 'when the notes have not changed' do
-        let(:delta) { -2 }
-        let(:old_notes) { 'something' }
-        let(:new_notes) { 'something' }
-
-        before do
-          aggregate_list.list_items.create(description:, quantity: 3, notes: "#{old_notes} -- something else")
+      context 'when updating notes' do
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            notes: {
+              from: 'foo',
+              to: 'bar',
+            },
+          )
         end
 
-        it "doesn't mess with the notes" do
+        before do
+          aggregate_list.list_items.create!(description:, quantity: 2, unit_weight: 1)
+        end
+
+        it 'keeps the notes value at nil on the aggregate list' do
           update_item
-          expect(aggregate_list.list_items.first.notes).to eq 'something -- something else'
+          expect(aggregate_list.list_items.first.notes).to be_nil
         end
       end
 
-      context 'when there are edge cases with the notes' do
-        let(:delta) { 5 }
-        let(:existing_notes) { 'notes 1 -- notes 2 -- notes 3' }
-
-        before do
-          aggregate_list.list_items.create!(description:, quantity: 3, notes: existing_notes)
+      context 'when the new quantity is less than 1' do
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            quantity: {
+              from: 2,
+              to: 0,
+            },
+          )
         end
-
-        context 'when replacing the middle notes' do
-          let(:old_notes) { 'notes 2' }
-          let(:new_notes) { 'something else' }
-
-          it 'replaces the old notes on the list item' do
-            update_item
-            expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- something else -- notes 3'
-          end
-        end
-
-        context 'when replacing the first notes with nil' do
-          let(:old_notes) { 'notes 1' }
-          let(:new_notes) { nil }
-
-          it "doesn't leave leading whitespace or dashes" do
-            update_item
-            expect(aggregate_list.list_items.first.notes).to eq 'notes 2 -- notes 3'
-          end
-        end
-
-        context 'when replacing two of the notes values' do
-          let(:old_notes) { 'notes 2 -- notes 3' }
-          let(:new_notes) { 'something else' }
-
-          it "doesn't leave trailing whitespace or dashes" do
-            update_item
-            expect(aggregate_list.list_items.first.notes).to eq 'notes 1 -- something else'
-          end
-        end
-
-        context 'when replacing all of a combined note value' do
-          let(:old_notes) { 'notes 1 -- notes 2 -- notes 3' }
-          let(:new_notes) { nil }
-
-          it 'sets the value to nil' do
-            update_item
-            expect(aggregate_list.list_items.first.notes).to be nil
-          end
-        end
-
-        context 'when there are multiple identical note values' do
-          let(:existing_notes) { 'notes 1 -- notes 1 -- notes 2' }
-          let(:old_notes) { 'notes 1' }
-          let(:new_notes) { 'something else' }
-
-          it 'only replaces one instance' do
-            update_item
-            expect(aggregate_list.list_items.first.notes).to eq 'something else -- notes 1 -- notes 2'
-          end
-        end
-
-        context 'when introducing new notes' do
-          let(:old_notes) { 'notes 2' }
-          let(:new_notes) { 'notes 2 -- notes 4' }
-
-          it 'adds the new notes' do
-            update_item
-            expect(aggregate_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 4 -- notes 3'
-          end
-        end
-
-        context 'when all the notes on the aggregate list come from other items' do
-          let(:old_notes) { nil }
-          let(:new_notes) { 'notes 4' }
-
-          it 'adds the new notes' do
-            update_item
-            expect(aggregate_list.list_items.last.notes).to eq 'notes 1 -- notes 2 -- notes 3 -- notes 4'
-          end
-        end
-      end
-
-      context 'when the delta would bring the quantity below zero' do
-        let(:delta) { -20 }
-        let(:old_notes) { nil }
-        let(:new_notes) { 'something else' }
 
         it 'raises an error' do
           expect { update_item }
@@ -819,14 +736,19 @@ RSpec.describe ShoppingList, type: :model do
         end
       end
 
-      context 'when the unit_weight is not a number' do
-        let(:unit_weight) { 'carrot' }
-        let(:delta) { 1 }
-        let(:old_notes) { nil }
-        let(:new_notes) { nil }
+      context 'when the new unit_weight is not a number' do
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            unit_weight: {
+              from: 1,
+              to: 'carrot',
+            },
+          )
+        end
 
         before do
-          aggregate_list.list_items.create!(description:)
+          aggregate_list.list_items.create!(description:, unit_weight: 1)
         end
 
         it 'raises an error' do
@@ -836,13 +758,18 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the unit_weight value is invalid' do
-        let(:unit_weight) { -0.3 }
-        let(:delta) { 1 }
-        let(:old_notes) { nil }
-        let(:new_notes) { nil }
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            unit_weight: {
+              from: 1,
+              to: -1,
+            },
+          )
+        end
 
         before do
-          aggregate_list.list_items.create!(description:, quantity: 1)
+          aggregate_list.list_items.create!(description:, unit_weight: 1)
         end
 
         it 'raises an error' do
@@ -852,10 +779,15 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when there is no matching item on the aggregate list' do
-        let(:description) { 'Iron ore' }
-        let(:delta) { 2 }
-        let(:old_notes) { 'something' }
-        let(:new_notes) { 'something else' }
+        subject(:update_item) do
+          aggregate_list.update_item_from_child_list(
+            description,
+            quantity: {
+              from: 1,
+              to: 3,
+            },
+          )
+        end
 
         it 'raises an error' do
           expect { update_item }
@@ -864,11 +796,17 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when called on a regular list' do
-        let(:aggregate_list) { create(:shopping_list) }
-        let(:description) { 'Corundum ingot' }
-        let(:delta) { 2 }
-        let(:old_notes) { 'to build things' }
-        let(:new_notes) { 'to make locks' }
+        subject(:update_item) do
+          list.update_item_from_child_list(
+            description,
+            notes: {
+              from: nil,
+              to: 'something else',
+            },
+          )
+        end
+
+        let(:list) { create(:shopping_list) }
 
         it 'raises an error' do
           expect { update_item }

@@ -32,10 +32,10 @@ RSpec.describe InventoryItemsController::UpdateService do
           expect(list_item.notes).to eq 'To make bolts with'
         end
 
-        it 'updates the aggregate list item' do
+        it 'updates the aggregate list item quantity' do
           perform
           expect(aggregate_list_item.quantity).to eq 9
-          expect(aggregate_list_item.notes).to eq 'To make bolts with'
+          expect(aggregate_list_item.notes).to be_nil
         end
 
         it 'returns a Service::OKResult' do

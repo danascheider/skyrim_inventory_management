@@ -35,7 +35,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
         it 'updates the aggregate list item' do
           perform
           expect(aggregate_list_item.quantity).to eq 9
-          expect(aggregate_list_item.notes).to eq 'To make bolts with'
+          expect(aggregate_list_item.notes).to be_nil
         end
 
         it 'returns a Service::OKResult' do
@@ -106,7 +106,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
           end
 
           it 'returns all modified list items as the resource' do
-            expect(perform.resource).to eq([aggregate_list_item, other_item.reload, list_item.reload])
+            expect(perform.resource).to eq([aggregate_list_item.reload, other_item.reload, list_item.reload])
           end
         end
 

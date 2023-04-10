@@ -33,7 +33,11 @@ class ShoppingListItemsController < ApplicationController
 
           Service::CreatedResult.new(resource: lists_changed)
         else
-          aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
+          changed_attributes = {}
+          changed_attributes[:quantity] = { from: 0, to: params[:quantity] }
+          changed_attributes[:unit_weight] = { to: params[:unit_weight] } if params[:unit_weight]
+
+          aggregate_list.update_item_from_child_list(params[:description], changed_attributes)
 
           Service::OKResult.new(resource: lists_changed)
         end
