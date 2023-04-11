@@ -552,7 +552,13 @@ RSpec.describe InventoryList, type: :model do
 
       context 'when the quantity is less than the quantity on the aggregate list' do
         let(:aggregate_list) { create(:aggregate_inventory_list) }
-        let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
+        let(:item_attrs) do
+          {
+            'description' => 'Necklace',
+            'quantity' => 3,
+            'notes' => 'some notes',
+          }
+        end
 
         before do
           create(
@@ -639,7 +645,14 @@ RSpec.describe InventoryList, type: :model do
         end
 
         let(:other_list) { create(:inventory_list, game: aggregate_list.game, aggregate_list:) }
-        let!(:item_on_other_list) { create(:inventory_item, list: other_list, description:, unit_weight: 1) }
+        let!(:item_on_other_list) do
+          create(
+            :inventory_item,
+            list: other_list,
+            description:,
+            unit_weight: 1,
+          )
+        end
 
         let!(:aggregate_list_item) do
           create(
