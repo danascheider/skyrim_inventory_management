@@ -380,7 +380,14 @@ RSpec.describe ShoppingList, type: :model do
       let(:aggregate_list) { create(:aggregate_shopping_list) }
 
       context 'when there is no matching item on the aggregate list' do
-        let(:list_item) { create(:shopping_list_item, notes: "shouldn't be on aggregate list") }
+        let(:list_item) do
+          create(
+            :shopping_list_item,
+            quantity: 3,
+            unit_weight: 4,
+            notes: "shouldn't be on aggregate list",
+          )
+        end
 
         it 'creates a corresponding item on the aggregate list' do
           expect { add_item }
@@ -395,6 +402,98 @@ RSpec.describe ShoppingList, type: :model do
             'notes' => nil,
             'unit_weight' => list_item.unit_weight,
           )
+        end
+      end
+
+      context 'when there is a matching item on the aggregate list' do
+        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+
+        let!(:item_on_other_list) do
+          create(
+            :shopping_list_item,
+            description: 'Dwarven metal ingot',
+            list: other_list,
+            unit_weight: 0.3,
+          )
+        end
+
+        context 'when the new item has notes' do
+          let!(:existing_list_item) { create(:shopping_list_item, list: aggregate_list, quantity: 3) }
+
+          let(:list_item) do
+            create(
+              :shopping_list_item,
+              description: existing_list_item.description,
+              quantity: 2,
+              notes: 'foobar',
+            )
+          end
+
+          it 'combines the quantities but not the notes values', :aggregate_failures do
+            add_item
+            expect(existing_list_item.reload.quantity).to eq 5
+            expect(existing_list_item.reload.notes).to be_nil
+          end
+        end
+
+        context "when the new item doesn't have a unit weight" do
+          let!(:existing_list_item) do
+            create(
+              :shopping_list_item,
+              description: 'Dwarven metal ingot',
+              list: aggregate_list,
+              unit_weight: 0.3,
+            )
+          end
+
+          let(:list_item) do
+            create(
+              :shopping_list_item,
+              description: existing_list_item.description,
+              quantity: 2,
+              unit_weight: nil,
+            )
+          end
+
+          it 'leaves the unit weight as-is on the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.3
+          end
+
+          it 'leaves the unit weight as-is on the other regular list item' do
+            add_item
+            expect(item_on_other_list.reload.unit_weight).to eq 0.3
+          end
+        end
+
+        context 'when the new item has a unit weight' do
+          let!(:existing_list_item) do
+            create(
+              :shopping_list_item,
+              description: 'Dwarven metal ingot',
+              unit_weight: 0.3,
+              list: aggregate_list,
+            )
+          end
+
+          let(:list_item) do
+            create(
+              :shopping_list_item,
+              description: 'Dwarven metal ingot',
+              quantity: 2,
+              unit_weight: 0.2,
+            )
+          end
+
+          it 'updates the unit weight of the existing item' do
+            add_item
+            expect(existing_list_item.reload.unit_weight).to eq 0.2
+          end
+
+          it 'updates the unit weight of the item on the other list' do
+            add_item
+            expect(item_on_other_list.reload.unit_weight).to eq 0.2
+          end
         end
       end
 
