@@ -7,6 +7,57 @@ RSpec.describe ShoppingListItem, type: :model do
   let(:aggregate_list) { create(:aggregate_shopping_list, game:) }
   let(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
 
+  describe 'validation' do
+    let(:item) { build(:shopping_list_item) }
+
+    it 'is invalid with a quantity less than 1' do
+      item.quantity = 0
+      item.validate
+      expect(item.errors[:quantity]).to include('must be greater than 0')
+    end
+
+    it 'is invalid with a decimal quantity' do
+      item.quantity = 1.5
+      item.validate
+      expect(item.errors[:quantity]).to include('must be an integer')
+    end
+
+    it 'is invalid with a non-numeric quantity' do
+      item.quantity = 'foo'
+      item.validate
+      expect(item.errors[:quantity]).to include('is not a number')
+    end
+
+    it 'is invalid with a negative unit weight' do
+      item.unit_weight = -1
+      item.validate
+      expect(item.errors[:unit_weight]).to include('must be greater than or equal to 0')
+    end
+
+    it 'is invalid with a non-numeric unit weight' do
+      item.unit_weight = 'foo'
+      item.validate
+      expect(item.errors[:unit_weight]).to include('is not a number')
+    end
+
+    it 'is valid with a decimal unit weight' do
+      item.unit_weight = 0.1
+      expect(item).to be_valid
+    end
+
+    it 'is valid with notes if not on an aggregate list' do
+      item.notes = 'hello world'
+      expect(item).to be_valid
+    end
+
+    it 'is invalid with notes if on an aggregate list' do
+      item.list = aggregate_list
+      item.notes = 'hello world'
+      item.validate
+      expect(item.errors[:notes]).to include('cannot be present on an aggregate list item')
+    end
+  end
+
   describe 'delegation' do
     let(:list_item) { create(:shopping_list_item, list: shopping_list) }
 
@@ -89,9 +140,28 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '::combine_or_create!' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
+      subject(:combine_or_create) do
+        described_class.combine_or_create!(
+          description: 'existing item',
+          quantity: 1,
+          list: shopping_list,
+          notes: notes2,
+        )
+      end
 
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: shopping_list, notes: 'notes 1') }
+      let!(:existing_item) do
+        create(
+          :shopping_list_item,
+          description: 'ExIsTiNg ItEm',
+          quantity: 2,
+          unit_weight: 0.3,
+          list: shopping_list,
+          notes: notes1,
+        )
+      end
+
+      let(:notes1) { 'notes 1' }
+      let(:notes2) { 'notes 2' }
 
       it "doesn't create a new list item" do
         expect { combine_or_create }
@@ -105,7 +175,7 @@ RSpec.describe ShoppingListItem, type: :model do
 
       it 'concatenates the notes for the two items' do
         combine_or_create
-        expect(existing_item.reload.notes).to eq 'notes 1 -- notes 2'
+        expect(existing_item.reload.notes).to eq "#{notes1} -- #{notes2}"
       end
 
       context "when the new item doesn't have a unit_weight" do
@@ -116,36 +186,90 @@ RSpec.describe ShoppingListItem, type: :model do
       end
 
       context 'when the new item has a unit_weight' do
-        subject(:combine_or_create) { described_class.combine_or_create!(description: 'existing item', quantity: 1, list: shopping_list, unit_weight: 0.2, notes: 'notes 2') }
+        subject(:combine_or_create) do
+          described_class.combine_or_create!(
+            description: 'existing item',
+            quantity: 1,
+            list: shopping_list,
+            unit_weight: 0.2,
+            notes: notes2,
+          )
+        end
 
         it 'uses the unit_weight from the new item' do
           combine_or_create
           expect(existing_item.reload.unit_weight).to eq 0.2
         end
       end
+
+      context 'when the list is an aggregate list' do
+        let(:shopping_list) { aggregate_list }
+        let(:notes1) { nil }
+        let(:notes2) { 'notes 2' }
+
+        it 'leaves the notes as nil' do
+          combine_or_create
+          expect(shopping_list.list_items.last.reload.notes).to be_nil
+        end
+      end
     end
 
     context 'when there is an existing item on a different list with the same (case-insensitive) description' do
-      subject(:combine_or_create) { described_class.combine_or_create!(description: 'New Item', quantity: 1, list: shopping_list, unit_weight: nil) }
+      subject(:combine_or_create) do
+        described_class.combine_or_create!(
+          description: 'New Item',
+          quantity: 1,
+          list: shopping_list,
+          unit_weight:,
+        )
+      end
+
+      let!(:other_item) do
+        create(
+          :shopping_list_item,
+          description: 'New Item',
+          list: other_list,
+          unit_weight: 1,
+        )
+      end
 
       let(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-      let!(:other_item) { create(:shopping_list_item, description: 'New Item', list: other_list, unit_weight: 1) }
 
       before do
         aggregate_list.add_item_from_child_list(other_item)
       end
 
-      it 'sets the unit weight to that of the existing item' do
-        expect(combine_or_create.unit_weight).to eq 1
+      context 'when unit_weight is nil' do
+        let(:unit_weight) { nil }
+
+        it 'sets the unit weight to that of the existing item' do
+          expect(combine_or_create.unit_weight).to eq 1
+        end
       end
     end
   end
 
   describe '::combine_or_new' do
     context 'when there is an existing item on the same list with the same (case-insensitive) description' do
-      subject(:combine_or_new) { described_class.combine_or_new(description: 'existing item', quantity: 1, list: shopping_list, notes: 'notes 2') }
+      subject(:combine_or_new) do
+        described_class.combine_or_new(
+          description: 'existing item',
+          quantity: 1,
+          list: shopping_list,
+          notes: 'notes 2',
+        )
+      end
 
-      let!(:existing_item) { create(:shopping_list_item, description: 'ExIsTiNg ItEm', quantity: 2, unit_weight: 0.3, list: shopping_list, notes: 'notes 1') }
+      let!(:existing_item) do
+        create(
+          :shopping_list_item,
+          description: 'ExIsTiNg ItEm',
+          quantity: 2,
+          unit_weight: 0.3,
+          list: shopping_list,
+          notes: 'notes 1',
+        )
+      end
 
       before do
         allow(described_class).to receive(:new)
@@ -182,7 +306,13 @@ RSpec.describe ShoppingListItem, type: :model do
     end
 
     context 'when there is not an existing item on the same list with that description' do
-      subject(:combine_or_new) { described_class.combine_or_new(description: 'new item', quantity: 1, list: shopping_list) }
+      subject(:combine_or_new) do
+        described_class.combine_or_new(
+          description: 'new item',
+          quantity: 1,
+          list: shopping_list,
+        )
+      end
 
       before do
         allow(described_class).to receive(:new).and_call_original
@@ -209,6 +339,42 @@ RSpec.describe ShoppingListItem, type: :model do
         it "sets the new item's unit weight to match the existing items" do
           expect(combine_or_new.unit_weight).to eq 1
         end
+      end
+    end
+
+    context 'when the new item is on an aggregate list' do
+      subject(:combine_or_new) do
+        described_class.combine_or_new(
+          description: 'new item',
+          quantity: 3,
+          list: aggregate_list,
+          notes: 'foobar',
+        )
+      end
+
+      it "doesn't set a 'notes' value on the aggregate list item" do
+        expect(combine_or_new.notes).to be_nil
+      end
+    end
+
+    context 'when the existing item is on an aggregate list' do
+      subject(:combine_or_new) do
+        described_class.combine_or_new(
+          description: 'new item',
+          quantity: 3,
+          list: aggregate_list,
+          notes: 'foobar',
+        )
+      end
+
+      before do
+        aggregate_list.list_items.create!(description: 'new item', quantity: 1)
+      end
+
+      it "doesn't set a 'notes' value on the aggregate list item", :aggregate_failures do
+        new_item = combine_or_new
+        expect(new_item.quantity).to eq 4
+        expect(new_item.notes).to be_nil
       end
     end
   end

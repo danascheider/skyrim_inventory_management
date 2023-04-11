@@ -19,24 +19,18 @@ class ShoppingListItemsController < ApplicationController
     def perform
       return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
 
-      delta_qty = params[:quantity] ? params[:quantity].to_i - list_item.quantity : 0
-      old_notes = list_item.notes
-      unit_weight_changed = params.has_key?(:unit_weight) && params[:unit_weight] != list_item.unit_weight
+      changed_attributes = {}
+      changed_attributes[:quantity] = { from: list_item.quantity, to: params[:quantity] } if quantity_changed?
+      changed_attributes[:unit_weight] = { to: params[:unit_weight] } if unit_weight_changed?
 
       ActiveRecord::Base.transaction do
         list_item.update!(params)
-
-        aggregate_list.update_item_from_child_list(
-          list_item.description,
-          delta_qty,
-          params[:unit_weight],
-          old_notes,
-          params[:notes],
-          unit_weight_changed,
-        )
+        aggregate_list.update_item_from_child_list(list_item.description, changed_attributes)
       end
 
-      Service::OKResult.new(resource: unit_weight_changed ? all_matching_items : [aggregate_list_item, list_item.reload])
+      Service::OKResult.new(
+        resource: changed_attributes[:unit_weight].present? ? all_matching_items : [aggregate_list_item, list_item.reload],
+      )
     rescue ActiveRecord::RecordInvalid
       Service::UnprocessableEntityResult.new(errors: list_item.error_array)
     rescue ActiveRecord::RecordNotFound
@@ -68,6 +62,14 @@ class ShoppingListItemsController < ApplicationController
 
     def aggregate_list_item
       aggregate_list.list_items.find_by('description ILIKE ?', list_item.description)
+    end
+
+    def quantity_changed?
+      params[:quantity].present? && params[:quantity] != list_item.quantity
+    end
+
+    def unit_weight_changed?
+      params.has_key?(:unit_weight) && params[:unit_weight] != list_item.unit_weight
     end
 
     def all_matching_items

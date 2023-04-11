@@ -9,6 +9,7 @@ module Listable
     validates :description, presence: true, uniqueness: { scope: :list_id, case_sensitive: false }
     validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+    validate :no_notes_on_aggregate_item, if: -> { list.aggregate }
     validate :prevent_changed_description, on: :update
 
     before_save :clean_up_notes
@@ -40,31 +41,39 @@ module Listable
       list = new_attrs[:list] || list_class.find(new_attrs[:list_id])
       existing_item = list.list_items.find_by('description ILIKE ?', new_attrs[:description])
 
-      if existing_item.nil?
-        if list.aggregate_list
-          aggregate_list_item = list.aggregate_list.list_items.find_by('description ILIKE ?', new_attrs[:description])
+      new_attrs.delete(:notes) if list.aggregate_list?
 
-          new_attrs[:unit_weight] ||= aggregate_list_item&.unit_weight
-        end
+      new_attrs[:quantity] ||= 1
+      new_attrs[:quantity] += existing_item&.quantity.to_i
+      new_attrs[:unit_weight] ||= existing_item&.unit_weight
+      new_attrs[:notes] = [existing_item&.notes, new_attrs[:notes]].compact.join(' -- ').presence
 
-        new new_attrs
-      else
-        qty = new_attrs[:quantity] || 1
-        new_notes = new_attrs[:notes]
-        new_weight = new_attrs[:unit_weight] || existing_item.unit_weight
-        old_notes = existing_item.notes
+      if new_attrs[:unit_weight].nil? && !list.aggregate_list?
+        aggregate_item = list
+                           .aggregate_list
+                           .list_items.find_by(
+                             'description ILIKE ?',
+                             new_attrs[:description],
+                           )
 
-        new_quantity = existing_item.quantity + qty
-        new_notes = [old_notes, new_notes].compact.join(' -- ').presence
+        new_attrs[:unit_weight] = aggregate_item&.unit_weight
+      end
 
-        existing_item.assign_attributes(quantity: new_quantity, notes: new_notes, unit_weight: new_weight)
+      if existing_item.present?
+        existing_item.assign_attributes(new_attrs.except(:description))
         existing_item
+      else
+        new(new_attrs)
       end
     end
   end
 
   def prevent_changed_description
     errors.add(:description, 'cannot be updated on an existing list item') if description_changed?
+  end
+
+  def no_notes_on_aggregate_item
+    errors.add(:notes, 'cannot be present on an aggregate list item') if notes.present?
   end
 
   def clean_up_notes

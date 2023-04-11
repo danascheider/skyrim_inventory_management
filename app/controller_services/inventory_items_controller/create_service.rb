@@ -32,7 +32,11 @@ class InventoryItemsController < ApplicationController
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
           Service::CreatedResult.new(resource:)
         else
-          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], params[:quantity], params[:unit_weight], nil, params[:notes])
+          changed_attributes = {}
+          changed_attributes[:quantity] = { from: 0, to: params[:quantity] }
+          changed_attributes[:unit_weight] = { to: params[:unit_weight] } if params[:unit_weight].present?
+
+          aggregate_list_item = aggregate_list.update_item_from_child_list(params[:description], changed_attributes)
 
           resource = params[:unit_weight] ? all_matching_list_items : [aggregate_list_item, item]
 

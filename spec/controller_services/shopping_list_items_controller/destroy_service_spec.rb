@@ -81,12 +81,6 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(aggregate_list.list_items.first.quantity).to eq 2
         end
 
-        it 'changes the notes of the aggregate list item', :aggregate_failures do
-          perform
-          expect(aggregate_list.list_items.first.notes).to match(/some other notes/)
-          expect(aggregate_list.list_items.first.notes).not_to match(/some notes/)
-        end
-
         it 'sets the updated_at timestamp on the shopping list' do
           t = Time.zone.now + 3.days
           Timecop.freeze(t) do

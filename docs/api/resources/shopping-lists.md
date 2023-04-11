@@ -64,7 +64,7 @@ For a game with multiple lists:
         "list_id": 43,
         "description": "Unenchanted ebony sword",
         "quantity": 1,
-        "notes": "Need an unenchanted sword to start Companions questline",
+        "notes": null,
         "unit_weight": null,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -74,7 +74,7 @@ For a game with multiple lists:
         "list_id": 43,
         "description": "Iron ingot",
         "quantity": 4,
-        "notes": "3 locks -- 2 hinges",
+        "notes": null,
         "unit_weight": 1.0,
         "created_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"
@@ -478,7 +478,7 @@ Body including an aggregate list that was not destroyed:
         "list_id": 834,
         "description": "Ebony sword",
         "quantity": 1,
-        "notes": "To enchant with Soul Trap",
+        "notes": null,
         "unit_weight": 14.0,
         "created_at": "Tue, 15 Jun 2021 12:34:32.713457000 UTC +00:00",
         "updated_at": "Thu, 17 Jun 2021 11:59:16.891338000 UTC +00:00"

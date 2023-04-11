@@ -57,7 +57,7 @@ RSpec.describe InventoryItemsController::CreateService do
             it 'updates the item on the aggregate list', :aggregate_failures do
               perform
               expect(aggregate_list.list_items.first.quantity).to eq 3
-              expect(aggregate_list.list_items.first.notes).to eq 'Hello world'
+              expect(aggregate_list.list_items.first.notes).to be_nil
             end
 
             it 'returns a Service::CreatedResult' do
@@ -80,8 +80,8 @@ RSpec.describe InventoryItemsController::CreateService do
             it 'updates the item on the aggregate list', :aggregate_failures do
               perform
               expect(aggregate_list.list_items.first.quantity).to eq 3
-              expect(aggregate_list.list_items.first.notes).to eq 'Hello world'
               expect(aggregate_list.list_items.first.unit_weight).to eq 0.5
+              expect(aggregate_list.list_items.first.notes).to be_nil
             end
 
             it "updates the other item's unit_weight", :aggregate_failures do

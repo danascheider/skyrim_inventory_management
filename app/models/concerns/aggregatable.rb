@@ -91,38 +91,53 @@ module Aggregatable
       existing_item.destroy!
     else
       existing_item.quantity -= attrs['quantity']
-      existing_item.notes = extract_notes(attrs['notes'], existing_item.notes)
       existing_item.save!
     end
 
     existing_item&.persisted? ? existing_item : nil
   end
 
-  def update_item_from_child_list(description, delta_quantity, unit_weight, old_notes, new_notes, unit_weight_changed = false)
+  # Example: agg_list.update_item_from_child_list('Existing item', quantity: { from: 3, to: 2 }, unit_weight: { to: 0.1 })
+  # Note: unit_weight is a hash with only a `to:` value, while `quantity` is a hash with `from:` and `to:` values
+  def update_item_from_child_list(description, changed_attributes = {})
     raise AggregateListError.new('update_item_from_child_list method only available on aggregate lists') unless aggregate_list?
 
     existing_item = list_items.find_by('description ILIKE ?', description)
 
-    raise AggregateListError.new('Invalid data to update aggregate list item') if existing_item.nil? || delta_quantity < (-existing_item.quantity) || (unit_weight && (!unit_weight.is_a?(Numeric) || unit_weight < 0))
+    raise AggregateListError.new("No aggregate list item with description \"#{description}\"") if existing_item.blank?
 
-    existing_item.quantity += delta_quantity
-    existing_item.notes = if old_notes.nil? && new_notes.present?
-                            [existing_item.notes.to_s, new_notes.to_s].join(' -- ')
-                          else
-                            existing_item.notes&.sub(/#{old_notes}/, new_notes.to_s).presence || new_notes
-                          end
-
-    if unit_weight.present? || unit_weight_changed
-      existing_item.unit_weight = unit_weight
-
-      other_items = child_lists.all.map(&:list_items)
-      other_items.flatten!
-
-      other_items.each {|item| item.update!(unit_weight:) if item.description.casecmp(description).zero? }
-    end
+    adjust_quantity(existing_item, changed_attributes[:quantity])
+    adjust_unit_weight(existing_item, changed_attributes[:unit_weight])
 
     existing_item.save!
     existing_item
+  end
+
+  def adjust_quantity(item, quantity)
+    raise AggregateListError.new('adjust_quantity method only available on aggregate lists') unless aggregate_list?
+
+    return if quantity.blank?
+
+    raise AggregateListError.new('Invalid data to update aggregate list item') unless quantity[:from].is_a?(Integer) && quantity[:to].is_a?(Integer) && quantity[:to] > 0
+
+    delta = quantity[:to] - quantity[:from]
+    item.quantity += delta
+  end
+
+  def adjust_unit_weight(item, unit_weight)
+    raise AggregateListError.new('adjust_unit_weight method only available on aggregate lists') unless aggregate_list?
+
+    return if unit_weight.blank?
+
+    raise AggregateListError.new('Invalid data to update aggregate list item') if unit_weight[:to].present? && (!unit_weight[:to].is_a?(Numeric) || unit_weight[:to] < 0)
+
+    other_items = child_lists.all.map(&:list_items)
+    other_items.flatten!
+
+    item.unit_weight = unit_weight[:to]
+    other_items.each do |other_item|
+      other_item.update!(unit_weight: unit_weight[:to]) if other_item.description.casecmp(item.description).zero?
+    end
   end
 
   def extract_notes(notes, existing)
