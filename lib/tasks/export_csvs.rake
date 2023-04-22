@@ -6,7 +6,7 @@ def concatenate_values(array, *keys_to_concatenate)
   output_value = Array.new(keys_to_concatenate.length)
 
   keys_to_concatenate.each_with_index do |key, index|
-    values = array.map {|item| item[key] }
+    values = array.pluck(key)
 
     output_value[index] = values.empty? ? nil : values.join(',')
   end

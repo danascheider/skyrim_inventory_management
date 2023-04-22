@@ -16,13 +16,12 @@ class ShoppingList < ApplicationRecord
 
   before_save :format_title
 
+  include Aggregatable
   # This has to be defined before including AggregateListable because its `included` block
   # calls this method.
   def self.list_item_class_name
     'ShoppingListItem'
   end
-
-  include Aggregatable
 
   scope :index_order, -> { includes_items.aggregate_first.order(updated_at: :desc) }
   scope :belonging_to_user, ->(user) { joins(:game).where(games: { user_id: user.id }).order('shopping_lists.updated_at DESC') }
