@@ -18,7 +18,7 @@ gem 'puma', '~> 6.2.2'
 gem 'bootsnap', '>= 1.12.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors', '~> 1.1.1'
+gem 'rack-cors', '~> 2.0.1'
 
 # Use Faraday to validate Google auth access tokens
 gem 'faraday', '~> 2.7.4'
