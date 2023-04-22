@@ -219,7 +219,7 @@ GEM
     ruby2_keywords (0.0.5)
     spring (4.0.0)
     thor (1.2.1)
-    timecop (0.9.5)
+    timecop (0.9.6)
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
