@@ -115,6 +115,11 @@ Layout/ClassStructure:
       - public_methods
       - protected_methods
       - private_methods
+  Exclude:
+    - app/models/inventory_item.rb
+    - app/models/inventory_list.rb
+    - app/models/shopping_list.rb
+    - app/models/shopping_list_item.rb
 Layout/ClosingHeredocIndentation:
   Description: 'Checks the indentation of here document closings.'
   Enabled: true
