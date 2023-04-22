@@ -115,6 +115,11 @@ Layout/ClassStructure:
       - public_methods
       - protected_methods
       - private_methods
+  Exclude:
+    - app/models/inventory_item.rb
+    - app/models/inventory_list.rb
+    - app/models/shopping_list.rb
+    - app/models/shopping_list_item.rb
 Layout/ClosingHeredocIndentation:
   Description: 'Checks the indentation of here document closings.'
   Enabled: true
@@ -736,7 +741,7 @@ Style/BlockDelimiters:
     - let!
     - subject
     - watch
-  IgnoredMethods:
+  AllowedMethods:
     # Methods that can be either procedural or functional and cannot be
     # categorised from their usage alone, e.g.
     #
@@ -763,7 +768,7 @@ Style/ClassCheck:
   EnforcedStyle: is_a?
 Style/ClassEqualityComparison:
   Enabled: true
-  IgnoredMethods:
+  AllowedMethods:
     - ==
     - equal?
     - eql?
@@ -1145,7 +1150,7 @@ Style/SymbolLiteral:
 Style/SymbolProc:
   Enabled: true
   AllowMethodsWithArguments: false
-  IgnoredMethods:
+  AllowedMethods:
     - respond_to
     - define_method
 Style/TernaryParentheses:

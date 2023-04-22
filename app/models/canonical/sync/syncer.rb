@@ -62,7 +62,7 @@ module Canonical
       end
 
       def destroy_existing_models
-        identifiers = json_data.pluck(:attributes).map {|item| item[model_identifier] }
+        identifiers = json_data.pluck(:attributes).pluck(model_identifier)
         model_class.where.not(model_identifier => identifiers).destroy_all
       end
     end
