@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_234250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "smithing_perks", default: [], array: true
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
@@ -59,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_books_on_item_code", unique: true
   end
 
@@ -75,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "enchantable", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
@@ -142,6 +145,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "enchantable", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
@@ -168,6 +172,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_misc_items_on_item_code", unique: true
   end
 
@@ -183,6 +188,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
   end
 
@@ -248,6 +254,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "leveled", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_staves_on_item_code", unique: true
   end
 
@@ -290,6 +297,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_061409) do
     t.boolean "quest_item", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
