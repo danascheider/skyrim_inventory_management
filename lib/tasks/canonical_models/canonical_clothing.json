@@ -10,7 +10,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -30,7 +31,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -50,7 +52,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -74,7 +77,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -98,7 +102,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -122,7 +127,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -146,7 +152,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -170,7 +177,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -185,7 +193,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -205,7 +214,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -225,7 +235,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -249,7 +260,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -273,7 +285,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -297,7 +310,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -321,7 +335,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -345,7 +360,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -365,7 +381,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -380,7 +397,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -400,7 +418,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -415,7 +434,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -430,7 +450,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -450,7 +471,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -465,7 +487,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -480,7 +503,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -495,7 +519,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -510,7 +535,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -525,7 +551,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -540,7 +567,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -555,7 +583,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -570,7 +599,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -585,7 +615,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -605,7 +636,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -629,7 +661,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -644,7 +677,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -664,7 +698,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -679,7 +714,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -694,7 +730,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -709,7 +746,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -724,7 +762,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -739,7 +778,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -759,7 +799,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -779,7 +820,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -794,7 +836,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -809,7 +852,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -829,7 +873,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -853,7 +898,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -877,7 +923,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -901,7 +948,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -925,7 +973,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -949,7 +998,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -964,7 +1014,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -979,7 +1030,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -994,7 +1046,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1009,7 +1062,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1024,7 +1078,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1039,7 +1094,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1054,7 +1110,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1069,7 +1126,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1084,7 +1142,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1099,7 +1158,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1114,7 +1174,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1129,7 +1190,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1144,7 +1206,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1159,7 +1222,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1174,7 +1238,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1194,7 +1259,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1209,7 +1275,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1224,7 +1291,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1239,7 +1307,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1259,7 +1328,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1279,7 +1349,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1299,7 +1370,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1323,7 +1395,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1338,7 +1411,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1358,7 +1432,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1373,7 +1448,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1388,7 +1464,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1403,7 +1480,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1423,7 +1501,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1447,7 +1526,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1462,7 +1542,7 @@
   },
   {
     "attributes": {
-      "name": "Master Robes of Conjuration \u0026 Illusion",
+      "name": "Master Robes of Conjuration & Illusion",
       "item_code": "FEXXX839",
       "magical_effects": null,
       "body_slot": "body",
@@ -1471,7 +1551,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1499,7 +1580,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1523,7 +1605,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1547,7 +1630,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1571,7 +1655,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1586,7 +1671,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1601,7 +1687,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1616,7 +1703,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1631,7 +1719,8 @@
       "quest_item": true,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1646,7 +1735,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1661,7 +1751,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1676,7 +1767,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1696,7 +1788,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1711,7 +1804,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1731,7 +1825,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1751,7 +1846,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1775,7 +1871,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1790,7 +1887,7 @@
   },
   {
     "attributes": {
-      "name": "Novice Robes of Conjuration \u0026 Illusion",
+      "name": "Novice Robes of Conjuration & Illusion",
       "item_code": "FEXXX835",
       "magical_effects": null,
       "body_slot": "body",
@@ -1799,7 +1896,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1827,7 +1925,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1851,7 +1950,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1875,7 +1975,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -1899,7 +2000,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1914,7 +2016,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1929,7 +2032,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1944,7 +2048,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1959,7 +2064,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1974,7 +2080,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -1989,7 +2096,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2004,7 +2112,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2019,7 +2128,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2034,7 +2144,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2049,7 +2160,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2064,7 +2176,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2079,7 +2192,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2103,7 +2217,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2127,7 +2242,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2151,7 +2267,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2175,7 +2292,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2199,7 +2317,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2223,7 +2342,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2247,7 +2367,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2271,7 +2392,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2295,7 +2417,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2319,7 +2442,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2343,7 +2467,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2367,7 +2492,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2391,7 +2517,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2415,7 +2542,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2439,7 +2567,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2463,7 +2592,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2487,7 +2617,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2511,7 +2642,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2535,7 +2667,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2559,7 +2692,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2583,7 +2717,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2607,7 +2742,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2631,7 +2767,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2655,7 +2792,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2679,7 +2817,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2703,7 +2842,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2727,7 +2867,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2751,7 +2892,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2775,7 +2917,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2795,7 +2938,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2815,7 +2959,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2835,7 +2980,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2859,7 +3005,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2879,7 +3026,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2894,7 +3042,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2909,7 +3058,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2924,7 +3074,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -2939,7 +3090,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2959,7 +3111,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -2979,12 +3132,13 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
         "name": "Muffle",
-        "strength": 1.0
+        "strength": 1
       }
     ]
   },
@@ -2999,7 +3153,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -3023,7 +3178,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3038,7 +3194,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3053,7 +3210,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3068,7 +3226,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -3088,7 +3247,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3103,7 +3263,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3118,7 +3279,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": [
       {
@@ -3138,7 +3300,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3153,7 +3316,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3168,7 +3332,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3183,7 +3348,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3198,7 +3364,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3213,7 +3380,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3228,7 +3396,8 @@
       "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false
+      "enchantable": false,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3243,7 +3412,8 @@
       "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   },
@@ -3258,7 +3428,8 @@
       "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true
+      "enchantable": true,
+      "quest_reward": false
     },
     "enchantments": []
   }

@@ -3,7 +3,7 @@
     "attributes": {
       "name": "Aetherium Crest",
       "item_code": "XX00575B",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -11,7 +11,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": true
     }
   },
   {
@@ -26,7 +27,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -41,7 +43,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -56,7 +59,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -71,14 +75,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Albino Spider Pod",
       "item_code": "XX017719",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "animal part"
       ],
@@ -86,7 +91,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -101,7 +107,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -116,7 +123,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -131,14 +139,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Ancient Traveler's Skull",
       "item_code": "000F6767",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "animal part"
       ],
@@ -146,7 +155,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -161,14 +171,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Attunement Sphere",
       "item_code": "0003532C",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -176,14 +187,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Azura's Star",
       "item_code": "00063B27",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "daedric artifact"
       ],
@@ -191,14 +203,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Bee in a Jar",
       "item_code": "000B08C7",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -206,14 +219,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Blank Lexicon",
       "item_code": "0003A3D2",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -221,14 +235,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Bone Hawk Claw",
       "item_code": "XX011CF7",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "animal part"
       ],
@@ -236,7 +251,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -251,14 +267,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Bust of the Gray Fox",
       "item_code": "00019954",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -266,14 +283,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Butterfly in a Jar",
       "item_code": "000FBC3C",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -281,7 +299,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -296,14 +315,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Centurion Dynamo Core",
       "item_code": "000F4983",
-      "unit_weight": 4.0,
+      "unit_weight": 4,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -311,7 +331,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -326,7 +347,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -341,14 +363,15 @@
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Child's Doll",
       "item_code": "XX00C1DE",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -356,7 +379,8 @@
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -371,14 +395,15 @@
       "purchasable": true,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Crown of Barenziah",
       "item_code": "0009DFF5",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -386,14 +411,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Crown of Barenziah",
       "item_code": "000DA74D",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -401,14 +427,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Curious Silver Mold",
       "item_code": "00044E12",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -416,14 +443,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Damaged Albino Spider Pod",
       "item_code": "XX01771F",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "animal part"
       ],
@@ -431,7 +459,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -446,7 +475,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -461,14 +491,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dibella Statue",
       "item_code": "0008F997",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -476,7 +507,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -491,14 +523,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dragon Heartscales",
       "item_code": "000D0756",
-      "unit_weight": 10.0,
+      "unit_weight": 10,
       "item_types": [
         "animal part"
       ],
@@ -506,14 +539,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dragonfly in a Jar",
       "item_code": "000FBC3B",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -521,14 +555,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dragonstone",
       "item_code": "000DF202",
-      "unit_weight": 25.0,
+      "unit_weight": 25,
       "item_types": [
         "miscellaneous"
       ],
@@ -536,14 +571,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwarven Crossbow Schematic",
       "item_code": "XX00F1C8",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -551,14 +587,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Cog",
       "item_code": "000AEBF1",
-      "unit_weight": 10.0,
+      "unit_weight": 10,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -566,14 +603,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Exploding Fire Bolt Schematic",
       "item_code": "XX006BAD",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -581,14 +619,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Exploding Ice Bolt Schematic",
       "item_code": "XX00F1C4",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -596,14 +635,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Exploding Shock Bolt Schematic",
       "item_code": "XX00F1C5",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -611,14 +651,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Gyro",
       "item_code": "000C8868",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -626,14 +667,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Dwemer Puzzle Cube",
       "item_code": "0005598C",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy",
         "Dwemer artifact"
@@ -642,14 +684,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "East Empire Shipping Map",
       "item_code": "00060CC2",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy",
         "map"
@@ -658,7 +701,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -673,14 +717,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Eldergleam Sapling",
       "item_code": "0001CB81",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -688,7 +733,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -703,7 +749,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -718,7 +765,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -733,14 +781,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Enhanced Crossbow Schematic",
       "item_code": "XX00F1C7",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -748,14 +797,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Enhanced Dwarven Crossbow Schematic",
       "item_code": "XX00F1C9",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -763,14 +813,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Essence Extractor",
       "item_code": "0001A31C",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -778,7 +829,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -793,14 +845,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Finn's Lute",
       "item_code": "000DABAB",
-      "unit_weight": 4.0,
+      "unit_weight": 4,
       "item_types": [
         "miscellaneous"
       ],
@@ -808,14 +861,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Focusing Crystal",
       "item_code": "0009F7A6",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -823,14 +877,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Gildergreen Sapling",
       "item_code": "0005C09E",
-      "unit_weight": 8.0,
+      "unit_weight": 8,
       "item_types": [
         "miscellaneous"
       ],
@@ -838,7 +893,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -853,14 +909,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Glenmoril Witch Head",
       "item_code": "0002996F",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "miscellaneous"
       ],
@@ -868,7 +925,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -883,14 +941,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Golden Ship Model",
       "item_code": "00044E8B",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -898,14 +957,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Golden Urn",
       "item_code": "00044E63",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -913,14 +973,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Haelga's Statue of Dibella",
       "item_code": "00021EA3",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -928,14 +989,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Heart Stone",
       "item_code": "XX017749",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -943,14 +1005,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Honningbrew Decanter",
       "item_code": "00019952",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -958,14 +1021,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Horn of Jurgen Windcaller",
       "item_code": "0003292F",
-      "unit_weight": 4.0,
+      "unit_weight": 4,
       "item_types": [
         "miscellaneous"
       ],
@@ -973,14 +1037,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Imperial War Horn",
       "item_code": "000200BA",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "miscellaneous"
       ],
@@ -988,7 +1053,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -1003,7 +1069,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1018,14 +1085,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Jeweled Candlestick",
       "item_code": "00044E6A",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1033,14 +1101,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Jeweled Flagon",
       "item_code": "00044E67",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1048,14 +1117,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Jeweled Goblet",
       "item_code": "00044E6C",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1063,14 +1133,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Jeweled Pitcher",
       "item_code": "00044E6E",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1078,7 +1149,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1093,14 +1165,15 @@
       "purchasable": true,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Klimmek's Supplies",
       "item_code": "000DAB04",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1108,14 +1181,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Left Eye of the Falmer",
       "item_code": "0001994F",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "larceny trophy"
       ],
@@ -1123,14 +1197,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Lockpick",
       "item_code": "0000000A",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1138,14 +1213,15 @@
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Mammoth Tusk",
       "item_code": "0003AD6C",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "animal part"
       ],
@@ -1153,7 +1229,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1168,14 +1245,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Map of Dragon Burials",
       "item_code": "000BBCD5",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "book"
       ],
@@ -1183,14 +1261,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Mercer's Plans",
       "item_code": "00037CE9",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1198,7 +1277,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1213,7 +1293,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1228,14 +1309,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Model Ship",
       "item_code": "0006F266",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1243,14 +1325,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Moth in a Jar",
       "item_code": "000FBC3D",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -1258,7 +1341,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -1273,7 +1357,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1288,14 +1373,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Opaque Vessel",
       "item_code": "0003E6BC",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1303,14 +1389,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Opaque Vessel",
       "item_code": "0003E6BB",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1318,14 +1405,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Opaque Vessel",
       "item_code": "0008D770",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1333,14 +1421,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Ornate Drinking Horn",
       "item_code": "00044E65",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1348,14 +1437,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Pantea's Flute",
       "item_code": "000DABA7",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -1363,14 +1453,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Pelagius' Hip Bone",
       "item_code": "0004286C",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "animal part"
       ],
@@ -1378,7 +1469,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1393,14 +1485,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Potema's Skull",
       "item_code": "0009E01F",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "animal part"
       ],
@@ -1408,14 +1501,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Queen Bee Statue",
       "item_code": "00019958",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "larceny trophy"
       ],
@@ -1423,14 +1517,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Quill of Gemination",
       "item_code": "000C04BB",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1438,7 +1533,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1453,7 +1549,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1468,7 +1565,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1483,14 +1581,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Right Eye of the Falmer",
       "item_code": "001092B8",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "miscellaneous"
       ],
@@ -1498,14 +1597,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Rjorn's Drum",
       "item_code": "000DABA9",
-      "unit_weight": 4.0,
+      "unit_weight": 4,
       "item_types": [
         "miscellaneous"
       ],
@@ -1513,14 +1613,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Roll of Paper",
       "item_code": "00033761",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -1528,7 +1629,8 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -1543,7 +1645,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1558,14 +1661,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Ruined Book",
       "item_code": "000CE70B",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "book"
       ],
@@ -1573,14 +1677,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Runed Lexicon",
       "item_code": "0003A3DD",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "Dwemer artifact"
       ],
@@ -1588,7 +1693,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1603,7 +1709,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1618,7 +1725,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1633,14 +1741,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Satchel of Moon Sugar",
       "item_code": "000D8E43",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1648,7 +1757,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1663,14 +1773,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Sigil Stone",
       "item_code": "000D363B",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1678,14 +1789,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Silver Hand Strategem",
       "item_code": "000F1491",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "book"
       ],
@@ -1693,14 +1805,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Sinding's Skin",
       "item_code": "0002AC62",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "animal part"
       ],
@@ -1708,14 +1821,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Skull",
       "item_code": "000AF5FD",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "animal part"
       ],
@@ -1723,14 +1837,15 @@
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Skull",
       "item_code": "XX020DCF",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "animal part"
       ],
@@ -1738,14 +1853,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Soaked Taproot",
       "item_code": "XX01AAD6",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -1753,14 +1869,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Soul Essence Gem",
       "item_code": "XX00EA6A",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1768,7 +1885,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1783,14 +1901,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Sylgja's Satchel",
       "item_code": "000E49F7",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1798,14 +1917,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "The Black Star",
       "item_code": "00063B29",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "daedric artifact"
       ],
@@ -1813,14 +1933,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "The Dancer's Flute",
       "item_code": "00105109",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -1828,14 +1949,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Tolfdir's Alembic",
       "item_code": "00026C31",
-      "unit_weight": 2.0,
+      "unit_weight": 2,
       "item_types": [
         "miscellaneous"
       ],
@@ -1843,14 +1965,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Torc of Labyrinthian",
       "item_code": "000A34F8",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "key"
       ],
@@ -1858,7 +1981,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1873,14 +1997,15 @@
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Torchbug in a Jar",
       "item_code": "000FBC3A",
-      "unit_weight": 1.0,
+      "unit_weight": 1,
       "item_types": [
         "miscellaneous"
       ],
@@ -1888,7 +2013,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -1903,14 +2029,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Torygg's War Horn",
       "item_code": "000E77BB",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "miscellaneous"
       ],
@@ -1918,14 +2045,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Verner's Satchel",
       "item_code": "000E49F8",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -1933,7 +2061,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1948,7 +2077,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1963,14 +2093,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Werewolf Pelt",
       "item_code": "000FE6A9",
-      "unit_weight": 5.0,
+      "unit_weight": 5,
       "item_types": [
         "pelt"
       ],
@@ -1978,7 +2109,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -1993,7 +2125,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -2008,7 +2141,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -2023,14 +2157,15 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
     "attributes": {
       "name": "Wylandriah's Soul Gem",
       "item_code": "00043E26",
-      "unit_weight": 0.0,
+      "unit_weight": 0,
       "item_types": [
         "miscellaneous"
       ],
@@ -2038,7 +2173,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -2053,7 +2189,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   },
   {
@@ -2068,7 +2205,8 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   }
 ]
