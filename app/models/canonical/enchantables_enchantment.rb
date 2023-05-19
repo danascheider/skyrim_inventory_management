@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_literal
-
 module Canonical
   class EnchantablesEnchantment < ApplicationRecord
     self.table_name = 'canonical_enchantables_enchantments'
