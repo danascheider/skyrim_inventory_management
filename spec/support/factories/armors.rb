@@ -5,7 +5,5 @@ FactoryBot.define do
     game
 
     name { 'Fur Helmet' }
-    unit_weight { 1 }
-    weight { 'light' }
   end
 end
