@@ -6,6 +6,7 @@ module Canonical
   class Armor < ApplicationRecord
     self.table_name = 'canonical_armors'
 
+    ARMOR_WEIGHTS = ['light armor', 'heavy armor'].freeze
     BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
@@ -42,7 +43,7 @@ module Canonical
     validates :weight,
               presence: true,
               inclusion: {
-                in: ['light armor', 'heavy armor'],
+                in: ARMOR_WEIGHTS,
                 message: 'must be "light armor" or "heavy armor"',
               }
     validates :body_slot,

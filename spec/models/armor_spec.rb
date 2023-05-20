@@ -11,6 +11,18 @@ RSpec.describe Armor, type: :model do
       armor.validate
       expect(armor.errors[:name]).to include "can't be blank"
     end
+
+    it 'is invalid with an invalid weight value' do
+      armor.weight = 'medium armor'
+      armor.validate
+      expect(armor.errors[:weight]).to include 'must be "light armor" or "heavy armor"'
+    end
+
+    it 'is invalid with a negative unit weight' do
+      armor.unit_weight = -2.5
+      armor.validate
+      expect(armor.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+    end
   end
 
   describe '#canonical_armors' do

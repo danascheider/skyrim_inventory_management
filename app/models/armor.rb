@@ -5,6 +5,18 @@ class Armor < ApplicationRecord
   belongs_to :canonical_armor, optional: true, class_name: 'Canonical::Armor'
 
   validates :name, presence: true
+  validates :weight,
+            inclusion: {
+              in: Canonical::Armor::ARMOR_WEIGHTS,
+              message: 'must be "light armor" or "heavy armor"',
+              allow_nil: true,
+            }
+
+  validates :unit_weight,
+            numericality: {
+              greater_than_or_equal_to: 0,
+              allow_nil: true,
+            }
 
   def canonical_armors
     return Array.wrap(canonical_armor) if canonical_armor
