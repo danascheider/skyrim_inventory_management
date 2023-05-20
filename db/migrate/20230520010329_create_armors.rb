@@ -3,7 +3,7 @@
 class CreateArmors < ActiveRecord::Migration[7.0]
   def change
     create_table :armors do |t|
-      t.references :game
+      t.references :game, null: false
       t.references :canonical_armor
 
       t.string :name, null: false

@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
   end
 
   create_table "armors", force: :cascade do |t|
-    t.bigint "game_id"
+    t.bigint "game_id", null: false
     t.bigint "canonical_armor_id"
     t.string "name", null: false
     t.decimal "unit_weight"
