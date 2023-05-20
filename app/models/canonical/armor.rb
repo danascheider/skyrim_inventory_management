@@ -35,6 +35,8 @@ module Canonical
              through: :canonical_temperables_tempering_materials,
              source: :material
 
+    has_many :armors, dependent: :nullify, inverse_of: :canonical_armor
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :weight,
