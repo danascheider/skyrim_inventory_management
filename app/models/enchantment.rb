@@ -32,8 +32,8 @@ class Enchantment < ApplicationRecord
 
   STRENGTH_UNITS = %w[percentage point second level].freeze
 
-  has_many :canonical_enchantables_enchantments, class_name: 'Canonical::EnchantablesEnchantment', dependent: :destroy
-  has_many :enchantables, through: :canonical_enchantables_enchantments
+  has_many :enchantables_enchantments, dependent: :destroy
+  has_many :enchantables, through: :enchantables_enchantments
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :strength_unit,

@@ -10,13 +10,13 @@ module Canonical
     BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
-    has_many :canonical_enchantables_enchantments,
+    has_many :enchantables_enchantments,
              dependent: :destroy,
-             class_name: 'Canonical::EnchantablesEnchantment',
              as: :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
-             through: :canonical_enchantables_enchantments
+             -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
+             through: :enchantables_enchantments,
+             source: :enchantment
 
     has_many :canonical_craftables_crafting_materials,
              dependent: :destroy,
@@ -36,7 +36,7 @@ module Canonical
              through: :canonical_temperables_tempering_materials,
              source: :material
 
-    has_many :armors, dependent: :nullify, inverse_of: :canonical_armor
+    has_many :armors, inverse_of: :canonical_armor, dependent: :nullify, foreign_key: 'canonical_armor_id', class_name: '::Armor'
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

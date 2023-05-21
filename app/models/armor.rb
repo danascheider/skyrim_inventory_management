@@ -2,7 +2,18 @@
 
 class Armor < ApplicationRecord
   belongs_to :game
-  belongs_to :canonical_armor, optional: true, class_name: 'Canonical::Armor'
+  belongs_to :canonical_armor,
+             optional: true,
+             inverse_of: :armors,
+             class_name: 'Canonical::Armor'
+
+  has_many :enchantables_enchantments,
+           dependent: :destroy,
+           as: :enchantable
+  has_many :enchantments,
+           -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
+           through: :enchantables_enchantments,
+           source: :enchantment
 
   validates :name, presence: true
   validates :weight,

@@ -6,8 +6,8 @@ RSpec.describe Canonical::Sync::ClothingItems do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
   let!(:json_data) { File.read(json_path) }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'clothing_items.json') }
 
   let(:enchantment_names) { ['Fortify Magicka', 'Fortify Destruction', 'Fortify Magicka Regen'] }
 
@@ -82,7 +82,7 @@ RSpec.describe Canonical::Sync::ClothingItems do
         end
 
         it "removes enchantments that don't exist in the JSON data" do
-          item_in_json.canonical_enchantables_enchantments.create!(
+          item_in_json.enchantables_enchantments.create!(
             enchantment: Enchantment.find_by(name: 'Fortify Destruction'),
             strength: 2,
           )
@@ -143,8 +143,8 @@ RSpec.describe Canonical::Sync::ClothingItems do
       before do
         enchantment_names.each {|name| create(:enchantment, name:) }
         create(
-          :canonical_enchantables_enchantment,
-          :for_clothing,
+          :enchantables_enchantment,
+          :for_canonical_clothing,
           enchantable: item_in_json,
           enchantment: create(:enchantment, name: 'Resist Magic'),
         )

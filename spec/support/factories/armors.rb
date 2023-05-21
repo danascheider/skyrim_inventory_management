@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :armor do
     game
 
-    name { 'Fur Helmet' }
+    name { 'Steel Plate Armor' }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_21_004856) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,17 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
     t.datetime "updated_at", null: false
     t.index ["material_id", "craftable_id", "craftable_type"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
     t.index ["material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
-  end
-
-  create_table "canonical_enchantables_enchantments", force: :cascade do |t|
-    t.bigint "enchantment_id", null: false
-    t.bigint "enchantable_id", null: false
-    t.string "enchantable_type", null: false
-    t.decimal "strength", precision: 5, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["enchantment_id", "enchantable_id", "enchantable_type"], name: "index_enchantables_enchantments_on_enchmnt_id_enchble_id_type", unique: true
-    t.index ["enchantment_id"], name: "index_canonical_enchantables_enchantments_on_enchantment_id"
   end
 
   create_table "canonical_ingredients", force: :cascade do |t|
@@ -314,6 +303,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
+  create_table "enchantables_enchantments", force: :cascade do |t|
+    t.bigint "enchantment_id", null: false
+    t.bigint "enchantable_id", null: false
+    t.string "enchantable_type", null: false
+    t.decimal "strength", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enchantment_id", "enchantable_id", "enchantable_type"], name: "index_enchantables_enchantments_on_enchmnt_id_enchble_id_type", unique: true
+    t.index ["enchantment_id"], name: "index_enchantables_enchantments_on_enchantment_id"
+  end
+
   create_table "enchantments", force: :cascade do |t|
     t.string "name", null: false
     t.string "enchantable_items", default: [], array: true
@@ -435,8 +435,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "armors", "canonical_armors"
+  add_foreign_key "armors", "games"
   add_foreign_key "canonical_craftables_crafting_materials", "canonical_materials", column: "material_id"
-  add_foreign_key "canonical_enchantables_enchantments", "enchantments"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_potions_alchemical_properties", "alchemical_properties"
@@ -447,6 +448,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_010329) do
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
   add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
+  add_foreign_key "enchantables_enchantments", "enchantments"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
