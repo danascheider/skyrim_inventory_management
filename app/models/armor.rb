@@ -32,6 +32,7 @@ class Armor < ApplicationRecord
   validates_with ArmorValidator
 
   before_validation :set_canonical_armor
+  after_create :set_enchantments, if: -> { canonical_armor.present? }
 
   def canonical_armors
     return Array.wrap(canonical_armor) if canonical_armor
@@ -42,16 +43,36 @@ class Armor < ApplicationRecord
     attrs_to_match.any? ? canonicals.where(**attrs_to_match) : canonicals
   end
 
+  def crafting_materials
+    canonical_armor&.crafting_materials
+  end
+
+  def tempering_materials
+    canonical_armor&.tempering_materials
+  end
+
   private
 
   def set_canonical_armor
-    return if canonical_armor.present?
     return unless canonical_armors.count == 1
 
-    self.canonical_armor = canonical_armors.first
+    self.canonical_armor ||= canonical_armors.first
     self.name = canonical_armor.name # in case casing differs
     self.unit_weight = canonical_armor.unit_weight
     self.weight = canonical_armor.weight
     self.magical_effects = canonical_armor.magical_effects
+
+    set_enchantments if persisted?
+  end
+
+  def set_enchantments
+    return if canonical_armor.enchantments.empty?
+
+    canonical_armor.enchantables_enchantments.each do |model|
+      enchantables_enchantments.find_or_create_by!(
+        enchantment_id: model.enchantment_id,
+        strength: model.strength,
+      )
+    end
   end
 end

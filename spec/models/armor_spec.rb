@@ -34,11 +34,63 @@ RSpec.describe Armor, type: :model do
     end
   end
 
+  describe 'delegated methods' do
+    let!(:canonical_armor) { create(:canonical_armor, name: 'Steel Plate Armor') }
+    let(:armor) { create(:armor, name: 'Steel Plate Armor', canonical_armor:) }
+
+    before do
+      3.times do |n|
+        canonical_armor.canonical_craftables_crafting_materials.create!(
+          material: create(:canonical_material),
+          quantity: n + 1,
+        )
+      end
+
+      canonical_armor.canonical_temperables_tempering_materials.create!(
+        material: create(:canonical_material),
+        quantity: 1,
+      )
+    end
+
+    describe '#crafting_materials' do
+      it 'uses the values from the canonical model' do
+        expect(armor.crafting_materials).to eq canonical_armor.crafting_materials
+      end
+
+      it 'can access quantities transitively' do
+        expect(armor.crafting_materials.first.quantity_needed).to eq 1
+      end
+    end
+
+    describe '#tempering_materials' do
+      it 'uses the values from the canonical model' do
+        expect(armor.tempering_materials).to eq canonical_armor.tempering_materials
+      end
+
+      it 'can access quantities transitively' do
+        expect(armor.tempering_materials.first.quantity_needed).to eq 1
+      end
+    end
+
+    context 'when there is no canonical model' do
+      let(:armor) { build(:armor, canonical_armor: nil) }
+
+      it 'returns a nil value for crafting_materials' do
+        expect(armor.crafting_materials).to be_nil
+      end
+
+      it 'returns a nil value for tempering_materials' do
+        expect(armor.tempering_materials).to be_nil
+      end
+    end
+  end
+
   describe '::before_validation' do
     context 'when there is a single matching canonical model' do
       let!(:matching_canonical) do
         create(
           :canonical_armor,
+          :with_enchantments,
           name: 'Steel Plate Armor',
           unit_weight: 20,
           weight: 'heavy armor',
@@ -73,7 +125,15 @@ RSpec.describe Armor, type: :model do
     end
 
     context 'when there are multiple matching canonical models' do
-      let!(:matching_canonicals) { create_list(:canonical_armor, 2, name: 'Steel Plate Armor', weight: 'heavy armor') }
+      let!(:matching_canonicals) do
+        create_list(
+          :canonical_armor,
+          2,
+          :with_enchantments,
+          name: 'Steel Plate Armor',
+          weight: 'heavy armor',
+        )
+      end
 
       let(:armor) { build(:armor, name: 'Steel plate armor') }
 
@@ -86,6 +146,12 @@ RSpec.describe Armor, type: :model do
         armor.validate
         expect(armor.name).to eq 'Steel plate armor'
         expect(armor.weight).to be_nil
+        expect(armor.unit_weight).to be_nil
+      end
+
+      it "doesn't add enchantments" do
+        armor.validate
+        expect(armor.enchantments).to be_empty
       end
     end
 
@@ -95,6 +161,82 @@ RSpec.describe Armor, type: :model do
       it 'is invalid' do
         armor.validate
         expect(armor.errors[:base]).to include "doesn't match an armor item that exists in Skyrim"
+      end
+    end
+  end
+
+  describe '::after_create' do
+    context 'when there is a single matching canonical model' do
+      let!(:matching_canonical) do
+        create(
+          :canonical_armor,
+          :with_enchantments,
+          name: 'Steel Plate Armor',
+          unit_weight: 20,
+          weight: 'heavy armor',
+          magical_effects: 'Something',
+        )
+      end
+
+      context "when the new armor doesn't have its own enchantments" do
+        let(:armor) do
+          build(
+            :armor,
+            name: 'Steel plate armor',
+            unit_weight: 20,
+          )
+        end
+
+        it 'adds enchantments from the canonical armor' do
+          armor.save!
+          expect(armor.enchantments.length).to eq 2
+        end
+
+        it 'sets the correct strengths', :aggregate_failures do
+          armor.save!
+          matching_canonical.enchantables_enchantments.each do |join_model|
+            has_matching = armor.enchantables_enchantments.any? do |model|
+              model.enchantment == join_model.enchantment && model.strength == join_model.strength
+            end
+
+            expect(has_matching).to be true
+          end
+        end
+      end
+
+      context 'when the new armor has its own enchantments' do
+        let(:armor) do
+          create(
+            :armor,
+            :with_enchantments,
+            name: 'Steel plate armor',
+            unit_weight: 20,
+          )
+        end
+
+        it "doesn't remove the existing enchantments" do
+          expect(armor.enchantments.reload.length).to eq 4
+        end
+      end
+    end
+
+    context 'when there are multiple matching canonical models' do
+      let!(:matching_canonicals) do
+        create_list(
+          :canonical_armor,
+          2,
+          :with_enchantments,
+          name: 'Steel Plate Armor',
+          unit_weight: 20,
+          weight: 'heavy armor',
+          magical_effects: 'Something',
+        )
+      end
+
+      let(:armor) { create(:armor, name: 'Steel Plate Armor') }
+
+      it "doesn't add enchantments" do
+        expect(armor.enchantments).to be_blank
       end
     end
   end
