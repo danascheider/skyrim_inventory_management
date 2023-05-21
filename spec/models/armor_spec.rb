@@ -89,7 +89,14 @@ RSpec.describe Armor, type: :model do
       end
     end
 
-    context 'when there are no matching canonical models'
+    context 'when there are no matching canonical models' do
+      let(:armor) { build(:armor) }
+
+      it 'is invalid' do
+        armor.validate
+        expect(armor.errors[:base]).to include "doesn't match an armor item that exists in Skyrim"
+      end
+    end
   end
 
   describe '#canonical_armors' do
