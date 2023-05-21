@@ -69,6 +69,13 @@ module Canonical
       :item_code
     end
 
+    def matches?(armor)
+      armor.name.casecmp(name).zero? &&
+        (armor.unit_weight.nil? || armor.unit_weight == unit_weight) &&
+        (armor.weight.nil? || armor.weight == weight) &&
+        (armor.magical_effects.nil? || armor.magical_effects == magical_effects)
+    end
+
     private
 
     def verify_all_smithing_perks_valid
