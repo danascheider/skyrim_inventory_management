@@ -63,6 +63,18 @@ RSpec.describe EnchantablesEnchantment, type: :model do
           expect(enchantable_type).to eq 'Armor'
         end
       end
+
+      context 'when the association is a clothing item' do
+        let(:item) { create(:clothing_item) }
+
+        before do
+          create(:canonical_clothing_item)
+        end
+
+        it 'sets the enchantable type' do
+          expect(enchantable_type).to eq 'ClothingItem'
+        end
+      end
     end
   end
 end
