@@ -6,8 +6,8 @@ RSpec.describe Canonical::Sync::Enchantments do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
   let!(:json_data) { File.read(json_path) }
+  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'enchantments.json') }
 
   before do
     allow(File).to receive(:read).and_return(json_data)

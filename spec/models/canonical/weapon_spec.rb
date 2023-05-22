@@ -227,7 +227,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       let(:enchantment) { create(:enchantment) }
 
       before do
-        weapon.canonical_enchantables_enchantments.create!(enchantment:, strength: 40)
+        weapon.enchantables_enchantments.create!(enchantment:, strength: 40)
       end
 
       it 'gives the enchantment strength' do

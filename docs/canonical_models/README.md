@@ -5,9 +5,9 @@ Skyrim Inventory Management uses canonical models hidden from the user, primaril
 * **Validate user input:** In cases where users input data pertaining to specific objects (such as for inventory lists), validate that the objects input actually exist in the game
 * **Identify properties of discovered objects:** When a user inputs an object, identify the corresponding in-game object to provide the application with insights into its attributes that the user may not know
 
-These models are synced to the database using JSON data present in
+These models are synced to the database using JSON data present in the `lib/tasks/canonical_models` directory.
 
-The documentation in this directory covers the purpose of canonical models, the canonical models that exist in SIM, their associations, and specifics pertaining to particular models that require additional explanation.
+The documentation here covers the purpose of canonical models, the canonical models that exist in SIM, their associations, and specifics pertaining to particular models that require additional explanation. For information on non-canonical models, read the docs on [in-game items](/docs/in_game_items/README.md).
 
 ## Table of Contents
 
@@ -16,6 +16,6 @@ The documentation in this directory covers the purpose of canonical models, the 
 * [Leveled Weapons and Armor](/docs/canonical_models/levelled-weapons-and-armour.md): Notes on levelled weapons and armour items
 * [Syncing Canonical Models](/docs/canonical_models/syncing-canonical-models.md): Using Rake tasks to sync canonical models in the database with authoritative JSON data
 * Specific Models:
-  * [Canonical::Book](/docs/canonical_models/canonical-book.md): Additional details about special characteristics of the `Canonical::Book` model
+  * [`Canonical::Book`](/docs/canonical_models/canonical-book.md): Additional details about special characteristics of the `Canonical::Book` model
   * [`Canonical::Ingredient`](/docs/canonical_models/canonical-ingredient.md): Additional details about special characteristics of the `Canonical::Ingredient` model
-  * [Canonical::IngredientsAlchemicalProperty](/docs/canonical_models/canonical-ingredients-alchemical-property.md): Additional details about special characteristics of the `Canonical::IngredientsAlchemicalProperty` model
+  * [`Canonical::IngredientsAlchemicalProperty`](/docs/canonical_models/canonical-ingredients-alchemical-property.md): Additional details about special characteristics of the `Canonical::IngredientsAlchemicalProperty` model

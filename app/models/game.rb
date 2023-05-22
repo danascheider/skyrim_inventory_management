@@ -5,6 +5,8 @@ require 'titlecase'
 class Game < ApplicationRecord
   belongs_to :user
 
+  has_many :armors, dependent: :destroy
+
   # `before_save` callbacks need to be defined before
   # `before_destroy` callbacks, which need to be defined here
   # (see comment below).

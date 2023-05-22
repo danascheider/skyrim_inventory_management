@@ -7,13 +7,12 @@ module Canonical
     BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
-    has_many :canonical_enchantables_enchantments,
+    has_many :enchantables_enchantments,
              dependent: :destroy,
-             class_name: 'Canonical::EnchantablesEnchantment',
              as: :enchantable
     has_many :enchantments,
-             -> { select 'enchantments.*, canonical_enchantables_enchantments.strength as strength' },
-             through: :canonical_enchantables_enchantments
+             -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
+             through: :enchantables_enchantments
 
     has_many :canonical_craftables_crafting_materials,
              dependent: :destroy,

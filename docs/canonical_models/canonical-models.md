@@ -25,16 +25,19 @@ There are additional models that can also be considered canonical, but are not n
 
 Note that the lists above do not include join tables for the `has_many, :through` relationships amongst the models listed, although these are similarly synced in the SIM database with data from the game. These include:
 
-* [`Canonical::EnchantablesEnchantment`](/app/models/canonical/enchantables_enchantment.rb): This polymorphic join table associates enchantments with any enchantable items, including armours, jewellery, clothing items, and weapons, adding a field called `strength` for the strength of the enchantment on that particular item
 * [`Canonical::CraftablesCraftingMaterial`](/app/models/canonical/craftables_crafting_material.rb): This polymorphic join table associates canonical materials with any items that are able to be crafted using those materials, including armours, jewellery, and weapons, adding a field called `quantity` for the quantity of a given material needed to craft that particular item
-* [`Canonical::PotionsAlchemicalProperty](/app/models/canonical/potions_alchemical_property.rb): This join table links canonical potions with their alchemical properties, setting a `strength` and `duration` on the association
-* [`Canonical::PowerablesPower](/app/models/canonical/powerables_power.rb): This polymorphic join table associates powers with any objects enchanted with them, including weapons and staves, adding no additional fields to the join table
+* [`Canonical::PotionsAlchemicalProperty`](/app/models/canonical/potions_alchemical_property.rb): This join table links canonical potions with their alchemical properties, setting a `strength` and `duration` on the association
+* [`Canonical::PowerablesPower`](/app/models/canonical/powerables_power.rb): This polymorphic join table associates powers with any objects enchanted with them, including weapons and staves, adding no additional fields to the join table
 * [`Canonical::RecipesIngredient`](/app/models/canonical/recipes_ingredient.rb): This join table links canonical books that are recipes with the ingredients specified in the recipe; there are no fields on this table other than foreign keys and timestamps
-* [`Canonical::StavesSpell](/app/models/canonical/staves_spell.rb): This join table links enchanted staves to the spells they are enchanted with, adding a `strength` field in case the strength of the spell on the staff differs from the base strength of the spell
+* [`Canonical::StavesSpell`](/app/models/canonical/staves_spell.rb): This join table links enchanted staves to the spells they are enchanted with, adding a `strength` field in case the strength of the spell on the staff differs from the base strength of the spell
 * [`Canonical::TemperablesTemperingMaterial`](/app/models/canonical/temperables_tempering_material.rb): This polymorphic join table associates canonical materials with any items that are able to be tempered using those materials, including armours and weapons, adding a field called `quantity` for the quantity of a given material needed to temper that particular item
-* [`Canonical::IngredientsAlchemicalProperty](/app/models/canonical/ingredients_alchemical_property.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/canonical_models/canonical-ingredients-alchemical-property.md)
+* [`Canonical::IngredientsAlchemicalProperty`](/app/models/canonical/ingredients_alchemical_property.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/canonical_models/canonical-ingredients-alchemical-property.md)
 
 Note that weapons and armour items have multiple associations to the same table - canonical materials - but the associations are separate since materials required to improve an item and those required to create it are distinct. If materials associations are blank, it means the item in question can't be crafted or improved.
+
+There is an additional join model that is not in the `Canonical` namespace and is used for both canonical and non-canonical models:
+
+* [`EnchantablesEnchantment`](/app/models/enchantables_enchantment.rb): This polymorphic join table associates enchantments with any enchantable items, including armours, jewellery, clothing items, and weapons, adding a field called `strength` for the strength of the enchantment on that particular item
 
 ## Common API
 
@@ -71,7 +74,11 @@ The only exceptions to these rules are items that are consumable, including arro
 
 #### `quest_item`
 
-In Skyrim, a quest item is considered to be an item that is required to complete a quest. This is distinct from a quest reward, which is an item obtained by completing a quest. In SIM, both of these types of items are designated with the `quest_item` field. **An item that is a quest reward will not be designated as a `quest_item` if there is any other way of obtaining the item in the game.** Additionally, items that are not quest rewards but are only found or able to be purchased after starting or completing a certain quest or questline are not designated as quest items in SIM.
+In Skyrim, a quest item is considered to be an item that is required to complete a quest. This is distinct from a quest reward, which is an item obtained by completing a quest. In SIM, both of these types of items are designated with the `quest_item` field. Quest rewards are additionally designated with the `quest_reward` field. **An item that is a quest reward will not be designated as a `quest_item` if there is any other way of obtaining the item in the game.**
+
+#### `quest_reward`
+
+Additionally, items that are not quest rewards but are only found or able to be purchased after starting or completing a certain quest or questline are not designated as quest items in SIM. While quest rewards that can be obtained by other means as well will not be labeled `quest_item`s, they will still have the `quest_reward` field set to `true`.
 
 ## Syncing Canonical Models
 
