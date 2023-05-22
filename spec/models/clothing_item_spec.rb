@@ -6,6 +6,10 @@ RSpec.describe ClothingItem, type: :model do
   describe 'validations' do
     let(:item) { build(:clothing_item) }
 
+    before do
+      allow_any_instance_of(ClothingItemValidator).to receive(:validate)
+    end
+
     it 'is invalid without a name' do
       item.name = nil
       item.validate
@@ -18,7 +22,10 @@ RSpec.describe ClothingItem, type: :model do
       expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
     end
 
-    it 'validates against canonical models'
+    it 'validates against canonical models' do
+      expect_any_instance_of(ClothingItemValidator).to receive(:validate).with(item)
+      item.validate
+    end
   end
 
   describe '::before_validation' do
@@ -87,7 +94,6 @@ RSpec.describe ClothingItem, type: :model do
       let(:item) { build(:clothing_item) }
 
       it 'is invalid' do
-        pending
         item.validate
         expect(item.errors[:base]).to include "doesn't match a clothing item that exists in Skyrim"
       end

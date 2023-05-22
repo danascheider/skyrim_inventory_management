@@ -17,7 +17,13 @@ class ClothingItem < ApplicationRecord
            source: :enchantment
 
   validates :name, presence: true
-  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :unit_weight,
+            numericality: {
+              greater_than_or_equal_to: 0,
+              allow_nil: true,
+            }
+
+  validates_with ClothingItemValidator
 
   before_validation :set_canonical_clothing_item
 
