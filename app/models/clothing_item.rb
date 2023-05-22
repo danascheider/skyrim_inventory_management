@@ -21,6 +21,8 @@ class ClothingItem < ApplicationRecord
 
   before_validation :set_canonical_clothing_item
 
+  after_create :set_enchantments, if: -> { canonical_clothing_item.present? }
+
   def canonical_clothing_items
     return Array.wrap(canonical_clothing_item) if canonical_clothing_item
 
@@ -39,5 +41,18 @@ class ClothingItem < ApplicationRecord
     self.name = canonical_clothing_item.name # in case casing differs
     self.unit_weight = canonical_clothing_item.unit_weight
     self.magical_effects = canonical_clothing_item.magical_effects
+
+    set_enchantments if persisted?
+  end
+
+  def set_enchantments
+    return if canonical_clothing_item.enchantments.empty?
+
+    canonical_clothing_item.enchantables_enchantments.each do |model|
+      enchantables_enchantments.find_or_create_by!(
+        enchantment_id: model.enchantment_id,
+        strength: model.strength,
+      )
+    end
   end
 end

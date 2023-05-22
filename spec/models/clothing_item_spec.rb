@@ -94,6 +94,82 @@ RSpec.describe ClothingItem, type: :model do
     end
   end
 
+  describe '::after_create' do
+    context 'when there is a single matching canonical model' do
+      let!(:matching_canonical) do
+        create(
+          :canonical_clothing_item,
+          :with_enchantments,
+          name: 'Fine Clothes',
+          unit_weight: 1,
+          magical_effects: 'Something',
+        )
+      end
+
+      context "when the new item doesn't have its own enchantments" do
+        let(:item) do
+          build(
+            :clothing_item,
+            name: 'Fine clothes',
+            unit_weight: 1,
+          )
+        end
+
+        it 'adds enchantments from the canonical model' do
+          item.save!
+          expect(item.enchantments.length).to eq 2
+        end
+
+        it 'sets the correct strengths', :aggregate_failures do
+          item.save!
+          matching_canonical.enchantables_enchantments.each do |join_model|
+            has_matching = item.enchantables_enchantments.any? do |model|
+              model.enchantment == join_model.enchantment && model.strength == join_model.strength
+            end
+
+            expect(has_matching).to be true
+          end
+        end
+      end
+
+      context 'when the new item has its own enchantments' do
+        let(:item) do
+          create(
+            :clothing_item,
+            :with_enchantments,
+            name: 'Fine clothes',
+            unit_weight: 1,
+          )
+        end
+
+        it "doesn't remove the existing enchantments" do
+          item.save!
+          expect(item.enchantments.reload.length).to eq 4
+        end
+      end
+    end
+
+    context 'when there are multiple matching canonical models' do
+      let!(:matching_canonicals) do
+        create_list(
+          :canonical_clothing_item,
+          2,
+          :with_enchantments,
+          name: 'Fine Clothes',
+          unit_weight: 1,
+          magical_effects: 'Something',
+        )
+      end
+
+      let(:item) { build(:clothing_item, name: 'fine clothes') }
+
+      it "doesn't add enchantments" do
+        item.save!
+        expect(item.enchantments).to be_blank
+      end
+    end
+  end
+
   describe '#canonical_clothing_items' do
     subject(:canonical_clothing_items) { item.canonical_clothing_items }
 
