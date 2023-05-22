@@ -10,5 +10,11 @@ FactoryBot.define do
     unique_item { false }
     rare_item { false }
     quest_item { false }
+
+    trait :with_enchantments do
+      after(:create) do |item|
+        create_list(:enchantables_enchantment, 2, enchantable: item)
+      end
+    end
   end
 end

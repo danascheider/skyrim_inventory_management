@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_21_004856) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_214529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -303,6 +303,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_004856) do
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
+  create_table "clothing_items", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_clothing_item_id"
+    t.string "name", null: false
+    t.decimal "unit_weight"
+    t.string "magical_effects"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_clothing_item_id"], name: "index_clothing_items_on_canonical_clothing_item_id"
+    t.index ["game_id"], name: "index_clothing_items_on_game_id"
+  end
+
   create_table "enchantables_enchantments", force: :cascade do |t|
     t.bigint "enchantment_id", null: false
     t.bigint "enchantable_id", null: false
@@ -448,6 +460,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_004856) do
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
   add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
+  add_foreign_key "clothing_items", "canonical_clothing_items"
+  add_foreign_key "clothing_items", "games"
   add_foreign_key "enchantables_enchantments", "enchantments"
   add_foreign_key "games", "users"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"

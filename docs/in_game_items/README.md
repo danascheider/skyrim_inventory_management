@@ -6,5 +6,7 @@ This documentation covers the scope and purpose of non-canonical in-game items, 
 
 ## Table of Contents
 
-* [In-Game Items](/docs/in_game_items/in-game-items.md)
-* [Armor](/docs/in_game_items/armor.md)
+* [In-Game Items](/docs/in_game_items/in-game-items.md): An overview of in-game item models, which models exist, and associations between them
+* Specific models:
+  * [Armor](/docs/in_game_items/armor.md)
+  * [Clothing Item](/docs/in_game_items/clothing-item.md)
