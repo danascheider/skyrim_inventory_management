@@ -15,6 +15,12 @@ module Canonical
              -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
              through: :enchantables_enchantments
 
+    has_many :clothing_items,
+             inverse_of: :canonical_clothing_item,
+             dependent: :nullify,
+             foreign_key: 'canonical_clothing_item_id',
+             class_name: '::ClothingItem'
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
