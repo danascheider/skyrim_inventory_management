@@ -3,6 +3,7 @@
 The following non-[canonical](/docs/canonical_models/README.md) in-game item models exist in the SIM database:
 
 * [`Armor`](/app/models/armor.rb): armour items corresponding to `Canonical::Armor` pieces
+* [`ClothingItem`](/app/models/clothing_item.rb): clothing items that are not armour or jewellery, corresponding to `Canonical::ClothingItem`s
 
 Non-canonical in-game items represent individual item instances. For the purpose of inventory lists, they can also represent sets of items with identical characteristics whose quantities are then implied by the `quantity` field on the inventory item. (Note that, at this writing, inventory list functionality is not yet fully implemented.)
 
