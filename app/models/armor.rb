@@ -2,6 +2,7 @@
 
 class Armor < ApplicationRecord
   belongs_to :game
+
   belongs_to :canonical_armor,
              optional: true,
              inverse_of: :armors,
@@ -16,6 +17,7 @@ class Armor < ApplicationRecord
            source: :enchantment
 
   validates :name, presence: true
+
   validates :weight,
             inclusion: {
               in: Canonical::Armor::ARMOR_WEIGHTS,
@@ -32,6 +34,7 @@ class Armor < ApplicationRecord
   validates_with ArmorValidator
 
   before_validation :set_canonical_armor
+
   after_create :set_enchantments, if: -> { canonical_armor.present? }
 
   def canonical_armors

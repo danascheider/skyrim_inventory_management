@@ -36,7 +36,11 @@ module Canonical
              through: :canonical_temperables_tempering_materials,
              source: :material
 
-    has_many :armors, inverse_of: :canonical_armor, dependent: :nullify, foreign_key: 'canonical_armor_id', class_name: '::Armor'
+    has_many :armors,
+             inverse_of: :canonical_armor,
+             dependent: :nullify,
+             foreign_key: 'canonical_armor_id',
+             class_name: '::Armor'
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

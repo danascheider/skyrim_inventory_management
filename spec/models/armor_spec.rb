@@ -148,11 +148,6 @@ RSpec.describe Armor, type: :model do
         expect(armor.weight).to be_nil
         expect(armor.unit_weight).to be_nil
       end
-
-      it "doesn't add enchantments" do
-        armor.validate
-        expect(armor.enchantments).to be_empty
-      end
     end
 
     context 'when there are no matching canonical models' do

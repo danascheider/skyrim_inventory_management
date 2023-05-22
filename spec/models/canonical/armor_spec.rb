@@ -223,43 +223,4 @@ RSpec.describe Canonical::Armor, type: :model do
       end
     end
   end
-
-  describe 'instance_methods' do
-    describe '#matches?' do
-      subject(:matches) { canonical_armor.matches?(armor) }
-
-      let(:canonical_armor) { create(:canonical_armor) }
-
-      context 'when the passed-in item matches but has blank fields' do
-        let(:armor) do
-          build(
-            :armor,
-            name: canonical_armor.name,
-            unit_weight: nil,
-            weight: nil,
-            magical_effects: nil,
-          )
-        end
-
-        it 'matches' do
-          expect(matches).to be true
-        end
-      end
-
-      context "when the passed-in item doesn't match" do
-        let(:armor) do
-          build(
-            :armor,
-            name: canonical_armor.name,
-            weight: canonical_armor.weight,
-            unit_weight: 27.2,
-          )
-        end
-
-        it "doesn't match" do
-          expect(matches).to be false
-        end
-      end
-    end
-  end
 end

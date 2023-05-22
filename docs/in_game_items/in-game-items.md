@@ -21,3 +21,5 @@ If the in-game item matches only one canonical model, that model is set as the `
 Some fields and associations on canonical models are either not visible to users (such as whether an item is purchasable), not relevant to them (such as item code), or discoverable by them (such as the alchemical properties of an ingredient). Non-canonical item models contain only the fields and associations that are either visible to or discoverable by users.
 
 When a non-canonical item is matched to a single canonical model, fields and associations that are visible to the user (i.e., those like weight that the user can automatically see just because they've seen the item) are automatically populated or created on the non-canonical item. Certain associations, such as `crafting_materials` and `tempering_materials` on weapons and armour items, will not differ for separate instances and are therefore delegated to the canonical model to prevent the need to create redundant models.
+
+Canonical models are initially found using a case-insensitive matching by name. For this reason, the name of the non-canonical model is also updated to match the casing of the canonical model's name.
