@@ -9,6 +9,11 @@ class Ingredient < ApplicationRecord
              optional: true,
              inverse_of: :ingredients
 
+  has_many :ingredients_alchemical_properties, dependent: :destroy, inverse_of: :ingredient
+  has_many :alchemical_properties,
+           -> { select 'alchemical_properties.*, ingredients_alchemical_properties.priority' },
+           through: :ingredients_alchemical_properties
+
   validates :name, presence: true
   validate :ensure_match_exists
 
