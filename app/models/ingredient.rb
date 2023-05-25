@@ -19,12 +19,31 @@ class Ingredient < ApplicationRecord
 
   before_validation :set_canonical_ingredient
 
+  def canonical_ingredients
+    return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_ingredient.present?
+
+    matching = Canonical::Ingredient.where('name ILIKE ?', name)
+
+    return matching unless alchemical_properties.any?
+
+    ingredients_alchemical_properties.each do |join_model|
+      matching = matching.joins(:canonical_ingredients_alchemical_properties).where(
+        'canonical_ingredients_alchemical_properties.alchemical_property_id = :property_id AND canonical_ingredients_alchemical_properties.priority = :priority',
+        property_id: join_model.alchemical_property_id,
+        priority: join_model.priority,
+      )
+    end
+
+    matching
+  end
+
   private
 
   def set_canonical_ingredient
-    matching = Canonical::Ingredient.where('name ILIKE ?', name)
+    return if canonical_ingredient.present?
 
-    self.canonical_ingredient = matching.first if matching.count == 1
+    canonicals = canonical_ingredients
+    self.canonical_ingredient = canonicals.first if canonicals.count == 1
   end
 
   def ensure_match_exists

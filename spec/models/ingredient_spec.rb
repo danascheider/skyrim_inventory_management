@@ -40,6 +40,108 @@ RSpec.describe Ingredient, type: :model do
     end
   end
 
+  describe '#canonical_ingredients' do
+    subject(:canonical_ingredients) { ingredient.reload.canonical_ingredients }
+
+    context 'when the model has a canonical ingredient assigned' do
+      let(:ingredient) { create(:ingredient, canonical_ingredient:) }
+      let(:canonical_ingredient) { create(:canonical_ingredient) }
+
+      before do
+        create(:canonical_ingredient)
+      end
+
+      it 'returns the canonical ingredient in an array' do
+        expect(canonical_ingredients).to eq [canonical_ingredient]
+      end
+    end
+
+    context 'when there are multiple matching canonical ingredients' do
+      context 'when only the names have to match' do
+        let!(:matching_canonicals) { create_list(:canonical_ingredient, 3, name: 'Blue Mountain Flower') }
+        let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower') }
+
+        it 'returns all the matching canonical ingredients' do
+          expect(ingredient.canonical_ingredients).to eq matching_canonicals
+        end
+      end
+
+      # NB: No context is required for when no join model fully matches because
+      #     join model validations will fail if they don't match.
+      context 'when there are also alchemical properties involved' do
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_ingredient,
+            3,
+            :with_alchemical_properties,
+            name: 'Blue Mountain Flower',
+          )
+        end
+
+        let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower') }
+        let(:alchemical_property) { matching_canonicals.second.alchemical_properties.reload.second }
+
+        context 'when multiple join models fully match' do
+          before do
+            matching_canonicals
+              .last
+              .reload
+              .canonical_ingredients_alchemical_properties
+              .find_by(priority: alchemical_property.priority)
+              .update!(
+                alchemical_property:,
+              )
+
+            create(
+              :ingredients_alchemical_property,
+              ingredient:,
+              alchemical_property:,
+              priority: alchemical_property.priority,
+            )
+          end
+
+          it 'returns the matching join models' do
+            expect(canonical_ingredients).to eq [matching_canonicals.second, matching_canonicals.last]
+          end
+        end
+
+        context 'when one join model fully matches' do
+          before do
+            matching_canonicals
+              .last
+              .reload
+              .canonical_ingredients_alchemical_properties
+              .find_by(priority: 4)
+              .update!(
+                alchemical_property:,
+              )
+
+            create(
+              :ingredients_alchemical_property,
+              ingredient:,
+              alchemical_property:,
+              priority: 4,
+            )
+          end
+
+          it 'includes only the model that fully matches' do
+            expect(canonical_ingredients).to contain_exactly(matching_canonicals.last)
+          end
+        end
+      end
+    end
+
+    context 'when there is one matching canonical ingredient'
+
+    context 'when there are no matching canonical ingredients' do
+      let(:ingredient) { build(:ingredient) }
+
+      it 'is empty' do
+        expect(ingredient.canonical_ingredients).to be_empty
+      end
+    end
+  end
+
   describe '::before_validation' do
     let(:ingredient) { build(:ingredient) }
 
