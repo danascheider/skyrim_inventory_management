@@ -52,7 +52,7 @@ RSpec.describe Ingredient, type: :model do
       end
 
       it 'returns the canonical ingredient' do
-        expect(canonical_ingredients).to eq [canonical_ingredient]
+        expect(canonical_ingredients).to contain_exactly(canonical_ingredient)
       end
     end
 

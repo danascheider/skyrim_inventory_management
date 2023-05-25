@@ -33,7 +33,6 @@ class IngredientsAlchemicalProperty < ApplicationRecord
 
   delegate :canonical_ingredients, to: :ingredient
 
-  MAX_PER_INGREDIENT = 4
   DOES_NOT_MATCH = 'is not consistent with any ingredient that exists in Skyrim'
 
   def canonical_models
@@ -58,9 +57,12 @@ class IngredientsAlchemicalProperty < ApplicationRecord
   private
 
   def ensure_max_of_four_per_ingredient
-    return if ingredient.alchemical_properties.length < MAX_PER_INGREDIENT
+    return if ingredient.alchemical_properties.length < Canonical::IngredientsAlchemicalProperty::MAX_PER_INGREDIENT
 
-    errors.add(:ingredient, "already has #{MAX_PER_INGREDIENT} alchemical properties")
+    errors.add(
+      :ingredient,
+      "already has #{Canonical::IngredientsAlchemicalProperty::MAX_PER_INGREDIENT} alchemical properties",
+    )
   end
 
   def set_attributes_from_canonical
