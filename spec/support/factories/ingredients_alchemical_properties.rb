@@ -8,7 +8,7 @@ FactoryBot.define do
     sequence(:priority) {|n| (n % 4) + 1 }
 
     trait :valid do
-      association :ingredient, factory: :ingredient_with_matching_canonical
+      association :ingredient, factory: :ingredient_with_matching_canonical, strategy: :create
 
       after(:build) do |model|
         matching_model = create(

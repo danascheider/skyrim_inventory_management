@@ -47,8 +47,7 @@ class Ingredient < ApplicationRecord
   end
 
   def ensure_match_exists
-    return if canonical_ingredient.present?
-    return if Canonical::Ingredient.where('name ILIKE ?', name).present?
+    return if canonical_ingredients.any?
 
     errors.add(:base, DOES_NOT_MATCH)
   end

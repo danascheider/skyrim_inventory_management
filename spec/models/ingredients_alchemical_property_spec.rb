@@ -6,10 +6,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
   describe 'validations' do
     let(:ingredient) { build(:ingredient) }
 
-    before do
-      create(:canonical_ingredient)
-    end
-
     describe 'number of records per ingredient' do
       let!(:ingredient) { create(:ingredient_with_matching_canonical, :with_associations_and_properties) }
 
@@ -84,6 +80,10 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
 
     describe 'priority' do
       let(:ingredient) { create(:ingredient) }
+
+      before do
+        create(:canonical_ingredient)
+      end
 
       it "can't be less than 1" do
         model = build(:ingredients_alchemical_property, priority: 0)
@@ -166,6 +166,17 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
         model.validate
         expect(model.errors[:alchemical_property_id]).to include 'must form a unique combination with ingredient'
       end
+
+      it "doesn't have to be globally unique" do
+        existing_model = create(:ingredients_alchemical_property, :valid)
+        model = build(
+          :ingredients_alchemical_property,
+          alchemical_property: existing_model.alchemical_property,
+          priority: 1,
+        )
+
+        expect(model).to be_valid
+      end
     end
   end
 
@@ -186,7 +197,8 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       end
 
       it 'returns the model' do
-        expect(canonical_models).to eq [canonical_ingredient.canonical_ingredients_alchemical_properties.second]
+        expect(canonical_models)
+          .to contain_exactly(canonical_ingredient.canonical_ingredients_alchemical_properties.second)
       end
     end
 
@@ -198,7 +210,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       let(:model) { build(:ingredients_alchemical_property, ingredient:) }
 
       before do
-        canonical_ingredient.reload
         second_canonical.reload
 
         second_canonical
@@ -260,7 +271,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       let(:model) { build(:ingredients_alchemical_property, ingredient:) }
 
       before do
-        canonical_ingredient.reload
         second_canonical.reload
 
         second_canonical
@@ -285,39 +295,76 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       let(:ingredient) { create(:ingredient, canonical_ingredient:) }
       let(:model) { build(:ingredients_alchemical_property, ingredient:) }
 
-      it 'is empty' do
+      it 'is nil' do
         expect(canonical_model).to be_nil
       end
     end
   end
 
   describe '::before_validation' do
-    let!(:canonical_model) do
-      create(
-        :canonical_ingredients_alchemical_property,
-        priority: 3,
-        strength_modifier: 1.5,
-        duration_modifier: 2.3,
-      )
+    # NB: We don't need a context for when there are no matching canonical
+    #     models, because we're testing if values are set from canonical
+    #     models, and if there is no canonical model, where would they be
+    #     set from?
+    context 'when there is a single matching canonical model' do
+      let!(:canonical_model) do
+        create(
+          :canonical_ingredients_alchemical_property,
+          priority: 3,
+          strength_modifier: 1.5,
+          duration_modifier: 2.3,
+        )
+      end
+
+      let(:canonical_ingredient) { canonical_model.ingredient }
+      let(:ingredient) { create(:ingredient, canonical_ingredient:) }
+
+      let(:model) do
+        build(
+          :ingredients_alchemical_property,
+          alchemical_property: canonical_model.alchemical_property,
+          ingredient:,
+          priority: nil,
+        )
+      end
+
+      it 'sets values from the canonical model', :aggregate_failures do
+        model.validate
+        expect(model.priority).to eq 3
+        expect(model.strength_modifier).to eq 1.5
+        expect(model.duration_modifier).to eq 2.3
+      end
     end
 
-    let(:canonical_ingredient) { canonical_model.ingredient }
-    let(:ingredient) { create(:ingredient, canonical_ingredient:) }
+    context 'when there is are multiple matching canonical models' do
+      let!(:canonical_models) do
+        create_list(
+          :canonical_ingredients_alchemical_property,
+          3,
+          alchemical_property:,
+          strength_modifier: 1.5,
+          duration_modifier: 2.3,
+        )
+      end
 
-    let(:model) do
-      build(
-        :ingredients_alchemical_property,
-        alchemical_property: canonical_model.alchemical_property,
-        ingredient:,
-        priority: nil,
-      )
-    end
+      let(:alchemical_property) { create(:alchemical_property) }
+      let(:ingredient) { create(:ingredient) }
 
-    it 'sets values from the canonical model', :aggregate_failures do
-      model.validate
-      expect(model.priority).to eq 3
-      expect(model.strength_modifier).to eq 1.5
-      expect(model.duration_modifier).to eq 2.3
+      let(:model) do
+        build(
+          :ingredients_alchemical_property,
+          alchemical_property:,
+          ingredient:,
+          priority: nil,
+        )
+      end
+
+      it "doesn't set values", :aggregate_failures do
+        model.validate
+        expect(model.priority).not_to eq 3
+        expect(model.strength_modifier).not_to eq 1.5
+        expect(model.duration_modifier).not_to eq 2.3
+      end
     end
   end
 end

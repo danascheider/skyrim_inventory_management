@@ -51,12 +51,12 @@ RSpec.describe Ingredient, type: :model do
         create(:canonical_ingredient)
       end
 
-      it 'returns the canonical ingredient in an array' do
+      it 'returns the canonical ingredient' do
         expect(canonical_ingredients).to eq [canonical_ingredient]
       end
     end
 
-    context 'when there are multiple matching canonical ingredients' do
+    context 'when there are matching canonical ingredients' do
       context 'when only the names have to match' do
         let!(:matching_canonicals) { create_list(:canonical_ingredient, 3, name: 'Blue Mountain Flower') }
         let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower') }
@@ -100,8 +100,8 @@ RSpec.describe Ingredient, type: :model do
             )
           end
 
-          it 'returns the matching join models' do
-            expect(canonical_ingredients).to eq [matching_canonicals.second, matching_canonicals.last]
+          it 'returns the matching models' do
+            expect(canonical_ingredients).to contain_exactly(matching_canonicals.second, matching_canonicals.last)
           end
         end
 
@@ -130,8 +130,6 @@ RSpec.describe Ingredient, type: :model do
         end
       end
     end
-
-    context 'when there is one matching canonical ingredient'
 
     context 'when there are no matching canonical ingredients' do
       let(:ingredient) { build(:ingredient) }
