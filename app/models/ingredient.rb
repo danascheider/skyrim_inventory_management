@@ -24,7 +24,7 @@ class Ingredient < ApplicationRecord
 
     matching = Canonical::Ingredient.where('name ILIKE ?', name)
 
-    return matching unless alchemical_properties.any?
+    return matching if alchemical_properties.empty?
 
     ingredients_alchemical_properties.each do |join_model|
       matching = matching.joins(:canonical_ingredients_alchemical_properties).where(
