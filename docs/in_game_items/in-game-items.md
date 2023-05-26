@@ -4,6 +4,8 @@ The following non-[canonical](/docs/canonical_models/README.md) in-game item mod
 
 * [`Armor`](/app/models/armor.rb): armour items corresponding to `Canonical::Armor` pieces
 * [`ClothingItem`](/app/models/clothing_item.rb): clothing items that are not armour or jewellery, corresponding to `Canonical::ClothingItem`s
+* [`Ingredient`](/app/models/ingredient.rb): ingredients corresponding to the `Canonical::Ingredient` class
+* [`IngredientsAlchemicalProperty`](/app/models/ingredients_alchemical_property.rb): join model between `Ingredient` and `AlchemicalProperty` models
 
 Non-canonical in-game items represent individual item instances. For the purpose of inventory lists, they can also represent sets of items with identical characteristics whose quantities are then implied by the `quantity` field on the inventory item. (Note that, at this writing, inventory list functionality is not yet fully implemented.)
 
@@ -13,9 +15,9 @@ Non-canonical in-game items represent individual item instances. For the purpose
 
 Every in-game item has to correspond to at least one canonical model. Because not all attributes are pertinent to users and not all should be able to be set by them, non-canonical models do not have the same fields and associations as the canonical models. Instead, non-canonical models include the subset of canonical fields that are visible to or discoverable by players.
 
-When an in-game item is created, it is validated to ensure that it has at least one potential canonical match. These matches are based on fields set on the non-canonical model; in other words, fields that are `nil` on the non-canonical model are not considered for the match. Only fields set to a non-`nil` value must match the canonical model.
+When an in-game item is created, it is validated to ensure that it has at least one potential canonical match. These matches are based on fields set on the non-canonical model, or in [some cases](/docs/in_game_items/ingredient.md), associations that are present on that model; in other words, fields that are `nil` on the non-canonical model are not considered for the match. Only fields set to a non-`nil` value, or associations that have been created on the non-canonical model, must match the canonical model.
 
-If the in-game item matches only one canonical model, that model is set as the `canonical_<model>` for that item.
+If the in-game item matches exactly one canonical model, that model is set as the `canonical_<model>` for that item. If there are no matching canonical models, validation fails.
 
 ### Auto-Populating Fields
 
