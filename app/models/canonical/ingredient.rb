@@ -23,6 +23,12 @@ module Canonical
              inverse_of: :ingredient
     has_many :recipes, through: :canonical_recipes_ingredients, class_name: 'Canonical::Book', source: :recipe
 
+    has_many :ingredients,
+             dependent: :nullify,
+             class_name: '::Ingredient',
+             foreign_key: 'canonical_ingredient_id',
+             inverse_of: :canonical_ingredient
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :ingredient_type, inclusion: { in: VALID_TYPES, message: TYPE_VALIDATION_MESSAGE, allow_blank: true }

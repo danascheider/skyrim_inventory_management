@@ -8,6 +8,8 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
       let!(:ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
 
       it 'cannot have more than 4 records corresponding to one ingredient' do
+        # Since the alchemical properties are added in FactoryBot's after(:create) hook,
+        # the ingredient needs to be reloaded before Rails/RSpec will know about them.
         ingredient.reload
 
         new_association = build(:canonical_ingredients_alchemical_property, ingredient:)
@@ -84,6 +86,21 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
 
         model.validate
         expect(model.errors[:duration_modifier]).to include 'must be greater than 0'
+      end
+    end
+
+    describe 'alchemical_property_id' do
+      it 'must be unique per ingredient' do
+        existing_model = create(:canonical_ingredients_alchemical_property)
+        model = build(
+          :canonical_ingredients_alchemical_property,
+          ingredient: existing_model.ingredient,
+          alchemical_property: existing_model.alchemical_property,
+          priority: 1,
+        )
+
+        model.validate
+        expect(model.errors[:alchemical_property_id]).to include 'must form a unique combination with canonical ingredient'
       end
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_22_214529) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_23_225250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -346,6 +346,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_214529) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_ingredient_id"
+    t.string "name"
+    t.decimal "unit_weight", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_ingredient_id"], name: "index_ingredients_on_canonical_ingredient_id"
+    t.index ["game_id"], name: "index_ingredients_on_game_id"
+  end
+
+  create_table "ingredients_alchemical_properties", force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "alchemical_property_id", null: false
+    t.integer "priority"
+    t.decimal "strength_modifier"
+    t.decimal "duration_modifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alchemical_property_id", "ingredient_id"], name: "index_ingredients_alc_properties_on_property_and_ingr_ids", unique: true
+    t.index ["alchemical_property_id"], name: "index_ingredients_alc_properties_on_alc_property_id"
+    t.index ["ingredient_id"], name: "index_ingredients_alchemical_properties_on_ingredient_id"
+    t.index ["priority", "ingredient_id"], name: "index_ingrs_alc_props_on_priority_and_ingr_id", unique: true
+  end
+
   create_table "inventory_items", force: :cascade do |t|
     t.bigint "list_id", null: false
     t.string "description", null: false
@@ -464,6 +489,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_214529) do
   add_foreign_key "clothing_items", "games"
   add_foreign_key "enchantables_enchantments", "enchantments"
   add_foreign_key "games", "users"
+  add_foreign_key "ingredients", "canonical_ingredients"
+  add_foreign_key "ingredients", "games"
+  add_foreign_key "ingredients_alchemical_properties", "alchemical_properties"
+  add_foreign_key "ingredients_alchemical_properties", "ingredients"
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
   add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
