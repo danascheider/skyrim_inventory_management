@@ -7,15 +7,70 @@ RSpec.describe Canonical::IngredientsAlchemicalProperty, type: :model do
     describe 'number of records per ingredient' do
       let!(:ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
 
-      it 'cannot have more than 4 records corresponding to one ingredient' do
+      before do
         # Since the alchemical properties are added in FactoryBot's after(:create) hook,
         # the ingredient needs to be reloaded before Rails/RSpec will know about them.
         ingredient.reload
+      end
 
-        new_association = build(:canonical_ingredients_alchemical_property, ingredient:)
+      context 'when creating a new record' do
+        it 'cannot have more than 4 records corresponding to one ingredient' do
+          new_association = build(:canonical_ingredients_alchemical_property, ingredient:)
 
-        new_association.validate
-        expect(new_association.errors[:ingredient]).to include 'already has 4 alchemical properties'
+          new_association.validate
+          expect(new_association.errors[:ingredient]).to include 'already has 4 alchemical properties'
+        end
+      end
+
+      context 'when updating a record' do
+        context 'when the ingredient_id does not change' do
+          it 'is valid' do
+            model = ingredient.canonical_ingredients_alchemical_properties.first
+            model.strength_modifier = 3
+
+            expect(model).to be_valid
+          end
+        end
+
+        context 'when the ingredient_id changes' do
+          context 'when the new ingredient has less than 4 alchemical properties' do
+            let!(:new_ingredient) { create(:canonical_ingredient) }
+
+            before do
+              3.times do |n|
+                create(
+                  :canonical_ingredients_alchemical_property,
+                  ingredient: new_ingredient,
+                  priority: n + 1,
+                )
+              end
+            end
+
+            it 'is valid' do
+              model = ingredient.canonical_ingredients_alchemical_properties.first
+              model.ingredient = new_ingredient
+              model.priority = 4
+
+              expect(model).to be_valid
+            end
+          end
+
+          context 'when the new ingredient already has exactly 4 alchemical properties' do
+            let!(:new_ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
+
+            before do
+              new_ingredient.reload
+            end
+
+            it 'adds an error' do
+              model = ingredient.canonical_ingredients_alchemical_properties.first
+              model.ingredient = new_ingredient
+              model.validate
+
+              expect(model.errors[:ingredient]).to include 'already has 4 alchemical properties'
+            end
+          end
+        end
       end
     end
 
