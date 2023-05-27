@@ -27,7 +27,7 @@ class IngredientsAlchemicalProperty < ApplicationRecord
             allow_blank: true,
             numericality: { greater_than: 0 }
   validate :ensure_match_exists
-  validate :ensure_max_of_four_per_ingredient, on: :create
+  validate :ensure_max_of_four_per_ingredient
 
   before_validation :set_attributes_from_canonical, if: -> { canonical_model.present? }
 

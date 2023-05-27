@@ -18,7 +18,7 @@ module Canonical
               }
     validates :strength_modifier, allow_blank: true, numericality: { greater_than: 0 }
     validates :duration_modifier, allow_blank: true, numericality: { greater_than: 0 }
-    validate :ensure_max_of_four_per_ingredient, on: :create
+    validate :ensure_max_of_four_per_ingredient
 
     MAX_PER_INGREDIENT = 4
 
