@@ -9,15 +9,74 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
     describe 'number of records per ingredient' do
       let!(:ingredient) { create(:ingredient_with_matching_canonical, :with_associations_and_properties) }
 
-      it 'cannot have more than 4 records corresponding to one ingredient' do
+      before do
         # Since the alchemical properties are added in FactoryBot's after(:create) hook,
         # the ingredient needs to be reloaded before Rails/RSpec will know about them.
         ingredient.reload
+      end
 
-        new_association = build(:ingredients_alchemical_property, ingredient:)
+      context 'when creating a new record' do
+        it 'cannot have more than 4 records corresponding to one ingredient' do
+          new_association = build(:ingredients_alchemical_property, ingredient:)
 
-        new_association.validate
-        expect(new_association.errors[:ingredient]).to include 'already has 4 alchemical properties'
+          new_association.validate
+          expect(new_association.errors[:ingredient]).to include 'already has 4 alchemical properties'
+        end
+      end
+
+      context 'when updating a record' do
+        context 'when the ingredient_id does not change' do
+          it 'is valid' do
+            model = ingredient.ingredients_alchemical_properties.first
+            model.strength_modifier = 3
+            model.validate
+
+            expect(model.errors[:ingredient]).to be_empty
+          end
+        end
+
+        context 'when the ingredient_id changes' do
+          context 'when the new ingredient has less than 4 alchemical properties' do
+            let!(:new_ingredient) { create(:ingredient_with_matching_canonical, :with_associations_and_properties) }
+
+            before do
+              new_ingredient.reload.ingredients_alchemical_properties.last.destroy!
+            end
+
+            # Validations on this model are strict enough that this is an unlikely
+            # scenario. For this reason, it's easiest to test this validator by
+            # checking for the specific errors rather than making sure that no
+            # validations have failed.
+            it 'is valid' do
+              model = ingredient.ingredients_alchemical_properties.first
+              model.ingredient = new_ingredient
+              model.priority = 4
+              model.validate
+
+              expect(model.errors[:ingredient]).to be_empty
+            end
+          end
+
+          context 'when the new ingredient already has exactly 4 alchemical properties' do
+            let!(:new_ingredient) { create(:ingredient_with_matching_canonical, :with_associations_and_properties) }
+
+            before do
+              new_ingredient.reload
+            end
+
+            # Validations on this model are strict enough that this is an unlikely
+            # scenario. For this reason, it's easiest to test this validator by
+            # checking for the specific errors rather than making sure that no
+            # validations have failed.
+            it 'adds an error' do
+              model = ingredient.ingredients_alchemical_properties.first
+              model.ingredient = new_ingredient
+              model.validate
+
+              expect(model.errors[:ingredient]).to include 'already has 4 alchemical properties'
+            end
+          end
+        end
       end
     end
 

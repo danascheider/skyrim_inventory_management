@@ -58,6 +58,9 @@ class IngredientsAlchemicalProperty < ApplicationRecord
 
   def ensure_max_of_four_per_ingredient
     return if ingredient.alchemical_properties.length < Canonical::IngredientsAlchemicalProperty::MAX_PER_INGREDIENT
+    return if persisted? &&
+      !ingredient_id_changed? &&
+      ingredient.alchemical_properties.length == Canonical::IngredientsAlchemicalProperty::MAX_PER_INGREDIENT
 
     errors.add(
       :ingredient,
