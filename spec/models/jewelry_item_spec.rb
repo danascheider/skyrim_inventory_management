@@ -40,4 +40,13 @@ RSpec.describe JewelryItem, type: :model do
       end
     end
   end
+
+  describe '#crafting_materials' do
+    let!(:canonical_jewelry_item) { create(:canonical_jewelry_item, :with_crafting_materials, name: 'Gold Diamond Ring') }
+    let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring', canonical_jewelry_item:) }
+
+    it 'uses the values from the canonical model' do
+      expect(item.crafting_materials).to eq canonical_jewelry_item.crafting_materials
+    end
+  end
 end
