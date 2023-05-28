@@ -42,11 +42,32 @@ RSpec.describe JewelryItem, type: :model do
   end
 
   describe '#crafting_materials' do
-    let!(:canonical_jewelry_item) { create(:canonical_jewelry_item, :with_crafting_materials, name: 'Gold Diamond Ring') }
-    let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring', canonical_jewelry_item:) }
+    subject(:crafting_materials) { item.crafting_materials }
 
-    it 'uses the values from the canonical model' do
-      expect(item.crafting_materials).to eq canonical_jewelry_item.crafting_materials
+    context 'when canonical_jewelry_item is set' do
+      let!(:canonical_jewelry_item) { create(:canonical_jewelry_item, :with_crafting_materials, name: 'Gold Diamond Ring') }
+      let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring', canonical_jewelry_item:) }
+
+      it 'uses the values from the canonical model' do
+        expect(crafting_materials).to eq canonical_jewelry_item.crafting_materials
+      end
+    end
+
+    context 'when canonical_jewelry_item is not set' do
+      let!(:canonical_models) do
+        create_list(
+          :canonical_jewelry_item,
+          2,
+          :with_crafting_materials,
+          name: 'Gold Diamond Ring',
+        )
+      end
+
+      let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring') }
+
+      it 'returns nil' do
+        expect(crafting_materials).to be_nil
+      end
     end
   end
 end

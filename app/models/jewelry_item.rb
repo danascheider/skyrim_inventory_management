@@ -20,5 +20,7 @@ class JewelryItem < ApplicationRecord
               greater_than_or_equal_to: 0,
             }
 
-  delegate :crafting_materials, to: :canonical_jewelry_item
+  def crafting_materials
+    canonical_jewelry_item&.crafting_materials
+  end
 end
