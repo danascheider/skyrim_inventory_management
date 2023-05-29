@@ -20,5 +20,11 @@ FactoryBot.define do
         )
       end
     end
+
+    trait :with_enchantments do
+      after(:create) do |model|
+        create_list(:enchantables_enchantment, 2, enchantable: model)
+      end
+    end
   end
 end
