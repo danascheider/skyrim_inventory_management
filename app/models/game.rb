@@ -8,6 +8,7 @@ class Game < ApplicationRecord
   has_many :armors, dependent: :destroy
   has_many :clothing_items, dependent: :destroy
   has_many :ingredients, dependent: :destroy
+  has_many :jewelry_items, dependent: :destroy
 
   # `before_save` callbacks need to be defined before
   # `before_destroy` callbacks, which need to be defined here

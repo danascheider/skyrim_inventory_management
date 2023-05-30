@@ -10,5 +10,21 @@ FactoryBot.define do
     unique_item { false }
     rare_item { false }
     quest_item { false }
+
+    trait :with_crafting_materials do
+      after(:create) do |model|
+        create_list(
+          :canonical_craftables_crafting_material,
+          2,
+          craftable: model,
+        )
+      end
+    end
+
+    trait :with_enchantments do
+      after(:create) do |model|
+        create_list(:enchantables_enchantment, 2, enchantable: model)
+      end
+    end
   end
 end

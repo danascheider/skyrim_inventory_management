@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_23_225250) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_230835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -395,6 +395,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_225250) do
     t.index ["title", "game_id"], name: "index_inventory_lists_on_title_and_game_id", unique: true
   end
 
+  create_table "jewelry_items", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_jewelry_item_id"
+    t.string "name"
+    t.decimal "unit_weight"
+    t.string "jewelry_type"
+    t.string "magical_effects"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_jewelry_item_id"], name: "index_jewelry_items_on_canonical_jewelry_item_id"
+    t.index ["game_id"], name: "index_jewelry_items_on_game_id"
+  end
+
   create_table "powers", force: :cascade do |t|
     t.string "name", null: false
     t.string "power_type", null: false
@@ -496,6 +509,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_225250) do
   add_foreign_key "inventory_items", "inventory_lists", column: "list_id"
   add_foreign_key "inventory_lists", "games"
   add_foreign_key "inventory_lists", "inventory_lists", column: "aggregate_list_id"
+  add_foreign_key "jewelry_items", "canonical_jewelry_items"
+  add_foreign_key "jewelry_items", "games"
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"

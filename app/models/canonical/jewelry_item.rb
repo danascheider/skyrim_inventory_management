@@ -6,6 +6,8 @@ module Canonical
 
     BOOLEAN_VALUES = [true, false].freeze
     BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
+    JEWELRY_TYPES = %w[ring circlet amulet].freeze
+    JEWELRY_TYPE_VALIDATION_MESSAGE = 'must be "ring", "circlet", or "amulet"'
 
     has_many :enchantables_enchantments,
              dependent: :destroy,
@@ -23,11 +25,17 @@ module Canonical
              through: :canonical_craftables_crafting_materials,
              source: :material
 
+    has_many :jewelry_items,
+             inverse_of: :canonical_jewelry_item,
+             dependent: :nullify,
+             foreign_key: 'canonical_jewelry_item_id',
+             class_name: '::JewelryItem'
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :jewelry_type,
               presence: true,
-              inclusion: { in: %w[ring circlet amulet], message: 'must be "ring", "circlet", or "amulet"' }
+              inclusion: { in: JEWELRY_TYPES, message: JEWELRY_TYPE_VALIDATION_MESSAGE }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
