@@ -7,7 +7,7 @@ class CreateMiscItems < ActiveRecord::Migration[7.0]
       t.references :canonical_misc_item, foreign_key: true
 
       t.string :name, null: false
-      t.decimal :unit_weight
+      t.decimal :unit_weight, scale: 2, precision: 5
 
       t.timestamps
     end

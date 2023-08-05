@@ -412,7 +412,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_193231) do
     t.bigint "game_id", null: false
     t.bigint "canonical_misc_item_id"
     t.string "name", null: false
-    t.decimal "unit_weight"
+    t.decimal "unit_weight", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["canonical_misc_item_id"], name: "index_misc_items_on_canonical_misc_item_id"
