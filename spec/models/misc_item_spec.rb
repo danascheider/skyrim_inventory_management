@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe MiscItem, type: :model do
   describe 'validations' do
-    let(:item) { build(:misc_item, :with_matching_canonical) }
+    let(:item) { build(:misc_item) }
 
     describe '#name' do
       it 'is invalid without a name' do
@@ -17,7 +17,7 @@ RSpec.describe MiscItem, type: :model do
     describe '#unit_weight' do
       it 'can be blank' do
         item.unit_weight = nil
-        expect(item).to be_valid
+        expect(item.errors[:unit_weight]).to be_blank
       end
 
       it 'is invalid if less than 0' do
@@ -29,6 +29,8 @@ RSpec.describe MiscItem, type: :model do
 
     describe '#canonical_misc_items' do
       context 'when there is a single matching canonical misc item' do
+        let(:item) { create(:misc_item, :with_matching_canonical) }
+
         it 'is valid' do
           expect(item).to be_valid
         end
@@ -54,7 +56,6 @@ RSpec.describe MiscItem, type: :model do
         let(:item) { build(:misc_item) }
 
         it 'adds errors' do
-          pending
           item.validate
           expect(item.errors[:base]).to include "doesn't match any item that exists in Skyrim"
         end
@@ -107,14 +108,131 @@ RSpec.describe MiscItem, type: :model do
           )
         end
 
-        let(:item) { create(:misc_item, name: "Wylandria's Soul Gem", unit_weight: 0) }
+        let(:item) { build(:misc_item, name: "Wylandria's Soul Gem", unit_weight: 0) }
 
         before do
-          create(:canonical_misc_item, name: 'wedding ring', unit_weight: 1.0)
+          create(:canonical_misc_item, name: "Wylandria's Soul Gem", unit_weight: 1.0)
         end
 
         it 'returns the matching models' do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
+    end
+  end
+
+  describe '::before_validation' do
+    context 'when there is a single matching canonical model' do
+      let!(:matching_canonical) do
+        create(
+          :canonical_misc_item,
+          name: "Wylandria's Soul Gem",
+          unit_weight: 0,
+        )
+      end
+
+      let(:item) { build(:misc_item, name: "wylandria's soul gem") }
+
+      it 'assigns the canonical misc item' do
+        item.validate
+        expect(item.canonical_misc_item).to eq matching_canonical
+      end
+
+      it 'sets the attributes', :aggregate_failures do
+        item.validate
+        expect(item.name).to eq "Wylandria's Soul Gem"
+        expect(item.unit_weight).to eq 0
+      end
+    end
+
+    context 'when there are multiple matching canonical models' do
+      let!(:matching_canonicals) do
+        [
+          create(:canonical_misc_item, name: "Wylandria's Soul Gem", unit_weight: 0),
+          create(:canonical_misc_item, name: "Wylandria's Soul Gem", unit_weight: 1),
+        ]
+      end
+
+      let(:item) { create(:misc_item, name: "Wylandria's Soul Gem") }
+
+      it "doesn't set the association" do
+        item.validate
+        expect(item.canonical_misc_item).to be_nil
+      end
+    end
+
+    context "when multiple complete matches can't be further differentiated" do
+      let(:item) { build(:misc_item, name: 'Skull', unit_weight: 2) }
+
+      context 'when a canonical model indicates a unique item' do
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_misc_item,
+            3,
+            name: 'Skull',
+            unit_weight: 2,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when the canonical model is already associated with a non-canonical model' do
+          context 'when at least one canonical does not yet have an association' do
+            before do
+              create(
+                :misc_item,
+                canonical_misc_item: matching_canonicals.first,
+                name: 'Skull',
+                unit_weight: 2,
+              )
+            end
+
+            it 'assigns the first canonical model without an existing association' do
+              item.validate
+              expect(item.canonical_misc_item).to eq matching_canonicals.second
+            end
+          end
+
+          context 'when all canonicals already have associations' do
+            before do
+              matching_canonicals.each do |model|
+                create(
+                  :misc_item,
+                  canonical_misc_item: model,
+                  name: model.name,
+                  unit_weight: model.unit_weight,
+                )
+              end
+            end
+
+            it 'raises a validation error' do
+              item.validate
+              expect(item.errors[:base]).to include 'is a duplicate of a unique in-game item'
+            end
+          end
+        end
+
+        context 'when the canonical model has no non-canonical association' do
+          it 'assigns the first matching canonical model' do
+            item.validate
+            expect(item.canonical_misc_item).to eq matching_canonicals.first
+          end
+        end
+      end
+
+      context 'when the item is not unique' do
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_misc_item,
+            3,
+            name: 'Skull',
+            unit_weight: 2,
+          )
+        end
+
+        it 'associates the first matching canonical model' do
+          item.validate
+          expect(item.canonical_misc_item).to eq matching_canonicals.first
         end
       end
     end
