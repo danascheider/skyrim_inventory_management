@@ -4,7 +4,7 @@ The `Canonical::Ingredient` model has a couple of special characteristics that s
 
 ## Treatment of Rare Ingredients
 
-Ingredients differ from other objects in Skyrim in that they are consumable. For this reason, an ingredient can be considered a `rare_item` in situations where a non-consumable item would not be. The challenge presented by this is augmented by the fact that it's impossible to find detailed information online about acquisition of different ingredients, especially Solstheim ingredients (designated by `ingredient_type: 'Solstheim'`). For this reason, we've shot from the hip in determining which ingredients qualify as `rare_item`s, taking into account the subjective experience of how hard it is to find something in the game.
+Ingredients differ from other objects in Skyrim (other than soul gems and crafting/tempering/building materials) in that they are consumable. For this reason, an ingredient can be considered a `rare_item` in situations where a non-consumable item would not be. The challenge presented by this is augmented by the fact that it's impossible to find detailed information online about acquisition of different ingredients, especially Solstheim ingredients (designated by `ingredient_type: 'Solstheim'`). For this reason, we've shot from the hip in determining which ingredients qualify as `rare_item`s, taking into account the subjective experience of how hard it is to find something in the game.
 
 The factors considered in determining whether an ingredient is rare include:
 
