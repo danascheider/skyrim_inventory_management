@@ -162,7 +162,8 @@ RSpec.describe MiscItem, type: :model do
     end
 
     context "when multiple complete matches can't be further differentiated" do
-      let(:item) { build(:misc_item, name: 'Skull', unit_weight: 2) }
+      let(:game) { create(:game) }
+      let(:item) { build(:misc_item, name: 'Skull', unit_weight: 2, game:) }
 
       context 'when a canonical model indicates a unique item' do
         let!(:matching_canonicals) do
@@ -184,6 +185,7 @@ RSpec.describe MiscItem, type: :model do
                 canonical_misc_item: matching_canonicals.first,
                 name: 'Skull',
                 unit_weight: 2,
+                game:,
               )
             end
 
@@ -201,6 +203,7 @@ RSpec.describe MiscItem, type: :model do
                   canonical_misc_item: model,
                   name: model.name,
                   unit_weight: model.unit_weight,
+                  game:,
                 )
               end
             end

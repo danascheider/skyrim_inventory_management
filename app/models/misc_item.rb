@@ -13,7 +13,7 @@ class MiscItem < ApplicationRecord
 
   before_validation :set_canonical_misc_item
 
-  DUPLICATE_MESSAGE = 'iks a duplicate of a unique in-game item'
+  DUPLICATE_MESSAGE = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   def canonical_models
@@ -41,7 +41,7 @@ class MiscItem < ApplicationRecord
 
   def associate_first_available_match
     canonical_models.each do |model|
-      next if model.unique_item && model.misc_items.any?
+      next if model.unique_item && model.misc_items.where(game_id:).any?
 
       self.canonical_misc_item = model
       break
