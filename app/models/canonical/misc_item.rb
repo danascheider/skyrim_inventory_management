@@ -22,6 +22,12 @@ module Canonical
       'pelt',
     ].freeze
 
+    has_many :misc_items,
+             inverse_of: :canonical_misc_item,
+             dependent: :nullify,
+             foreign_key: 'canonical_misc_item_id',
+             class_name: '::MiscItem'
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
