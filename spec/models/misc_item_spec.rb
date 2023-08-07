@@ -27,9 +27,9 @@ RSpec.describe MiscItem, type: :model do
       end
     end
 
-    describe '#canonical_misc_items' do
+    describe '#canonical_misc_item' do
       context 'when there is a single matching canonical misc item' do
-        let(:item) { create(:misc_item, :with_matching_canonical) }
+        let(:item) { build(:misc_item, :with_matching_canonical) }
 
         it 'is valid' do
           expect(item).to be_valid
@@ -224,7 +224,16 @@ RSpec.describe MiscItem, type: :model do
         let!(:matching_canonicals) do
           create_list(
             :canonical_misc_item,
-            3,
+            2,
+            name: 'Skull',
+            unit_weight: 2,
+          )
+        end
+
+        before do
+          create(
+            :misc_item,
+            canonical_misc_item: matching_canonicals.first,
             name: 'Skull',
             unit_weight: 2,
           )
