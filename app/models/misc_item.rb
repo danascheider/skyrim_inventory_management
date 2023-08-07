@@ -40,6 +40,8 @@ class MiscItem < ApplicationRecord
   end
 
   def associate_first_available_match
+    return if canonical_misc_item.present?
+
     canonical_models.each do |model|
       next if model.unique_item && model.misc_items.where(game_id:).any?
 

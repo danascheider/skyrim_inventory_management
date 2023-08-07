@@ -239,5 +239,15 @@ RSpec.describe MiscItem, type: :model do
         end
       end
     end
+
+    context 'when there is already a canonical_misc_item assigned' do
+      let(:canonical_misc_item) { create(:canonical_misc_item, unique_item: true, rare_item: true) }
+      let(:item) { create(:misc_item, canonical_misc_item:) }
+
+      it "doesn't raise an error" do
+        item.validate
+        expect(item.errors[:base]).to be_empty
+      end
+    end
   end
 end
