@@ -17,7 +17,7 @@ RSpec.describe MiscItem, type: :model do
     describe '#unit_weight' do
       it 'can be blank' do
         item.unit_weight = nil
-        expect(item.errors[:unit_weight]).to be_blank
+        expect(item.errors[:unit_weight]).to be_empty
       end
 
       it 'is invalid if less than 0' do
