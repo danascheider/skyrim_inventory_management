@@ -73,9 +73,6 @@ RSpec.describe MiscItem, type: :model do
         create(:canonical_misc_item, name: item.name)
       end
 
-      # TODO: This might not be desirable behaviour since it prevents the associated
-      #       model from changing when the non-canonical model's matchable attributes
-      #       are updated.
       it 'includes only the associated model' do
         expect(canonical_models).to contain_exactly(item.canonical_misc_item)
       end
