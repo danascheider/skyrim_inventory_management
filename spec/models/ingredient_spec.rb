@@ -82,6 +82,19 @@ RSpec.describe Ingredient, type: :model do
         end
       end
 
+      context 'when names and unit weights are defined' do
+        let!(:matching_canonicals) { create_list(:canonical_ingredient, 2, name: 'Blue Mountain Flower', unit_weight: 0.1) }
+        let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower', unit_weight: 0.1) }
+
+        before do
+          create(:canonical_ingredient, name: 'Blue Mountain Flower', unit_weight: 0.2)
+        end
+
+        it 'returns all the matching canonical ingredients' do
+          expect(ingredient.canonical_ingredients).to eq matching_canonicals
+        end
+      end
+
       # NB: No context is required for when no join model fully matches because
       #     join model validations will fail if they don't match.
       context 'when there are also alchemical properties involved' do

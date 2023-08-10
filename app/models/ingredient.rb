@@ -24,6 +24,7 @@ class Ingredient < ApplicationRecord
     return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_ingredient.present?
 
     matching = Canonical::Ingredient.where('name ILIKE ?', name)
+    matching = matching.where(**attributes_to_match) if attributes_to_match.any?
 
     return matching if alchemical_properties.empty?
 
@@ -45,11 +46,20 @@ class Ingredient < ApplicationRecord
 
     canonicals = canonical_ingredients
     self.canonical_ingredient = canonicals.first if canonicals.count == 1
+
+    return if canonical_ingredient.nil?
+
+    self.name = canonical_ingredient.name
+    self.unit_weight = canonical_ingredient.unit_weight
   end
 
   def ensure_match_exists
     return if canonical_ingredients.any?
 
     errors.add(:base, DOES_NOT_MATCH)
+  end
+
+  def attributes_to_match
+    { unit_weight: }.compact
   end
 end
