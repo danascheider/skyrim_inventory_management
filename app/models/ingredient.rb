@@ -15,6 +15,7 @@ class Ingredient < ApplicationRecord
            through: :ingredients_alchemical_properties
 
   validates :name, presence: true
+  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
   validate :ensure_match_exists
 
   before_validation :set_canonical_ingredient
