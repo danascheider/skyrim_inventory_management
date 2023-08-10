@@ -6,10 +6,26 @@ RSpec.describe Ingredient, type: :model do
   describe 'validations' do
     let(:ingredient) { build(:ingredient) }
 
-    it 'is invalid without a name' do
-      ingredient.name = nil
-      ingredient.validate
-      expect(ingredient.errors[:name]).to include "can't be blank"
+    describe '#name' do
+      it "can't be blank" do
+        ingredient.name = nil
+        ingredient.validate
+        expect(ingredient.errors[:name]).to include "can't be blank"
+      end
+    end
+
+    describe '#unit_weight' do
+      it 'can be blank' do
+        ingredient.unit_weight = nil
+        ingredient.validate
+        expect(ingredient.errors[:unit_weight]).to be_empty
+      end
+
+      it 'must be at least 0' do
+        ingredient.unit_weight = -2.7
+        ingredient.validate
+        expect(ingredient.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+      end
     end
 
     context 'when there are multiple matching canonical ingredients' do
@@ -60,6 +76,19 @@ RSpec.describe Ingredient, type: :model do
       context 'when only the names have to match' do
         let!(:matching_canonicals) { create_list(:canonical_ingredient, 3, name: 'Blue Mountain Flower') }
         let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower') }
+
+        it 'returns all the matching canonical ingredients' do
+          expect(ingredient.canonical_ingredients).to eq matching_canonicals
+        end
+      end
+
+      context 'when names and unit weights are defined' do
+        let!(:matching_canonicals) { create_list(:canonical_ingredient, 2, name: 'Blue Mountain Flower', unit_weight: 0.1) }
+        let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower', unit_weight: 0.1) }
+
+        before do
+          create(:canonical_ingredient, name: 'Blue Mountain Flower', unit_weight: 0.2)
+        end
 
         it 'returns all the matching canonical ingredients' do
           expect(ingredient.canonical_ingredients).to eq matching_canonicals
