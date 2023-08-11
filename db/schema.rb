@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_07_234724) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_234456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -431,6 +431,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_234724) do
     t.index ["game_id"], name: "index_potions_on_game_id"
   end
 
+  create_table "potions_alchemical_properties", force: :cascade do |t|
+    t.bigint "potion_id", null: false
+    t.bigint "alchemical_property_id", null: false
+    t.integer "strength"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alchemical_property_id"], name: "index_potions_alchemical_properties_on_alchemical_property_id"
+    t.index ["potion_id", "alchemical_property_id"], name: "index_potions_alc_properties_on_potion_id_alc_property_id", unique: true
+    t.index ["potion_id"], name: "index_potions_alchemical_properties_on_potion_id"
+  end
+
   create_table "powers", force: :cascade do |t|
     t.string "name", null: false
     t.string "power_type", null: false
@@ -538,6 +550,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_234724) do
   add_foreign_key "misc_items", "games"
   add_foreign_key "potions", "canonical_potions"
   add_foreign_key "potions", "games"
+  add_foreign_key "potions_alchemical_properties", "alchemical_properties"
+  add_foreign_key "potions_alchemical_properties", "potions"
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
