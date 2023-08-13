@@ -20,6 +20,11 @@ class AlchemicalProperty < ApplicationRecord
            class_name: '::IngredientsAlchemicalProperty'
   has_many :ingredients, through: :ingredients_alchemical_properties
 
+  has_many :potions_alchemical_properties,
+           dependent: :destroy,
+           class_name: '::PotionsAlchemicalProperty'
+  has_many :potions, through: :potions_alchemical_properties
+
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :description, presence: true
   validates :strength_unit, inclusion: { in: VALID_STRENGTH_UNITS, message: 'must be "point", "percentage", or the "level" of affected targets', allow_blank: true }

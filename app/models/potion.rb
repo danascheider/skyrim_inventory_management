@@ -4,6 +4,9 @@ class Potion < ApplicationRecord
   belongs_to :game
   belongs_to :canonical_potion, optional: true, class_name: 'Canonical::Potion'
 
+  has_many :potions_alchemical_properties, dependent: :destroy, inverse_of: :potion
+  has_many :alchemical_properties, through: :potions_alchemical_properties
+
   validates :name, presence: true
   validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
 
