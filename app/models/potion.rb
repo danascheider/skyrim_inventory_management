@@ -21,6 +21,8 @@ class Potion < ApplicationRecord
     canonicals
   end
 
+  alias_method :canonical_potions, :canonical_models
+
   private
 
   def attributes_to_match

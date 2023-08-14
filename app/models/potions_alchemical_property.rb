@@ -21,4 +21,23 @@ class PotionsAlchemicalProperty < ApplicationRecord
               only_integer: true,
               allow_nil: true,
             }
+
+  delegate :canonical_potions, to: :potion
+
+  def canonical_models
+    return [] if canonical_potions.none?
+
+    Canonical::PotionsAlchemicalProperty.where(**attributes_to_match)
+  end
+
+  private
+
+  def attributes_to_match
+    {
+      potion_id: canonical_potions.ids.presence,
+      alchemical_property_id:,
+      strength:,
+      duration:,
+    }.compact
+  end
 end
