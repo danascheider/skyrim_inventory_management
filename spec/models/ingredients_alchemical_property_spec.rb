@@ -261,7 +261,7 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       end
     end
 
-    context 'when are multiple matching canonical models' do
+    context 'when there are multiple matching canonical models' do
       let!(:canonical_ingredient) { create(:canonical_ingredient, :with_alchemical_properties) }
       let!(:second_canonical) { create(:canonical_ingredient, :with_alchemical_properties) }
       let(:ingredient) { create(:ingredient) }
