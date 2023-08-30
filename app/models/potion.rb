@@ -15,10 +15,16 @@ class Potion < ApplicationRecord
   def canonical_models
     return Canonical::Potion.where(id: canonical_potion_id) if canonical_potion.present?
 
-    canonicals = Canonical::Potion.where('name ILIKE ?', name)
-    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
+    matching = Canonical::Potion.where('name ILIKE ?', name)
+    matching = matching.where(**attributes_to_match) if attributes_to_match.any?
 
-    canonicals
+    return matching if matching.blank? || alchemical_properties.none?
+
+    matching
+      .joins(:canonical_potions_alchemical_properties)
+      .where(association_query)
+      .group('canonical_potions.id')
+      .having('COUNT(*) >= ?', potions_alchemical_properties.length)
   end
 
   alias_method :canonical_potions, :canonical_models
@@ -36,5 +42,27 @@ class Potion < ApplicationRecord
     self.canonical_potion = canonical_models.first
     self.name = canonical_potion.name
     self.unit_weight = canonical_potion.unit_weight
+  end
+
+  def association_query
+    properties_to_match = potions_alchemical_properties.map do |prop|
+      { strength: prop.strength, duration: prop.duration }.compact
+    end
+
+    conditions = properties_to_match.map do |prop|
+      strength_condition = prop[:strength].nil? ? nil : "(canonical_potions_alchemical_properties.strength = #{prop[:strength]})"
+      duration_condition = prop[:duration].nil? ? nil : "(canonical_potions_alchemical_properties.duration = #{prop[:duration]})"
+
+      conditions_array = [strength_condition, duration_condition].compact
+
+      case conditions_array.length
+      when 2
+        "(#{conditions_array.join(' AND ')})"
+      when 1
+        conditions_array.first
+      end
+    end
+
+    conditions.join(' OR ')
   end
 end
