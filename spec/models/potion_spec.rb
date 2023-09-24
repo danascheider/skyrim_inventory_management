@@ -368,17 +368,18 @@ RSpec.describe Potion, type: :model do
     let(:potion) { build(:potion) }
 
     context 'when there is a matching canonical potion' do
-      let!(:matching_canonical) { create(:canonical_potion, name: potion.name.downcase) }
+      let!(:matching_canonical) { create(:canonical_potion, name: potion.name.downcase, magical_effects: 'Foo') }
 
       it 'sets the canonical_potion' do
         potion.validate
         expect(potion.canonical_potion).to eq matching_canonical
       end
 
-      it 'sets the name and unit weight', :aggregate_failures do
+      it 'sets the name, unit weight, and magical effects', :aggregate_failures do
         potion.validate
         expect(potion.name).to eq matching_canonical.name
         expect(potion.unit_weight).to eq matching_canonical.unit_weight
+        expect(potion.magical_effects).to eq matching_canonical.magical_effects
       end
     end
 

@@ -43,6 +43,7 @@ class Potion < ApplicationRecord
     self.canonical_potion = canonical_models.first
     self.name = canonical_potion.name
     self.unit_weight = canonical_potion.unit_weight
+    self.magical_effects = canonical_potion.magical_effects
   end
 
   def association_query
