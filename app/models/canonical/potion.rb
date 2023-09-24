@@ -14,6 +14,12 @@ module Canonical
              inverse_of: :potion
     has_many :alchemical_properties, through: :canonical_potions_alchemical_properties
 
+    has_many :potions,
+             inverse_of: :canonical_potion,
+             dependent: :nullify,
+             foreign_key: :canonical_potion_id,
+             class_name: '::Potion'
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
