@@ -82,6 +82,27 @@ RSpec.describe Potion, type: :model do
         end
       end
 
+      context 'when there are magical effects defined' do
+        let(:potion) { build(:potion, name: 'Potion of Healing', magical_effects: 'foobar') }
+
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_potion,
+            3,
+            name: 'potion of healing',
+            magical_effects: 'Foobar',
+          )
+        end
+
+        before do
+          create(:canonical_potion, name: 'potion of healing', magical_effects: nil)
+        end
+
+        it 'returns all matching canonicals' do
+          expect(canonical_models).to eq matching_canonicals
+        end
+      end
+
       context 'when there are no matches' do
         let(:potion) { build(:potion, name: 'Deadly Poison', unit_weight: 0.5) }
 
@@ -100,7 +121,7 @@ RSpec.describe Potion, type: :model do
 
       context 'when the potion has one alchemical property' do
         context 'when strength and duration are not defined' do
-          let(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
+          let(:canonical_potions) { create_list(:canonical_potion, 3, name: 'Foo') }
 
           let!(:join_model) do
             create(
@@ -122,6 +143,13 @@ RSpec.describe Potion, type: :model do
 
             create(
               :canonical_potions_alchemical_property,
+              potion: canonical_potions.second,
+              strength: nil,
+              duration: nil,
+            )
+
+            create(
+              :canonical_potions_alchemical_property,
               potion: canonical_potions.last,
               alchemical_property: join_model.alchemical_property,
               strength: nil,
@@ -129,7 +157,7 @@ RSpec.describe Potion, type: :model do
             )
           end
 
-          it 'includes only models whose association strength and duration are also nil' do
+          it 'includes only matching models whose association strength and duration are also nil' do
             expect(canonical_models).to contain_exactly(canonical_potions.last)
           end
         end
@@ -241,101 +269,97 @@ RSpec.describe Potion, type: :model do
       end
 
       context 'when the potion has multiple alchemical properties' do
-        context 'when strength and duration match on all properties' do
-          let(:canonical_potions) { create_list(:canonical_potion, 4, name: 'foo') }
+        let(:canonical_potions) { create_list(:canonical_potion, 4, name: 'foo') }
 
-          let!(:join_models) do
-            [
-              create(
-                :potions_alchemical_property,
-                potion:,
-                strength: 5,
-                duration: 20,
-              ),
-              create(
-                :potions_alchemical_property,
-                potion:,
-                strength: 15,
-                duration: 60,
-              ),
-            ]
-          end
-
-          before do
-            # The first canonical potion has one alchemical property that matches,
-            # but shouldn't show up in the results since it doesn't have both.
+        let!(:join_models) do
+          [
             create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.first,
-              alchemical_property: join_models.first.alchemical_property,
+              :potions_alchemical_property,
+              potion:,
               strength: 5,
               duration: 20,
-            )
-
-            # The second canonical potion has multiple alchemical properties
-            # but shouldn't show up in results because only one matches the
-            # strength and duration
+            ),
             create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.second,
-              alchemical_property: join_models.first.alchemical_property,
-              strength: 5,
-              duration: 20,
-            )
-            create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.second,
-              alchemical_property: join_models.last.alchemical_property,
+              :potions_alchemical_property,
+              potion:,
               strength: nil,
               duration: 60,
-            )
-
-            # The third canonical potion has exact matching alchemical
-            # properties - it should show up in results
-            create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.third,
-              alchemical_property: join_models.first.alchemical_property,
-              strength: 5,
-              duration: 20,
-            )
-            create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.third,
-              alchemical_property: join_models.second.alchemical_property,
-              strength: 15,
-              duration: 60,
-            )
-
-            # The fourth canonical potion has both alchemical properties that
-            # match as well as a third one - that's OK and it should be included
-            # in the results too
-            create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.last,
-              alchemical_property: join_models.first.alchemical_property,
-              strength: 5,
-              duration: 20,
-            )
-            create(
-              :canonical_potions_alchemical_property,
-              potion: canonical_potions.last,
-              alchemical_property: join_models.second.alchemical_property,
-              strength: 15,
-              duration: 60,
-            )
-            create(:canonical_potions_alchemical_property, potion: canonical_potions.last)
-
-            potion.alchemical_properties.reload
-            canonical_potions.each {|canonical_potion| canonical_potion.alchemical_properties.reload }
-          end
-
-          it 'includes the matching canonical models' do
-            expect(canonical_models).to contain_exactly(canonical_potions.third, canonical_potions.last)
-          end
+            ),
+          ]
         end
 
-        context "when strength and duration don't match on all properties"
+        before do
+          # The first canonical potion has one alchemical property that matches,
+          # but shouldn't show up in the results since it doesn't have both.
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.first,
+            alchemical_property: join_models.first.alchemical_property,
+            strength: 5,
+            duration: 20,
+          )
+
+          # The second canonical potion has multiple alchemical properties
+          # but shouldn't show up in results because only one matches the
+          # strength and duration
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.second,
+            alchemical_property: join_models.first.alchemical_property,
+            strength: 5,
+            duration: 20,
+          )
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.second,
+            alchemical_property: join_models.last.alchemical_property,
+            strength: 15,
+            duration: nil,
+          )
+
+          # The third canonical potion has exact matching alchemical
+          # properties - it should show up in results
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.third,
+            alchemical_property: join_models.first.alchemical_property,
+            strength: 5,
+            duration: 20,
+          )
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.third,
+            alchemical_property: join_models.second.alchemical_property,
+            strength: nil,
+            duration: 60,
+          )
+
+          # The fourth canonical potion has both alchemical properties that
+          # match as well as a third one - that's OK and it should be included
+          # in the results too
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.last,
+            alchemical_property: join_models.first.alchemical_property,
+            strength: 5,
+            duration: 20,
+          )
+          create(
+            :canonical_potions_alchemical_property,
+            potion: canonical_potions.last,
+            alchemical_property: join_models.second.alchemical_property,
+            strength: nil,
+            duration: 60,
+          )
+          create(:canonical_potions_alchemical_property, potion: canonical_potions.last)
+
+          potion.alchemical_properties.reload
+          canonical_potions.each {|canonical_potion| canonical_potion.alchemical_properties.reload }
+        end
+
+        it 'includes the canonical models that fully match' do
+          expect(canonical_models).to contain_exactly(canonical_potions.third, canonical_potions.last)
+        end
       end
     end
   end
