@@ -36,15 +36,9 @@ class IngredientsAlchemicalProperty < ApplicationRecord
   DOES_NOT_MATCH = 'is not consistent with any ingredient that exists in Skyrim'
 
   def canonical_models
-    matching_attrs = {
-      alchemical_property_id:,
-      ingredient_id: canonical_ingredients.ids,
-      strength_modifier:,
-      duration_modifier:,
-      priority:,
-    }.compact
+    return Canonical::IngredientsAlchemicalProperty.where(**attributes_to_match) if attributes_to_match.any?
 
-    Canonical::IngredientsAlchemicalProperty.where(**matching_attrs)
+    Canonical::IngredientsAlchemicalProperty.none
   end
 
   def canonical_model
@@ -80,5 +74,15 @@ class IngredientsAlchemicalProperty < ApplicationRecord
     return if canonical_models.any?
 
     errors.add(:base, DOES_NOT_MATCH)
+  end
+
+  def attributes_to_match
+    {
+      alchemical_property_id:,
+      ingredient_id: canonical_ingredients.ids,
+      strength_modifier:,
+      duration_modifier:,
+      priority:,
+    }.compact
   end
 end
