@@ -17,7 +17,6 @@ class Potion < ApplicationRecord
 
     matching = Canonical::Potion.where('name ILIKE ?', name)
     matching = matching.where('magical_effects ILIKE ?', magical_effects) if magical_effects.present?
-    matching = matching.where(**attributes_to_match) if attributes_to_match.any?
 
     return matching if matching.blank? || alchemical_properties.none?
 
@@ -32,13 +31,8 @@ class Potion < ApplicationRecord
 
   private
 
-  def attributes_to_match
-    { unit_weight: }.compact
-  end
-
   def set_canonical_potion
     return unless canonical_models.count == 1
-    return if canonical_potion.present?
 
     self.canonical_potion = canonical_models.first
     self.name = canonical_potion.name

@@ -57,28 +57,7 @@ RSpec.describe Potion, type: :model do
         end
 
         it 'matches case-insensitively' do
-          expect(canonical_models).to eq matching_canonicals
-        end
-      end
-
-      context 'when there is a unit weight defined' do
-        let(:potion) { build(:potion, name: 'Potion of Healing', unit_weight: 0.5) }
-
-        let!(:matching_canonicals) do
-          create_list(
-            :canonical_potion,
-            3,
-            name: 'potion of healing',
-            unit_weight: 0.5,
-          )
-        end
-
-        before do
-          create(:canonical_potion, name: 'potion of healing', unit_weight: 0.6)
-        end
-
-        it 'returns all matching canonicals' do
-          expect(canonical_models).to eq matching_canonicals
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
 
@@ -99,15 +78,15 @@ RSpec.describe Potion, type: :model do
         end
 
         it 'returns all matching canonicals' do
-          expect(canonical_models).to eq matching_canonicals
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
 
       context 'when there are no matches' do
-        let(:potion) { build(:potion, name: 'Deadly Poison', unit_weight: 0.5) }
+        let(:potion) { build(:potion, name: 'Deadly Poison', magical_effects: 'foo') }
 
         before do
-          create(:canonical_potion, name: 'Deadly Poison', unit_weight: 0.2)
+          create(:canonical_potion, name: 'Deadly Poison')
         end
 
         it 'is empty' do
