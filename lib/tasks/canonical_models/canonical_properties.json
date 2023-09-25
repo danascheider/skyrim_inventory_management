@@ -6,7 +6,18 @@
       "city": "Winterhold",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -16,7 +27,18 @@
       "city": "Whiterun",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": false,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -26,7 +48,18 @@
       "city": null,
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": true
+      "forge_available": true,
+      "enchanters_tower_available": true,
+      "alchemy_tower_available": true,
+      "library_available": true,
+      "bedrooms_available": true,
+      "storage_room_available": true,
+      "armory_available": true,
+      "greenhouse_available": true,
+      "kitchen_available": true,
+      "apiary_available": false,
+      "grain_mill_available": true,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -36,7 +69,18 @@
       "city": "Windhelm",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -46,7 +90,18 @@
       "city": "Riften",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -56,7 +111,18 @@
       "city": null,
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": true
+      "forge_available": true,
+      "enchanters_tower_available": true,
+      "alchemy_tower_available": true,
+      "library_available": true,
+      "bedrooms_available": true,
+      "storage_room_available": true,
+      "armory_available": true,
+      "greenhouse_available": true,
+      "kitchen_available": true,
+      "apiary_available": true,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -66,7 +132,18 @@
       "city": "Solitude",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -76,7 +153,18 @@
       "city": "Raven Rock",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": true
+      "forge_available": true,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -86,7 +174,18 @@
       "city": "Markarth",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": false
+      "forge_available": false,
+      "enchanters_tower_available": false,
+      "alchemy_tower_available": false,
+      "library_available": false,
+      "bedrooms_available": false,
+      "storage_room_available": false,
+      "armory_available": false,
+      "greenhouse_available": false,
+      "kitchen_available": false,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": false
     }
   },
   {
@@ -96,7 +195,18 @@
       "city": null,
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
-      "forge_available": true
+      "forge_available": true,
+      "enchanters_tower_available": true,
+      "alchemy_tower_available": true,
+      "library_available": true,
+      "bedrooms_available": true,
+      "storage_room_available": true,
+      "armory_available": true,
+      "greenhouse_available": true,
+      "kitchen_available": true,
+      "apiary_available": false,
+      "grain_mill_available": false,
+      "fish_hatchery_available": true
     }
   }
 ]
