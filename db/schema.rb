@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_234456) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_053242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -225,6 +225,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_234456) do
     t.boolean "forge_available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "enchanters_tower_available", default: false
+    t.boolean "alchemy_tower_available", default: false
+    t.boolean "library_available", default: false
+    t.boolean "bedrooms_available", default: false
+    t.boolean "storage_room_available", default: false
+    t.boolean "armory_available", default: false
+    t.boolean "greenhouse_available", default: false
+    t.boolean "trophy_room_available", default: false
+    t.boolean "kitchen_available", default: false
+    t.boolean "apiary_available", default: false
+    t.boolean "grain_mill_available", default: false
+    t.boolean "fish_hatchery_available", default: false
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
