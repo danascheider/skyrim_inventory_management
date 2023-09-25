@@ -37,7 +37,7 @@ RSpec.describe Property, type: :model do
 
     it 'is invalid without a canonical property' do
       property.validate
-      expect(property.errors[:canonical_property]).to include 'must exist'
+      expect(property.errors[:base]).to include "doesn't match any ownable property that exists in Skyrim"
     end
 
     it 'must have a name' do
@@ -118,19 +118,6 @@ RSpec.describe Property, type: :model do
         property.hold = canonical_property.hold
         property.validate
         expect(property.errors[:hold]).to include 'must be unique per game'
-      end
-    end
-
-    describe 'consistency with canonical property' do
-      let(:canonical_property) { Canonical::Property.find_by(name: 'Severin Manor') }
-
-      it 'must have the same name, hold, and city as the canonical property' do
-        property.canonical_property_id = canonical_property.id
-        property.name = canonical_property.name
-        property.hold = canonical_property.hold
-        property.city = nil
-        property.validate
-        expect(property.errors[:base]).to include 'property attributes must match attributes of a property that exists in Skyrim'
       end
     end
 
@@ -286,6 +273,43 @@ RSpec.describe Property, type: :model do
           property.validate
           expect(property.errors[:has_fish_hatchery]).to be_blank
         end
+      end
+    end
+  end
+
+  describe 'setting a canonical model' do
+    context 'when a canonical property is already assigned' do
+      subject(:property) { build(:property, name: 'Vlindrel Hall', canonical_property:) }
+
+      let(:canonical_property) { Canonical::Property.find_by(name: 'Vlindrel Hall') }
+
+      it "doesn't change the canonical property" do
+        expect { property.validate }
+          .not_to change(property, :canonical_property)
+      end
+    end
+
+    context 'when there is a matching canonical property' do
+      subject(:property) { build(:property, name: 'vlindrel hall') }
+
+      let!(:canonical_property) { Canonical::Property.find_by(name: 'Vlindrel Hall') }
+
+      it 'sets the canonical property', :aggregate_failures do
+        property.validate
+        expect(property.canonical_property).to eq canonical_property
+      end
+    end
+  end
+
+  describe 'setting values from the canonical model' do
+    context 'when a canonical model is present' do
+      subject(:property) { build(:property, name: 'hjerim') }
+
+      it 'sets the property name, city, and hold', :aggregate_failures do
+        property.validate
+        expect(property.name).to eq 'Hjerim'
+        expect(property.city).to eq 'Windhelm'
+        expect(property.hold).to eq 'Eastmarch'
       end
     end
   end

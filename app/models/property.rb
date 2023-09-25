@@ -25,21 +25,38 @@ class Property < ApplicationRecord
 
   validates :city,
             inclusion: { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
-            uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_blank: true }
+            uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_nil: true }
 
-  validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && canonical_property&.alchemy_lab_available != true }
-  validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && canonical_property&.arcane_enchanter_available != true }
-  validate :ensure_forge_available, if: -> { has_forge == true && canonical_property&.forge_available != true }
-  validate :ensure_enchanters_tower_available, if: -> { has_enchanters_tower == true && canonical_property&.enchanters_tower_available != true }
-  validate :ensure_apiary_available, if: -> { has_apiary == true && canonical_property&.apiary_available != true }
-  validate :ensure_grain_mill_available, if: -> { has_grain_mill == true && canonical_property&.grain_mill_available != true }
-  validate :ensure_fish_hatchery_available, if: -> { has_fish_hatchery == true && canonical_property&.fish_hatchery_available != true }
+  validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && canonical_property&.alchemy_lab_available == false }
+  validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && canonical_property&.arcane_enchanter_available == false }
+  validate :ensure_forge_available, if: -> { has_forge == true && canonical_property&.forge_available == false }
+  validate :ensure_enchanters_tower_available, if: -> { has_enchanters_tower == true && canonical_property&.enchanters_tower_available == false }
+  validate :ensure_apiary_available, if: -> { has_apiary == true && canonical_property&.apiary_available == false }
+  validate :ensure_grain_mill_available, if: -> { has_grain_mill == true && canonical_property&.grain_mill_available == false }
+  validate :ensure_fish_hatchery_available, if: -> { has_fish_hatchery == true && canonical_property&.fish_hatchery_available == false }
 
   validate :ensure_matches_canonical_property
 
   validates_with HomesteadValidator
 
+  before_validation :set_canonical_model
+  before_validation :set_values_from_canonical
+
+  DOES_NOT_MATCH = "doesn't match any ownable property that exists in Skyrim"
+
   private
+
+  def set_canonical_model
+    self.canonical_property ||= Canonical::Property.find_by('name ILIKE ?', name)
+  end
+
+  def set_values_from_canonical
+    return if canonical_property.nil?
+
+    self.name = canonical_property.name
+    self.city = canonical_property.city
+    self.hold = canonical_property.hold
+  end
 
   def ensure_max
     Rails.logger.error "Cannot create property \"#{name}\" in hold \"#{hold}\": this game already has #{Canonical::Property::TOTAL_PROPERTY_COUNT} properties"
@@ -75,6 +92,6 @@ class Property < ApplicationRecord
   end
 
   def ensure_matches_canonical_property
-    errors.add(:base, 'property attributes must match attributes of a property that exists in Skyrim') unless name == canonical_property&.name && hold == canonical_property&.hold && city == canonical_property&.city
+    errors.add(:base, DOES_NOT_MATCH) if canonical_property.blank?
   end
 end
