@@ -15,6 +15,7 @@ class AddNewFieldsToCanonicalProperty < ActiveRecord::Migration[7.0]
       t.column :apiary_available, :boolean, default: false
       t.column :grain_mill_available, :boolean, default: false
       t.column :fish_hatchery_available, :boolean, default: false
+      t.column :cellar_available, :boolean, default: false
     end
   end
 end

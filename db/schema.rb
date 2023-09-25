@@ -237,6 +237,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_053242) do
     t.boolean "apiary_available", default: false
     t.boolean "grain_mill_available", default: false
     t.boolean "fish_hatchery_available", default: false
+    t.boolean "cellar_available", default: false
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
