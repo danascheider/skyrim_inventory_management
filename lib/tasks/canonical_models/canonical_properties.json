@@ -18,7 +18,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -40,7 +41,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -62,7 +64,8 @@
       "apiary_available": false,
       "grain_mill_available": true,
       "fish_hatchery_available": false,
-      "cellar_available": true
+      "cellar_available": true,
+      "main_hall_available": true
     }
   },
   {
@@ -84,7 +87,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -106,7 +110,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -128,7 +133,8 @@
       "apiary_available": true,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": true
+      "cellar_available": true,
+      "main_hall_available": true
     }
   },
   {
@@ -150,7 +156,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -172,7 +179,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -194,7 +202,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": false,
-      "cellar_available": false
+      "cellar_available": false,
+      "main_hall_available": false
     }
   },
   {
@@ -216,7 +225,8 @@
       "apiary_available": false,
       "grain_mill_available": false,
       "fish_hatchery_available": true,
-      "cellar_available": true
+      "cellar_available": true,
+      "main_hall_available": true
     }
   }
 ]

@@ -37,6 +37,8 @@ Each homestead also has one outdoor element unique to it:
 * Grain Mill (Heljarchen Hall)
 * Fish Hatchery (Windstad Manor)
 
+\* The "Alchemy Laboratory" here refers to what is referred to as the "alchemy tower" in the database, to differentiate it from an actual alchemy lab, which is available in homestead properties regardless of the presence of this room.
+
 ## Properties as Locations
 
 Properties are different from other types of "items" in SIM in two ways:

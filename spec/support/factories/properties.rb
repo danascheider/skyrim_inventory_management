@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :property do
-    canonical_property
+    trait :with_canonical do
+      canonical_property
+    end
   end
 end
