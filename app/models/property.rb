@@ -27,10 +27,17 @@ class Property < ApplicationRecord
             inclusion: { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
             uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_blank: true }
 
-  validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && !canonical_property&.alchemy_lab_available }
-  validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && !canonical_property&.arcane_enchanter_available }
-  validate :ensure_forge_available, if: -> { has_forge == true && !canonical_property&.forge_available }
+  validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && canonical_property&.alchemy_lab_available != true }
+  validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && canonical_property&.arcane_enchanter_available != true }
+  validate :ensure_forge_available, if: -> { has_forge == true && canonical_property&.forge_available != true }
+  validate :ensure_enchanters_tower_available, if: -> { has_enchanters_tower == true && canonical_property&.enchanters_tower_available != true }
+  validate :ensure_apiary_available, if: -> { has_apiary == true && canonical_property&.apiary_available != true }
+  validate :ensure_grain_mill_available, if: -> { has_grain_mill == true && canonical_property&.grain_mill_available != true }
+  validate :ensure_fish_hatchery_available, if: -> { has_fish_hatchery == true && canonical_property&.fish_hatchery_available != true }
+
   validate :ensure_matches_canonical_property
+
+  validates_with HomesteadValidator
 
   private
 
@@ -53,6 +60,18 @@ class Property < ApplicationRecord
 
   def ensure_forge_available
     errors.add(:has_forge, 'cannot be true because this property cannot have a forge in Skyrim')
+  end
+
+  def ensure_apiary_available
+    errors.add(:has_apiary, 'cannot be true because this property cannot have an apiary in Skyrim')
+  end
+
+  def ensure_grain_mill_available
+    errors.add(:has_grain_mill, 'cannot be true because this property cannot have a grain mill in Skyrim')
+  end
+
+  def ensure_fish_hatchery_available
+    errors.add(:has_fish_hatchery, 'cannot be true because this property cannot have a fish hatchery in Skyrim')
   end
 
   def ensure_matches_canonical_property
