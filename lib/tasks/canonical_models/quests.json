@@ -1,0 +1,1467 @@
+[
+  {
+    "attributes": {
+      "name": "Unbound",
+      "background": "I have been captured by the Empire and sentenced to death alongside the Stormcloak rebels. We were taken to Helgen, but before I could be executed a dragon appeared and attacked the town. I need to find some way to escape.",
+      "quest_giver": [],
+      "notes": ["There is no quest giver for Unbound", "Unbound is the first quest in the game"]
+    },
+    "quest_line": "Main",
+    "prerequisites": [],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Make your way to the keep",
+          "objective_code": "9f25c12e",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Helgen"]
+      },
+      {
+        "attributes": {
+          "description": "Enter the Keep with Hadvar or Ralof",
+          "objective_code": "f788e02f",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Helgen"]
+      },
+      {
+        "attributes": {
+          "description": "Escape Helgen",
+          "objective_code": "7ae599a2",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Helgen Keep"]
+      },
+      {
+        "attributes": {
+          "description": "Find some equipment",
+          "objective_code": "9c947311",
+          "sequence": 4,
+          "optional": false,
+          "notes": ["Objective 4 if Hadvar is followed"]
+        },
+        "locations": ["Helgen Keep"]
+      },
+      {
+        "attributes": {
+          "description": "Loot Gunjar's Body",
+          "objective_code": "26419646",
+          "sequence": 4,
+          "optional": false,
+          "notes": ["Objective 4 if Ralof is followed"]
+        },
+        "locations": ["Helgen"]
+      },
+      {
+        "attributes": {
+          "description": "Search the barrel for potions",
+          "objective_code": "cb2f2a54",
+          "sequence": 5,
+          "optional": true,
+          "notes": []
+        },
+        "locations": ["Helgen Keep"]
+      },
+      {
+        "attributes": {
+          "description": "Attempt to pick the lock to the cage",
+          "objective_code": "51b8589e",
+          "sequence": 6,
+          "optional": true,
+          "notes": []
+        },
+        "locations": ["Helgen Keep"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Before the Storm",
+      "background": "Jarl Balgruuf thinks I may be able to help Farengar, his court wizard, with something related to the dragons.",
+      "quest_giver": ["Hadvar", "Ralof"],
+      "notes": ["Quest giver for Before the Storm will be either Hadvar or Ralof, whichever was followed in \"Unbound\""]
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Unbound"],
+    "quest_items": [],
+    "rewards": {
+      "general": [
+        "Miscellaneous items",
+        "Leveled heavy or light armor"
+      ],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Alvor in Riverwood",
+          "objective_code": "cd2f6cad",
+          "sequence": 1,
+          "optional": false,
+          "notes": ["Objective 1 if Havdar is followed in Helgen"]
+        },
+        "locations": ["Riverwood"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Gerdur in Riverwood",
+          "objective_code": "1c4d0368",
+          "sequence": 1,
+          "optional": false,
+          "notes": ["Objective 1 if Ralof is followed in Helgen"]
+        }
+      },
+      {
+        "attributes": {
+          "description": "Talk to the Jarl of Whiterun",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Dragonsreach"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Bleak Falls Barrow",
+      "background": "Jarl Balgruuf thinks I may be able to help Farengar, his court wizard, with something related to the dragons.",
+      "quest_giver": ["Farengar Secret-Fire"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Before the Storm"],
+    "quest_items": [
+      {
+        "name": "Dragonstone"
+      }
+    ],
+    "rewards": {
+      "general": [
+        "Ability to purchase a house in Whiterun",
+        "Leveled item"
+      ],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Farengar",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Dragonsreach"]
+      },
+      {
+        "attributes": {
+          "description": "Retrieve the Dragonstone",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Bleak Falls Barrow"]
+      },
+      {
+        "attributes": {
+          "description": "Deliver the Dragonstone to Farengar",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Dragonsreach"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dragon Rising",
+      "background": "A dragon has been sighted at a watchtower near Whiterun. Jarl Balgruuf has sent me along with his housecarl Irileth with reinforcements.",
+      "quest_giver": ["Jarl Balgruuf the Greater"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Bleak Falls Barrow"],
+    "quest_items": [],
+    "rewards": {
+      "general": [
+        "Thane of Whiterun",
+        "Lydia (housecarl)"
+      ],
+      "skill_level_ups": [],
+      "shouts": [
+        {
+          "name": "Unrelenting Force",
+          "words": "1"
+        }
+      ],
+      "special_items": [
+        {
+          "name": "Axe of Whiterun"
+        }
+      ]
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Jarl Balgruuf",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Dragonsreach"]
+      },
+      {
+        "attributes": {
+          "description": "Meet Irileth near the Western Watchtower",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        }
+      },
+      {
+        "attributes": {
+          "description": "Kill the dragon",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        }
+      },
+      {
+        "attributes": {
+          "description": "Investigate the dragon",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        }
+      },
+      {
+        "attributes": {
+          "description": "Report back to Jarl Balgruuf",
+          "sequence": 5,
+          "optional": false,
+          "notes": []
+        }
+      },
+      {
+        "attributes": {
+          "description": "Use your new Shout power",
+          "sequence": 6,
+          "optional": true,
+          "notes": []
+        }
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The Way of the Voice",
+      "background": "The Greybeards have summoned me to their monastery of High Hrothgar on the slopes of the Throat of the World. They seem to have learned of the mysterious power I gained when I killed the Dragon outside Whiterun.",
+      "quest_giver": ["Jarl Balgruuf the Greater"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Dragon Rising"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "skill_level_ups": [],
+      "shouts": [
+        {
+          "name": "Unrelenting Force",
+          "words": "2"
+        },
+        {
+          "name": "Whirlwind Sprint",
+          "words": "1"
+        }
+      ],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Speak to the Greybeards",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Demonstrate your \"Unrelenting Force\" Shout",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Speak to Arngeir",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the Word of Power from Einarth",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Demonstrate your Unrelenting Force Shout",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the Word of Power from Borri",
+          "sequence": 5,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Demonstrate your \"Whirlwind Sprint\" Shout",
+          "sequence": 6,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Speak to Arngeir for further training",
+          "sequence": 7,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The Horn of Jurgen Windcaller",
+      "background": "After demonstrating my ability to learn the Words of Power and to Shout, the Greybeard Arngeir has sent me on a final trial - retrieving the Horn of Jurgen Windcaller from his tomb in Ustengrav, a burial mound in the marshes of Hjaalmarch.",
+      "quest_giver": ["Arngeir"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["The Way of the Voice"],
+    "quest_items": ["Horn of Jurgen Windcaller"],
+    "rewards": {
+      "general": [],
+      "shouts": [
+        {
+          "name": "Unrelenting Force",
+          "word": "3"
+        }
+      ],
+      "skill_level_ups": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Retrieve the Horn of Jurgen Windcaller",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Ustengrav"]
+      },
+      {
+        "attributes": {
+          "description": "Meet with whoever took the horn",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sleeping Giant Inn"]
+      },
+      {
+        "attributes": {
+          "description": "Return the horn to Arngeir",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the Word of Power from Wulfgar",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Receive the Greybeards' greeting",
+          "sequence": 5,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "A Blade in the Dark",
+      "background": "Delphine, the innkeeper in Riverwood, is more than she seems. She was the one that left me the note in Ustengrav. She gave me back the Horn of Jurgen Windcaller. She went to a lot of trouble to get my attention. I should find out what she wants.",
+      "quest_giver": ["Delphine"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["The Horn of Jurgen Windcaller"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "shouts": [],
+      "skill_level_ups": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Delphine",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sleeping Giant Inn"]
+      },
+      {
+        "attributes": {
+          "description": "Locate the dragon burial site",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Kynesgrove"]
+      },
+      {
+        "attributes": {
+          "description": "Kill the dragon Sahloknir",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Kynesgrove Resurrection"]
+      },
+      {
+        "attributes": {
+          "description": "Return to Delphine",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Kynesgrove Resurrection"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Diplomatic Immunity",
+      "background": "It seems that things are worse than even Delphine thought. Dragons aren't just coming back to life, they're being resurrected by other dragons. Delphine suspects that the Thalmor might be bringing dragons back for some sinister purpose. She's going to talk to her contacts about how we can infiltrate the Thalmor Embassy.",
+      "quest_giver": ["Delphine"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["A Blade in the Dark"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "shouts": [],
+      "skill_level_ups": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Meet Delphine in Riverwood",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sleeping Giant Inn"]
+      },
+      {
+        "attributes": {
+          "description": "Meet Malborn in Solitude",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Winking Skeever"]
+      },
+      {
+        "attributes": {
+          "description": "Give Malborn any equipment to smuggle into the Thalmor Embassy",
+          "sequence": 3,
+          "optional": true,
+          "notes": [
+            "While this objective is theoretically optional, the quest is hard to complete without it.",
+            "There is no other opportunity to give Malborn anything."
+          ]
+        },
+        "locations": ["The Winking Skeever"]
+      },
+      {
+        "attributes": {
+          "description": "Meet Delphine at Katla's Farm in Solitude",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Katla's Farm"]
+      },
+      {
+        "attributes": {
+          "description": "Create a distraction and get away from the party",
+          "sequence": 5,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Thalmor Embassy"]
+      },
+      {
+        "attributes": {
+          "description": "Retrieve the Dragonborn's gear",
+          "sequence": 6,
+          "optional": true,
+          "notes": ["Only possible if the Dragonborn gave gear to Malborn."]
+        },
+        "locations": ["Thalmor Embassy"]
+      },
+      {
+        "attributes": {
+          "description": "Search for information about the dragons returning",
+          "sequence": 7,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Thalmor Embassy"]
+      },
+      {
+        "attributes": {
+          "description": "Escape the Thalmor Embassy",
+          "sequence": 8,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Thalmor Embassy"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Delphine",
+          "sequence": 9,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sleeping Giant Inn"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Find the Thalmor Assassin",
+      "background": "I met Malborn hiding out in Windhelm. he thinks there's a Thalmor assassin on his trail, a Khajiit, waiting for him outside the city. I promised I'd take care of the assassin, if there really is one.",
+      "quest_giver": ["Malborn"],
+      "optional": true,
+      "notes": ["Only possible if Malborn escaped alive in \"Diplomatic Immunity\"."]
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Diplomatic Immunity"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "gold": 250,
+      "shouts": [],
+      "skill_level_ups": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Find the Thalmor assassin",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["New Gnisis Cornerclub"]
+      },
+      {
+        "attributes": {
+          "description": "Tell Malborn the assassin is dead",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["New Gnisis Cornerclub"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "A Cornered Rat",
+      "background": "The Thalmor are just as puzzled as we are about why dragons are returning. I learned that they are looking for a Blade named Esbern, who Delphine says is an expert on ancient dragon lore. We need to find him before the Thalmor do.",
+      "quest_giver": ["Delphine"],
+      "optional": false,
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Diplomatic Immunity"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "gold": 0,
+      "shouts": [],
+      "skill_level_ups": [],
+      "special_items": []
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Brynjolf",
+          "sequence": 1,
+          "optional": false,
+          "notes": [
+            "In lieu of Brynjolf, you can talk to Vekel the Man or Keerava.",
+            "The location of this objective depends on whom you speak to and whether you've started the Thieves Guild questline.",
+            "Issues can come up when \"A Chance Arrangement\" is also underway."
+          ]
+        },
+        "locations": [
+          "Riften",
+          "Thieves Guild",
+          "The Bee and Barb",
+          "Ragged Flagon",
+          "The Ragged Flagon - Cistern"
+        ]
+      },
+      {
+        "attributes": {
+          "description": "Search the Ratway for Esbern's hideout",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Ratway"]
+      },
+      {
+        "attributes": {
+          "description": "Find Esbern in the Ratway Warrens",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Ratway Warrens"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Esbern",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": "The Ratway Warrens"
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Alduin's Wall",
+      "background": "I found the Blades Loremaster Esbern and brought him to Riverwood to talk to Delphine. He believes that the secret to defeating Alduin will be revealed on Alduin's Wall, an artefact created by the ancient Blades. We need to go to Sky Haven Temple to find Alduin's Wall and see what it can tell us.",
+      "quest_giver": ["Esbern"],
+      "optional": false,
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["A Cornered Rat"],
+    "quest_items": [],
+    "rewards": {
+      "general": [
+        "Ability to acquire \"Dragonslayer's Blessing\"",
+        "Ability to acquire \"Dragon Influsion\""
+      ],
+      "gold": 0,
+      "generic_items": {
+        "weapons": [
+          {
+            "name": "Blades Sword",
+            "item_code": "0003AEB9",
+            "quantity": 6
+          }
+        ],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      },
+      "shouts": [],
+      "skill_level_ups": [],
+      "special_items": {
+        "weapons": [
+          {
+            "name": "Dragonbane",
+            "item_code": "000FF9F2"
+          }
+        ],
+        "armor": [
+          {
+            "name": "Blades Armor",
+            "item_code": "0004b28b"
+          },
+          {
+            "name": "Blades Boots",
+            "item_code": "0004b288"
+          },
+          {
+            "name": "Blades Gauntlets",
+            "item_code": "0004b28d"
+          },
+          {
+            "name": "Blades Helmet",
+            "item_code": "0004b28f"
+          },
+          {
+            "name": "Blades Shield",
+            "item_code": "0004f912"
+          }
+        ],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Escort Esbern to Riverwood",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Ratway Warrens", "Riverwood"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Esbern",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sleeping Giant Inn"]
+      },
+      {
+        "attributes": {
+          "description": "Gain entrance to Sky Haven Temple",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sky Haven Temple"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the secrets of Alduin's Wall",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sky Haven Temple"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "The Throat of the World",
+      "background": "With Esbern's help, I've deciphered Alduin's Wall in Sky Haven Temple. It revealed that Alduin was defeated in ancient times by a Shout of some kind. Maybe the Greybeards can teach me this Shout, or at least tell me how I can learn it.",
+      "quest_giver": ["Arngeir"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Alduin's Wall"],
+    "quest_items": [],
+    "rewards": {
+      "general": [
+        "Ability to meditate on the words of power"
+      ],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [
+        {
+          "name": "Clear Skies",
+          "words": "1,2,3"
+        },
+        {
+          "name": "Fire Breath",
+          "words": "1"
+        }
+      ],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Arngeir",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the \"Clear Skies\" Shout",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Use the \"Clear Skies\" Shout",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Paarthurnax",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Throat of the World"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the Word of Power from Paarthurnax",
+          "sequence": 5,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Throat of the World"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Paarthurnax",
+          "sequence": 6,
+          "optional": false,
+          "notes": []
+        }
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Rebuilding the Blades",
+      "background": null,
+      "quest_giver": ["Delphine"],
+      "notes": []
+    },
+    "quest_line": "Blades",
+    "prerequisites": ["Alduin's Wall"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Bring a follower to Delphine",
+          "sequence": 1,
+          "optional": false,
+          "notes": ["This objective repeats three times.", "Requires player character to have a follower."]
+        },
+        "locations": ["Sky Haven Temple"]
+      },
+      {
+        "attributes": {
+          "description": "Ask Esbern about dragon lairs",
+          "sequence": 2,
+          "optional": false,
+          "notes": ["You must bring three followers to Delphine before getting this objective."]
+        },
+        "locations": ["Sky Haven Temple"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dragon Hunting",
+      "background": null,
+      "quest_giver": ["Esbern"],
+      "notes": ["Quest can be repeated at all dragon lairs."]
+    },
+    "quest_line": "Blades",
+    "prerequisites": ["Alduin's Wall", "Rebuilding the Blades"],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Speak to Esbern",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sky Haven Temple"]
+      },
+      {
+        "attributes": {
+          "description": "Travel to the location",
+          "sequence": 2,
+          "optional": false,
+          "notes": ["Location for this objective is radiant."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Kill the dragon",
+          "sequence": 3,
+          "optional": false,
+          "notes": ["Location for this objective is radiant. It will be the same as the location for the previous objective."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Return to Esbern",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sky Haven Temple"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Dragon Research",
+      "background": null,
+      "quest_giver": ["Esbern"],
+      "notes": []
+    },
+    "quest_line": "Blades",
+    "prerequisites": [
+      "Alduin's Wall",
+      "Rebuilding the Blades",
+      "Dragon Hunting"
+    ],
+    "quest_items": [
+      {
+        "name": "Dragon Bone",
+        "type": "CanonicalMaterial",
+        "quantity": 1
+      },
+      {
+        "name": "Dragon Scale",
+        "type": "CanonicalMaterial",
+        "quantity": 1
+      }
+    ],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [
+          {
+            "name": "Esbern's Potion",
+            "effect": "Permanently grants Dragon Infusion perk"
+          }
+        ],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Bring one Dragon Scale and one Dragon Bone to Esbern",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Sky Haven Temple"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Elder Knowledge",
+      "background": "I met the master of the Greybeards, the dragon Paarthurnax. He told me that the ancient Nords used an Elder Scroll to cast Alduin forward in time. If I can recover that same Elder Scroll, I may be able to use it to learn the \"Dragonrend\" Shout directly from the ancient heroes.",
+      "quest_giver": ["Paarthurnax"],
+      "optional": true,
+      "notes": [
+        "Can be skipped if the Dawnguard quest line has been completed beforehand.",
+        "Can be skipped if Discerning the Transmundane has been completed beforehand."
+      ]
+    },
+    "quest_line": "Main",
+    "prerequisites": ["The Throat of the World"],
+    "quest_items": ["Elder Scroll (Dragon)"],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [
+          {
+            "name": "Elder Scroll (Dragon)"
+          }
+        ],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Learn the location of the Elder Scroll",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": [
+          "The Throat of the World",
+          "College of Winterhold",
+          "The Arcanaeum",
+          "Septimus Signus's Outpost"
+        ]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Esbern",
+          "sequence": 1,
+          "optional": true,
+          "notes": ["Only needed if you don't want to find the Elder Scroll on your own."]
+        },
+        "locations": ["Sky Haven Temple"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Arngeir",
+          "sequence": 1,
+          "optional": true,
+          "notes": ["Only needed if you don't want to find the Elder Scroll on your own."]
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Recover the Elder Scroll",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": [
+          "Alftand",
+          "Blackreach",
+          "Alftand Animonculory",
+          "Alftand Cathedral"
+        ]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Discerning the Transmundane",
+      "background": "I met Septimus Signus, a brilliant but mad scholar living in the northern ice fields. He's directed me to a Dwarven observatory that supposedly houses an Elder Scroll. He doesn't care about the Scroll itself, but wants me to use some kind of machine there to inscribe a Dwarven lexicon with the Scroll's knowledge and bring it to him.",
+      "quest_giver": ["Septimus Signus"],
+      "notes": ["Player character must be at least at level 15 to complete this quest."]
+    },
+    "quest_line": "Daedric",
+    "prerequisites": [],
+    "mutually_exclusive_quests": [],
+    "quest_items": {
+      "miscellaneous_items": [
+        {
+          "name": "Attunement Sphere"
+        },
+        {
+          "name": "Blank Lexicon"
+        }
+      ]
+    },
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [
+          {
+            "name": "Oghma Infinium"
+          }
+        ],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Ask Urag about the insane book",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Arcanaeum"]
+      },
+      {
+        "attributes": {
+          "description": "Find Septimus Signus",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Septimus Signus's Outpost"]
+      },
+      {
+        "attributes": {
+          "description": "Transcribe the Lexicon",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": [
+          "Alftand",
+          "Alftand Animonculory",
+          "Alftand Cathedral",
+          "Blackreach"
+        ]
+      },
+      {
+        "attributes": {
+          "description": "Give the Lexicon to Septimus",
+          "sequence": 4,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Septimus Signus's Outpost"]
+      },
+      {
+        "attributes": {
+          "description": "Harvest High Elf blood",
+          "sequence": 5,
+          "optional": false,
+          "notes": ["Blood can be found on corpses in various locations in game."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Harvest Wood Elf blood",
+          "sequence": 5,
+          "optional": false,
+          "notes": ["Blood can be found on corpses in various locations in game."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Harvest Dark Elf blood",
+          "sequence": 5,
+          "optional": false,
+          "notes": ["Blood can be found on corpses in various locations in game."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Harvest Falmer blood",
+          "sequence": 5,
+          "optional": false,
+          "notes": ["Blood can be found on corpses in various locations in game."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Harvest Orc blood",
+          "sequence": 5,
+          "optional": false,
+          "notes": ["Blood can be found on corpses in various locations in game."]
+        },
+        "locations": []
+      },
+      {
+        "attributes": {
+          "description": "Bring blood to Septimus",
+          "sequence": 6,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Septimus Signus's Outpost"]
+      },
+      {
+        "attributes": {
+          "description": "Take the Oghma Infinium",
+          "sequence": 7,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Septimus Signus's Outpost"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Alduin's Bane",
+      "background": "I've located the Elder Scroll that was used to cast Alduin forward into our time by the Nord heroes of old. If Paarthurnax is right, if I read it near the Time-Wound I will get a vision of the past, when the ancient Nords used the Dragonrend Shout against Alduin.",
+      "quest_giver": ["Paarthurnax"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": ["Elder Knowledge"],
+    "mutually_exclusive_quests": [],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [
+        {
+          "name": "Dragonrend",
+          "words": "1,2,3"
+        }
+      ],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Read the Elder Scroll at the Time Wound",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Throat of the World"]
+      },
+      {
+        "attributes": {
+          "description": "Learn the Dragonrend shout from the Nord heroes",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Throat of the World"]
+      },
+      {
+        "attributes": {
+          "description": "Defeat Alduin",
+          "sequence": 3,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["The Throat of the World"]
+      }
+    ]
+  },
+  {
+    "attributes": {
+      "name": "Season Unending",
+      "background": "The Jarl of Whiterun won't help me capture a dragon as long as the civil war is raging. If I can get the Greybeards to host a peace council, I can try to convince the Imperial and the Stormcloaks to agree to a truce in order to defeat Alduin, who is a threat to both sides of the civil war.",
+      "quest_giver": ["Paarthurnax", "Arngeir", "Esbern"],
+      "notes": []
+    },
+    "quest_line": "Main",
+    "prerequisites": [],
+    "mutually_exclusive_quests": [],
+    "quest_items": [],
+    "rewards": {
+      "general": [],
+      "generic_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [],
+        "miscellaneous_items": []
+      },
+      "gold": null,
+      "skill_level_ups": [],
+      "shouts": [],
+      "special_items": {
+        "weapons": [],
+        "armor": [],
+        "jewelry": [],
+        "clothing": [],
+        "potions": [],
+        "books": [],
+        "miscellaneous_items": []
+      }
+    },
+    "objectives": [
+      {
+        "attributes": {
+          "description": "Talk to Arngeir",
+          "sequence": 1,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["High Hrothgar"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to General Tullius",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        },
+        "locations": ["Solitude", "Castle Dour"]
+      },
+      {
+        "attributes": {
+          "description": "Talk to Ulfric Stormcloak",
+          "sequence": 2,
+          "optional": false,
+          "notes": []
+        }
+      }
+    ]
+  }
+]

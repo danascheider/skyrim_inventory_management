@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_063855) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_223145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -238,6 +238,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_063855) do
     t.boolean "grain_mill_available", default: false
     t.boolean "fish_hatchery_available", default: false
     t.boolean "cellar_available", default: false
+    t.boolean "main_hall_available"
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
@@ -490,6 +491,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_063855) do
     t.boolean "has_apiary"
     t.boolean "has_fish_hatchery"
     t.boolean "has_grain_mill"
+    t.boolean "has_main_hall"
     t.index ["canonical_property_id"], name: "index_properties_on_canonical_property_id"
     t.index ["game_id", "canonical_property_id"], name: "index_properties_on_game_id_and_canonical_property_id", unique: true
     t.index ["game_id", "city"], name: "index_properties_on_game_id_and_city", unique: true
