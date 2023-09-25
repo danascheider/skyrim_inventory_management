@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_053242) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_063855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -477,6 +477,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_053242) do
     t.boolean "has_forge", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "has_enchanters_tower"
+    t.boolean "has_alchemy_tower"
+    t.boolean "has_library"
+    t.boolean "has_bedrooms"
+    t.boolean "has_storage_room"
+    t.boolean "has_armory"
+    t.boolean "has_greenhouse"
+    t.boolean "has_trophy_room"
+    t.boolean "has_kitchen"
+    t.boolean "has_cellar"
+    t.boolean "has_apiary"
+    t.boolean "has_fish_hatchery"
+    t.boolean "has_grain_mill"
     t.index ["canonical_property_id"], name: "index_properties_on_canonical_property_id"
     t.index ["game_id", "canonical_property_id"], name: "index_properties_on_game_id_and_canonical_property_id", unique: true
     t.index ["game_id", "city"], name: "index_properties_on_game_id_and_city", unique: true
