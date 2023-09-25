@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 class HomesteadValidator < ActiveModel::Validator
-  HOMESTEADS = [
-    'Lakeview Manor',
-    'Heljarchen Hall',
-    'Windstad Manor',
-  ].freeze
-
   WEST_WING_MESSAGE = "can only have one of enchanter's tower, bedrooms, or greenhouse"
   NORTH_WING_MESSAGE = 'can only have one of alchemy tower, storage room, or trophy room'
   EAST_WING_MESSAGE = 'can only have one of library, armory, or kitchen'
@@ -14,7 +8,7 @@ class HomesteadValidator < ActiveModel::Validator
   def validate(record)
     @record = record
 
-    if HOMESTEADS.include?(@record.name)
+    if record.homestead?
       validate_west_wing
       validate_north_wing
       validate_east_wing

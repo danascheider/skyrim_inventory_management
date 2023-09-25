@@ -42,6 +42,15 @@ class Property < ApplicationRecord
   before_validation :set_values_from_canonical
 
   DOES_NOT_MATCH = "doesn't match any ownable property that exists in Skyrim"
+  HOMESTEADS = [
+    'lakeview manor',
+    'heljarchen hall',
+    'windstad manor',
+  ].freeze
+
+  def homestead?
+    HOMESTEADS.include?(name&.downcase)
+  end
 
   private
 
