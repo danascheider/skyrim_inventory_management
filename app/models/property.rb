@@ -30,7 +30,6 @@ class Property < ApplicationRecord
   validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && canonical_property&.alchemy_lab_available == false }
   validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && canonical_property&.arcane_enchanter_available == false }
   validate :ensure_forge_available, if: -> { has_forge == true && canonical_property&.forge_available == false }
-  validate :ensure_enchanters_tower_available, if: -> { has_enchanters_tower == true && canonical_property&.enchanters_tower_available == false }
   validate :ensure_apiary_available, if: -> { has_apiary == true && canonical_property&.apiary_available == false }
   validate :ensure_grain_mill_available, if: -> { has_grain_mill == true && canonical_property&.grain_mill_available == false }
   validate :ensure_fish_hatchery_available, if: -> { has_fish_hatchery == true && canonical_property&.fish_hatchery_available == false }

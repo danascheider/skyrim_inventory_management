@@ -28,6 +28,12 @@ RSpec.describe HomesteadValidator do
       expect(property.errors[:has_cellar]).to include 'cannot be true because this property cannot have a cellar in Skyrim'
     end
 
+    it 'validates that there is no main hall' do
+      property.has_main_hall = true
+      validate
+      expect(property.errors[:has_main_hall]).to include 'cannot be true because this property cannot have a main hall in Skyrim'
+    end
+
     it "validates that there is no enchanter's tower" do
       property.has_enchanters_tower = true
       validate

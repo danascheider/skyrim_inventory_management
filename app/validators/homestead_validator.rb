@@ -59,6 +59,7 @@ class HomesteadValidator < ActiveModel::Validator
 
   def validate_no_homestead_fields
     record.errors.add(:has_cellar, not_homestead_message('a cellar')) if record.has_cellar
+    record.errors.add(:has_main_hall, not_homestead_message('a main hall')) if record.has_main_hall
     record.errors.add(:has_enchanters_tower, not_homestead_message("an enchanter's tower")) if record.has_enchanters_tower
     record.errors.add(:has_alchemy_tower, not_homestead_message('an alchemy tower')) if record.has_alchemy_tower
     record.errors.add(:has_library, not_homestead_message('a library')) if record.has_library
