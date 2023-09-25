@@ -31,6 +31,12 @@ The three homesteads (Lakeview Manor, Heljarchen Hall and Windstad Manor) are se
 
 Each homestead also has a cellar that can be built; this is where the forge will be located, should the player choose to build one, as well as shrines to the Nine Divines.
 
+Each homestead also has one outdoor element unique to it:
+
+* Apiary (Lakeview Manor)
+* Grain Mill (Heljarchen Hall)
+* Fish Hatchery (Windstad Manor)
+
 ## Properties as Locations
 
 Properties are different from other types of "items" in SIM in two ways:
