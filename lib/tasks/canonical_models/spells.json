@@ -1399,7 +1399,7 @@
       "description": "Sprayed on the ground, it creates a wall of fire that does 50 points of fire damage per second.",
       "strength": 50,
       "strength_unit": "point",
-      "base_duration": null,
+      "base_duration": 30,
       "effects_cumulative": true
     }
   },
@@ -1411,7 +1411,7 @@
       "description": "Sprayed on the ground, it creates a wall of frost that does 50 points of frost damage per second.",
       "strength": 50,
       "strength_unit": "point",
-      "base_duration": null,
+      "base_duration": 30,
       "effects_cumulative": true
     }
   },
@@ -1423,7 +1423,7 @@
       "description": "Sprayed on the ground, it creates a wall of lightning that does 50 points of shock damage per second.",
       "strength": 50,
       "strength_unit": "point",
-      "base_duration": null,
+      "base_duration": 30,
       "effects_cumulative": true
     }
   },
