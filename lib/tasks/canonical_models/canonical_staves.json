@@ -260,10 +260,12 @@
       "leveled": false,
       "quest_reward": false
     },
-    "spells": {
-      "name": "Wall of Flames",
-      "strength": 50
-    },
+    "spells": [
+      {
+        "name": "Wall of Flames",
+        "strength": null
+      }
+    ],
     "powers": []
   },
   {
