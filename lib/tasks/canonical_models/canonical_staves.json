@@ -245,6 +245,28 @@
   },
   {
     "attributes": {
+      "name": "Hevnoraak's Staff",
+      "item_code": "0010076D",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": "Hevnoraak",
+      "daedric": false,
+      "purchasable": false,
+      "unique_item": true,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": {
+      "name": "Wall of Flames",
+      "strength": 50
+    }
+  },
+  {
+    "attributes": {
       "name": "Minor Staff of Turning",
       "item_code": "00029B94",
       "unit_weight": 8,
@@ -338,7 +360,7 @@
       "item_code": "000940D8",
       "unit_weight": 8,
       "base_damage": 0,
-      "magical_effects": " ",
+      "magical_effects": null,
       "school": "Illusion",
       "enemy": null,
       "daedric": false,
