@@ -21,6 +21,12 @@ module Canonical
              inverse_of: :staff
     has_many :spells, through: :canonical_staves_spells
 
+    has_many :staves,
+             inverse_of: :canonical_staff,
+             dependent: :nullify,
+             foreign_key: :canonical_staff_id,
+             class_name: '::Staff'
+
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
