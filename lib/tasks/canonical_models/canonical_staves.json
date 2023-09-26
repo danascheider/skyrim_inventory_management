@@ -263,7 +263,8 @@
     "spells": {
       "name": "Wall of Flames",
       "strength": 50
-    }
+    },
+    "powers": []
   },
   {
     "attributes": {
