@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_223145) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_26_231756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -538,6 +538,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_223145) do
     t.index ["name"], name: "index_spells_on_name", unique: true
   end
 
+  create_table "staves", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_staff_id"
+    t.string "name", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2
+    t.string "magical_effects"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_staff_id"], name: "index_staves_on_canonical_staff_id"
+    t.index ["game_id"], name: "index_staves_on_game_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid", null: false
     t.string "email", null: false
@@ -585,4 +597,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_223145) do
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
+  add_foreign_key "staves", "canonical_staves"
+  add_foreign_key "staves", "games"
 end
