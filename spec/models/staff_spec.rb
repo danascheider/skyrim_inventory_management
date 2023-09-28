@@ -243,4 +243,112 @@ RSpec.describe Staff, type: :model do
       end
     end
   end
+
+  describe '#spells' do
+    subject(:spells) { staff.spells }
+
+    let(:canonical_staff) { create(:canonical_staff) }
+
+    context 'when there is an associated canonical model with spells' do
+      let(:staff) { create(:staff, name: canonical_staff.name, canonical_staff:) }
+      let(:spell) { create(:spell) }
+
+      before do
+        create(:spell) # this shouldn't be included
+        create(:canonical_staves_spell, staff: canonical_staff, spell:)
+      end
+
+      it 'returns the spells of the associated canonical model' do
+        expect(spells).to contain_exactly(spell)
+      end
+
+      it 'returns an ActiveRecord::Relation' do
+        expect(spells).to be_an(ActiveRecord::Relation)
+      end
+    end
+
+    context 'when there is an associated canonical model without spells' do
+      let(:staff) { create(:staff, name: canonical_staff.name, canonical_staff:) }
+
+      before do
+        create(:spell) # this should not be included
+      end
+
+      it 'returns an empty ActiveRecord relation', :aggregate_failures do
+        expect(spells).to be_an(ActiveRecord::Relation)
+        expect(spells).to be_empty
+      end
+    end
+
+    context 'when there is no associated canonical model' do
+      let(:staff) { create(:staff, name: 'My Staff') }
+
+      before do
+        create_list(
+          :canonical_staff,
+          2,
+          name: 'My Staff',
+        )
+      end
+
+      it 'returns an empty ActiveRecord::Relation', :aggregate_failures do
+        expect(spells).to be_an(ActiveRecord::Relation)
+        expect(spells).to be_empty
+      end
+    end
+  end
+
+  describe '#powers' do
+    subject(:powers) { staff.powers }
+
+    let(:canonical_staff) { create(:canonical_staff) }
+
+    context 'when there is an associated canonical model with powers' do
+      let(:staff) { create(:staff, name: canonical_staff.name, canonical_staff:) }
+      let(:power) { create(:power) }
+
+      before do
+        create(:power) # this shouldn't be included
+        create(:canonical_powerables_power, powerable: canonical_staff, power:)
+      end
+
+      it 'returns the powers of the associated canonical model' do
+        expect(powers).to contain_exactly(power)
+      end
+
+      it 'returns an ActiveRecord::Relation' do
+        expect(powers).to be_an(ActiveRecord::Relation)
+      end
+    end
+
+    context 'when there is an associated canonical model without powers' do
+      let(:staff) { create(:staff, name: canonical_staff.name, canonical_staff:) }
+
+      before do
+        create(:power) # this should not be included
+      end
+
+      it 'returns an empty ActiveRecord relation', :aggregate_failures do
+        expect(powers).to be_an(ActiveRecord::Relation)
+        expect(powers).to be_empty
+      end
+    end
+
+    context 'when there is no associated canonical model' do
+      let(:staff) { create(:staff, name: 'My Staff') }
+
+      before do
+        create_list(
+          :canonical_staff,
+          2,
+          name: 'My Staff',
+        )
+      end
+
+      it 'returns an empty ActiveRecord::Relation', :aggregate_failures do
+        expect(powers).to be_an(ActiveRecord::Relation)
+        expect(powers).to be_empty
+      end
+    end
+  end
 end

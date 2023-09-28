@@ -18,6 +18,14 @@ class Staff < ApplicationRecord
   DUPLICATE_MESSAGE = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
+  def spells
+    canonical_staff&.spells || Spell.none
+  end
+
+  def powers
+    canonical_staff&.powers || Power.none
+  end
+
   def canonical_models
     return Canonical::Staff.where(id: canonical_staff.id) if canonical_staff.present?
 
