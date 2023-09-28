@@ -21,3 +21,4 @@ The documentation here covers the purpose of canonical models, the canonical mod
   * [`Canonical::IngredientsAlchemicalProperty`](/docs/canonical_models/canonical-ingredients-alchemical-property.md): Additional details about special characteristics of the `Canonical::IngredientsAlchemicalProperty` model
   * [`Canonical::MiscItem`](/docs/canonical_models/canonical-misc-item.md): Additional details about special characteristics of the `Canonical::MiscItem` model and associated data
   * [`Canonical::Property`](/docs/canonical_models/canonical-property.md): Additional details about special characteristics of the `Canonical::Property` model
+  * [`Canonical::Staff`](/docs/canonical_models/canonical-staff.md): Additional details about the `Canonical::Staff` model
