@@ -1679,6 +1679,106 @@
   },
   {
     "attributes": {
+      "name": "Unenchanted Alteration Staff",
+      "item_code": "0007E646",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Alteration",
+      "enemy": null,
+      "daedric": false,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Unenchanted Conjuration Staff",
+      "item_code": "07E647",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Conjuration",
+      "enemy": null,
+      "daedric": false,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Unenchanted Destruction Staff",
+      "item_code": "000BE11F",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Destruction",
+      "enemy": null,
+      "daedric": false,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Unenchanted Illusion Staff",
+      "item_code": "0007A91B",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Illusion",
+      "enemy": null,
+      "daedric": false,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
+      "name": "Unenchanted Restoration Staff",
+      "item_code": "00051B0C",
+      "unit_weight": 8,
+      "base_damage": 0,
+      "magical_effects": null,
+      "school": "Restoration",
+      "enemy": null,
+      "daedric": false,
+      "purchasable": true,
+      "unique_item": false,
+      "rare_item": true,
+      "quest_item": false,
+      "leveled": false,
+      "quest_reward": false
+    },
+    "spells": [],
+    "powers": []
+  },
+  {
+    "attributes": {
       "name": "Wabbajack",
       "item_code": "0002AC6F",
       "unit_weight": 10,
