@@ -264,7 +264,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.14)
   rubocop-rspec (~> 2.24)
   spring (~> 4.0)
-  timecop (~> 0.9.5)
+  timecop (~> 0.9.6)
   webmock (~> 3.18.1)
 
 RUBY VERSION
