@@ -259,7 +259,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0)
   rubocop-performance (~> 1.14)
   rubocop-rails (~> 2.14)
-  rubocop-rspec (~> 2.12)
+  rubocop-rspec (~> 2.13)
   spring (~> 4.0)
   timecop (~> 0.9.5)
   webmock (~> 3.18.1)
