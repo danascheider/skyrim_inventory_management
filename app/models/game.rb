@@ -9,6 +9,10 @@ class Game < ApplicationRecord
   has_many :clothing_items, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :jewelry_items, dependent: :destroy
+  has_many :misc_items, dependent: :destroy
+  has_many :potions, dependent: :destroy
+  has_many :properties, dependent: :destroy
+  has_many :staves, dependent: :destroy
 
   # `before_save` callbacks need to be defined before
   # `before_destroy` callbacks, which need to be defined here
@@ -23,7 +27,6 @@ class Game < ApplicationRecord
   # before `dependent: :destroy` need to be defined before the
   # association is defined.
   before_destroy :destroy_aggregatable_child_models
-  has_many :properties, dependent: :destroy
   has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
   has_many :inventory_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 

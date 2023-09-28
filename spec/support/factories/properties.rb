@@ -2,8 +2,12 @@
 
 FactoryBot.define do
   factory :property do
-    trait :with_canonical do
-      canonical_property
+    name { 'My House' }
+
+    trait :with_matching_canonical do
+      association :canonical_property, factory: :canonical_property
+
+      name { canonical_property.name }
     end
   end
 end
