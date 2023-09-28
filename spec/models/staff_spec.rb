@@ -228,18 +228,16 @@ RSpec.describe Staff, type: :model do
     end
 
     context 'when there are multiple matching canonicals' do
-      context 'when some matchable attributes are blank' do
-        let(:staff) { build(:staff, unit_weight: nil, magical_effects: nil) }
+      let(:staff) { build(:staff, unit_weight: nil, magical_effects: nil) }
 
-        before do
-          create(:canonical_staff, name: staff.name, unit_weight: 8, magical_effects: 'foo')
-          create(:canonical_staff, name: staff.name, unit_weight: 2)
-        end
+      before do
+        create(:canonical_staff, name: staff.name, unit_weight: 8, magical_effects: 'foo')
+        create(:canonical_staff, name: staff.name, unit_weight: 2)
+      end
 
-        it "doesn't associate a canonical model" do
-          staff.validate
-          expect(staff.canonical_staff).to be_nil
-        end
+      it "doesn't associate a canonical model" do
+        staff.validate
+        expect(staff.canonical_staff).to be_nil
       end
     end
   end
