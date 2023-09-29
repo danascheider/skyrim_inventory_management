@@ -61,7 +61,7 @@ RSpec.describe Property, type: :model do
     end
 
     it 'only allows up to 10 per game', :aggregate_failures do
-      Canonical::Property.all.each do |canonical_property|
+      Canonical::Property.all.find_each do |canonical_property|
         game.properties.create!(
           canonical_property:,
           name: canonical_property.name,
