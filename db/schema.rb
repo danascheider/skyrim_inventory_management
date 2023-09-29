@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_26_231756) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_29_213200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -560,6 +560,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_231756) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_weapon_id"
+    t.string "name", null: false
+    t.string "category"
+    t.string "weapon_type"
+    t.string "magical_effects"
+    t.decimal "unit_weight", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_weapon_id"], name: "index_weapons_on_canonical_weapon_id"
+    t.index ["game_id"], name: "index_weapons_on_game_id"
+  end
+
   add_foreign_key "armors", "canonical_armors"
   add_foreign_key "armors", "games"
   add_foreign_key "canonical_craftables_crafting_materials", "canonical_materials", column: "material_id"
@@ -599,4 +613,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_231756) do
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
   add_foreign_key "staves", "canonical_staves"
   add_foreign_key "staves", "games"
+  add_foreign_key "weapons", "canonical_weapons"
+  add_foreign_key "weapons", "games"
 end
