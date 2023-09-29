@@ -13,6 +13,7 @@ class Game < ApplicationRecord
   has_many :potions, dependent: :destroy
   has_many :properties, dependent: :destroy
   has_many :staves, dependent: :destroy
+  has_many :weapons, dependent: :destroy
 
   # `before_save` callbacks need to be defined before
   # `before_destroy` callbacks, which need to be defined here
