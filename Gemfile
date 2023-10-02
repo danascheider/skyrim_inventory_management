@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.19', require: false
 
   # Use WebMock to mock HTTP requests, mainly for auth purposes
-  gem 'webmock', '~> 3.18.1'
+  gem 'webmock', '~> 3.19.1'
 end
 
 group :development do
