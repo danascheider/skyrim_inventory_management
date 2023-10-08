@@ -15,5 +15,11 @@ FactoryBot.define do
     quest_item { false }
     leveled { false }
     enchantable { true }
+
+    trait :with_enchantments do
+      after(:create) do |item|
+        create_list(:enchantables_enchantment, 2, enchantable: item)
+      end
+    end
   end
 end

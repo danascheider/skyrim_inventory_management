@@ -11,5 +11,11 @@ FactoryBot.define do
 
       name { canonical_weapon.name }
     end
+
+    trait :with_enchanted_canonical do
+      association :canonical_weapon, factory: %i[canonical_weapon with_enchantments]
+
+      name { canonical_weapon.name }
+    end
   end
 end
