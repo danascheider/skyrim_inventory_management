@@ -116,7 +116,7 @@ RSpec.describe Weapon, type: :model do
           create(
             :canonical_weapon,
             name: 'Foobar',
-            unit_weight: 14
+            unit_weight: 14,
           )
         end
 
@@ -183,7 +183,7 @@ RSpec.describe Weapon, type: :model do
               [
                 create(:canonical_weapon, :with_enchantments, name: 'Foobar'),
                 create(:canonical_weapon, :with_enchantments, name: 'Foobar', enchantable: false),
-                create(:canonical_weapon, name: 'Foobar', enchantable: false)
+                create(:canonical_weapon, name: 'Foobar', enchantable: false),
               ]
             end
 
@@ -192,7 +192,7 @@ RSpec.describe Weapon, type: :model do
                 :enchantables_enchantment,
                 enchantable: weapon,
                 enchantment: canonicals.first.enchantments.first,
-                strength: canonicals.first.enchantments.first.strength
+                strength: canonicals.first.enchantments.first.strength,
               )
 
               weapon.enchantables_enchantments.reload
@@ -212,7 +212,7 @@ RSpec.describe Weapon, type: :model do
               expect(weapon.magical_effects).to eq canonicals.first.magical_effects
             end
 
-            it "sets enchantments" do
+            it 'sets enchantments' do
               expect(weapon.reload.enchantments.length).to eq 1
             end
           end
@@ -347,7 +347,7 @@ RSpec.describe Weapon, type: :model do
               create(:canonical_weapon, :with_enchantments, name: 'Foobar', enchantable: false),
               create(:canonical_weapon, :with_enchantments, name: 'FoObAr', enchantable: false),
               create(:canonical_weapon, :with_enchantments, name: 'fOoBaR', enchantable: false),
-              create(:canonical_weapon, name: 'fOObAR', enchantable: true)
+              create(:canonical_weapon, name: 'fOObAR', enchantable: true),
             ]
           end
 
@@ -356,7 +356,7 @@ RSpec.describe Weapon, type: :model do
               :enchantables_enchantment,
               enchantable: weapon,
               enchantment: canonicals.first.enchantments.first,
-              strength: canonicals.first.enchantments.first.strength
+              strength: canonicals.first.enchantments.first.strength,
             )
           end
 

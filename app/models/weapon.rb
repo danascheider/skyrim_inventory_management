@@ -39,6 +39,8 @@ class Weapon < ApplicationRecord
 
   after_save :set_enchantments, if: -> { canonical_weapon_changed? }
 
+  DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
+
   def canonical_models
     return Canonical::Weapon.where(id: canonical_weapon.id) if canonical_weapon.present?
 
@@ -93,6 +95,6 @@ class Weapon < ApplicationRecord
   end
 
   def ensure_canonicals_exist
-    errors.add(:base, "doesn't match a weapon that exists in Skyrim") if canonical_models.none?
+    errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
   end
 end
