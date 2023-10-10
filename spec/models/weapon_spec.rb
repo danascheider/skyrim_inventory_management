@@ -102,6 +102,7 @@ RSpec.describe Weapon, type: :model do
           expect(weapon.category).to eq canonical_weapon.category
           expect(weapon.weapon_type).to eq canonical_weapon.weapon_type
           expect(weapon.unit_weight).to eq canonical_weapon.unit_weight
+          expect(weapon.magical_effects).to eq canonical_weapon.magical_effects
         end
       end
     end
@@ -120,7 +121,7 @@ RSpec.describe Weapon, type: :model do
           )
         end
 
-        it 'adds the canonical_weapon' do
+        it 'assigns the canonical_weapon' do
           expect { validate }
             .to change(weapon, :canonical_weapon)
                   .to(matching_canonical)
@@ -132,6 +133,7 @@ RSpec.describe Weapon, type: :model do
           expect(weapon.category).to eq matching_canonical.category
           expect(weapon.weapon_type).to eq matching_canonical.weapon_type
           expect(weapon.unit_weight).to eq matching_canonical.unit_weight
+          expect(weapon.magical_effects).to eq matching_canonical.magical_effects
         end
 
         it "doesn't set enchantments" do
@@ -267,7 +269,7 @@ RSpec.describe Weapon, type: :model do
                 expect(weapon.canonical_weapon).to be_nil
               end
 
-              it "doesn't set values", :aggregate_failures do
+              it "doesn't set values" do
                 validate
                 expect(weapon.name).to eq 'foobar'
               end
@@ -401,15 +403,163 @@ RSpec.describe Weapon, type: :model do
     end
   end
 
+  describe '::after_save' do
+    subject(:save) { weapon.save! }
+
+    context 'when there is one matching canonical model' do
+      context 'when neither the canonical nor the in-game item have enchantments' do
+        let(:weapon) { build(:weapon, :with_matching_canonical) }
+
+        it "doesn't add enchantments" do
+          expect { save }
+            .not_to change(weapon, :enchantments)
+        end
+      end
+
+      context 'when the canonical weapon is enchanted' do
+        let(:weapon) { build(:weapon, name: 'foobar') }
+
+        context 'when the in-game item is not enchanted' do
+          before do
+            create(
+              :canonical_weapon,
+              :with_enchantments,
+              name: 'Foobar',
+            )
+          end
+
+          it 'adds enchantments from the canonical' do
+            expect { save }
+              .to change(weapon.enchantables_enchantments.reload, :count)
+                    .from(0)
+                    .to(2)
+          end
+        end
+
+        context 'when the in-game item has matching enchantments' do
+          before do
+            matching_canonical, _ = create_list(
+              :canonical_weapon,
+              2,
+              name: 'Foobar',
+              # Set enchantable to false, otherwise both canonicals
+              # will continue to match the weapon object
+              enchantable: false,
+            )
+
+            weapon.save!
+
+            create_list(
+              :enchantables_enchantment,
+              2,
+              enchantable: matching_canonical,
+            )
+
+            matching_canonical.enchantments.reload
+
+            create(
+              :enchantables_enchantment,
+              enchantable: weapon,
+              enchantment: EnchantablesEnchantment.first.enchantment,
+            )
+          end
+
+          it 'only adds missing enchantments' do
+            expect { save }
+              .to change(weapon.enchantables_enchantments.reload, :count)
+                    .from(1)
+                    .to(2)
+          end
+        end
+
+        # We don't need to include sub-contexts for enchantable vs.
+        # non-enchantable canonicals, because if the canonicals are not
+        # enchantable then there will be no matching canonicals, which
+        # would be impossible to set up because SIM doesn't allow any
+        # weapon to be saved if no canonicals match.
+        context 'when the in-game item has non-matching enchantments' do
+          before do
+            matching_canonical = create(
+              :canonical_weapon,
+              :with_enchantments,
+              name: 'Foobar',
+              enchantable: true,
+            )
+
+            create(
+              :canonical_weapon,
+              :with_enchantments,
+              name: 'Foobar',
+              enchantable: false,
+            )
+
+            weapon.save!
+
+            create(
+              :enchantables_enchantment,
+              enchantable: weapon,
+            )
+
+            weapon.enchantables_enchantments.reload
+          end
+
+          it 'adds any enchantments from the enchantable canonical' do
+            expect { save }
+              .to change(weapon.enchantables_enchantments.reload, :length)
+                    .from(1)
+                    .to(3)
+          end
+        end
+      end
+    end
+
+    context 'when there are multiple canonical models' do
+      let(:weapon) { build(:weapon, name: 'Foobar') }
+
+      before do
+        create_list(
+          :canonical_weapon,
+          2,
+          :with_enchantments,
+          name: 'Foobar',
+        )
+      end
+
+      it "doesn't add enchantments" do
+        expect { save }
+          .not_to change(weapon.enchantables_enchantments.reload, :length)
+      end
+    end
+  end
+
   describe 'delegated methods'
 
   describe 'adding enchantments' do
-    context 'when no canonical model is assigned'
+    context 'when no canonical model is assigned' do
+      context 'when there are multiple matching canonicals' do
+        # Test that enchantments can be added as long as they don't
+        # narrow down the available canonicals to 0
+      end
+
+      context 'when there are no matching canonicals' do
+        # Test that you can't add new enchantments if there are already
+        # 0 canonical matches
+      end
+
+      context 'when adding an enchantment narrows down matching canonicals to 1' do
+        # Test that that canonical is set as the canonical_weapon
+      end
+    end
 
     context 'when there is a canonical model assigned' do
-      context 'when the canonical model is enchantable'
+      context 'when the canonical model is enchantable' do
+        # Test that enchantments can be added even if they don't match
+        # the canonical model
+      end
 
-      context 'when the canonical model is not enchantable'
+      context 'when the canonical model is not enchantable' do
+        # Test that enchantments can't be added
+      end
     end
   end
 end

@@ -37,7 +37,7 @@ class Weapon < ApplicationRecord
   before_validation :set_canonical_weapon
   before_validation :set_values_from_canonical
 
-  after_save :set_enchantments, if: -> { canonical_weapon_changed? }
+  after_save :set_enchantments #, if: -> { canonical_weapon_changed? || !persisted? }
 
   DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
 
@@ -52,14 +52,16 @@ class Weapon < ApplicationRecord
     enchantables_enchantments.each do |join_model|
       canonicals = if join_model.strength.present?
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_weapons.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength = :strength) OR canonical_weapons.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
+                       type: 'Canonical::Weapon',
                        strength: join_model.strength,
                      )
                    else
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength IS NULL) OR canonical_weapons.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength IS NULL) OR canonical_weapons.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
+                       type: 'Canonical::Weapon'
                      )
                    end
     end
@@ -83,6 +85,17 @@ class Weapon < ApplicationRecord
     self.category = canonical_weapon.category
     self.weapon_type = canonical_weapon.weapon_type
     self.magical_effects = canonical_weapon.magical_effects
+  end
+
+  def set_enchantments
+    return if canonical_weapon.nil? || canonical_weapon.enchantments.none?
+
+    canonical_weapon.enchantments.each do |enchantment|
+      enchantables_enchantments.find_or_create_by!(
+        enchantment:,
+        strength: enchantment.strength,
+      )
+    end
   end
 
   def attributes_to_match
