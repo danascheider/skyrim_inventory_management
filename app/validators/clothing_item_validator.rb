@@ -7,7 +7,7 @@ class ClothingItemValidator < ActiveModel::Validator
   def validate(record)
     @record = record
 
-    if @record.canonical_clothing_items.blank?
+    if @record.canonical_models.blank?
       @record.errors.add(:base, NO_CANONICAL_MATCHES)
       return
     end
