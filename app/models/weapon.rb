@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Weapon < ApplicationRecord
+  include ActiveModel::Dirty
+
   belongs_to :game
   belongs_to :canonical_weapon,
              optional: true,
@@ -37,9 +39,13 @@ class Weapon < ApplicationRecord
   before_validation :set_canonical_weapon
   before_validation :set_values_from_canonical
 
-  after_save :set_enchantments #, if: -> { canonical_weapon_changed? || !persisted? }
+  after_save :set_enchantments
 
   DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
+
+  def canonical_model
+    canonical_weapon
+  end
 
   def canonical_models
     return Canonical::Weapon.where(id: canonical_weapon.id) if canonical_weapon.present?
@@ -61,7 +67,7 @@ class Weapon < ApplicationRecord
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
                        '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength IS NULL) OR canonical_weapons.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
-                       type: 'Canonical::Weapon'
+                       type: 'Canonical::Weapon',
                      )
                    end
     end
@@ -88,7 +94,8 @@ class Weapon < ApplicationRecord
   end
 
   def set_enchantments
-    return if canonical_weapon.nil? || canonical_weapon.enchantments.none?
+    return if canonical_weapon.nil?
+    return if canonical_weapon.enchantments.none?
 
     canonical_weapon.enchantments.each do |enchantment|
       enchantables_enchantments.find_or_create_by!(
