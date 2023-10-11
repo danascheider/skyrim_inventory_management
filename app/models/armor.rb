@@ -37,7 +37,11 @@ class Armor < ApplicationRecord
 
   after_create :set_enchantments, if: -> { canonical_armor.present? }
 
-  def canonical_armors
+  def canonical_model
+    canonical_armor
+  end
+
+  def canonical_models
     return Array.wrap(canonical_armor) if canonical_armor
 
     attrs_to_match = { unit_weight:, weight:, magical_effects: }.compact
@@ -57,9 +61,9 @@ class Armor < ApplicationRecord
   private
 
   def set_canonical_armor
-    return unless canonical_armors.count == 1
+    return unless canonical_models.count == 1
 
-    self.canonical_armor ||= canonical_armors.first
+    self.canonical_armor ||= canonical_models.first
     self.name = canonical_armor.name # in case casing differs
     self.unit_weight = canonical_armor.unit_weight
     self.weight = canonical_armor.weight

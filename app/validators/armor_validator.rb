@@ -7,7 +7,7 @@ class ArmorValidator < ActiveModel::Validator
   def validate(record)
     @record = record
 
-    if @record.canonical_armors.blank?
+    if @record.canonical_models.blank?
       @record.errors.add(:base, NO_CANONICAL_MATCHES)
       return
     end

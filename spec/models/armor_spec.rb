@@ -236,8 +236,8 @@ RSpec.describe Armor, type: :model do
     end
   end
 
-  describe '#canonical_armors' do
-    subject(:canonical_armors) { armor.canonical_armors }
+  describe '#canonical_models' do
+    subject(:canonical_models) { armor.canonical_models }
 
     context 'when the item has an association defined' do
       let(:armor) do
@@ -262,7 +262,7 @@ RSpec.describe Armor, type: :model do
       end
 
       it 'returns the associated model in an array' do
-        expect(canonical_armors).to eq [canonical_armor]
+        expect(canonical_models).to contain_exactly(canonical_armor)
       end
     end
 
@@ -277,7 +277,7 @@ RSpec.describe Armor, type: :model do
         let(:armor) { build(:armor, unit_weight: nil) }
 
         it 'returns all matching items' do
-          expect(canonical_armors).to eq matching_canonicals
+          expect(canonical_models).to eq matching_canonicals
         end
       end
 
@@ -291,7 +291,7 @@ RSpec.describe Armor, type: :model do
         end
 
         it 'returns only the items for which all values match' do
-          expect(canonical_armors).to eq matching_canonicals
+          expect(canonical_models).to eq matching_canonicals
         end
       end
     end
