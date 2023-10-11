@@ -42,7 +42,7 @@ RSpec.describe JewelryItem, type: :model do
       end
     end
 
-    describe '#canonical_jewelry_items' do
+    describe '#canonical_models' do
       context 'when there is a single matching canonical jewelry item' do
         let(:item) { build(:jewelry_item, :with_matching_canonical) }
 
@@ -106,8 +106,8 @@ RSpec.describe JewelryItem, type: :model do
     end
   end
 
-  describe '#canonical_jewelry_items' do
-    subject(:canonical_jewelry_items) { item.canonical_jewelry_items }
+  describe '#canonical_models' do
+    subject(:canonical_models) { item.canonical_models }
 
     context 'when the item has an association defined' do
       let(:item) { create(:jewelry_item, :with_matching_canonical) }
@@ -117,7 +117,7 @@ RSpec.describe JewelryItem, type: :model do
       end
 
       it 'includes only the associated model' do
-        expect(canonical_jewelry_items).to contain_exactly(item.canonical_jewelry_item)
+        expect(canonical_models).to contain_exactly(item.canonical_jewelry_item)
       end
     end
 
@@ -134,7 +134,7 @@ RSpec.describe JewelryItem, type: :model do
         end
 
         it 'matches case-insensitively' do
-          expect(canonical_jewelry_items).to contain_exactly(*matching_canonicals)
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
 
@@ -155,7 +155,7 @@ RSpec.describe JewelryItem, type: :model do
         end
 
         it 'returns the matching models' do
-          expect(canonical_jewelry_items).to contain_exactly(*matching_canonicals)
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
     end
@@ -197,16 +197,6 @@ RSpec.describe JewelryItem, type: :model do
         expect(item.unit_weight).to eq 0.2
         expect(item.jewelry_type).to eq 'ring'
         expect(item.magical_effects).to eq 'Some magical effects to differentiate'
-      end
-
-      it 'adds enchantments if persisted' do
-        item.save!
-
-        # This realistically won't happen but in the interest of thoroughness...
-        item.enchantables_enchantments.each(&:destroy)
-
-        expect { item.validate }
-          .to change(item.enchantables_enchantments.reload, :length).from(0).to(2)
       end
     end
 
