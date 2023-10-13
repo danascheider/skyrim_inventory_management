@@ -15,6 +15,7 @@ This documentation covers the scope and purpose of non-canonical in-game items, 
   * [`MiscItem`](/docs/in_game_items/misc-item.md)
   * [`Potion`](/docs/in_game_items/potion.md)
   * [`Staff`](/docs/in_game_items/staff.md)
+  * [`Weapon`](/docs/in_game_items/weapon.md)
 * Join models:
   * [`IngredientsAlchemicalProperty`](/docs/in_game_items/ingredients-alchemical-property.md)
   * `EnchantablesEnchantment` (both canonical and non-canonical use same table)
