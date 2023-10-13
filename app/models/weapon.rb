@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Weapon < ApplicationRecord
-  include ActiveModel::Dirty
-
   belongs_to :game
   belongs_to :canonical_weapon,
              optional: true,

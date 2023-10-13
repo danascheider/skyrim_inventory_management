@@ -31,20 +31,6 @@ class EnchantablesEnchantment < ApplicationRecord
     errors.none? && !canonical_enchantable?
   end
 
-  def canonical_enchantable_is_enchantable?
-    canonical_enchantable&.enchantable == true
-  end
-
-  def canonical_enchantable_has_enchantment?
-    canonical_enchantable&.enchantments&.include?(enchantment)
-  end
-
-  def canonical_enchantable
-    return if canonical_enchantable?
-
-    enchantable.canonical_model
-  end
-
   def canonical_enchantable?
     enchantable_type.start_with?('Canonical::')
   end

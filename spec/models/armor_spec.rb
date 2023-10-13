@@ -277,7 +277,7 @@ RSpec.describe Armor, type: :model do
         let(:armor) { build(:armor, unit_weight: nil) }
 
         it 'returns all matching items' do
-          expect(canonical_models).to eq matching_canonicals
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
 
