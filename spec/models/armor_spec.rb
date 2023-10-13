@@ -291,7 +291,7 @@ RSpec.describe Armor, type: :model do
         end
 
         it 'returns only the items for which all values match' do
-          expect(canonical_models).to eq matching_canonicals
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
     end
