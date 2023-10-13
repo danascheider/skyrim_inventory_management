@@ -183,12 +183,19 @@ RSpec.describe Weapon, type: :model do
           let!(:canonicals) do
             [
               create(:canonical_weapon, :with_enchantments, name: 'Foobar'),
-              create(:canonical_weapon, :with_enchantments, name: 'Foobar', enchantable: false),
+              create(:canonical_weapon, name: 'Foobar', enchantable: false),
               create(:canonical_weapon, name: 'Foobar', enchantable: false),
             ]
           end
 
           before do
+            create(
+              :enchantables_enchantment,
+              enchantable: canonicals.second,
+              enchantment: canonicals.first.enchantments.first,
+              strength: 2, # test that matching is done by strength too
+            )
+
             create(
               :enchantables_enchantment,
               enchantable: weapon,
