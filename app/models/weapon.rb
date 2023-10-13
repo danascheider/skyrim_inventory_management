@@ -75,6 +75,14 @@ class Weapon < ApplicationRecord
     canonicals.uniq
   end
 
+  def crafting_materials
+    canonical_weapon&.crafting_materials
+  end
+
+  def tempering_materials
+    canonical_weapon&.tempering_materials
+  end
+
   private
 
   def set_canonical_weapon

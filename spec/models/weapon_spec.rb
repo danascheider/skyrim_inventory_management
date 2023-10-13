@@ -473,7 +473,65 @@ RSpec.describe Weapon, type: :model do
     end
   end
 
-  describe 'delegated methods'
+  describe 'delegated methods' do
+    describe '#crafting_materials' do
+      subject(:crafting_materials) { weapon.crafting_materials }
+
+      context 'when there is a canonical weapon assigned' do
+        let(:weapon) { create(:weapon, name: 'Foobar', canonical_weapon:) }
+        let(:canonical_weapon) { create(:canonical_weapon, :with_crafting_materials, name: 'Foobar') }
+
+        it 'returns the crafting materials for the canonical' do
+          expect(crafting_materials).to eq canonical_weapon.crafting_materials
+        end
+      end
+
+      context 'when there is no canonical weapon assigned' do
+        let(:weapon) { create(:weapon, name: 'Foobar') }
+
+        before do
+          create_list(
+            :canonical_weapon,
+            2,
+            name: 'Foobar',
+          )
+        end
+
+        it 'returns nil' do
+          expect(crafting_materials).to be_nil
+        end
+      end
+    end
+
+    describe '#tempering_materials' do
+      subject(:tempering_materials) { weapon.tempering_materials }
+
+      context 'when there is a canonical weapon assigned' do
+        let(:weapon) { create(:weapon, name: 'Foobar', canonical_weapon:) }
+        let(:canonical_weapon) { create(:canonical_weapon, :with_tempering_materials, name: 'Foobar') }
+
+        it 'returns the tempering materials for the canonical' do
+          expect(tempering_materials).to eq canonical_weapon.tempering_materials
+        end
+      end
+
+      context 'when there is no canonical weapon assigned' do
+        let(:weapon) { create(:weapon, name: 'Foobar') }
+
+        before do
+          create_list(
+            :canonical_weapon,
+            2,
+            name: 'Foobar',
+          )
+        end
+
+        it 'returns an empty array' do
+          expect(tempering_materials).to be_nil
+        end
+      end
+    end
+  end
 
   describe 'adding enchantments' do
     context 'when no canonical model is assigned' do
