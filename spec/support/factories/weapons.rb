@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :weapon do
     game
 
-    name { 'Ancient Nord War Axe of Cold' }
+    name { 'Dwarven War Axe' }
 
     trait :with_matching_canonical do
       association :canonical_weapon,
