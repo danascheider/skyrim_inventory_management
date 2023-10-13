@@ -23,7 +23,7 @@ class EnchantablesEnchantment < ApplicationRecord
 
   def valid_enchantable?
     enchantable.canonical_models.any? do |canonical|
-      canonical.enchantable || canonical.enchantments.include?(enchantment)
+      canonical.enchantable || canonical.enchantables_enchantments.where(enchantment:, strength:).any?
     end
   end
 
