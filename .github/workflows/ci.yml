@@ -42,7 +42,7 @@ jobs:
         run: |
           cp config/database.github-actions.yml config/database.yml
           bundle exec rails db:create
-          bundle exec rails db:migrate
+          bundle exec rails db:schema:load
       - name: Run Rubocop
         run: bundle exec rails rubocop
       - name: Run RSpec
