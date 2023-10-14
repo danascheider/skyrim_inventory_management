@@ -268,6 +268,7 @@ DEPENDENCIES
   rack-cors (~> 2.0.1)
   rails (~> 7.0.8)
   rspec-rails (~> 6.0)
+  rubocop-factory_bot (~> 2.24.0)
   rubocop-performance (~> 1.19)
   rubocop-rails (~> 2.21)
   rubocop-rspec (~> 2.24)
