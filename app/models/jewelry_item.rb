@@ -33,13 +33,17 @@ class JewelryItem < ApplicationRecord
   validate :ensure_match_exists
 
   before_validation :set_canonical_jewelry_item
-  after_create :set_enchantments, if: -> { canonical_jewelry_item.present? }
+  after_save :set_enchantments
 
   def crafting_materials
     canonical_jewelry_item&.crafting_materials
   end
 
-  def canonical_jewelry_items
+  def canonical_model
+    canonical_jewelry_item
+  end
+
+  def canonical_models
     return [canonical_jewelry_item] if canonical_jewelry_item.present?
 
     attrs_to_match = {
@@ -55,25 +59,24 @@ class JewelryItem < ApplicationRecord
   private
 
   def ensure_match_exists
-    return if canonical_jewelry_items.any?
+    return if canonical_models.any?
 
     errors.add(:base, DOES_NOT_MATCH)
   end
 
   def set_canonical_jewelry_item
-    return unless canonical_jewelry_items.count == 1
+    return unless canonical_models.count == 1
 
-    self.canonical_jewelry_item ||= canonical_jewelry_items.first
+    self.canonical_jewelry_item ||= canonical_models.first
 
     self.name = canonical_jewelry_item.name
     self.unit_weight = canonical_jewelry_item.unit_weight
     self.jewelry_type = canonical_jewelry_item.jewelry_type
     self.magical_effects = canonical_jewelry_item.magical_effects
-
-    set_enchantments if persisted?
   end
 
   def set_enchantments
+    return if canonical_jewelry_item.nil?
     return if canonical_jewelry_item.enchantments.empty?
 
     canonical_jewelry_item.enchantables_enchantments.each do |model|

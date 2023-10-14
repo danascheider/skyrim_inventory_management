@@ -29,7 +29,11 @@ class ClothingItem < ApplicationRecord
 
   after_create :set_enchantments, if: -> { canonical_clothing_item.present? }
 
-  def canonical_clothing_items
+  def canonical_model
+    canonical_clothing_item
+  end
+
+  def canonical_models
     return Array.wrap(canonical_clothing_item) if canonical_clothing_item
 
     attrs_to_match = { unit_weight:, magical_effects: }.compact
@@ -41,9 +45,9 @@ class ClothingItem < ApplicationRecord
   private
 
   def set_canonical_clothing_item
-    return unless canonical_clothing_items.count == 1
+    return unless canonical_models.count == 1
 
-    self.canonical_clothing_item ||= canonical_clothing_items.first
+    self.canonical_clothing_item ||= canonical_models.first
     self.name = canonical_clothing_item.name # in case casing differs
     self.unit_weight = canonical_clothing_item.unit_weight
     self.magical_effects = canonical_clothing_item.magical_effects

@@ -15,18 +15,18 @@ module Canonical
         'other',
         'sword',
         'war axe',
-      ],
+      ].freeze,
       'two-handed' => %w[
         battleaxe
         greatsword
         warhammer
-      ],
+      ].freeze,
       'archery' => %w[
         arrow
         bolt
         bow
         crossbow
-      ],
+      ].freeze,
     }.freeze
 
     has_many :enchantables_enchantments,
@@ -59,6 +59,12 @@ module Canonical
              -> { select 'canonical_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
              through: :canonical_temperables_tempering_materials,
              source: :material
+
+    has_many :weapons,
+             inverse_of: :canonical_weapon,
+             dependent: :nullify,
+             foreign_key: 'canonical_weapon_id',
+             class_name: '::Weapon'
 
     validates :name, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }

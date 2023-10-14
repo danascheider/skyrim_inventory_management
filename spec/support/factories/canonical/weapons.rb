@@ -15,5 +15,31 @@ FactoryBot.define do
     quest_item { false }
     leveled { false }
     enchantable { true }
+
+    trait :with_enchantments do
+      after(:create) do |item|
+        create_list(:enchantables_enchantment, 2, enchantable: item)
+      end
+    end
+
+    trait :with_tempering_materials do
+      after(:create) do |item|
+        create_list(
+          :canonical_temperables_tempering_material,
+          2,
+          temperable: item,
+        )
+      end
+    end
+
+    trait :with_crafting_materials do
+      after(:create) do |item|
+        create_list(
+          :canonical_craftables_crafting_material,
+          2,
+          craftable: item,
+        )
+      end
+    end
   end
 end
