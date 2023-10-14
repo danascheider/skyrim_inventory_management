@@ -7,9 +7,7 @@ FactoryBot.define do
     name { 'Dwarven War Axe' }
 
     trait :with_matching_canonical do
-      association :canonical_weapon,
-                  factory: :canonical_weapon,
-                  strategy: :create
+      association :canonical_weapon, strategy: :create
     end
 
     trait :with_enchanted_canonical do

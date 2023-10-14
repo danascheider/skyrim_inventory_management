@@ -7,9 +7,7 @@ FactoryBot.define do
     name { "Wylandria's Soul Gem" }
 
     trait :with_matching_canonical do
-      association :canonical_misc_item, factory: :canonical_misc_item
-
-      name { canonical_misc_item.name }
+      association :canonical_misc_item
     end
   end
 end

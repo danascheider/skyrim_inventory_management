@@ -4,13 +4,11 @@ FactoryBot.define do
   factory :staff do
     game
 
-    name { 'My Cool Staff' }
+    name { 'Staff of Chain Lightning' }
     unit_weight { 8 }
 
     trait :with_matching_canonical do
-      association :canonical_staff, factory: :canonical_staff
-
-      name { canonical_staff.name }
+      association :canonical_staff
     end
   end
 end
