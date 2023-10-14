@@ -88,6 +88,7 @@ RSpec.describe Weapon, type: :model do
         it 'assigns the canonical_weapon' do
           expect { validate }
             .to change(weapon, :canonical_weapon)
+                  .from(nil)
                   .to(matching_canonical)
         end
 
@@ -175,7 +176,7 @@ RSpec.describe Weapon, type: :model do
       end
 
       context 'when there are enchantments' do
-        context 'when the weapon itself has no enchantments' do
+        context 'when the in-game item model has no enchantments' do
           let(:weapon) { build(:weapon, name: 'foobar') }
 
           before do
@@ -208,7 +209,7 @@ RSpec.describe Weapon, type: :model do
           end
         end
 
-        context 'when the weapon itself is already enchanted' do
+        context 'when the in-game item model is already enchanted' do
           let(:weapon) { create(:weapon, name: 'foobar') }
 
           let!(:canonicals) do
@@ -481,7 +482,7 @@ RSpec.describe Weapon, type: :model do
 
           let(:enchantable) { false }
 
-          it "doesn't allow enchantments if they eliminate all canonical matches", :aggregate_failures do
+          it "doesn't allow the enchantment to be added", :aggregate_failures do
             expect { add_enchantment }
               .to raise_error(ActiveRecord::RecordInvalid)
 
