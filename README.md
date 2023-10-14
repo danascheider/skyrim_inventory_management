@@ -114,9 +114,15 @@ Rubocop and RSpec are run against all pull requests using [GitHub Actions](https
 
 ### Deployment
 
-The Skyrim Inventory Management API is deployed to Heroku under the app name `whispering-scrubland-92626`. Deployments are done manually from the command line using Git.
+The Skyrim Inventory Management API is deployed to Heroku under the app name `whispering-scrubland-92626`. Deployments are done automatically when `main` is merged, after CI passes. Monitor the deploy and test in production when it is finished to ensure no breakage has been introduced. If any config or initializers have been changed, you will need to restart the app from the command line using:
 
-To deploy, first run `heroku login --app=whispering-scrubland-92626` and press any key to be taken to the browser login screen. After following the prompts and getting logged in, return to your command line. If you haven't configured the Heroku Git remote yet, from the root directory of this repository, run:
+```
+heroku restart --app=whispering-scrubland-92626
+```
+
+#### Manual Deployment Steps
+
+To deploy manually, you will first need to [configure Heroku as a Git remote](https://devcenter.heroku.com/articles/git) using the Heroku CLI. Once you've done this, first run `heroku login --app=whispering-scrubland-92626` and press any key to be taken to the browser login screen. After following the prompts and getting logged in, return to your command line. If you haven't configured the Heroku Git remote yet, from the root directory of this repository, run:
 
 ```
 heroku git:remote --app=whispering-scrubland-92626
@@ -130,9 +136,9 @@ Once the git remote is configured, you can run the following to deploy:
 git push heroku main
 ```
 
-You should only deploy from `main` and only after any running CI build has passed. **Do not deploy from any branch but `main` or if any steps are failing in CI.**
+You should only deploy from `main` and only after any running CI build has passed. **Do not deploy from any branch but `main` or if any steps are failing in CI.** Manual deploy should generally not be necessary as Heroku deploys automatically after merge to `main`.
 
-Note that Heroku will not automatically run any migrations so if your deployment includes migrations, you will need to run them manually:
+If your deploy includes migrations, ensure that they have run by inspecting the deploy output. If migrations have not run, you can run them manually using:
 
 ```
 heroku run bundle exec rails db:migrate
