@@ -72,10 +72,10 @@ RSpec.describe Weapon, type: :model do
     end
 
     context 'when there is a single matching canonical model' do
-      context 'when the canonical model has no enchantments' do
+      context 'when the in-game item model has no enchantments' do
         let(:weapon) { build(:weapon, name: 'foobar', unit_weight: 12) }
 
-        let!(:matching_canonical) { create(:canonical_weapon, name: 'Foobar', unit_weight: 12) }
+        let!(:matching_canonical) { create(:canonical_weapon, :with_enchantments, name: 'Foobar', unit_weight: 12) }
 
         before do
           create(
@@ -106,83 +106,47 @@ RSpec.describe Weapon, type: :model do
         end
       end
 
-      context 'when the canonical model has enchantments' do
-        context 'when the in-game item model has no enchantments' do
-          let(:weapon) { build(:weapon, name: 'foobar', unit_weight: 12) }
+      context 'when the in-game item has enchantments' do
+        let(:weapon) { create(:weapon, name: 'foobar') }
 
-          let!(:matching_canonical) { create(:canonical_weapon, :with_enchantments, name: 'Foobar', unit_weight: 12) }
-
-          before do
-            create(
-              :canonical_weapon,
-              name: 'Foobar',
-              unit_weight: 14,
-            )
-          end
-
-          it 'assigns the canonical_weapon' do
-            expect { validate }
-              .to change(weapon, :canonical_weapon)
-                    .to(matching_canonical)
-          end
-
-          it 'sets values on the weapon model', :aggregate_failures do
-            validate
-            expect(weapon.name).to eq matching_canonical.name
-            expect(weapon.category).to eq matching_canonical.category
-            expect(weapon.weapon_type).to eq matching_canonical.weapon_type
-            expect(weapon.unit_weight).to eq matching_canonical.unit_weight
-            expect(weapon.magical_effects).to eq matching_canonical.magical_effects
-          end
-
-          it "doesn't set enchantments" do
-            validate
-            expect(weapon.enchantments).to be_empty
-          end
+        let!(:canonicals) do
+          [
+            create(:canonical_weapon, :with_enchantments, name: 'Foobar'),
+            create(:canonical_weapon, name: 'Foobar', enchantable: false),
+            create(:canonical_weapon, name: 'Foobar', enchantable: false),
+          ]
         end
 
-        context 'when the in-game item has enchantments' do
-          let(:weapon) { create(:weapon, name: 'foobar') }
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: canonicals.second,
+            enchantment: canonicals.first.enchantments.first,
+            strength: 2, # test that matching is done by strength too
+          )
 
-          let!(:canonicals) do
-            [
-              create(:canonical_weapon, :with_enchantments, name: 'Foobar'),
-              create(:canonical_weapon, name: 'Foobar', enchantable: false),
-              create(:canonical_weapon, name: 'Foobar', enchantable: false),
-            ]
-          end
+          create(
+            :enchantables_enchantment,
+            enchantable: weapon,
+            enchantment: canonicals.first.enchantments.first,
+            strength: canonicals.first.enchantments.first.strength,
+          )
 
-          before do
-            create(
-              :enchantables_enchantment,
-              enchantable: canonicals.second,
-              enchantment: canonicals.first.enchantments.first,
-              strength: 2, # test that matching is done by strength too
-            )
+          weapon.enchantables_enchantments.reload
+        end
 
-            create(
-              :enchantables_enchantment,
-              enchantable: weapon,
-              enchantment: canonicals.first.enchantments.first,
-              strength: canonicals.first.enchantments.first.strength,
-            )
+        it 'assigns the canonical_weapon' do
+          validate
+          expect(weapon.canonical_weapon).to eq canonicals.first
+        end
 
-            weapon.enchantables_enchantments.reload
-          end
-
-          it 'assigns the canonical_weapon' do
-            validate
-            expect(weapon.canonical_weapon).to eq canonicals.first
-          end
-
-          it 'sets values on the weapon model', :aggregate_failures do
-            validate
-            expect(weapon.name).to eq canonicals.first.name
-            expect(weapon.category).to eq canonicals.first.category
-            expect(weapon.weapon_type).to eq canonicals.first.weapon_type
-            expect(weapon.unit_weight).to eq canonicals.first.unit_weight
-            expect(weapon.magical_effects).to eq canonicals.first.magical_effects
-          end
+        it 'sets values on the weapon model', :aggregate_failures do
+          validate
+          expect(weapon.name).to eq canonicals.first.name
+          expect(weapon.category).to eq canonicals.first.category
+          expect(weapon.weapon_type).to eq canonicals.first.weapon_type
+          expect(weapon.unit_weight).to eq canonicals.first.unit_weight
+          expect(weapon.magical_effects).to eq canonicals.first.magical_effects
         end
       end
     end
