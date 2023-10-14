@@ -690,7 +690,6 @@ Style/AndOr:
   EnforcedStyle: always
 Style/ArgumentsForwarding:
   Enabled: true
-  AllowOnlyRestArgument: true
 Style/ArrayJoin:
   Enabled: true
 Style/Attr:
