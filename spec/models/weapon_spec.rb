@@ -38,72 +38,36 @@ RSpec.describe Weapon, type: :model do
 
     context 'when there is a canonical model assigned' do
       let(:canonical_weapon) { weapon.canonical_weapon }
+      let(:weapon) { build(:weapon, :with_enchanted_canonical) }
 
-      context 'when the canonical model has no enchantments' do
-        let(:weapon) { build(:weapon, :with_matching_canonical) }
-
-        before do
-          # A second possible match
-          create(
-            :canonical_weapon,
-            name: canonical_weapon.name,
-            category: canonical_weapon.category,
-            weapon_type: canonical_weapon.weapon_type,
-            unit_weight: canonical_weapon.unit_weight,
-          )
-        end
-
-        it "doesn't change the canonical model" do
-          expect { validate }
-            .not_to change(weapon, :canonical_weapon)
-        end
-
-        it 'sets values on the weapon model', :aggregate_failures do
-          validate
-          expect(weapon.name).to eq canonical_weapon.name
-          expect(weapon.category).to eq canonical_weapon.category
-          expect(weapon.weapon_type).to eq canonical_weapon.weapon_type
-          expect(weapon.unit_weight).to eq canonical_weapon.unit_weight
-        end
-
-        it "doesn't add enchantments" do
-          validate
-          expect(weapon.enchantments).to be_empty
-        end
+      before do
+        # A second possible match
+        create(
+          :canonical_weapon,
+          name: canonical_weapon.name,
+          category: canonical_weapon.category,
+          weapon_type: canonical_weapon.weapon_type,
+          unit_weight: canonical_weapon.unit_weight,
+        )
       end
 
-      context 'when the canonical model has enchantments' do
-        let(:weapon) { build(:weapon, :with_enchanted_canonical) }
+      it "doesn't change the canonical model" do
+        expect { validate }
+          .not_to change(weapon, :canonical_weapon)
+      end
 
-        before do
-          # A second possible match
-          create(
-            :canonical_weapon,
-            name: canonical_weapon.name,
-            category: canonical_weapon.category,
-            weapon_type: canonical_weapon.weapon_type,
-            unit_weight: canonical_weapon.unit_weight,
-          )
-        end
+      it "doesn't add enchantments" do
+        validate
+        expect(weapon.enchantments).to be_empty
+      end
 
-        it "doesn't change the canonical model" do
-          expect { validate }
-            .not_to change(weapon, :canonical_weapon)
-        end
-
-        it "doesn't add enchantments" do
-          validate
-          expect(weapon.enchantments).to be_empty
-        end
-
-        it 'sets values on the weapon model', :aggregate_failures do
-          validate
-          expect(weapon.name).to eq canonical_weapon.name
-          expect(weapon.category).to eq canonical_weapon.category
-          expect(weapon.weapon_type).to eq canonical_weapon.weapon_type
-          expect(weapon.unit_weight).to eq canonical_weapon.unit_weight
-          expect(weapon.magical_effects).to eq canonical_weapon.magical_effects
-        end
+      it 'sets values on the weapon model', :aggregate_failures do
+        validate
+        expect(weapon.name).to eq canonical_weapon.name
+        expect(weapon.category).to eq canonical_weapon.category
+        expect(weapon.weapon_type).to eq canonical_weapon.weapon_type
+        expect(weapon.unit_weight).to eq canonical_weapon.unit_weight
+        expect(weapon.magical_effects).to eq canonical_weapon.magical_effects
       end
     end
 
