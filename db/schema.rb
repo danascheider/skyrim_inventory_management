@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_29_213200) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_213200) do
     t.datetime "updated_at", null: false
     t.index ["canonical_armor_id"], name: "index_armors_on_canonical_armor_id"
     t.index ["game_id"], name: "index_armors_on_game_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "canonical_book_id"
+    t.string "title", null: false
+    t.string "title_variants", default: [], array: true
+    t.string "authors", default: [], array: true
+    t.string "skill_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["canonical_book_id"], name: "index_books_on_canonical_book_id"
+    t.index ["game_id"], name: "index_books_on_game_id"
   end
 
   create_table "canonical_armors", force: :cascade do |t|
@@ -576,6 +589,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_213200) do
 
   add_foreign_key "armors", "canonical_armors"
   add_foreign_key "armors", "games"
+  add_foreign_key "books", "canonical_books"
+  add_foreign_key "books", "games"
   add_foreign_key "canonical_craftables_crafting_materials", "canonical_materials", column: "material_id"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
