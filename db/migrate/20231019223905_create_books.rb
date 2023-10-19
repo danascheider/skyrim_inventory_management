@@ -8,6 +8,7 @@ class CreateBooks < ActiveRecord::Migration[7.1]
       t.string :title, null: false
       t.string :title_variants, array: true, default: []
       t.string :authors, array: true, default: []
+      t.decimal :unit_weight
       t.string :skill_name
 
       t.timestamps

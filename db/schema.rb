@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
     t.string "title", null: false
     t.string "title_variants", default: [], array: true
     t.string "authors", default: [], array: true
+    t.decimal "unit_weight"
     t.string "skill_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
