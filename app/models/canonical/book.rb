@@ -29,6 +29,12 @@ module Canonical
              foreign_key: :recipe_id
     has_many :canonical_ingredients, through: :canonical_recipes_ingredients, class_name: 'Canonical::Ingredient', source: :ingredient
 
+    has_many :books,
+             dependent: :nullify,
+             class_name: '::Book',
+             inverse_of: :canonical_book,
+             foreign_key: 'canonical_book_id'
+
     validates :title, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
     validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
