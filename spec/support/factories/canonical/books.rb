@@ -14,6 +14,10 @@ FactoryBot.define do
 
     factory :canonical_recipe do
       book_type { 'recipe' }
+
+      after(:create) do |recipe|
+        create_list(:recipes_canonical_ingredient, 2, recipe:)
+      end
     end
   end
 end
