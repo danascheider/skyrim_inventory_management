@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_22_205449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -255,16 +255,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
-  end
-
-  create_table "canonical_recipes_ingredients", force: :cascade do |t|
-    t.bigint "recipe_id", null: false
-    t.bigint "ingredient_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_canonical_recipes_ingredients_on_ingredient_id"
-    t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
-    t.index ["recipe_id"], name: "index_canonical_recipes_ingredients_on_recipe_id"
   end
 
   create_table "canonical_staves", force: :cascade do |t|
@@ -513,6 +503,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
     t.index ["game_id"], name: "index_properties_on_game_id"
   end
 
+  create_table "recipes_canonical_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipes_canonical_ingredients_on_ingredient_id"
+    t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
+    t.index ["recipe_id"], name: "index_recipes_canonical_ingredients_on_recipe_id"
+  end
+
   create_table "shopping_list_items", force: :cascade do |t|
     t.string "description", null: false
     t.string "notes"
@@ -597,8 +597,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
   add_foreign_key "canonical_potions_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_potions_alchemical_properties", "canonical_potions", column: "potion_id"
   add_foreign_key "canonical_powerables_powers", "powers"
-  add_foreign_key "canonical_recipes_ingredients", "canonical_books", column: "recipe_id"
-  add_foreign_key "canonical_recipes_ingredients", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
   add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
@@ -623,6 +621,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_223905) do
   add_foreign_key "potions_alchemical_properties", "potions"
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
+  add_foreign_key "recipes_canonical_ingredients", "canonical_books", column: "recipe_id"
+  add_foreign_key "recipes_canonical_ingredients", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
   add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
