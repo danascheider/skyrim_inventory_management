@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RecipesCanonicalIngredient < ApplicationRecord
-  belongs_to :recipe, class_name: 'Canonical::Book'
+  belongs_to :recipe, polymorphic: true
   belongs_to :ingredient, class_name: 'Canonical::Ingredient'
 
   validate :verify_recipe_is_recipe

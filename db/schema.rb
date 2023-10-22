@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_22_205449) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_22_210936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -508,6 +508,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_22_205449) do
     t.bigint "ingredient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "recipe_type", null: false
     t.index ["ingredient_id"], name: "index_recipes_canonical_ingredients_on_ingredient_id"
     t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
     t.index ["recipe_id"], name: "index_recipes_canonical_ingredients_on_recipe_id"
@@ -621,7 +622,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_22_205449) do
   add_foreign_key "potions_alchemical_properties", "potions"
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
-  add_foreign_key "recipes_canonical_ingredients", "canonical_books", column: "recipe_id"
   add_foreign_key "recipes_canonical_ingredients", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
   add_foreign_key "shopping_lists", "games"
