@@ -26,18 +26,18 @@ RSpec.describe Book, type: :model do
   describe '#canonical_model' do
     subject(:canonical_model) { book.canonical_model }
 
-    context 'when there is a canonical model assigned' do
+    context 'when there is a canonical book present' do
       let(:book) { build(:book, :with_matching_canonical) }
 
-      it 'returns the canonical model' do
+      it 'returns the canonical book' do
         expect(canonical_model).to eq book.canonical_book
       end
     end
 
-    context 'when there is no canonical model assigned' do
+    context 'when there is no canonical book present' do
       let(:book) { build(:book) }
 
-      it 'returns nil' do
+      it 'is nil' do
         expect(canonical_model).to be_nil
       end
     end
@@ -99,6 +99,33 @@ RSpec.describe Book, type: :model do
 
       it 'matches based on the association' do
         expect(canonical_models).to contain_exactly(Canonical::Book.last)
+      end
+    end
+  end
+
+  describe '#recipe?' do
+    subject(:recipe) { book.recipe? }
+
+    let(:book) { create(:book, title: 'foo') }
+
+    context 'when at least one matching canonical is a recipe' do
+      before do
+        create(:canonical_recipe, title: 'Foo')
+        create(:canonical_book, title: 'Foo', book_type: 'Black Book')
+      end
+
+      it 'returns true' do
+        expect(recipe).to be true
+      end
+    end
+
+    context 'when no matching canonicals are recipes' do
+      before do
+        create_list(:canonical_book, 2, title: 'Foo', book_type: 'lore book')
+      end
+
+      it 'returns false' do
+        expect(recipe).to be false
       end
     end
   end

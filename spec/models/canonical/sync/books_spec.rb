@@ -140,15 +140,15 @@ RSpec.describe Canonical::Sync::Books do
     end
 
     context 'when preserve_existing_records is true' do
-      let(:preserve_existing_records) { true }
       let(:syncer) { described_class.new(preserve_existing_records) }
+      let(:preserve_existing_records) { true }
       let!(:book_in_json) { create(:canonical_recipe, item_code: '000F5CB8', title: 'Rich Dad, Poor Dad') }
       let!(:book_not_in_json) { create(:canonical_book, item_code: '12345678') }
 
       before do
         create(:canonical_ingredient, item_code: '00052695')
         create(:canonical_ingredient, item_code: '0006BC00')
-        create(:canonical_recipes_ingredient, recipe: book_in_json, ingredient: create(:canonical_ingredient))
+        create(:recipes_canonical_ingredient, recipe: book_in_json)
       end
 
       it 'instantiates itself' do
@@ -176,7 +176,7 @@ RSpec.describe Canonical::Sync::Books do
 
       it "doesn't destroy associations" do
         perform
-        expect(book_in_json.reload.canonical_ingredients.length).to eq 3
+        expect(book_in_json.reload.canonical_ingredients.length).to eq 5
       end
     end
 
