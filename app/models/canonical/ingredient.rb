@@ -17,11 +17,11 @@ module Canonical
              -> { select 'alchemical_properties.*, canonical_ingredients_alchemical_properties.priority' },
              through: :canonical_ingredients_alchemical_properties
 
-    has_many :canonical_recipes_ingredients,
+    has_many :recipes_canonical_ingredients,
              dependent: :destroy,
-             class_name: 'Canonical::RecipesIngredient',
+             class_name: 'RecipesCanonicalIngredient',
              inverse_of: :ingredient
-    has_many :recipes, through: :canonical_recipes_ingredients, class_name: 'Canonical::Book', source: :recipe
+    has_many :recipes, through: :recipes_canonical_ingredients, class_name: 'Canonical::Book', source: :recipe
 
     has_many :ingredients,
              dependent: :nullify,
