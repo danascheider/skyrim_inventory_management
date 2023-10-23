@@ -39,7 +39,13 @@ class Book < ApplicationRecord
     return canonicals unless canonical_ingredients.any?
 
     recipes_canonical_ingredients.each do |join_model|
-      canonicals = canonicals.joins(:recipes_canonical_ingredients).where(recipes_canonical_ingredients: { ingredient_id: join_model.ingredient_id })
+      canonicals = canonicals
+                     .joins(:recipes_canonical_ingredients)
+                     .where(
+                       recipes_canonical_ingredients: {
+                         ingredient_id: join_model.ingredient_id,
+                       },
+                     )
     end
 
     canonicals
