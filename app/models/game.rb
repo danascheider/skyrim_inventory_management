@@ -6,6 +6,7 @@ class Game < ApplicationRecord
   belongs_to :user
 
   has_many :armors, dependent: :destroy
+  has_many :books, dependent: :destroy
   has_many :clothing_items, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :jewelry_items, dependent: :destroy

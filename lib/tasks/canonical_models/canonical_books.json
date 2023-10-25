@@ -1054,26 +1054,6 @@
   },
   {
     "attributes": {
-      "title": "Alchemist's Journal",
-      "title_variants": null,
-      "item_code": "000CE5BD",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous Alchemist"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
       "title": "Alchemist's Note",
       "title_variants": null,
       "item_code": "0006DF90",
@@ -1408,27 +1388,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Anonymous Letter",
-      "title_variants": null,
-      "item_code": "000504EF",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -1754,27 +1714,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Bandit's Journal",
-      "title_variants": null,
-      "item_code": "00083B01",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -3024,26 +2964,6 @@
       "title": "Contract",
       "title_variants": null,
       "item_code": "00035B65",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Various"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": false,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Contract",
-      "title_variants": null,
-      "item_code": "0004EF00",
       "unit_weight": 0,
       "book_type": "letter",
       "authors": [
@@ -4565,27 +4485,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Fisherman's Journal",
-      "title_variants": null,
-      "item_code": "00088FE2",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -4706,27 +4606,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Forsworn Note",
-      "title_variants": null,
-      "item_code": "00083B0B",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -5105,27 +4985,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Goldenglow Bill of Sale",
-      "title_variants": null,
-      "item_code": "0004C6C8",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -5841,27 +5701,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Hunter's Journal",
-      "title_variants": null,
-      "item_code": "000F54D4",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -6417,7 +6257,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -6434,26 +6274,6 @@
       "book_type": "journal",
       "authors": [
         "Kornalus Frey"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Journal",
-      "title_variants": null,
-      "item_code": "000DC198",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous"
       ],
       "skill_name": null,
       "purchasable": false,
@@ -6873,46 +6693,6 @@
       "title": "Letter from <NAME>",
       "title_variants": null,
       "item_code": "00071443",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Various"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": false,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Letter from <NAME>",
-      "title_variants": null,
-      "item_code": "00071442",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Various"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": false,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Letter from <NAME>",
-      "title_variants": null,
-      "item_code": "00039FC3",
       "unit_weight": 0,
       "book_type": "letter",
       "authors": [
@@ -7883,67 +7663,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Master Illusion Text",
-      "title_variants": null,
-      "item_code": "000B3239",
-      "unit_weight": 0,
-      "book_type": "lore book",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Master Illusion Text",
-      "title_variants": null,
-      "item_code": "000B3238",
-      "unit_weight": 0,
-      "book_type": "lore book",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Master Illusion Text",
-      "title_variants": null,
-      "item_code": "000B3237",
-      "unit_weight": 0,
-      "book_type": "lore book",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -8724,126 +8444,6 @@
       "title": "Note",
       "title_variants": null,
       "item_code": "0006F63C",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "0006DFAF",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "0008B471",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "000C0136",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "000D120C",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "000D1246",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Note",
-      "title_variants": null,
-      "item_code": "XX015D88",
       "unit_weight": 0,
       "book_type": "letter",
       "authors": [
@@ -10183,7 +9783,7 @@
   },
   {
     "attributes": {
-      "title": "Recipe - Exploding Flame Spider",
+      "title": "Recipe - Exploding Flame Spider 2x",
       "title_variants": null,
       "item_code": "XX01DA10",
       "unit_weight": 0,
@@ -12729,27 +12329,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Stormcloak Missive",
-      "title_variants": null,
-      "item_code": "00083AFF",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -12889,27 +12469,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Tattered Journal",
-      "title_variants": null,
-      "item_code": "000F0423",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -17401,47 +16961,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Writ of Sealing",
-      "title_variants": null,
-      "item_code": "000F1C18",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Writ of Sealing",
-      "title_variants": null,
-      "item_code": "000F1C19",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,

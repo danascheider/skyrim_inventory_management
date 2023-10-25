@@ -11,8 +11,8 @@ The following canonical models exist in the SIM database:
 * [`Canonical::MiscItem`](/app/models/canonical/misc_item.rb): miscellaneous items occurring in the game that may be either useful or decorative
 * [`Canonical::Potion`](/app/models/canonical/potion.rb): potions that may be purchased or found in-game (does not include player-created potions, which can be validated using only alchemical properties without needing an additional canonical model)
 * [`Canonical::Property`](/app/models/canonical/property.rb): actual properties (homes) the player character can own in the game
-* [`Canonical::Weapon`](/app/models/canonical/weapon.rb): actual weapons the player character can acquire in the game
 * [`Canonical::Staff`](/app/models/canonical/staff.rb): actual staves the player character can acquire in the game
+* [`Canonical::Weapon`](/app/models/canonical/weapon.rb): actual weapons the player character can acquire in the game
 
 These models represent prototypes of objects users may find in-game and enter into their inventory.The data from which the database is synced live in JSON files in the `/lib/tasks/canonical_models` directory. These JSON files contain attributes for each model that should exist in the database (whether in development or production).
 
@@ -32,6 +32,7 @@ Note that the lists above do not include join tables for the `has_many, :through
 * [`Canonical::StavesSpell`](/app/models/canonical/staves_spell.rb): This join table links enchanted staves to the spells they are enchanted with, adding a `strength` field in case the strength of the spell on the staff differs from the base strength of the spell
 * [`Canonical::TemperablesTemperingMaterial`](/app/models/canonical/temperables_tempering_material.rb): This polymorphic join table associates canonical materials with any items that are able to be tempered using those materials, including armours and weapons, adding a field called `quantity` for the quantity of a given material needed to temper that particular item
 * [`Canonical::IngredientsAlchemicalProperty`](/app/models/canonical/ingredients_alchemical_property.rb): Associates canonical ingredients with the `AlchemicalProperty` model; no more than 4 can be created for each ingredient before a validation error is raised; additional docs available [here](/docs/canonical_models/canonical-ingredients-alchemical-property.md)
+* [`RecipesCanonicalIngredient`](/app/models/recipes_canonical_ingredient.rb): Associates canonical and non-canonical recipe books to the canonical ingredients required to prepare the recipe; additional docs are available [here](/docs/canonical_models/recipes-canonical-ingredient.md)
 
 Note that weapons and armour items have multiple associations to the same table - canonical materials - but the associations are separate since materials required to improve an item and those required to create it are distinct. If materials associations are blank, it means the item in question can't be crafted or improved.
 

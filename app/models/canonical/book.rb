@@ -22,12 +22,17 @@ module Canonical
       'treasure map',
     ].freeze
 
-    has_many :canonical_recipes_ingredients,
+    has_many :recipes_canonical_ingredients,
              dependent: :destroy,
-             class_name: 'Canonical::RecipesIngredient',
              inverse_of: :recipe,
-             foreign_key: :recipe_id
-    has_many :canonical_ingredients, through: :canonical_recipes_ingredients, class_name: 'Canonical::Ingredient', source: :ingredient
+             foreign_key: 'recipe_id'
+    has_many :canonical_ingredients, through: :recipes_canonical_ingredients, class_name: 'Canonical::Ingredient', source: :ingredient
+
+    has_many :books,
+             dependent: :nullify,
+             class_name: '::Book',
+             inverse_of: :canonical_book,
+             foreign_key: 'canonical_book_id'
 
     validates :title, presence: true
     validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
@@ -47,6 +52,10 @@ module Canonical
 
     def self.unique_identifier
       :item_code
+    end
+
+    def recipe?
+      book_type == 'recipe'
     end
 
     private

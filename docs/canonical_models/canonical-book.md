@@ -12,7 +12,9 @@ There are numerous items classed as "books" in Skyrim. These include letters, do
 
 ### Recipes
 
-Recipes are special in that they have associated ingredients. This is to distinguish between multiple recipes for the same potions. There are other books that are called recipes or contain lists of components - such as "recipes" for spider scrolls found in Solstheim - that are nonetheless not classified as recipes in SIM because they cannot have associated ingredients. If you attempt to associate ingredients to a book that is not a recipe, a validation error will occur.
+Recipes are special in that they have associated canonical ingredients. This is to distinguish between multiple recipes for the same potions. There are other books that are called recipes or contain lists of components - such as "recipes" for spider scrolls found in Solstheim - that are nonetheless not classified as recipes in SIM because they cannot have associated ingredients. If you attempt to associate ingredients to a book that is not a recipe, a validation error will occur.
+
+Recipes that can be associated with canonical ingredients are associated using the polymorphic [`RecipesCanonicalIngredient`](/docs/canonical_models/recipes-canonical-ingredient.md) model, which associates canonical ingredients to either `Book` or `Canonical::Book` models.
 
 ### Skill Books
 
