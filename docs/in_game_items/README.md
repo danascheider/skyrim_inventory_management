@@ -9,6 +9,7 @@ This documentation covers the scope and purpose of non-canonical in-game items, 
 * [In-Game Items](/docs/in_game_items/in-game-items.md): An overview of in-game item models, which models exist, and associations between them
 * Models:
   * [`Armor`](/docs/in_game_items/armor.md)
+  * [`Book`](/docs/in_game_items/book.md)
   * [`ClothingItem`](/docs/in_game_items/clothing-item.md)
   * [`Ingredient`](/docs/in_game_items/ingredient.md)
   * [`JewelryItem`](/docs/in_game_items/jewelry-item.md)
@@ -20,3 +21,4 @@ This documentation covers the scope and purpose of non-canonical in-game items, 
   * [`IngredientsAlchemicalProperty`](/docs/in_game_items/ingredients-alchemical-property.md)
   * `EnchantablesEnchantment` (both canonical and non-canonical use same table)
   * [`PotionsAlchemicalProperty`](/docs/in_game_items/potions-alchemical-property.md)
+  * [`RecipesCanonicalIngredient`](/docs/canonical_models/recipes-canonical-ingredient.md)
