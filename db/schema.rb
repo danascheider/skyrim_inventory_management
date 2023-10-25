@@ -510,7 +510,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_22_210936) do
     t.datetime "updated_at", null: false
     t.string "recipe_type", null: false
     t.index ["ingredient_id"], name: "index_recipes_canonical_ingredients_on_ingredient_id"
-    t.index ["recipe_id", "ingredient_id"], name: "index_can_books_ingredients_on_recipe_and_ingredient", unique: true
+    t.index ["recipe_id", "recipe_type", "ingredient_id"], name: "index_recipes_can_ingredients_on_recipe_and_ingredient", unique: true
     t.index ["recipe_id"], name: "index_recipes_canonical_ingredients_on_recipe_id"
   end
 

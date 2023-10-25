@@ -18,5 +18,16 @@ RSpec.describe RecipesCanonicalIngredient, type: :model do
 
       expect(model).to be_valid
     end
+
+    it 'is valid if recipe_id is unique with respect to recipe_type and ingredient_id' do
+      recipe = create(:recipe)
+      ingredient = create(:canonical_ingredient)
+      create(:recipes_canonical_ingredient, recipe:, ingredient:)
+      model = build(:recipes_canonical_ingredient, recipe:, ingredient:)
+
+      model.validate
+
+      expect(model.errors[:recipe_id]).to include 'must form a unique combination with canonical ingredient'
+    end
   end
 end

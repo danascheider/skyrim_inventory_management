@@ -21,7 +21,7 @@ module Canonical
              dependent: :destroy,
              class_name: 'RecipesCanonicalIngredient',
              inverse_of: :ingredient
-    has_many :recipes, through: :recipes_canonical_ingredients, class_name: 'Canonical::Book', source: :recipe
+    has_many :recipes, through: :recipes_canonical_ingredients, source: :recipe
 
     has_many :ingredients,
              dependent: :nullify,
