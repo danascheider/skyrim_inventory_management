@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_28_001851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
     t.bigint "game_id", null: false
     t.bigint "canonical_armor_id"
     t.string "name", null: false
-    t.decimal "unit_weight"
+    t.decimal "unit_weight", precision: 5, scale: 2
     t.string "magical_effects"
     t.string "weight"
     t.datetime "created_at", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
     t.bigint "canonical_book_id"
     t.string "title", null: false
     t.string "authors", default: [], array: true
-    t.decimal "unit_weight"
+    t.decimal "unit_weight", precision: 5, scale: 2
     t.string "skill_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -178,7 +178,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
   create_table "canonical_misc_items", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
-    t.decimal "unit_weight", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.string "item_types", default: [], null: false, array: true
     t.string "description"
     t.boolean "purchasable", null: false
@@ -194,7 +194,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
   create_table "canonical_potions", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
-    t.decimal "unit_weight", null: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.string "potion_type", null: false
     t.string "magical_effects"
     t.boolean "purchasable", default: true, null: false
@@ -324,7 +324,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
     t.bigint "game_id", null: false
     t.bigint "canonical_clothing_item_id"
     t.string "name", null: false
-    t.decimal "unit_weight"
+    t.decimal "unit_weight", precision: 5, scale: 2
     t.string "magical_effects"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -416,7 +416,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_000539) do
     t.bigint "game_id", null: false
     t.bigint "canonical_jewelry_item_id"
     t.string "name", null: false
-    t.decimal "unit_weight"
+    t.decimal "unit_weight", precision: 5, scale: 2
     t.string "jewelry_type"
     t.string "magical_effects"
     t.datetime "created_at", null: false
