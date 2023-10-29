@@ -38,7 +38,7 @@ RSpec.describe Canonical::Armor, type: :model do
         expect(armor.errors[:weight]).to include "can't be blank"
       end
 
-      it 'is invalid with an invalid weight value' do
+      it 'is invalid with an invalid unit_weight value' do
         armor = build(:canonical_armor, weight: 'medium armor')
 
         armor.validate
