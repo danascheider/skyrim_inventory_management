@@ -12,10 +12,11 @@ class Staff < ApplicationRecord
             }
 
   validate :validate_canonical_models
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_staff
 
-  DUPLICATE_MESSAGE = 'is a duplicate of a unique in-game item'
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   def spells
@@ -57,8 +58,19 @@ class Staff < ApplicationRecord
     }.compact
   end
 
+  def validate_unique_canonical
+    return unless canonical_staff&.unique_item
+
+    staves = canonical_staff.staves.where(game_id:)
+
+    return if staves.count < 1
+    return if staves.count == 1 && staves.last == self
+
+    errors.add(:base, DUPLICATE_MATCH)
+  end
+
   def validate_canonical_models
     errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
-    errors.add(:base, DUPLICATE_MESSAGE) if canonical_staff.nil? && canonical_models.count == 1
+    errors.add(:base, DUPLICATE_MATCH) if canonical_staff.nil? && canonical_models.count == 1
   end
 end

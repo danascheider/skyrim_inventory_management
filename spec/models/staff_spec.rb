@@ -8,7 +8,7 @@ RSpec.describe Staff, type: :model do
 
     let(:staff) { build(:staff) }
 
-    describe 'name' do
+    describe '#name' do
       it 'is invalid without a name' do
         staff.name = nil
         validate
@@ -16,7 +16,7 @@ RSpec.describe Staff, type: :model do
       end
     end
 
-    describe 'unit_weight' do
+    describe '#unit_weight' do
       it 'is invalid with a negative unit weight' do
         staff.unit_weight = -2
         validate
@@ -30,7 +30,66 @@ RSpec.describe Staff, type: :model do
       end
     end
 
-    describe 'canonical_staff' do
+    describe '#canonical_staff' do
+      let(:staff) { build(:staff, canonical_staff:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical staff is not unique' do
+        let(:canonical_staff) { create(:canonical_staff) }
+
+        before do
+          create_list(
+            :staff,
+            3,
+            canonical_staff:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(staff).to be_valid
+        end
+      end
+
+      context 'when the canonical staff is unique' do
+        let(:canonical_staff) do
+          create(
+            :canonical_staff,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when there are no other matches for the canonical staff' do
+          it 'is valid' do
+            expect(staff).to be_valid
+          end
+        end
+
+        context 'when the canonical staff has other matches in another game' do
+          before do
+            create(:staff, canonical_staff:)
+          end
+
+          it 'is valid' do
+            expect(staff).to be_valid
+          end
+        end
+
+        context 'when the canonical staff has other matches in the same game' do
+          before do
+            create(:staff, canonical_staff:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(staff.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+      end
+    end
+
+    describe '#canonical_models' do
       context 'when there is a canonical_staff associated' do
         let(:staff) { create(:staff, :with_matching_canonical) }
 
