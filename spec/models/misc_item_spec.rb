@@ -4,12 +4,14 @@ require 'rails_helper'
 
 RSpec.describe MiscItem, type: :model do
   describe 'validations' do
+    subject(:validate) { item.validate }
+
     let(:item) { build(:misc_item) }
 
     describe '#name' do
       it 'is invalid without a name' do
         item.name = nil
-        item.validate
+        validate
         expect(item.errors[:name]).to include "can't be blank"
       end
     end
@@ -17,17 +19,77 @@ RSpec.describe MiscItem, type: :model do
     describe '#unit_weight' do
       it 'can be blank' do
         item.unit_weight = nil
+        validate
         expect(item.errors[:unit_weight]).to be_empty
       end
 
       it 'is invalid if less than 0' do
         item.unit_weight = -1.2
-        item.validate
+        validate
         expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe '#canonical_misc_item' do
+      let(:item) { build(:misc_item, canonical_misc_item:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical misc item is not unique' do
+        let(:canonical_misc_item) { create(:canonical_misc_item) }
+
+        before do
+          create_list(
+            :misc_item,
+            3,
+            canonical_misc_item:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(item).to be_valid
+        end
+      end
+
+      context 'when the canonical misc item is unique' do
+        let(:canonical_misc_item) do
+          create(
+            :canonical_misc_item,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when the canonical has no other matches' do
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when the canonical has another match for a different game' do
+          before do
+            create(:misc_item, canonical_misc_item:)
+          end
+
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when the canonical has another match for the same game' do
+          before do
+            create(:misc_item, canonical_misc_item:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(item.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+      end
+    end
+
+    describe '#canonical_models' do
       context 'when there is a single matching canonical misc item' do
         let(:item) { build(:misc_item, :with_matching_canonical) }
 
@@ -56,7 +118,7 @@ RSpec.describe MiscItem, type: :model do
         let(:item) { build(:misc_item) }
 
         it 'adds errors' do
-          item.validate
+          validate
           expect(item.errors[:base]).to include "doesn't match any item that exists in Skyrim"
         end
       end
