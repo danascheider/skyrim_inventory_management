@@ -31,6 +31,65 @@ RSpec.describe Weapon, type: :model do
       validate
       expect(weapon.errors[:unit_weight]).to include 'must be greater than or equal to 0'
     end
+
+    describe 'canonical weapon validations' do
+      let(:weapon) { build(:weapon, canonical_weapon:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical weapon is not unique' do
+        let(:canonical_weapon) { create(:canonical_weapon) }
+
+        before do
+          create_list(
+            :weapon,
+            3,
+            canonical_weapon:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(weapon).to be_valid
+        end
+      end
+
+      context 'when the canonical weapon is unique' do
+        let(:canonical_weapon) do
+          create(
+            :canonical_weapon,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when there are no other matches for the canonical weapon' do
+          it 'is valid' do
+            expect(weapon).to be_valid
+          end
+        end
+
+        context 'when the canonical weapon has other matches in other games' do
+          before do
+            create(:weapon, canonical_weapon:)
+          end
+
+          it 'is valid' do
+            expect(weapon).to be_valid
+          end
+        end
+
+        context 'when the canonical weapon has other matches in the same game' do
+          before do
+            create(:weapon, canonical_weapon:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(weapon.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+      end
+    end
   end
 
   describe '::before_validation' do
