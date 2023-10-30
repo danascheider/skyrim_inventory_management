@@ -4,12 +4,14 @@ require 'rails_helper'
 
 RSpec.describe JewelryItem, type: :model do
   describe 'validations' do
+    subject(:validate) { item.validate }
+
     let(:item) { build(:jewelry_item) }
 
     describe '#name' do
       it 'is invalid without a name' do
         item.name = nil
-        item.validate
+        validate
         expect(item.errors[:name]).to include "can't be blank"
       end
     end
@@ -17,13 +19,13 @@ RSpec.describe JewelryItem, type: :model do
     describe '#jewelry_type' do
       it 'is invalid with an invalid value' do
         item.jewelry_type = 'necklace'
-        item.validate
+        validate
         expect(item.errors[:jewelry_type]).to include 'must be "ring", "circlet", or "amulet"'
       end
 
       it 'can be blank' do
         item.jewelry_type = nil
-        item.validate
+        validate
         expect(item.errors[:jewelry_type]).to be_blank
       end
     end
@@ -31,14 +33,73 @@ RSpec.describe JewelryItem, type: :model do
     describe '#unit_weight' do
       it 'is invalid if less than 0' do
         item.unit_weight = -5
-        item.validate
+        validate
         expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
 
       it 'can be blank' do
         item.unit_weight = nil
-        item.validate
+        validate
         expect(item.errors[:unit_weight]).to be_blank
+      end
+    end
+
+    describe '#canonical_jewelry_item' do
+      let(:item) { build(:jewelry_item, canonical_jewelry_item:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical jewelry item is not unique' do
+        let(:canonical_jewelry_item) { create(:canonical_jewelry_item) }
+
+        before do
+          create_list(
+            :jewelry_item,
+            3,
+            canonical_jewelry_item:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(item).to be_valid
+        end
+      end
+
+      context 'when the canonical jewelry item is unique' do
+        let(:canonical_jewelry_item) do
+          create(
+            :canonical_jewelry_item,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when there are no other matching jewelry items' do
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when there is another matching jewelry item for another game' do
+          before do
+            create(:jewelry_item, canonical_jewelry_item:)
+          end
+
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when there is another matching jewelry item for the same game' do
+          before do
+            create(:jewelry_item, canonical_jewelry_item:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(item.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
       end
     end
 
