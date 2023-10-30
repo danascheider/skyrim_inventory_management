@@ -46,16 +46,10 @@ class JewelryItem < ApplicationRecord
   end
 
   def canonical_models
-    return [canonical_jewelry_item] if canonical_jewelry_item.present?
-
-    attrs_to_match = {
-      jewelry_type:,
-      unit_weight:,
-      magical_effects:,
-    }.compact
+    return Canonical::JewelryItem.where(id: canonical_jewelry_item_id) if canonical_jewelry_item.present?
 
     canonicals = Canonical::JewelryItem.where('name ILIKE ?', name)
-    attrs_to_match.any? ? canonicals.where(**attrs_to_match) : canonicals
+    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   private
@@ -98,5 +92,13 @@ class JewelryItem < ApplicationRecord
         strength: model.strength,
       )
     end
+  end
+
+  def attributes_to_match
+    {
+      jewelry_type:,
+      unit_weight:,
+      magical_effects:,
+    }.compact
   end
 end
