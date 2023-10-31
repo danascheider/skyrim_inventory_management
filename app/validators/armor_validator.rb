@@ -23,7 +23,7 @@ class ArmorValidator < ActiveModel::Validator
   def validate_against_canonical
     canonical_armor = record.canonical_armor
 
-    validate_unique_canonical_match if canonical_armor.unique_item
+    validate_unique_canonical_match
 
     record.errors.add(:unit_weight, DOES_NOT_MATCH) unless record.unit_weight == canonical_armor.unit_weight
     record.errors.add(:weight, DOES_NOT_MATCH) unless record.weight == canonical_armor.weight
@@ -31,7 +31,7 @@ class ArmorValidator < ActiveModel::Validator
   end
 
   def validate_unique_canonical_match
-    return unless record.canonical_armor.unique_item
+    return unless record.canonical_armor&.unique_item
 
     armors = record.canonical_armor.armors.where(game_id: record.game_id)
 

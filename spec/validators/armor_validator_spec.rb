@@ -95,7 +95,7 @@ RSpec.describe ArmorValidator do
 
       it 'is valid' do
         validate
-        expect(armor.errors[:base]).to be_blank
+        expect(armor.errors[:base]).to be_empty
       end
     end
 
@@ -114,7 +114,7 @@ RSpec.describe ArmorValidator do
       context "when this is the canonical model's only association for this game" do
         it 'is valid' do
           validate
-          expect(armor.errors[:base]).to be_blank
+          expect(armor.errors[:base]).to be_empty
         end
       end
 
@@ -125,7 +125,7 @@ RSpec.describe ArmorValidator do
 
         it 'is valid' do
           validate
-          expect(armor.errors[:base]).to be_blank
+          expect(armor.errors[:base]).to be_empty
         end
       end
 

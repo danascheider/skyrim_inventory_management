@@ -26,7 +26,7 @@ RSpec.describe JewelryItem, type: :model do
       it 'can be blank' do
         item.jewelry_type = nil
         validate
-        expect(item.errors[:jewelry_type]).to be_blank
+        expect(item.errors[:jewelry_type]).to be_empty
       end
     end
 
@@ -40,7 +40,7 @@ RSpec.describe JewelryItem, type: :model do
       it 'can be blank' do
         item.unit_weight = nil
         validate
-        expect(item.errors[:unit_weight]).to be_blank
+        expect(item.errors[:unit_weight]).to be_empty
       end
     end
 

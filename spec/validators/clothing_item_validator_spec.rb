@@ -74,6 +74,15 @@ RSpec.describe ClothingItemValidator do
     context 'when the canonical model is not unique' do
       let(:canonical_clothing_item) { create(:canonical_clothing_item) }
 
+      before do
+        create_list(
+          :clothing_item,
+          3,
+          canonical_clothing_item:,
+          game:,
+        )
+      end
+
       it 'is valid' do
         validate
         expect(item.errors[:base]).to be_empty

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class JewelryItem < ApplicationRecord
-  DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
-
   belongs_to :game
   belongs_to :canonical_jewelry_item,
              optional: true,
@@ -36,6 +33,9 @@ class JewelryItem < ApplicationRecord
 
   before_validation :set_canonical_jewelry_item
   after_save :set_enchantments
+
+  DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def crafting_materials
     canonical_jewelry_item&.crafting_materials

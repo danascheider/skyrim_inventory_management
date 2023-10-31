@@ -74,8 +74,7 @@ RSpec.describe Ingredient, type: :model do
         end
 
         it 'is valid' do
-          validate
-          expect(ingredient.errors[:base]).to be_empty
+          expect(ingredient).to be_valid
         end
       end
 
@@ -90,8 +89,7 @@ RSpec.describe Ingredient, type: :model do
 
         context 'when the canonical ingredient has no other matches' do
           it 'is valid' do
-            validate
-            expect(ingredient.errors[:base]).to be_empty
+            expect(ingredient).to be_valid
           end
         end
 
@@ -101,8 +99,7 @@ RSpec.describe Ingredient, type: :model do
           end
 
           it 'is valid' do
-            validate
-            expect(ingredient.errors[:base]).to be_empty
+            expect(ingredient).to be_valid
           end
         end
 

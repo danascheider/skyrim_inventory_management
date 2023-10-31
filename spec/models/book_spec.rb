@@ -39,8 +39,7 @@ RSpec.describe Book, type: :model do
         end
 
         it 'is valid' do
-          validate
-          expect(book.errors[:base]).to be_empty
+          expect(book).to be_valid
         end
       end
 
@@ -54,13 +53,8 @@ RSpec.describe Book, type: :model do
         end
 
         context 'when the canonical model has no books' do
-          before do
-            create(:book, canonical_book:)
-          end
-
           it 'is valid' do
-            validate
-            expect(book.errors[:base]).to be_blank
+            expect(book).to be_valid
           end
         end
 
@@ -70,8 +64,7 @@ RSpec.describe Book, type: :model do
           end
 
           it 'is valid' do
-            validate
-            expect(book.errors[:base]).to be_empty
+            expect(book).to be_valid
           end
         end
 

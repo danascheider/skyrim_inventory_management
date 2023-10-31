@@ -146,14 +146,14 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter = true
           validate
-          expect(property.errors[:has_arcane_enchanter]).to be_blank
+          expect(property.errors[:has_arcane_enchanter]).to be_empty
         end
 
         it "doesn't have to have an arcane enchanter" do
           property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter = false
           validate
-          expect(property.errors[:has_arcane_enchanter]).to be_blank
+          expect(property.errors[:has_arcane_enchanter]).to be_empty
         end
       end
     end
@@ -177,14 +177,14 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_forge = true
           validate
-          expect(property.errors[:has_forge]).to be_blank
+          expect(property.errors[:has_forge]).to be_empty
         end
 
         it "doesn't have to have a forge" do
           property.canonical_property_id = canonical_property.id
           property.has_forge = false
           validate
-          expect(property.errors[:has_forge]).to be_blank
+          expect(property.errors[:has_forge]).to be_empty
         end
       end
     end
@@ -208,14 +208,14 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_apiary = true
           validate
-          expect(property.errors[:has_apiary]).to be_blank
+          expect(property.errors[:has_apiary]).to be_empty
         end
 
         it "doesn't have to have an apiary" do
           property.canonical_property_id = canonical_property.id
           property.has_apiary = false
           validate
-          expect(property.errors[:has_apiary]).to be_blank
+          expect(property.errors[:has_apiary]).to be_empty
         end
       end
     end
@@ -239,14 +239,14 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_grain_mill = true
           validate
-          expect(property.errors[:has_grain_mill]).to be_blank
+          expect(property.errors[:has_grain_mill]).to be_empty
         end
 
         it "doesn't have to have a grain mill" do
           property.canonical_property_id = canonical_property.id
           property.has_grain_mill = false
           validate
-          expect(property.errors[:has_grain_mill]).to be_blank
+          expect(property.errors[:has_grain_mill]).to be_empty
         end
       end
     end
@@ -270,14 +270,14 @@ RSpec.describe Property, type: :model do
           property.canonical_property_id = canonical_property.id
           property.has_fish_hatchery = true
           validate
-          expect(property.errors[:has_fish_hatchery]).to be_blank
+          expect(property.errors[:has_fish_hatchery]).to be_empty
         end
 
         it "doesn't have to have a fish hatchery" do
           property.canonical_property_id = canonical_property.id
           property.has_fish_hatchery = false
           validate
-          expect(property.errors[:has_fish_hatchery]).to be_blank
+          expect(property.errors[:has_fish_hatchery]).to be_empty
         end
       end
     end
