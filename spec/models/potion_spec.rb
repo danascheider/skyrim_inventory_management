@@ -4,27 +4,88 @@ require 'rails_helper'
 
 RSpec.describe Potion, type: :model do
   describe 'validations' do
-    let(:item) { build(:potion) }
+    subject(:validate) { potion.validate }
+
+    let(:potion) { build(:potion) }
 
     describe '#name' do
       it "can't be blank" do
-        item.name = nil
-        item.validate
-        expect(item.errors[:name]).to include "can't be blank"
+        potion.name = nil
+        validate
+        expect(potion.errors[:name]).to include "can't be blank"
       end
     end
 
     describe '#unit_weight' do
       it 'can be blank' do
-        item.unit_weight = nil
-        item.validate
-        expect(item.errors[:unit_weight]).to be_empty
+        potion.unit_weight = nil
+        validate
+        expect(potion.errors[:unit_weight]).to be_empty
       end
 
       it 'must be at least 0' do
-        item.unit_weight = -0.5
-        item.validate
-        expect(item.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+        potion.unit_weight = -0.5
+        validate
+        expect(potion.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+      end
+    end
+
+    describe '#canonical_potion' do
+      let(:potion) { build(:potion, canonical_potion:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical potion is not unique' do
+        let(:canonical_potion) { build(:canonical_potion) }
+
+        before do
+          create_list(
+            :potion,
+            3,
+            canonical_potion:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(potion).to be_valid
+        end
+      end
+
+      context 'when the canonical potion is unique' do
+        let(:canonical_potion) do
+          create(
+            :canonical_potion,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when there are no other non-canonical matches' do
+          it 'is valid' do
+            expect(potion).to be_valid
+          end
+        end
+
+        context 'when there is another match for a different game' do
+          before do
+            create(:potion, canonical_potion:)
+          end
+
+          it 'is valid' do
+            expect(potion).to be_valid
+          end
+        end
+
+        context 'when there is another match for the same game' do
+          before do
+            create(:potion, canonical_potion:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(potion.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
       end
     end
   end

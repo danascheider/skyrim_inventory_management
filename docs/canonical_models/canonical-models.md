@@ -56,7 +56,7 @@ The `purchasable` field indicates whether an item can be purchased from a mercha
 
 #### `unique_item`
 
-The `unique_item` field is set to `true` on items that only occur at one location in the game. That location cannot be a merchant, random loot, or random drops. Items that respawn can still be considered unique if they adhere to these criteria.
+The `unique_item` field is set to `true` on items that only occur at one location in the game. That location cannot be a merchant, random loot, or random drops. When `unique_item` is set to `true` on a canonical model, SIM will prevent users from creating multiple in-game items matching that canonical model for the same associated `game`. Note that items that respawn can still be considered unique if they adhere to the criteria above. There is planned work to change this.
 
 #### `rare_item`
 

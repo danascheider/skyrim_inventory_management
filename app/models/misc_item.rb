@@ -9,11 +9,13 @@ class MiscItem < ApplicationRecord
 
   validates :name, presence: true
   validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+
   validate :validate_association
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_misc_item
 
-  DUPLICATE_MESSAGE = 'is a duplicate of a unique in-game item'
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   def canonical_models
@@ -54,8 +56,19 @@ class MiscItem < ApplicationRecord
     return unless canonical_misc_item.nil?
     return if canonical_models.count > 1 && unit_weight.blank?
 
-    error_msg = canonical_models.any? ? DUPLICATE_MESSAGE : DOES_NOT_MATCH
+    error_msg = canonical_models.any? ? DUPLICATE_MATCH : DOES_NOT_MATCH
     errors.add(:base, error_msg)
+  end
+
+  def validate_unique_canonical
+    return unless canonical_misc_item&.unique_item
+
+    items = canonical_misc_item.misc_items.where(game_id:)
+
+    return if items.count < 1
+    return if items.count == 1 && items.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def attributes_to_match

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Ingredient < ApplicationRecord
-  DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
-
   belongs_to :game
   belongs_to :canonical_ingredient,
              class_name: 'Canonical::Ingredient',
@@ -17,8 +15,12 @@ class Ingredient < ApplicationRecord
   validates :name, presence: true
   validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
   validate :ensure_match_exists
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_ingredient
+
+  DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def canonical_ingredients
     return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_ingredient.present?
@@ -51,6 +53,17 @@ class Ingredient < ApplicationRecord
 
     self.name = canonical_ingredient.name
     self.unit_weight = canonical_ingredient.unit_weight
+  end
+
+  def validate_unique_canonical
+    return unless canonical_ingredient&.unique_item
+
+    ingredients = canonical_ingredient.ingredients.where(game_id:)
+
+    return if ingredients.count < 1
+    return if ingredients.count == 1 && ingredients.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def ensure_match_exists

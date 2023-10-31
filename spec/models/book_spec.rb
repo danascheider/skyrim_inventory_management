@@ -21,6 +21,65 @@ RSpec.describe Book, type: :model do
 
       expect(book.errors[:unit_weight]).to include 'must be greater than or equal to 0'
     end
+
+    describe 'canonical model validations' do
+      let(:book) { build(:book, canonical_book:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical model is not unique' do
+        let(:canonical_book) { create(:canonical_book) }
+
+        before do
+          create_list(
+            :book,
+            3,
+            canonical_book:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(book).to be_valid
+        end
+      end
+
+      context 'when the canonical model is unique' do
+        let(:canonical_book) do
+          create(
+            :canonical_book,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when the canonical model has no books' do
+          it 'is valid' do
+            expect(book).to be_valid
+          end
+        end
+
+        context 'when the canonical model has a book for another game' do
+          before do
+            create(:book, canonical_book:)
+          end
+
+          it 'is valid' do
+            expect(book).to be_valid
+          end
+        end
+
+        context 'when the canonical model has a book for the same game' do
+          before do
+            create(:book, canonical_book:, game:)
+          end
+
+          it 'is invalid' do
+            validate
+            expect(book.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+      end
+    end
   end
 
   describe '#canonical_model' do

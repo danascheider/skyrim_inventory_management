@@ -32,7 +32,9 @@ class Weapon < ApplicationRecord
               message: 'must be a valid type of weapon that occurs in Skyrim',
               allow_blank: true,
             }
+
   validate :ensure_canonicals_exist
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_weapon
   before_validation :set_values_from_canonical
@@ -40,6 +42,7 @@ class Weapon < ApplicationRecord
   after_save :set_enchantments
 
   DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def canonical_model
     canonical_weapon
@@ -109,6 +112,17 @@ class Weapon < ApplicationRecord
         strength: enchantment.strength,
       )
     end
+  end
+
+  def validate_unique_canonical
+    return unless canonical_weapon&.unique_item
+
+    weapons = canonical_weapon.weapons.where(game_id:)
+
+    return if weapons.count < 1
+    return if weapons.count == 1 && weapons.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def attributes_to_match

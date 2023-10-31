@@ -10,7 +10,11 @@ class Potion < ApplicationRecord
   validates :name, presence: true
   validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
 
+  validate :validate_unique_canonical
+
   before_validation :set_canonical_potion
+
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def canonical_models
     return Canonical::Potion.where(id: canonical_potion_id) if canonical_potion.present?
@@ -27,8 +31,6 @@ class Potion < ApplicationRecord
       .having('COUNT(*) >= ?', potions_alchemical_properties.length)
   end
 
-  alias_method :canonical_potions, :canonical_models
-
   private
 
   def set_canonical_potion
@@ -38,6 +40,17 @@ class Potion < ApplicationRecord
     self.name = canonical_potion.name
     self.unit_weight = canonical_potion.unit_weight
     self.magical_effects = canonical_potion.magical_effects
+  end
+
+  def validate_unique_canonical
+    return unless canonical_potion&.unique_item
+
+    potions = canonical_potion.potions.where(game_id:)
+
+    return if potions.count < 1
+    return if potions.count == 1 && potions.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def association_query

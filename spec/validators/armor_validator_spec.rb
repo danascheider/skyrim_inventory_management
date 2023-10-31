@@ -78,6 +78,68 @@ RSpec.describe ArmorValidator do
         expect(armor.errors[:magical_effects]).to include 'does not match value on canonical model'
       end
     end
+
+    context 'when the canonical model is not unique' do
+      let(:armor) { build(:armor, canonical_armor:, game:) }
+      let(:game) { create(:game) }
+      let(:canonical_armor) { create(:canonical_armor) }
+
+      before do
+        create_list(
+          :armor,
+          3,
+          canonical_armor:,
+          game:,
+        )
+      end
+
+      it 'is valid' do
+        validate
+        expect(armor.errors[:base]).to be_empty
+      end
+    end
+
+    context 'when the canonical model is unique' do
+      let(:armor) { build(:armor, canonical_armor:, game:) }
+      let(:game) { create(:game) }
+
+      let(:canonical_armor) do
+        create(
+          :canonical_armor,
+          unique_item: true,
+          rare_item: true,
+        )
+      end
+
+      context "when this is the canonical model's only association for this game" do
+        it 'is valid' do
+          validate
+          expect(armor.errors[:base]).to be_empty
+        end
+      end
+
+      context 'when the canonical model has a second association for another game' do
+        before do
+          create(:armor, canonical_armor:)
+        end
+
+        it 'is valid' do
+          validate
+          expect(armor.errors[:base]).to be_empty
+        end
+      end
+
+      context 'when the canonical model has a second association for the same game' do
+        before do
+          create(:armor, canonical_armor:, game:)
+        end
+
+        it 'is invalid' do
+          validate
+          expect(armor.errors[:base]).to include 'is a duplicate of a unique in-game item'
+        end
+      end
+    end
   end
 
   context 'when there are multiple matching canonical armors' do

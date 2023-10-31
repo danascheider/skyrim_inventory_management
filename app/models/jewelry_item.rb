@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class JewelryItem < ApplicationRecord
-  DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
-
   belongs_to :game
   belongs_to :canonical_jewelry_item,
              optional: true,
@@ -31,9 +29,13 @@ class JewelryItem < ApplicationRecord
             }
 
   validate :ensure_match_exists
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_jewelry_item
   after_save :set_enchantments
+
+  DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def crafting_materials
     canonical_jewelry_item&.crafting_materials
@@ -44,16 +46,10 @@ class JewelryItem < ApplicationRecord
   end
 
   def canonical_models
-    return [canonical_jewelry_item] if canonical_jewelry_item.present?
-
-    attrs_to_match = {
-      jewelry_type:,
-      unit_weight:,
-      magical_effects:,
-    }.compact
+    return Canonical::JewelryItem.where(id: canonical_jewelry_item_id) if canonical_jewelry_item.present?
 
     canonicals = Canonical::JewelryItem.where('name ILIKE ?', name)
-    attrs_to_match.any? ? canonicals.where(**attrs_to_match) : canonicals
+    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   private
@@ -75,6 +71,17 @@ class JewelryItem < ApplicationRecord
     self.magical_effects = canonical_jewelry_item.magical_effects
   end
 
+  def validate_unique_canonical
+    return unless canonical_jewelry_item&.unique_item
+
+    jewelry_items = canonical_jewelry_item.jewelry_items.where(game_id:)
+
+    return if jewelry_items.count < 1
+    return if jewelry_items.count == 1 && jewelry_items.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
+  end
+
   def set_enchantments
     return if canonical_jewelry_item.nil?
     return if canonical_jewelry_item.enchantments.empty?
@@ -85,5 +92,13 @@ class JewelryItem < ApplicationRecord
         strength: model.strength,
       )
     end
+  end
+
+  def attributes_to_match
+    {
+      jewelry_type:,
+      unit_weight:,
+      magical_effects:,
+    }.compact
   end
 end

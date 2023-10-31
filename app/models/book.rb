@@ -25,6 +25,9 @@ class Book < ApplicationRecord
 
   before_validation :set_canonical_book
   before_validation :set_values_from_canonical
+  before_validation :validate_unique_canonical
+
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def canonical_model
     canonical_book
@@ -68,6 +71,17 @@ class Book < ApplicationRecord
     self.authors = canonical_book.authors
     self.unit_weight = canonical_book.unit_weight
     self.skill_name = canonical_book.skill_name
+  end
+
+  def validate_unique_canonical
+    return unless canonical_book&.unique_item
+
+    books = canonical_book.books.where(game_id:)
+
+    return if books.count < 1
+    return if books.count == 1 && books.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def attributes_to_match

@@ -4,12 +4,14 @@ require 'rails_helper'
 
 RSpec.describe Ingredient, type: :model do
   describe 'validations' do
+    subject(:validate) { ingredient.validate }
+
     let(:ingredient) { build(:ingredient) }
 
     describe '#name' do
       it "can't be blank" do
         ingredient.name = nil
-        ingredient.validate
+        validate
         expect(ingredient.errors[:name]).to include "can't be blank"
       end
     end
@@ -17,13 +19,13 @@ RSpec.describe Ingredient, type: :model do
     describe '#unit_weight' do
       it 'can be blank' do
         ingredient.unit_weight = nil
-        ingredient.validate
+        validate
         expect(ingredient.errors[:unit_weight]).to be_empty
       end
 
       it 'must be at least 0' do
         ingredient.unit_weight = -2.7
-        ingredient.validate
+        validate
         expect(ingredient.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
@@ -50,8 +52,71 @@ RSpec.describe Ingredient, type: :model do
 
     context 'when there are no matching canonical ingredients' do
       it 'is invalid' do
-        ingredient.validate
+        validate
         expect(ingredient.errors[:base]).to include "doesn't match an ingredient that exists in Skyrim"
+      end
+    end
+
+    describe 'canonical ingredient validations' do
+      let(:ingredient) { build(:ingredient, canonical_ingredient:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical ingredient is not unique' do
+        let(:canonical_ingredient) { create(:canonical_ingredient) }
+
+        before do
+          create_list(
+            :ingredient,
+            3,
+            canonical_ingredient:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(ingredient).to be_valid
+        end
+      end
+
+      context 'when the canonical ingredient is unique' do
+        let(:canonical_ingredient) do
+          create(
+            :canonical_ingredient,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when the canonical ingredient has no other matches' do
+          it 'is valid' do
+            expect(ingredient).to be_valid
+          end
+        end
+
+        context 'when the canonical ingredient has another match for another game' do
+          before do
+            create(:ingredient, canonical_ingredient:)
+          end
+
+          it 'is valid' do
+            expect(ingredient).to be_valid
+          end
+        end
+
+        context 'when the canonical ingredient has another match for the same game' do
+          before do
+            create(
+              :ingredient,
+              canonical_ingredient:,
+              game:,
+            )
+          end
+
+          it 'is invalid' do
+            validate
+            expect(ingredient.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
       end
     end
   end
