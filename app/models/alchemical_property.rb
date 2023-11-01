@@ -2,6 +2,7 @@
 
 class AlchemicalProperty < ApplicationRecord
   VALID_STRENGTH_UNITS = %w[point percentage level].freeze
+  VALID_EFFECT_TYPES = %w[potion poison].freeze
 
   has_many :canonical_ingredients_alchemical_properties,
            dependent: :destroy,
@@ -36,7 +37,7 @@ class AlchemicalProperty < ApplicationRecord
   validates :effect_type,
             presence: true,
             inclusion: {
-              in: %w[potion poison],
+              in: VALID_EFFECT_TYPES,
               message: 'must be "potion" or "poison"',
             }
 
