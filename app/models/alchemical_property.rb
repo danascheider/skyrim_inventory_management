@@ -27,7 +27,18 @@ class AlchemicalProperty < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
   validates :description, presence: true
-  validates :strength_unit, inclusion: { in: VALID_STRENGTH_UNITS, message: 'must be "point", "percentage", or the "level" of affected targets', allow_blank: true }
+  validates :strength_unit,
+            inclusion: {
+              in: VALID_STRENGTH_UNITS,
+              message: 'must be "point", "percentage", or the "level" of affected targets',
+              allow_blank: true,
+            }
+  validates :effect_type,
+            presence: true,
+            inclusion: {
+              in: %w[potion poison],
+              message: 'must be "potion" or "poison"',
+            }
 
   def self.unique_identifier
     :name
