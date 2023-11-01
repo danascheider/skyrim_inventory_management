@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_31_213740) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_01_220130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -196,7 +196,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_213740) do
     t.string "name", null: false
     t.string "item_code", null: false
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.string "potion_type", null: false
     t.string "magical_effects"
     t.boolean "purchasable", default: true, null: false
     t.boolean "unique_item", default: false, null: false
