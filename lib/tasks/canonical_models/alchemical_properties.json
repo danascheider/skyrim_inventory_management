@@ -4,7 +4,8 @@
       "name": "Cure Disease",
       "description": "Cures all diseases.",
       "strength_unit": null,
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -12,7 +13,8 @@
       "name": "Damage Health",
       "description": "Causes <strength> points of poison damage.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -20,7 +22,8 @@
       "name": "Damage Magicka",
       "description": "Drains the target's Magicka by <strength> points.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -28,7 +31,8 @@
       "name": "Damage Magicka Regen",
       "description": "Decreases the target's Magicka regeneration by <strength>% for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -36,7 +40,8 @@
       "name": "Damage Stamina",
       "description": "Drains the target's Stamina by <strength> points.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -44,7 +49,8 @@
       "name": "Damage Stamina Regen",
       "description": "Decrease the target's Stamina regeneration by <strength>% for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -52,7 +58,8 @@
       "name": "Fear",
       "description": "Creatures and people up to level <strength> flee from combat for <duration> seconds.",
       "strength_unit": "level",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -60,7 +67,8 @@
       "name": "Fortify Alteration",
       "description": "Alteration spells last <strength>% longer for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -68,7 +76,8 @@
       "name": "Fortify Barter",
       "description": "You haggle for <strength>% better prices for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -76,7 +85,8 @@
       "name": "Fortify Block",
       "description": "Blocking absorbs <strength>% more damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -84,7 +94,8 @@
       "name": "Fortify Carry Weight",
       "description": "Carrying capacity increases by <strength> for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -92,7 +103,8 @@
       "name": "Fortify Conjuration",
       "description": "Conjuration spells last <strength>% longer for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -100,7 +112,8 @@
       "name": "Fortify Destruction",
       "description": "Destruction spells are <strength>% stronger for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -108,7 +121,8 @@
       "name": "Fortify Enchanting",
       "description": "For <duration> seconds, items are enchanted <strength>% stronger.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -116,7 +130,8 @@
       "name": "Fortify Health",
       "description": "Health is increased by <strength> points for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -124,7 +139,8 @@
       "name": "Fortify Heavy Armor",
       "description": "Increase Heavy Armor skill by <strength> points for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -132,7 +148,8 @@
       "name": "Fortify Illusion",
       "description": "Illusion spells are <strength>% stronger for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -140,7 +157,8 @@
       "name": "Fortify Light Armor",
       "description": "Increases Light Armor skill by <strength> points for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -148,7 +166,8 @@
       "name": "Fortify Lockpicking",
       "description": "Lockpicking is <strength>% easier for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -156,7 +175,8 @@
       "name": "Fortify Magicka",
       "description": "Magicka is increased by <strength> points for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -164,7 +184,8 @@
       "name": "Fortify Marksman",
       "description": "Bows do <strength>% more damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -172,7 +193,8 @@
       "name": "Fortify One-Handed",
       "description": "One-handed weapons do <strength>% more damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -180,7 +202,8 @@
       "name": "Fortify Pickpocket",
       "description": "Pickpocketing is <strength>% easier for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -188,7 +211,8 @@
       "name": "Fortify Restoration",
       "description": "Restoration spells are <strength>% stronger for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -196,7 +220,8 @@
       "name": "Fortify Smithing",
       "description": "For <duration> seconds, weapon and armor improving is <strength>% better.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -204,7 +229,8 @@
       "name": "Fortify Sneak",
       "description": "You are <strength>% harder to detect for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -212,7 +238,8 @@
       "name": "Fortify Speech",
       "description": "+<strength> Speechcraft for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -220,7 +247,8 @@
       "name": "Fortify Stamina",
       "description": "Stamina is increased by <strength> points for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -228,7 +256,8 @@
       "name": "Fortify Two-Handed",
       "description": "Two-handed weapons do <strength>% more damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -236,7 +265,8 @@
       "name": "Frenzy",
       "description": "Creatures and people up to level <strength> will attack anything nearby for <duration> seconds.",
       "strength_unit": "level",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -244,7 +274,8 @@
       "name": "Invisibility",
       "description": "Invisibility for <duration> seconds.",
       "strength_unit": null,
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -252,7 +283,8 @@
       "name": "Lingering Damage Health",
       "description": "Causes <strength> points of poison damage for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": true
+      "effects_cumulative": true,
+      "effect_type": "poison"
     }
   },
   {
@@ -260,7 +292,8 @@
       "name": "Lingering Damage Magicka",
       "description": "Drains the target's Magicka by <strength> points per second for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": true
+      "effects_cumulative": true,
+      "effect_type": "poison"
     }
   },
   {
@@ -268,7 +301,8 @@
       "name": "Lingering Damage Stamina",
       "description": "Drain the target's Stamina by <strength> points per second for <duration> seconds.",
       "strength_unit": "point",
-      "effects_cumulative": true
+      "effects_cumulative": true,
+      "effect_type": "poison"
     }
   },
   {
@@ -276,7 +310,8 @@
       "name": "Paralysis",
       "description": "Target is paralyzed for <duration> seconds.",
       "strength_unit": null,
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -284,7 +319,8 @@
       "name": "Ravage Health",
       "description": "Causes <strength> points of concentrated poison damage.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -292,7 +328,8 @@
       "name": "Ravage Magicka",
       "description": "Concentrated poison damages maximum Magicka by <strength> points.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -300,7 +337,8 @@
       "name": "Ravage Stamina",
       "description": "Concentrated poison damages maximum Stamina by <strength> points.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -308,7 +346,8 @@
       "name": "Regenerate Health",
       "description": "Health regenerates <strength>% faster for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -316,7 +355,8 @@
       "name": "Regenerate Magicka",
       "description": "Magicka regenerates <strength>% faster for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -324,7 +364,8 @@
       "name": "Regenerate Stamina",
       "description": "Stamina regenerates <strength>% faster for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -332,7 +373,8 @@
       "name": "Resist Fire",
       "description": "Resist <strength>% of fire damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -340,7 +382,8 @@
       "name": "Resist Frost",
       "description": "Resist <strength>% of frost damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -348,7 +391,8 @@
       "name": "Resist Magic",
       "description": "Resist <strength>% of magic for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -356,7 +400,8 @@
       "name": "Resist Poison",
       "description": "Resist <strength>% of poison for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -364,7 +409,8 @@
       "name": "Resist Shock",
       "description": "Resist <strength>% of shock damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -372,7 +418,8 @@
       "name": "Restore Health",
       "description": "Restore <strength> points of Health.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -380,7 +427,8 @@
       "name": "Restore Magicka",
       "description": "Restore <strength> points of Magicka.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -388,7 +436,8 @@
       "name": "Restore Stamina",
       "description": "Restore <strength> Stamina.",
       "strength_unit": "point",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -396,7 +445,8 @@
       "name": "Slow",
       "description": "Target moves at 50% speed for <duration> seconds.",
       "strength_unit": null,
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -404,7 +454,8 @@
       "name": "Waterbreathing",
       "description": "Can breathe underwater for <duration> seconds.",
       "strength_unit": null,
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "potion"
     }
   },
   {
@@ -412,7 +463,8 @@
       "name": "Weakness to Fire",
       "description": "Target is <strength>% weaker to fire damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -420,7 +472,8 @@
       "name": "Weakness to Frost",
       "description": "Target is <strength>% weaker to frost damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -428,7 +481,8 @@
       "name": "Weakness to Magic",
       "description": "Target is <strength>% weaker to magic for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -436,7 +490,8 @@
       "name": "Weakness to Poison",
       "description": "Target is <strength>% weaker to poison for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   },
   {
@@ -444,7 +499,8 @@
       "name": "Weakness to Shock",
       "description": "Target is <strength>% weaker to shock damage for <duration> seconds.",
       "strength_unit": "percentage",
-      "effects_cumulative": false
+      "effects_cumulative": false,
+      "effect_type": "poison"
     }
   }
 ]

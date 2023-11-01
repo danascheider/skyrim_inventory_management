@@ -5,7 +5,6 @@ FactoryBot.define do
     name { 'My Potion' }
     sequence(:item_code) {|n| "xx123x#{n}" }
     unit_weight { 0.5 }
-    potion_type { 'potion' }
     purchasable { true }
     unique_item { false }
     rare_item { false }

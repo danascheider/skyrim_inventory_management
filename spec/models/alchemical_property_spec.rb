@@ -45,6 +45,32 @@ RSpec.describe AlchemicalProperty, type: :model do
         expect(model.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
       end
     end
+
+    describe 'effect type' do
+      it 'is valid if "potion"' do
+        model = build(:alchemical_property, effect_type: 'potion')
+        expect(model).to be_valid
+      end
+
+      it 'is valid if "poison"' do
+        model = build(:alchemical_property, effect_type: 'poison')
+        expect(model).to be_valid
+      end
+
+      it "can't be blank" do
+        model = build(:alchemical_property, effect_type: nil)
+
+        model.validate
+        expect(model.errors[:effect_type]).to include "can't be blank"
+      end
+
+      it "can't be another value" do
+        model = build(:alchemical_property, effect_type: 'mixed')
+
+        model.validate
+        expect(model.errors[:effect_type]).to include 'must be "potion" or "poison"'
+      end
+    end
   end
 
   describe 'class methods' do
