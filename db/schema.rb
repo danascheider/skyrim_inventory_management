@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_01_224647) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_02_193432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -378,8 +378,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_01_224647) do
     t.bigint "ingredient_id", null: false
     t.bigint "alchemical_property_id", null: false
     t.integer "priority"
-    t.decimal "strength_modifier"
-    t.decimal "duration_modifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alchemical_property_id", "ingredient_id"], name: "index_ingredients_alc_properties_on_property_and_ingr_ids", unique: true
