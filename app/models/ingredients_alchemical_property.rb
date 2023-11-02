@@ -20,12 +20,6 @@ class IngredientsAlchemicalProperty < ApplicationRecord
               less_than_or_equal_to: 4,
               only_integer: true,
             }
-  validates :strength_modifier,
-            allow_blank: true,
-            numericality: { greater_than: 0 }
-  validates :duration_modifier,
-            allow_blank: true,
-            numericality: { greater_than: 0 }
   validate :ensure_match_exists
   validate :ensure_max_of_four_per_ingredient
 
@@ -48,6 +42,18 @@ class IngredientsAlchemicalProperty < ApplicationRecord
     end
   end
 
+  def strength_modifier
+    return if canonical_model.blank?
+
+    canonical_model.strength_modifier || 1
+  end
+
+  def duration_modifier
+    return if canonical_model.blank?
+
+    canonical_model.duration_modifier || 1
+  end
+
   private
 
   def ensure_max_of_four_per_ingredient
@@ -66,8 +72,6 @@ class IngredientsAlchemicalProperty < ApplicationRecord
     return if canonical_model.nil?
 
     self.priority = canonical_model.priority
-    self.strength_modifier = canonical_model.strength_modifier
-    self.duration_modifier = canonical_model.duration_modifier
   end
 
   def ensure_match_exists
@@ -80,8 +84,6 @@ class IngredientsAlchemicalProperty < ApplicationRecord
     {
       alchemical_property_id:,
       ingredient_id: canonical_ingredients.ids,
-      strength_modifier:,
-      duration_modifier:,
       priority:,
     }.compact
   end

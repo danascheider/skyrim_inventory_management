@@ -28,7 +28,7 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
         context 'when the ingredient_id does not change' do
           it 'is valid' do
             model = ingredient.ingredients_alchemical_properties.first
-            model.strength_modifier = 3
+            model.priority = 4
             model.validate
 
             expect(model.errors[:ingredient]).to be_empty
@@ -194,24 +194,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       end
     end
 
-    describe 'strength_modifier' do
-      it 'must be greater than zero' do
-        model = build(:ingredients_alchemical_property, strength_modifier: 0)
-
-        model.validate
-        expect(model.errors[:strength_modifier]).to include 'must be greater than 0'
-      end
-    end
-
-    describe 'duration_modifier' do
-      it 'must be greater than zero' do
-        model = build(:ingredients_alchemical_property, duration_modifier: 0)
-
-        model.validate
-        expect(model.errors[:duration_modifier]).to include 'must be greater than 0'
-      end
-    end
-
     describe 'alchemical_property_id' do
       it 'must be unique per ingredient' do
         existing_model = create(:ingredients_alchemical_property, :valid)
@@ -360,6 +342,138 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
     end
   end
 
+  describe '#strength_modifier' do
+    subject(:strength_modifier) { model.strength_modifier }
+
+    context 'when there is a canonical model' do
+      let(:model) { create(:ingredients_alchemical_property, :valid) }
+
+      context 'when the canonical model has a strength_modifier set' do
+        before do
+          model.canonical_model.update!(strength_modifier: 1.3)
+        end
+
+        it "returns the canonical model's strength_modifier" do
+          expect(strength_modifier).to eq 1.3
+        end
+      end
+
+      context 'when the canonical model does not have a strength_modifier set' do
+        it 'returns 1' do
+          expect(strength_modifier).to eq 1
+        end
+      end
+    end
+
+    context 'when there are multiple matching canonicals' do
+      let!(:canonical_ingredient) do
+        create(
+          :canonical_ingredient,
+          :with_alchemical_properties,
+        )
+      end
+
+      let!(:second_canonical) do
+        create(
+          :canonical_ingredient,
+          :with_alchemical_properties,
+        )
+      end
+
+      let(:ingredient) { create(:ingredient) }
+      let(:join_model) { canonical_ingredient.canonical_ingredients_alchemical_properties.second }
+      let(:model) { build(:ingredients_alchemical_property, ingredient:) }
+
+      before do
+        second_canonical.reload
+
+        join_model.update!(strength_modifier: 2)
+
+        second_canonical
+          .canonical_ingredients_alchemical_properties
+          .find_by(priority: join_model.priority)
+          .update!(
+            alchemical_property_id: join_model.alchemical_property_id,
+            strength_modifier: 2,
+          )
+
+        model.alchemical_property_id = join_model.alchemical_property_id
+        model.priority = join_model.priority
+        model.save!
+      end
+
+      it 'returns nil' do
+        expect(strength_modifier).to be_nil
+      end
+    end
+  end
+
+  describe '#duration_modifier' do
+    subject(:duration_modifier) { model.duration_modifier }
+
+    context 'when there is a canonical model' do
+      let(:model) { create(:ingredients_alchemical_property, :valid) }
+
+      context 'when the canonical model has a duration_modifier set' do
+        before do
+          model.canonical_model.update!(duration_modifier: 1.3)
+        end
+
+        it "returns the canonical model's duration_modifier" do
+          expect(duration_modifier).to eq 1.3
+        end
+      end
+
+      context 'when the canonical model does not have a duration_modifier set' do
+        it 'returns 1' do
+          expect(duration_modifier).to eq 1
+        end
+      end
+    end
+
+    context 'when there are multiple matching canonicals' do
+      let!(:canonical_ingredient) do
+        create(
+          :canonical_ingredient,
+          :with_alchemical_properties,
+        )
+      end
+
+      let!(:second_canonical) do
+        create(
+          :canonical_ingredient,
+          :with_alchemical_properties,
+        )
+      end
+
+      let(:ingredient) { create(:ingredient) }
+      let(:join_model) { canonical_ingredient.canonical_ingredients_alchemical_properties.second }
+      let(:model) { build(:ingredients_alchemical_property, ingredient:) }
+
+      before do
+        second_canonical.reload
+
+        join_model.update!(duration_modifier: 2)
+
+        second_canonical
+          .canonical_ingredients_alchemical_properties
+          .find_by(priority: join_model.priority)
+          .update!(
+            alchemical_property_id: join_model.alchemical_property_id,
+            duration_modifier: 2,
+          )
+
+        model.alchemical_property_id = join_model.alchemical_property_id
+        model.priority = join_model.priority
+        model.save!
+      end
+
+      it 'returns nil' do
+        expect(duration_modifier).to be_nil
+      end
+    end
+  end
+
   describe '::before_validation' do
     # NB: We don't need a context for when there are no matching canonical
     #     models, because we're testing if values are set from canonical
@@ -370,8 +484,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
         create(
           :canonical_ingredients_alchemical_property,
           priority: 3,
-          strength_modifier: 1.5,
-          duration_modifier: 2.3,
         )
       end
 
@@ -390,8 +502,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       it 'sets values from the canonical model', :aggregate_failures do
         model.validate
         expect(model.priority).to eq 3
-        expect(model.strength_modifier).to eq 1.5
-        expect(model.duration_modifier).to eq 2.3
       end
     end
 
@@ -401,8 +511,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
           :canonical_ingredients_alchemical_property,
           3,
           alchemical_property:,
-          strength_modifier: 1.5,
-          duration_modifier: 2.3,
         )
       end
 
@@ -421,8 +529,6 @@ RSpec.describe IngredientsAlchemicalProperty, type: :model do
       it "doesn't set values", :aggregate_failures do
         model.validate
         expect(model.priority).not_to eq 3
-        expect(model.strength_modifier).not_to eq 1.5
-        expect(model.duration_modifier).not_to eq 2.3
       end
     end
   end

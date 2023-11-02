@@ -15,10 +15,12 @@ FactoryBot.define do
     end
 
     factory :ingredient_with_matching_canonical do
-      canonical_ingredient
+      association :canonical_ingredient, strategy: :create
 
       trait :with_associations do
-        association :canonical_ingredient, factory: %i[canonical_ingredient with_alchemical_properties]
+        association :canonical_ingredient,
+                    factory: %i[canonical_ingredient with_alchemical_properties],
+                    strategy: :create
       end
 
       trait :with_associations_and_properties do
@@ -29,7 +31,8 @@ FactoryBot.define do
             create(
               :ingredients_alchemical_property,
               ingredient: model,
-              **join_model.attributes.except('ingredient_id', 'created_at', 'updated_at'),
+              alchemical_property: join_model.alchemical_property,
+              priority: join_model.priority,
             )
           end
         end

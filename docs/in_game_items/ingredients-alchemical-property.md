@@ -14,6 +14,10 @@ The value of `priority` on a model must be unique for its associated `Ingredient
 
 ## Matching Canonical Models
 
-Unlike primary in-game items, these join models do not have a direct association to their corresponding canonical models. They do, however, have a `#canonical_models` method that returns all `Canonical::IngredientAlchemicalProperty` models that match their `priority`, `strength_modifier`, and `duration_modifier` values (at least, any of these values that are defined on the non-canonical model). On each save, validations ensure that at least one matching canonical model exists.
+Unlike primary in-game items, these join models do not have a direct association to their corresponding canonical models. They do, however, have a `#canonical_models` method that returns all `Canonical::IngredientAlchemicalProperty` models that match their `priority` value. On each save, validations ensure that at least one matching canonical model exists.
 
-If a there is exactly one matching canonical model, a `before_validation` hook sets the `priority`, `strength_modifier`, and `duration_modifier` values to match it on each save.
+If a there is exactly one matching canonical model, a `before_validation` hook sets the `priority` value to match it on each save.
+
+## Strength and Duration Modifiers
+
+While the `Canonical::IngredientsAlchemicalProperty` model has `strength_modifier` and `duration_modifier` fields, these fields represent values invisible to players and therefore are not present on the `IngredientsAlchemicalProperty` model. However, these models do have `#strength_modifier` and `#duration_modifier` methods. These methods return `nil` if there are multiple matching canonical models. If there is a single canonical model, the methods return its `strength_modifier` or `duration_modifier`, or `1` if these are blank.
