@@ -195,6 +195,8 @@ RSpec.describe Potion, type: :model do
               strength: nil,
               duration: nil,
             )
+
+            potion.reload
           end
 
           it 'includes only matching models whose association strength and duration are also nil' do
@@ -230,6 +232,8 @@ RSpec.describe Potion, type: :model do
               strength: 16,
               duration: nil,
             )
+
+            potion.reload
           end
 
           it 'includes only models whose association duration is also nil' do
@@ -265,6 +269,8 @@ RSpec.describe Potion, type: :model do
               strength: 16,
               duration: 30,
             )
+
+            potion.reload
           end
 
           it 'includes only models whose association duration is also nil' do
@@ -300,6 +306,8 @@ RSpec.describe Potion, type: :model do
               strength: 16,
               duration: 30,
             )
+
+            potion.reload
           end
 
           it 'includes only models that fully match' do

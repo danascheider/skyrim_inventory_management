@@ -71,5 +71,45 @@ RSpec.describe Canonical::PotionsAlchemicalProperty, type: :model do
         expect(model.errors[:duration]).to include 'must be greater than 0'
       end
     end
+
+    describe 'maximum number per potion' do
+      let(:potion) { create(:canonical_potion) }
+
+      context 'when there are fewer than 4' do
+        before do
+          create_list(
+            :canonical_potions_alchemical_property,
+            3,
+            potion:,
+          )
+
+          potion.reload
+        end
+
+        it 'is valid' do
+          model = build(:canonical_potions_alchemical_property, potion:)
+          expect(model).to be_valid
+        end
+      end
+
+      context 'when there are already 4' do
+        before do
+          create_list(
+            :canonical_potions_alchemical_property,
+            4,
+            potion:,
+          )
+
+          potion.reload
+        end
+
+        it 'is invalid' do
+          model = build(:canonical_potions_alchemical_property, potion:)
+          model.validate
+
+          expect(model.errors[:potion]).to include 'can have a maximum of 4 effects'
+        end
+      end
+    end
   end
 end

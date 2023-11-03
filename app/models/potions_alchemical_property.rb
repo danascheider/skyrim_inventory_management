@@ -21,4 +21,22 @@ class PotionsAlchemicalProperty < ApplicationRecord
               only_integer: true,
               allow_nil: true,
             }
+
+  validate :ensure_max_per_potion
+
+  MAX_PER_POTION = Canonical::PotionsAlchemicalProperty::MAX_PER_POTION
+
+  private
+
+  def ensure_max_per_potion
+    return if potion.alchemical_properties.length < MAX_PER_POTION
+    return if persisted? &&
+      !potion_id_changed? &&
+      potion.alchemical_properties.length == MAX_PER_POTION
+
+    errors.add(
+      :potion,
+      "can have a maximum of #{MAX_PER_POTION} effects",
+    )
+  end
 end

@@ -10,4 +10,4 @@ When a `Potion` is created, it is then matched to a subset of canonical potions 
 
 ## The `PotionsAlchemicalProperty` Join Model
 
-The `Potion` model is associated to the `AlchemicalProperty` model via the `PotionsAlchemicalProperty` join model. This model has [its own docs](/docs/in_game_items/potions-alchemical-property.md) but it is worth mentioning here as well. The join table contains attributes about the integer `strength` and `duration` of the property in that potion.
+The `Potion` model is associated to the `AlchemicalProperty` model via the `PotionsAlchemicalProperty` join model. This model has [its own docs](/docs/in_game_items/potions-alchemical-property.md) but it is worth mentioning here as well. The join table contains attributes about the integer `strength` and `duration` of the property in that potion. There is a validation on the join model ensuring that no potion can have more than 4 alchemical effects.

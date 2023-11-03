@@ -88,5 +88,44 @@ RSpec.describe PotionsAlchemicalProperty, type: :model do
           .to include 'must be greater than 0'
       end
     end
+
+    describe 'alchemical effects' do
+      let(:potion) { create(:potion) }
+      let(:model) { build(:potions_alchemical_property, potion:) }
+
+      context 'when the potion has fewer than 4 effects' do
+        before do
+          create_list(
+            :potions_alchemical_property,
+            3,
+            potion:,
+          )
+
+          potion.reload
+        end
+
+        it 'is valid' do
+          expect(model).to be_valid
+        end
+      end
+
+      context 'when the potion already has 4 or more effects' do
+        before do
+          create_list(
+            :potions_alchemical_property,
+            4,
+            potion:,
+          )
+
+          potion.reload
+        end
+
+        it 'is invalid' do
+          model.validate
+
+          expect(model.errors[:potion]).to include 'can have a maximum of 4 effects'
+        end
+      end
+    end
   end
 end
