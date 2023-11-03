@@ -24,7 +24,5 @@ module Canonical
                 only_integer: true,
                 allow_blank: true,
               }
-
-    MAX_PER_POTION = 4
   end
 end
