@@ -21,7 +21,7 @@ class IngredientsAlchemicalProperty < ApplicationRecord
               only_integer: true,
             }
   validate :ensure_match_exists
-  validate :ensure_max_of_four_per_ingredient
+  validate :ensure_max_per_ingredient
 
   before_validation :set_attributes_from_canonical, if: -> { canonical_model.present? }
 
@@ -56,7 +56,7 @@ class IngredientsAlchemicalProperty < ApplicationRecord
 
   private
 
-  def ensure_max_of_four_per_ingredient
+  def ensure_max_per_ingredient
     return if ingredient.alchemical_properties.length < Canonical::IngredientsAlchemicalProperty::MAX_PER_INGREDIENT
     return if persisted? &&
       !ingredient_id_changed? &&
