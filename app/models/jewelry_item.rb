@@ -16,12 +16,6 @@ class JewelryItem < ApplicationRecord
            source: :enchantment
 
   validates :name, presence: true
-  validates :jewelry_type,
-            allow_blank: true,
-            inclusion: {
-              in: Canonical::JewelryItem::JEWELRY_TYPES,
-              message: Canonical::JewelryItem::JEWELRY_TYPE_VALIDATION_MESSAGE,
-            }
   validates :unit_weight,
             allow_blank: true,
             numericality: {
@@ -46,10 +40,14 @@ class JewelryItem < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::JewelryItem.where(id: canonical_jewelry_item_id) if canonical_jewelry_item.present?
+    return Canonical::JewelryItem.where(id: canonical_jewelry_item_id) if canonical_model_matches?
 
     canonicals = Canonical::JewelryItem.where('name ILIKE ?', name)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
+  end
+
+  def jewelry_type
+    canonical_model&.jewelry_type
   end
 
   private
@@ -67,7 +65,6 @@ class JewelryItem < ApplicationRecord
 
     self.name = canonical_jewelry_item.name
     self.unit_weight = canonical_jewelry_item.unit_weight
-    self.jewelry_type = canonical_jewelry_item.jewelry_type
     self.magical_effects = canonical_jewelry_item.magical_effects
   end
 
@@ -94,9 +91,17 @@ class JewelryItem < ApplicationRecord
     end
   end
 
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+    return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
+
+    true
+  end
+
   def attributes_to_match
     {
-      jewelry_type:,
       unit_weight:,
       magical_effects:,
     }.compact
