@@ -16,15 +16,19 @@ class Potion < ApplicationRecord
 
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
+  def canonical_model
+    canonical_potion
+  end
+
   def canonical_models
-    return Canonical::Potion.where(id: canonical_potion_id) if canonical_potion.present?
+    return Canonical::Potion.where(id: canonical_potion_id) if canonical_model_matches?
 
-    matching = Canonical::Potion.where('name ILIKE ?', name)
-    matching = matching.where('magical_effects ILIKE ?', magical_effects) if magical_effects.present?
+    canonicals = Canonical::Potion.where('name ILIKE ?', name)
+    canonicals = canonicals.where('magical_effects ILIKE ?', magical_effects) if magical_effects.present?
 
-    return matching if matching.blank? || alchemical_properties.none?
+    return canonicals if canonicals.blank? || alchemical_properties.none?
 
-    matching
+    canonicals
       .joins(:canonical_potions_alchemical_properties)
       .where(association_query)
       .group('canonical_potions.id')
@@ -51,6 +55,27 @@ class Potion < ApplicationRecord
     return if potions.count == 1 && potions.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects).zero?
+
+    if alchemical_properties.any?
+      potions_alchemical_properties.each do |prop|
+        return false unless canonical_has_matching_property?(prop)
+      end
+    end
+
+    true
+  end
+
+  def canonical_has_matching_property?(join_model)
+    canonical_model
+      .canonical_potions_alchemical_properties
+      .find_by(alchemical_property_id: join_model.alchemical_property_id, priority: join_model.priority)
+      .present?
   end
 
   def association_query

@@ -93,68 +93,77 @@ RSpec.describe Potion, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { potion.canonical_models }
 
-    context 'when the potion has an association defined' do
+    context 'when only the name has to match' do
+      let(:potion) { build(:potion, name: 'Potion of Healing') }
+
+      let!(:matching_canonicals) do
+        create_list(
+          :canonical_potion,
+          3,
+          name: 'potion of healing',
+        )
+      end
+
+      before do
+        create(:canonical_potion)
+      end
+
+      it 'matches case-insensitively' do
+        expect(canonical_models).to contain_exactly(*matching_canonicals)
+      end
+    end
+
+    context 'when there are magical effects defined' do
+      let(:potion) { build(:potion, name: 'Potion of Healing', magical_effects: 'foobar') }
+
+      let!(:matching_canonicals) do
+        create_list(
+          :canonical_potion,
+          3,
+          name: 'potion of healing',
+          magical_effects: 'Foobar',
+        )
+      end
+
+      before do
+        create(:canonical_potion, name: 'potion of healing', magical_effects: nil)
+      end
+
+      it 'returns all matching canonicals' do
+        expect(canonical_models).to contain_exactly(*matching_canonicals)
+      end
+    end
+
+    context 'when there are no matches' do
+      let(:potion) { build(:potion, name: 'Deadly Poison', magical_effects: 'foo') }
+
+      before do
+        create(:canonical_potion, name: 'Deadly Poison')
+      end
+
+      it 'is empty' do
+        expect(canonical_models).to be_empty
+      end
+    end
+
+    context 'when the match changes' do
       let(:potion) { create(:potion, :with_matching_canonical) }
 
-      it 'returns the associated canonical model' do
-        expect(canonical_models).to contain_exactly(potion.canonical_potion)
+      let!(:new_canonical) do
+        create(
+          :canonical_potion,
+          name: 'Elixir of Light Feet',
+        )
+      end
+
+      it 'returns the canonical that matches the new attributes' do
+        potion.name = 'elixir of light feet'
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
 
-    context 'when the potion does not have an association defined' do
-      context 'when only the name has to match' do
-        let(:potion) { build(:potion, name: 'Potion of Healing') }
-
-        let!(:matching_canonicals) do
-          create_list(
-            :canonical_potion,
-            3,
-            name: 'potion of healing',
-          )
-        end
-
-        before do
-          create(:canonical_potion)
-        end
-
-        it 'matches case-insensitively' do
-          expect(canonical_models).to contain_exactly(*matching_canonicals)
-        end
-      end
-
-      context 'when there are magical effects defined' do
-        let(:potion) { build(:potion, name: 'Potion of Healing', magical_effects: 'foobar') }
-
-        let!(:matching_canonicals) do
-          create_list(
-            :canonical_potion,
-            3,
-            name: 'potion of healing',
-            magical_effects: 'Foobar',
-          )
-        end
-
-        before do
-          create(:canonical_potion, name: 'potion of healing', magical_effects: nil)
-        end
-
-        it 'returns all matching canonicals' do
-          expect(canonical_models).to contain_exactly(*matching_canonicals)
-        end
-      end
-
-      context 'when there are no matches' do
-        let(:potion) { build(:potion, name: 'Deadly Poison', magical_effects: 'foo') }
-
-        before do
-          create(:canonical_potion, name: 'Deadly Poison')
-        end
-
-        it 'is empty' do
-          expect(canonical_models).to be_empty
-        end
-      end
-    end
+    context 'when there is no longer a match after attributes changed'
 
     context 'when there are alchemical properties' do
       let(:potion) { create(:potion, name: 'Foo') }
