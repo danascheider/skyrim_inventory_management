@@ -61,7 +61,7 @@ class Armor < ApplicationRecord
   def set_canonical_armor
     return unless canonical_models.count == 1
 
-    self.canonical_armor ||= canonical_models.first
+    self.canonical_armor = canonical_models.first
     self.name = canonical_armor.name # in case casing differs
     self.unit_weight = canonical_armor.unit_weight
     self.weight = canonical_armor.weight
