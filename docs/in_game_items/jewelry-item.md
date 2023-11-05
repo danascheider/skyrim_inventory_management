@@ -8,7 +8,6 @@ The `JewelryItem` model represents in-game items of the `Canonical::JewelryItem`
 
 * `name`
 * `unit_weight`
-* `jewelry_type`
 * `magical_effects`
 
 ## Associations

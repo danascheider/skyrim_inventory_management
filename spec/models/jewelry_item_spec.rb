@@ -16,20 +16,6 @@ RSpec.describe JewelryItem, type: :model do
       end
     end
 
-    describe '#jewelry_type' do
-      it 'is invalid with an invalid value' do
-        item.jewelry_type = 'necklace'
-        validate
-        expect(item.errors[:jewelry_type]).to include 'must be "ring", "circlet", or "amulet"'
-      end
-
-      it 'can be blank' do
-        item.jewelry_type = nil
-        validate
-        expect(item.errors[:jewelry_type]).to be_empty
-      end
-    end
-
     describe '#unit_weight' do
       it 'is invalid if less than 0' do
         item.unit_weight = -5
@@ -170,19 +156,7 @@ RSpec.describe JewelryItem, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { item.canonical_models }
 
-    context 'when the item has an association defined' do
-      let(:item) { create(:jewelry_item, :with_matching_canonical) }
-
-      before do
-        create(:canonical_jewelry_item, name: item.name)
-      end
-
-      it 'includes only the associated model' do
-        expect(canonical_models).to contain_exactly(item.canonical_jewelry_item)
-      end
-    end
-
-    context 'when the item does not have an association defined' do
+    context 'when there are matching canonical models' do
       let(:item) { create(:jewelry_item, name: 'Gold diamond ring') }
 
       context 'when only the name has to match' do
@@ -218,6 +192,57 @@ RSpec.describe JewelryItem, type: :model do
         it 'returns the matching models' do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
+      end
+    end
+
+    context 'when there are no matching canonical models' do
+      let(:item) { build(:jewelry_item) }
+
+      it 'is empty' do
+        expect(canonical_models).to be_empty
+      end
+    end
+
+    context 'when the canonical model changes' do
+      let(:item) { create(:jewelry_item, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_jewelry_item,
+          name: "Neloth's Ring of Tracking",
+          jewelry_type: 'ring',
+          unit_weight: 0.3,
+          magical_effects: 'When close enough, identifies the source of the ash spawn attacks on Tel Mithryn',
+        )
+      end
+
+      it 'returns the new canonical' do
+        item.name = "Neloth's Ring of Tracking"
+        item.unit_weight = nil
+        item.magical_effects = nil
+
+        expect(canonical_models).to contain_exactly(new_canonical)
+      end
+    end
+  end
+
+  describe '#jewelry_type' do
+    subject(:jewelry_type) { item.jewelry_type }
+
+    context 'when there is a canonical jewelry item assigned' do
+      let(:item) { create(:jewelry_item, canonical_jewelry_item:) }
+      let(:canonical_jewelry_item) { create(:canonical_jewelry_item, jewelry_type: 'amulet') }
+
+      it 'returns the jewelry type of the canonical' do
+        expect(jewelry_type).to eq 'amulet'
+      end
+    end
+
+    context 'when there is no canonical jewelry item assigned' do
+      let(:item) { build(:jewelry_item) }
+
+      it 'returns nil' do
+        expect(jewelry_type).to be_nil
       end
     end
   end
@@ -256,7 +281,6 @@ RSpec.describe JewelryItem, type: :model do
         item.validate
         expect(item.name).to eq 'Gold Diamond Ring'
         expect(item.unit_weight).to eq 0.2
-        expect(item.jewelry_type).to eq 'ring'
         expect(item.magical_effects).to eq 'Some magical effects to differentiate'
       end
     end
