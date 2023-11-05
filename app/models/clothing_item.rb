@@ -34,12 +34,10 @@ class ClothingItem < ApplicationRecord
   end
 
   def canonical_models
-    return Array.wrap(canonical_clothing_item) if canonical_clothing_item
-
-    attrs_to_match = { unit_weight:, magical_effects: }.compact
+    return Canonical::ClothingItem.where(id: canonical_clothing_item_id) if canonical_model_matches?
 
     canonicals = Canonical::ClothingItem.where('name ILIKE ?', name)
-    attrs_to_match.any? ? canonicals.where(**attrs_to_match) : canonicals
+    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   private
@@ -64,5 +62,21 @@ class ClothingItem < ApplicationRecord
         strength: model.strength,
       )
     end
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+    return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
+
+    true
+  end
+
+  def attributes_to_match
+    {
+      unit_weight:,
+      magical_effects:,
+    }.compact
   end
 end

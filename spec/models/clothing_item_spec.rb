@@ -179,32 +179,7 @@ RSpec.describe ClothingItem, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { item.canonical_models }
 
-    context 'when the item has an association defined' do
-      let(:item) do
-        create(
-          :clothing_item,
-          canonical_clothing_item:,
-          name: 'Fine Clothes',
-          unit_weight: 1,
-          magical_effects: nil,
-        )
-      end
-
-      let(:canonical_clothing_item) do
-        create(
-          :canonical_clothing_item,
-          name: 'Fine Clothes',
-          unit_weight: 1,
-          magical_effects: nil,
-        )
-      end
-
-      it 'returns the associated model in an array' do
-        expect(canonical_models).to contain_exactly(canonical_clothing_item)
-      end
-    end
-
-    context 'when the item does not have an association defined' do
+    context 'when there are matching canonical models' do
       before do
         create(:canonical_clothing_item, name: 'Something Else')
       end
@@ -231,6 +206,25 @@ RSpec.describe ClothingItem, type: :model do
         it 'returns only the items for which all values match' do
           expect(canonical_models).to eq matching_canonicals
         end
+      end
+    end
+
+    context "when the matching canonical model isn't the one that's assigned" do
+      let(:item) { create(:clothing_item, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_clothing_item,
+          name: 'Roughspun Tunic',
+          unit_weight: 1,
+        )
+      end
+
+      it 'returns the matching canonical model' do
+        item.name = 'roughspun tunic'
+        item.unit_weight = 1
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
   end

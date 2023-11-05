@@ -13,21 +13,12 @@ class ClothingItemValidator < ActiveModel::Validator
       return
     end
 
-    validate_against_canonical if @record.canonical_clothing_item.present?
+    validate_unique_canonical
   end
 
   private
 
   attr_reader :record
-
-  def validate_against_canonical
-    canonical = record.canonical_clothing_item
-
-    validate_unique_canonical
-
-    record.errors.add(:unit_weight, DOES_NOT_MATCH) unless record.unit_weight == canonical.unit_weight
-    record.errors.add(:magical_effects, DOES_NOT_MATCH) unless record.magical_effects == canonical.magical_effects
-  end
 
   def validate_unique_canonical
     return unless record.canonical_clothing_item&.unique_item
