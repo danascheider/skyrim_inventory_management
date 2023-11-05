@@ -13,22 +13,12 @@ class ArmorValidator < ActiveModel::Validator
       return
     end
 
-    validate_against_canonical if @record.canonical_armor.present?
+    validate_unique_canonical_match if @record.canonical_model.present?
   end
 
   private
 
   attr_reader :record
-
-  def validate_against_canonical
-    canonical_armor = record.canonical_armor
-
-    validate_unique_canonical_match
-
-    record.errors.add(:unit_weight, DOES_NOT_MATCH) unless record.unit_weight == canonical_armor.unit_weight
-    record.errors.add(:weight, DOES_NOT_MATCH) unless record.weight == canonical_armor.weight
-    record.errors.add(:magical_effects, DOES_NOT_MATCH) unless record.magical_effects == canonical_armor.magical_effects
-  end
 
   def validate_unique_canonical_match
     return unless record.canonical_armor&.unique_item
