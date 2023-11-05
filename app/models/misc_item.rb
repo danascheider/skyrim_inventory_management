@@ -18,9 +18,12 @@ class MiscItem < ApplicationRecord
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
+  def canonical_model
+    canonical_misc_item
+  end
+
   def canonical_models
-    return [] if name.blank?
-    return [canonical_misc_item] if canonical_misc_item.present?
+    return Canonical::MiscItem.where(id: canonical_misc_item_id) if canonical_model_matches?
 
     canonicals = Canonical::MiscItem.where('name ILIKE ?', name)
 
@@ -69,6 +72,14 @@ class MiscItem < ApplicationRecord
     return if items.count == 1 && items.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+
+    true
   end
 
   def attributes_to_match

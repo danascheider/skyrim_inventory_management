@@ -128,19 +128,7 @@ RSpec.describe MiscItem, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { item.canonical_models }
 
-    context 'when the item has an association defined' do
-      let(:item) { create(:misc_item, :with_matching_canonical) }
-
-      before do
-        create(:canonical_misc_item, name: item.name)
-      end
-
-      it 'includes only the associated model' do
-        expect(canonical_models).to contain_exactly(item.canonical_misc_item)
-      end
-    end
-
-    context 'when the item does not have an association defined' do
+    context 'when there are matching canonical models' do
       let(:item) { create(:misc_item, name: 'Wedding Ring') }
 
       context 'when only the name has to match' do
@@ -176,6 +164,34 @@ RSpec.describe MiscItem, type: :model do
         it 'returns the matching models' do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
+      end
+    end
+
+    context 'when there are no matching canonical models' do
+      let(:item) { build(:misc_item) }
+
+      it 'returns an empty ActiveRecord::Relation', :aggregate_failures do
+        expect(canonical_models).to be_an ActiveRecord::Relation
+        expect(canonical_models).to be_empty
+      end
+    end
+
+    context 'when the canonical model changes' do
+      let(:item) { create(:misc_item, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_misc_item,
+          name: 'Jeweled Flagon',
+          unit_weight: 0,
+        )
+      end
+
+      it 'returns the canonical that matches' do
+        item.name = 'jeweled flagon'
+        item.unit_weight = 0
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
   end
