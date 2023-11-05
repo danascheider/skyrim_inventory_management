@@ -83,7 +83,7 @@ class Armor < ApplicationRecord
 
   def canonical_model_matches?
     return false if canonical_model.nil?
-    return false unless name.nil? || name.casecmp(canonical_model.name).zero?
+    return false unless name.casecmp(canonical_model.name).zero?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
     return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
 
