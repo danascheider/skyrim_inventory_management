@@ -34,10 +34,8 @@ class IngredientsAlchemicalProperty < ApplicationRecord
   end
 
   def canonical_model
-    @canonical_model ||= begin
-      models = canonical_models
-      models.first if models.count == 1
-    end
+    models = canonical_models
+    models.first if models.count == 1
   end
 
   def strength_modifier
