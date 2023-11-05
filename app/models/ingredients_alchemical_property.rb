@@ -25,8 +25,6 @@ class IngredientsAlchemicalProperty < ApplicationRecord
 
   before_validation :set_attributes_from_canonical, if: -> { canonical_model.present? }
 
-  delegate :canonical_ingredients, to: :ingredient
-
   DOES_NOT_MATCH = 'is not consistent with any ingredient that exists in Skyrim'
 
   def canonical_models
@@ -36,10 +34,8 @@ class IngredientsAlchemicalProperty < ApplicationRecord
   end
 
   def canonical_model
-    @canonical_model ||= begin
-      models = canonical_models
-      models.first if models.count == 1
-    end
+    models = canonical_models
+    models.first if models.count == 1
   end
 
   def strength_modifier
@@ -83,7 +79,7 @@ class IngredientsAlchemicalProperty < ApplicationRecord
   def attributes_to_match
     {
       alchemical_property_id:,
-      ingredient_id: canonical_ingredients.ids,
+      ingredient_id: ingredient.canonical_models.ids,
       priority:,
     }.compact
   end

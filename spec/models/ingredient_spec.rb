@@ -121,21 +121,28 @@ RSpec.describe Ingredient, type: :model do
     end
   end
 
-  describe '#canonical_ingredients' do
-    subject(:canonical_ingredients) { ingredient.reload.canonical_ingredients }
+  describe '#canonical_model' do
+    subject(:canonical_model) { ingredient.canonical_model }
 
-    context 'when the model has a canonical ingredient assigned' do
-      let(:ingredient) { create(:ingredient, canonical_ingredient:) }
-      let(:canonical_ingredient) { create(:canonical_ingredient) }
+    context 'when a canonical ingredient is assigned' do
+      let(:ingredient) { create(:ingredient_with_matching_canonical) }
 
-      before do
-        create(:canonical_ingredient)
-      end
-
-      it 'returns the canonical ingredient' do
-        expect(canonical_ingredients).to contain_exactly(canonical_ingredient)
+      it 'returns the canonical model' do
+        expect(canonical_model).to eq ingredient.canonical_ingredient
       end
     end
+
+    context 'when no canonical ingredient is assigned' do
+      let(:ingredient) { build(:ingredient) }
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
+  describe '#canonical_models' do
+    subject(:canonical_models) { ingredient.canonical_models }
 
     context 'when there are matching canonical ingredients' do
       context 'when only the names have to match' do
@@ -143,7 +150,7 @@ RSpec.describe Ingredient, type: :model do
         let(:ingredient) { create(:ingredient, name: 'Blue Mountain Flower') }
 
         it 'returns all the matching canonical ingredients' do
-          expect(ingredient.canonical_ingredients).to eq matching_canonicals
+          expect(ingredient.canonical_models).to eq matching_canonicals
         end
       end
 
@@ -156,7 +163,7 @@ RSpec.describe Ingredient, type: :model do
         end
 
         it 'returns all the matching canonical ingredients' do
-          expect(ingredient.canonical_ingredients).to eq matching_canonicals
+          expect(ingredient.canonical_models).to eq matching_canonicals
         end
       end
 
@@ -192,10 +199,12 @@ RSpec.describe Ingredient, type: :model do
               alchemical_property:,
               priority: alchemical_property.priority,
             )
+
+            ingredient.reload
           end
 
           it 'returns the matching models' do
-            expect(canonical_ingredients).to contain_exactly(matching_canonicals.second, matching_canonicals.last)
+            expect(canonical_models).to contain_exactly(matching_canonicals.second, matching_canonicals.last)
           end
         end
 
@@ -216,10 +225,12 @@ RSpec.describe Ingredient, type: :model do
               alchemical_property:,
               priority: 4,
             )
+
+            ingredient.reload
           end
 
           it 'includes only the model that fully matches' do
-            expect(canonical_ingredients).to contain_exactly(matching_canonicals.last)
+            expect(canonical_models).to contain_exactly(matching_canonicals.last)
           end
         end
       end
@@ -229,7 +240,26 @@ RSpec.describe Ingredient, type: :model do
       let(:ingredient) { build(:ingredient) }
 
       it 'is empty' do
-        expect(ingredient.canonical_ingredients).to be_empty
+        expect(canonical_models).to be_empty
+      end
+    end
+
+    context 'when the canonical model changes' do
+      let(:ingredient) { create(:ingredient_with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_ingredient,
+          name: 'Powdered Mammoth Tusk',
+          unit_weight: 0.1,
+        )
+      end
+
+      it 'returns the canonical that matches' do
+        ingredient.name = 'powdered mammoth tusk'
+        ingredient.unit_weight = 0.1
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
   end
