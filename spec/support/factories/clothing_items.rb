@@ -6,6 +6,10 @@ FactoryBot.define do
 
     name { 'Fine Clothes' }
 
+    trait :with_matching_canonical do
+      association :canonical_clothing_item, strategy: :create
+    end
+
     trait :with_enchantments do
       after(:create) do |item|
         create_list(:enchantables_enchantment, 2, enchantable: item)
