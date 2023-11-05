@@ -226,6 +226,27 @@ RSpec.describe JewelryItem, type: :model do
     end
   end
 
+  describe '#jewelry_type' do
+    subject(:jewelry_type) { item.jewelry_type }
+
+    context 'when there is a canonical jewelry item assigned' do
+      let(:item) { create(:jewelry_item, canonical_jewelry_item:) }
+      let(:canonical_jewelry_item) { create(:canonical_jewelry_item, jewelry_type: 'amulet') }
+
+      it 'returns the jewelry type of the canonical' do
+        expect(jewelry_type).to eq 'amulet'
+      end
+    end
+
+    context 'when there is no canonical jewelry item assigned' do
+      let(:item) { build(:jewelry_item) }
+
+      it 'returns nil' do
+        expect(jewelry_type).to be_nil
+      end
+    end
+  end
+
   describe '::before_validation' do
     context 'when there is a single matching canonical model' do
       let!(:matching_canonical) do
