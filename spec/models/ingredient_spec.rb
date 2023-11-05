@@ -243,6 +243,25 @@ RSpec.describe Ingredient, type: :model do
         expect(canonical_models).to be_empty
       end
     end
+
+    context 'when the canonical model changes' do
+      let(:ingredient) { create(:ingredient_with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_ingredient,
+          name: 'Powdered Mammoth Tusk',
+          unit_weight: 0.1,
+        )
+      end
+
+      it 'returns the canonical that matches' do
+        ingredient.name = 'powdered mammoth tusk'
+        ingredient.unit_weight = 0.1
+
+        expect(canonical_models).to contain_exactly(new_canonical)
+      end
+    end
   end
 
   describe '::before_validation' do
