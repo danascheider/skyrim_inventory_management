@@ -22,23 +22,27 @@ class Ingredient < ApplicationRecord
   DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
-  def canonical_ingredients
-    return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_ingredient.present?
+  def canonical_model
+    canonical_ingredient
+  end
 
-    matching = Canonical::Ingredient.where('name ILIKE ?', name)
-    matching = matching.where(**attributes_to_match) if attributes_to_match.any?
+  def canonical_models
+    return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_model_matches?
 
-    return matching if alchemical_properties.empty?
+    canonicals = Canonical::Ingredient.where('name ILIKE ?', name)
+    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
+
+    return canonicals if alchemical_properties.empty?
 
     ingredients_alchemical_properties.each do |join_model|
-      matching = matching.joins(:canonical_ingredients_alchemical_properties).where(
+      canonicals = canonicals.joins(:canonical_ingredients_alchemical_properties).where(
         'canonical_ingredients_alchemical_properties.alchemical_property_id = :property_id AND canonical_ingredients_alchemical_properties.priority = :priority',
         property_id: join_model.alchemical_property_id,
         priority: join_model.priority,
       )
     end
 
-    matching
+    canonicals
   end
 
   private
@@ -46,7 +50,7 @@ class Ingredient < ApplicationRecord
   def set_canonical_ingredient
     return if canonical_ingredient.present?
 
-    canonicals = canonical_ingredients
+    canonicals = canonical_models
     self.canonical_ingredient = canonicals.first if canonicals.count == 1
 
     return if canonical_ingredient.nil?
@@ -67,9 +71,17 @@ class Ingredient < ApplicationRecord
   end
 
   def ensure_match_exists
-    return if canonical_ingredients.any?
+    return if canonical_models.any?
 
     errors.add(:base, DOES_NOT_MATCH)
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+
+    true
   end
 
   def attributes_to_match
