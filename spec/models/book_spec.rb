@@ -105,14 +105,6 @@ RSpec.describe Book, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { book.canonical_models }
 
-    context 'when there is a canonical book assigned' do
-      let(:book) { build(:book, :with_matching_canonical) }
-
-      it 'returns the canonical book' do
-        expect(canonical_models).to contain_exactly(book.canonical_book)
-      end
-    end
-
     context 'when there is a single matching canonical model' do
       let(:book) { build(:book, title: 'foo', unit_weight: 2) }
 
@@ -137,6 +129,28 @@ RSpec.describe Book, type: :model do
 
       it 'includes all matching canonicals' do
         expect(canonical_models).to contain_exactly(Canonical::Book.first, Canonical::Book.last)
+      end
+    end
+
+    context 'when the matching canonical changes' do
+      let(:book) { create(:book, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_book,
+          title: 'Black Book: Epistolary Acumen',
+          unit_weight: 1,
+          book_type: 'Black Book',
+          authors: ['The Transparent One'],
+        )
+      end
+
+      it 'identifies the new canonical model' do
+        book.title = 'Black book: epistolary acumen'
+        book.unit_weight = nil
+        book.authors = ['The Transparent One']
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
 

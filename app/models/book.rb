@@ -34,7 +34,7 @@ class Book < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::Book.where(id: canonical_book_id) if canonical_book_id.present?
+    return Canonical::Book.where(id: canonical_book_id) if canonical_model_matches?
 
     canonicals = Canonical::Book.where('title ILIKE :title OR :title ILIKE ANY(title_variants)', title:)
     canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
@@ -82,6 +82,15 @@ class Book < ApplicationRecord
     return if books.count == 1 && books.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless title.casecmp(canonical_model.title).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+    return false unless skill_name.nil? || skill_name == canonical_model.skill_name
+
+    true
   end
 
   def attributes_to_match
