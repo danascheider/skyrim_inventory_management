@@ -42,12 +42,10 @@ class Armor < ApplicationRecord
   end
 
   def canonical_models
-    return Array.wrap(canonical_armor) if canonical_armor
-
-    attrs_to_match = { unit_weight:, weight:, magical_effects: }.compact
+    return Canonical::Armor.where(id: canonical_armor.id) if canonical_model_matches?
 
     canonicals = Canonical::Armor.where('name ILIKE ?', name)
-    attrs_to_match.any? ? canonicals.where(**attrs_to_match) : canonicals
+    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   def crafting_materials
@@ -81,5 +79,22 @@ class Armor < ApplicationRecord
         strength: model.strength,
       )
     end
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.nil? || name.casecmp(canonical_model.name).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+    return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
+
+    true
+  end
+
+  def attributes_to_match
+    {
+      unit_weight:,
+      weight:,
+      magical_effects:,
+    }.compact
   end
 end

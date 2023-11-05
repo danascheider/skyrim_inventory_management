@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Armor, type: :model do
   describe 'validations' do
+    subject(:validate) { armor.validate }
+
     let(:armor) { build(:armor) }
 
     before do
@@ -12,25 +14,25 @@ RSpec.describe Armor, type: :model do
 
     it 'is invalid without a name' do
       armor.name = nil
-      armor.validate
+      validate
       expect(armor.errors[:name]).to include "can't be blank"
     end
 
     it 'is invalid with an invalid weight value' do
       armor.weight = 'medium armor'
-      armor.validate
+      validate
       expect(armor.errors[:weight]).to include 'must be "light armor" or "heavy armor"'
     end
 
     it 'is invalid with a negative unit weight' do
       armor.unit_weight = -2.5
-      armor.validate
+      validate
       expect(armor.errors[:unit_weight]).to include 'must be greater than or equal to 0'
     end
 
     it 'validates against canonical models' do
       expect_any_instance_of(ArmorValidator).to receive(:validate).with(armor)
-      armor.validate
+      validate
     end
   end
 
@@ -239,34 +241,7 @@ RSpec.describe Armor, type: :model do
   describe '#canonical_models' do
     subject(:canonical_models) { armor.canonical_models }
 
-    context 'when the item has an association defined' do
-      let(:armor) do
-        create(
-          :armor,
-          canonical_armor:,
-          name: 'Steel Plate Armor',
-          weight: 'heavy armor',
-          unit_weight: 20,
-          magical_effects: nil,
-        )
-      end
-
-      let(:canonical_armor) do
-        create(
-          :canonical_armor,
-          name: 'Steel Plate Armor',
-          weight: 'heavy armor',
-          unit_weight: 20,
-          magical_effects: nil,
-        )
-      end
-
-      it 'returns the associated model in an array' do
-        expect(canonical_models).to contain_exactly(canonical_armor)
-      end
-    end
-
-    context 'when the item does not have an association defined' do
+    context 'when there is no existing canonical match' do
       before do
         create(:canonical_armor, name: 'Something Else')
       end
@@ -293,6 +268,29 @@ RSpec.describe Armor, type: :model do
         it 'returns only the items for which all values match' do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
+      end
+    end
+
+    context 'when changed attributes lead to a changed canonical' do
+      let(:armor) { create(:armor, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_armor,
+          name: "Ahzidal's Boots of Waterwalking",
+          unit_weight: 9,
+          weight: 'heavy armor',
+          magical_effects: 'Waterwalking. If you wear any four Relics of Ahzidal, +10 Enchanting.',
+        )
+      end
+
+      it 'returns the new canonical' do
+        armor.name = "Ahzidal's Boots of Waterwalking"
+        armor.unit_weight = 9
+        armor.weight = nil
+        armor.magical_effects = nil
+
+        expect(canonical_models).to contain_exactly(new_canonical)
       end
     end
   end
