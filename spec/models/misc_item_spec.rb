@@ -125,6 +125,26 @@ RSpec.describe MiscItem, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { item.canonical_model }
+
+    context 'when there is a canonical misc item assigned' do
+      let(:item) { build(:misc_item, :with_matching_canonical) }
+
+      it 'returns the canonical misc item' do
+        expect(canonical_model).to eq item.canonical_misc_item
+      end
+    end
+
+    context 'when there is no canonical misc item assigned' do
+      let(:item) { build(:misc_item) }
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
   describe '#canonical_models' do
     subject(:canonical_models) { item.canonical_models }
 
