@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :property do
+    game
+
     name { 'Lakeview Manor' }
 
     trait :with_matching_canonical do
