@@ -163,7 +163,16 @@ RSpec.describe Potion, type: :model do
       end
     end
 
-    context 'when there is no longer a match after attributes changed'
+    context 'when there is no longer a match after attributes changed' do
+      let(:potion) { create(:potion, :with_matching_canonical) }
+
+      it 'returns an empty ActiveRecord relation', :aggregate_failures do
+        potion.name = 'My Special Potion'
+
+        expect(canonical_models).to be_an ActiveRecord::Relation
+        expect(canonical_models).to be_empty
+      end
+    end
 
     context 'when there are alchemical properties' do
       let(:potion) { create(:potion, name: 'Foo') }
@@ -422,18 +431,20 @@ RSpec.describe Potion, type: :model do
   end
 
   describe '::before_validation' do
+    subject(:validate) { potion.validate }
+
     let(:potion) { build(:potion) }
 
     context 'when there is a matching canonical potion' do
       let!(:matching_canonical) { create(:canonical_potion, name: potion.name.downcase, magical_effects: 'Foo') }
 
       it 'sets the canonical_potion' do
-        potion.validate
+        validate
         expect(potion.canonical_potion).to eq matching_canonical
       end
 
       it 'sets the name, unit weight, and magical effects', :aggregate_failures do
-        potion.validate
+        validate
         expect(potion.name).to eq matching_canonical.name
         expect(potion.unit_weight).to eq matching_canonical.unit_weight
         expect(potion.magical_effects).to eq matching_canonical.magical_effects
@@ -444,25 +455,74 @@ RSpec.describe Potion, type: :model do
       let!(:matching_canonicals) { create_list(:canonical_potion, 2, name: potion.name.downcase) }
 
       it "doesn't set the canonical_potion" do
-        potion.validate
+        validate
         expect(potion.canonical_potion).to be_nil
       end
 
       it "doesn't change the name" do
-        expect { potion.validate }
+        expect { validate }
           .not_to change(potion, :name)
       end
 
       it "doesn't change the unit_weight" do
-        expect { potion.validate }
+        expect { validate }
           .not_to change(potion, :unit_weight)
       end
     end
 
     context 'when there is no matching canonical potion' do
       it "doesn't set the canonical potion" do
-        potion.validate
+        validate
         expect(potion.canonical_potion).to be_nil
+      end
+    end
+
+    context 'when updating the potion model' do
+      let(:potion) { create(:potion, :with_matching_canonical) }
+
+      context 'when there is a new match after the update' do
+        let!(:new_canonical) do
+          create(
+            :canonical_potion,
+            name: 'My Special Potion',
+          )
+        end
+
+        it 'changes the canonical potion' do
+          potion.name = 'My Special Potion'
+
+          expect { validate }
+            .to change(potion, :canonical_potion)
+                  .to(new_canonical)
+        end
+      end
+
+      context 'when there are multiple matches after the update' do
+        before do
+          create_list(
+            :canonical_potion,
+            2,
+            name: 'My Special Potion',
+          )
+        end
+
+        it 'sets the canonical potion to nil' do
+          potion.name = 'My Special Potion'
+
+          expect { validate }
+            .to change(potion, :canonical_potion)
+                  .to(nil)
+        end
+      end
+
+      context 'when there are no matches after the update' do
+        it 'sets the canonical potion to nil' do
+          potion.name = 'My Special Potion'
+
+          expect { validate }
+            .to change(potion, :canonical_potion)
+                  .to(nil)
+        end
       end
     end
   end
