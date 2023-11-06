@@ -90,6 +90,30 @@ RSpec.describe Potion, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { potion.canonical_model }
+
+    context 'when there is a canonical model assigned' do
+      let(:potion) { create(:potion, :with_matching_canonical) }
+
+      it 'returns the canonical potion' do
+        expect(canonical_model).to eq potion.canonical_potion
+      end
+    end
+
+    context 'when there is no canonical model assigned' do
+      let(:potion) { create(:potion) }
+
+      before do
+        create_list(:canonical_potion, 2)
+      end
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
   describe '#canonical_models' do
     subject(:canonical_models) { potion.canonical_models }
 
