@@ -106,7 +106,7 @@ class Property < ApplicationRecord
   end
 
   def ensure_matches_canonical_property
-    errors.add(:base, DOES_NOT_MATCH) if canonical_property.blank?
+    errors.add(:base, DOES_NOT_MATCH) if canonical_model.nil?
   end
 
   def canonical_model_matches?

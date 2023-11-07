@@ -5,9 +5,5 @@ FactoryBot.define do
     game
 
     name { 'Lakeview Manor' }
-
-    trait :with_matching_canonical do
-      association :canonical_property
-    end
   end
 end
