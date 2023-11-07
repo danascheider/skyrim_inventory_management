@@ -49,7 +49,7 @@ class Weapon < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::Weapon.where(id: canonical_weapon.id) if canonical_model_matches?
+    return Canonical::Weapon.where(id: canonical_weapon_id) if canonical_model_matches?
 
     query = 'name ILIKE :name'
     query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
