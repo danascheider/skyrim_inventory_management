@@ -61,7 +61,12 @@ class Book < ApplicationRecord
   private
 
   def set_canonical_book
-    self.canonical_book = canonical_models.first if canonical_models.count == 1
+    unless canonical_models.count == 1
+      clear_canonical_book
+      return
+    end
+
+    self.canonical_book = canonical_models.first
   end
 
   def set_values_from_canonical
@@ -82,6 +87,10 @@ class Book < ApplicationRecord
     return if books.count == 1 && books.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def clear_canonical_book
+    self.canonical_book_id = nil
   end
 
   def canonical_model_matches?

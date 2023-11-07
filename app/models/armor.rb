@@ -42,7 +42,7 @@ class Armor < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::Armor.where(id: canonical_armor.id) if canonical_model_matches?
+    return Canonical::Armor.where(id: canonical_armor_id) if canonical_model_matches?
 
     query = 'name ILIKE :name'
     query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
