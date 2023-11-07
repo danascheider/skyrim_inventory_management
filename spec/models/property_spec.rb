@@ -278,6 +278,17 @@ RSpec.describe Property, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { property.canonical_model }
+
+    let(:property) { create(:property, name: 'pRoUdSpIrE mAnOr') }
+    let(:canonical_property) { Canonical::Property.find_by(name: 'Proudspire Manor') }
+
+    it 'returns the canonical property' do
+      expect(canonical_model).to eq canonical_property
+    end
+  end
+
   describe 'setting a canonical model' do
     subject(:validate) { property.validate }
 

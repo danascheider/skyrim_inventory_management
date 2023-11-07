@@ -1,10 +1,10 @@
 # Property
 
-The `Property` class represents in-game instances of the [`Canonical::Property`](/docs/canonical_models/canonical-property.md) type. Properties differ slightly from other in-game items in two ways:
+The `Property` class represents in-game instances of the [`Canonical::Property`](/docs/canonical_models/canonical-property.md) type. Properties differ slightly from other in-game items in three ways:
 
 * A property is also a location (in some cases with sublocations)
 * A property can be associated with inventory and shopping lists (functionality that will be built out further for the MVP)
-
+* All properties must always be associated to a `Canonical::Property`
 
 Additionally, a number of characteristics of a property cannot be determined by the `Canonical::Property` associated. Users can add different amenities or, in the case of [homesteads](https://elderscrolls.fandom.com/wiki/Homestead_(Hearthfire)), build entirely different rooms on the property. For that reason, the `Canonical::Property` model has a number of attributes like `alchemy_lab_available` and `enchanters_tower_available` indicating whether the amenity or room _can be added_ to the property instead of whether it is actually present.
 
