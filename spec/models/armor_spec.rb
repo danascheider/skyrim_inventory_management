@@ -88,43 +88,7 @@ RSpec.describe Armor, type: :model do
   end
 
   describe '::before_validation' do
-    context 'when there is a single matching canonical model' do
-      let!(:matching_canonical) do
-        create(
-          :canonical_armor,
-          :with_enchantments,
-          name: 'Steel Plate Armor',
-          unit_weight: 20,
-          weight: 'heavy armor',
-          magical_effects: 'Something',
-        )
-      end
-
-      let(:armor) do
-        build(
-          :armor,
-          name: 'Steel plate armor',
-          unit_weight: 20,
-        )
-      end
-
-      before do
-        create(:canonical_armor, name: 'Steel Plate Armor', unit_weight: 30)
-      end
-
-      it 'assigns the canonical armor' do
-        armor.validate
-        expect(armor.canonical_armor).to eq matching_canonical
-      end
-
-      it 'sets the attributes', :aggregate_failures do
-        armor.validate
-        expect(armor.name).to eq 'Steel Plate Armor'
-        expect(armor.unit_weight).to eq 20
-        expect(armor.weight).to eq 'heavy armor'
-        expect(armor.magical_effects).to eq 'Something'
-      end
-    end
+    subject(:validate) { armor.validate }
 
     context 'when there are multiple matching canonical models' do
       let!(:matching_canonicals) do
@@ -140,12 +104,12 @@ RSpec.describe Armor, type: :model do
       let(:armor) { build(:armor, name: 'Steel plate armor') }
 
       it "doesn't set the corresponding canonical armor" do
-        armor.validate
+        validate
         expect(armor.canonical_armor).to be_nil
       end
 
       it "doesn't set other attributes", :aggregate_failures do
-        armor.validate
+        validate
         expect(armor.name).to eq 'Steel plate armor'
         expect(armor.weight).to be_nil
         expect(armor.unit_weight).to be_nil
@@ -156,8 +120,83 @@ RSpec.describe Armor, type: :model do
       let(:armor) { build(:armor) }
 
       it 'is invalid' do
-        armor.validate
+        validate
         expect(armor.errors[:base]).to include "doesn't match an armor item that exists in Skyrim"
+      end
+    end
+
+    context 'when updating in-game item attributes' do
+      let(:armor) { create(:armor, :with_matching_canonical) }
+
+      context 'when the update changes the canonical association' do
+        let!(:new_canonical) do
+          create(
+            :canonical_armor,
+            name: 'Imperial Boots of Resist Frost',
+            weight: 'light armor',
+            magical_effects: 'This Will Be Case Insensitive',
+            unit_weight: 2,
+          )
+        end
+
+        it 'changes the canonical association' do
+          armor.name = 'Imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          expect { validate }
+            .to change(armor, :canonical_armor)
+                  .to(new_canonical)
+        end
+
+        it 'sets attributes on the in-game item', :aggregate_failures do
+          armor.name = 'Imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          validate
+
+          expect(armor.name).to eq 'Imperial Boots of Resist Frost'
+          expect(armor.magical_effects).to eq 'This Will Be Case Insensitive'
+          expect(armor.weight).to eq 'light armor'
+          expect(armor.unit_weight).to eq 2
+        end
+      end
+
+      context 'when the update results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_armor,
+            2,
+            name: 'Imperial Boots of Resist Frost',
+            weight: 'light armor',
+            magical_effects: 'This Will Be Case Insensitive',
+            unit_weight: 2,
+          )
+        end
+
+        it 'removes the canonical_armor association' do
+          armor.name = 'imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          expect { validate }
+            .to change(armor, :canonical_armor)
+                  .to(nil)
+        end
+      end
+
+      context 'when the update results in no match' do
+        it 'removes the canonical_armor association' do
+          armor.name = 'imperial boots of resist frost'
+
+          expect { validate }
+            .to change(armor, :canonical_armor)
+                  .to(nil)
+        end
       end
     end
   end

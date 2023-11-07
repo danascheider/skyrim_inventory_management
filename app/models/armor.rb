@@ -44,7 +44,10 @@ class Armor < ApplicationRecord
   def canonical_models
     return Canonical::Armor.where(id: canonical_armor.id) if canonical_model_matches?
 
-    canonicals = Canonical::Armor.where('name ILIKE ?', name)
+    query = 'name ILIKE :name'
+    query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
+
+    canonicals = Canonical::Armor.where(query, name:, magical_effects:)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
@@ -59,13 +62,16 @@ class Armor < ApplicationRecord
   private
 
   def set_canonical_armor
-    return unless canonical_models.count == 1
+    unless canonical_models.count == 1
+      clear_canonical_armor
+      return
+    end
 
     self.canonical_armor = canonical_models.first
     self.name = canonical_armor.name # in case casing differs
+    self.magical_effects = canonical_armor.magical_effects
     self.unit_weight = canonical_armor.unit_weight
     self.weight = canonical_armor.weight
-    self.magical_effects = canonical_armor.magical_effects
 
     set_enchantments if persisted?
   end
@@ -81,6 +87,10 @@ class Armor < ApplicationRecord
     end
   end
 
+  def clear_canonical_armor
+    self.canonical_armor_id = nil
+  end
+
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
@@ -94,7 +104,6 @@ class Armor < ApplicationRecord
     {
       unit_weight:,
       weight:,
-      magical_effects:,
     }.compact
   end
 end
