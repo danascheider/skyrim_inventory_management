@@ -7,11 +7,21 @@ class Spell < ApplicationRecord
            dependent: :destroy,
            class_name: 'Canonical::StavesSpell',
            inverse_of: :spell
-  has_many :staves, through: :canonical_staves_spells
+  has_many :staves, through: :canonical_staves_spells, class_name: 'Canonical::Staff'
 
   validates :name, presence: true, uniqueness: { message: 'must be unique' }
-  validates :school, presence: true, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic' }
-  validates :level, presence: true, inclusion: { in: Skyrim::DIFFICULTY_LEVELS, message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"' }
+  validates :school,
+            presence: true,
+            inclusion: {
+              in: Skyrim::MAGIC_SCHOOLS,
+              message: 'must be a valid school of magic',
+            }
+  validates :level,
+            presence: true,
+            inclusion: {
+              in: Skyrim::DIFFICULTY_LEVELS,
+              message: 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"',
+            }
   validates :strength_unit,
             inclusion: {
               in: %w[point percentage level],
