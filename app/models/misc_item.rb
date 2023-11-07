@@ -33,26 +33,16 @@ class MiscItem < ApplicationRecord
   private
 
   def set_canonical_misc_item
-    return if canonical_models.blank?
-    return if canonical_models.count > 1 && unit_weight.blank?
+    canonicals = canonical_models
 
-    associate_first_available_match
+    unless canonicals.count == 1
+      clear_canonical_misc_item
+      return
+    end
 
-    return if canonical_misc_item.blank?
-
+    self.canonical_misc_item = canonicals.first
     self.name = canonical_misc_item.name
     self.unit_weight = canonical_misc_item.unit_weight
-  end
-
-  def associate_first_available_match
-    return if canonical_misc_item.present?
-
-    canonical_models.each do |model|
-      next if model.unique_item && model.misc_items.where(game_id:).any?
-
-      self.canonical_misc_item = model
-      break
-    end
   end
 
   def validate_association
@@ -72,6 +62,10 @@ class MiscItem < ApplicationRecord
     return if items.count == 1 && items.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def clear_canonical_misc_item
+    self.canonical_misc_item_id = nil
   end
 
   def canonical_model_matches?

@@ -203,7 +203,7 @@ RSpec.describe Book, type: :model do
     end
   end
 
-  describe 'before_validation' do
+  describe '::before_validation' do
     subject(:validate) { book.validate }
 
     context 'when there is one matching canonical book' do
@@ -263,6 +263,71 @@ RSpec.describe Book, type: :model do
         expect(book.authors).to be_blank
         expect(book.unit_weight).to be_nil
         expect(book.skill_name).to be_nil
+      end
+    end
+
+    context 'when updating the attributes of an in-game item' do
+      let(:book) { create(:book, :with_matching_canonical) }
+
+      context 'when the update results in a new canonical match' do
+        let!(:new_canonical) do
+          create(
+            :canonical_book,
+            title: "Sinderion's Field Journal",
+          )
+        end
+
+        it 'changes the canonical association' do
+          book.title = "sinderion's field journal"
+
+          expect { validate }
+            .to change(book, :canonical_book)
+                  .to(new_canonical)
+        end
+
+        it 'updates attributes' do
+          book.title = "sinderion's field journal"
+
+          validate
+
+          expect(book.title).to eq "Sinderion's Field Journal"
+        end
+      end
+
+      context 'when the update results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_book,
+            2,
+            title: "Sinderion's Field Journal",
+          )
+        end
+
+        it 'sets the canonical_book to nil' do
+          book.title = "sinderion's field journal"
+
+          expect { validate }
+            .to change(book, :canonical_book)
+                  .to(nil)
+        end
+
+        it "doesn't update attributes" do
+          book.title = "sinderion's field journal"
+
+          validate
+
+          expect(book.title).not_to eq "Sinderion's Field Journal"
+        end
+      end
+
+      context 'when the update results in no canonical matches' do
+        it 'sets the canonical_book to nil' do
+          book.title = "sinderion's field journal"
+
+          expect { validate }
+            .to change(book, :canonical_book)
+                  .to(nil)
+        end
       end
     end
   end

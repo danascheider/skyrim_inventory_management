@@ -29,6 +29,8 @@ RSpec.describe ClothingItem, type: :model do
   end
 
   describe '::before_validation' do
+    subject(:validate) { item.validate }
+
     context 'when there is a single matching canonical model' do
       let!(:matching_canonical) do
         create(
@@ -53,12 +55,12 @@ RSpec.describe ClothingItem, type: :model do
       end
 
       it 'assigns the canonical clothing item' do
-        item.validate
+        validate
         expect(item.canonical_clothing_item).to eq matching_canonical
       end
 
       it 'sets the attributes', :aggregate_failures do
-        item.validate
+        validate
         expect(item.name).to eq 'Fine Clothes'
         expect(item.magical_effects).to eq 'Something'
       end
@@ -78,12 +80,12 @@ RSpec.describe ClothingItem, type: :model do
       let(:item) { build(:clothing_item, name: 'Fine clothes') }
 
       it "doesn't set the corresponding canonical clothing item" do
-        item.validate
+        validate
         expect(item.canonical_clothing_item).to be_nil
       end
 
       it "doesn't set other attributes", :aggregate_failures do
-        item.validate
+        validate
         expect(item.name).to eq 'Fine clothes'
         expect(item.unit_weight).to be_nil
         expect(item.magical_effects).to be_nil
@@ -94,8 +96,82 @@ RSpec.describe ClothingItem, type: :model do
       let(:item) { build(:clothing_item) }
 
       it 'is invalid' do
-        item.validate
+        validate
         expect(item.errors[:base]).to include "doesn't match a clothing item that exists in Skyrim"
+      end
+    end
+
+    context 'when updating in-game item attributes' do
+      let(:item) { create(:clothing_item, :with_matching_canonical) }
+
+      context 'when the update results in a new canonical match' do
+        let!(:new_canonical) do
+          create(
+            :canonical_clothing_item,
+            name: 'Roughspun Tunic',
+            unit_weight: 5,
+          )
+        end
+
+        it 'updates the canonical association' do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_clothing_item)
+                  .to(new_canonical)
+        end
+
+        it 'updates attributes', :aggregate_failures do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'Roughspun Tunic'
+          expect(item.unit_weight).to eq 5
+        end
+      end
+
+      context 'when the update results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_clothing_item,
+            2,
+            name: 'Roughspun Tunic',
+            unit_weight: 5,
+          )
+        end
+
+        it 'removes the associated canonical clothing item' do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_clothing_item)
+                  .to(nil)
+        end
+
+        it "doesn't update attributes", :aggregate_failures do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'roughspun tunic'
+          expect(item.unit_weight).to be_nil
+        end
+      end
+
+      context 'when the update results in no canonical matches' do
+        it 'removes the associated canonical clothing item' do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_clothing_item)
+                  .to(nil)
+        end
       end
     end
   end

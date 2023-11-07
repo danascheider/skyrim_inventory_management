@@ -248,6 +248,8 @@ RSpec.describe JewelryItem, type: :model do
   end
 
   describe '::before_validation' do
+    subject(:validate) { item.validate }
+
     context 'when there is a single matching canonical model' do
       let!(:matching_canonical) do
         create(
@@ -273,12 +275,12 @@ RSpec.describe JewelryItem, type: :model do
       end
 
       it 'assigns the canonical jewelry item' do
-        item.validate
+        validate
         expect(item.canonical_jewelry_item).to eq matching_canonical
       end
 
       it 'sets the attributes', :aggregate_failures do
-        item.validate
+        validate
         expect(item.name).to eq 'Gold Diamond Ring'
         expect(item.unit_weight).to eq 0.2
         expect(item.magical_effects).to eq 'Some magical effects to differentiate'
@@ -299,7 +301,81 @@ RSpec.describe JewelryItem, type: :model do
       let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring', unit_weight: 0.2) }
 
       it "doesn't add enchantments" do
+        validate
         expect(item.enchantables_enchantments).to be_blank
+      end
+    end
+
+    context 'when updating in-game item attributes' do
+      let(:item) { create(:jewelry_item, :with_matching_canonical) }
+
+      context 'when the update changes the associated canonical' do
+        let!(:new_canonical) do
+          create(
+            :canonical_jewelry_item,
+            name: 'Silver Jeweled Necklace',
+            unit_weight: 3.0,
+          )
+        end
+
+        it 'sets the new canonical model as the association' do
+          item.name = 'silver jeweled necklace'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_jewelry_item)
+                  .to(new_canonical)
+        end
+
+        it 'updates attributes', :aggregate_failures do
+          item.name = 'silver jeweled necklace'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'Silver Jeweled Necklace'
+          expect(item.unit_weight).to eq 3
+        end
+      end
+
+      context 'when the update results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_jewelry_item,
+            2,
+            name: 'Silver Jeweled Necklace',
+            unit_weight: 3.0,
+          )
+        end
+
+        it 'sets the canonical jewelry item to nil' do
+          item.name = 'silver jeweled necklace'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_jewelry_item)
+                  .to(nil)
+        end
+
+        it "doesn't update attributes", :aggregate_failures do
+          item.name = 'silver jeweled necklace'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'silver jeweled necklace'
+          expect(item.unit_weight).to be_nil
+        end
+      end
+
+      context 'when the update results in no canonical matches' do
+        it 'sets the canonical jewelry item to nil' do
+          item.name = 'silver jeweled necklace'
+
+          expect { validate }
+            .to change(item, :canonical_jewelry_item)
+                  .to(nil)
+        end
       end
     end
   end
