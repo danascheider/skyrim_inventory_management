@@ -217,7 +217,7 @@ RSpec.describe Staff, type: :model do
       let(:staff) { create(:staff, :with_matching_canonical) }
 
       it "doesn't change anything" do
-        expect { staff.validate }
+        expect { validate }
           .not_to change(staff.reload, :canonical_staff)
       end
     end
@@ -240,12 +240,12 @@ RSpec.describe Staff, type: :model do
       end
 
       it 'associates the canonical staff' do
-        staff.validate
+        validate
         expect(staff.canonical_staff).to eq canonical_staff
       end
 
       it 'sets values from the canonical model', :aggregate_failures do
-        staff.validate
+        validate
         expect(staff.name).to eq 'My Staff'
         expect(staff.unit_weight).to eq 8
         expect(staff.magical_effects).to eq 'Does stuff'
