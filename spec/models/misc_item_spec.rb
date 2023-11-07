@@ -217,6 +217,8 @@ RSpec.describe MiscItem, type: :model do
   end
 
   describe '::before_validation' do
+    subject(:validate) { item.validate }
+
     context 'when there is a single matching canonical model' do
       let!(:matching_canonical) do
         create(
@@ -229,12 +231,12 @@ RSpec.describe MiscItem, type: :model do
       let(:item) { build(:misc_item, name: "wylandria's soul gem") }
 
       it 'assigns the canonical misc item' do
-        item.validate
+        validate
         expect(item.canonical_misc_item).to eq matching_canonical
       end
 
       it 'sets the attributes', :aggregate_failures do
-        item.validate
+        validate
         expect(item.name).to eq "Wylandria's Soul Gem"
         expect(item.unit_weight).to eq 0
       end
@@ -251,106 +253,81 @@ RSpec.describe MiscItem, type: :model do
       let(:item) { create(:misc_item, name: "Wylandria's Soul Gem") }
 
       it "doesn't set the association" do
-        item.validate
+        validate
         expect(item.canonical_misc_item).to be_nil
       end
     end
 
-    context "when multiple complete matches can't be further differentiated" do
-      let(:game) { create(:game) }
-      let(:item) { build(:misc_item, name: 'Skull', unit_weight: 2, game:) }
+    context 'when updating in-game item attributes' do
+      let(:item) { create(:misc_item, :with_matching_canonical) }
 
-      context 'when a canonical model indicates a unique item' do
-        let!(:matching_canonicals) do
-          create_list(
+      context 'when the update results in a new canonical match' do
+        let!(:new_canonical) do
+          create(
             :canonical_misc_item,
-            3,
-            name: 'Skull',
-            unit_weight: 2,
-            unique_item: true,
-            rare_item: true,
+            name: 'Pill Bottle',
+            unit_weight: 0.3,
           )
         end
 
-        context 'when the canonical model is already associated with a non-canonical model' do
-          context 'when at least one canonical does not yet have an association' do
-            before do
-              create(
-                :misc_item,
-                canonical_misc_item: matching_canonicals.first,
-                name: 'Skull',
-                unit_weight: 2,
-                game:,
-              )
-            end
+        it 'associates the new canonical model' do
+          item.name = 'pill bottle'
+          item.unit_weight = nil
 
-            it 'assigns the first canonical model without an existing association' do
-              item.validate
-              expect(item.canonical_misc_item).to eq matching_canonicals.second
-            end
-          end
-
-          context 'when all canonicals already have associations' do
-            before do
-              matching_canonicals.each do |model|
-                create(
-                  :misc_item,
-                  canonical_misc_item: model,
-                  name: model.name,
-                  unit_weight: model.unit_weight,
-                  game:,
-                )
-              end
-            end
-
-            it 'raises a validation error' do
-              item.validate
-              expect(item.errors[:base]).to include 'is a duplicate of a unique in-game item'
-            end
-          end
+          expect { validate }
+            .to change(item, :canonical_misc_item)
+                  .to(new_canonical)
         end
 
-        context 'when the canonical model has no non-canonical association' do
-          it 'assigns the first matching canonical model' do
-            item.validate
-            expect(item.canonical_misc_item).to eq matching_canonicals.first
-          end
+        it 'updates attributes', :aggregate_failures do
+          item.name = 'pill bottle'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'Pill Bottle'
+          expect(item.unit_weight).to eq 0.3
         end
       end
 
-      context 'when the item is not unique' do
-        let!(:matching_canonicals) do
+      context 'when the update results in an ambiguous match' do
+        before do
           create_list(
             :canonical_misc_item,
             2,
-            name: 'Skull',
-            unit_weight: 2,
+            name: 'Pill Bottle',
+            unit_weight: 0.3,
           )
         end
 
-        before do
-          create(
-            :misc_item,
-            canonical_misc_item: matching_canonicals.first,
-            name: 'Skull',
-            unit_weight: 2,
-          )
+        it 'sets the canonical misc item to nil' do
+          item.name = 'pill bottle'
+          item.unit_weight = nil
+
+          expect { validate }
+            .to change(item, :canonical_misc_item)
+                  .to(nil)
         end
 
-        it 'associates the first matching canonical model' do
-          item.validate
-          expect(item.canonical_misc_item).to eq matching_canonicals.first
+        it "doesn't update attributes", :aggregate_failures do
+          item.name = 'pill bottle'
+          item.unit_weight = nil
+
+          validate
+
+          expect(item.name).to eq 'pill bottle'
+          expect(item.unit_weight).to be_nil
         end
       end
-    end
 
-    context 'when there is already a canonical_misc_item assigned' do
-      let(:canonical_misc_item) { create(:canonical_misc_item, unique_item: true, rare_item: true) }
-      let(:item) { build(:misc_item, canonical_misc_item:) }
+      context 'when the update results in no canonical matches' do
+        it 'sets the canonical misc item to nil' do
+          item.name = 'pill bottle'
 
-      it "doesn't raise a validation error" do
-        item.validate
-        expect(item.errors[:base]).to be_empty
+          expect { validate }
+            .to change(item, :canonical_misc_item)
+                  .to(nil)
+        end
       end
     end
   end
