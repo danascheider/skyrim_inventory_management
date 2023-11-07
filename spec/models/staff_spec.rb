@@ -144,6 +144,26 @@ RSpec.describe Staff, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { staff.canonical_model }
+
+    context 'when a canonical staff is associated' do
+      let(:staff) { build(:staff, :with_matching_canonical) }
+
+      it 'returns the canonical staff' do
+        expect(canonical_model).to eq staff.canonical_staff
+      end
+    end
+
+    context 'when no canonical staff is associated' do
+      let(:staff) { build(:staff) }
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
   describe 'matching canonical models' do
     subject(:canonical_models) { staff.canonical_models }
 
@@ -153,15 +173,6 @@ RSpec.describe Staff, type: :model do
       it 'returns an empty ActiveRecord relation', :aggregate_failures do
         expect(canonical_models).to be_empty
         expect(canonical_models).to be_an(ActiveRecord::Relation)
-      end
-    end
-
-    context 'when there is a canonical model assigned' do
-      let(:staff) { create(:staff, :with_matching_canonical) }
-
-      it 'returns an ActiveRecord relation with only that model', :aggregate_failures do
-        expect(canonical_models).to be_an(ActiveRecord::Relation)
-        expect(canonical_models).to contain_exactly staff.canonical_staff
       end
     end
 
@@ -186,9 +197,22 @@ RSpec.describe Staff, type: :model do
         expect(canonical_models).to contain_exactly(*matching_canonicals)
       end
     end
+
+    context 'when updating attributes changes the canonical matches' do
+      let(:staff) { create(:staff, :with_matching_canonical) }
+      let!(:new_canonical) { create(:canonical_staff, name: 'Super Staff of Smiting') }
+
+      it 'changes the canonical staff' do
+        staff.name = 'super staff of smiting'
+
+        expect(canonical_models).to contain_exactly(new_canonical)
+      end
+    end
   end
 
   describe 'setting a canonical model' do
+    subject(:validate) { staff.validate }
+
     context 'when there is an existing canonical staff' do
       let(:staff) { create(:staff, :with_matching_canonical) }
 
@@ -202,87 +226,29 @@ RSpec.describe Staff, type: :model do
       let(:game) { create(:game) }
       let(:staff) { build(:staff, name: 'my staff', unit_weight: nil, game:) }
 
-      context 'when the matching canonical is a unique item' do
-        let!(:canonical_staff) do
-          create(
-            :canonical_staff,
-            name: 'My Staff',
-            unit_weight: 8,
-            magical_effects: 'Does stuff',
-            unique_item: true,
-            rare_item: true,
-          )
-        end
-
-        context 'when the matching canonical already has an association for that game' do
-          before do
-            create(:staff, name: 'My Staff', canonical_staff:, game:)
-          end
-
-          it "doesn't associate the canonical model" do
-            staff.validate
-            expect(staff.canonical_staff).to be_nil
-          end
-        end
-
-        context 'when the matching canonical already has an association for another game' do
-          before do
-            create(:staff, name: 'My Staff', canonical_staff:)
-          end
-
-          it 'associates the canonical model to the staff' do
-            staff.validate
-            expect(staff.canonical_staff).to eq canonical_staff
-          end
-
-          it 'sets values from the canonical model', :aggregate_failures do
-            staff.validate
-            expect(staff.name).to eq 'My Staff'
-            expect(staff.unit_weight).to eq 8
-            expect(staff.magical_effects).to eq 'Does stuff'
-          end
-        end
-
-        context 'when the matching canonical has no existing associations' do
-          it 'associates the canonical model to the staff' do
-            staff.validate
-            expect(staff.canonical_staff).to eq canonical_staff
-          end
-
-          it 'sets values from the canonical model', :aggregate_failures do
-            staff.validate
-            expect(staff.name).to eq 'My Staff'
-            expect(staff.unit_weight).to eq 8
-            expect(staff.magical_effects).to eq 'Does stuff'
-          end
-        end
+      let!(:canonical_staff) do
+        create(
+          :canonical_staff,
+          name: 'My Staff',
+          unit_weight: 8,
+          magical_effects: 'Does stuff',
+        )
       end
 
-      context 'when the matching canonical is not unique' do
-        let!(:canonical_staff) do
-          create(
-            :canonical_staff,
-            name: 'My Staff',
-            unit_weight: 8,
-            magical_effects: 'Does stuff',
-          )
-        end
+      before do
+        create(:staff, name: 'My Staff', canonical_staff:, game:)
+      end
 
-        before do
-          create(:staff, name: 'My Staff', canonical_staff:, game:)
-        end
+      it 'associates the canonical staff' do
+        staff.validate
+        expect(staff.canonical_staff).to eq canonical_staff
+      end
 
-        it 'allows a duplicate association' do
-          staff.validate
-          expect(staff.canonical_staff).to eq canonical_staff
-        end
-
-        it 'sets values from the canonical model', :aggregate_failures do
-          staff.validate
-          expect(staff.name).to eq 'My Staff'
-          expect(staff.unit_weight).to eq 8
-          expect(staff.magical_effects).to eq 'Does stuff'
-        end
+      it 'sets values from the canonical model', :aggregate_failures do
+        staff.validate
+        expect(staff.name).to eq 'My Staff'
+        expect(staff.unit_weight).to eq 8
+        expect(staff.magical_effects).to eq 'Does stuff'
       end
     end
 
@@ -297,6 +263,50 @@ RSpec.describe Staff, type: :model do
       it "doesn't associate a canonical model" do
         staff.validate
         expect(staff.canonical_staff).to be_nil
+      end
+    end
+
+    context 'when updating the in-game item' do
+      let(:staff) { create(:staff, :with_matching_canonical) }
+
+      context 'when updating the in-game item changes the matching canonical' do
+        let!(:new_canonical) { create(:canonical_staff, name: 'Awesome Staff of Hipness') }
+
+        it 'changes the canonical model' do
+          staff.name = 'Awesome Staff of Hipness'
+
+          expect { validate }
+            .to change(staff, :canonical_staff)
+                  .to(new_canonical)
+        end
+      end
+
+      context 'when updating the in-game item results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_staff,
+            2,
+            name: 'Awesome Staff of Hipness',
+          )
+        end
+
+        it 'removes the associated canonical model' do
+          staff.name = 'Awesome Staff of Hipness'
+
+          expect { validate }
+            .to change(staff, :canonical_staff)
+                  .to(nil)
+        end
+      end
+
+      context 'when updating the in-game item results in no matches' do
+        it 'removes the associated canonical model' do
+          staff.name = 'awesome staff of hipness'
+
+          expect { validate }
+            .to change(staff, :canonical_staff)
+                  .to(nil)
+        end
       end
     end
   end

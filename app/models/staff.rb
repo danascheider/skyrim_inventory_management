@@ -27,35 +27,36 @@ class Staff < ApplicationRecord
     canonical_staff&.powers || Power.none
   end
 
+  def canonical_model
+    canonical_staff
+  end
+
   def canonical_models
-    return Canonical::Staff.where(id: canonical_staff.id) if canonical_staff.present?
+    return Canonical::Staff.where(id: canonical_staff_id) if canonical_model_matches?
 
-    canonicals = Canonical::Staff.where('name ILIKE ?', name)
+    query = 'name ILIKE :name'
+    query += ' AND (magical_effects ILIKE :magical_effects)' unless magical_effects.nil?
 
+    canonicals = Canonical::Staff.where(query, name:, magical_effects:)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   private
 
   def set_canonical_staff
-    return if canonical_staff.present?
-    return unless canonical_models.count == 1
+    unless canonical_models.count == 1
+      clear_canonical_staff
+      return
+    end
 
-    canonical = canonical_models.first
-
-    return if canonical.unique_item && canonical.staves.where(game_id:).any?
-
-    self.canonical_staff = canonical
+    self.canonical_staff = canonical_models.first
     self.name = canonical_staff.name
     self.unit_weight = canonical_staff.unit_weight
     self.magical_effects = canonical_staff.magical_effects
   end
 
   def attributes_to_match
-    {
-      unit_weight:,
-      magical_effects:,
-    }.compact
+    { unit_weight: }.compact
   end
 
   def validate_unique_canonical
@@ -72,5 +73,18 @@ class Staff < ApplicationRecord
   def validate_canonical_models
     errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
     errors.add(:base, DUPLICATE_MATCH) if canonical_staff.nil? && canonical_models.count == 1
+  end
+
+  def clear_canonical_staff
+    self.canonical_staff_id = nil
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects).zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+
+    true
   end
 end
