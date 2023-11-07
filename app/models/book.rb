@@ -61,12 +61,14 @@ class Book < ApplicationRecord
   private
 
   def set_canonical_book
-    unless canonical_models.count == 1
+    canonicals = canonical_models
+
+    unless canonicals.count == 1
       clear_canonical_book
       return
     end
 
-    self.canonical_book = canonical_models.first
+    self.canonical_book = canonicals.first
   end
 
   def set_values_from_canonical

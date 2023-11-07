@@ -46,12 +46,14 @@ class ClothingItem < ApplicationRecord
   private
 
   def set_canonical_clothing_item
-    unless canonical_models.count == 1
+    canonicals = canonical_models
+
+    unless canonicals.count == 1
       clear_canonical_clothing_item
       return
     end
 
-    self.canonical_clothing_item = canonical_models.first
+    self.canonical_clothing_item = canonicals.first
     self.name = canonical_clothing_item.name # in case casing differs
     self.unit_weight = canonical_clothing_item.unit_weight
     self.magical_effects = canonical_clothing_item.magical_effects
