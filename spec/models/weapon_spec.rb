@@ -95,46 +95,18 @@ RSpec.describe Weapon, type: :model do
   describe '::before_validation' do
     subject(:validate) { weapon.validate }
 
-    context 'when there is a canonical model assigned' do
-      let(:canonical_weapon) { weapon.canonical_weapon }
-      let(:weapon) { build(:weapon, :with_enchanted_canonical) }
-
-      before do
-        # A second possible match
-        create(
-          :canonical_weapon,
-          name: canonical_weapon.name,
-          category: canonical_weapon.category,
-          weapon_type: canonical_weapon.weapon_type,
-          unit_weight: canonical_weapon.unit_weight,
-        )
-      end
-
-      it "doesn't change the canonical model" do
-        expect { validate }
-          .not_to change(weapon, :canonical_weapon)
-      end
-
-      it "doesn't add enchantments" do
-        validate
-        expect(weapon.enchantments).to be_empty
-      end
-
-      it 'sets values on the weapon model', :aggregate_failures do
-        validate
-        expect(weapon.name).to eq canonical_weapon.name
-        expect(weapon.category).to eq canonical_weapon.category
-        expect(weapon.weapon_type).to eq canonical_weapon.weapon_type
-        expect(weapon.unit_weight).to eq canonical_weapon.unit_weight
-        expect(weapon.magical_effects).to eq canonical_weapon.magical_effects
-      end
-    end
-
     context 'when there is a single matching canonical model' do
       context 'when the in-game item model has no enchantments' do
         let(:weapon) { build(:weapon, name: 'foobar', unit_weight: 12) }
 
-        let!(:matching_canonical) { create(:canonical_weapon, :with_enchantments, name: 'Foobar', unit_weight: 12) }
+        let!(:matching_canonical) do
+          create(
+            :canonical_weapon,
+            :with_enchantments,
+            name: 'Foobar',
+            unit_weight: 12,
+          )
+        end
 
         before do
           create(
@@ -178,11 +150,17 @@ RSpec.describe Weapon, type: :model do
         end
 
         before do
+          # Returning to this context, I'm realising it is difficult to reason about.
+          # Here, if the second canonical matches the enchantment on the first
+          # canonical perfectly, both will be matched even though the second one is
+          # not enchantable. This is possible because non-enchantable canonicals
+          # can, in many cases, have existing enchantments, and those are allowed -
+          # indeed, required - to be present on matching in-game items.
           create(
             :enchantables_enchantment,
             enchantable: canonicals.second,
             enchantment: canonicals.first.enchantments.first,
-            strength: 2, # test that matching is done by strength too
+            strength: 2,
           )
 
           create(
@@ -326,6 +304,75 @@ RSpec.describe Weapon, type: :model do
       it 'adds an error' do
         validate
         expect(weapon.errors[:base]).to include "doesn't match a weapon that exists in Skyrim"
+      end
+    end
+
+    context 'when updating the in-game item attributes' do
+      let(:weapon) { create(:weapon, :with_matching_canonical) }
+
+      context 'when updating the attributes changes the matching canonical' do
+        let!(:new_canonical) do
+          create(
+            :canonical_weapon,
+            name: 'Elven Battleaxe of Shocks',
+            unit_weight: 24,
+            weapon_type: 'battleaxe',
+            category: 'two-handed',
+          )
+        end
+
+        it 'changes the canonical model' do
+          weapon.name = 'elven battleaxe of shocks'
+          weapon.unit_weight = nil
+          weapon.weapon_type = nil
+          weapon.category = nil
+
+          expect { validate }
+            .to change(weapon, :canonical_weapon)
+                  .to(new_canonical)
+        end
+
+        it 'updates attributes', :aggregate_failures do
+          weapon.name = 'elven battleaxe of shocks'
+          weapon.unit_weight = nil
+          weapon.weapon_type = nil
+          weapon.category = nil
+
+          validate
+
+          expect(weapon.name).to eq 'Elven Battleaxe of Shocks'
+          expect(weapon.unit_weight).to eq 24
+          expect(weapon.weapon_type).to eq 'battleaxe'
+          expect(weapon.category).to eq 'two-handed'
+        end
+      end
+
+      context 'when updating the attributes results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_weapon,
+            2,
+            name: 'Iron Mace of Burning',
+          )
+        end
+
+        it 'sets the canonical weapon to nil' do
+          weapon.name = 'iron mace of burning'
+
+          expect { validate }
+            .to change(weapon, :canonical_weapon)
+                  .to(nil)
+        end
+      end
+
+      context 'when updating the attributes results in no matches' do
+        it 'sets the canonical weapon to nil' do
+          weapon.name = 'Orcish Greatsword of Debilitation'
+
+          expect { validate }
+            .to change(weapon, :canonical_weapon)
+                  .to(nil)
+        end
       end
     end
   end
