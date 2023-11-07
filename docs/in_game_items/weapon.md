@@ -7,10 +7,10 @@ The `Weapon` model represents in-game items of the `Canonical::Weapon` type.
 `Weapon` models are matched to `Canonical::Weapon` models using the following fields:
 
 * `name` (case-insensitive)
+* `magical_effects` (case-insensitive)
 * `unit_weight`
 * `category`
 * `weapon_type`
-* `magical_effects`
 
 ## Associations
 
