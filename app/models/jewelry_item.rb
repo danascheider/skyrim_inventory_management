@@ -42,7 +42,10 @@ class JewelryItem < ApplicationRecord
   def canonical_models
     return Canonical::JewelryItem.where(id: canonical_jewelry_item_id) if canonical_model_matches?
 
-    canonicals = Canonical::JewelryItem.where('name ILIKE ?', name)
+    query = 'name ILIKE :name'
+    query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
+
+    canonicals = Canonical::JewelryItem.where(query, name:, magical_effects:)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
@@ -59,10 +62,14 @@ class JewelryItem < ApplicationRecord
   end
 
   def set_canonical_jewelry_item
-    return unless canonical_models.count == 1
+    canonicals = canonical_models
 
-    self.canonical_jewelry_item ||= canonical_models.first
+    unless canonicals.count == 1
+      clear_canonical_jewelry_item
+      return
+    end
 
+    self.canonical_jewelry_item = canonicals.first
     self.name = canonical_jewelry_item.name
     self.unit_weight = canonical_jewelry_item.unit_weight
     self.magical_effects = canonical_jewelry_item.magical_effects
@@ -91,19 +98,20 @@ class JewelryItem < ApplicationRecord
     end
   end
 
+  def clear_canonical_jewelry_item
+    self.canonical_jewelry_item_id = nil
+  end
+
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects)&.zero?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
-    return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
 
     true
   end
 
   def attributes_to_match
-    {
-      unit_weight:,
-      magical_effects:,
-    }.compact
+    { unit_weight: }.compact
   end
 end
