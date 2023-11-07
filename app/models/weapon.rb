@@ -134,6 +134,7 @@ class Weapon < ApplicationRecord
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects&.casecmp(canonical_model.magical_effects)&.zero?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
     return false unless category.nil? || category == canonical_model.category
     return false unless weapon_type.nil? || weapon_type == canonical_model.weapon_type
