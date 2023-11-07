@@ -67,7 +67,7 @@ class Potion < ApplicationRecord
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
-    return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects).zero?
+    return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects)&.zero?
 
     if alchemical_properties.any?
       potions_alchemical_properties.each do |prop|
