@@ -359,7 +359,6 @@ RSpec.describe Ingredient, type: :model do
       context 'when the update results in no canonical matches' do
         it 'sets the canonical ingredient association to nil' do
           ingredient.name = 'horseradish'
-          ingredient.unit_weight = nil
 
           expect { validate }
             .to change(ingredient, :canonical_ingredient)

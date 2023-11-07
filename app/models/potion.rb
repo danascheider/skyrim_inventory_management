@@ -38,12 +38,14 @@ class Potion < ApplicationRecord
   private
 
   def set_canonical_potion
-    unless canonical_models.count == 1
+    canonicals = canonical_models
+
+    unless canonicals.count == 1
       clear_canonical_potion
       return
     end
 
-    self.canonical_potion = canonical_models.first
+    self.canonical_potion = canonicals.first
     self.name = canonical_potion.name
     self.unit_weight = canonical_potion.unit_weight
     self.magical_effects = canonical_potion.magical_effects

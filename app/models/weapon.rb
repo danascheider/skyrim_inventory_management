@@ -90,12 +90,14 @@ class Weapon < ApplicationRecord
   private
 
   def set_canonical_weapon
-    unless canonical_models.count == 1
+    canonicals = canonical_models
+
+    unless canonicals.count == 1
       clear_canonical_weapon
       return
     end
 
-    self.canonical_weapon = canonical_models.first
+    self.canonical_weapon = canonicals.first
   end
 
   def set_values_from_canonical

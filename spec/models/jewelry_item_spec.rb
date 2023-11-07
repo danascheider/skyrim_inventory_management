@@ -371,7 +371,6 @@ RSpec.describe JewelryItem, type: :model do
       context 'when the update results in no canonical matches' do
         it 'sets the canonical jewelry item to nil' do
           item.name = 'silver jeweled necklace'
-          item.unit_weight = nil
 
           expect { validate }
             .to change(item, :canonical_jewelry_item)

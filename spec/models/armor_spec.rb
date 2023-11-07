@@ -90,6 +90,51 @@ RSpec.describe Armor, type: :model do
   describe '::before_validation' do
     subject(:validate) { armor.validate }
 
+    context 'when there is a single matching canonical model' do
+      let(:armor) do
+        build(
+          :armor,
+          name: 'steel plate armor',
+          unit_weight: 20,
+          magical_effects: 'something',
+        )
+      end
+
+      let!(:matching_canonical) do
+        create(
+          :canonical_armor,
+          :with_enchantments,
+          name: 'Steel Plate Armor',
+          unit_weight: 20,
+          magical_effects: 'Something',
+          weight: 'heavy armor',
+        )
+      end
+
+      before do
+        create(
+          :canonical_armor,
+          name: 'Steel Plate Armor',
+          unit_weight: 30,
+        )
+      end
+
+      it 'assigns the canonical armor' do
+        expect { validate }
+          .to change(armor, :canonical_armor)
+                .from(nil)
+                .to(matching_canonical)
+      end
+
+      it 'sets the attributes', :aggregate_failures do
+        validate
+        expect(armor.name).to eq 'Steel Plate Armor'
+        expect(armor.magical_effects).to eq 'Something'
+        expect(armor.unit_weight).to eq 20
+        expect(armor.weight).to eq 'heavy armor'
+      end
+    end
+
     context 'when there are multiple matching canonical models' do
       let!(:matching_canonicals) do
         create_list(
@@ -186,6 +231,20 @@ RSpec.describe Armor, type: :model do
           expect { validate }
             .to change(armor, :canonical_armor)
                   .to(nil)
+        end
+
+        it "doesn't set attributes", :aggregate_failures do
+          armor.name = 'imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          validate
+
+          expect(armor.name).to eq 'imperial boots of resist frost'
+          expect(armor.magical_effects).to eq 'this will be case insensitive'
+          expect(armor.weight).to be_nil
+          expect(armor.unit_weight).to be_nil
         end
       end
 

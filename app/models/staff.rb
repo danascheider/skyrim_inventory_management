@@ -44,12 +44,14 @@ class Staff < ApplicationRecord
   private
 
   def set_canonical_staff
-    unless canonical_models.count == 1
+    canonicals = canonical_models
+
+    unless canonicals.count == 1
       clear_canonical_staff
       return
     end
 
-    self.canonical_staff = canonical_models.first
+    self.canonical_staff = canonicals.first
     self.name = canonical_staff.name
     self.unit_weight = canonical_staff.unit_weight
     self.magical_effects = canonical_staff.magical_effects

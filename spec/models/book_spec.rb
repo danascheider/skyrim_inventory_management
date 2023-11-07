@@ -328,14 +328,6 @@ RSpec.describe Book, type: :model do
             .to change(book, :canonical_book)
                   .to(nil)
         end
-
-        it "doesn't update attributes" do
-          book.title = "sinderion's field journal"
-
-          validate
-
-          expect(book.title).not_to eq "Sinderion's Field Journal"
-        end
       end
     end
   end

@@ -9,8 +9,6 @@ class Property < ApplicationRecord
   has_many :shopping_lists, dependent: nil
   has_many :inventory_lists, dependent: nil
 
-  validate :ensure_max, on: :create, if: :count_is_max
-
   validates :canonical_property, uniqueness: { scope: :game_id, message: 'must be unique per game' }
 
   validates :name,
@@ -27,6 +25,7 @@ class Property < ApplicationRecord
             inclusion: { in: Canonical::Property::VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
             uniqueness: { scope: :game_id, message: 'must be unique per game if present', allow_nil: true }
 
+  validate :ensure_max, on: :create, if: :count_is_max
   validate :ensure_alchemy_lab_available, if: -> { has_alchemy_lab == true && canonical_property&.alchemy_lab_available == false }
   validate :ensure_arcane_enchanter_available, if: -> { has_arcane_enchanter == true && canonical_property&.arcane_enchanter_available == false }
   validate :ensure_forge_available, if: -> { has_forge == true && canonical_property&.forge_available == false }
@@ -112,6 +111,8 @@ class Property < ApplicationRecord
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name&.casecmp(canonical_model.name)&.zero?
+    return false unless hold.nil? || hold == canonical_model.hold
+    return false unless city.nil? || city == canonical_model.city
 
     true
   end
