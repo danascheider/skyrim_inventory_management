@@ -49,9 +49,12 @@ class Weapon < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::Weapon.where(id: canonical_weapon.id) if canonical_weapon.present?
+    return Canonical::Weapon.where(id: canonical_weapon_id) if canonical_model_matches?
 
-    canonicals = Canonical::Weapon.where('name ILIKE ?', name)
+    query = 'name ILIKE :name'
+    query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
+
+    canonicals = Canonical::Weapon.where(query, name:, magical_effects:)
     canonicals = attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
 
     return canonicals if enchantments.none?
@@ -87,7 +90,10 @@ class Weapon < ApplicationRecord
   private
 
   def set_canonical_weapon
-    return unless canonical_models.count == 1
+    unless canonical_models.count == 1
+      clear_canonical_weapon
+      return
+    end
 
     self.canonical_weapon = canonical_models.first
   end
@@ -125,13 +131,27 @@ class Weapon < ApplicationRecord
     errors.add(:base, DUPLICATE_MATCH)
   end
 
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects&.casecmp(canonical_model.magical_effects)&.zero?
+    return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
+    return false unless category.nil? || category == canonical_model.category
+    return false unless weapon_type.nil? || weapon_type == canonical_model.weapon_type
+
+    true
+  end
+
   def attributes_to_match
     {
       unit_weight:,
       category:,
       weapon_type:,
-      magical_effects:,
     }.compact
+  end
+
+  def clear_canonical_weapon
+    self.canonical_weapon_id = nil
   end
 
   def ensure_canonicals_exist
