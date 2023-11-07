@@ -2,13 +2,12 @@
 
 class ClothingItemValidator < ActiveModel::Validator
   NO_CANONICAL_MATCHES = "doesn't match a clothing item that exists in Skyrim"
-  DOES_NOT_MATCH = 'does not match value on canonical model'
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def validate(record)
     @record = record
 
-    if @record.canonical_models.blank?
+    if @record.canonical_models.none?
       @record.errors.add(:base, NO_CANONICAL_MATCHES)
       return
     end

@@ -36,16 +36,22 @@ class ClothingItem < ApplicationRecord
   def canonical_models
     return Canonical::ClothingItem.where(id: canonical_clothing_item_id) if canonical_model_matches?
 
-    canonicals = Canonical::ClothingItem.where('name ILIKE ?', name)
+    query = 'name ILIKE :name'
+    query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
+
+    canonicals = Canonical::ClothingItem.where(query, name:, magical_effects:)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
 
   private
 
   def set_canonical_clothing_item
-    return unless canonical_models.count == 1
+    unless canonical_models.count == 1
+      clear_canonical_clothing_item
+      return
+    end
 
-    self.canonical_clothing_item ||= canonical_models.first
+    self.canonical_clothing_item = canonical_models.first
     self.name = canonical_clothing_item.name # in case casing differs
     self.unit_weight = canonical_clothing_item.unit_weight
     self.magical_effects = canonical_clothing_item.magical_effects
@@ -64,19 +70,20 @@ class ClothingItem < ApplicationRecord
     end
   end
 
+  def clear_canonical_clothing_item
+    self.canonical_clothing_item_id = nil
+  end
+
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
+    return false unless magical_effects&.casecmp(canonical_model.magical_effects)&.zero?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
-    return false unless magical_effects.nil? || magical_effects == canonical_model.magical_effects
 
     true
   end
 
   def attributes_to_match
-    {
-      unit_weight:,
-      magical_effects:,
-    }.compact
+    { unit_weight: }.compact
   end
 end
