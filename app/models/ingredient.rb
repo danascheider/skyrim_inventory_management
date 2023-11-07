@@ -27,7 +27,7 @@ class Ingredient < ApplicationRecord
   end
 
   def canonical_models
-    return Canonical::Ingredient.where(id: canonical_ingredient.id) if canonical_model_matches?
+    return Canonical::Ingredient.where(id: canonical_ingredient_id) if canonical_model_matches?
 
     canonicals = Canonical::Ingredient.where('name ILIKE ?', name)
     canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
@@ -48,13 +48,14 @@ class Ingredient < ApplicationRecord
   private
 
   def set_canonical_ingredient
-    return if canonical_ingredient.present?
-
     canonicals = canonical_models
-    self.canonical_ingredient = canonicals.first if canonicals.count == 1
 
-    return if canonical_ingredient.nil?
+    unless canonicals.count == 1
+      clear_canonical_ingredient
+      return
+    end
 
+    self.canonical_ingredient = canonicals.first
     self.name = canonical_ingredient.name
     self.unit_weight = canonical_ingredient.unit_weight
   end
@@ -74,6 +75,10 @@ class Ingredient < ApplicationRecord
     return if canonical_models.any?
 
     errors.add(:base, DOES_NOT_MATCH)
+  end
+
+  def clear_canonical_ingredient
+    self.canonical_ingredient_id = nil
   end
 
   def canonical_model_matches?

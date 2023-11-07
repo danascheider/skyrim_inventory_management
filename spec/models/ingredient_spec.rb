@@ -265,13 +265,15 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe '::before_validation' do
+    subject(:validate) { ingredient.validate }
+
     let(:ingredient) { build(:ingredient) }
 
     context 'when there is a matching canonical ingredient' do
       let!(:matching_canonical) { create(:canonical_ingredient, name: ingredient.name) }
 
       it 'sets the canonical_ingredient' do
-        ingredient.validate
+        validate
         expect(ingredient.canonical_ingredient).to eq matching_canonical
       end
     end
@@ -280,15 +282,89 @@ RSpec.describe Ingredient, type: :model do
       let!(:matching_canonicals) { create_list(:canonical_ingredient, 2, name: ingredient.name) }
 
       it "doesn't set the canonical ingredient" do
-        ingredient.validate
+        validate
         expect(ingredient.canonical_ingredient).to be_nil
       end
     end
 
     context 'when there is no matching canonical ingredient' do
       it "doesn't set the canonical ingredient" do
-        ingredient.validate
+        validate
         expect(ingredient.canonical_ingredient).to be_nil
+      end
+    end
+
+    context 'when updating in-game item attributes' do
+      let(:ingredient) { create(:ingredient_with_matching_canonical) }
+
+      context 'when the update changes the canonical match' do
+        let!(:new_canonical) do
+          create(
+            :canonical_ingredient,
+            name: 'Horseradish',
+            unit_weight: 0.2,
+          )
+        end
+
+        it 'changes the canonical association' do
+          ingredient.name = 'horseradish'
+          ingredient.unit_weight = nil
+
+          expect { validate }
+            .to change(ingredient, :canonical_ingredient)
+                  .to(new_canonical)
+        end
+
+        it 'updates attributes', :aggregate_failures do
+          ingredient.name = 'horseradish'
+          ingredient.unit_weight = nil
+
+          validate
+
+          expect(ingredient.name).to eq 'Horseradish'
+          expect(ingredient.unit_weight).to eq 0.2
+        end
+      end
+
+      context 'when the update results in an ambiguous match' do
+        before do
+          create_list(
+            :canonical_ingredient,
+            2,
+            name: 'Horseradish',
+            unit_weight: 0.2,
+          )
+        end
+
+        it 'sets the canonical ingredient association to nil' do
+          ingredient.name = 'horseradish'
+          ingredient.unit_weight = nil
+
+          expect { validate }
+            .to change(ingredient, :canonical_ingredient)
+                  .to(nil)
+        end
+
+        it "doesn't update attributes", :aggregate_failures do
+          ingredient.name = 'horseradish'
+          ingredient.unit_weight = nil
+
+          validate
+
+          expect(ingredient.name).to eq 'horseradish'
+          expect(ingredient.unit_weight).to be_nil
+        end
+      end
+
+      context 'when the update results in no canonical matches' do
+        it 'sets the canonical ingredient association to nil' do
+          ingredient.name = 'horseradish'
+          ingredient.unit_weight = nil
+
+          expect { validate }
+            .to change(ingredient, :canonical_ingredient)
+                  .to(nil)
+        end
       end
     end
   end
