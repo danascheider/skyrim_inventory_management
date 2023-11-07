@@ -101,7 +101,7 @@ RSpec.describe Canonical::Sync::Ingredients do
         it 'adds alchemical properties' do
           perform
           expect(item_in_json.alchemical_properties.pluck(:name))
-            .to eq ['Weakness to Frost', 'Fortify Sneak', 'Weakness to Poison', 'Fortify Restoration']
+            .to contain_exactly('Weakness to Frost', 'Fortify Sneak', 'Weakness to Poison', 'Fortify Restoration')
         end
       end
 

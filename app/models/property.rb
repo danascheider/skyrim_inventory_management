@@ -48,6 +48,10 @@ class Property < ApplicationRecord
     'windstad manor',
   ].freeze
 
+  def canonical_model
+    canonical_property
+  end
+
   def homestead?
     HOMESTEADS.include?(name&.downcase)
   end
@@ -55,7 +59,9 @@ class Property < ApplicationRecord
   private
 
   def set_canonical_model
-    self.canonical_property ||= Canonical::Property.find_by('name ILIKE ?', name)
+    return if canonical_model_matches?
+
+    self.canonical_property = Canonical::Property.find_by('name ILIKE ?', name)
   end
 
   def set_values_from_canonical
@@ -100,6 +106,13 @@ class Property < ApplicationRecord
   end
 
   def ensure_matches_canonical_property
-    errors.add(:base, DOES_NOT_MATCH) if canonical_property.blank?
+    errors.add(:base, DOES_NOT_MATCH) if canonical_model.nil?
+  end
+
+  def canonical_model_matches?
+    return false if canonical_model.nil?
+    return false unless name&.casecmp(canonical_model.name)&.zero?
+
+    true
   end
 end

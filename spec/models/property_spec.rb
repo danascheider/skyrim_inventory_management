@@ -94,7 +94,8 @@ RSpec.describe Property, type: :model do
     end
 
     describe 'uniqueness' do
-      let(:canonical_property) { Canonical::Property.first }
+      let(:property) { build(:property, name: "arch-mage's quarters", game:) }
+      let(:canonical_property) { Canonical::Property.find_by(name: "Arch-Mage's Quarters") }
 
       before do
         game.properties.create!(
@@ -106,22 +107,16 @@ RSpec.describe Property, type: :model do
       end
 
       it 'has a unique combination of game and canonical property' do
-        property.game = game
-        property.canonical_property = canonical_property
         validate
         expect(property.errors[:canonical_property]).to include 'must be unique per game'
       end
 
       it 'has a unique name per game' do
-        property.game = game
-        property.name = canonical_property.name
         validate
         expect(property.errors[:name]).to include 'must be unique per game'
       end
 
       it 'has a unique hold per game' do
-        property.game = game
-        property.hold = canonical_property.hold
         validate
         expect(property.errors[:hold]).to include 'must be unique per game'
       end
@@ -129,10 +124,9 @@ RSpec.describe Property, type: :model do
 
     describe 'arcane enchanter availability' do
       context 'when an arcane enchanter is not available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Breezehome') }
+        let(:property) { build(:property, name: 'breezehome') }
 
         it 'cannot have an arcane enchanter' do
-          property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter = true
           validate
           expect(property.errors[:has_arcane_enchanter]).to include 'cannot be true because this property cannot have an arcane enchanter in Skyrim'
@@ -140,17 +134,13 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when an arcane enchanter is available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
-
         it 'can have an arcane enchanter' do
-          property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter = true
           validate
           expect(property.errors[:has_arcane_enchanter]).to be_empty
         end
 
         it "doesn't have to have an arcane enchanter" do
-          property.canonical_property_id = canonical_property.id
           property.has_arcane_enchanter = false
           validate
           expect(property.errors[:has_arcane_enchanter]).to be_empty
@@ -160,10 +150,9 @@ RSpec.describe Property, type: :model do
 
     describe 'forge availability' do
       context 'when a forge is not available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Breezehome') }
+        let(:property) { build(:property, name: 'breezehome') }
 
         it 'cannot have a forge' do
-          property.canonical_property_id = canonical_property.id
           property.has_forge = true
           validate
           expect(property.errors[:has_forge]).to include 'cannot be true because this property cannot have a forge in Skyrim'
@@ -171,17 +160,15 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when a forge is available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
+        let(:property) { build(:property) }
 
         it 'can have a forge' do
-          property.canonical_property_id = canonical_property.id
           property.has_forge = true
           validate
           expect(property.errors[:has_forge]).to be_empty
         end
 
         it "doesn't have to have a forge" do
-          property.canonical_property_id = canonical_property.id
           property.has_forge = false
           validate
           expect(property.errors[:has_forge]).to be_empty
@@ -191,10 +178,9 @@ RSpec.describe Property, type: :model do
 
     describe 'apiary availability' do
       context 'when an apiary is not available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Breezehome') }
+        let(:property) { build(:property, name: 'breezehome') }
 
         it 'cannot have an apiary' do
-          property.canonical_property_id = canonical_property.id
           property.has_apiary = true
           validate
           expect(property.errors[:has_apiary]).to include 'cannot be true because this property cannot have an apiary in Skyrim'
@@ -202,17 +188,15 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when an apiary is available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
+        let(:property) { build(:property, name: 'Lakeview Manor') }
 
         it 'can have an apiary' do
-          property.canonical_property_id = canonical_property.id
           property.has_apiary = true
           validate
           expect(property.errors[:has_apiary]).to be_empty
         end
 
         it "doesn't have to have an apiary" do
-          property.canonical_property_id = canonical_property.id
           property.has_apiary = false
           validate
           expect(property.errors[:has_apiary]).to be_empty
@@ -222,10 +206,9 @@ RSpec.describe Property, type: :model do
 
     describe 'grain mill availability' do
       context 'when a grain mill is not available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
+        let(:property) { build(:property) }
 
         it 'cannot have a grain mill' do
-          property.canonical_property_id = canonical_property.id
           property.has_grain_mill = true
           validate
           expect(property.errors[:has_grain_mill]).to include 'cannot be true because this property cannot have a grain mill in Skyrim'
@@ -233,17 +216,15 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when a grain mill is available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Heljarchen Hall') }
+        let(:property) { build(:property, name: 'Heljarchen Hall') }
 
         it 'can have a grain mill' do
-          property.canonical_property_id = canonical_property.id
           property.has_grain_mill = true
           validate
           expect(property.errors[:has_grain_mill]).to be_empty
         end
 
         it "doesn't have to have a grain mill" do
-          property.canonical_property_id = canonical_property.id
           property.has_grain_mill = false
           validate
           expect(property.errors[:has_grain_mill]).to be_empty
@@ -253,10 +234,9 @@ RSpec.describe Property, type: :model do
 
     describe 'fish hatchery availability' do
       context 'when a fish hatchery is not available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Lakeview Manor') }
+        let(:property) { build(:property) }
 
         it 'cannot have a fish hatchery' do
-          property.canonical_property_id = canonical_property.id
           property.has_fish_hatchery = true
           validate
           expect(property.errors[:has_fish_hatchery]).to include 'cannot be true because this property cannot have a fish hatchery in Skyrim'
@@ -264,22 +244,31 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when a fish hatchery is available at the given property' do
-        let(:canonical_property) { Canonical::Property.find_by(name: 'Windstad Manor') }
+        let(:property) { build(:property, name: 'windstad manor') }
 
         it 'can have a fish hatchery' do
-          property.canonical_property_id = canonical_property.id
           property.has_fish_hatchery = true
           validate
           expect(property.errors[:has_fish_hatchery]).to be_empty
         end
 
         it "doesn't have to have a fish hatchery" do
-          property.canonical_property_id = canonical_property.id
           property.has_fish_hatchery = false
           validate
           expect(property.errors[:has_fish_hatchery]).to be_empty
         end
       end
+    end
+  end
+
+  describe '#canonical_model' do
+    subject(:canonical_model) { property.canonical_model }
+
+    let(:property) { create(:property, name: 'pRoUdSpIrE mAnOr') }
+    let(:canonical_property) { Canonical::Property.find_by(name: 'Proudspire Manor') }
+
+    it 'returns the canonical property' do
+      expect(canonical_model).to eq canonical_property
     end
   end
 
@@ -303,6 +292,19 @@ RSpec.describe Property, type: :model do
       it 'sets the canonical property', :aggregate_failures do
         validate
         expect(property.canonical_property).to eq canonical_property
+      end
+    end
+
+    context 'when updating the model changes the canonical property' do
+      let(:property) { create(:property) }
+      let(:canonical_property) { Canonical::Property.find_by(name: 'Severin Manor') }
+
+      it 'changes the canonical property' do
+        property.name = 'Severin Manor'
+
+        expect { validate }
+          .to change(property, :canonical_property)
+                .to(canonical_property)
       end
     end
   end

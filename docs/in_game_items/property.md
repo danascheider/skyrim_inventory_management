@@ -1,15 +1,18 @@
 # Property
 
-The `Property` class represents in-game instances of the [`Canonical::Property`](/docs/canonical_models/canonical-property.md) type. Properties differ slightly from other in-game items in two ways:
+The `Property` class represents in-game instances of the [`Canonical::Property`](/docs/canonical_models/canonical-property.md) type. Properties differ slightly from other in-game items in three ways:
 
 * A property is also a location (in some cases with sublocations)
 * A property can be associated with inventory and shopping lists (functionality that will be built out further for the MVP)
+* All properties must always be associated to a `Canonical::Property`
 
 Additionally, a number of characteristics of a property cannot be determined by the `Canonical::Property` associated. Users can add different amenities or, in the case of [homesteads](https://elderscrolls.fandom.com/wiki/Homestead_(Hearthfire)), build entirely different rooms on the property. For that reason, the `Canonical::Property` model has a number of attributes like `alchemy_lab_available` and `enchanters_tower_available` indicating whether the amenity or room _can be added_ to the property instead of whether it is actually present.
 
 ## Matching to a Canonical Model
 
-Unlike other canonical models, of which there can be many, the `Canonical::Property` model only has 10 possible instances and all have a unique `name`. For this reason, unlike other canonical models, the `Canonical::Property` is identified using the `name` attribute alone (case insensitive). This is done in a `before_validation` action. In a second `before_validation` action, the `name`, `city`, and `hold` are set based on the values on the canonical property (if present). Finally, on validation, the property is marked invalid if there is no `canonical_property` assigned.
+Unlike other canonical models, of which there can be many, the `Canonical::Property` model only has 10 possible instances and all have a unique `name`. For this reason, unlike other canonical models, the `Canonical::Property` is identified using the `name` attribute alone (case insensitive). This is done in a `before_validation` action. In a second `before_validation` action, the `name`, `city`, and `hold` are set based on the values on the canonical property (if present). Finally, on validation, the property is marked invalid if there is no `canonical_property_id`.
+
+Because canonical properties are uniquely named and limited in number, `Property` models don't have the same potential for ambiguous matches that other in-game items have. There will always be either one or zero matches. In the case where there are no matches, validations will fail due to the missing required association.
 
 ## Validations
 
