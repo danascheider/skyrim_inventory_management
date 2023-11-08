@@ -22,9 +22,9 @@ Non-canonical in-game items represent individual item instances. For the purpose
 
 Every in-game item has to correspond to at least one canonical model. Because not all attributes are directly pertinent to users and not all should be able to be set by them, non-canonical models do not have the same fields and associations as the canonical models. Instead, non-canonical models include the subset of canonical fields that are visible to or discoverable by players.
 
-When an in-game item is created, it is validated to ensure that it has at least one potential canonical match. These matches are based on fields set on the non-canonical model, or in [some cases](/docs/in_game_items/ingredient.md), associations that are present on that model; in other words, fields that are `nil` on the non-canonical model are not considered for the match. Only fields set to a non-`nil` value, or associations that have been created on the non-canonical model, must match the canonical model.
+When an in-game item is saved, it is validated to ensure that it has at least one potential canonical match. These matches are based on fields set on the non-canonical model, or in [some cases](/docs/in_game_items/ingredient.md), associations that are present on that model; in other words, fields that are `nil` on the non-canonical model are not considered for the match. Only fields set to a non-`nil` value, or associations that have been created on the non-canonical model, must match the canonical model.
 
-If the in-game item matches exactly one canonical model, that model is set as the `canonical_<model>` for that item. If there are no matching canonical models, validation fails.
+If the in-game item matches exactly one canonical model, that model is set as the `canonical_<model>` for that item. If there are no matching canonical models, validation fails. If the in-game item model is updated such that it no longer matches the currently-associated canonical model, the matching algorithm will be run again. If the update results in ambiguous, or no, canonical matches, the `canonical_<model>_id` will be set to `nil`. As before, ambiguous matches are allowed, but validation will fail if there are no matches (other than for [potions](/docs/in_game_items/potion.md), which can be player-created and don't always have canonical matches).
 
 ### Auto-Populating Fields
 
@@ -32,4 +32,4 @@ Some fields and associations on canonical models are either not visible to users
 
 When a non-canonical item is matched to a single canonical model, fields and associations that are visible to the user (i.e., those like weight that the user can automatically see just because they've seen the item) are automatically populated or created on the non-canonical item. Certain associations, such as `crafting_materials` and `tempering_materials` on weapons and armour items, will not differ for separate instances and are therefore delegated to the canonical model to prevent the need to create redundant models.
 
-Canonical models are initially found using a case-insensitive matching by name. For this reason, the name of the non-canonical model is also updated to match the casing of the canonical model's name.
+Canonical models are initially found using a case-insensitive matching by name (or `title` and `title_variants` for books). For this reason, the name of the non-canonical model is also updated to match the casing of the canonical model's name.
