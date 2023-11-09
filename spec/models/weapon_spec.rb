@@ -569,72 +569,68 @@ RSpec.describe Weapon, type: :model do
   end
 
   describe 'adding enchantments' do
-    context 'when no canonical model is assigned' do
-      let(:weapon) { create(:weapon, name: 'foobar') }
+    let(:weapon) { create(:weapon, name: 'foobar') }
 
-      context 'when there are multiple matching canonicals' do
-        before do
-          create_list(
-            :canonical_weapon,
-            2,
-            :with_enchantments,
-            name: 'Foobar',
-            enchantable:,
-          )
-        end
+    before do
+      create_list(
+        :canonical_weapon,
+        2,
+        :with_enchantments,
+        name: 'Foobar',
+        enchantable:,
+      )
+    end
 
-        context 'when the added enchantment eliminates all canoncial matches' do
-          subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: weapon) }
+    context 'when the added enchantment eliminates all canoncial matches' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: weapon) }
 
-          let(:enchantable) { false }
+      let(:enchantable) { false }
 
-          it "doesn't allow the enchantment to be added", :aggregate_failures do
-            expect { add_enchantment }
-              .to raise_error(ActiveRecord::RecordInvalid)
+      it "doesn't allow the enchantment to be added", :aggregate_failures do
+        expect { add_enchantment }
+          .to raise_error(ActiveRecord::RecordInvalid)
 
-            expect(weapon.enchantments.reload.length).to eq 0
-          end
-        end
+        expect(weapon.enchantments.reload.length).to eq 0
+      end
+    end
 
-        context 'when the added enchantment narrows it down to one canonical match' do
-          subject(:add_enchantment) do
-            create(
-              :enchantables_enchantment,
-              enchantable: weapon,
-              enchantment: Canonical::Weapon.last.enchantments.first,
-            )
-          end
+    context 'when the added enchantment narrows it down to one canonical match' do
+      subject(:add_enchantment) do
+        create(
+          :enchantables_enchantment,
+          enchantable: weapon,
+          enchantment: Canonical::Weapon.last.enchantments.first,
+        )
+      end
 
-          let(:enchantable) { false }
+      let(:enchantable) { false }
 
-          it 'sets the canonical weapon' do
-            expect { add_enchantment }
-              .to change(weapon.reload, :canonical_weapon)
-                    .from(nil)
-                    .to(Canonical::Weapon.last)
-          end
+      it 'sets the canonical weapon' do
+        expect { add_enchantment }
+          .to change(weapon.reload, :canonical_weapon)
+                .from(nil)
+                .to(Canonical::Weapon.last)
+      end
 
-          it 'adds missing enchantments' do
-            add_enchantment
-            expect(weapon.enchantments.reload.length).to eq 2
-          end
-        end
+      it 'adds missing enchantments' do
+        add_enchantment
+        expect(weapon.enchantments.reload.length).to eq 2
+      end
+    end
 
-        context 'when there are still multiple canonicals after adding the enchantment' do
-          subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: weapon) }
+    context 'when there are still multiple canonicals after adding the enchantment' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: weapon) }
 
-          let(:enchantable) { true }
+      let(:enchantable) { true }
 
-          it "doesn't assign a canonical weapon" do
-            expect { add_enchantment }
-              .not_to change(weapon.reload, :canonical_weapon)
-          end
+      it "doesn't assign a canonical weapon" do
+        expect { add_enchantment }
+          .not_to change(weapon.reload, :canonical_weapon)
+      end
 
-          it "doesn't add additional enchantments" do
-            add_enchantment
-            expect(weapon.enchantments.reload.length).to eq 1
-          end
-        end
+      it "doesn't add additional enchantments" do
+        add_enchantment
+        expect(weapon.enchantments.reload.length).to eq 1
       end
     end
   end
