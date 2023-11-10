@@ -46,7 +46,26 @@ class JewelryItem < ApplicationRecord
     query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
 
     canonicals = Canonical::JewelryItem.where(query, name:, magical_effects:)
-    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
+    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
+
+    return canonicals if enchantments.none?
+
+    enchantables_enchantments.each do |join_model|
+      canonicals = if join_model.strength.present?
+                     canonicals.left_outer_joins(:enchantables_enchantments).where(
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_jewelry_items.enchantable = true',
+                       enchantment_id: join_model.enchantment_id,
+                       strength: join_model.strength,
+                     )
+                   else
+                     canonicals.left_outer_joins(:enchantables_enchantments).where(
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength IS NULL) OR canonical_jewelry_items.enchantable = true',
+                       enchantment_id: join_model.enchantment_id,
+                     )
+                   end
+    end
+
+    canonicals.uniq
   end
 
   def jewelry_type

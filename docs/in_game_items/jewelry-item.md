@@ -10,6 +10,8 @@ The `JewelryItem` model represents in-game items of the `Canonical::JewelryItem`
 * `unit_weight`
 * `magical_effects`
 
+Since `JewelryItem` models can also be enchanted, they are also matched to canonical models based on any enchantments they have. Enchantments must match both the `enchantment_id` and the `strength` (if present) of the enchantment on the canonical model.
+
 ## Associations
 
 Because `JewelryItem` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `JewelryItem` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. Enchantments that exist on the canonical model will be automatically added to the `JewelryItem` model when it is saved and a single matching `Canonical::JewelryItem` has been identified.
