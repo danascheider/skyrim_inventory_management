@@ -48,7 +48,7 @@ class Armor < ApplicationRecord
     query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
 
     canonicals = Canonical::Armor.where(query, name:, magical_effects:)
-    canonicals = attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
+    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
 
     return canonicals if enchantments.none?
 
