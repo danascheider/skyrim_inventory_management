@@ -304,4 +304,71 @@ RSpec.describe ClothingItem, type: :model do
       end
     end
   end
+
+  describe 'adding enchantments' do
+    let(:item) { create(:clothing_item, name: 'foobar') }
+
+    before do
+      create_list(
+        :canonical_clothing_item,
+        2,
+        :with_enchantments,
+        name: 'Foobar',
+        enchantable:,
+      )
+    end
+
+    context 'when the added enchantment eliminates all canonical matches' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: item) }
+
+      let(:enchantable) { false }
+
+      it "doesn't allow the enchantment to be added", :aggregate_failures do
+        expect { add_enchantment }
+          .to raise_error(ActiveRecord::RecordInvalid)
+
+        expect(item.enchantments.reload.length).to eq 0
+      end
+    end
+
+    context 'when the added enchantment narrows it down to one canonical match' do
+      subject(:add_enchantment) do
+        create(
+          :enchantables_enchantment,
+          enchantable: item,
+          enchantment: Canonical::ClothingItem.last.enchantments.first,
+        )
+      end
+
+      let(:enchantable) { false }
+
+      it 'sets the canonical clothing item' do
+        expect { add_enchantment }
+          .to change(item.reload, :canonical_clothing_item)
+                .from(nil)
+                .to(Canonical::ClothingItem.last)
+      end
+
+      it 'adds missing enchantments' do
+        add_enchantment
+        expect(item.enchantments.reload.length).to eq 2
+      end
+    end
+
+    context 'when there are still multiple canonicals after adding the enchantment' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: item) }
+
+      let(:enchantable) { true }
+
+      it "doesn't assign a canonical clothing item" do
+        expect { add_enchantment }
+          .not_to change(item.reload, :canonical_clothing_item)
+      end
+
+      it "doesn't add additional enchantments" do
+        add_enchantment
+        expect(item.enchantments.reload.length).to eq 1
+      end
+    end
+  end
 end
