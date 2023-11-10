@@ -48,7 +48,28 @@ class Armor < ApplicationRecord
     query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
 
     canonicals = Canonical::Armor.where(query, name:, magical_effects:)
-    attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
+    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
+
+    return canonicals if enchantments.none?
+
+    enchantables_enchantments.each do |join_model|
+      canonicals = if join_model.strength.present?
+                     canonicals.left_outer_joins(:enchantables_enchantments).where(
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength = :strength) OR canonical_armors.enchantable = true',
+                       enchantment_id: join_model.enchantment_id,
+                       type: 'Canonical::Armor',
+                       strength: join_model.strength,
+                     )
+                   else
+                     canonicals.left_outer_joins(:enchantables_enchantments).where(
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type) OR canonical_armors.enchantable = true',
+                       enchantment_id: join_model.enchantment_id,
+                       type: 'Canonical::Armor',
+                     )
+                   end
+    end
+
+    canonicals.uniq
   end
 
   def crafting_materials

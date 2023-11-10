@@ -345,7 +345,14 @@ RSpec.describe Armor, type: :model do
       end
 
       context 'when only the name has to match' do
-        let!(:matching_canonicals) { create_list(:canonical_armor, 3, name: armor.name, unit_weight: 2.5) }
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_armor,
+            3,
+            name: armor.name,
+            unit_weight: 2.5,
+          )
+        end
 
         let(:armor) { build(:armor, unit_weight: nil) }
 
@@ -389,6 +396,73 @@ RSpec.describe Armor, type: :model do
         armor.magical_effects = nil
 
         expect(canonical_models).to contain_exactly(new_canonical)
+      end
+    end
+  end
+
+  describe 'adding enchantments' do
+    let(:armor) { create(:armor, name: 'foobar') }
+
+    before do
+      create_list(
+        :canonical_armor,
+        2,
+        :with_enchantments,
+        name: 'Foobar',
+        enchantable:,
+      )
+    end
+
+    context 'when the added enchantment eliminates all canonical matches' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: armor) }
+
+      let(:enchantable) { false }
+
+      it "doesn't allow the enchantment to be added", :aggregate_failures do
+        expect { add_enchantment }
+          .to raise_error(ActiveRecord::RecordInvalid)
+
+        expect(armor.enchantments.reload.length).to eq 0
+      end
+    end
+
+    context 'when the added enchantment narrows it down to one canonical match' do
+      subject(:add_enchantment) do
+        create(
+          :enchantables_enchantment,
+          enchantable: armor,
+          enchantment: Canonical::Armor.last.enchantments.first,
+        )
+      end
+
+      let(:enchantable) { false }
+
+      it 'sets the canonical armor' do
+        expect { add_enchantment }
+          .to change(armor.reload, :canonical_armor)
+                .from(nil)
+                .to(Canonical::Armor.last)
+      end
+
+      it 'adds missing enchantments' do
+        add_enchantment
+        expect(armor.enchantments.reload.length).to eq 2
+      end
+    end
+
+    context 'when there are still multiple canonicals after adding the enchantment' do
+      subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: armor) }
+
+      let(:enchantable) { true }
+
+      it "doesn't assign a canonical armor" do
+        expect { add_enchantment }
+          .not_to change(armor.reload, :canonical_armor)
+      end
+
+      it "doesn't add additional enchantments" do
+        add_enchantment
+        expect(armor.enchantments.reload.length).to eq 1
       end
     end
   end

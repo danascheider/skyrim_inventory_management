@@ -11,6 +11,11 @@ The `Armor` model represents in-game items of the `Canonical::Armor` type.
 * `weight`
 * `magical_effects`
 
+If an `Armor` model has enchantments, its enchantments are also matched against any canonical matches. To match a canonical model, one of two things has to be the case:
+
+1. All enchantments on the in-game item match in both `enchantment_id` and `strength` (if present)
+2. The canonical model has its `enchantable` attribute set to `true`, indicating that user-added enchantments are allowed
+
 ## Associations
 
 Because `Armor` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `Armor` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. The canonical model's enchantments will automatically be added to the `Armor` model when it is saved and has a single matching `Canonical::Armor` model.
