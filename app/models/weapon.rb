@@ -62,16 +62,14 @@ class Weapon < ApplicationRecord
     enchantables_enchantments.each do |join_model|
       canonicals = if join_model.strength.present?
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength = :strength) OR canonical_weapons.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_weapons.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
-                       type: 'Canonical::Weapon',
                        strength: join_model.strength,
                      )
                    else
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength IS NULL) OR canonical_weapons.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength IS NULL) OR canonical_weapons.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
-                       type: 'Canonical::Weapon',
                      )
                    end
     end

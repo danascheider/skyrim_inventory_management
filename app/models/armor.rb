@@ -55,16 +55,14 @@ class Armor < ApplicationRecord
     enchantables_enchantments.each do |join_model|
       canonicals = if join_model.strength.present?
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type AND enchantables_enchantments.strength = :strength) OR canonical_armors.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_armors.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
-                       type: 'Canonical::Armor',
                        strength: join_model.strength,
                      )
                    else
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.enchantable_type = :type) OR canonical_armors.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id) OR canonical_armors.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
-                       type: 'Canonical::Armor',
                      )
                    end
     end
