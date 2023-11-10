@@ -61,7 +61,7 @@ class Armor < ApplicationRecord
                      )
                    else
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id) OR canonical_armors.enchantable = true',
+                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength IS NULL) OR canonical_armors.enchantable = true',
                        enchantment_id: join_model.enchantment_id,
                      )
                    end
