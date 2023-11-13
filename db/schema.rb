@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_05_222944) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_11_205621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -339,6 +339,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_222944) do
     t.decimal "strength", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "added_automatically", default: false, null: false
     t.index ["enchantment_id", "enchantable_id", "enchantable_type"], name: "index_enchantables_enchantments_on_enchmnt_id_enchble_id_type", unique: true
     t.index ["enchantment_id"], name: "index_enchantables_enchantments_on_enchantment_id"
   end
@@ -452,6 +453,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_222944) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "added_automatically", default: false, null: false
     t.index ["alchemical_property_id"], name: "index_potions_alchemical_properties_on_alchemical_property_id"
     t.index ["potion_id", "alchemical_property_id"], name: "index_potions_alc_properties_on_potion_id_alc_property_id", unique: true
     t.index ["potion_id"], name: "index_potions_alchemical_properties_on_potion_id"
