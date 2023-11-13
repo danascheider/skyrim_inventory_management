@@ -165,23 +165,23 @@ RSpec.describe PotionsAlchemicalProperty, type: :model do
     end
   end
 
-  describe '::added_manually scope' do
-    subject(:added_manually) { described_class.added_manually }
+  describe '::added_automatically scope' do
+    subject(:added_automatically) { described_class.added_automatically }
 
     let!(:included_models) do
       create_list(
         :potions_alchemical_property,
         2,
-        added_automatically: false,
+        added_automatically: true,
       )
     end
 
     before do
-      create(:potions_alchemical_property, added_automatically: true)
+      create(:potions_alchemical_property, added_automatically: false)
     end
 
-    it 'includes manually created models only' do
-      expect(added_manually).to contain_exactly(*included_models)
+    it 'includes automatically created models only' do
+      expect(added_automatically).to contain_exactly(*included_models)
     end
   end
 end

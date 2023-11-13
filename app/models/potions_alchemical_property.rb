@@ -31,7 +31,7 @@ class PotionsAlchemicalProperty < ApplicationRecord
 
   before_validation :set_added_automatically, if: -> { added_automatically.nil? }
 
-  scope :added_manually, -> { where(added_automatically: false) }
+  scope :added_manually, -> { where(added_automatically: true) }
 
   MAX_PER_POTION = Canonical::PotionsAlchemicalProperty::MAX_PER_POTION
 

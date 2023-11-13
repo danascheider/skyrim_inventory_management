@@ -23,7 +23,7 @@ class EnchantablesEnchantment < ApplicationRecord
 
   after_save :save_associated!, unless: :canonical_enchantable?
 
-  scope :added_manually, -> { where(added_automatically: false) }
+  scope :added_automatically, -> { where(added_automatically: true) }
 
   private
 

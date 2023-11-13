@@ -168,23 +168,23 @@ RSpec.describe EnchantablesEnchantment, type: :model do
     end
   end
 
-  describe '::added_manually scope' do
-    subject(:added_manually) { described_class.added_manually }
+  describe '::added_automatically scope' do
+    subject(:added_automatically) { described_class.added_automatically }
 
     let!(:included_models) do
       [
-        create(:enchantables_enchantment, :for_armor, added_automatically: false),
-        create(:enchantables_enchantment, :for_weapon, added_automatically: false),
+        create(:enchantables_enchantment, :for_armor, added_automatically: true),
+        create(:enchantables_enchantment, :for_weapon, added_automatically: true),
+        create(:enchantables_enchantment, :for_canonical_clothing),
       ]
     end
 
     before do
-      create(:enchantables_enchantment, :for_canonical_armor)
-      create(:enchantables_enchantment, :for_armor, added_automatically: true)
+      create(:enchantables_enchantment, :for_armor, added_automatically: false)
     end
 
-    it 'includes all models with #added_automatically set to false' do
-      expect(added_manually).to contain_exactly(*included_models)
+    it 'includes all models with #added_automatically set to true' do
+      expect(added_automatically).to contain_exactly(*included_models)
     end
   end
 
