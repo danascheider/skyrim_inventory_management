@@ -89,6 +89,42 @@ RSpec.describe PotionsAlchemicalProperty, type: :model do
       end
     end
 
+    describe '#added_automatically' do
+      it 'can be true' do
+        model.added_automatically = true
+
+        expect(model).to be_valid
+      end
+
+      it "doesn't change a true value" do
+        model.added_automatically = true
+
+        expect { model.validate }
+          .not_to change(model, :added_automatically)
+      end
+
+      it 'can be false' do
+        model.added_automatically = false
+
+        expect(model).to be_valid
+      end
+
+      it "doesn't change a false value" do
+        model.added_automatically = false
+
+        expect { model.validate }
+          .not_to change(model, :added_automatically)
+      end
+
+      it 'changes a nil value to false' do
+        model.added_automatically = nil
+
+        expect { model.validate }
+          .to change(model, :added_automatically)
+                .to(false)
+      end
+    end
+
     describe 'alchemical effects' do
       let(:potion) { create(:potion) }
       let(:model) { build(:potions_alchemical_property, potion:) }
@@ -126,6 +162,26 @@ RSpec.describe PotionsAlchemicalProperty, type: :model do
           expect(model.errors[:potion]).to include 'can have a maximum of 4 effects'
         end
       end
+    end
+  end
+
+  describe '::added_manually scope' do
+    subject(:added_manually) { described_class.added_manually }
+
+    let!(:included_models) do
+      create_list(
+        :potions_alchemical_property,
+        2,
+        added_automatically: false,
+      )
+    end
+
+    before do
+      create(:potions_alchemical_property, added_automatically: true)
+    end
+
+    it 'includes manually created models only' do
+      expect(added_manually).to contain_exactly(*included_models)
     end
   end
 end
