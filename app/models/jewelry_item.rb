@@ -113,7 +113,7 @@ class JewelryItem < ApplicationRecord
       enchantables_enchantments.find_or_create_by!(
         enchantment_id: model.enchantment_id,
         strength: model.strength,
-      )
+      ) {|new_model| new_model.added_automatically = true }
     end
   end
 

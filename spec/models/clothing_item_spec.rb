@@ -202,6 +202,12 @@ RSpec.describe ClothingItem, type: :model do
           expect(item.enchantments.length).to eq 2
         end
 
+        it 'sets "added_automatically" to true on new associations' do
+          item.save!
+
+          expect(item.enchantables_enchantments.pluck(:added_automatically).uniq).to eq [true]
+        end
+
         it 'sets the correct strengths', :aggregate_failures do
           item.save!
           matching_canonical.enchantables_enchantments.each do |join_model|
@@ -227,6 +233,13 @@ RSpec.describe ClothingItem, type: :model do
         it "doesn't remove the existing enchantments" do
           item.save!
           expect(item.enchantments.reload.length).to eq 4
+        end
+
+        it 'sets "added_automatically" only on the new associations' do
+          item.save!
+
+          expect(item.enchantables_enchantments.pluck(:added_automatically))
+            .to eq [true, true, false, false]
         end
       end
     end
