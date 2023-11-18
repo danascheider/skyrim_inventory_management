@@ -550,4 +550,71 @@ RSpec.describe Potion, type: :model do
       end
     end
   end
+
+  describe '::after_create' do
+    let!(:matching_canonical) do
+      create(
+        :canonical_potion,
+        :with_associations,
+        name: 'Magic Potion',
+      )
+    end
+
+    context "when the new potion doesn't have its own alchemical properties" do
+      let(:potion) { build(:potion, name: 'magic potion') }
+
+      it 'adds alchemical properties from the canonical potion' do
+        potion.save!
+
+        expect(potion.alchemical_properties.reload.length).to eq 2
+      end
+
+      it 'sets "added_automatically" to true on new associations' do
+        potion.save!
+
+        expect(potion.potions_alchemical_properties.pluck(:added_automatically).uniq).to eq [true]
+      end
+    end
+
+    context 'when the new potion has its own alchemical properties' do
+      let(:potion) do
+        build(
+          :potion,
+          name: 'magic potion',
+        )
+      end
+
+      before do
+        create(
+          :canonical_potion,
+          :with_associations,
+          name: 'Magic Potion',
+        )
+
+        potion.save!
+
+        matching_canonical.alchemical_properties.reload
+        matching_property = matching_canonical.canonical_potions_alchemical_properties.first
+
+        create(
+          :potions_alchemical_property,
+          potion:,
+          alchemical_property: matching_property.alchemical_property,
+          strength: matching_property.strength,
+          duration: matching_property.duration,
+        )
+      end
+
+      it "doesn't remove the existing alchemical properties" do
+        potion.reload.save!
+        expect(potion.potions_alchemical_properties.length).to eq 2
+      end
+
+      it 'sets "added_automatically" only on the new associations' do
+        potion.reload.save!
+        expect(potion.potions_alchemical_properties.pluck(:added_automatically))
+          .to eq [false, true]
+      end
+    end
+  end
 end

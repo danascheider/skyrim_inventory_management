@@ -30,12 +30,17 @@ class PotionsAlchemicalProperty < ApplicationRecord
   validate :ensure_max_per_potion
 
   before_validation :set_added_automatically, if: -> { added_automatically.nil? }
+  after_save :save_associated!
 
-  scope :added_manually, -> { where(added_automatically: true) }
+  scope :added_manually, -> { where(added_automatically: false) }
 
   MAX_PER_POTION = Canonical::PotionsAlchemicalProperty::MAX_PER_POTION
 
   private
+
+  def save_associated!
+    potion.save!
+  end
 
   def set_added_automatically
     self.added_automatically = false
