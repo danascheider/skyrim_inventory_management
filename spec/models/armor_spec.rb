@@ -290,7 +290,8 @@ RSpec.describe Armor, type: :model do
         it 'sets "added_automatically" to true on new associations' do
           armor.save!
 
-          expect(armor.enchantables_enchantments.pluck(:added_automatically).uniq).to eq [true]
+          expect(armor.enchantables_enchantments.pluck(:added_automatically))
+            .to be_all(true)
         end
 
         it 'sets the correct strengths', :aggregate_failures do
@@ -443,6 +444,7 @@ RSpec.describe Armor, type: :model do
           :enchantables_enchantment,
           enchantable: armor,
           enchantment: Canonical::Armor.last.enchantments.first,
+          strength: Canonical::Armor.last.enchantments.first.strength,
         )
       end
 

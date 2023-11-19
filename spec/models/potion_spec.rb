@@ -572,7 +572,20 @@ RSpec.describe Potion, type: :model do
       it 'sets "added_automatically" to true on new associations' do
         potion.save!
 
-        expect(potion.potions_alchemical_properties.pluck(:added_automatically).uniq).to eq [true]
+        expect(potion.potions_alchemical_properties.pluck(:added_automatically))
+          .to be_all(true)
+      end
+
+      it 'sets the correct strength and duration', :aggregate_failures do
+        potion.save!
+
+        potion.canonical_potion.canonical_potions_alchemical_properties.each do |model|
+          has_match = potion.potions_alchemical_properties.any? do |join_model|
+            join_model.strength == model.strength && join_model.duration == model.duration
+          end
+
+          expect(has_match).to be true
+        end
       end
     end
 

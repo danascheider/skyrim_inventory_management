@@ -29,5 +29,9 @@ FactoryBot.define do
     trait :for_weapon do
       association :enchantable, factory: %i[weapon with_matching_canonical]
     end
+
+    trait :with_strength do
+      strength { 20 }
+    end
   end
 end
