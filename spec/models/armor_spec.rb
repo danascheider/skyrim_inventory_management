@@ -287,6 +287,13 @@ RSpec.describe Armor, type: :model do
           expect(armor.enchantments.length).to eq 2
         end
 
+        it 'sets "added_automatically" to true on new associations' do
+          armor.save!
+
+          expect(armor.enchantables_enchantments.pluck(:added_automatically))
+            .to be_all(true)
+        end
+
         it 'sets the correct strengths', :aggregate_failures do
           armor.save!
           matching_canonical.enchantables_enchantments.each do |join_model|
@@ -311,6 +318,11 @@ RSpec.describe Armor, type: :model do
 
         it "doesn't remove the existing enchantments" do
           expect(armor.enchantments.reload.length).to eq 4
+        end
+
+        it 'sets "added_automatically" only on the new associations' do
+          expect(armor.enchantables_enchantments.pluck(:added_automatically))
+            .to eq [true, true, false, false]
         end
       end
     end
@@ -432,6 +444,7 @@ RSpec.describe Armor, type: :model do
           :enchantables_enchantment,
           enchantable: armor,
           enchantment: Canonical::Armor.last.enchantments.first,
+          strength: Canonical::Armor.last.enchantments.first.strength,
         )
       end
 

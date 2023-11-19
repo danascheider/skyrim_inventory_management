@@ -15,7 +15,7 @@ FactoryBot.define do
 
     trait :with_enchantments do
       after(:create) do |armor|
-        create_list(:enchantables_enchantment, 2, enchantable: armor)
+        create_list(:enchantables_enchantment, 2, :with_strength, enchantable: armor)
       end
     end
   end

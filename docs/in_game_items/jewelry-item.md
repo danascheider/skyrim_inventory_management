@@ -14,7 +14,7 @@ Since `JewelryItem` models can also be enchanted, they are also matched to canon
 
 ## Associations
 
-Because `JewelryItem` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `JewelryItem` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. Enchantments that exist on the canonical model will be automatically added to the `JewelryItem` model when it is saved and a single matching `Canonical::JewelryItem` has been identified.
+Because `JewelryItem` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `JewelryItem` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. Enchantments that exist on the canonical model will be automatically added to the `JewelryItem` model when it is saved and a single matching `Canonical::JewelryItem` has been identified. Enchantments added automatically in this way will have the `added_automatically` attribute set to true on the `EnchantablesEnchantment` join model. For other enchantments, this value will be set to `false`.
 
 The `Canonical::JewelryItem` model has associations to `crafting_materials` that will be the same for all non-canonical models that inherit from a given canonical model. For this reason, calling `#crafting_materials` on a non-canonical `JewelryItem` model will return the crafting materials for its corresponding `Canonical::JewelryItem` if one exists.
 

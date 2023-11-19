@@ -116,7 +116,7 @@ class Weapon < ApplicationRecord
       enchantables_enchantments.find_or_create_by!(
         enchantment:,
         strength: enchantment.strength,
-      )
+      ) {|new_model| new_model.added_automatically = true }
     end
   end
 

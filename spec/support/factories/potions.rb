@@ -7,7 +7,7 @@ FactoryBot.define do
     name { 'My Potion' }
 
     trait :with_matching_canonical do
-      association :canonical_potion, factory: %i[canonical_potion with_association]
+      association :canonical_potion, factory: %i[canonical_potion with_associations]
 
       name { canonical_potion.name }
     end

@@ -21,12 +21,30 @@ class PotionsAlchemicalProperty < ApplicationRecord
               only_integer: true,
               allow_nil: true,
             }
+  validates :added_automatically,
+            inclusion: {
+              in: [true, false],
+              message: 'must be true or false',
+            }
 
   validate :ensure_max_per_potion
+
+  before_validation :set_added_automatically, if: -> { added_automatically.nil? }
+  after_save :save_associated!
+
+  scope :added_automatically, -> { where(added_automatically: true) }
 
   MAX_PER_POTION = Canonical::PotionsAlchemicalProperty::MAX_PER_POTION
 
   private
+
+  def save_associated!
+    potion.save!
+  end
+
+  def set_added_automatically
+    self.added_automatically = false
+  end
 
   def ensure_max_per_potion
     return if potion.alchemical_properties.length < MAX_PER_POTION

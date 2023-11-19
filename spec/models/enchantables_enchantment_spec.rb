@@ -6,100 +6,185 @@ RSpec.describe EnchantablesEnchantment, type: :model do
   let(:enchantment) { create(:enchantment) }
 
   describe 'validations' do
+    subject(:validate) { model.validate }
+
     describe 'enchantable item and enchantment' do
       let(:armor) { create(:canonical_armor) }
 
+      let(:model) do
+        build(
+          :enchantables_enchantment,
+          enchantable: armor,
+          enchantment:,
+        )
+      end
+
       it 'must form a unique combination' do
         create(:enchantables_enchantment, :for_canonical_armor, enchantable: armor, enchantment:)
-        model = build(:enchantables_enchantment, :for_canonical_armor, enchantable: armor, enchantment:)
+        validate
 
-        model.validate
         expect(model.errors[:enchantment_id]).to include 'must form a unique combination with enchantable item'
       end
     end
 
-    describe 'polymorphic associations' do
-      subject(:enchantable_type) { described_class.new(enchantable: item, enchantment: create(:enchantment)).enchantable_type }
+    describe '#added_automatically' do
+      context 'when the association is not a canonical model' do
+        let(:model) { build(:enchantables_enchantment, :for_armor) }
 
-      context 'when the association is a canonical armor item' do
-        let(:item) { create(:canonical_armor) }
+        it 'can be true' do
+          model.added_automatically = true
+          validate
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Canonical::Armor'
+          expect(model.errors[:added_automatically]).to be_empty
+        end
+
+        it "doesn't change a true value" do
+          model.added_automatically = true
+
+          expect { validate }
+            .not_to change(model, :added_automatically)
+        end
+
+        it 'can be false' do
+          model.added_automatically = false
+          validate
+
+          expect(model.errors[:added_automatically]).to be_empty
+        end
+
+        it 'changes nil values' do
+          model.added_automatically = nil
+
+          expect { validate }
+            .to change(model, :added_automatically)
+                  .to(false)
         end
       end
 
-      context 'when the association is a canonical weapon' do
-        let(:item) { create(:canonical_weapon) }
+      context 'when the association is a canonical model' do
+        let(:model) { build(:enchantables_enchantment, :for_canonical_weapon) }
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Canonical::Weapon'
+        it 'is automatically changed to true if set to false' do
+          model.added_automatically = true
+          validate
+
+          expect(model.added_automatically).to be true
+        end
+
+        it 'is automatically changed to true if nil' do
+          model.added_automatically = nil
+          validate
+
+          expect(model.added_automatically).to be true
         end
       end
+    end
+  end
 
-      context 'when the association is a canonical jewelry item' do
-        let(:item) { create(:canonical_jewelry_item) }
+  describe 'polymorphic associations' do
+    subject(:enchantable_type) do
+      described_class
+        .new(enchantable: item, enchantment: create(:enchantment)).enchantable_type
+    end
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Canonical::JewelryItem'
-        end
+    context 'when the association is a canonical armor item' do
+      let(:item) { create(:canonical_armor) }
+
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Canonical::Armor'
+      end
+    end
+
+    context 'when the association is a canonical weapon' do
+      let(:item) { create(:canonical_weapon) }
+
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Canonical::Weapon'
+      end
+    end
+
+    context 'when the association is a canonical jewelry item' do
+      let(:item) { create(:canonical_jewelry_item) }
+
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Canonical::JewelryItem'
+      end
+    end
+
+    context 'when the association is a canonical clothing item' do
+      let(:item) { create(:canonical_clothing_item) }
+
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Canonical::ClothingItem'
+      end
+    end
+
+    context 'when the association is an armor item' do
+      let(:item) { create(:armor) }
+
+      before do
+        create(:canonical_armor)
       end
 
-      context 'when the association is a canonical clothing item' do
-        let(:item) { create(:canonical_clothing_item) }
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Armor'
+      end
+    end
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Canonical::ClothingItem'
-        end
+    context 'when the association is a clothing item' do
+      let(:item) { create(:clothing_item) }
+
+      before do
+        create(:canonical_clothing_item)
       end
 
-      context 'when the association is an armor item' do
-        let(:item) { create(:armor) }
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'ClothingItem'
+      end
+    end
 
-        before do
-          create(:canonical_armor)
-        end
+    context 'when the association is a jewelry item' do
+      let(:item) { create(:jewelry_item) }
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Armor'
-        end
+      before do
+        create(:canonical_jewelry_item)
       end
 
-      context 'when the association is a clothing item' do
-        let(:item) { create(:clothing_item) }
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'JewelryItem'
+      end
+    end
 
-        before do
-          create(:canonical_clothing_item)
-        end
+    context 'when the association is a weapon' do
+      let(:item) { create(:weapon) }
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'ClothingItem'
-        end
+      before do
+        create(:canonical_weapon)
       end
 
-      context 'when the association is a jewelry item' do
-        let(:item) { create(:jewelry_item) }
-
-        before do
-          create(:canonical_jewelry_item)
-        end
-
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'JewelryItem'
-        end
+      it 'sets the enchantable type' do
+        expect(enchantable_type).to eq 'Weapon'
       end
+    end
+  end
 
-      context 'when the association is a weapon' do
-        let(:item) { create(:weapon) }
+  describe '::added_automatically scope' do
+    subject(:added_automatically) { described_class.added_automatically }
 
-        before do
-          create(:canonical_weapon)
-        end
+    let!(:included_models) do
+      [
+        create(:enchantables_enchantment, :for_armor, added_automatically: true),
+        create(:enchantables_enchantment, :for_weapon, added_automatically: true),
+        create(:enchantables_enchantment, :for_canonical_clothing),
+      ]
+    end
 
-        it 'sets the enchantable type' do
-          expect(enchantable_type).to eq 'Weapon'
-        end
-      end
+    before do
+      create(:enchantables_enchantment, :for_armor, added_automatically: false)
+    end
+
+    it 'includes all models with #added_automatically set to true' do
+      expect(added_automatically).to contain_exactly(*included_models)
     end
   end
 

@@ -17,4 +17,4 @@ In addition to these, `ClothingItem` models are matched to canonicals based on a
 
 ## Associations
 
-Because `ClothingItem` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `ClothingItem` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. The canonical model's enchantments will automatically be added to the `ClothingItem` model when it is saved and has a single matching `Canonical::ClothingItem` model.
+Because `ClothingItem` models may (at least theoretically) have user-added enchantments in addition to those present on the canonical model, the `ClothingItem` model has its own associations to `EnchantablesEnchantment` and `Enchantment`. The canonical model's enchantments will automatically be added to the `ClothingItem` model when it is saved and has a single matching `Canonical::ClothingItem` model. Enchantments added automatically in this way will have `added_automatically` set to `true` on the `EnchantablesEnchantment` join model. Other enchantments will have this attribute set to `false`.

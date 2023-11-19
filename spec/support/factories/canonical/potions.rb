@@ -10,9 +10,9 @@ FactoryBot.define do
     rare_item { false }
     quest_item { false }
 
-    trait :with_association do
+    trait :with_associations do
       after(:create) do |potion|
-        create(:canonical_potions_alchemical_property, potion:)
+        create_list(:canonical_potions_alchemical_property, 2, potion:)
       end
     end
   end

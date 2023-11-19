@@ -13,6 +13,7 @@ class Potion < ApplicationRecord
   validate :validate_unique_canonical
 
   before_validation :set_canonical_potion
+  after_save :add_properties_from_canonical
 
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
@@ -28,11 +29,14 @@ class Potion < ApplicationRecord
 
     return canonicals if canonicals.blank? || alchemical_properties.none?
 
-    canonicals
-      .joins(:canonical_potions_alchemical_properties)
-      .where(association_query)
-      .group('canonical_potions.id')
-      .having('COUNT(*) >= ?', potions_alchemical_properties.length)
+    ids = canonicals
+            .joins(:canonical_potions_alchemical_properties)
+            .where(association_query)
+            .group('canonical_potions.id')
+            .having('COUNT(*) >= ?', potions_alchemical_properties.length)
+            .ids
+
+    Canonical::Potion.where(id: ids)
   end
 
   private
@@ -80,10 +84,26 @@ class Potion < ApplicationRecord
     true
   end
 
+  def add_properties_from_canonical
+    return if canonical_model.nil?
+
+    canonical_model.canonical_potions_alchemical_properties.each do |join_model|
+      potions_alchemical_properties.find_or_create_by!(
+        alchemical_property_id: join_model.alchemical_property_id,
+        strength: join_model.strength,
+        duration: join_model.duration,
+      ) {|new_model| new_model.added_automatically = true }
+    end
+  end
+
   def canonical_has_matching_property?(join_model)
     canonical_model
       .canonical_potions_alchemical_properties
-      .find_by(alchemical_property_id: join_model.alchemical_property_id, priority: join_model.priority)
+      .find_by(
+        alchemical_property_id: join_model.alchemical_property_id,
+        strength: join_model.strength,
+        duration: join_model.duration,
+      )
       .present?
   end
 

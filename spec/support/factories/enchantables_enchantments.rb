@@ -4,6 +4,8 @@ FactoryBot.define do
   factory :enchantables_enchantment do
     enchantment
 
+    added_automatically { false }
+
     trait :for_canonical_armor do
       association :enchantable, factory: :canonical_armor
     end
@@ -18,6 +20,18 @@ FactoryBot.define do
 
     trait :for_canonical_weapon do
       association :enchantable, factory: :canonical_weapon
+    end
+
+    trait :for_armor do
+      association :enchantable, factory: %i[armor with_matching_canonical]
+    end
+
+    trait :for_weapon do
+      association :enchantable, factory: %i[weapon with_matching_canonical]
+    end
+
+    trait :with_strength do
+      strength { 20 }
     end
   end
 end

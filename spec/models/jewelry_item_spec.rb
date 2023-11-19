@@ -258,6 +258,7 @@ RSpec.describe JewelryItem, type: :model do
           :enchantables_enchantment,
           enchantable: item,
           enchantment: Canonical::JewelryItem.last.enchantments.first,
+          strength: Canonical::JewelryItem.last.enchantments.first.strength,
         )
       end
 
@@ -451,7 +452,7 @@ RSpec.describe JewelryItem, type: :model do
     let(:item) { create(:jewelry_item, name: 'Gold Diamond Ring') }
 
     context 'when there is a single matching canonical model' do
-      before do
+      let!(:matching_canonical) do
         create(
           :canonical_jewelry_item,
           :with_enchantments,
@@ -459,8 +460,58 @@ RSpec.describe JewelryItem, type: :model do
         )
       end
 
-      it 'adds enchantments' do
-        expect(item.enchantments.length).to eq 2
+      context "when the new item doesn't have its own enchantments" do
+        let(:item) do
+          build(
+            :jewelry_item,
+            name: 'Gold diamond ring',
+          )
+        end
+
+        it 'adds enchantments from the canonical model' do
+          item.save!
+          expect(item.enchantments.length).to eq 2
+        end
+
+        it 'sets "added_automatically" to true on new associations' do
+          item.save!
+          expect(item.enchantables_enchantments.pluck(:added_automatically))
+            .to be_all(true)
+        end
+
+        it 'sets the correct strengths', :aggregate_failures do
+          item.save!
+
+          matching_canonical.enchantables_enchantments.each do |join_model|
+            has_matching = item.enchantables_enchantments.any? do |model|
+              model.enchantment == join_model.enchantment && model.strength == join_model.strength
+            end
+
+            expect(has_matching).to be true
+          end
+        end
+      end
+
+      context 'when the new item has its own enchantments' do
+        let(:item) do
+          create(
+            :jewelry_item,
+            :with_enchantments,
+            name: 'Gold diamond ring',
+          )
+        end
+
+        it "doesn't remove the existing enchantments" do
+          item.save!
+          expect(item.enchantments.reload.length).to eq 4
+        end
+
+        it 'sets "added_automatically" only on the new associations' do
+          item.save!
+
+          expect(item.enchantables_enchantments.pluck(:added_automatically))
+            .to eq [true, true, false, false]
+        end
       end
     end
 

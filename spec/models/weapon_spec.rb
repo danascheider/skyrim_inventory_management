@@ -379,110 +379,62 @@ RSpec.describe Weapon, type: :model do
 
   describe '::after_save' do
     context 'when there is one matching canonical model' do
-      subject(:save) { weapon.save! }
-
-      context 'when neither the canonical nor the in-game item have enchantments' do
-        let(:weapon) { build(:weapon, :with_matching_canonical) }
-
-        it "doesn't add enchantments" do
-          expect { save }
-            .not_to change(weapon, :enchantments)
-        end
+      let!(:matching_canonical) do
+        create(
+          :canonical_weapon,
+          :with_enchantments,
+          name: 'Elven War Axe',
+        )
       end
 
-      context 'when the canonical weapon is enchanted' do
-        subject(:add_enchantment) do
-          create(
-            :enchantables_enchantment,
-            enchantable: weapon,
-            enchantment: Canonical::Weapon.first.enchantments.first,
+      context "when the new weapon doesn't have its own enchantments" do
+        let(:weapon) do
+          build(
+            :weapon,
+            name: 'elven war axe',
           )
         end
 
-        let(:weapon) { build(:weapon, name: 'foobar') }
-
-        context 'when the in-game item is not enchanted' do
-          before do
-            matching_canonical = create(
-              :canonical_weapon,
-              name: 'Foobar',
-            )
-
-            # We need to save the weapon now so that it doesn't add enchantments
-            # from the matching canonical if we create/save it after the enchantments
-            # have been added to the canonical.
-            weapon.save!
-
-            create_list(
-              :enchantables_enchantment,
-              2,
-              enchantable: matching_canonical,
-            )
-          end
-
-          it 'adds enchantments from the canonical' do
-            add_enchantment
-            expect(weapon.reload.enchantments.length).to eq 2
-          end
+        it 'adds enchantments from the canonical weapon' do
+          weapon.save!
+          expect(weapon.enchantments.length).to eq 2
         end
 
-        context 'when the in-game item has matching enchantments' do
-          before do
-            create_list(
-              :canonical_weapon,
-              2,
-              :with_enchantments,
-              name: 'Foobar',
-              # Set enchantable to false, otherwise both canonicals
-              # will continue to match the weapon object even after
-              # enchantments are added
-              enchantable: false,
-            )
-          end
+        it 'sets "added_automatically" to true on new associations' do
+          weapon.save!
 
-          it 'adds missing enchantments' do
-            add_enchantment
-            expect(weapon.reload.enchantments.length).to eq 2
-          end
+          expect(weapon.enchantables_enchantments.pluck(:added_automatically))
+            .to be_all(true)
         end
 
-        # We don't need to include sub-contexts for enchantable vs.
-        # non-enchantable canonicals, because if the canonicals are not
-        # enchantable then there will be no matching canonicals, which
-        # would be impossible to set up because SIM doesn't allow any
-        # weapon to be saved if no canonicals match.
-        context 'when the in-game item has non-matching enchantments' do
-          subject(:add_enchantment) { create(:enchantables_enchantment, enchantable: weapon) }
+        it 'sets the correct strengths', :aggregate_failures do
+          weapon.save!
+          matching_canonical.enchantables_enchantments.each do |join_model|
+            has_matching = weapon.enchantables_enchantments.any? do |model|
+              model.enchantment == join_model.enchantment && model.strength == join_model.strength
+            end
 
-          let(:weapon) { create(:weapon, name: 'foobar') }
-
-          before do
-            create(
-              :canonical_weapon,
-              :with_enchantments,
-              name: 'Foobar',
-              enchantable: true,
-            )
-
-            create(
-              :canonical_weapon,
-              :with_enchantments,
-              name: 'Foobar',
-              enchantable: false,
-            )
+            expect(has_matching).to be true
           end
+        end
+      end
 
-          it 'sets the canonical weapon' do
-            expect { add_enchantment }
-              .to change(weapon.reload, :canonical_weapon)
-                    .from(nil)
-                    .to(Canonical::Weapon.first)
-          end
+      context 'when the new weapon has its own enchantments' do
+        let(:weapon) do
+          create(
+            :weapon,
+            :with_enchantments,
+            name: 'elven war axe',
+          )
+        end
 
-          it 'adds any enchantments from the enchantable canonical' do
-            add_enchantment
-            expect(weapon.reload.enchantments.length).to eq 3
-          end
+        it "doesn't remove the existing enchantments" do
+          expect(weapon.enchantments.reload.length).to eq 4
+        end
+
+        it 'sets "added_automatically" only on the new associations' do
+          expect(weapon.enchantables_enchantments.pluck(:added_automatically))
+            .to eq [true, true, false, false]
         end
       end
     end
@@ -600,6 +552,7 @@ RSpec.describe Weapon, type: :model do
           :enchantables_enchantment,
           enchantable: weapon,
           enchantment: Canonical::Weapon.last.enchantments.first,
+          strength: Canonical::Weapon.last.enchantments.first.strength,
         )
       end
 
