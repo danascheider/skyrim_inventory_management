@@ -9,3 +9,7 @@ In Skyrim, each potion's properties can have a `strength` and/or `duration` defi
 ## Matching Canonical Models
 
 This join model does not validate the presence of a corresponding canonical model when it's created, both to avoid expensive database queries and to reflect the fact that not all potions have corresponding canonical potions.
+
+## `added_automatically`
+
+This `PotionsAlchemicalProperty` join model has an attribute, `added_automatically`, to indicate when an alchemical property has been added to a potion automatically based on its canonical potion versus when it has been added by the user.
