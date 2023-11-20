@@ -33,6 +33,7 @@ class PotionsAlchemicalProperty < ApplicationRecord
   after_save :save_associated!
 
   scope :added_automatically, -> { where(added_automatically: true) }
+  scope :added_manually, -> { where(added_automatically: false) }
 
   MAX_PER_POTION = Canonical::PotionsAlchemicalProperty::MAX_PER_POTION
 
