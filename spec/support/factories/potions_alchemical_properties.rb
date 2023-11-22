@@ -6,5 +6,7 @@ FactoryBot.define do
     alchemical_property
 
     added_automatically { false }
+    strength { 20 }
+    duration { 30 }
   end
 end

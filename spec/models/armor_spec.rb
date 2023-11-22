@@ -410,6 +410,54 @@ RSpec.describe Armor, type: :model do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
         end
       end
+
+      context 'when there are enchantments' do
+        let(:armor) { create(:armor) }
+        let(:shared_enchantment) { create(:enchantment) }
+
+        let!(:matching_canonicals) do
+          create_list(:canonical_armor, 2, enchantable: false)
+        end
+
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.first,
+            enchantment: shared_enchantment,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.last,
+            enchantment: shared_enchantment,
+          )
+
+          create(:enchantables_enchantment, enchantable: matching_canonicals.first)
+          create(:enchantables_enchantment, enchantable: matching_canonicals.last)
+
+          matching_canonicals.each {|canonical| canonical.enchantables_enchantments.reload }
+
+          create(
+            :enchantables_enchantment,
+            enchantable: armor,
+            enchantment: shared_enchantment,
+            added_automatically: false,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: armor,
+            enchantment: matching_canonicals.first.enchantments.last,
+            added_automatically: true,
+          )
+
+          armor.enchantables_enchantments.reload
+        end
+
+        it 'matches based only on manually added enchantments' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
     end
 
     context 'when changed attributes lead to a changed canonical' do
