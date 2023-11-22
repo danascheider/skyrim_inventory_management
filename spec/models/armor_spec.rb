@@ -348,6 +348,30 @@ RSpec.describe Armor, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { armor.canonical_model }
+
+    context 'when there is a canonical armor associated' do
+      let(:armor) { create(:armor, :with_matching_canonical) }
+
+      it 'returns the canonical armor' do
+        expect(canonical_model).to eq armor.canonical_armor
+      end
+    end
+
+    context 'when there is no canonical armor associated' do
+      let(:armor) { create(:armor) }
+
+      before do
+        create_list(:canonical_armor, 2)
+      end
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
   describe '#canonical_models' do
     subject(:canonical_models) { armor.canonical_models }
 
