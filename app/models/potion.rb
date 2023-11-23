@@ -33,7 +33,7 @@ class Potion < ApplicationRecord
             .joins(:canonical_potions_alchemical_properties)
             .where(association_query)
             .group('canonical_potions.id')
-            .having('COUNT(*) >= ?', potions_alchemical_properties.length)
+            .having('COUNT(*) >= ?', potions_alchemical_properties.added_manually.length)
             .ids
 
     Canonical::Potion.where(id: ids)
@@ -108,7 +108,7 @@ class Potion < ApplicationRecord
   end
 
   def association_query
-    properties_to_match = potions_alchemical_properties.map do |prop|
+    properties_to_match = potions_alchemical_properties.added_manually.map do |prop|
       {
         strength: prop.strength,
         duration: prop.duration,
@@ -118,21 +118,21 @@ class Potion < ApplicationRecord
 
     conditions = properties_to_match.map do |prop|
       strength_condition = if prop[:strength].nil?
-                             '(canonical_potions_alchemical_properties.strength IS NULL)'
+                             'canonical_potions_alchemical_properties.strength IS NULL'
                            else
-                             "(canonical_potions_alchemical_properties.strength = #{prop[:strength]})"
+                             "canonical_potions_alchemical_properties.strength = #{prop[:strength]}"
                            end
 
       duration_condition = if prop[:duration].nil?
-                             '(canonical_potions_alchemical_properties.duration IS NULL)'
+                             'canonical_potions_alchemical_properties.duration IS NULL'
                            else
-                             "(canonical_potions_alchemical_properties.duration = #{prop[:duration]})"
+                             "canonical_potions_alchemical_properties.duration = #{prop[:duration]}"
                            end
 
       conditions_array = [
         strength_condition,
         duration_condition,
-        "(canonical_potions_alchemical_properties.alchemical_property_id = #{prop[:alchemical_property_id]})",
+        "canonical_potions_alchemical_properties.alchemical_property_id = #{prop[:alchemical_property_id]}",
       ]
 
       "(#{conditions_array.join(' AND ')})"

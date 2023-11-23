@@ -44,7 +44,7 @@ class ClothingItem < ApplicationRecord
 
     return canonicals if enchantments.none?
 
-    enchantables_enchantments.each do |join_model|
+    enchantables_enchantments.added_manually.each do |join_model|
       canonicals = if join_model.strength.present?
                      canonicals.left_outer_joins(:enchantables_enchantments).where(
                        '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_clothing_items.enchantable = true',

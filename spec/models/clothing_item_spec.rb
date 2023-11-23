@@ -297,6 +297,54 @@ RSpec.describe ClothingItem, type: :model do
           expect(canonical_models).to eq matching_canonicals
         end
       end
+
+      context 'when there are enchantments' do
+        let(:item) { create(:clothing_item) }
+        let(:shared_enchantment) { create(:enchantment) }
+
+        let!(:matching_canonicals) do
+          create_list(:canonical_clothing_item, 2, enchantable: false)
+        end
+
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.first,
+            enchantment: shared_enchantment,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.last,
+            enchantment: shared_enchantment,
+          )
+
+          create(:enchantables_enchantment, enchantable: matching_canonicals.first)
+          create(:enchantables_enchantment, enchantable: matching_canonicals.last)
+
+          matching_canonicals.each {|canonical| canonical.enchantables_enchantments.reload }
+
+          create(
+            :enchantables_enchantment,
+            enchantable: item,
+            enchantment: shared_enchantment,
+            added_automatically: false,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: item,
+            enchantment: matching_canonicals.first.enchantments.last,
+            added_automatically: true,
+          )
+
+          item.enchantables_enchantments.reload
+        end
+
+        it 'matches based only on manually added enchantments' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
     end
 
     context "when the matching canonical model isn't the one that's assigned" do

@@ -451,6 +451,61 @@ RSpec.describe Potion, type: :model do
           expect(canonical_models).to contain_exactly(canonical_potions.third, canonical_potions.last)
         end
       end
+
+      context 'when there are automatically added alchemical properties' do
+        let(:potion) { create(:potion) }
+        let(:shared_property) { create(:alchemical_property) }
+
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_potion,
+            2,
+          )
+        end
+
+        before do
+          create(
+            :canonical_potions_alchemical_property,
+            potion: matching_canonicals.first,
+            alchemical_property: shared_property,
+          )
+
+          create(
+            :canonical_potions_alchemical_property,
+            potion: matching_canonicals.last,
+            alchemical_property: shared_property,
+          )
+
+          create(:canonical_potions_alchemical_property, potion: matching_canonicals.first)
+          create(:canonical_potions_alchemical_property, potion: matching_canonicals.last)
+
+          matching_canonicals.each do |canonical|
+            canonical.canonical_potions_alchemical_properties.reload
+            canonical.alchemical_properties.reload
+          end
+
+          create(
+            :potions_alchemical_property,
+            potion:,
+            alchemical_property: shared_property,
+            added_automatically: false,
+          )
+
+          create(
+            :potions_alchemical_property,
+            potion:,
+            alchemical_property: matching_canonicals.first.alchemical_properties.last,
+            added_automatically: true,
+          )
+
+          potion.potions_alchemical_properties.reload
+          potion.alchemical_properties.reload
+        end
+
+        it 'matches only based on manually added alchemical properties' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
     end
   end
 
@@ -547,86 +602,6 @@ RSpec.describe Potion, type: :model do
             .to change(potion, :canonical_potion)
                   .to(nil)
         end
-      end
-    end
-  end
-
-  describe '::after_create' do
-    let!(:matching_canonical) do
-      create(
-        :canonical_potion,
-        :with_associations,
-        name: 'Magic Potion',
-      )
-    end
-
-    context "when the new potion doesn't have its own alchemical properties" do
-      let(:potion) { build(:potion, name: 'magic potion') }
-
-      it 'adds alchemical properties from the canonical potion' do
-        potion.save!
-
-        expect(potion.alchemical_properties.reload.length).to eq 2
-      end
-
-      it 'sets "added_automatically" to true on new associations' do
-        potion.save!
-
-        expect(potion.potions_alchemical_properties.pluck(:added_automatically))
-          .to be_all(true)
-      end
-
-      it 'sets the correct strength and duration', :aggregate_failures do
-        potion.save!
-
-        potion.canonical_potion.canonical_potions_alchemical_properties.each do |model|
-          has_match = potion.potions_alchemical_properties.any? do |join_model|
-            join_model.strength == model.strength && join_model.duration == model.duration
-          end
-
-          expect(has_match).to be true
-        end
-      end
-    end
-
-    context 'when the new potion has its own alchemical properties' do
-      let(:potion) do
-        build(
-          :potion,
-          name: 'magic potion',
-        )
-      end
-
-      before do
-        create(
-          :canonical_potion,
-          :with_associations,
-          name: 'Magic Potion',
-        )
-
-        potion.save!
-
-        matching_canonical.alchemical_properties.reload
-        matching_property = matching_canonical.canonical_potions_alchemical_properties.first
-
-        create(
-          :potions_alchemical_property,
-          potion:,
-          alchemical_property: matching_property.alchemical_property,
-          strength: matching_property.strength,
-          duration: matching_property.duration,
-        )
-      end
-
-      it "doesn't remove the existing alchemical properties" do
-        potion.reload.save!
-        expect(potion.potions_alchemical_properties.length).to eq 2
-      end
-
-      it 'sets "added_automatically" only on the new associations' do
-        potion.reload.save!
-        expect(potion.potions_alchemical_properties.pluck(:added_automatically))
-          .to eq [false, true]
       end
     end
   end

@@ -12,4 +12,4 @@ This join model does not validate the presence of a corresponding canonical mode
 
 ## `added_automatically`
 
-This `PotionsAlchemicalProperty` join model has an attribute, `added_automatically`, to indicate when an alchemical property has been added to a potion automatically based on its canonical potion versus when it has been added by the user.
+This `PotionsAlchemicalProperty` join model has an attribute, `added_automatically`, to indicate when an alchemical property has been added to a potion automatically based on its canonical potion versus when it has been added by the user. Alchemical properties that were added automatically are not taken into account when matching a potion to a `Canonical::Potion`.

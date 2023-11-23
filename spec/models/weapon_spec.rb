@@ -92,6 +92,147 @@ RSpec.describe Weapon, type: :model do
     end
   end
 
+  describe '#canonical_model' do
+    subject(:canonical_model) { weapon.canonical_model }
+
+    context 'when there is a canonical weapon associated' do
+      let(:weapon) { create(:weapon, :with_matching_canonical) }
+
+      it 'returns the canonical weapon' do
+        expect(canonical_model).to eq weapon.canonical_weapon
+      end
+    end
+
+    context 'when there is no canonical weapon associated' do
+      let(:weapon) { create(:weapon) }
+
+      before do
+        create_list(:canonical_weapon, 2)
+      end
+
+      it 'returns nil' do
+        expect(canonical_model).to be_nil
+      end
+    end
+  end
+
+  describe '#canonical_models' do
+    subject(:canonical_models) { weapon.canonical_models }
+
+    context 'when there is no existing canonical match' do
+      before do
+        create(:canonical_weapon, name: 'Something Else')
+      end
+
+      context 'when only the name has to match' do
+        let(:weapon) { build(:weapon, unit_weight: nil) }
+
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_weapon,
+            3,
+            unit_weight: 2.5,
+          )
+        end
+
+        it 'returns all matching items' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
+
+      context 'when multiple attributes have to match' do
+        let(:weapon) { build(:weapon, unit_weight: 2.5) }
+
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_weapon,
+            3,
+            unit_weight: 2.5,
+          )
+        end
+
+        before do
+          create(:canonical_weapon, unit_weight: 1)
+        end
+
+        it 'returns only the items for which all values match' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
+
+      context 'when there are enchantments' do
+        let(:weapon) { create(:weapon) }
+        let(:shared_enchantment) { create(:enchantment) }
+
+        let!(:matching_canonicals) do
+          create_list(
+            :canonical_weapon,
+            2,
+            enchantable: false,
+          )
+        end
+
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.first,
+            enchantment: shared_enchantment,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: matching_canonicals.last,
+            enchantment: shared_enchantment,
+          )
+
+          create(:enchantables_enchantment, enchantable: matching_canonicals.first)
+          create(:enchantables_enchantment, enchantable: matching_canonicals.last)
+
+          matching_canonicals.each {|canonical| canonical.enchantables_enchantments.reload }
+
+          create(
+            :enchantables_enchantment,
+            enchantable: weapon,
+            enchantment: shared_enchantment,
+            added_automatically: false,
+          )
+
+          create(
+            :enchantables_enchantment,
+            enchantable: weapon,
+            enchantment: matching_canonicals.first.enchantments.last,
+            added_automatically: true,
+          )
+
+          weapon.enchantables_enchantments.reload
+        end
+
+        it 'matches based only on manually added enchantments' do
+          expect(canonical_models).to contain_exactly(*matching_canonicals)
+        end
+      end
+    end
+
+    context 'when changed attributes lead to a changed canonical' do
+      let(:weapon) { create(:weapon, :with_matching_canonical) }
+
+      let!(:new_canonical) do
+        create(
+          :canonical_weapon,
+          name: 'Nordic Carved Sword',
+          unit_weight: 9,
+        )
+      end
+
+      it 'returns the new canonical' do
+        weapon.name = 'Nordic Carved Sword'
+        weapon.unit_weight = 9
+
+        expect(canonical_models).to contain_exactly(new_canonical)
+      end
+    end
+  end
+
   describe '::before_validation' do
     subject(:validate) { weapon.validate }
 
