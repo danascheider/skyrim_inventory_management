@@ -95,7 +95,7 @@ RSpec.describe Weapon, type: :model do
   describe '#canonical_model' do
     subject(:canonical_model) { weapon.canonical_model }
 
-    context 'when there is a canonical armor associated' do
+    context 'when there is a canonical weapon associated' do
       let(:weapon) { create(:weapon, :with_matching_canonical) }
 
       it 'returns the canonical weapon' do
@@ -125,16 +125,15 @@ RSpec.describe Weapon, type: :model do
       end
 
       context 'when only the name has to match' do
+        let(:weapon) { build(:weapon, unit_weight: nil) }
+
         let!(:matching_canonicals) do
           create_list(
             :canonical_weapon,
             3,
-            name: weapon.name,
             unit_weight: 2.5,
           )
         end
-
-        let(:weapon) { build(:weapon, unit_weight: nil) }
 
         it 'returns all matching items' do
           expect(canonical_models).to contain_exactly(*matching_canonicals)
@@ -142,6 +141,8 @@ RSpec.describe Weapon, type: :model do
       end
 
       context 'when multiple attributes have to match' do
+        let(:weapon) { build(:weapon, unit_weight: 2.5) }
+
         let!(:matching_canonicals) do
           create_list(
             :canonical_weapon,
@@ -149,8 +150,6 @@ RSpec.describe Weapon, type: :model do
             unit_weight: 2.5,
           )
         end
-
-        let(:weapon) { build(:weapon, unit_weight: 2.5) }
 
         before do
           create(:canonical_weapon, unit_weight: 1)
