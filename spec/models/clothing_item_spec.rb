@@ -102,15 +102,37 @@ RSpec.describe ClothingItem, type: :model do
     end
 
     context 'when updating in-game item attributes' do
-      let(:item) { create(:clothing_item, :with_matching_canonical) }
+      let(:item) { create(:clothing_item, :with_enchanted_canonical) }
 
-      context 'when the update results in a new canonical match' do
+      before do
+        item.canonical_clothing_item.update!(enchantable: true)
+
+        create(
+          :enchantables_enchantment,
+          enchantable: item,
+          added_automatically: false,
+        )
+
+        item.enchantables_enchantments.reload
+      end
+
+      context 'when the update changes the canonical association' do
         let!(:new_canonical) do
           create(
             :canonical_clothing_item,
             name: 'Roughspun Tunic',
             unit_weight: 5,
           )
+        end
+
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: new_canonical,
+            enchantment: item.enchantables_enchantments.added_manually.first.enchantment,
+          )
+
+          new_canonical.enchantables_enchantments.reload
         end
 
         it 'updates the canonical association' do
@@ -130,6 +152,17 @@ RSpec.describe ClothingItem, type: :model do
 
           expect(item.name).to eq 'Roughspun Tunic'
           expect(item.unit_weight).to eq 5
+        end
+
+        it 'removes automatically added enchantments', :aggregate_failures do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          validate
+          item.enchantables_enchantments.reload
+
+          expect(item.enchantables_enchantments.count).to eq 1
+          expect(item.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
         end
       end
 
@@ -161,6 +194,17 @@ RSpec.describe ClothingItem, type: :model do
           expect(item.name).to eq 'roughspun tunic'
           expect(item.unit_weight).to be_nil
         end
+
+        it 'removes automatically-added enchantments', :aggregate_failures do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          validate
+          item.enchantables_enchantments.reload
+
+          expect(item.enchantables_enchantments.count).to eq 1
+          expect(item.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
       context 'when the update results in no canonical matches' do
@@ -171,6 +215,17 @@ RSpec.describe ClothingItem, type: :model do
           expect { validate }
             .to change(item, :canonical_clothing_item)
                   .to(nil)
+        end
+
+        it 'removes automatically-added enchantments', :aggregate_failures do
+          item.name = 'roughspun tunic'
+          item.unit_weight = nil
+
+          validate
+          item.enchantables_enchantments.reload
+
+          expect(item.enchantables_enchantments.count).to eq 1
+          expect(item.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
         end
       end
     end

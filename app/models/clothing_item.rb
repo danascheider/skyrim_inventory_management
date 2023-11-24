@@ -59,7 +59,7 @@ class ClothingItem < ApplicationRecord
                    end
     end
 
-    canonicals.uniq
+    Canonical::ClothingItem.where(id: canonicals.ids)
   end
 
   private
@@ -77,11 +77,13 @@ class ClothingItem < ApplicationRecord
     self.unit_weight = canonical_clothing_item.unit_weight
     self.magical_effects = canonical_clothing_item.magical_effects
 
-    set_enchantments if persisted?
+    set_enchantments if persisted? && canonical_clothing_item_id_changed?
   end
 
   def set_enchantments
     return if canonical_clothing_item.enchantments.empty?
+
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
 
     canonical_clothing_item.enchantables_enchantments.each do |model|
       enchantables_enchantments.find_or_create_by!(
@@ -93,6 +95,7 @@ class ClothingItem < ApplicationRecord
 
   def clear_canonical_clothing_item
     self.canonical_clothing_item_id = nil
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
   end
 
   def canonical_model_matches?
