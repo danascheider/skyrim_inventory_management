@@ -15,5 +15,11 @@ FactoryBot.define do
     trait :with_matching_canonical do
       association :canonical_armor, strategy: :create
     end
+
+    trait :with_enchanted_canonical do
+      association :canonical_armor,
+                  factory: %i[canonical_armor with_enchantments],
+                  strategy: :create
+    end
   end
 end

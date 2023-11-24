@@ -67,7 +67,7 @@ class Armor < ApplicationRecord
                    end
     end
 
-    canonicals.uniq
+    Canonical::Armor.where(id: canonicals.ids)
   end
 
   def crafting_materials
@@ -94,11 +94,13 @@ class Armor < ApplicationRecord
     self.unit_weight = canonical_armor.unit_weight
     self.weight = canonical_armor.weight
 
-    set_enchantments if persisted?
+    set_enchantments if persisted? && canonical_armor_id_changed?
   end
 
   def set_enchantments
     return if canonical_armor.enchantments.empty?
+
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
 
     canonical_armor.enchantables_enchantments.each do |model|
       enchantables_enchantments.find_or_create_by!(
@@ -110,6 +112,7 @@ class Armor < ApplicationRecord
 
   def clear_canonical_armor
     self.canonical_armor_id = nil
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
   end
 
   def canonical_model_matches?

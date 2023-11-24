@@ -21,14 +21,17 @@ class EnchantablesEnchantment < ApplicationRecord
   after_validation :validate_against_canonical,
                    if: :should_validate_against_canonical?
 
-  after_save :save_associated!, unless: :canonical_enchantable?
+  after_save :update_canonical_enchantable, unless: :canonical_enchantable?
 
   scope :added_automatically, -> { where(added_automatically: true) }
   scope :added_manually, -> { where(added_automatically: false) }
 
   private
 
-  def save_associated!
+  def update_canonical_enchantable
+    return if added_automatically == true
+
+    enchantable.enchantables_enchantments.reload
     enchantable.save!
   end
 
