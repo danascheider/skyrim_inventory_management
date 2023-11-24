@@ -11,6 +11,7 @@ class Potion < ApplicationRecord
   validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
 
   validate :validate_unique_canonical
+  validate :validate_player_created_potion, if: -> { canonical_models.none? }
 
   before_validation :set_canonical_potion
   after_create :add_properties_from_canonical, if: -> { canonical_potion.present? }
@@ -144,6 +145,24 @@ class Potion < ApplicationRecord
     end
 
     conditions.join(' OR ')
+  end
+
+  def validate_player_created_potion
+    if player_created_potion_names.include?(name&.downcase)
+      self.name = Titlecase.titleize(name)
+    else
+      errors.add(:name, 'must be a valid potion or poison name')
+    end
+  end
+
+  def player_created_potion_names
+    @player_created_potion_names ||= begin
+      strings = AlchemicalProperty.pluck(:effect_type, :name).map do |effect_type, name|
+        "#{effect_type} of #{name.downcase}"
+      end
+
+      strings.uniq
+    end
   end
 
   def remove_automatically_added_alchemical_properties!

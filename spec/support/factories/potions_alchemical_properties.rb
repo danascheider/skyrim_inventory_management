@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :potions_alchemical_property do
-    potion
     alchemical_property
+    association :potion, factory: %i[potion with_matching_canonical]
 
     added_automatically { false }
     strength { 20 }

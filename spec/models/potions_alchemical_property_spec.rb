@@ -126,7 +126,7 @@ RSpec.describe PotionsAlchemicalProperty, type: :model do
     end
 
     describe 'alchemical effects' do
-      let(:potion) { create(:potion) }
+      let(:potion) { create(:potion, :with_matching_canonical) }
       let(:model) { build(:potions_alchemical_property, potion:) }
 
       context 'when the potion has fewer than 4 effects' do

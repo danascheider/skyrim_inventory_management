@@ -8,6 +8,10 @@ RSpec.describe Potion, type: :model do
 
     let(:potion) { build(:potion) }
 
+    before do
+      create(:alchemical_property, name: 'Cure Disease', effect_type: 'potion')
+    end
+
     describe '#name' do
       it "can't be blank" do
         potion.name = nil
@@ -35,7 +39,7 @@ RSpec.describe Potion, type: :model do
       let(:game) { create(:game) }
 
       context 'when the canonical potion is not unique' do
-        let(:canonical_potion) { build(:canonical_potion) }
+        let(:canonical_potion) { create(:canonical_potion) }
 
         before do
           create_list(
@@ -85,6 +89,53 @@ RSpec.describe Potion, type: :model do
             validate
             expect(potion.errors[:base]).to include 'is a duplicate of a unique in-game item'
           end
+        end
+      end
+    end
+
+    describe 'player-created potions and poisons' do
+      before do
+        data = JSON.parse(
+          File.read(
+            Rails.root.join(
+              'spec',
+              'support',
+              'fixtures',
+              'canonical',
+              'sync',
+              'alchemical_properties.json',
+            ),
+          ),
+          symbolize_names: true,
+        )
+
+        data.each do |object|
+          AlchemicalProperty.create!(object[:attributes])
+        rescue ActiveRecord::RecordInvalid
+          # noop
+        end
+      end
+
+      context 'when the potion has a valid name' do
+        let(:potion) { build(:potion, name: 'pOiSoN Of dAmAgE hEaLtH') }
+
+        it 'is valid' do
+          expect(potion).to be_valid
+        end
+
+        it 'titlecases the name' do
+          expect { validate }
+            .to change(potion, :name)
+                  .to('Poison of Damage Health')
+        end
+      end
+
+      context 'when the name is invalid' do
+        let(:potion) { build(:potion, name: 'Potion of Kickassery') }
+
+        it 'adds an error' do
+          validate
+          expect(potion.errors[:name]).to include 'must be a valid potion or poison name'
         end
       end
     end
@@ -203,7 +254,7 @@ RSpec.describe Potion, type: :model do
 
       context 'when the potion has one alchemical property' do
         context 'when strength and duration are not defined' do
-          let(:canonical_potions) { create_list(:canonical_potion, 3, name: 'Foo') }
+          let!(:canonical_potions) { create_list(:canonical_potion, 3, name: 'Foo') }
 
           let!(:join_model) do
             create(
@@ -247,7 +298,7 @@ RSpec.describe Potion, type: :model do
         end
 
         context 'when strength is defined but not duration' do
-          let(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
+          let!(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
 
           let!(:join_model) do
             create(
@@ -284,7 +335,7 @@ RSpec.describe Potion, type: :model do
         end
 
         context 'when duration is defined but not strength' do
-          let(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
+          let!(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
 
           let!(:join_model) do
             create(
@@ -321,7 +372,7 @@ RSpec.describe Potion, type: :model do
         end
 
         context 'when both strength and duration are defined' do
-          let(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
+          let!(:canonical_potions) { create_list(:canonical_potion, 2, name: 'Foo') }
 
           let!(:join_model) do
             create(
@@ -359,7 +410,7 @@ RSpec.describe Potion, type: :model do
       end
 
       context 'when the potion has multiple alchemical properties' do
-        let(:canonical_potions) { create_list(:canonical_potion, 4, name: 'foo') }
+        let!(:canonical_potions) { create_list(:canonical_potion, 4, name: 'foo') }
 
         let!(:join_models) do
           [
