@@ -112,7 +112,7 @@ RSpec.describe Potion, type: :model do
         data.each do |object|
           AlchemicalProperty.create!(object[:attributes])
         rescue ActiveRecord::RecordInvalid
-          # noop
+          next
         end
       end
 
