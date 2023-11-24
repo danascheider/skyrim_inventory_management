@@ -9,7 +9,7 @@ RSpec.describe Potion, type: :model do
     let(:potion) { build(:potion) }
 
     before do
-      create(:alchemical_property, name: 'Cure Disease', effect_type: 'potion')
+      create(:alchemical_property, name: 'Fortify Destruction', effect_type: 'potion')
     end
 
     describe '#name' do
