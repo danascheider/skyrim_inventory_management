@@ -290,7 +290,7 @@ RSpec.describe Armor, type: :model do
           armor.unit_weight = nil
 
           validate
-          armor.reload
+          armor.enchantables_enchantments.reload
 
           expect(armor.enchantables_enchantments.count).to eq 1
           expect(armor.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
