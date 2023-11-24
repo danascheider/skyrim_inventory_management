@@ -100,7 +100,7 @@ class Armor < ApplicationRecord
   def set_enchantments
     return if canonical_armor.enchantments.empty?
 
-    enchantables_enchantments.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_enchantments!
 
     canonical_armor.enchantables_enchantments.each do |model|
       enchantables_enchantments.find_or_create_by!(
@@ -112,7 +112,7 @@ class Armor < ApplicationRecord
 
   def clear_canonical_armor
     self.canonical_armor_id = nil
-    enchantables_enchantments.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_enchantments!
   end
 
   def canonical_model_matches?
@@ -122,6 +122,10 @@ class Armor < ApplicationRecord
     return false unless magical_effects.nil? || magical_effects.casecmp(canonical_model.magical_effects)&.zero?
 
     true
+  end
+
+  def remove_automatically_added_enchantments!
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
   end
 
   def attributes_to_match

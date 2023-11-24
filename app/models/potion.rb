@@ -59,7 +59,7 @@ class Potion < ApplicationRecord
 
   def clear_canonical_potion
     self.canonical_potion_id = nil
-    potions_alchemical_properties.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_alchemical_properties!
   end
 
   def validate_unique_canonical
@@ -90,7 +90,7 @@ class Potion < ApplicationRecord
   def add_properties_from_canonical
     return if canonical_model.nil?
 
-    potions_alchemical_properties.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_alchemical_properties!
 
     canonical_model.canonical_potions_alchemical_properties.each do |join_model|
       potions_alchemical_properties.find_or_create_by!(
@@ -144,5 +144,9 @@ class Potion < ApplicationRecord
     end
 
     conditions.join(' OR ')
+  end
+
+  def remove_automatically_added_alchemical_properties!
+    potions_alchemical_properties.added_automatically.find_each(&:destroy!)
   end
 end

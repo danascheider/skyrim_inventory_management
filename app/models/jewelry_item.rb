@@ -110,7 +110,7 @@ class JewelryItem < ApplicationRecord
   def set_enchantments
     return if canonical_jewelry_item.enchantments.empty?
 
-    enchantables_enchantments.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_enchantments!
 
     canonical_jewelry_item.enchantables_enchantments.each do |model|
       enchantables_enchantments.find_or_create_by!(
@@ -122,7 +122,7 @@ class JewelryItem < ApplicationRecord
 
   def clear_canonical_jewelry_item
     self.canonical_jewelry_item_id = nil
-    enchantables_enchantments.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_enchantments!
   end
 
   def canonical_model_matches?
@@ -132,6 +132,10 @@ class JewelryItem < ApplicationRecord
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
 
     true
+  end
+
+  def remove_automatically_added_enchantments!
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
   end
 
   def attributes_to_match

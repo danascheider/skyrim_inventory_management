@@ -114,7 +114,7 @@ class Weapon < ApplicationRecord
     return if canonical_weapon.nil?
     return if canonical_weapon.enchantments.none?
 
-    enchantables_enchantments.added_automatically.find_each(&:destroy!)
+    remove_automatically_added_enchantments!
 
     canonical_weapon.enchantments.each do |enchantment|
       enchantables_enchantments.find_or_create_by!(
@@ -146,6 +146,10 @@ class Weapon < ApplicationRecord
     true
   end
 
+  def remove_automatically_added_enchantments!
+    enchantables_enchantments.added_automatically.find_each(&:destroy)
+  end
+
   def attributes_to_match
     {
       unit_weight:,
@@ -156,7 +160,7 @@ class Weapon < ApplicationRecord
 
   def clear_canonical_weapon
     self.canonical_weapon_id = nil
-    enchantables_enchantments.added_automatically.find_each(&:destroy)
+    remove_automatically_added_enchantments!
   end
 
   def ensure_canonicals_exist
