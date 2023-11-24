@@ -39,7 +39,7 @@ class Weapon < ApplicationRecord
   before_validation :set_canonical_weapon
   before_validation :set_values_from_canonical
 
-  after_save :set_enchantments
+  after_create :set_enchantments, if: -> { canonical_weapon.present? }
 
   DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
@@ -106,11 +106,15 @@ class Weapon < ApplicationRecord
     self.category = canonical_weapon.category
     self.weapon_type = canonical_weapon.weapon_type
     self.magical_effects = canonical_weapon.magical_effects
+
+    set_enchantments if persisted? && canonical_weapon_id_changed?
   end
 
   def set_enchantments
     return if canonical_weapon.nil?
     return if canonical_weapon.enchantments.none?
+
+    remove_automatically_added_enchantments!
 
     canonical_weapon.enchantments.each do |enchantment|
       enchantables_enchantments.find_or_create_by!(
@@ -142,6 +146,10 @@ class Weapon < ApplicationRecord
     true
   end
 
+  def remove_automatically_added_enchantments!
+    enchantables_enchantments.added_automatically.find_each(&:destroy)
+  end
+
   def attributes_to_match
     {
       unit_weight:,
@@ -152,6 +160,7 @@ class Weapon < ApplicationRecord
 
   def clear_canonical_weapon
     self.canonical_weapon_id = nil
+    remove_automatically_added_enchantments!
   end
 
   def ensure_canonicals_exist

@@ -448,10 +448,22 @@ RSpec.describe Weapon, type: :model do
       end
     end
 
-    context 'when updating the in-game item attributes' do
-      let(:weapon) { create(:weapon, :with_matching_canonical) }
+    context 'when updating in-game item attributes' do
+      let(:weapon) { create(:weapon, :with_enchanted_canonical) }
 
-      context 'when updating the attributes changes the matching canonical' do
+      before do
+        weapon.canonical_weapon.update!(enchantable: true)
+
+        create(
+          :enchantables_enchantment,
+          enchantable: weapon,
+          added_automatically: false,
+        )
+
+        weapon.enchantables_enchantments.reload
+      end
+
+      context 'when the update changes the canonical association' do
         let!(:new_canonical) do
           create(
             :canonical_weapon,
@@ -462,7 +474,17 @@ RSpec.describe Weapon, type: :model do
           )
         end
 
-        it 'changes the canonical model' do
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: new_canonical,
+            enchantment: weapon.enchantables_enchantments.added_manually.first.enchantment,
+          )
+
+          new_canonical.enchantables_enchantments.reload
+        end
+
+        it 'updates the canonical association' do
           weapon.name = 'elven battleaxe of shocks'
           weapon.unit_weight = nil
           weapon.weapon_type = nil
@@ -486,9 +508,22 @@ RSpec.describe Weapon, type: :model do
           expect(weapon.weapon_type).to eq 'battleaxe'
           expect(weapon.category).to eq 'two-handed'
         end
+
+        it 'removes automatically added enchantments', :aggregate_failures do
+          weapon.name = 'elven battleaxe of shocks'
+          weapon.unit_weight = nil
+          weapon.weapon_type = nil
+          weapon.category = nil
+
+          validate
+          weapon.enchantables_enchantments.reload
+
+          expect(weapon.enchantables_enchantments.count).to eq 1
+          expect(weapon.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
-      context 'when updating the attributes results in an ambiguous match' do
+      context 'when the update results in an ambiguous match' do
         before do
           create_list(
             :canonical_weapon,
@@ -497,22 +532,50 @@ RSpec.describe Weapon, type: :model do
           )
         end
 
-        it 'sets the canonical weapon to nil' do
+        it 'removes the associated canonical weapon' do
           weapon.name = 'iron mace of burning'
 
           expect { validate }
             .to change(weapon, :canonical_weapon)
                   .to(nil)
         end
+
+        it "doesn't update attributes" do
+          weapon.name = 'iron mace of burning'
+
+          validate
+
+          expect(weapon.name).to eq 'iron mace of burning'
+        end
+
+        it 'removes automatically-added enchantments', :aggregate_failures do
+          weapon.name = 'iron mace of burning'
+
+          validate
+          weapon.enchantables_enchantments.reload
+
+          expect(weapon.enchantables_enchantments.count).to eq 1
+          expect(weapon.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
-      context 'when updating the attributes results in no matches' do
+      context 'when the update results in no canonical matches' do
         it 'sets the canonical weapon to nil' do
           weapon.name = 'Orcish Greatsword of Debilitation'
 
           expect { validate }
             .to change(weapon, :canonical_weapon)
                   .to(nil)
+        end
+
+        it 'removes automatically-added enchantments', :aggregate_failures do
+          weapon.name = 'Orcish Greatsword of Debilitation'
+
+          validate
+          weapon.enchantables_enchantments.reload
+
+          expect(weapon.enchantables_enchantments.count).to eq 1
+          expect(weapon.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
         end
       end
     end

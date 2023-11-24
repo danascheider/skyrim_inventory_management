@@ -10,6 +10,12 @@ FactoryBot.define do
       association :canonical_clothing_item, strategy: :create
     end
 
+    trait :with_enchanted_canonical do
+      association :canonical_clothing_item,
+                  factory: %i[canonical_clothing_item with_enchantments],
+                  strategy: :create
+    end
+
     trait :with_enchantments do
       after(:create) do |item|
         create_list(:enchantables_enchantment, 2, enchantable: item)

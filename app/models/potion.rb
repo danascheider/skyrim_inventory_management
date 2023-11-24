@@ -13,7 +13,7 @@ class Potion < ApplicationRecord
   validate :validate_unique_canonical
 
   before_validation :set_canonical_potion
-  after_save :add_properties_from_canonical
+  after_create :add_properties_from_canonical, if: -> { canonical_potion.present? }
 
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
@@ -53,10 +53,13 @@ class Potion < ApplicationRecord
     self.name = canonical_potion.name
     self.unit_weight = canonical_potion.unit_weight
     self.magical_effects = canonical_potion.magical_effects
+
+    add_properties_from_canonical if persisted? && canonical_potion_id_changed?
   end
 
   def clear_canonical_potion
     self.canonical_potion_id = nil
+    remove_automatically_added_alchemical_properties!
   end
 
   def validate_unique_canonical
@@ -86,6 +89,8 @@ class Potion < ApplicationRecord
 
   def add_properties_from_canonical
     return if canonical_model.nil?
+
+    remove_automatically_added_alchemical_properties!
 
     canonical_model.canonical_potions_alchemical_properties.each do |join_model|
       potions_alchemical_properties.find_or_create_by!(
@@ -139,5 +144,9 @@ class Potion < ApplicationRecord
     end
 
     conditions.join(' OR ')
+  end
+
+  def remove_automatically_added_alchemical_properties!
+    potions_alchemical_properties.added_automatically.find_each(&:destroy!)
   end
 end

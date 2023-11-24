@@ -171,7 +171,19 @@ RSpec.describe Armor, type: :model do
     end
 
     context 'when updating in-game item attributes' do
-      let(:armor) { create(:armor, :with_matching_canonical) }
+      let(:armor) { create(:armor, :with_enchanted_canonical) }
+
+      before do
+        armor.canonical_armor.update!(enchantable: true)
+
+        create(
+          :enchantables_enchantment,
+          enchantable: armor,
+          added_automatically: false,
+        )
+
+        armor.enchantables_enchantments.reload
+      end
 
       context 'when the update changes the canonical association' do
         let!(:new_canonical) do
@@ -182,6 +194,16 @@ RSpec.describe Armor, type: :model do
             magical_effects: 'This Will Be Case Insensitive',
             unit_weight: 2,
           )
+        end
+
+        before do
+          create(
+            :enchantables_enchantment,
+            enchantable: new_canonical,
+            enchantment: armor.enchantables_enchantments.added_manually.first.enchantment,
+          )
+
+          new_canonical.enchantables_enchantments.reload
         end
 
         it 'changes the canonical association' do
@@ -208,6 +230,19 @@ RSpec.describe Armor, type: :model do
           expect(armor.weight).to eq 'light armor'
           expect(armor.unit_weight).to eq 2
         end
+
+        it 'removes automatically added enchantments', :aggregate_failures do
+          armor.name = 'Imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          validate
+          armor.enchantables_enchantments.reload
+
+          expect(armor.enchantables_enchantments.count).to eq 1
+          expect(armor.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
       context 'when the update results in an ambiguous match' do
@@ -219,6 +254,7 @@ RSpec.describe Armor, type: :model do
             weight: 'light armor',
             magical_effects: 'This Will Be Case Insensitive',
             unit_weight: 2,
+            enchantable: true,
           )
         end
 
@@ -246,6 +282,19 @@ RSpec.describe Armor, type: :model do
           expect(armor.weight).to be_nil
           expect(armor.unit_weight).to be_nil
         end
+
+        it 'removes automatically added enchantments', :aggregate_failures do
+          armor.name = 'imperial boots of resist frost'
+          armor.magical_effects = 'this will be case insensitive'
+          armor.weight = nil
+          armor.unit_weight = nil
+
+          validate
+          armor.enchantables_enchantments.reload
+
+          expect(armor.enchantables_enchantments.count).to eq 1
+          expect(armor.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
       context 'when the update results in no match' do
@@ -255,6 +304,16 @@ RSpec.describe Armor, type: :model do
           expect { validate }
             .to change(armor, :canonical_armor)
                   .to(nil)
+        end
+
+        it 'removes automatically-added enchantments', :aggregate_failures do
+          armor.name = 'imperial boots of resist frost'
+
+          validate
+          armor.enchantables_enchantments.reload
+
+          expect(armor.enchantables_enchantments.count).to eq 1
+          expect(armor.enchantables_enchantments.pluck(:added_automatically)).to be_all(false)
         end
       end
     end

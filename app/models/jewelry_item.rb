@@ -26,7 +26,7 @@ class JewelryItem < ApplicationRecord
   validate :validate_unique_canonical
 
   before_validation :set_canonical_jewelry_item
-  after_save :set_enchantments
+  after_create :set_enchantments, if: -> { canonical_jewelry_item.present? }
 
   DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
@@ -92,6 +92,8 @@ class JewelryItem < ApplicationRecord
     self.name = canonical_jewelry_item.name
     self.unit_weight = canonical_jewelry_item.unit_weight
     self.magical_effects = canonical_jewelry_item.magical_effects
+
+    set_enchantments if persisted? && canonical_jewelry_item_id_changed?
   end
 
   def validate_unique_canonical
@@ -106,8 +108,9 @@ class JewelryItem < ApplicationRecord
   end
 
   def set_enchantments
-    return if canonical_jewelry_item.nil?
     return if canonical_jewelry_item.enchantments.empty?
+
+    remove_automatically_added_enchantments!
 
     canonical_jewelry_item.enchantables_enchantments.each do |model|
       enchantables_enchantments.find_or_create_by!(
@@ -119,6 +122,7 @@ class JewelryItem < ApplicationRecord
 
   def clear_canonical_jewelry_item
     self.canonical_jewelry_item_id = nil
+    remove_automatically_added_enchantments!
   end
 
   def canonical_model_matches?
@@ -128,6 +132,10 @@ class JewelryItem < ApplicationRecord
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
 
     true
+  end
+
+  def remove_automatically_added_enchantments!
+    enchantables_enchantments.added_automatically.find_each(&:destroy!)
   end
 
   def attributes_to_match
