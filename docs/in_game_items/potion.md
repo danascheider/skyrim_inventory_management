@@ -4,7 +4,7 @@ The `Potion` model represents in-game items of the `Canonical::Potion` type. Lik
 
 ## Matching to Canonical Models
 
-Potions differ from some in-game items in that they may or may not have a corresponding canonical version. User-created potions do not have this, since there are a nearly infinite number of possible combinations of [strength and duration](/docs/in_game_items/potions-alchemical-property.md) for each alchemical property.
+Potions differ from some in-game items in that they may or may not have a corresponding canonical version. User-created potions do not have this, since there are a nearly infinite number of possible combinations of [strength and duration](/docs/in_game_items/potions-alchemical-property.md) for each alchemical property. However, there are a limited number of names of player-created potions. Thus, if no canonical models match, potions are validated to ensure that the potion is a valid player-created potion.
 
 When a `Potion` is created, it is then matched to a subset of canonical potions by its `name`, `unit_weight` and `magical_effects` attributes (if defined). The `name` and `magical_effects` attributes are matched case-insensitively. If the potion has alchemical properties, the results are further narrowed down based on those associations, checking for the `alchemical_property_id`, `strength` and `duration` defined on the [`PotionsAlchemicalProperty`](/docs/in_game_items/potions-alchemical-property.md) model. If these match for all defined alchemical properties, it is considered a match.
 
