@@ -556,10 +556,20 @@ RSpec.describe Potion, type: :model do
       end
     end
 
-    context 'when updating the potion model' do
+    context 'when updating in-game item attributes' do
       let(:potion) { create(:potion, :with_matching_canonical) }
 
-      context 'when there is a new match after the update' do
+      before do
+        create(
+          :potions_alchemical_property,
+          potion:,
+          added_automatically: false,
+        )
+
+        potion.potions_alchemical_properties.reload
+      end
+
+      context 'when the update changes the canonical association' do
         let!(:new_canonical) do
           create(
             :canonical_potion,
@@ -567,16 +577,44 @@ RSpec.describe Potion, type: :model do
           )
         end
 
-        it 'changes the canonical potion' do
+        before do
+          create(
+            :canonical_potions_alchemical_property,
+            potion: new_canonical,
+            alchemical_property: potion.potions_alchemical_properties.added_manually.first.alchemical_property,
+          )
+
+          new_canonical.canonical_potions_alchemical_properties.reload
+        end
+
+        it 'updates the canonical association' do
           potion.name = 'My Special Potion'
 
           expect { validate }
             .to change(potion, :canonical_potion)
                   .to(new_canonical)
         end
+
+        it 'updates attributes' do
+          potion.name = 'my special potion'
+
+          validate
+
+          expect(potion.name).to eq 'My Special Potion'
+        end
+
+        it 'removes automatically added alchemical properties', :aggregate_failures do
+          potion.name = 'my special potion'
+
+          validate
+          potion.potions_alchemical_properties.reload
+
+          expect(potion.potions_alchemical_properties.count).to eq 1
+          expect(potion.potions_alchemical_properties.pluck(:added_automatically)).to be_all(false)
+        end
       end
 
-      context 'when there are multiple matches after the update' do
+      context 'when the update results in an ambiguous match' do
         before do
           create_list(
             :canonical_potion,
@@ -585,6 +623,34 @@ RSpec.describe Potion, type: :model do
           )
         end
 
+        it 'removes the associated canonical potion' do
+          potion.name = 'My Special Potion'
+
+          expect { validate }
+            .to change(potion, :canonical_potion)
+                  .to(nil)
+        end
+
+        it "doesn't update attributes" do
+          potion.name = 'my special potion'
+
+          validate
+
+          expect(potion.name).to eq 'my special potion'
+        end
+
+        it 'removes automatically-added alchemical properties', :aggregate_failures do
+          potion.name = 'my special potion'
+
+          validate
+          potion.potions_alchemical_properties.reload
+
+          expect(potion.potions_alchemical_properties.count).to eq 1
+          expect(potion.potions_alchemical_properties.pluck(:added_automatically)).to be_all(false)
+        end
+      end
+
+      context 'when the update results in no canonical matches' do
         it 'sets the canonical potion to nil' do
           potion.name = 'My Special Potion'
 
@@ -592,15 +658,15 @@ RSpec.describe Potion, type: :model do
             .to change(potion, :canonical_potion)
                   .to(nil)
         end
-      end
 
-      context 'when there are no matches after the update' do
-        it 'sets the canonical potion to nil' do
-          potion.name = 'My Special Potion'
+        it 'removes automatically-added alchemical properties', :aggregate_failures do
+          potion.name = 'my special potion'
 
-          expect { validate }
-            .to change(potion, :canonical_potion)
-                  .to(nil)
+          validate
+          potion.potions_alchemical_properties.reload
+
+          expect(potion.potions_alchemical_properties.count).to eq 1
+          expect(potion.potions_alchemical_properties.pluck(:added_automatically)).to be_all(false)
         end
       end
     end
