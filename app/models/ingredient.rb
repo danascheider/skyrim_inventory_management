@@ -13,10 +13,6 @@ class Ingredient < InGameItem
 
   validates :name, presence: true
 
-  validate :validate_unique_canonical
-
-  before_validation :set_values_from_canonical
-
   DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
