@@ -8,7 +8,11 @@ class MiscItem < ApplicationRecord
              class_name: 'Canonical::MiscItem'
 
   validates :name, presence: true
-  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :unit_weight,
+            numericality: {
+              greater_than_or_equal_to: 0,
+              allow_nil: true,
+            }
 
   validate :validate_association
   validate :validate_unique_canonical

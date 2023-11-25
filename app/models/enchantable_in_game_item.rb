@@ -3,10 +3,6 @@
 class EnchantableInGameItem < ApplicationRecord
   self.abstract_class = true
 
-  MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
-  DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
-
   belongs_to :game
 
   has_many :enchantables_enchantments,
@@ -24,6 +20,10 @@ class EnchantableInGameItem < ApplicationRecord
   before_validation :set_values_from_canonical
 
   after_create :set_enchantments, if: -> { canonical_model.present? }
+
+  MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
+  DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   def canonical_model
     raise NotImplementedError.new("#{MUST_DEFINE} public #canonical_model method")

@@ -23,9 +23,10 @@ class Book < ApplicationRecord
               allow_nil: true,
             }
 
+  validate :validate_unique_canonical
+
   before_validation :set_canonical_book
   before_validation :set_values_from_canonical
-  before_validation :validate_unique_canonical
 
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 

@@ -13,11 +13,17 @@ class Ingredient < ApplicationRecord
            through: :ingredients_alchemical_properties
 
   validates :name, presence: true
-  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
+  validates :unit_weight,
+            numericality: {
+              greater_than_or_equal_to: 0,
+              allow_nil: true,
+            }
+
   validate :ensure_match_exists
   validate :validate_unique_canonical
 
   before_validation :set_canonical_ingredient
+  before_validation :set_values_from_canonical
 
   DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
@@ -47,6 +53,10 @@ class Ingredient < ApplicationRecord
 
   private
 
+  def canonical_model_id_changed?
+    canonical_ingredient_id_changed?
+  end
+
   def set_canonical_ingredient
     canonicals = canonical_models
 
@@ -56,8 +66,14 @@ class Ingredient < ApplicationRecord
     end
 
     self.canonical_ingredient = canonicals.first
-    self.name = canonical_ingredient.name
-    self.unit_weight = canonical_ingredient.unit_weight
+  end
+
+  def set_values_from_canonical
+    return if canonical_model.nil?
+    return unless canonical_model_id_changed?
+
+    self.name = canonical_model.name
+    self.unit_weight = canonical_model.unit_weight
   end
 
   def validate_unique_canonical

@@ -2,7 +2,10 @@
 
 class Potion < ApplicationRecord
   belongs_to :game
-  belongs_to :canonical_potion, optional: true, class_name: 'Canonical::Potion'
+  belongs_to :canonical_potion,
+             optional: true,
+             class_name: 'Canonical::Potion',
+             inverse_of: :potions
 
   has_many :potions_alchemical_properties, dependent: :destroy, inverse_of: :potion
   has_many :alchemical_properties, through: :potions_alchemical_properties
