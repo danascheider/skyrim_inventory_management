@@ -1,83 +1,56 @@
 # frozen_string_literal: true
 
-class ClothingItem < ApplicationRecord
-  belongs_to :game
-
+class ClothingItem < EnchantableInGameItem
   belongs_to :canonical_clothing_item,
              optional: true,
              inverse_of: :clothing_items,
              class_name: 'Canonical::ClothingItem'
 
-  has_many :enchantables_enchantments,
-           dependent: :destroy,
-           as: :enchantable
-  has_many :enchantments,
-           -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
-           through: :enchantables_enchantments,
-           source: :enchantment
-
   validates :name, presence: true
+
   validates :unit_weight,
             numericality: {
               greater_than_or_equal_to: 0,
               allow_nil: true,
             }
 
-  validates_with ClothingItemValidator
-
-  before_validation :set_canonical_clothing_item
-
-  after_create :set_enchantments, if: -> { canonical_clothing_item.present? }
-
   def canonical_model
     canonical_clothing_item
   end
 
-  def canonical_models
-    return Canonical::ClothingItem.where(id: canonical_clothing_item_id) if canonical_model_matches?
-
-    query = 'name ILIKE :name'
-    query += ' AND magical_effects ILIKE :magical_effects' if magical_effects.present?
-
-    canonicals = Canonical::ClothingItem.where(query, name:, magical_effects:)
-    canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
-
-    return canonicals if enchantments.none?
-
-    enchantables_enchantments.added_manually.each do |join_model|
-      canonicals = if join_model.strength.present?
-                     canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength = :strength) OR canonical_clothing_items.enchantable = true',
-                       enchantment_id: join_model.enchantment_id,
-                       strength: join_model.strength,
-                     )
-                   else
-                     canonicals.left_outer_joins(:enchantables_enchantments).where(
-                       '(enchantables_enchantments.enchantment_id = :enchantment_id AND enchantables_enchantments.strength IS NULL) OR canonical_clothing_items.enchantable = true',
-                       enchantment_id: join_model.enchantment_id,
-                     )
-                   end
-    end
-
-    Canonical::ClothingItem.where(id: canonicals.ids)
-  end
-
   private
 
-  def set_canonical_clothing_item
-    canonicals = canonical_models
+  def canonical_class
+    Canonical::ClothingItem
+  end
 
-    unless canonicals.count == 1
-      clear_canonical_clothing_item
-      return
-    end
+  def canonical_table
+    'canonical_clothing_items'
+  end
 
-    self.canonical_clothing_item = canonicals.first
-    self.name = canonical_clothing_item.name # in case casing differs
-    self.unit_weight = canonical_clothing_item.unit_weight
-    self.magical_effects = canonical_clothing_item.magical_effects
+  def canonical_model_id
+    canonical_clothing_item_id
+  end
 
-    set_enchantments if persisted? && canonical_clothing_item_id_changed?
+  def canonical_model_id_changed?
+    canonical_clothing_item_id_changed?
+  end
+
+  def inverse_relationship_name
+    :clothing_items
+  end
+
+  alias_method :canonical_model=, :canonical_clothing_item=
+
+  def set_values_from_canonical
+    return if canonical_model.nil?
+    return unless canonical_model_id_changed?
+
+    self.name = canonical_model.name # in case casing differs
+    self.unit_weight = canonical_model.unit_weight
+    self.magical_effects = canonical_model.magical_effects
+
+    set_enchantments if persisted?
   end
 
   def set_enchantments
