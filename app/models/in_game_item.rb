@@ -43,6 +43,10 @@ class InGameItem < ApplicationRecord
     raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_table method")
   end
 
+  def canonical_model_matches?
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_matches? method")
+  end
+
   def canonical_model_id
     raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_id method")
   end
