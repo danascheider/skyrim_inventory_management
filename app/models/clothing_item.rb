@@ -32,6 +32,10 @@ class ClothingItem < EnchantableInGameItem
     canonical_clothing_item_id
   end
 
+  def canonical_model_id_changed?
+    canonical_clothing_item_id_changed?
+  end
+
   def inverse_relationship_name
     :clothing_items
   end
