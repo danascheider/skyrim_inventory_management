@@ -17,8 +17,6 @@ class Book < InGameItem
 
   validates :title, presence: true
 
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
-
   def canonical_model
     canonical_book
   end
