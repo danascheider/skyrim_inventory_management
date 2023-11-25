@@ -49,6 +49,10 @@ class JewelryItem < EnchantableInGameItem
     canonical_jewelry_item_id_changed?
   end
 
+  def inverse_relationship_name
+    :jewelry_items
+  end
+
   alias_method :canonical_model=, :canonical_jewelry_item=
 
   def ensure_match_exists
