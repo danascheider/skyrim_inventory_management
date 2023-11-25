@@ -18,7 +18,6 @@ class JewelryItem < EnchantableInGameItem
   validate :validate_unique_canonical
 
   DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def crafting_materials
     canonical_jewelry_item&.crafting_materials
@@ -66,17 +65,6 @@ class JewelryItem < EnchantableInGameItem
     self.magical_effects = canonical_model.magical_effects
 
     set_enchantments if persisted? && canonical_model_id_changed?
-  end
-
-  def validate_unique_canonical
-    return unless canonical_jewelry_item&.unique_item
-
-    jewelry_items = canonical_jewelry_item.jewelry_items.where(game_id:)
-
-    return if jewelry_items.count < 1
-    return if jewelry_items.count == 1 && jewelry_items.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def canonical_model_matches?

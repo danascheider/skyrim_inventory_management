@@ -34,6 +34,53 @@ RSpec.describe Armor, type: :model do
       expect_any_instance_of(ArmorValidator).to receive(:validate).with(armor)
       validate
     end
+
+    describe '#canonical_armor' do
+      context 'when the canonical armor is not a unique item' do
+        let(:canonical_armor) { create(:canonical_armor, unique_item: false) }
+
+        before do
+          create(:armor, canonical_armor:)
+        end
+
+        it 'is allowed' do
+          armor.canonical_armor = canonical_armor
+          validate
+          expect(armor.errors[:base]).to be_empty
+        end
+      end
+
+      context 'when the canonical armor is a unique item' do
+        let(:canonical_armor) { create(:canonical_armor, unique_item: true, rare_item: true) }
+
+        context 'when there are duplicate associations in the same game' do
+          let(:game) { create(:game) }
+
+          before do
+            create(:armor, canonical_armor:, game:)
+          end
+
+          it 'is invalid' do
+            armor.canonical_armor = canonical_armor
+            armor.game = game
+            validate
+            expect(armor.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+
+        context 'when there are duplicate associations for different games' do
+          before do
+            create(:armor, canonical_armor:)
+          end
+
+          it 'is invalid' do
+            armor.canonical_armor = canonical_armor
+            validate
+            expect(armor.errors[:base]).to be_empty
+          end
+        end
+      end
+    end
   end
 
   describe 'delegated methods' do

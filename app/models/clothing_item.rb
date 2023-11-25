@@ -34,6 +34,10 @@ class ClothingItem < EnchantableInGameItem
     canonical_clothing_item_id
   end
 
+  def inverse_relationship_name
+    :clothing_items
+  end
+
   alias_method :canonical_model=, :canonical_clothing_item=
 
   def set_values_from_canonical

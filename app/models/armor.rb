@@ -53,6 +53,10 @@ class Armor < EnchantableInGameItem
     canonical_armor_id_changed?
   end
 
+  def inverse_relationship_name
+    :armors
+  end
+
   alias_method :canonical_model=, :canonical_armor=
 
   def set_values_from_canonical

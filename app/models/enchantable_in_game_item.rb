@@ -4,6 +4,7 @@ class EnchantableInGameItem < ApplicationRecord
   self.abstract_class = true
 
   MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
+  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   belongs_to :game
 
@@ -14,6 +15,8 @@ class EnchantableInGameItem < ApplicationRecord
            -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
            through: :enchantables_enchantments,
            source: :enchantment
+
+  validate :validate_unique_canonical
 
   before_validation :set_canonical_model
   before_validation :set_values_from_canonical
@@ -75,6 +78,10 @@ class EnchantableInGameItem < ApplicationRecord
     raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_model_id_changed? method")
   end
 
+  def inverse_relationship_name
+    raise NotImplementedError.new("#{MUST_DEFINE} private \#inverse_relationship_name method")
+  end
+
   def set_canonical_model
     canonicals = canonical_models
 
@@ -110,6 +117,17 @@ class EnchantableInGameItem < ApplicationRecord
         strength: model.strength,
       ) {|new_model| new_model.added_automatically = true }
     end
+  end
+
+  def validate_unique_canonical
+    return unless canonical_model&.unique_item
+
+    items = canonical_model.public_send(inverse_relationship_name).where(game_id:)
+
+    return if items.count < 1
+    return if items.count == 1 && items.first == self
+
+    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def attributes_to_match

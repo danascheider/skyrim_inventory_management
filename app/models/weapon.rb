@@ -29,7 +29,6 @@ class Weapon < EnchantableInGameItem
             }
 
   validate :ensure_canonicals_exist
-  validate :validate_unique_canonical
 
   before_validation :set_values_from_canonical
 
@@ -66,6 +65,10 @@ class Weapon < EnchantableInGameItem
     canonical_weapon_id_changed?
   end
 
+  def inverse_relationship_name
+    :weapons
+  end
+
   alias_method :canonical_model=, :canonical_weapon=
 
   def set_values_from_canonical
@@ -79,17 +82,6 @@ class Weapon < EnchantableInGameItem
     self.magical_effects = canonical_model.magical_effects
 
     set_enchantments if persisted? && canonical_model_id_changed?
-  end
-
-  def validate_unique_canonical
-    return unless canonical_weapon&.unique_item
-
-    weapons = canonical_weapon.weapons.where(game_id:)
-
-    return if weapons.count < 1
-    return if weapons.count == 1 && weapons.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
   end
 
   def canonical_model_matches?

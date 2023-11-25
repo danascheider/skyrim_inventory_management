@@ -26,6 +26,65 @@ RSpec.describe ClothingItem, type: :model do
       expect_any_instance_of(ClothingItemValidator).to receive(:validate).with(item)
       item.validate
     end
+
+    describe '#canonical_clothing_item' do
+      let(:item) { build(:clothing_item, canonical_clothing_item:, game:) }
+      let(:game) { create(:game) }
+
+      context 'when the canonical clothing item is not unique' do
+        let(:canonical_clothing_item) { create(:canonical_clothing_item) }
+
+        before do
+          create_list(
+            :clothing_item,
+            3,
+            canonical_clothing_item:,
+            game:,
+          )
+        end
+
+        it 'is valid' do
+          expect(item).to be_valid
+        end
+      end
+
+      context 'when the canonical clothing item is unique' do
+        let(:canonical_clothing_item) do
+          create(
+            :canonical_clothing_item,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
+
+        context 'when there are no other matching clothing items' do
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when there is another matching clothing item for another game' do
+          before do
+            create(:clothing_item, canonical_clothing_item:)
+          end
+
+          it 'is valid' do
+            expect(item).to be_valid
+          end
+        end
+
+        context 'when there is another matching clothing item for the same game' do
+          before do
+            create(:clothing_item, canonical_clothing_item:, game:)
+          end
+
+          it 'is invalid' do
+            item.validate
+            expect(item.errors[:base]).to include 'is a duplicate of a unique in-game item'
+          end
+        end
+      end
+    end
   end
 
   describe '::before_validation' do
