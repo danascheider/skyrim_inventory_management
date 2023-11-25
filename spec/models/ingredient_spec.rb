@@ -53,7 +53,7 @@ RSpec.describe Ingredient, type: :model do
     context 'when there are no matching canonical ingredients' do
       it 'is invalid' do
         validate
-        expect(ingredient.errors[:base]).to include "doesn't match an ingredient that exists in Skyrim"
+        expect(ingredient.errors[:base]).to include "doesn't match any item that exists in Skyrim"
       end
     end
 
