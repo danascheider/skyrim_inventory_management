@@ -3,8 +3,6 @@
 class EnchantableInGameItem < InGameItem
   self.abstract_class = true
 
-  belongs_to :game
-
   has_many :enchantables_enchantments,
            dependent: :destroy,
            as: :enchantable
@@ -13,16 +11,7 @@ class EnchantableInGameItem < InGameItem
            through: :enchantables_enchantments,
            source: :enchantment
 
-  validate :validate_unique_canonical
-  validate :ensure_canonicals_exist
-
-  before_validation :set_canonical_model
-  before_validation :set_values_from_canonical
-
   after_create :set_enchantments, if: -> { canonical_model.present? }
-
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
-  DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   def canonical_models
     return canonical_class.where(id: canonical_model_id) if canonical_model_matches?
