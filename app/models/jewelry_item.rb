@@ -56,12 +56,13 @@ class JewelryItem < EnchantableInGameItem
 
   def set_values_from_canonical
     return if canonical_model.nil?
+    return unless canonical_model_id_changed?
 
     self.name = canonical_model.name
     self.unit_weight = canonical_model.unit_weight
     self.magical_effects = canonical_model.magical_effects
 
-    set_enchantments if persisted? && canonical_model_id_changed?
+    set_enchantments if persisted?
   end
 
   def canonical_model_matches?

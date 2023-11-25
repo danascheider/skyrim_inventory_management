@@ -26,7 +26,7 @@ class EnchantableInGameItem < ApplicationRecord
   after_create :set_enchantments, if: -> { canonical_model.present? }
 
   def canonical_model
-    raise NotImplementedError.new("#{MUST_DEFINE} public \#canonical_model method")
+    raise NotImplementedError.new("#{MUST_DEFINE} public #canonical_model method")
   end
 
   def canonical_models
@@ -61,27 +61,27 @@ class EnchantableInGameItem < ApplicationRecord
   private
 
   def canonical_class
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_class method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_class method")
   end
 
   def canonical_model=(_other)
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_model= method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model= method")
   end
 
   def canonical_table
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_table method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_table method")
   end
 
   def canonical_model_id
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_model_id method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_id method")
   end
 
   def canonical_model_id_changed?
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#canonical_model_id_changed? method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_id_changed? method")
   end
 
   def inverse_relationship_name
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#inverse_relationship_name method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #inverse_relationship_name method")
   end
 
   def set_canonical_model
@@ -105,7 +105,7 @@ class EnchantableInGameItem < ApplicationRecord
   end
 
   def set_values_from_canonical
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#set_values_from_canonical method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #set_values_from_canonical method")
   end
 
   def set_enchantments
@@ -137,6 +137,6 @@ class EnchantableInGameItem < ApplicationRecord
   end
 
   def attributes_to_match
-    raise NotImplementedError.new("#{MUST_DEFINE} private \#attributes_to_match method")
+    raise NotImplementedError.new("#{MUST_DEFINE} private #attributes_to_match method")
   end
 end

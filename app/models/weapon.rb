@@ -77,7 +77,7 @@ class Weapon < EnchantableInGameItem
     self.weapon_type = canonical_model.weapon_type
     self.magical_effects = canonical_model.magical_effects
 
-    set_enchantments if persisted? && canonical_model_id_changed?
+    set_enchantments if persisted?
   end
 
   def canonical_model_matches?
