@@ -84,11 +84,15 @@ class Book < InGameItem
 
   def canonical_model_matches?
     return false if canonical_model.nil?
-    return false unless title.casecmp(canonical_model.title).zero?
+    return false unless title.casecmp(canonical_model.title).zero? || title_matches_variant?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
     return false unless skill_name.nil? || skill_name == canonical_model.skill_name
 
     true
+  end
+
+  def title_matches_variant?
+    canonical_model&.title_variants&.any? {|variant| title.casecmp(variant).zero? }
   end
 
   def attributes_to_match
