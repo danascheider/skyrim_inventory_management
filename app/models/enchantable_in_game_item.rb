@@ -21,7 +21,6 @@ class EnchantableInGameItem < InGameItem
 
   after_create :set_enchantments, if: -> { canonical_model.present? }
 
-  MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
