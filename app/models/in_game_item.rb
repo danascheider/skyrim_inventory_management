@@ -31,6 +31,8 @@ class InGameItem < ApplicationRecord
     query = 'name ILIKE :name'
     query += ' AND (magical_effects ILIKE :magical_effects)' if model_has_magical_effects?
 
+    magical_effects = respond_to?(:magical_effects) ? self.magical_effects : nil
+
     canonicals = canonical_class.where(query, name:, magical_effects:)
     attributes_to_match.any? ? canonicals.where(**attributes_to_match) : canonicals
   end
