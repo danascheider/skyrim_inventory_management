@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EnchantableInGameItem < ApplicationRecord
+class EnchantableInGameItem < InGameItem
   self.abstract_class = true
 
   belongs_to :game
@@ -24,10 +24,6 @@ class EnchantableInGameItem < ApplicationRecord
   MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
   DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
-
-  def canonical_model
-    raise NotImplementedError.new("#{MUST_DEFINE} public #canonical_model method")
-  end
 
   def canonical_models
     return canonical_class.where(id: canonical_model_id) if canonical_model_matches?
@@ -60,41 +56,6 @@ class EnchantableInGameItem < ApplicationRecord
 
   private
 
-  def canonical_class
-    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_class method")
-  end
-
-  def canonical_model=(_other)
-    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model= method")
-  end
-
-  def canonical_table
-    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_table method")
-  end
-
-  def canonical_model_id
-    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_id method")
-  end
-
-  def canonical_model_id_changed?
-    raise NotImplementedError.new("#{MUST_DEFINE} private #canonical_model_id_changed? method")
-  end
-
-  def inverse_relationship_name
-    raise NotImplementedError.new("#{MUST_DEFINE} private #inverse_relationship_name method")
-  end
-
-  def set_canonical_model
-    canonicals = canonical_models
-
-    unless canonicals.count == 1
-      clear_canonical_model
-      return
-    end
-
-    self.canonical_model = canonicals.first
-  end
-
   def clear_canonical_model
     self.canonical_model = nil
     remove_automatically_added_enchantments!
@@ -102,10 +63,6 @@ class EnchantableInGameItem < ApplicationRecord
 
   def remove_automatically_added_enchantments!
     enchantables_enchantments.added_automatically.find_each(&:destroy!)
-  end
-
-  def set_values_from_canonical
-    raise NotImplementedError.new("#{MUST_DEFINE} private #set_values_from_canonical method")
   end
 
   def set_enchantments
@@ -119,24 +76,5 @@ class EnchantableInGameItem < ApplicationRecord
         strength: model.strength,
       ) {|new_model| new_model.added_automatically = true }
     end
-  end
-
-  def validate_unique_canonical
-    return unless canonical_model&.unique_item
-
-    items = canonical_model.public_send(inverse_relationship_name).where(game_id:)
-
-    return if items.count < 1
-    return if items.count == 1 && items.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
-  end
-
-  def ensure_canonicals_exist
-    errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
-  end
-
-  def attributes_to_match
-    raise NotImplementedError.new("#{MUST_DEFINE} private #attributes_to_match method")
   end
 end
