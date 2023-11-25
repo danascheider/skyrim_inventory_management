@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class Book < ApplicationRecord
-  belongs_to :game
+class Book < InGameItem
   belongs_to :canonical_book,
              optional: true,
              class_name: 'Canonical::Book',
@@ -17,17 +16,6 @@ class Book < ApplicationRecord
            source: :ingredient
 
   validates :title, presence: true
-  validates :unit_weight,
-            numericality: {
-              greater_than_or_equal_to: 0,
-              allow_nil: true,
-            }
-
-  before_validation :set_canonical_book
-  before_validation :set_values_from_canonical
-  before_validation :validate_unique_canonical
-
-  DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
   def canonical_model
     canonical_book
@@ -39,7 +27,7 @@ class Book < ApplicationRecord
     canonicals = Canonical::Book.where('title ILIKE :title OR :title ILIKE ANY(title_variants)', title:)
     canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
 
-    return canonicals unless canonical_ingredients.any?
+    return canonicals if canonicals.none? || canonical_ingredients.none?
 
     recipes_canonical_ingredients.each do |join_model|
       canonicals = canonicals
@@ -60,48 +48,49 @@ class Book < ApplicationRecord
 
   private
 
-  def set_canonical_book
-    canonicals = canonical_models
+  alias_method :canonical_model=, :canonical_book=
 
-    unless canonicals.count == 1
-      clear_canonical_book
-      return
-    end
+  def canonical_class
+    Canonical::Book
+  end
 
-    self.canonical_book = canonicals.first
+  def canonical_table
+    'canonical_books'
+  end
+
+  def canonical_model_id
+    canonical_book_id
+  end
+
+  def canonical_model_id_changed?
+    canonical_book_id_changed?
+  end
+
+  def inverse_relationship_name
+    :books
   end
 
   def set_values_from_canonical
-    return if canonical_book.nil?
+    return if canonical_model.nil?
+    return unless canonical_model_id_changed?
 
-    self.title = canonical_book.title
-    self.authors = canonical_book.authors
-    self.unit_weight = canonical_book.unit_weight
-    self.skill_name = canonical_book.skill_name
-  end
-
-  def validate_unique_canonical
-    return unless canonical_book&.unique_item
-
-    books = canonical_book.books.where(game_id:)
-
-    return if books.count < 1
-    return if books.count == 1 && books.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
-  end
-
-  def clear_canonical_book
-    self.canonical_book_id = nil
+    self.title = canonical_model.title
+    self.authors = canonical_model.authors
+    self.unit_weight = canonical_model.unit_weight
+    self.skill_name = canonical_model.skill_name
   end
 
   def canonical_model_matches?
     return false if canonical_model.nil?
-    return false unless title.casecmp(canonical_model.title).zero?
+    return false unless title.casecmp(canonical_model.title).zero? || title_matches_variant?
     return false unless unit_weight.nil? || unit_weight == canonical_model.unit_weight
     return false unless skill_name.nil? || skill_name == canonical_model.skill_name
 
     true
+  end
+
+  def title_matches_variant?
+    canonical_model&.title_variants&.any? {|variant| title.casecmp(variant).zero? }
   end
 
   def attributes_to_match

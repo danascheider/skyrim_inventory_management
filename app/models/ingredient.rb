@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class Ingredient < ApplicationRecord
-  belongs_to :game
+class Ingredient < InGameItem
   belongs_to :canonical_ingredient,
              class_name: 'Canonical::Ingredient',
              optional: true,
@@ -13,11 +12,6 @@ class Ingredient < ApplicationRecord
            through: :ingredients_alchemical_properties
 
   validates :name, presence: true
-  validates :unit_weight, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
-  validate :ensure_match_exists
-  validate :validate_unique_canonical
-
-  before_validation :set_canonical_ingredient
 
   DOES_NOT_MATCH = "doesn't match an ingredient that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
@@ -32,7 +26,7 @@ class Ingredient < ApplicationRecord
     canonicals = Canonical::Ingredient.where('name ILIKE ?', name)
     canonicals = canonicals.where(**attributes_to_match) if attributes_to_match.any?
 
-    return canonicals if alchemical_properties.empty?
+    return canonicals if canonicals.none? || alchemical_properties.none?
 
     ingredients_alchemical_properties.each do |join_model|
       canonicals = canonicals.joins(:canonical_ingredients_alchemical_properties).where(
@@ -42,43 +36,39 @@ class Ingredient < ApplicationRecord
       )
     end
 
-    canonicals
+    Canonical::Ingredient.where(id: canonicals.ids)
   end
 
   private
 
-  def set_canonical_ingredient
-    canonicals = canonical_models
+  alias_method :canonical_model=, :canonical_ingredient=
 
-    unless canonicals.count == 1
-      clear_canonical_ingredient
-      return
-    end
-
-    self.canonical_ingredient = canonicals.first
-    self.name = canonical_ingredient.name
-    self.unit_weight = canonical_ingredient.unit_weight
+  def canonical_class
+    Canonical::Ingredient
   end
 
-  def validate_unique_canonical
-    return unless canonical_ingredient&.unique_item
-
-    ingredients = canonical_ingredient.ingredients.where(game_id:)
-
-    return if ingredients.count < 1
-    return if ingredients.count == 1 && ingredients.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
+  def canonical_table
+    'canonical_ingredients'
   end
 
-  def ensure_match_exists
-    return if canonical_models.any?
-
-    errors.add(:base, DOES_NOT_MATCH)
+  def canonical_model_id
+    canonical_ingredient_id
   end
 
-  def clear_canonical_ingredient
-    self.canonical_ingredient_id = nil
+  def canonical_model_id_changed?
+    canonical_ingredient_id_changed?
+  end
+
+  def inverse_relationship_name
+    :ingredients
+  end
+
+  def set_values_from_canonical
+    return if canonical_model.nil?
+    return unless canonical_model_id_changed?
+
+    self.name = canonical_model.name
+    self.unit_weight = canonical_model.unit_weight
   end
 
   def canonical_model_matches?
