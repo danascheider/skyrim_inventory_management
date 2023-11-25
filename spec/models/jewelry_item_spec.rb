@@ -117,7 +117,7 @@ RSpec.describe JewelryItem, type: :model do
 
         it 'adds errors' do
           item.validate
-          expect(item.errors[:base]).to include "doesn't match any jewelry item that exists in Skyrim"
+          expect(item.errors[:base]).to include "doesn't match any item that exists in Skyrim"
         end
       end
     end

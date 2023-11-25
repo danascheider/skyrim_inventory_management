@@ -14,7 +14,6 @@ class JewelryItem < EnchantableInGameItem
               greater_than_or_equal_to: 0,
             }
 
-  validate :ensure_match_exists
   validate :validate_unique_canonical
 
   DOES_NOT_MATCH = "doesn't match any jewelry item that exists in Skyrim"
@@ -54,12 +53,6 @@ class JewelryItem < EnchantableInGameItem
   end
 
   alias_method :canonical_model=, :canonical_jewelry_item=
-
-  def ensure_match_exists
-    return if canonical_models.any?
-
-    errors.add(:base, DOES_NOT_MATCH)
-  end
 
   def set_values_from_canonical
     return if canonical_model.nil?

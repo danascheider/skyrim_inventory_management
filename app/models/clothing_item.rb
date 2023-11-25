@@ -14,8 +14,6 @@ class ClothingItem < EnchantableInGameItem
               allow_nil: true,
             }
 
-  validates_with ClothingItemValidator
-
   def canonical_model
     canonical_clothing_item
   end

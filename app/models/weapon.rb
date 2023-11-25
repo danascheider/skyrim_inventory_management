@@ -28,10 +28,6 @@ class Weapon < EnchantableInGameItem
               allow_blank: true,
             }
 
-  validate :ensure_canonicals_exist
-
-  before_validation :set_values_from_canonical
-
   DOES_NOT_MATCH = "doesn't match a weapon that exists in Skyrim"
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
 
@@ -101,9 +97,5 @@ class Weapon < EnchantableInGameItem
       category:,
       weapon_type:,
     }.compact
-  end
-
-  def ensure_canonicals_exist
-    errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
   end
 end

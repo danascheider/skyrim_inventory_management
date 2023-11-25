@@ -444,7 +444,7 @@ RSpec.describe Weapon, type: :model do
 
       it 'adds an error' do
         validate
-        expect(weapon.errors[:base]).to include "doesn't match a weapon that exists in Skyrim"
+        expect(weapon.errors[:base]).to include "doesn't match any item that exists in Skyrim"
       end
     end
 

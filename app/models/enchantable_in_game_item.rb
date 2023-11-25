@@ -5,6 +5,7 @@ class EnchantableInGameItem < ApplicationRecord
 
   MUST_DEFINE = 'Models inheriting from EnchantableInGameItem must define a'
   DUPLICATE_MATCH = 'is a duplicate of a unique in-game item'
+  DOES_NOT_MATCH = "doesn't match any item that exists in Skyrim"
 
   belongs_to :game
 
@@ -17,6 +18,7 @@ class EnchantableInGameItem < ApplicationRecord
            source: :enchantment
 
   validate :validate_unique_canonical
+  validate :ensure_canonicals_exist
 
   before_validation :set_canonical_model
   before_validation :set_values_from_canonical
@@ -128,6 +130,10 @@ class EnchantableInGameItem < ApplicationRecord
     return if items.count == 1 && items.first == self
 
     errors.add(:base, DUPLICATE_MATCH)
+  end
+
+  def ensure_canonicals_exist
+    errors.add(:base, DOES_NOT_MATCH) if canonical_models.none?
   end
 
   def attributes_to_match

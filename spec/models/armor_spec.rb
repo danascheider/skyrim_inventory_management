@@ -8,10 +8,6 @@ RSpec.describe Armor, type: :model do
 
     let(:armor) { build(:armor) }
 
-    before do
-      allow_any_instance_of(ArmorValidator).to receive(:validate)
-    end
-
     it 'is invalid without a name' do
       armor.name = nil
       validate
@@ -28,11 +24,6 @@ RSpec.describe Armor, type: :model do
       armor.unit_weight = -2.5
       validate
       expect(armor.errors[:unit_weight]).to include 'must be greater than or equal to 0'
-    end
-
-    it 'validates against canonical models' do
-      expect_any_instance_of(ArmorValidator).to receive(:validate).with(armor)
-      validate
     end
 
     describe '#canonical_armor' do
@@ -213,7 +204,7 @@ RSpec.describe Armor, type: :model do
 
       it 'is invalid' do
         validate
-        expect(armor.errors[:base]).to include "doesn't match an armor item that exists in Skyrim"
+        expect(armor.errors[:base]).to include "doesn't match any item that exists in Skyrim"
       end
     end
 

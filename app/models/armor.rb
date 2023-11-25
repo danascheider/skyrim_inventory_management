@@ -21,8 +21,6 @@ class Armor < EnchantableInGameItem
               allow_nil: true,
             }
 
-  validates_with ArmorValidator
-
   def canonical_model
     canonical_armor
   end
