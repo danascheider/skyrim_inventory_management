@@ -75,17 +75,6 @@ class Ingredient < InGameItem
     self.unit_weight = canonical_model.unit_weight
   end
 
-  def validate_unique_canonical
-    return unless canonical_ingredient&.unique_item
-
-    ingredients = canonical_ingredient.ingredients.where(game_id:)
-
-    return if ingredients.count < 1
-    return if ingredients.count == 1 && ingredients.first == self
-
-    errors.add(:base, DUPLICATE_MATCH)
-  end
-
   def canonical_model_matches?
     return false if canonical_model.nil?
     return false unless name.casecmp(canonical_model.name).zero?
