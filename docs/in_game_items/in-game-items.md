@@ -16,6 +16,10 @@ The following non-[canonical](/docs/canonical_models/README.md) in-game item mod
 
 Non-canonical in-game items represent individual item instances. For the purpose of inventory lists, they can also represent sets of items with identical characteristics whose quantities are then implied by the `quantity` field on the inventory item. (Note that, at this writing, inventory list functionality is not yet fully implemented.)
 
+## Inheritance
+
+With the exception of `Potion` and `Property`, which have unique considerations, and join models, all other in-game item models inherit from `InGameItem`, an abstract superclass that provides all the common functionality below. Four models - `Armor`, `ClothingItem`, `JewelryItem`, and `Weapon` - also inherit from `EnchantedInGameItem`, an abstract subclass of `InGameItem` that handles logic around adding, removing, an matching on enchantments.
+
 ## Common Characteristics
 
 ### Matching with Canonical Models
