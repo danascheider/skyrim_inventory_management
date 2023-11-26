@@ -292,7 +292,7 @@
       "unit_weight": 1,
       "magical_effects": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -412,7 +412,7 @@
       "unit_weight": 0.25,
       "magical_effects": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": true,
@@ -4913,7 +4913,7 @@
       "rare_item": true,
       "quest_item": true,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -5052,7 +5052,7 @@
       "unit_weight": 0.3,
       "magical_effects": "While in Beast Form, your attacks do 50% more damage, but also take 50% more damage",
       "purchasable": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -5905,7 +5905,7 @@
       "unit_weight": 0.3,
       "magical_effects": "When you enter Beast Form, the world around you seems to slow for 20 seconds",
       "purchasable": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -7694,7 +7694,7 @@
       "unit_weight": 0.3,
       "magical_effects": "While in Beast Form, your health regenerates",
       "purchasable": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -7821,7 +7821,7 @@
       "unit_weight": 0.3,
       "magical_effects": "Increases the duration of your Howls by 25%",
       "purchasable": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -7944,9 +7944,9 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true,
+      "quest_item": false,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -8217,9 +8217,9 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true,
+      "quest_item": false,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -8254,7 +8254,7 @@
       "unit_weight": 0.3,
       "magical_effects": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "enchantable": false,
@@ -8278,9 +8278,9 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true,
+      "quest_item": false,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -8357,7 +8357,7 @@
       "unit_weight": 0.5,
       "magical_effects": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "enchantable": true,
