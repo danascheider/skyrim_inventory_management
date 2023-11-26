@@ -1,7 +1,7 @@
 [
   {
     "attributes": {
-      "name": "Dragon Priest Staff (Wall of Fire)",
+      "name": "Dragon Priest Staff",
       "item_code": "0007E5BB",
       "unit_weight": 8,
       "base_damage": 0,
@@ -26,7 +26,7 @@
   },
   {
     "attributes": {
-      "name": "Dragon Priest Staff (Wall of Lightning)",
+      "name": "Dragon Priest Staff",
       "item_code": "0004DE5B",
       "unit_weight": 8,
       "base_damage": 2,
@@ -150,7 +150,7 @@
       "enemy": null,
       "daedric": false,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "quest_item": true,
       "rare_item": true,
       "leveled": false,
@@ -225,7 +225,7 @@
       "enemy": "Halldir",
       "daedric": false,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -1118,7 +1118,7 @@
       "enemy": "Morokei",
       "daedric": false,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
