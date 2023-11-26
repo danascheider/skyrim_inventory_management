@@ -4258,7 +4258,7 @@
       "unit_weight": 0.2,
       "purchasable": false,
       "purchase_requires_perk": null,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true
     },
