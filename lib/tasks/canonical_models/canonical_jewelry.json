@@ -8351,23 +8351,6 @@
   },
   {
     "attributes": {
-      "name": "Wedding Wreath",
-      "item_code": "0008895A",
-      "jewelry_type": "circlet",
-      "unit_weight": 0.5,
-      "magical_effects": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "quest_item": false,
-      "enchantable": false,
-      "quest_reward": false
-    },
-    "enchantments": [],
-    "crafting_materials": []
-  },
-  {
-    "attributes": {
       "name": "Yisra's Necklace",
       "item_code": "000D4FF7",
       "jewelry_type": "amulet",

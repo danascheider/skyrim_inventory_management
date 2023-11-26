@@ -3088,7 +3088,7 @@
       "unit_weight": 0.5,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "quest_reward": false
@@ -3109,7 +3109,7 @@
       "unit_weight": 0.5,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "quest_reward": false
@@ -3208,7 +3208,7 @@
       "unit_weight": 2,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": true,
       "quest_reward": false
@@ -3296,6 +3296,22 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "purchasable": false,
+      "quest_item": false,
+      "unique_item": true,
+      "rare_item": true,
+      "enchantable": true,
+      "quest_reward": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Ulfric's Bracers",
+      "item_code": "0006230B",
+      "magical_effects": null,
+      "body_slot": "hands",
+      "unit_weight": 0.5,
       "purchasable": false,
       "quest_item": false,
       "unique_item": true,
@@ -3427,6 +3443,22 @@
       "purchasable": false,
       "quest_item": true,
       "unique_item": true,
+      "rare_item": true,
+      "enchantable": true,
+      "quest_reward": false
+    },
+    "enchantments": []
+  },
+  {
+    "attributes": {
+      "name": "Wedding Wreath",
+      "item_code": "0008895A",
+      "magical_effects": null,
+      "body_slot": "head",
+      "unit_weight": 1,
+      "purchasable": false,
+      "quest_item": false,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": true,
       "quest_reward": false
