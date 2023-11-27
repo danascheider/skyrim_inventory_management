@@ -628,12 +628,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -1967,7 +1967,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -2001,7 +2001,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -2035,7 +2035,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -2069,7 +2069,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -2364,7 +2364,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": true,
       "leveled": false,
@@ -2529,12 +2529,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -21342,11 +21342,11 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -26714,7 +26714,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": true,
       "leveled": false,
@@ -26744,7 +26744,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": true,
       "leveled": false,
@@ -27332,12 +27332,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -31557,12 +31557,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -31591,12 +31591,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -31625,12 +31625,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -31659,12 +31659,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -31727,12 +31727,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -44625,7 +44625,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -47730,12 +47730,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -47764,12 +47764,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -47798,12 +47798,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -47832,12 +47832,12 @@
       ],
       "dragon_priest_mask": false,
       "purchasable": false,
-      "quest_item": true,
+      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -48258,7 +48258,7 @@
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -48296,7 +48296,7 @@
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -48330,7 +48330,7 @@
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -48368,7 +48368,7 @@
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -63425,7 +63425,7 @@
   },
   {
     "attributes": {
-      "name": "Thieves' Guild Armor",
+      "name": "Thieves Guild Armor",
       "item_code": "000D3AC3",
       "unit_weight": 7,
       "body_slot": "body",
@@ -63437,7 +63437,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -63459,7 +63459,7 @@
   },
   {
     "attributes": {
-      "name": "Thieves' Guild Boots",
+      "name": "Thieves Guild Boots",
       "item_code": "000D3AC2",
       "unit_weight": 1.5,
       "body_slot": "feet",
@@ -63471,7 +63471,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -63493,7 +63493,7 @@
   },
   {
     "attributes": {
-      "name": "Thieves' Guild Gloves",
+      "name": "Thieves Guild Gloves",
       "item_code": "000D3AC4",
       "unit_weight": 1,
       "body_slot": "hands",
@@ -63505,7 +63505,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
@@ -63527,7 +63527,7 @@
   },
   {
     "attributes": {
-      "name": "Thieves' Guild Hood",
+      "name": "Thieves Guild Hood",
       "item_code": "000D3AC5",
       "unit_weight": 1.5,
       "body_slot": "head",
@@ -63539,7 +63539,7 @@
       "dragon_priest_mask": false,
       "purchasable": false,
       "quest_item": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "enchantable": false,
       "leveled": false,
