@@ -98,7 +98,7 @@
       "magical_effects": null,
       "smithing_perks": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -879,7 +879,7 @@
       "magical_effects": "In the quest \"Boethiah's Calling\", kills a follower in one strike, otherwise acts as ebony dagger",
       "smithing_perks": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -909,7 +909,7 @@
         "Arcane Blacksmith"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -12828,7 +12828,7 @@
       "magical_effects": "If killing undead, a chance to cause a fiery explosion that turns or destroys nearby undead",
       "smithing_perks": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -13460,7 +13460,7 @@
       "magical_effects": null,
       "smithing_perks": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -43733,7 +43733,7 @@
         "Arcane Blacksmith"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
@@ -43769,7 +43769,7 @@
         "Dwarven Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": true,
@@ -53565,7 +53565,7 @@
         "Glass Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -56014,7 +56014,7 @@
       "magical_effects": "Targets have a small chance of being frozen solid",
       "smithing_perks": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
@@ -57453,11 +57453,11 @@
         "Steel Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
-      "enchantable": false,
+      "enchantable": true,
       "quest_reward": false
     },
     "enchantments": [],
@@ -65690,12 +65690,12 @@
         "Arcane Blacksmith"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
-      "quest_item": true,
+      "quest_item": false,
       "leveled": true,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -65731,10 +65731,10 @@
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true,
+      "quest_item": false,
       "leveled": true,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [],
     "crafting_materials": [],
@@ -85521,7 +85521,7 @@
         "Dwarven Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -85551,7 +85551,7 @@
         "Steel Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
@@ -87729,7 +87729,7 @@
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
-      "enchantable": false,
+      "enchantable": true,
       "quest_reward": false
     },
     "enchantments": [],
@@ -105382,7 +105382,7 @@
         "Arcane Blacksmith"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
@@ -105463,7 +105463,7 @@
         "Orcish Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": false,
       "leveled": false,
@@ -105538,7 +105538,7 @@
       "quest_item": true,
       "leveled": false,
       "enchantable": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "enchantments": [
       {
@@ -105621,7 +105621,7 @@
         "Steel Smithing"
       ],
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false,
