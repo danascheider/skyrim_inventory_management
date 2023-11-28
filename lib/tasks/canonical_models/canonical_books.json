@@ -4945,7 +4945,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": true,
       "quest_item": false,
