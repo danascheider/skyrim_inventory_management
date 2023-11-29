@@ -39,11 +39,11 @@ class Book < InGameItem
                      )
     end
 
-    canonicals
+    Canonical::Book.where(id: canonicals.ids)
   end
 
   def recipe?
-    canonical_models.any? {|model| model.book_type == 'recipe' }
+    canonical_models.where(book_type: 'recipe').any?
   end
 
   private
