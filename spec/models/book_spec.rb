@@ -181,6 +181,20 @@ RSpec.describe Book, type: :model do
 
     let(:book) { create(:book, title: 'foo') }
 
+    context 'when all matching canonicals are recipes' do
+      before do
+        create_list(
+          :canonical_recipe,
+          2,
+          title: 'Foo',
+        )
+      end
+
+      it 'returns true' do
+        expect(recipe).to be true
+      end
+    end
+
     context 'when at least one matching canonical is a recipe' do
       before do
         create(:canonical_recipe, title: 'Foo')
