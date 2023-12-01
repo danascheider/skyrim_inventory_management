@@ -12,13 +12,13 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
   describe 'POST /shopping_lists/:shopping_list_id/shopping_list_items' do
     subject(:create_item) do
-      post "/shopping_lists/#{shopping_list.id}/shopping_list_items", params:, headers:
+      post "/shopping_lists/#{wish_list.id}/shopping_list_items", params:, headers:
     end
 
     let!(:user) { create(:authenticated_user) }
     let(:game) { create(:game, user:) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, aggregate_list:, game:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, aggregate_list:, game:) }
 
     context 'when authenticated' do
       before do
@@ -33,7 +33,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             context 'when unit weight is not set' do
               it 'creates a new item on the requested list' do
                 expect { create_item }
-                  .to change(shopping_list.list_items, :count).from(0).to(1)
+                  .to change(wish_list.list_items, :count).from(0).to(1)
               end
 
               it 'creates a new item on the aggregate list' do
@@ -46,9 +46,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all changed shopping lists for the same game' do
+              it 'returns all changed wish lists for the same game' do
                 create_item
-                expect(response.body).to eq(game.shopping_lists.to_json)
+                expect(response.body).to eq(game.wish_lists.to_json)
               end
             end
 
@@ -57,7 +57,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
-                  .to change(shopping_list.list_items, :count).from(0).to(1)
+                  .to change(wish_list.list_items, :count).from(0).to(1)
               end
 
               it 'creates a new item on the aggregate list' do
@@ -70,21 +70,21 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all changed shopping lists for the same game' do
+              it 'returns all changed wish lists for the same game' do
                 create_item
-                expect(response.body).to eq(game.shopping_lists.to_json)
+                expect(response.body).to eq(game.wish_lists.to_json)
               end
             end
           end
 
           context 'when there is an existing matching item on another list' do
-            let(:other_list) { create(:shopping_list, game:) }
-            let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
+            let(:other_list) { create(:wish_list, game:) }
+            let!(:other_item) { create(:wish_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
 
             before do
               # This list has nothing to do with things and should not be included in the
               # response bodies.
-              create(:shopping_list, game:)
+              create(:wish_list, game:)
 
               aggregate_list.add_item_from_child_list(other_item)
             end
@@ -94,7 +94,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
-                  .to change(shopping_list.list_items, :count).from(0).to(1)
+                  .to change(wish_list.list_items, :count).from(0).to(1)
               end
 
               it 'updates the item on the aggregate list' do
@@ -107,9 +107,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all changed shopping lists from the same game' do
+              it 'returns all changed wish lists from the same game' do
                 create_item
-                expect(response.body).to eq(game.shopping_lists.where(id: [aggregate_list.id, shopping_list.id]).to_json)
+                expect(response.body).to eq(game.wish_lists.where(id: [aggregate_list.id, wish_list.id]).to_json)
               end
             end
 
@@ -118,7 +118,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
-                  .to change(shopping_list.list_items, :count).from(0).to(1)
+                  .to change(wish_list.list_items, :count).from(0).to(1)
               end
 
               it 'updates the item on the aggregate list', :aggregate_failures do
@@ -138,12 +138,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
                 expect(response.status).to eq 201
               end
 
-              it 'returns all changed shopping lists for the same game' do
+              it 'returns all changed wish lists for the same game' do
                 create_item
                 expect(response.body).to eq(
                   game
-                    .shopping_lists
-                    .where(id: [aggregate_list.id, shopping_list.id, other_list.id])
+                    .wish_lists
+                    .where(id: [aggregate_list.id, wish_list.id, other_list.id])
                     .to_json,
                 )
               end
@@ -152,14 +152,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
 
         context 'when there is an existing matching item on the same list' do
-          let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Corundum ingot', quantity: 3) }
+          let(:other_list) { create(:wish_list, game: aggregate_list.game, aggregate_list:) }
+          let!(:other_item) { create(:wish_list_item, list: other_list, description: 'Corundum ingot', quantity: 2) }
+          let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Corundum ingot', quantity: 3) }
 
           before do
             # This list has nothing to do with things and should not be included in the
             # response bodies.
-            create(:shopping_list, game:)
+            create(:wish_list, game:)
 
             aggregate_list.add_item_from_child_list(other_item)
             aggregate_list.add_item_from_child_list(list_item)
@@ -168,7 +168,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           context "when unit weight isn't updated" do
             it "doesn't create a new item" do
               expect { create_item }
-                .not_to change(ShoppingListItem, :count)
+                .not_to change(WishListItem, :count)
             end
 
             it 'combines with the existing item' do
@@ -186,9 +186,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all changed shopping lists for the same game' do
+            it 'returns all changed wish lists for the same game' do
               create_item
-              expect(response.body).to eq(game.shopping_lists.where(id: [aggregate_list.id, shopping_list.id]).to_json)
+              expect(response.body).to eq(game.wish_lists.where(id: [aggregate_list.id, wish_list.id]).to_json)
             end
           end
 
@@ -197,7 +197,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
             it "doesn't create a new list item" do
               expect { create_item }
-                .not_to change(ShoppingListItem, :count)
+                .not_to change(WishListItem, :count)
             end
 
             it 'combines it with the existing item', :aggregate_failures do
@@ -223,12 +223,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
               expect(response.status).to eq 200
             end
 
-            it 'returns all changed shopping lists for the same game' do
+            it 'returns all changed wish lists for the same game' do
               create_item
               expect(response.body).to eq(
                 game
-                  .shopping_lists
-                  .where(id: [aggregate_list.id, shopping_list.id, other_list.id])
+                  .wish_lists
+                  .where(id: [aggregate_list.id, wish_list.id, other_list.id])
                   .to_json,
               )
             end
@@ -238,7 +238,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context "when the list doesn't exist" do
         let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
-        let(:shopping_list) { double(id: 23_498) }
+        let(:wish_list) { double(id: 23_498) }
 
         it 'returns status 404' do
           create_item
@@ -253,11 +253,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the list belongs to another user' do
         let(:params) { { description: 'Necklace', quantity: 2, unit_weight: 0.5 }.to_json }
-        let!(:shopping_list) { create(:shopping_list) }
+        let!(:wish_list) { create(:wish_list) }
 
         it "doesn't create a list item" do
           expect { create_item }
-            .not_to change(ShoppingListItem, :count)
+            .not_to change(WishListItem, :count)
         end
 
         it 'returns status 404' do
@@ -276,7 +276,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it "doesn't create the item" do
           expect { create_item }
-            .not_to change(ShoppingListItem, :count)
+            .not_to change(WishListItem, :count)
         end
 
         it 'returns status 422' do
@@ -291,12 +291,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the list is an aggregate list' do
-        let(:shopping_list) { aggregate_list }
+        let(:wish_list) { aggregate_list }
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
 
         it "doesn't create an item" do
           expect { create_item }
-            .not_to change(ShoppingListItem, :count)
+            .not_to change(WishListItem, :count)
         end
 
         it 'returns status 405' do
@@ -307,7 +307,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         it 'returns the error' do
           create_item
           expect(JSON.parse(response.body))
-            .to eq({ 'errors' => ['Cannot manually manage items on an aggregate shopping list'] })
+            .to eq({ 'errors' => ['Cannot manually manage items on an aggregate wish list'] })
         end
       end
 
@@ -315,7 +315,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
 
         before do
-          allow(ShoppingList).to receive(:find).and_raise(StandardError.new('Something went horribly wrong'))
+          allow(WishList)
+            .to receive(:find)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
         end
 
         it 'returns status 500' do
@@ -337,9 +339,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
         stub_unsuccessful_login
       end
 
-      it "doesn't create a shopping list item" do
+      it "doesn't create a wish list item" do
         expect { create_item }
-          .not_to change(ShoppingListItem, :count)
+          .not_to change(WishListItem, :count)
       end
 
       it 'returns status 401' do
@@ -359,8 +361,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     let!(:user) { create(:authenticated_user) }
     let(:game) { create(:game, user:) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
       before do
@@ -369,7 +371,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
           let(:params) { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
@@ -391,7 +393,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               update_item
-              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
 
@@ -416,16 +418,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns the modified shopping list items' do
+          it 'returns the modified wish list items' do
             update_item
             expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
           end
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list, unit_weight: 1) }
-          let!(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
+          let!(:list_item) { create(:wish_list_item, list: wish_list, unit_weight: 1) }
+          let!(:other_list) { create(:wish_list, game:, aggregate_list:) }
+          let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -450,7 +452,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -506,7 +508,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -570,7 +572,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -611,7 +613,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the shopping list item doesn't exist" do
+      context "when the wish list item doesn't exist" do
         let(:list_item) { double(id: 234_567) }
         let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
@@ -626,8 +628,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the shopping list item belongs to another user' do
-        let!(:list_item) { create(:shopping_list_item) }
+      context 'when the wish list item belongs to another user' do
+        let!(:list_item) { create(:wish_list_item) }
         let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it "doesn't update the item" do
@@ -647,7 +649,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the list item is on an aggregate list' do
-        let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+        let!(:list_item) { create(:wish_list_item, list: aggregate_list) }
         let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
@@ -657,14 +659,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns an error array' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate wish list'] })
         end
       end
 
       context 'when the attributes are invalid' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-        let(:other_list) { create(:shopping_list, game:) }
-        let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list, quantity: 2) }
+        let(:other_list) { create(:wish_list, game:) }
+        let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params) { { shopping_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
@@ -696,12 +698,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list) }
         let(:params) { { notes: 'Hello world' }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
-          allow_any_instance_of(ShoppingList)
+          allow_any_instance_of(WishList)
             .to receive(:aggregate)
                   .and_raise(StandardError.new('Something went horribly wrong'))
         end
@@ -719,14 +721,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let!(:list_item) { create(:wish_list_item, list: wish_list) }
       let(:params) { { shopping_list_item: { quantity: 16 } } }
 
       before do
         stub_unsuccessful_login
       end
 
-      it "doesn't update the shopping list item" do
+      it "doesn't update the wish list item" do
         expect { update_item }
           .not_to change(list_item.reload, :quantity)
       end
@@ -748,8 +750,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     let!(:user) { create(:authenticated_user) }
     let(:game) { create(:game, user:) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, game:, aggregate_list:) }
 
     context 'when authenticated' do
       before do
@@ -758,7 +760,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when all goes well' do
         context 'when there is no matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Dwarven metal ingot', quantity: 5) }
+          let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
           let(:params) { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
@@ -780,7 +782,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               update_item
-              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
 
@@ -805,16 +807,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
             expect(response.status).to eq 200
           end
 
-          it 'returns the modified shopping list items' do
+          it 'returns the modified wish list items' do
             update_item
             expect(response.body).to eq([aggregate_list_item, list_item.reload].to_json)
           end
         end
 
         context 'when there is a matching item on another list' do
-          let!(:list_item) { create(:shopping_list_item, list: shopping_list, unit_weight: 1) }
-          let!(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-          let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
+          let!(:list_item) { create(:wish_list_item, list: wish_list, unit_weight: 1) }
+          let!(:other_list) { create(:wish_list, game:, aggregate_list:) }
+          let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 4, unit_weight: 1) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
 
           before do
@@ -839,7 +841,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -895,7 +897,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -959,7 +961,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
               t = Time.zone.now + 3.days
               Timecop.freeze(t) do
                 update_item
-                expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+                expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
               end
             end
 
@@ -1000,7 +1002,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context "when the shopping list item doesn't exist" do
+      context "when the wish list item doesn't exist" do
         let(:list_item) { double(id: 234_567) }
         let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
@@ -1015,8 +1017,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
         end
       end
 
-      context 'when the shopping list item belongs to another user' do
-        let!(:list_item) { create(:shopping_list_item) }
+      context 'when the wish list item belongs to another user' do
+        let!(:list_item) { create(:wish_list_item) }
         let(:params) { { quantity: 4, unit_weight: 0.3 }.to_json }
 
         it "doesn't update the item" do
@@ -1036,7 +1038,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the list item is on an aggregate list' do
-        let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+        let!(:list_item) { create(:wish_list_item, list: aggregate_list) }
         let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
@@ -1046,14 +1048,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns an error array' do
           update_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually update list items on an aggregate wish list'] })
         end
       end
 
       context 'when the attributes are invalid' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-        let(:other_list) { create(:shopping_list, game:) }
-        let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list, quantity: 2) }
+        let(:other_list) { create(:wish_list, game:) }
+        let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params) { { shopping_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
@@ -1085,12 +1087,12 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list) }
         let(:params) { { notes: 'Hello world' }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
-          allow_any_instance_of(ShoppingList)
+          allow_any_instance_of(WishList)
             .to receive(:aggregate)
                   .and_raise(StandardError.new('Something went horribly wrong'))
         end
@@ -1108,14 +1110,14 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let!(:list_item) { create(:wish_list_item, list: wish_list) }
       let(:params) { { shopping_list_item: { quantity: 16 } } }
 
       before do
         stub_unsuccessful_login
       end
 
-      it "doesn't update the shopping list item" do
+      it "doesn't update the wish list item" do
         expect { update_item }
           .not_to change(list_item.reload, :quantity)
       end
@@ -1137,8 +1139,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+      let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+      let!(:wish_list) { create(:wish_list, game:, aggregate_list:) }
       let(:game) { create(:game, user:) }
 
       before do
@@ -1146,7 +1148,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when all goes well' do
-        let(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 3, notes: 'foo') }
+        let(:list_item) { create(:wish_list_item, list: wish_list, quantity: 3, notes: 'foo') }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -1155,7 +1157,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         context 'when the quantity on the regular list equals that on the aggregate list' do
           it 'destroys the item on the regular list' do
             destroy_item
-            expect { ShoppingListItem.find(list_item.id) }
+            expect { WishListItem.find(list_item.id) }
               .to raise_error ActiveRecord::RecordNotFound
           end
 
@@ -1168,7 +1170,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               destroy_item
-              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
 
@@ -1195,16 +1197,16 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the aggregate list and the regular list' do
             destroy_item
-            expect(response.body).to eq([aggregate_list.reload, shopping_list.reload].to_json)
+            expect(response.body).to eq([aggregate_list.reload, wish_list.reload].to_json)
           end
         end
 
         context 'when the quantity on the aggregate list exceeds that on the regular list' do
-          let(:second_list) { create(:shopping_list, game:) }
+          let(:second_list) { create(:wish_list, game:) }
 
           let(:second_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               list: second_list,
               description: list_item.description,
               quantity: 2,
@@ -1218,7 +1220,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'destroys the item on the regular list' do
             destroy_item
-            expect { ShoppingListItem.find(list_item.id) }
+            expect { WishListItem.find(list_item.id) }
               .to raise_error ActiveRecord::RecordNotFound
           end
 
@@ -1231,7 +1233,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             t = Time.zone.now + 3.days
             Timecop.freeze(t) do
               destroy_item
-              expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+              expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
             end
           end
 
@@ -1258,7 +1260,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
           it 'returns the aggregate list and the regular list' do
             destroy_item
-            expect(response.body).to eq([aggregate_list.reload, shopping_list.reload].to_json)
+            expect(response.body).to eq([aggregate_list.reload, wish_list.reload].to_json)
           end
         end
       end
@@ -1278,11 +1280,11 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the specified list item belongs to another user' do
-        let!(:list_item) { create(:shopping_list_item) }
+        let!(:list_item) { create(:wish_list_item) }
 
         it "doesn't destroy the item" do
           expect { destroy_item }
-            .not_to change(ShoppingListItem, :count)
+            .not_to change(WishListItem, :count)
         end
 
         it 'returns status 404' do
@@ -1297,7 +1299,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the specified list item is on an aggregate list' do
-        let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+        let(:list_item) { create(:wish_list_item, list: aggregate_list) }
 
         it 'returns status 405' do
           destroy_item
@@ -1306,15 +1308,17 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
         it 'returns a helpful error message' do
           destroy_item
-          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate shopping list'] })
+          expect(JSON.parse(response.body)).to eq({ 'errors' => ['Cannot manually delete list item from aggregate wish list'] })
         end
       end
 
       context 'when something unexpected goes wrong' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list) }
 
         before do
-          allow_any_instance_of(ShoppingList).to receive(:aggregate).and_raise(StandardError.new('Something went horribly wrong'))
+          allow_any_instance_of(WishList)
+            .to receive(:aggregate)
+                  .and_raise(StandardError.new('Something went horribly wrong'))
         end
 
         it 'returns status 500' do
@@ -1330,7 +1334,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let!(:list_item) { create(:shopping_list_item) }
+      let!(:list_item) { create(:wish_list_item) }
 
       before do
         stub_unsuccessful_login
@@ -1338,7 +1342,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       it "doesn't destroy the list item" do
         expect { destroy_item }
-          .not_to change(ShoppingListItem, :count)
+          .not_to change(WishListItem, :count)
       end
 
       it 'returns status 401' do

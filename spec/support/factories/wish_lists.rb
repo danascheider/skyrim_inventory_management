@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :wish_list do
     game
 
-    sequence(:title) {|n| "Shopping List #{n}" }
+    sequence(:title) {|n| "Wish List #{n}" }
 
     factory :aggregate_wish_list do
       aggregate { true }

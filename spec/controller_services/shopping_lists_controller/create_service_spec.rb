@@ -14,7 +14,7 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context 'when the game is not found' do
       let(:game) { double(id: 898_243) }
-      let(:params) { { title: 'My Shopping List' } }
+      let(:params) { { title: 'My Wish List' } }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -28,11 +28,11 @@ RSpec.describe ShoppingListsController::CreateService do
 
     context 'when the game belongs to another user' do
       let(:game) { create(:game) }
-      let(:params) { { title: 'My Shopping List' } }
+      let(:params) { { title: 'My Wish List' } }
 
-      it "doesn't create a shopping list" do
+      it "doesn't create a wish list" do
         expect { perform }
-          .not_to change(ShoppingList, :count)
+          .not_to change(WishList, :count)
       end
 
       it 'returns a Service::NotFoundResult' do
@@ -59,7 +59,7 @@ RSpec.describe ShoppingListsController::CreateService do
       end
 
       it 'sets an error' do
-        expect(perform.errors).to eq(['Cannot manually create an aggregate shopping list'])
+        expect(perform.errors).to eq(['Cannot manually create an aggregate wish list'])
       end
     end
 
@@ -67,14 +67,14 @@ RSpec.describe ShoppingListsController::CreateService do
       let!(:game) { create(:game, user:) }
       let(:params) { { title: 'Proudspire Manor' } }
 
-      context 'when the game has other shopping lists' do
+      context 'when the game has other wish lists' do
         before do
-          create(:shopping_list, game:)
+          create(:wish_list, game:)
         end
 
-        it 'creates a shopping list for the given game' do
+        it 'creates a wish list for the given game' do
           expect { perform }
-            .to change(game.shopping_lists, :count).from(2).to(3)
+            .to change(game.wish_lists, :count).from(2).to(3)
         end
 
         it 'returns a Service::CreatedResult' do
@@ -82,7 +82,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to the created list' do
-          expect(perform.resource).to eq [game.shopping_lists.find_by(title: 'Proudspire Manor')]
+          expect(perform.resource).to eq [game.wish_lists.find_by(title: 'Proudspire Manor')]
         end
 
         it 'updates the game' do
@@ -94,20 +94,20 @@ RSpec.describe ShoppingListsController::CreateService do
         end
       end
 
-      context "when the game doesn't have an aggregate shopping list" do
+      context "when the game doesn't have an aggregate wish list" do
         it 'creates two lists' do
           expect { perform }
-            .to change(game.shopping_lists, :count).from(0).to(2)
+            .to change(game.wish_lists, :count).from(0).to(2)
         end
 
-        it 'creates an aggregate shopping list for the given game' do
+        it 'creates an aggregate wish list for the given game' do
           perform
-          expect(game.aggregate_shopping_list).to be_present
+          expect(game.aggregate_wish_list).to be_present
         end
 
-        it 'creates a regular shopping list for the given game' do
+        it 'creates a regular wish list for the given game' do
           perform
-          expect(game.shopping_lists.last.title).to eq 'Proudspire Manor'
+          expect(game.wish_lists.last.title).to eq 'Proudspire Manor'
         end
 
         it 'updates the game' do
@@ -123,7 +123,7 @@ RSpec.describe ShoppingListsController::CreateService do
         end
 
         it 'sets the resource to include both lists' do
-          expect(perform.resource).to eq(game.shopping_lists.index_order)
+          expect(perform.resource).to eq(game.wish_lists.index_order)
         end
       end
     end
@@ -133,9 +133,9 @@ RSpec.describe ShoppingListsController::CreateService do
       let(:game_id) { game.id }
       let(:params) { { title: '|nvalid Tit|e' } }
 
-      it 'does not create a shopping list' do
+      it 'does not create a wish list' do
         expect { perform }
-          .not_to change(game.shopping_lists, :count)
+          .not_to change(game.wish_lists, :count)
       end
 
       it 'returns a Service::UnprocessableEntityResult' do
@@ -152,7 +152,9 @@ RSpec.describe ShoppingListsController::CreateService do
       let(:params) { { title: 'Foobar' } }
 
       before do
-        allow_any_instance_of(ShoppingList).to receive(:save).and_raise(StandardError, 'Something went horribly wrong')
+        allow_any_instance_of(WishList)
+          .to receive(:save)
+                .and_raise(StandardError, 'Something went horribly wrong')
       end
 
       it 'returns a Service::InternalServerErrorResult' do

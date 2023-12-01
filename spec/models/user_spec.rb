@@ -47,25 +47,25 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#shopping_lists' do
+  describe '#wish_lists' do
     let(:user1) { create(:user) }
     let(:user2) { create(:user) }
 
     let(:game1) { create(:game, user: user1) }
     let(:game2) { create(:game, user: user1) }
-    let(:game3) { create(:game_with_shopping_lists, user: user2) }
+    let(:game3) { create(:game_with_wish_lists, user: user2) }
 
-    let!(:shopping_list1) { create(:aggregate_shopping_list, game: game1) }
-    let!(:shopping_list2) { create(:shopping_list, game: game1) }
-    let!(:shopping_list3) { create(:aggregate_shopping_list, game: game2) }
-    let!(:shopping_list4) { create(:shopping_list, game: game2) }
+    let!(:wish_list1) { create(:aggregate_wish_list, game: game1) }
+    let!(:wish_list2) { create(:wish_list, game: game1) }
+    let!(:wish_list3) { create(:aggregate_wish_list, game: game2) }
+    let!(:wish_list4) { create(:wish_list, game: game2) }
 
-    it "returns all the shopping lists for the user's games" do
-      expect(user1.shopping_lists).to eq([
-        shopping_list4,
-        shopping_list3,
-        shopping_list2,
-        shopping_list1,
+    it "returns all the wish lists for the user's games" do
+      expect(user1.wish_lists).to eq([
+        wish_list4,
+        wish_list3,
+        wish_list2,
+        wish_list1,
       ])
     end
   end
@@ -93,21 +93,21 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#shopping_list_items' do
-    subject(:shopping_list_items) { user1.shopping_list_items.to_a.sort }
+  describe '#wish_list_items' do
+    subject(:wish_list_items) { user1.wish_list_items.to_a.sort }
 
     let(:user1) { create(:user) }
     let(:user2) { create(:user) }
 
-    let(:game1) { create(:game_with_shopping_lists_and_items, user: user1) }
-    let(:game2) { create(:game_with_shopping_lists_and_items, user: user1) }
-    let(:game3) { create(:game_with_shopping_lists_and_items, user: user2) }
+    let(:game1) { create(:game_with_wish_lists_and_items, user: user1) }
+    let(:game2) { create(:game_with_wish_lists_and_items, user: user1) }
+    let(:game3) { create(:game_with_wish_lists_and_items, user: user2) }
 
-    it 'includes the shopping list items belonging to that user' do
-      user1_list_items = game1.shopping_list_items.to_a + game2.shopping_list_items.to_a
+    it 'includes the wish list items belonging to that user' do
+      user1_list_items = game1.wish_list_items.to_a + game2.wish_list_items.to_a
       user1_list_items.sort!
 
-      expect(shopping_list_items).to eq user1_list_items
+      expect(wish_list_items).to eq user1_list_items
     end
   end
 

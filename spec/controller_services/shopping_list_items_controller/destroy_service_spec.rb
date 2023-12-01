@@ -11,11 +11,11 @@ RSpec.describe ShoppingListItemsController::DestroyService do
     subject(:perform) { described_class.new(user, list_item.id).perform }
 
     let(:game) { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
-      let(:list_item) { create(:shopping_list_item, list: shopping_list, notes: 'some notes') }
+      let(:list_item) { create(:wish_list_item, list: wish_list, notes: 'some notes') }
       let(:user) { game.user }
 
       before do
@@ -25,7 +25,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       context 'when the quantity on the aggregate list equals the quantity on the regular list' do
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }
+          expect { WishListItem.find(list_item.id) }
             .to raise_error ActiveRecord::RecordNotFound
         end
 
@@ -39,10 +39,10 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
 
         it 'sets the aggregate list and the regular list as the resource' do
-          expect(perform.resource).to eq([aggregate_list, shopping_list])
+          expect(perform.resource).to eq([aggregate_list, wish_list])
         end
 
-        it 'sets the updated_at timestamp on the shopping list' do
+        it 'sets the updated_at timestamp on the wish list' do
           t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
@@ -50,16 +50,16 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
       end
 
       context 'when the quantity on the aggregate list exceeds the quantity on the regular list' do
         let(:user) { game.user }
-        let(:second_list) { create(:shopping_list, game:, aggregate_list:) }
+        let(:second_list) { create(:wish_list, game:, aggregate_list:) }
         let(:second_list_item) do
-          create(:shopping_list_item,
+          create(:wish_list_item,
                  list: second_list,
                  description: list_item.description.upcase, # make sure comparison is case insensitive
                  quantity: 2,
@@ -72,7 +72,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
         it 'destroys the list item' do
           perform
-          expect { ShoppingListItem.find(list_item.id) }
+          expect { WishListItem.find(list_item.id) }
             .to raise_error ActiveRecord::RecordNotFound
         end
 
@@ -81,7 +81,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
           expect(aggregate_list.list_items.first.quantity).to eq 2
         end
 
-        it 'sets the updated_at timestamp on the shopping list' do
+        it 'sets the updated_at timestamp on the wish list' do
           t = Time.zone.now + 3.days
           Timecop.freeze(t) do
             perform
@@ -89,7 +89,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
             # has frozen because Rails (Postgres?) sets the last three digits of
             # the timestamp to 0, which was breaking stuff in CI (but somehow not
             # in dev).
-            expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+            expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
           end
         end
 
@@ -98,7 +98,7 @@ RSpec.describe ShoppingListItemsController::DestroyService do
         end
 
         it 'sets the aggregate list and the regular list as the resource' do
-          expect(perform.resource).to eq([aggregate_list, shopping_list])
+          expect(perform.resource).to eq([aggregate_list, wish_list])
         end
       end
     end
@@ -119,11 +119,11 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
     context 'when the specified list item belongs to another user' do
       let(:user) { game.user }
-      let!(:list_item) { create(:shopping_list_item) }
+      let!(:list_item) { create(:wish_list_item) }
 
       it "doesn't destroy the list item" do
         expect { perform }
-          .not_to change(ShoppingListItem, :count)
+          .not_to change(WishListItem, :count)
       end
 
       it 'returns a Service::NotFoundResult' do
@@ -138,11 +138,11 @@ RSpec.describe ShoppingListItemsController::DestroyService do
 
     context 'when the specified list item is on an aggregate list' do
       let(:user) { list_item.user }
-      let(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+      let(:list_item) { create(:wish_list_item, list: aggregate_list) }
 
       it "doesn't destroy the list item" do
         perform
-        expect(ShoppingListItem.find(list_item.id)).to be_a ShoppingListItem
+        expect(WishListItem.find(list_item.id)).to be_a WishListItem
       end
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -150,16 +150,18 @@ RSpec.describe ShoppingListItemsController::DestroyService do
       end
 
       it 'includes a helpful error message' do
-        expect(perform.errors).to eq ['Cannot manually delete list item from aggregate shopping list']
+        expect(perform.errors).to eq ['Cannot manually delete list item from aggregate wish list']
       end
     end
 
     context 'when something unexpected goes wrong' do
       let(:user) { list_item.user }
-      let(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let(:list_item) { create(:wish_list_item, list: wish_list) }
 
       before do
-        allow_any_instance_of(ShoppingListItem).to receive(:destroy!).and_raise(StandardError, 'Something went horribly wrong')
+        allow_any_instance_of(WishListItem)
+          .to receive(:destroy!)
+                .and_raise(StandardError, 'Something went horribly wrong')
       end
 
       it 'returns a Service::InternalServerErrorResult' do

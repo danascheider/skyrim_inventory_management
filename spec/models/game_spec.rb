@@ -60,21 +60,21 @@ RSpec.describe Game, type: :model do
     let!(:game) { create(:game_with_everything, user:) }
 
     # This is a regression test. Games were failing to be destroyed because, when
-    # destroying their shopping lists, the aggregate list wasn't necessarily
+    # destroying their wish lists, the aggregate list wasn't necessarily
     # destroyed last. The Aggregatable concern prevents aggregate lists from being
     # destroyed if they have child lists. However, since the index_order scope puts
     # the aggregate list first, it is the first list the game attempts to destroy.
     # We had to implement another `before_destroy` callback to ensure this behaviour
     # didn't make it impossible to destroy a game with Aggregatable child models.
 
-    it "destroys all the game's shopping lists" do
+    it "destroys all the game's wish lists" do
       expect { game.destroy! }
-        .to change(ShoppingList, :count).from(3).to(0)
+        .to change(WishList, :count).from(3).to(0)
     end
 
-    it "destroys all the game's shopping list items" do
+    it "destroys all the game's wish list items" do
       expect { game.destroy! }
-        .to change(ShoppingListItem, :count).from(8).to(0)
+        .to change(WishListItem, :count).from(8).to(0)
     end
 
     it "destroys all the game's inventory lists" do
@@ -168,18 +168,18 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  describe '#aggregate_shopping_list' do
-    subject(:aggregate_shopping_list) { game.aggregate_shopping_list }
+  describe '#aggregate_wish_list' do
+    subject(:aggregate_wish_list) { game.aggregate_wish_list }
 
     let(:game) { create(:game) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
 
     before do
-      create_list(:shopping_list, 2, game:)
+      create_list(:wish_list, 2, game:)
     end
 
-    it "returns that game's aggregate shopping list" do
-      expect(aggregate_shopping_list).to eq aggregate_list
+    it "returns that game's aggregate wish list" do
+      expect(aggregate_wish_list).to eq aggregate_list
     end
   end
 
@@ -198,22 +198,22 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  describe '#shopping_list_items' do
-    subject(:shopping_list_items) { game.shopping_list_items.to_a.sort }
+  describe '#wish_list_items' do
+    subject(:wish_list_items) { game.wish_list_items.to_a.sort }
 
     let(:game) { create(:game, user:) }
 
     before do
-      create_list(:shopping_list_with_list_items, 2, game:)
-      create(:game_with_shopping_lists_and_items, user:) # one that shouldn't be included
+      create_list(:wish_list_with_list_items, 2, game:)
+      create(:game_with_wish_lists_and_items, user:) # one that shouldn't be included
     end
 
     it 'returns all list items belonging to the game' do
-      items = game.shopping_lists.map {|list| list.list_items.to_a }
+      items = game.wish_lists.map {|list| list.list_items.to_a }
       items.flatten!
       items.sort!
 
-      expect(shopping_list_items).to eq items
+      expect(wish_list_items).to eq items
     end
   end
 

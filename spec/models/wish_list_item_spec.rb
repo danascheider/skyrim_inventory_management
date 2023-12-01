@@ -62,7 +62,7 @@ RSpec.describe WishListItem, type: :model do
     let(:list_item) { create(:wish_list_item, list: wish_list) }
 
     describe '#game' do
-      it 'returns the game its ShoppingList belongs to' do
+      it 'returns the game its WishList belongs to' do
         expect(list_item.game).to eq game
       end
     end

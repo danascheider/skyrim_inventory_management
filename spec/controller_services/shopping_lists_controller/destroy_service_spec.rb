@@ -7,37 +7,37 @@ require 'service/ok_result'
 
 RSpec.describe ShoppingListsController::DestroyService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, shopping_list.id).perform }
+    subject(:perform) { described_class.new(user, wish_list.id).perform }
 
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let!(:shopping_list) { create(:shopping_list_with_list_items, game:) }
+      let!(:wish_list) { create(:wish_list_with_list_items, game:) }
       let(:game) { create(:game, user:) }
 
       context 'when the game has additional regular lists' do
-        let!(:third_list) { create(:shopping_list_with_list_items, game:) }
+        let!(:third_list) { create(:wish_list_with_list_items, game:) }
 
         let(:expected_resource) do
           {
-            deleted: [shopping_list.id],
-            aggregate: game.aggregate_shopping_list,
+            deleted: [wish_list.id],
+            aggregate: game.aggregate_wish_list,
           }
         end
 
         before do
-          shopping_list.list_items.each do |list_item|
-            game.aggregate_shopping_list.add_item_from_child_list(list_item)
+          wish_list.list_items.each do |list_item|
+            game.aggregate_wish_list.add_item_from_child_list(list_item)
           end
 
           third_list.list_items.each do |list_item|
-            game.aggregate_shopping_list.add_item_from_child_list(list_item)
+            game.aggregate_wish_list.add_item_from_child_list(list_item)
           end
         end
 
-        it 'destroys the shopping list' do
+        it 'destroys the wish list' do
           expect { perform }
-            .to change(game.shopping_lists, :count).from(3).to(2)
+            .to change(game.wish_lists, :count).from(3).to(2)
         end
 
         it 'updates the game' do
@@ -58,23 +58,23 @@ RSpec.describe ShoppingListsController::DestroyService do
 
         describe 'updating the aggregate list' do
           before do
-            items = create_list(:shopping_list_item, 2, list: third_list)
-            items.each {|item| shopping_list.aggregate_list.add_item_from_child_list(item) }
+            items = create_list(:wish_list_item, 2, list: third_list)
+            items.each {|item| wish_list.aggregate_list.add_item_from_child_list(item) }
 
-            # Because in the code it finds the shopping list by ID and then gets the aggregate list
+            # Because in the code it finds the wish list by ID and then gets the aggregate list
             # off that instance, the tests don't have access to the instance of the aggregate list that
             # the method is actually being called on, so we have to resort to this hack.
-            user_lists = user.shopping_lists
-            allow(user).to receive(:shopping_lists).and_return(user_lists)
-            allow(user_lists).to receive(:find).and_return(shopping_list)
-            allow(shopping_list).to receive(:aggregate_list).and_return(shopping_list.aggregate_list)
-            allow(shopping_list.aggregate_list).to receive(:remove_item_from_child_list).twice
+            user_lists = user.wish_lists
+            allow(user).to receive(:wish_lists).and_return(user_lists)
+            allow(user_lists).to receive(:find).and_return(wish_list)
+            allow(wish_list).to receive(:aggregate_list).and_return(wish_list.aggregate_list)
+            allow(wish_list.aggregate_list).to receive(:remove_item_from_child_list).twice
           end
 
           it 'calls #remove_item_from_child_list for each item', :aggregate_failures do
             perform
 
-            shopping_list.list_items.each do |item|
+            wish_list.list_items.each do |item|
               expect(aggregate_list).to have_received(:remove_item_from_child_list).with(item.attributes)
             end
           end
@@ -84,19 +84,19 @@ RSpec.describe ShoppingListsController::DestroyService do
       context "when this is the game's last regular list" do
         let(:expected_resource) do
           {
-            deleted: [shopping_list.aggregate_list_id, shopping_list.id],
+            deleted: [wish_list.aggregate_list_id, wish_list.id],
           }
         end
 
         before do
-          shopping_list.list_items.each do |item|
-            game.aggregate_shopping_list.add_item_from_child_list(item)
+          wish_list.list_items.each do |item|
+            game.aggregate_wish_list.add_item_from_child_list(item)
           end
         end
 
         it 'destroys the aggregate list too' do
           expect { perform }
-            .to change(game.shopping_lists, :count).from(2).to(0)
+            .to change(game.wish_lists, :count).from(2).to(0)
         end
 
         it 'updates the game' do
@@ -118,7 +118,7 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when the list is an aggregate list' do
-      let!(:shopping_list) { create(:aggregate_shopping_list, game:) }
+      let!(:wish_list) { create(:aggregate_wish_list, game:) }
       let(:game) { create(:game, user:) }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -126,12 +126,12 @@ RSpec.describe ShoppingListsController::DestroyService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq ['Cannot manually delete an aggregate shopping list']
+        expect(perform.errors).to eq ['Cannot manually delete an aggregate wish list']
       end
     end
 
     context 'when the list does not exist' do
-      let(:shopping_list) { double('list that does not exist', id: 838) }
+      let(:wish_list) { double('list that does not exist', id: 838) }
 
       it 'returns a Service::NotFoundResult' do
         expect(perform).to be_a(Service::NotFoundResult)
@@ -144,11 +144,11 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when the list belongs to another user' do
-      let!(:shopping_list) { create(:shopping_list) }
+      let!(:wish_list) { create(:wish_list) }
 
-      it "doesn't destroy the shopping list" do
+      it "doesn't destroy the wish list" do
         expect { perform }
-          .not_to change(ShoppingList, :count)
+          .not_to change(WishList, :count)
       end
 
       it 'returns a Service::NotFoundResult' do
@@ -162,11 +162,13 @@ RSpec.describe ShoppingListsController::DestroyService do
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, game:) }
+      let!(:wish_list) { create(:wish_list, game:) }
       let(:game) { create(:game, user:) }
 
       before do
-        allow_any_instance_of(ShoppingList).to receive(:aggregate_list).and_raise(StandardError.new('Something went horribly wrong'))
+        allow_any_instance_of(WishList)
+          .to receive(:aggregate_list)
+                .and_raise(StandardError.new('Something went horribly wrong'))
       end
 
       it 'returns a Service::InternalServerErrorResult' do

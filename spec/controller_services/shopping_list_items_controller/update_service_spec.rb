@@ -13,12 +13,12 @@ RSpec.describe ShoppingListItemsController::UpdateService do
 
     let(:user) { create(:user) }
     let(:game) { create(:game, user:) }
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, game:, aggregate_list:) }
 
     context 'when all goes well' do
       context 'when there is no matching item on another list' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list, description: 'Dwarven metal ingot', quantity: 2) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Dwarven metal ingot', quantity: 2) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
         let(:params) { { quantity: 9, notes: 'To make bolts with' } }
 
@@ -42,15 +42,15 @@ RSpec.describe ShoppingListItemsController::UpdateService do
           expect(perform).to be_a(Service::OKResult)
         end
 
-        it 'returns the modified shopping list items as the resource' do
+        it 'returns the modified wish list items as the resource' do
           expect(perform.resource).to eq [aggregate_list_item, list_item.reload]
         end
       end
 
       context 'when there is a matching item on another list' do
-        let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 4, unit_weight: 1) }
-        let(:other_list) { create(:shopping_list, game:, aggregate_list:) }
-        let!(:other_item) { create(:shopping_list_item, description: list_item.description, list: other_list, unit_weight: 1, quantity: 3) }
+        let!(:list_item) { create(:wish_list_item, list: wish_list, quantity: 4, unit_weight: 1) }
+        let(:other_list) { create(:wish_list, game:, aggregate_list:) }
+        let!(:other_item) { create(:wish_list_item, description: list_item.description, list: other_list, unit_weight: 1, quantity: 3) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
 
         before do
@@ -142,7 +142,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
     end
 
-    context "when the shopping list item doesn't exist" do
+    context "when the wish list item doesn't exist" do
       let(:list_item) { double(id: 3_459_250) }
       let(:params) { { quantity: 4 } }
 
@@ -156,8 +156,8 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
     end
 
-    context 'when the shopping list item belongs to another user' do
-      let!(:list_item) { create(:shopping_list_item) }
+    context 'when the wish list item belongs to another user' do
+      let!(:list_item) { create(:wish_list_item) }
       let(:params) { { quantity: 4 } }
 
       it "doesn't update the item" do
@@ -176,7 +176,7 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when the item is on an aggregate list' do
-      let!(:list_item) { create(:shopping_list_item, list: aggregate_list) }
+      let!(:list_item) { create(:wish_list_item, list: aggregate_list) }
       let(:params) { { quantity: 5 } }
 
       it 'returns a Service::MethodNotAllowedResult' do
@@ -184,14 +184,14 @@ RSpec.describe ShoppingListItemsController::UpdateService do
       end
 
       it 'sets the errors' do
-        expect(perform.errors).to eq ['Cannot manually update list items on an aggregate shopping list']
+        expect(perform.errors).to eq ['Cannot manually update list items on an aggregate wish list']
       end
     end
 
     context 'when the attributes are invalid' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list, quantity: 2) }
-      let(:other_list) { create(:shopping_list, game:) }
-      let!(:other_item) { create(:shopping_list_item, list: other_list, description: list_item.description, quantity: 1) }
+      let!(:list_item) { create(:wish_list_item, list: wish_list, quantity: 2) }
+      let(:other_list) { create(:wish_list, game:) }
+      let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 1) }
       let(:aggregate_list_item) { aggregate_list.list_items.first }
       let(:params) { { quantity: -4, unit_weight: 2 } }
 
@@ -221,12 +221,12 @@ RSpec.describe ShoppingListItemsController::UpdateService do
     end
 
     context 'when there is an unexpected error' do
-      let!(:list_item) { create(:shopping_list_item, list: shopping_list) }
+      let!(:list_item) { create(:wish_list_item, list: wish_list) }
       let(:params) { { notes: 'Hello world' } }
 
       before do
         aggregate_list.add_item_from_child_list(list_item)
-        allow_any_instance_of(ShoppingList)
+        allow_any_instance_of(WishList)
           .to receive(:aggregate)
                 .and_raise(StandardError.new('Something went horribly wrong'))
       end

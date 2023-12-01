@@ -9,27 +9,27 @@ require 'service/internal_server_error_result'
 
 RSpec.describe ShoppingListsController::UpdateService do
   describe '#perform' do
-    subject(:perform) { described_class.new(user, shopping_list.id, params).perform }
+    subject(:perform) { described_class.new(user, wish_list.id, params).perform }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
     let(:user) { create(:user) }
 
     context 'when all goes well' do
-      let(:shopping_list) { create(:shopping_list, game:, aggregate_list:) }
+      let(:wish_list) { create(:wish_list, game:, aggregate_list:) }
       let(:game) { create(:game, user:) }
       let(:params) { { title: 'My New Title' } }
 
-      it 'updates the shopping list' do
+      it 'updates the wish list' do
         perform
-        expect(shopping_list.reload.title).to eq 'My New Title'
+        expect(wish_list.reload.title).to eq 'My New Title'
       end
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
 
-      it 'sets the resource to the updated shopping list' do
-        expect(perform.resource).to eq shopping_list
+      it 'sets the resource to the updated wish list' do
+        expect(perform.resource).to eq wish_list
       end
 
       it 'updates the game' do
@@ -42,7 +42,7 @@ RSpec.describe ShoppingListsController::UpdateService do
     end
 
     context 'when the params are invalid' do
-      let(:shopping_list) { create(:shopping_list, game:) }
+      let(:wish_list) { create(:wish_list, game:) }
       let(:game) { create(:game, user:) }
       let(:params) { { title: '|nvalid Tit|e' } }
 
@@ -55,8 +55,8 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context "when the shopping list doesn't exist" do
-      let(:shopping_list) { double(id: 23_859) }
+    context "when the wish list doesn't exist" do
+      let(:wish_list) { double(id: 23_859) }
       let(:game) { create(:game) }
       let(:params) { { title: 'Valid New Title' } }
 
@@ -70,14 +70,14 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context 'when the shopping list belongs to another user' do
-      let!(:shopping_list) { create(:shopping_list) }
+    context 'when the wish list belongs to another user' do
+      let!(:wish_list) { create(:wish_list) }
       let(:game) { create(:game) }
       let(:params) { { title: 'Valid New Title' } }
 
-      it "doesn't update the shopping list" do
+      it "doesn't update the wish list" do
         expect { perform }
-          .not_to change(shopping_list.reload, :title)
+          .not_to change(wish_list.reload, :title)
       end
 
       it 'returns a Service::NotFoundResult' do
@@ -90,8 +90,8 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
     end
 
-    context 'when the shopping list is an aggregate shopping list' do
-      let(:shopping_list) { aggregate_list }
+    context 'when the wish list is an aggregate wish list' do
+      let(:wish_list) { aggregate_list }
       let(:game) { create(:game, user:) }
       let(:params) { { title: 'New Title' } }
 
@@ -100,12 +100,12 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot manually update an aggregate shopping list'])
+        expect(perform.errors).to eq(['Cannot manually update an aggregate wish list'])
       end
     end
 
     context 'when the request tries to set aggregate to true' do
-      let(:shopping_list) { create(:shopping_list, game:) }
+      let(:wish_list) { create(:wish_list, game:) }
       let(:game) { create(:game, user:) }
       let(:params) { { aggregate: true } }
 
@@ -114,17 +114,19 @@ RSpec.describe ShoppingListsController::UpdateService do
       end
 
       it 'sets the error message' do
-        expect(perform.errors).to eq(['Cannot make a regular shopping list an aggregate list'])
+        expect(perform.errors).to eq(['Cannot make a regular wish list an aggregate list'])
       end
     end
 
     context 'when something unexpected goes wrong' do
-      let!(:shopping_list) { create(:shopping_list, game:) }
+      let!(:wish_list) { create(:wish_list, game:) }
       let(:game) { create(:game, user:) }
       let(:params) { { title: 'New Title' } }
 
       before do
-        allow_any_instance_of(ShoppingList).to receive(:update).and_raise(StandardError, 'Something went horribly wrong')
+        allow_any_instance_of(WishList)
+          .to receive(:update)
+                .and_raise(StandardError, 'Something went horribly wrong')
       end
 
       it 'returns a Service::InternalServerErrorResult' do
