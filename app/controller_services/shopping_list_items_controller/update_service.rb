@@ -8,7 +8,7 @@ require 'service/internal_server_error_result'
 
 class ShoppingListItemsController < ApplicationController
   class UpdateService
-    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually update list items on an aggregate wish list'
 
     def initialize(user, item_id, params)
       @user = user
@@ -17,7 +17,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if wish_list.aggregate == true
 
       changed_attributes = {}
       changed_attributes[:quantity] = { from: list_item.quantity, to: params[:quantity] } if quantity_changed?
@@ -48,16 +48,16 @@ class ShoppingListItemsController < ApplicationController
       @aggregate_list ||= list_item.list.aggregate_list
     end
 
-    def shopping_list
-      @shopping_list ||= list_item.list
+    def wish_list
+      @wish_list ||= list_item.list
     end
 
     def list_item
-      @list_item ||= user.shopping_list_items.find(item_id)
+      @list_item ||= user.wish_list_items.find(item_id)
     end
 
     def game
-      @game ||= shopping_list.game
+      @game ||= wish_list.game
     end
 
     def aggregate_list_item
@@ -73,7 +73,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def all_matching_items
-      aggregate_list.game.shopping_list_items.where('description ILIKE ?', list_item.description)
+      aggregate_list.game.wish_list_items.where('description ILIKE ?', list_item.description)
     end
   end
 end

@@ -354,7 +354,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to update an aggregate list' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{shopping_list.id}",
+          put "/shopping_lists/#{wish_list.id}",
               params: {
                 shopping_list: { title: 'Foo' },
               }.to_json,
@@ -382,7 +382,7 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to change a regular list to an aggregate list' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{shopping_list.id}",
+          put "/shopping_lists/#{wish_list.id}",
               params: {
                 shopping_list: { aggregate: true },
               }.to_json,

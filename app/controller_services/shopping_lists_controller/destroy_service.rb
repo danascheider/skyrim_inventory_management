@@ -7,7 +7,7 @@ require 'service/internal_server_error_result'
 
 class ShoppingListsController < ApplicationController
   class DestroyService
-    AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate wish list'
 
     def initialize(user, list_id)
       @user = user
@@ -15,9 +15,9 @@ class ShoppingListsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if wish_list.aggregate == true
 
-      ids = game.shopping_lists.count == 2 ? [aggregate_list.id, shopping_list.id] : [shopping_list.id]
+      ids = game.wish_lists.count == 2 ? [aggregate_list.id, wish_list.id] : [wish_list.id]
 
       destroy_and_update_aggregate_list_items!
 
@@ -35,27 +35,27 @@ class ShoppingListsController < ApplicationController
 
     attr_reader :user, :list_id
 
-    def shopping_list
-      @shopping_list ||= user.shopping_lists.find(list_id)
+    def wish_list
+      @wish_list ||= user.wish_lists.find(list_id)
     end
 
     def aggregate_list
-      game.aggregate_shopping_list
+      game.aggregate_wish_list
     end
 
     def game
-      @game ||= shopping_list.game
+      @game ||= wish_list.game
     end
 
     def destroy_and_update_aggregate_list_items!
-      aggregate_list = shopping_list.aggregate_list
+      aggregate_list = wish_list.aggregate_list
 
-      list_items = shopping_list.list_items.map(&:attributes)
+      list_items = wish_list.list_items.map(&:attributes)
 
       ActiveRecord::Base.transaction do
-        # If shopping_list is the user's last regular shopping list, this will also
+        # If wish_list is the user's last regular wish list, this will also
         # destroy their aggregate list (see the Aggregatable concern)
-        shopping_list.destroy!
+        wish_list.destroy!
 
         list_items.each {|item_attributes| aggregate_list.remove_item_from_child_list(item_attributes) } if aggregate_list&.persisted?
       end

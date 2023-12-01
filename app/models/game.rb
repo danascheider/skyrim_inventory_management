@@ -29,7 +29,7 @@ class Game < ApplicationRecord
   # before `dependent: :destroy` need to be defined before the
   # association is defined.
   before_destroy :destroy_aggregatable_child_models
-  has_many :shopping_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
+  has_many :wish_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
   has_many :inventory_lists, -> { index_order }, dependent: :destroy, inverse_of: :game
 
   validates :name,
@@ -41,16 +41,16 @@ class Game < ApplicationRecord
 
   scope :index_order, -> { order(updated_at: :desc) }
 
-  def aggregate_shopping_list
-    shopping_lists.find_by(aggregate: true)
+  def aggregate_wish_list
+    wish_lists.find_by(aggregate: true)
   end
 
   def aggregate_inventory_list
     inventory_lists.find_by(aggregate: true)
   end
 
-  def shopping_list_items
-    ShoppingListItem.belonging_to_game(self)
+  def wish_list_items
+    WishListItem.belonging_to_game(self)
   end
 
   def inventory_items
@@ -76,7 +76,7 @@ class Game < ApplicationRecord
   # Since there is no way to change the order in which the child models are
   # deleted, it's necessary to do it in a before hook.
   def destroy_aggregatable_child_models
-    shopping_lists.reverse.each(&:destroy)
+    wish_lists.reverse.each(&:destroy)
     inventory_lists.reverse.each(&:destroy)
   end
 end
