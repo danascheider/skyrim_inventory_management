@@ -2,70 +2,70 @@
 
 require 'rails_helper'
 
-RSpec.describe ShoppingList, type: :model do
+RSpec.describe WishList, type: :model do
   describe 'scopes' do
     describe '::index_order' do
-      subject(:index_order) { game.shopping_lists.index_order.to_a }
+      subject(:index_order) { game.wish_lists.index_order.to_a }
 
       let!(:game) { create(:game) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:shopping_list1) { create(:shopping_list, game:) }
-      let!(:shopping_list2) { create(:shopping_list, game:) }
-      let!(:shopping_list3) { create(:shopping_list, game:) }
+      let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+      let!(:wish_list1) { create(:wish_list, game:) }
+      let!(:wish_list2) { create(:wish_list, game:) }
+      let!(:wish_list3) { create(:wish_list, game:) }
 
       before do
-        shopping_list2.update!(title: 'Windstad Manor')
+        wish_list2.update!(title: 'Windstad Manor')
       end
 
       it 'is in reverse chronological order by updated_at with aggregate before anything' do
-        expect(index_order).to eq([aggregate_list, shopping_list2, shopping_list3, shopping_list1])
+        expect(index_order).to eq([aggregate_list, wish_list2, wish_list3, wish_list1])
       end
     end
 
     # Aggregatable
     describe '::includes_items' do
-      subject(:includes_items) { game.shopping_lists.includes_items }
+      subject(:includes_items) { game.wish_lists.includes_items }
 
       let!(:game) { create(:game) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:lists) { create_list(:shopping_list_with_list_items, 2, game:) }
+      let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+      let!(:lists) { create_list(:wish_list_with_list_items, 2, game:) }
 
-      it 'includes the shopping list items' do
-        expect(includes_items).to eq game.shopping_lists.includes(:list_items)
+      it 'includes the wish list items' do
+        expect(includes_items).to eq game.wish_lists.includes(:list_items)
       end
     end
 
     # Aggregatable
     describe '::aggregates_first' do
-      subject(:aggregate_first) { game.shopping_lists.aggregate_first.to_a }
+      subject(:aggregate_first) { game.wish_lists.aggregate_first.to_a }
 
       let!(:game) { create(:game) }
-      let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-      let!(:shopping_list) { create(:shopping_list, game:) }
+      let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+      let!(:wish_list) { create(:wish_list, game:) }
 
-      it 'returns the shopping lists with the aggregate list first' do
-        expect(aggregate_first).to eq([aggregate_list, shopping_list])
+      it 'returns the wish lists with the aggregate list first' do
+        expect(aggregate_first).to eq([aggregate_list, wish_list])
       end
     end
 
     describe '::belongs_to_user' do
       let(:user) { create(:user) }
-      let!(:game1) { create(:game_with_shopping_lists, user:) }
-      let!(:game2) { create(:game_with_shopping_lists, user:) }
-      let!(:game3) { create(:game_with_shopping_lists, user:) }
+      let!(:game1) { create(:game_with_wish_lists, user:) }
+      let!(:game2) { create(:game_with_wish_lists, user:) }
+      let!(:game3) { create(:game_with_wish_lists, user:) }
 
       before do
-        create(:game_with_shopping_lists)
+        create(:game_with_wish_lists)
       end
 
-      it "returns all the shopping lists from all the user's games" do
-        # These are going to be rearranged in the output since game.shopping_lists
+      it "returns all the wish lists from all the user's games" do
+        # These are going to be rearranged in the output since game.wish_lists
         # comes back aggregate list first and the scope will return them in descending
         # updated_at order. There was no easy programmatic way to rearrange them so
         # I just have to pull them all out and reorder them in the expectation.
-        agg_list1, game1_list1, game1_list2 = game1.shopping_lists.to_a
-        agg_list2, game2_list1, game2_list2 = game2.shopping_lists.to_a
-        agg_list3, game3_list1, game3_list2 = game3.shopping_lists.to_a
+        agg_list1, game1_list1, game1_list2 = game1.wish_lists.to_a
+        agg_list2, game2_list1, game2_list2 = game2.wish_lists.to_a
+        agg_list3, game3_list1, game3_list2 = game3.wish_lists.to_a
 
         expect(described_class.belonging_to_user(user).to_a).to eq([
           game3_list1,
@@ -87,7 +87,7 @@ RSpec.describe ShoppingList, type: :model do
     describe 'aggregate lists' do
       context 'when there are no aggregate lists' do
         let(:game) { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
+        let(:aggregate_list) { build(:aggregate_wish_list, game:) }
 
         it 'is valid' do
           expect(aggregate_list).to be_valid
@@ -96,11 +96,11 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when there is an existing aggregate list belonging to another game' do
         let(:game) { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
+        let(:aggregate_list) { build(:aggregate_wish_list, game:) }
 
         before do
           other_game = create(:game, user: game.user)
-          create(:aggregate_shopping_list, game: other_game)
+          create(:aggregate_wish_list, game: other_game)
         end
 
         it 'is valid' do
@@ -110,10 +110,10 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the game already has an aggregate list' do
         let(:game) { create(:game) }
-        let(:aggregate_list) { build(:aggregate_shopping_list, game:) }
+        let(:aggregate_list) { build(:aggregate_wish_list, game:) }
 
         before do
-          create(:aggregate_shopping_list, game:)
+          create(:aggregate_wish_list, game:)
         end
 
         it 'is invalid', :aggregate_failures do
@@ -127,12 +127,12 @@ RSpec.describe ShoppingList, type: :model do
       # Aggregatable
       context 'when the title is "all items"' do
         it 'is allowed for an aggregate list' do
-          list = build(:aggregate_shopping_list, title: 'All Items')
+          list = build(:aggregate_wish_list, title: 'All Items')
           expect(list).to be_valid
         end
 
         it 'is not allowed for a regular list', :aggregate_failures do
-          list = build(:shopping_list, title: 'all items')
+          list = build(:wish_list, title: 'all items')
           expect(list).not_to be_valid
           expect(list.errors[:title]).to include 'cannot be "All Items"'
         end
@@ -140,38 +140,38 @@ RSpec.describe ShoppingList, type: :model do
 
       context 'when the title contains "all items" as well as other characters' do
         it 'is valid' do
-          list = build(:shopping_list, title: 'aLL iTems the seQUel')
+          list = build(:wish_list, title: 'aLL iTems the seQUel')
           expect(list).to be_valid
         end
       end
 
       describe 'allowed characters' do
         it 'allows alphanumeric characters, spaces, commas, apostrophes, and hyphens' do
-          list = build(:shopping_list, title: "aB 61 ,'-")
+          list = build(:wish_list, title: "aB 61 ,'-")
           expect(list).to be_valid
         end
 
         it "doesn't allow newlines", :aggregate_failures do
-          list = build(:shopping_list, title: "My\nList 1  ")
+          list = build(:wish_list, title: "My\nList 1  ")
           expect(list).not_to be_valid
           expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow other non-space whitespace", :aggregate_failures do
-          list = build(:shopping_list, title: "My\tList 1")
+          list = build(:wish_list, title: "My\tList 1")
           expect(list).not_to be_valid
           expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         it "doesn't allow special characters", :aggregate_failures do
-          list = build(:shopping_list, title: 'My^List&1')
+          list = build(:wish_list, title: 'My^List&1')
           expect(list).not_to be_valid
           expect(list.errors[:title]).to include "can only contain alphanumeric characters, spaces, commas (,), hyphens (-), and apostrophes (')"
         end
 
         # Leading and trailing whitespace characters will be stripped anyway so no need to validate
         it 'ignores leading or trailing whitespace characters' do
-          list = build(:shopping_list, title: "My List 1\n\t")
+          list = build(:wish_list, title: "My List 1\n\t")
           expect(list).to be_valid
         end
       end
@@ -180,11 +180,11 @@ RSpec.describe ShoppingList, type: :model do
 
   # Aggregatable
   describe '#aggregate_list' do
-    let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game) }
+    let!(:aggregate_list) { create(:aggregate_wish_list) }
+    let(:wish_list) { create(:wish_list, game: aggregate_list.game) }
 
     it 'returns the aggregate list that tracks it' do
-      expect(shopping_list.aggregate_list).to eq aggregate_list
+      expect(wish_list.aggregate_list).to eq aggregate_list
     end
   end
 
@@ -196,7 +196,7 @@ RSpec.describe ShoppingList, type: :model do
       # it sets values for certain attributes and I don't want those to get in the way.
       context 'when the list is not an aggregate list' do
         context 'when the user has set a title' do
-          subject(:title) { game.shopping_lists.create!(title: 'Heljarchen Hall').title }
+          subject(:title) { game.wish_lists.create!(title: 'Heljarchen Hall').title }
 
           let(:game) { create(:game) }
 
@@ -206,14 +206,14 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         context 'when the user has not set a title' do
-          subject(:title) { game.shopping_lists.create!.title }
+          subject(:title) { game.wish_lists.create!.title }
 
           context 'when the game has all default-titled regular lists' do
             before do
               # Create lists for a different game to make sure the name of this game's
               # list isn't affected by them
-              create_list(:shopping_list, 2, title: nil)
-              create_list(:shopping_list, 2, title: nil, game:)
+              create_list(:wish_list, 2, title: nil)
+              create_list(:wish_list, 2, title: nil, game:)
             end
 
             it 'sets the title based on the highest numbered default title' do
@@ -223,10 +223,10 @@ RSpec.describe ShoppingList, type: :model do
 
           context 'when the game has differently titled regular lists' do
             before do
-              create(:shopping_list, title: nil)
-              create(:shopping_list, game:, title: nil)
-              create(:shopping_list, game:, title: 'Windstad Manor')
-              create(:shopping_list, game:, title: nil)
+              create(:wish_list, title: nil)
+              create(:wish_list, game:, title: nil)
+              create(:wish_list, game:, title: 'Windstad Manor')
+              create(:wish_list, game:, title: nil)
             end
 
             it 'uses the next highest number in default lists' do
@@ -234,10 +234,10 @@ RSpec.describe ShoppingList, type: :model do
             end
           end
 
-          context 'when the game has a shopping list with a similar title' do
+          context 'when the game has a wish list with a similar title' do
             before do
-              create(:shopping_list, game:, title: 'This List is Called My List 4')
-              create_list(:shopping_list, 2, game:, title: nil)
+              create(:wish_list, game:, title: 'This List is Called My List 4')
+              create_list(:wish_list, 2, game:, title: nil)
             end
 
             it 'sets the title based on the highest numbered list called "My List N"' do
@@ -245,10 +245,10 @@ RSpec.describe ShoppingList, type: :model do
             end
           end
 
-          context 'when there is a shopping list called "My List <non-integer>"' do
+          context 'when there is a wish list called "My List <non-integer>"' do
             before do
-              create(:shopping_list, game:, title: 'My List Is the Best List')
-              create_list(:shopping_list, 2, game:, title: nil)
+              create(:wish_list, game:, title: 'My List Is the Best List')
+              create_list(:wish_list, 2, game:, title: nil)
             end
 
             it 'sets the title based on the highest numbered list called "My List N"' do
@@ -256,9 +256,9 @@ RSpec.describe ShoppingList, type: :model do
             end
           end
 
-          context 'when there is a shopping list called "My List <negative integer>"' do
+          context 'when there is a wish list called "My List <negative integer>"' do
             before do
-              create(:shopping_list, game:, title: 'My List -4')
+              create(:wish_list, game:, title: 'My List -4')
             end
 
             it 'ignores the list title with the negative integer' do
@@ -271,7 +271,7 @@ RSpec.describe ShoppingList, type: :model do
       # Aggregatable
       context 'when the list is an aggregate list' do
         context 'when the user has set a title' do
-          subject(:title) { game.shopping_lists.create!(aggregate: true, title: 'Something other than all items').title }
+          subject(:title) { game.wish_lists.create!(aggregate: true, title: 'Something other than all items').title }
 
           it 'overrides the title the user has set' do
             expect(title).to eq 'All Items'
@@ -279,7 +279,7 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         context 'when the user has not set a title' do
-          subject(:title) { game.shopping_lists.create!(aggregate: true).title }
+          subject(:title) { game.wish_lists.create!(aggregate: true).title }
 
           it 'sets the title to "All Items"' do
             expect(title).to eq 'All Items'
@@ -290,45 +290,45 @@ RSpec.describe ShoppingList, type: :model do
 
     context 'when the request includes sloppy data' do
       it 'uses intelligent title capitalisation' do
-        list = create(:shopping_list, title: 'lord oF thE rIngs')
+        list = create(:wish_list, title: 'lord oF thE rIngs')
         expect(list.title).to eq 'Lord of the Rings'
       end
 
       it 'strips trailing and leading whitespace' do
-        list = create(:shopping_list, title: " lord oF tHe RiNgs\n")
+        list = create(:wish_list, title: " lord oF tHe RiNgs\n")
         expect(list.title).to eq 'Lord of the Rings'
       end
     end
   end
 
   describe 'associations' do
-    subject(:items) { shopping_list.list_items }
+    subject(:items) { wish_list.list_items }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list) }
-    let(:shopping_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
-    let!(:item1) { create(:shopping_list_item, list: shopping_list) }
-    let!(:item2) { create(:shopping_list_item, list: shopping_list) }
-    let!(:item3) { create(:shopping_list_item, list: shopping_list) }
+    let!(:aggregate_list) { create(:aggregate_wish_list) }
+    let(:wish_list) { create(:wish_list, game: aggregate_list.game, aggregate_list_id: aggregate_list.id) }
+    let!(:item1) { create(:wish_list_item, list: wish_list) }
+    let!(:item2) { create(:wish_list_item, list: wish_list) }
+    let!(:item3) { create(:wish_list_item, list: wish_list) }
 
     before do
       item2.update!(quantity: 2)
     end
 
     it 'keeps child models in descending order of updated_at' do
-      expect(shopping_list.list_items.to_a).to eq([item2, item3, item1])
+      expect(wish_list.list_items.to_a).to eq([item2, item3, item1])
     end
   end
 
   describe 'before destroy hook' do
     # Aggregatable
     context 'when trying to destroy the aggregate list' do
-      subject(:destroy_list) { shopping_list.destroy! }
+      subject(:destroy_list) { wish_list.destroy! }
 
-      let(:shopping_list) { create(:aggregate_shopping_list) }
+      let(:wish_list) { create(:aggregate_wish_list) }
 
       context 'when the game has regular lists' do
         before do
-          create(:shopping_list, game: shopping_list.game, aggregate_list: shopping_list)
+          create(:wish_list, game: wish_list.game, aggregate_list: wish_list)
         end
 
         it 'raises an error and does not destroy the list' do
@@ -340,7 +340,7 @@ RSpec.describe ShoppingList, type: :model do
       context 'when the game has no regular lists' do
         it 'destroys the aggregate list' do
           expect { destroy_list }
-            .to change(shopping_list.game.shopping_lists, :count).from(1).to(0)
+            .to change(wish_list.game.wish_lists, :count).from(1).to(0)
         end
       end
     end
@@ -348,27 +348,27 @@ RSpec.describe ShoppingList, type: :model do
 
   # Aggregatable
   describe 'after destroy hook' do
-    subject(:destroy_list) { shopping_list.destroy! }
+    subject(:destroy_list) { wish_list.destroy! }
 
-    let!(:aggregate_list) { create(:aggregate_shopping_list, game:) }
-    let!(:shopping_list) { create(:shopping_list, game:) }
+    let!(:aggregate_list) { create(:aggregate_wish_list, game:) }
+    let!(:wish_list) { create(:wish_list, game:) }
     let(:game) { create(:game) }
 
     context 'when the user has additional regular lists' do
       before do
-        create(:shopping_list, game:)
+        create(:wish_list, game:)
       end
 
       it "doesn't destroy the aggregate list" do
         expect { destroy_list }
-          .not_to change(game, :aggregate_shopping_list)
+          .not_to change(game, :aggregate_wish_list)
       end
     end
 
     context 'when the user has no additional regular lists' do
       it 'destroys the aggregate list' do
         expect { destroy_list }
-          .to change(game.shopping_lists, :count).from(2).to(0)
+          .to change(game.wish_lists, :count).from(2).to(0)
       end
     end
   end
@@ -377,12 +377,12 @@ RSpec.describe ShoppingList, type: :model do
     describe '#add_item_from_child_list' do
       subject(:add_item) { aggregate_list.add_item_from_child_list(list_item) }
 
-      let(:aggregate_list) { create(:aggregate_shopping_list) }
+      let(:aggregate_list) { create(:aggregate_wish_list) }
 
       context 'when there is no matching item on the aggregate list' do
         let(:list_item) do
           create(
-            :shopping_list_item,
+            :wish_list_item,
             quantity: 3,
             unit_weight: 4,
             notes: "shouldn't be on aggregate list",
@@ -406,11 +406,11 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when there is a matching item on the aggregate list' do
-        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+        let(:other_list) { create(:wish_list, game: aggregate_list.game, aggregate_list:) }
 
         let!(:item_on_other_list) do
           create(
-            :shopping_list_item,
+            :wish_list_item,
             description: 'Dwarven metal ingot',
             list: other_list,
             unit_weight: 0.3,
@@ -418,11 +418,11 @@ RSpec.describe ShoppingList, type: :model do
         end
 
         context 'when the new item has notes' do
-          let!(:existing_list_item) { create(:shopping_list_item, list: aggregate_list, quantity: 3) }
+          let!(:existing_list_item) { create(:wish_list_item, list: aggregate_list, quantity: 3) }
 
           let(:list_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               description: existing_list_item.description,
               quantity: 2,
               notes: 'foobar',
@@ -439,7 +439,7 @@ RSpec.describe ShoppingList, type: :model do
         context "when the new item doesn't have a unit weight" do
           let!(:existing_list_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               description: 'Dwarven metal ingot',
               list: aggregate_list,
               unit_weight: 0.3,
@@ -448,7 +448,7 @@ RSpec.describe ShoppingList, type: :model do
 
           let(:list_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               description: existing_list_item.description,
               quantity: 2,
               unit_weight: nil,
@@ -469,7 +469,7 @@ RSpec.describe ShoppingList, type: :model do
         context 'when the new item has a unit weight' do
           let!(:existing_list_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               description: 'Dwarven metal ingot',
               unit_weight: 0.3,
               list: aggregate_list,
@@ -478,7 +478,7 @@ RSpec.describe ShoppingList, type: :model do
 
           let(:list_item) do
             create(
-              :shopping_list_item,
+              :wish_list_item,
               description: 'Dwarven metal ingot',
               quantity: 2,
               unit_weight: 0.2,
@@ -498,8 +498,8 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when called on a non-aggregate list' do
-        let(:aggregate_list) { create(:shopping_list) }
-        let(:list_item) { create(:shopping_list_item) }
+        let(:aggregate_list) { create(:wish_list) }
+        let(:list_item) { create(:wish_list_item) }
 
         it 'raises an AggregateListError' do
           expect { add_item }
@@ -512,7 +512,7 @@ RSpec.describe ShoppingList, type: :model do
       subject(:remove_item) { aggregate_list.remove_item_from_child_list(item_attrs) }
 
       context 'when there is no matching item on the aggregate list' do
-        let(:aggregate_list) { create(:aggregate_shopping_list) }
+        let(:aggregate_list) { create(:aggregate_wish_list) }
         let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
@@ -522,7 +522,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the quantity is greater than the quantity on the aggregate list' do
-        let(:aggregate_list) { create(:aggregate_shopping_list) }
+        let(:aggregate_list) { create(:aggregate_wish_list) }
         let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
 
         before do
@@ -536,7 +536,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the quantity is equal to the quantity on the aggregate list' do
-        let(:aggregate_list) { create(:aggregate_shopping_list) }
+        let(:aggregate_list) { create(:aggregate_wish_list) }
         let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'some notes' } }
 
         before do
@@ -550,7 +550,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when the quantity is less than the quantity on the aggregate list' do
-        let(:aggregate_list) { create(:aggregate_shopping_list) }
+        let(:aggregate_list) { create(:aggregate_wish_list) }
         let(:item_attrs) { { 'description' => 'Necklace', 'quantity' => 3, 'notes' => 'notes 2' } }
 
         before do
@@ -564,7 +564,7 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       context 'when called on a non-aggregate list' do
-        let(:aggregate_list) { create(:shopping_list) }
+        let(:aggregate_list) { create(:wish_list) }
         let(:item_attrs) { { description: 'Necklace', quantity: 3, notes: 'some notes' } }
 
         it 'raises an error' do
@@ -575,7 +575,7 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     describe '#update_item_from_child_list' do
-      let(:aggregate_list) { create(:aggregate_shopping_list) }
+      let(:aggregate_list) { create(:aggregate_wish_list) }
       let(:description) { 'Corundum ingot' }
 
       context 'when adjusting quantity up' do
@@ -631,9 +631,9 @@ RSpec.describe ShoppingList, type: :model do
           )
         end
 
-        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
-        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+        let!(:item_on_other_list) { create(:wish_list_item, list: other_list, description:, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:wish_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
+        let(:other_list) { create(:wish_list, game: aggregate_list.game, aggregate_list:) }
 
         it 'unsets the unit weight on the aggregate list' do
           update_item
@@ -656,9 +656,9 @@ RSpec.describe ShoppingList, type: :model do
           )
         end
 
-        let!(:item_on_other_list) { create(:shopping_list_item, list: other_list, description:, unit_weight: 1) }
-        let!(:aggregate_list_item) { create(:shopping_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
-        let(:other_list) { create(:shopping_list, game: aggregate_list.game, aggregate_list:) }
+        let!(:item_on_other_list) { create(:wish_list_item, list: other_list, description:, unit_weight: 1) }
+        let!(:aggregate_list_item) { create(:wish_list_item, list: aggregate_list, description:, quantity: 3, unit_weight: 1) }
+        let(:other_list) { create(:wish_list, game: aggregate_list.game, aggregate_list:) }
 
         it 'unsets the unit weight on the aggregate list' do
           update_item
@@ -779,7 +779,7 @@ RSpec.describe ShoppingList, type: :model do
           )
         end
 
-        let(:list) { create(:shopping_list) }
+        let(:list) { create(:wish_list) }
 
         it 'raises an error' do
           expect { update_item }
@@ -789,10 +789,10 @@ RSpec.describe ShoppingList, type: :model do
     end
 
     describe '#user' do
-      let(:shopping_list) { create(:shopping_list) }
+      let(:wish_list) { create(:wish_list) }
 
       it 'delegates to the game' do
-        expect(shopping_list.user).to eq(shopping_list.game.user)
+        expect(wish_list.user).to eq(wish_list.game.user)
       end
     end
 

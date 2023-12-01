@@ -36,7 +36,7 @@ RSpec.describe ShoppingListsController::IndexService do
       end
     end
 
-    context 'when there are no shopping lists for that game' do
+    context 'when there are no wish lists for that game' do
       let(:game) { create(:game, user:) }
       let(:game_id) { game.id }
 
@@ -49,16 +49,16 @@ RSpec.describe ShoppingListsController::IndexService do
       end
     end
 
-    context 'when there are shopping lists for that game' do
-      let(:game) { create(:game_with_shopping_lists, user:) }
+    context 'when there are wish lists for that game' do
+      let(:game) { create(:game_with_wish_lists, user:) }
       let(:game_id) { game.id }
 
       it 'returns a Service::OKResult' do
         expect(perform).to be_a(Service::OKResult)
       end
 
-      it "sets the resource to the game's shopping lists" do
-        expect(perform.resource).to eq game.shopping_lists.index_order
+      it "sets the resource to the game's wish lists" do
+        expect(perform.resource).to eq game.wish_lists.index_order
       end
     end
 
@@ -67,7 +67,7 @@ RSpec.describe ShoppingListsController::IndexService do
       let(:game_id) { game.id }
 
       before do
-        allow_any_instance_of(Game).to receive(:shopping_lists).and_raise(StandardError, 'Something went horribly wrong')
+        allow_any_instance_of(Game).to receive(:wish_lists).and_raise(StandardError, 'Something went horribly wrong')
       end
 
       it 'returns a Service::InternalServerErrorResult' do

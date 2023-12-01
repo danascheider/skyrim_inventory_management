@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :shopping_list do
+  factory :wish_list do
     game
 
-    sequence(:title) {|n| "Shopping List #{n}" }
+    sequence(:title) {|n| "Wish List #{n}" }
 
-    factory :aggregate_shopping_list do
+    factory :aggregate_wish_list do
       aggregate { true }
       title { 'All Items' }
       aggregate_list_id { nil }
     end
 
-    factory :shopping_list_with_list_items do
+    factory :wish_list_with_list_items do
       transient do
         list_item_count { 2 }
       end
 
       after(:create) do |list, evaluator|
-        create_list(:shopping_list_item, evaluator.list_item_count, list:)
+        create_list(:wish_list_item, evaluator.list_item_count, list:)
       end
     end
   end

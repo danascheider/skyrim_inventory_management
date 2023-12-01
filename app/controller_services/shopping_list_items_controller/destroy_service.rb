@@ -7,7 +7,7 @@ require 'service/internal_server_error_result'
 
 class ShoppingListItemsController < ApplicationController
   class DestroyService
-    AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually delete list item from aggregate wish list'
 
     def initialize(user, item_id)
       @user = user
@@ -15,14 +15,14 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if wish_list.aggregate == true
 
       ActiveRecord::Base.transaction do
-        shopping_list_item.destroy!
-        aggregate_list.remove_item_from_child_list(shopping_list_item.attributes)
+        wish_list_item.destroy!
+        aggregate_list.remove_item_from_child_list(wish_list_item.attributes)
       end
 
-      Service::OKResult.new(resource: [aggregate_list.reload, shopping_list.reload])
+      Service::OKResult.new(resource: [aggregate_list.reload, wish_list.reload])
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
     rescue StandardError => e
@@ -35,19 +35,19 @@ class ShoppingListItemsController < ApplicationController
     attr_reader :user, :item_id
 
     def game
-      @game ||= shopping_list.game
+      @game ||= wish_list.game
     end
 
     def aggregate_list
-      @aggregate_list ||= shopping_list.aggregate_list
+      @aggregate_list ||= wish_list.aggregate_list
     end
 
-    def shopping_list
-      @shopping_list = shopping_list_item.list
+    def wish_list
+      @wish_list = wish_list_item.list
     end
 
-    def shopping_list_item
-      @shopping_list_item ||= user.shopping_list_items.find(item_id)
+    def wish_list_item
+      @wish_list_item ||= user.wish_list_items.find(item_id)
     end
   end
 end

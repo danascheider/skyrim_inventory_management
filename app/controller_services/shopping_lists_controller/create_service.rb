@@ -9,7 +9,7 @@ require 'service/ok_result'
 
 class ShoppingListsController < ApplicationController
   class CreateService
-    AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate wish list'
 
     def initialize(user, game_id, params)
       @user = user
@@ -20,13 +20,13 @@ class ShoppingListsController < ApplicationController
     def perform
       return Service::UnprocessableEntityResult.new(errors: [AGGREGATE_LIST_ERROR]) if params[:aggregate]
 
-      shopping_list = game.shopping_lists.new(params)
+      wish_list = game.wish_lists.new(params)
 
-      if shopping_list.save
-        resource = game_has_other_lists? ? Array.wrap(shopping_list) : game.shopping_lists.index_order
+      if wish_list.save
+        resource = game_has_other_lists? ? Array.wrap(wish_list) : game.wish_lists.index_order
         Service::CreatedResult.new(resource:)
       else
-        Service::UnprocessableEntityResult.new(errors: shopping_list.error_array)
+        Service::UnprocessableEntityResult.new(errors: wish_list.error_array)
       end
     rescue ActiveRecord::RecordNotFound
       Service::NotFoundResult.new
@@ -44,7 +44,7 @@ class ShoppingListsController < ApplicationController
     end
 
     def game_has_other_lists?
-      game.shopping_lists.count > 2
+      game.wish_lists.count > 2
     end
   end
 end

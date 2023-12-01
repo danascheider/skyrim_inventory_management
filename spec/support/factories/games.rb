@@ -6,26 +6,26 @@ FactoryBot.define do
 
     sequence(:name) {|n| "Skyrim Game #{n}" }
 
-    factory :game_with_shopping_lists do
+    factory :game_with_wish_lists do
       transient do
-        shopping_list_count { 2 }
+        wish_list_count { 2 }
       end
 
       after(:create) do |game, evaluator|
-        create(:aggregate_shopping_list, game:)
-        create_list(:shopping_list, evaluator.shopping_list_count, game:)
+        create(:aggregate_wish_list, game:)
+        create_list(:wish_list, evaluator.wish_list_count, game:)
       end
     end
 
-    factory :game_with_shopping_lists_and_items do
+    factory :game_with_wish_lists_and_items do
       transient do
-        shopping_list_count { 2 }
+        wish_list_count { 2 }
       end
 
       after(:create) do |game, evaluator|
-        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game:)
+        wish_lists = create_list(:wish_list_with_list_items, evaluator.wish_list_count, game:)
 
-        shopping_lists.each do |list|
+        wish_lists.each do |list|
           list.list_items.each do |item|
             list.aggregate_list.add_item_from_child_list(item)
           end
@@ -62,7 +62,7 @@ FactoryBot.define do
 
     factory :game_with_everything do
       transient do
-        shopping_list_count { 2 }
+        wish_list_count { 2 }
         inventory_list_count { 2 }
       end
 
@@ -75,9 +75,9 @@ FactoryBot.define do
           end
         end
 
-        shopping_lists = create_list(:shopping_list_with_list_items, evaluator.shopping_list_count, game:)
+        wish_lists = create_list(:wish_list_with_list_items, evaluator.wish_list_count, game:)
 
-        shopping_lists.each do |list|
+        wish_lists.each do |list|
           list.list_items.each do |item|
             list.aggregate_list.add_item_from_child_list(item)
           end

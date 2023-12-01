@@ -9,7 +9,7 @@ require 'service/internal_server_error_result'
 
 class ShoppingListItemsController < ApplicationController
   class CreateService
-    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate shopping list'
+    AGGREGATE_LIST_ERROR = 'Cannot manually manage items on an aggregate wish list'
 
     def initialize(user, list_id, params)
       @user = user
@@ -18,10 +18,10 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def perform
-      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if shopping_list.aggregate == true
+      return Service::MethodNotAllowedResult.new(errors: [AGGREGATE_LIST_ERROR]) if wish_list.aggregate == true
 
-      preexisting_item = shopping_list.list_items.find_by('description ILIKE ?', params[:description])
-      item = ShoppingListItem.combine_or_new(params.merge(list_id:))
+      preexisting_item = wish_list.list_items.find_by('description ILIKE ?', params[:description])
+      item = WishListItem.combine_or_new(params.merge(list_id:))
 
       ActiveRecord::Base.transaction do
         lists_changed = lists_to_be_changed
@@ -55,12 +55,12 @@ class ShoppingListItemsController < ApplicationController
 
     attr_reader :user, :list_id, :params
 
-    def shopping_list
-      @shopping_list ||= user.shopping_lists.find(list_id)
+    def wish_list
+      @wish_list ||= user.wish_lists.find(list_id)
     end
 
     def aggregate_list
-      @aggregate_list ||= shopping_list.aggregate_list
+      @aggregate_list ||= wish_list.aggregate_list
     end
 
     def game
@@ -72,19 +72,20 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def all_matching_list_items
-      @all_matching_list_items ||= game.shopping_list_items.where(
-        'description ILIKE ?', params[:description],
+      @all_matching_list_items ||= game.wish_list_items.where(
+        'description ILIKE ?',
+        params[:description],
       )
     end
 
     def lists_to_be_changed
       list_ids = if all_matching_list_items.count > 0 && params[:unit_weight] && params[:unit_weight] != aggregate_list_item&.unit_weight
-                   all_matching_list_items.pluck(:list_id).push(shopping_list.id)
+                   all_matching_list_items.pluck(:list_id).push(wish_list.id)
                  else
-                   [aggregate_list.id, shopping_list.id]
+                   [aggregate_list.id, wish_list.id]
                  end
 
-      game.shopping_lists.where(id: list_ids)
+      game.wish_lists.where(id: list_ids)
     end
   end
 end

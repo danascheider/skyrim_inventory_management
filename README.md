@@ -14,7 +14,7 @@ Users are uniquely identified by the UID of the Google account they use to sign 
 
 ### Authenticating Resources
 
-All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `ShoppingList` with ID 24, requesting `/shopping_lists/24` with a valid token belonging to User 2 will simply result in the resource not being found, and not in a 401 response. All requests lacking a valid token will return 401 responses.
+All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `WishList` with ID 24, requesting `/shopping_lists/24` with a valid token belonging to User 2 will simply result in the resource not being found, and not in a 401 response. All requests lacking a valid token will return 401 responses.
 
 ## Resources
 
@@ -36,7 +36,7 @@ display_name: string or null
 
 ### RESTful Resources
 
-See the [API docs](/docs/api/README.md) for information about resources like games, shopping lists, and more. For information about models not exposed as RESTful resources, see docs on [canonical models](/docs/canonical_models/README.md).
+See the [API docs](/docs/api/README.md) for information about resources like games, wish lists, and more. For information about models not exposed as RESTful resources, see docs on [canonical models](/docs/canonical_models/README.md).
 
 ## Developer Info
 
@@ -69,7 +69,7 @@ bundle exec rspec spec/models
 bundle exec rspec spec/requests/shopping_lists_spec.rb
 
 # runs a specific spec on line 42 of the specified file
-bundle exec rspec spec/models/shopping_list_item_spec.rb:42
+bundle exec rspec spec/models/wish_list_item_spec.rb:42
 ```
 
 All pull requests should include whatever test updates are required to ensure the new code is thoroughly covered by quality, passing tests.
@@ -81,7 +81,7 @@ One caveat in testing is that timestamps may be treated differently in [GitHub A
 t = Time.zone.now + 3.days
 Timecop.freeze(t) do
   perform
-  expect(shopping_list.reload.updated_at).to be_within(0.005.seconds).of(t)
+  expect(wish_list.reload.updated_at).to be_within(0.005.seconds).of(t)
 end
 ```
 

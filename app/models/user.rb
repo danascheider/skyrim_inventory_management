@@ -16,16 +16,16 @@ class User < ApplicationRecord
     end
   end
 
-  def shopping_lists
-    ShoppingList.belonging_to_user(self)
+  def wish_lists
+    WishList.belonging_to_user(self)
   end
 
   def inventory_lists
     InventoryList.belonging_to_user(self)
   end
 
-  def shopping_list_items
-    ShoppingListItem.belonging_to_user(self)
+  def wish_list_items
+    WishListItem.belonging_to_user(self)
   end
 
   def inventory_items
