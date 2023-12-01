@@ -3,6 +3,8 @@
 require 'titlecase'
 
 class ShoppingList < ApplicationRecord
+  self.table_name = 'wish_lists'
+
   # Titles have to be unique per game as described in the API docs. They also can only
   # contain alphanumeric characters and spaces with no special characters or whitespace
   # other than spaces. Leading or trailing whitespace is stripped anyway so the validation
@@ -25,7 +27,7 @@ class ShoppingList < ApplicationRecord
   include Aggregatable
 
   scope :index_order, -> { includes_items.aggregate_first.order(updated_at: :desc) }
-  scope :belonging_to_user, ->(user) { joins(:game).where(games: { user_id: user.id }).order('shopping_lists.updated_at DESC') }
+  scope :belonging_to_user, ->(user) { joins(:game).where(games: { user_id: user.id }).order('wish_lists.updated_at DESC') }
 
   private
 
