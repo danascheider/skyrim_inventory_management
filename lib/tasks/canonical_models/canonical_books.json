@@ -445,7 +445,7 @@
   {
     "attributes": {
       "title": "A Dream of Sovngarde",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED02F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -465,7 +465,7 @@
   {
     "attributes": {
       "title": "A Game at Dinner",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFC4",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -485,7 +485,7 @@
   {
     "attributes": {
       "title": "A Gentleman's Guide to Whiterun",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED02E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -527,7 +527,7 @@
   {
     "attributes": {
       "title": "A Kiss, Sweet Mother",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000A0322",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -547,7 +547,7 @@
   {
     "attributes": {
       "title": "A Letter to Selina I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX030C9A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -567,7 +567,7 @@
   {
     "attributes": {
       "title": "A Letter to Selina II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX030C9B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -587,7 +587,7 @@
   {
     "attributes": {
       "title": "A Letter to Selina III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX030C9C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -607,7 +607,7 @@
   {
     "attributes": {
       "title": "A Letter to Selina IV",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX030C9D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -671,7 +671,7 @@
   {
     "attributes": {
       "title": "A Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX033C7D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -691,7 +691,7 @@
   {
     "attributes": {
       "title": "A Scrawled Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000B1260",
       "unit_weight": 0,
       "book_type": "letter",
@@ -711,7 +711,7 @@
   {
     "attributes": {
       "title": "A Short History of Morrowind",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B22B",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -753,7 +753,7 @@
   {
     "attributes": {
       "title": "A Warning",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6928",
       "unit_weight": 0,
       "book_type": "letter",
@@ -773,7 +773,7 @@
   {
     "attributes": {
       "title": "Admonition Against Ebony",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6843",
       "unit_weight": 1,
       "book_type": "journal",
@@ -815,7 +815,7 @@
   {
     "attributes": {
       "title": "Adril's Survey Results",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A4DD",
       "unit_weight": 0,
       "book_type": "letter",
@@ -835,7 +835,7 @@
   {
     "attributes": {
       "title": "Advances in Lockpicking",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B01C",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -855,7 +855,7 @@
   {
     "attributes": {
       "title": "Adventurer's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D95E3",
       "unit_weight": 1,
       "book_type": "journal",
@@ -875,7 +875,7 @@
   {
     "attributes": {
       "title": "Aedra and Daedra",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B22C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -895,7 +895,7 @@
   {
     "attributes": {
       "title": "Aeri's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00090E52",
       "unit_weight": 0,
       "book_type": "letter",
@@ -915,7 +915,7 @@
   {
     "attributes": {
       "title": "Aevar Stone-Singer",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACE6",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -935,7 +935,7 @@
   {
     "attributes": {
       "title": "Afflicted's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00045F94",
       "unit_weight": 0,
       "book_type": "letter",
@@ -955,7 +955,7 @@
   {
     "attributes": {
       "title": "Agrius's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AE8",
       "unit_weight": 1,
       "book_type": "journal",
@@ -975,7 +975,7 @@
   {
     "attributes": {
       "title": "Ahzidal's Descent",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX033BD8",
       "unit_weight": 1,
       "book_type": "quest book",
@@ -984,7 +984,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": true,
       "quest_item": true,
@@ -995,7 +995,7 @@
   {
     "attributes": {
       "title": "Ahzirr Traajijazeri",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFF3",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1015,7 +1015,7 @@
   {
     "attributes": {
       "title": "Aicantar's Lab Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00065C35",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1035,7 +1035,7 @@
   {
     "attributes": {
       "title": "Alchemist's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003A523",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1044,7 +1044,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -1055,7 +1055,7 @@
   {
     "attributes": {
       "title": "Alchemist's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006DF90",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1097,7 +1097,7 @@
   {
     "attributes": {
       "title": "Alethius's Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C370E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1117,7 +1117,7 @@
   {
     "attributes": {
       "title": "All Employees Must Read!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1137,7 +1137,7 @@
   {
     "attributes": {
       "title": "Alva's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0002A96D",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1157,7 +1157,7 @@
   {
     "attributes": {
       "title": "Amaund Motierre's Sealed Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005BF2E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1177,7 +1177,7 @@
   {
     "attributes": {
       "title": "Amongst the Draugr",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED03F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1197,7 +1197,7 @@
   {
     "attributes": {
       "title": "An Accounting of the Scrolls",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED03A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1206,7 +1206,7 @@
       ],
       "skill_name": null,
       "purchasable": true,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -1217,7 +1217,7 @@
   {
     "attributes": {
       "title": "An Apology",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A4",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1237,7 +1237,7 @@
   {
     "attributes": {
       "title": "An Explorer's Guide to Skyrim",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083B38",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1279,7 +1279,7 @@
   {
     "attributes": {
       "title": "Ancestors and the Dunmer",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B22D",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1299,7 +1299,7 @@
   {
     "attributes": {
       "title": "Ancient Edict",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED441",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1319,7 +1319,7 @@
   {
     "attributes": {
       "title": "Anders's Message",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000FF223",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1339,7 +1339,7 @@
   {
     "attributes": {
       "title": "Anise's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DDFB6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1359,7 +1359,7 @@
   {
     "attributes": {
       "title": "Annals of the Dragonguard",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003636A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1379,7 +1379,7 @@
   {
     "attributes": {
       "title": "Anonymous Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000504EE",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1399,7 +1399,7 @@
   {
     "attributes": {
       "title": "Antecedents of Dwemer Law",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B22F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -1441,7 +1441,7 @@
   {
     "attributes": {
       "title": "Argonian Ceremony",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A8",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1461,7 +1461,7 @@
   {
     "attributes": {
       "title": "Arondil's Journal, Part 1",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00080D63",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1481,7 +1481,7 @@
   {
     "attributes": {
       "title": "Arondil's Journal, Part 2",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00080D64",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1501,7 +1501,7 @@
   {
     "attributes": {
       "title": "Arondil's Journal, Part 3",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00080D65",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1521,7 +1521,7 @@
   {
     "attributes": {
       "title": "Arondil's Journal, Part 4",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00080D66",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1541,7 +1541,7 @@
   {
     "attributes": {
       "title": "Arvel's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00039654",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1561,7 +1561,7 @@
   {
     "attributes": {
       "title": "Assassin's Writ",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01AA22",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1603,7 +1603,7 @@
   {
     "attributes": {
       "title": "Atronach Forge Manual",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006CE1C",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1623,7 +1623,7 @@
   {
     "attributes": {
       "title": "Attention Employees!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A0",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1665,7 +1665,7 @@
   {
     "attributes": {
       "title": "Balmora Blue Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DC176",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1685,7 +1685,7 @@
   {
     "attributes": {
       "title": "Bandit Leader's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00078DD2",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1705,7 +1705,7 @@
   {
     "attributes": {
       "title": "Bandit's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AFB",
       "unit_weight": 1,
       "book_type": "journal",
@@ -1769,7 +1769,7 @@
   {
     "attributes": {
       "title": "Beggar",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFD6",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -1811,7 +1811,7 @@
   {
     "attributes": {
       "title": "Beware the Butcher!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00021683",
       "unit_weight": 0,
       "book_type": "letter",
@@ -1820,7 +1820,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -1897,7 +1897,7 @@
   {
     "attributes": {
       "title": "Biography of the Wolf Queen",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B023",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -1917,7 +1917,7 @@
   {
     "attributes": {
       "title": "Black Book: Epistolary Acumen",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX016E2C",
       "unit_weight": 1,
       "book_type": "Black Book",
@@ -1937,7 +1937,7 @@
   {
     "attributes": {
       "title": "Black Book: Filament and Filigree",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01E99E",
       "unit_weight": 1,
       "book_type": "Black Book",
@@ -1957,7 +1957,7 @@
   {
     "attributes": {
       "title": "Black Book: The Hidden Twilight",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01E99F",
       "unit_weight": 1,
       "book_type": "Black Book",
@@ -1977,7 +1977,7 @@
   {
     "attributes": {
       "title": "Black Book: The Sallow Regent",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01E99D",
       "unit_weight": 1,
       "book_type": "Black Book",
@@ -1997,7 +1997,7 @@
   {
     "attributes": {
       "title": "Black Book: The Winds of Change",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01E99C",
       "unit_weight": 1,
       "book_type": "Black Book",
@@ -2061,7 +2061,7 @@
   {
     "attributes": {
       "title": "Blood Horker Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C58A6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2081,7 +2081,7 @@
   {
     "attributes": {
       "title": "Bloodstained Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02B23A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2101,7 +2101,7 @@
   {
     "attributes": {
       "title": "Bloodstained Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D397A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2121,7 +2121,7 @@
   {
     "attributes": {
       "title": "Boethiah's Glory",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B233",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2141,7 +2141,7 @@
   {
     "attributes": {
       "title": "Boethiah's Proving",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00032E72",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2161,7 +2161,7 @@
   {
     "attributes": {
       "title": "Bolar's Writ",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AF6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2225,7 +2225,7 @@
   {
     "attributes": {
       "title": "Bonemold Formula",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02AD3C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2245,7 +2245,7 @@
   {
     "attributes": {
       "title": "Bounty",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00095129",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2287,7 +2287,7 @@
   {
     "attributes": {
       "title": "Breathing Water",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B236",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -2399,7 +2399,7 @@
   {
     "attributes": {
       "title": "Butcher Journal #1",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00024737",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2419,7 +2419,7 @@
   {
     "attributes": {
       "title": "Butcher Journal #2",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00066182",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2439,7 +2439,7 @@
   {
     "attributes": {
       "title": "Butcher Journal #3",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00024763",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2503,7 +2503,7 @@
   {
     "attributes": {
       "title": "Cats of Skyrim",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED605",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2523,7 +2523,7 @@
   {
     "attributes": {
       "title": "Chance's Folly",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B237",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2635,7 +2635,7 @@
   {
     "attributes": {
       "title": "Chaurus Pie: A Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED032",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2678,7 +2678,7 @@
   {
     "attributes": {
       "title": "Children of the All-Maker",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03ABCC",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2698,7 +2698,7 @@
   {
     "attributes": {
       "title": "Children of the Sky",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD03",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2762,7 +2762,7 @@
   {
     "attributes": {
       "title": "Cicero's Journal - Final Volume",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00019514",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2782,7 +2782,7 @@
   {
     "attributes": {
       "title": "Cicero's Journal - Volume 1",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009DABE",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2802,7 +2802,7 @@
   {
     "attributes": {
       "title": "Cicero's Journal - Volume 2",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009DAC1",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2822,7 +2822,7 @@
   {
     "attributes": {
       "title": "Cicero's Journal - Volume 3",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009DAC4",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2842,7 +2842,7 @@
   {
     "attributes": {
       "title": "Cicero's Journal - Volume 4",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009DAC5",
       "unit_weight": 1,
       "book_type": "journal",
@@ -2862,7 +2862,7 @@
   {
     "attributes": {
       "title": "Commander's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083B05",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2882,7 +2882,7 @@
   {
     "attributes": {
       "title": "Complaint Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008AA46",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2902,7 +2902,7 @@
   {
     "attributes": {
       "title": "Confessions of a Dunmer Skooma Eater",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028264",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2922,7 +2922,7 @@
   {
     "attributes": {
       "title": "Confessions of a Khajiit Fur Trader",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX016692",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -2942,7 +2942,7 @@
   {
     "attributes": {
       "title": "Consider Adoption",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX003F7C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2962,7 +2962,7 @@
   {
     "attributes": {
       "title": "Contract",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00035B65",
       "unit_weight": 0,
       "book_type": "letter",
@@ -2982,7 +2982,7 @@
   {
     "attributes": {
       "title": "Cook's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000951AE",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3002,7 +3002,7 @@
   {
     "attributes": {
       "title": "Corpse Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000BA300",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3011,8 +3011,8 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
+      "unique_item": false,
+      "rare_item": false,
       "solstheim_only": false,
       "quest_item": false,
       "quest_reward": false
@@ -3022,7 +3022,7 @@
   {
     "attributes": {
       "title": "Courier's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "001065F5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3042,7 +3042,7 @@
   {
     "attributes": {
       "title": "Cultist's Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0331C2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3062,7 +3062,7 @@
   {
     "attributes": {
       "title": "Cure Disease Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB8",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -3087,7 +3087,7 @@
   {
     "attributes": {
       "title": "Cure Disease Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB9",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -3112,7 +3112,7 @@
   {
     "attributes": {
       "title": "Damage Health Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB5",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -3137,7 +3137,7 @@
   {
     "attributes": {
       "title": "Damage Health Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB7",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -3162,7 +3162,7 @@
   {
     "attributes": {
       "title": "Damage Health Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB6",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -3187,7 +3187,7 @@
   {
     "attributes": {
       "title": "Dark Brotherhood Assassin's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0010596A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3207,7 +3207,7 @@
   {
     "attributes": {
       "title": "Darkest Darkness",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACC9",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3227,7 +3227,7 @@
   {
     "attributes": {
       "title": "Darkfall Cave Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX00A83B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3247,7 +3247,7 @@
   {
     "attributes": {
       "title": "Darkfall Passage Note I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01860D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3267,7 +3267,7 @@
   {
     "attributes": {
       "title": "Darkfall Passage Note II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX018645",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3287,7 +3287,7 @@
   {
     "attributes": {
       "title": "Dawnguard Orders - Hakar",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX003517",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3307,7 +3307,7 @@
   {
     "attributes": {
       "title": "Dawnguard Orders - Lynoit",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX003521",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3327,7 +3327,7 @@
   {
     "attributes": {
       "title": "Dawnguard Orders - Saliah",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX00350B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3347,7 +3347,7 @@
   {
     "attributes": {
       "title": "Daynas Valen's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00085FE2",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3367,7 +3367,7 @@
   {
     "attributes": {
       "title": "Daynas Valen's Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00085FE3",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3387,7 +3387,7 @@
   {
     "attributes": {
       "title": "De Rerum Dirennis",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFC7",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -3407,7 +3407,7 @@
   {
     "attributes": {
       "title": "Dearest Dinya",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A4B2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3449,7 +3449,7 @@
   {
     "attributes": {
       "title": "Deathbrand",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03661A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3469,7 +3469,7 @@
   {
     "attributes": {
       "title": "Deathbrand Treasure Map",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02BAAE",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -3489,7 +3489,7 @@
   {
     "attributes": {
       "title": "Declaration of War",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01BFE5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3509,7 +3509,7 @@
   {
     "attributes": {
       "title": "Decree of Monument",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D55D9",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3529,7 +3529,7 @@
   {
     "attributes": {
       "title": "Diary of Faire Agarwen",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01A3E7",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3542,14 +3542,14 @@
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "canonical_ingredients": []
   },
   {
     "attributes": {
       "title": "Discovering Ruunvald, Vol I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0192F0",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3569,7 +3569,7 @@
   {
     "attributes": {
       "title": "Discovering Ruunvald, Vol II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX019578",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3589,7 +3589,7 @@
   {
     "attributes": {
       "title": "Discovering Ruunvald, Vol III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01957A",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3609,7 +3609,7 @@
   {
     "attributes": {
       "title": "Discovering Ruunvald, Vol IV",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01957C",
       "unit_weight": 1,
       "book_type": "journal",
@@ -3629,7 +3629,7 @@
   {
     "attributes": {
       "title": "Dragon Investigation: Current Status",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00039F2A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3649,7 +3649,7 @@
   {
     "attributes": {
       "title": "Dragon Language: Myth no More",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EF2C0",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3669,7 +3669,7 @@
   {
     "attributes": {
       "title": "Dryston's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D672A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3711,7 +3711,7 @@
   {
     "attributes": {
       "title": "Dwarven Haul",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX006BB3",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3819,7 +3819,7 @@
   {
     "attributes": {
       "title": "Dwemer Inquiries Vol I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F31",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3839,7 +3839,7 @@
   {
     "attributes": {
       "title": "Dwemer Inquiries Vol II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F33",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3859,7 +3859,7 @@
   {
     "attributes": {
       "title": "Dwemer Inquiries Vol III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F34",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3879,7 +3879,7 @@
   {
     "attributes": {
       "title": "East Empire Connection",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6932",
       "unit_weight": 0,
       "book_type": "letter",
@@ -3899,7 +3899,7 @@
   {
     "attributes": {
       "title": "Effects of the Elder Scrolls",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003010B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -3919,7 +3919,7 @@
   {
     "attributes": {
       "title": "Elder Scroll (Blood)",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0118F9",
       "unit_weight": 20,
       "book_type": "Elder Scroll",
@@ -3937,14 +3937,14 @@
   {
     "attributes": {
       "title": "Elder Scroll (Dragon)",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0002D513",
       "unit_weight": 20,
       "book_type": "Elder Scroll",
       "authors": null,
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -3955,7 +3955,7 @@
   {
     "attributes": {
       "title": "Elder Scroll (Sun)",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX011A13",
       "unit_weight": 20,
       "book_type": "Elder Scroll",
@@ -3972,13 +3972,13 @@
   },
   {
     "attributes": {
-      "title": "Elsa's Journal",
-      "title_variants": null,
+      "title": "Eisa's Journal",
+      "title_variants": [],
       "item_code": "000D0BF6",
       "unit_weight": 1,
       "book_type": "journal",
       "authors": [
-        "Elsa Blackthorn"
+        "Eisa Blackthorn"
       ],
       "skill_name": null,
       "purchasable": false,
@@ -3993,7 +3993,7 @@
   {
     "attributes": {
       "title": "Eltrys' Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D1955",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4035,7 +4035,7 @@
   {
     "attributes": {
       "title": "Endrast's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008ACD0",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4055,7 +4055,7 @@
   {
     "attributes": {
       "title": "Erj's Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C084B",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4075,7 +4075,7 @@
   {
     "attributes": {
       "title": "Expedition Manifest",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008ACD1",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4094,8 +4094,8 @@
   },
   {
     "attributes": {
-      "title": "Eydis's Journal",
-      "title_variants": null,
+      "title": "Eydis' Journal",
+      "title_variants": [],
       "item_code": "XX03B53E",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4115,7 +4115,7 @@
   {
     "attributes": {
       "title": "Eyes Open",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4135,7 +4135,7 @@
   {
     "attributes": {
       "title": "Faded Diary",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F0422",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4155,7 +4155,7 @@
   {
     "attributes": {
       "title": "Faendal's Fake Letter from Sven",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005C846",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4175,7 +4175,7 @@
   {
     "attributes": {
       "title": "Faleen's Letter to Calcelmo",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00026EFE",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4195,7 +4195,7 @@
   {
     "attributes": {
       "title": "Fall from Glory",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED033",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4215,7 +4215,7 @@
   {
     "attributes": {
       "title": "Fall of the Snow Prince",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACF7",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4235,7 +4235,7 @@
   {
     "attributes": {
       "title": "Faralda's Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005D2EA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4255,7 +4255,7 @@
   {
     "attributes": {
       "title": "Father of the Niben",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B008",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -4275,7 +4275,7 @@
   {
     "attributes": {
       "title": "Father's Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00037F89",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4295,7 +4295,7 @@
   {
     "attributes": {
       "title": "Fear Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC2",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -4320,7 +4320,7 @@
   {
     "attributes": {
       "title": "Fear Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC1",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -4436,7 +4436,7 @@
   {
     "attributes": {
       "title": "First Letter from EEC",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A2A0",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4456,7 +4456,7 @@
   {
     "attributes": {
       "title": "First Letter from Linwe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D7773",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4476,7 +4476,7 @@
   {
     "attributes": {
       "title": "Fisherman's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007F667",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4496,7 +4496,7 @@
   {
     "attributes": {
       "title": "Five Songs of King Wulfharth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD05",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4516,7 +4516,7 @@
   {
     "attributes": {
       "title": "Flight from the Thalmor",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED04E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4537,7 +4537,7 @@
   {
     "attributes": {
       "title": "For Shelly",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000BB3D3",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4557,7 +4557,7 @@
   {
     "attributes": {
       "title": "Forge, Hammer, and Anvil",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E3E69",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4577,7 +4577,7 @@
   {
     "attributes": {
       "title": "Forsworn Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000A4CE2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4597,7 +4597,7 @@
   {
     "attributes": {
       "title": "Forsworn Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AE3",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4617,7 +4617,7 @@
   {
     "attributes": {
       "title": "Fort Neugrad Treasure Map",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D2",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -4637,7 +4637,7 @@
   {
     "attributes": {
       "title": "Fortify Carry Weight Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC7",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -4662,7 +4662,7 @@
   {
     "attributes": {
       "title": "Fortify Carry Weight Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC6",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -4687,7 +4687,7 @@
   {
     "attributes": {
       "title": "Fragment: On Artaeum",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD06",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4707,7 +4707,7 @@
   {
     "attributes": {
       "title": "Frenzy Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX00F39C",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -4754,7 +4754,7 @@
   {
     "attributes": {
       "title": "Frost's Identity Papers",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E8BDB",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4774,7 +4774,7 @@
   {
     "attributes": {
       "title": "Gaius Maro's Schedule",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00015475",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4794,7 +4794,7 @@
   {
     "attributes": {
       "title": "Galerion the Mystic",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACCD",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4814,7 +4814,7 @@
   {
     "attributes": {
       "title": "Gallus's Encoded Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000CEDA6",
       "unit_weight": 1,
       "book_type": "journal",
@@ -4834,7 +4834,7 @@
   {
     "attributes": {
       "title": "Geirmund's Epitaph",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7A33",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4854,7 +4854,7 @@
   {
     "attributes": {
       "title": "Ghosts in the Storm",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED031",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -4874,7 +4874,7 @@
   {
     "attributes": {
       "title": "Gissur's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006DEB6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4894,7 +4894,7 @@
   {
     "attributes": {
       "title": "Give Me A Chance",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4936,7 +4936,7 @@
   {
     "attributes": {
       "title": "Glover's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02AD41",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4956,7 +4956,7 @@
   {
     "attributes": {
       "title": "Goldenglow",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4976,7 +4976,7 @@
   {
     "attributes": {
       "title": "Goldenglow Bill of Sale",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007A508",
       "unit_weight": 0,
       "book_type": "letter",
@@ -4996,7 +4996,7 @@
   {
     "attributes": {
       "title": "Gorm's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000AD8DE",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5016,7 +5016,7 @@
   {
     "attributes": {
       "title": "Gourmet's Writ of Passage",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003BEB6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5036,7 +5036,7 @@
   {
     "attributes": {
       "title": "Gratian's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX020A2F",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5056,7 +5056,7 @@
   {
     "attributes": {
       "title": "Gratian's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX020A44",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5098,7 +5098,7 @@
   {
     "attributes": {
       "title": "Guard's Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E94DF",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5140,7 +5140,7 @@
   {
     "attributes": {
       "title": "Gulum-Ei's Confession",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EF579",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5160,7 +5160,7 @@
   {
     "attributes": {
       "title": "Habd's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00048160",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5180,7 +5180,7 @@
   {
     "attributes": {
       "title": "Hajvarr's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E1647",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5200,7 +5200,7 @@
   {
     "attributes": {
       "title": "Hallgerd's Tale",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFF6",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -5220,7 +5220,7 @@
   {
     "attributes": {
       "title": "Hamelyn's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0010B2CD",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5284,7 +5284,7 @@
   {
     "attributes": {
       "title": "Hargar's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000BABB4",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5304,7 +5304,7 @@
   {
     "attributes": {
       "title": "Harvesting Frostbite Spider Venom",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED603",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -5324,7 +5324,7 @@
   {
     "attributes": {
       "title": "Hastily Scribbled Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F23BA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5344,7 +5344,7 @@
   {
     "attributes": {
       "title": "Have Need of Cynric",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6933",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5364,7 +5364,7 @@
   {
     "attributes": {
       "title": "Have Need of Cynric",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6931",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5384,7 +5384,7 @@
   {
     "attributes": {
       "title": "Heavy Armor Forging",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFD2",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -5404,7 +5404,7 @@
   {
     "attributes": {
       "title": "Heddic's Volunruud Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008AD99",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5424,7 +5424,7 @@
   {
     "attributes": {
       "title": "Heljarchen Hall Charter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0157A1",
       "unit_weight": 0,
       "book_type": "document",
@@ -5442,7 +5442,7 @@
   {
     "attributes": {
       "title": "Herbalist's Guide to Skyrim",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFC8",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -5462,7 +5462,7 @@
   {
     "attributes": {
       "title": "Herbane's Bestiary: Automatons",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED60C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -5482,7 +5482,7 @@
   {
     "attributes": {
       "title": "Herbane's Bestiary: Hagravens",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED60B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -5502,7 +5502,7 @@
   {
     "attributes": {
       "title": "Herbane's Bestiary: Ice Wraiths",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D6F0B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -5522,7 +5522,7 @@
   {
     "attributes": {
       "title": "Hired Thug's Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F98B4",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5652,7 +5652,7 @@
   {
     "attributes": {
       "title": "House Redoran's Reply",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A4DC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5672,7 +5672,7 @@
   {
     "attributes": {
       "title": "Hrodulf's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028FAF",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5692,7 +5692,7 @@
   {
     "attributes": {
       "title": "Hunter's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000993FC",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5712,7 +5712,7 @@
   {
     "attributes": {
       "title": "Ice and Chitin",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B001",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -5732,7 +5732,7 @@
   {
     "attributes": {
       "title": "Idgrod's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000940DD",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5752,7 +5752,7 @@
   {
     "attributes": {
       "title": "Ildari's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026AE7",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5772,7 +5772,7 @@
   {
     "attributes": {
       "title": "Ildari's Journal, vol. I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027E4D",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5792,7 +5792,7 @@
   {
     "attributes": {
       "title": "Ildari's Journal, vol. II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027E4E",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5812,7 +5812,7 @@
   {
     "attributes": {
       "title": "Ildari's Journal, vol. III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027E4F",
       "unit_weight": 1,
       "book_type": "journal",
@@ -5832,7 +5832,7 @@
   {
     "attributes": {
       "title": "Immortal Blood",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFF1",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -5852,7 +5852,7 @@
   {
     "attributes": {
       "title": "Imperial Condolences",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009020C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5872,7 +5872,7 @@
   {
     "attributes": {
       "title": "Imperial Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AED",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5892,7 +5892,7 @@
   {
     "attributes": {
       "title": "Imperial Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AFD",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5912,7 +5912,7 @@
   {
     "attributes": {
       "title": "Imperial Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00039C8E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5976,7 +5976,7 @@
   {
     "attributes": {
       "title": "Incriminating Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E0BA1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -5996,7 +5996,7 @@
   {
     "attributes": {
       "title": "Incriminating Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0050CA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6016,27 +6016,7 @@
   {
     "attributes": {
       "title": "Incriminating Letter",
-      "title_variants": null,
-      "item_code": "00050502",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "D.M."
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
-      "title": "Incriminating Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000749B5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6056,7 +6036,7 @@
   {
     "attributes": {
       "title": "Invisibility Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB4",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -6081,7 +6061,7 @@
   {
     "attributes": {
       "title": "Invisibility Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB3",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -6106,7 +6086,7 @@
   {
     "attributes": {
       "title": "Invitation to Elenwen's Reception",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00042396",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6126,7 +6106,7 @@
   {
     "attributes": {
       "title": "Invocation of Azura",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B245",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -6146,7 +6126,7 @@
   {
     "attributes": {
       "title": "Isabelle's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00064EB2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6166,7 +6146,7 @@
   {
     "attributes": {
       "title": "J'dathaar's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005437D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6186,7 +6166,7 @@
   {
     "attributes": {
       "title": "J'zhar's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F03E5",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6206,7 +6186,7 @@
   {
     "attributes": {
       "title": "Japhet's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6844",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6248,7 +6228,7 @@
   {
     "attributes": {
       "title": "Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00077536",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6268,7 +6248,7 @@
   {
     "attributes": {
       "title": "Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008E5DF",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6288,7 +6268,7 @@
   {
     "attributes": {
       "title": "Journal Fragment",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0188C8",
       "unit_weight": 0,
       "book_type": "journal",
@@ -6308,7 +6288,7 @@
   {
     "attributes": {
       "title": "Journal of Drokt",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00026D85",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6328,7 +6308,7 @@
   {
     "attributes": {
       "title": "Journal of Mirtil Angoth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01A3E6",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -6340,15 +6320,15 @@
       "unique_item": true,
       "rare_item": true,
       "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": true
     },
     "canonical_ingredients": []
   },
   {
     "attributes": {
       "title": "Journal of a Madman",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027A13",
       "unit_weight": 0,
       "book_type": "journal",
@@ -6368,7 +6348,7 @@
   {
     "attributes": {
       "title": "Justiciar Execution Order",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000BA0BE",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6388,7 +6368,7 @@
   {
     "attributes": {
       "title": "Karan's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003A06F",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6408,7 +6388,7 @@
   {
     "attributes": {
       "title": "Katria's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0146DB",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6428,7 +6408,7 @@
   {
     "attributes": {
       "title": "Killing - Before You're Killed",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EDD35",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -6448,7 +6428,7 @@
   {
     "attributes": {
       "title": "King",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE5",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -6468,7 +6448,7 @@
   {
     "attributes": {
       "title": "King Olaf's Verse",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000AE324",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -6488,7 +6468,7 @@
   {
     "attributes": {
       "title": "Kodlak's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6841",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6528,7 +6508,7 @@
   {
     "attributes": {
       "title": "Krag's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C36EF",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6537,10 +6517,10 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
-      "quest_item": false,
+      "quest_item": true,
       "quest_reward": false
     },
     "canonical_ingredients": []
@@ -6548,7 +6528,7 @@
   {
     "attributes": {
       "title": "Kyr's Bounty",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D07B2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6568,7 +6548,7 @@
   {
     "attributes": {
       "title": "Kyr's Log",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D0E4E",
       "unit_weight": 1,
       "book_type": "journal",
@@ -6588,7 +6568,7 @@
   {
     "attributes": {
       "title": "Lakeview Manor Charter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01579F",
       "unit_weight": 1,
       "book_type": "document",
@@ -6651,7 +6631,7 @@
   {
     "attributes": {
       "title": "Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02B23B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6671,7 +6651,7 @@
   {
     "attributes": {
       "title": "Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008ACCD",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6691,7 +6671,7 @@
   {
     "attributes": {
       "title": "Letter from <NAME>",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00071443",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6711,7 +6691,7 @@
   {
     "attributes": {
       "title": "Letter from Calcemo",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000A0F46",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6731,7 +6711,7 @@
   {
     "attributes": {
       "title": "Letter from Christophe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6893",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6751,7 +6731,7 @@
   {
     "attributes": {
       "title": "Letter from Falk Firebeard",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D91D1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6771,7 +6751,7 @@
   {
     "attributes": {
       "title": "Letter from Father",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000CC86A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6791,7 +6771,7 @@
   {
     "attributes": {
       "title": "Letter from Jon",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00027F74",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6811,7 +6791,7 @@
   {
     "attributes": {
       "title": "Letter from Maven",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6894",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6831,7 +6811,7 @@
   {
     "attributes": {
       "title": "Letter from Olfina",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00027F73",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6851,7 +6831,7 @@
   {
     "attributes": {
       "title": "Letter from Quintus Navale",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000249AF",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6871,7 +6851,7 @@
   {
     "attributes": {
       "title": "Letter from Ralis Sedarys",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0365FF",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6891,7 +6871,7 @@
   {
     "attributes": {
       "title": "Letter from Ralis Sedarys 2",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX036600",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6911,7 +6891,7 @@
   {
     "attributes": {
       "title": "Letter from Ralis Sedarys 3",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX036601",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6931,7 +6911,7 @@
   {
     "attributes": {
       "title": "Letter from Ralis Sedarys 4",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX036602",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6951,7 +6931,7 @@
   {
     "attributes": {
       "title": "Letter from Sabjorn",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6895",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6971,7 +6951,7 @@
   {
     "attributes": {
       "title": "Letter from Septimus Signus",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6842",
       "unit_weight": 0,
       "book_type": "letter",
@@ -6991,7 +6971,7 @@
   {
     "attributes": {
       "title": "Letter from Solitude",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007D02F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7011,7 +6991,7 @@
   {
     "attributes": {
       "title": "Letter from a Friend",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00023EE5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7031,7 +7011,7 @@
   {
     "attributes": {
       "title": "Letter from the Jarl of Falkreath",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX016130",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7049,7 +7029,7 @@
   {
     "attributes": {
       "title": "Letter from the Steward",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000CADEC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7069,7 +7049,7 @@
   {
     "attributes": {
       "title": "Letter from the Steward of Falkreath",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0030A1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7087,7 +7067,7 @@
   {
     "attributes": {
       "title": "Letter from the Vampire",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX006956",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7107,7 +7087,7 @@
   {
     "attributes": {
       "title": "Letter of Credit",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005B49E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7127,7 +7107,7 @@
   {
     "attributes": {
       "title": "Letter of Inheritance",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001BFF5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7147,7 +7127,7 @@
   {
     "attributes": {
       "title": "Letter to Beem-Ja",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F3C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7167,7 +7147,7 @@
   {
     "attributes": {
       "title": "Letter to Golldir",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00019FEA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7187,7 +7167,7 @@
   {
     "attributes": {
       "title": "Letter to Imperial City",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026AE8",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7207,7 +7187,7 @@
   {
     "attributes": {
       "title": "Letter to Salma",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F3B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7227,7 +7207,7 @@
   {
     "attributes": {
       "title": "Letter to Usha",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03537C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7247,7 +7227,7 @@
   {
     "attributes": {
       "title": "Light Armor Forging",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFD0",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -7289,7 +7269,7 @@
   {
     "attributes": {
       "title": "Lives of the Saints",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028269",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -7309,7 +7289,7 @@
   {
     "attributes": {
       "title": "Lorcalin's Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DD99C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7351,7 +7331,7 @@
   {
     "attributes": {
       "title": "Love Poem",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000211D7",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7371,7 +7351,7 @@
   {
     "attributes": {
       "title": "Lu'ah's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00090213",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7391,7 +7371,7 @@
   {
     "attributes": {
       "title": "Lycanthropic Legends of Skyrim",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED042",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -7410,8 +7390,8 @@
   },
   {
     "attributes": {
-      "title": "Lymdrenn Telvanni's Journal",
-      "title_variants": null,
+      "title": "Lymdrenn Tenvanni's Journal",
+      "title_variants": [],
       "item_code": "000E82BE",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7432,7 +7412,7 @@
   {
     "attributes": {
       "title": "Mace Etiquette",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE6",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -7452,7 +7432,7 @@
   {
     "attributes": {
       "title": "Madanach's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E2513",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7472,7 +7452,7 @@
   {
     "attributes": {
       "title": "Magic from the Sky",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACF1",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -7492,7 +7472,7 @@
   {
     "attributes": {
       "title": "Maluril's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006BE25",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7534,7 +7514,7 @@
   {
     "attributes": {
       "title": "Mani's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D0968",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7554,7 +7534,7 @@
   {
     "attributes": {
       "title": "Mannimarco, King of Worms",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFC5",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -7574,7 +7554,7 @@
   {
     "attributes": {
       "title": "Many Thanks",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7594,7 +7574,7 @@
   {
     "attributes": {
       "title": "Mara Smiles Upon You!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A7",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7614,7 +7594,7 @@
   {
     "attributes": {
       "title": "Margret's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D3E6B",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7634,7 +7614,7 @@
   {
     "attributes": {
       "title": "Markarth Home Decorating Guide",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F1445",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -7654,7 +7634,7 @@
   {
     "attributes": {
       "title": "Master Illusion Text",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000B3236",
       "unit_weight": 0,
       "book_type": "lore book",
@@ -7696,7 +7676,7 @@
   {
     "attributes": {
       "title": "Merchant's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DD125",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7716,7 +7696,7 @@
   {
     "attributes": {
       "title": "Merilar's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0280C2",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7736,7 +7716,7 @@
   {
     "attributes": {
       "title": "Midden Incident Report",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D30C8",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7756,7 +7736,7 @@
   {
     "attributes": {
       "title": "Miner's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00055549",
       "unit_weight": 1,
       "book_type": "journal",
@@ -7798,7 +7778,7 @@
   {
     "attributes": {
       "title": "Mireli's Letter to Mother",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0277F1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7840,7 +7820,7 @@
   {
     "attributes": {
       "title": "Mogrul's Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX037251",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7860,7 +7840,7 @@
   {
     "attributes": {
       "title": "Museum Pamphlet",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00094D8B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7880,7 +7860,7 @@
   {
     "attributes": {
       "title": "Mysterious Akavir",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACD4",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -7900,7 +7880,7 @@
   {
     "attributes": {
       "title": "Mysterious Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0005224A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -7920,12 +7900,13 @@
   {
     "attributes": {
       "title": "Mysterious Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003031F",
       "unit_weight": 0,
       "book_type": "letter",
       "authors": [
-        "Delphine"
+        "Delphine",
+        "A Friend"
       ],
       "skill_name": null,
       "purchasable": false,
@@ -8138,7 +8119,7 @@
   {
     "attributes": {
       "title": "Myths of Sheogorath",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACB8",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8158,7 +8139,7 @@
   {
     "attributes": {
       "title": "Mzinchaleft Guard's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DB0D7",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8178,7 +8159,7 @@
   {
     "attributes": {
       "title": "Mzinchaleft Work Order",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00088FE8",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8198,7 +8179,7 @@
   {
     "attributes": {
       "title": "N'Gasta! Kvata! Kvakis!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD0E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8218,7 +8199,7 @@
   {
     "attributes": {
       "title": "Nchunak's Fire and Faith",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02826A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8238,7 +8219,7 @@
   {
     "attributes": {
       "title": "Necromancer's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083B08",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8258,7 +8239,7 @@
   {
     "attributes": {
       "title": "Nepos' Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D672B",
       "unit_weight": 1,
       "book_type": "journal",
@@ -8278,7 +8259,7 @@
   {
     "attributes": {
       "title": "Nerevar Moon-and-Star",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD0D",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8298,7 +8279,7 @@
   {
     "attributes": {
       "title": "Nerevar at Red Mountain",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02826B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8318,7 +8299,7 @@
   {
     "attributes": {
       "title": "Night Falls on Sentinel",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE4",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -8338,7 +8319,7 @@
   {
     "attributes": {
       "title": "Night of Tears",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0004D249",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8380,7 +8361,7 @@
   {
     "attributes": {
       "title": "No Word Yet",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8400,7 +8381,7 @@
   {
     "attributes": {
       "title": "Nords Arise!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED161",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8442,7 +8423,7 @@
   {
     "attributes": {
       "title": "Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006F63C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8462,7 +8443,7 @@
   {
     "attributes": {
       "title": "Note from Agna",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000BC6FD",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8471,7 +8452,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -8482,7 +8463,7 @@
   {
     "attributes": {
       "title": "Note from Jaree-Ra",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F23E0",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8502,7 +8483,7 @@
   {
     "attributes": {
       "title": "Note from Maven",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A3",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8522,7 +8503,7 @@
   {
     "attributes": {
       "title": "Note to Rhorlak",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00078621",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8542,7 +8523,7 @@
   {
     "attributes": {
       "title": "Note to Rodulf",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E163F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8551,7 +8532,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
@@ -8562,7 +8543,7 @@
   {
     "attributes": {
       "title": "Note to Thomas",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C3B1A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8582,7 +8563,7 @@
   {
     "attributes": {
       "title": "Note to the Authorities",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009793A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8602,7 +8583,7 @@
   {
     "attributes": {
       "title": "Notes on Dimhollow Crypt, Vol. 3",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX00D070",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8644,7 +8625,7 @@
   {
     "attributes": {
       "title": "Notes on Yngol Barrow",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000B6426",
       "unit_weight": 1,
       "book_type": "journal",
@@ -8664,7 +8645,7 @@
   {
     "attributes": {
       "title": "Notes on the Lunar Forge",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00063A0F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8684,7 +8665,7 @@
   {
     "attributes": {
       "title": "Notice",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008ACCC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8704,7 +8685,7 @@
   {
     "attributes": {
       "title": "Notice of Cost Increase",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8724,7 +8705,7 @@
   {
     "attributes": {
       "title": "Nystrom's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000FF207",
       "unit_weight": 1,
       "book_type": "journal",
@@ -8744,7 +8725,7 @@
   {
     "attributes": {
       "title": "Ode to the Tundrastriders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED607",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8786,7 +8767,7 @@
   {
     "attributes": {
       "title": "Of Fjori and Holgeir",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000B64B1",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8805,8 +8786,8 @@
   },
   {
     "attributes": {
-      "title": "Official Warning",
-      "title_variants": null,
+      "title": "Official warning",
+      "title_variants": [],
       "item_code": "00068253",
       "unit_weight": 0,
       "book_type": "letter",
@@ -8826,7 +8807,7 @@
   {
     "attributes": {
       "title": "Oghma Infinium",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001A332",
       "unit_weight": 1,
       "book_type": "quest book",
@@ -8846,7 +8827,7 @@
   {
     "attributes": {
       "title": "Olaf and the Dragon",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EB090",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8866,7 +8847,7 @@
   {
     "attributes": {
       "title": "Old Tome",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008F741",
       "unit_weight": 1,
       "book_type": "journal",
@@ -8886,7 +8867,7 @@
   {
     "attributes": {
       "title": "On Apocrypha: Boneless Limbs",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A35F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8906,7 +8887,7 @@
   {
     "attributes": {
       "title": "On Apocrypha: Delving Pincers",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A360",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8926,7 +8907,7 @@
   {
     "attributes": {
       "title": "On Apocrypha: Gnashing Blades",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A361",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8946,7 +8927,7 @@
   {
     "attributes": {
       "title": "On Apocrypha: Prying Orbs",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A362",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -8966,7 +8947,7 @@
   {
     "attributes": {
       "title": "On Oblivion",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACF3",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -9008,7 +8989,7 @@
   {
     "attributes": {
       "title": "On the Great Collapse",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EDA8E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -9050,7 +9031,7 @@
   {
     "attributes": {
       "title": "Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006DFAC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9070,7 +9051,7 @@
   {
     "attributes": {
       "title": "Orders (Dawnguard)",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX007ECB",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9112,7 +9093,7 @@
   {
     "attributes": {
       "title": "Palla, volume 1",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFFE",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -9132,7 +9113,7 @@
   {
     "attributes": {
       "title": "Palla, volume 2",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACF4",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -9152,7 +9133,7 @@
   {
     "attributes": {
       "title": "Paralysis Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB2",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -9177,7 +9158,7 @@
   {
     "attributes": {
       "title": "Paralysis Poison Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CB1",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -9202,7 +9183,7 @@
   {
     "attributes": {
       "title": "Pension of the Ancestor Moth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003010A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -9222,7 +9203,7 @@
   {
     "attributes": {
       "title": "Per Your Requests",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68AA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9440,7 +9421,7 @@
   {
     "attributes": {
       "title": "Possible Rivals",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9460,7 +9441,7 @@
   {
     "attributes": {
       "title": "Posted Notice",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A4B3",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9480,7 +9461,7 @@
   {
     "attributes": {
       "title": "Power of the Elements",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009C8C2",
       "unit_weight": 1,
       "book_type": "quest book",
@@ -9500,7 +9481,7 @@
   {
     "attributes": {
       "title": "Prisoner's Plan",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E94F1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9520,7 +9501,7 @@
   {
     "attributes": {
       "title": "Private Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D9399",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9529,7 +9510,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": true,
@@ -9540,7 +9521,7 @@
   {
     "attributes": {
       "title": "Promissory Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000813B6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9582,7 +9563,7 @@
   {
     "attributes": {
       "title": "Purchase Agreement",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00085D4E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9602,7 +9583,7 @@
   {
     "attributes": {
       "title": "Purchase Agreement",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000557EC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9622,7 +9603,7 @@
   {
     "attributes": {
       "title": "Purloined Shadows",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B022",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -9642,7 +9623,7 @@
   {
     "attributes": {
       "title": "Quite Pleased",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689E",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9662,7 +9643,7 @@
   {
     "attributes": {
       "title": "Ra'jirr's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D0032",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9682,7 +9663,7 @@
   {
     "attributes": {
       "title": "Rahgot's Reply",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006DF94",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9702,7 +9683,7 @@
   {
     "attributes": {
       "title": "Raleth Eldri's Notes on Kagrumez",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0374D6",
       "unit_weight": 1,
       "book_type": "journal",
@@ -9722,7 +9703,7 @@
   {
     "attributes": {
       "title": "Ramati's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D3973",
       "unit_weight": 1,
       "book_type": "journal",
@@ -9764,7 +9745,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Flame Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA0F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9784,7 +9765,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Flame Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA10",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9804,7 +9785,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Frost Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D3F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9824,7 +9805,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Frost Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D40",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9844,7 +9825,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Poison Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA15",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9864,7 +9845,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Poison Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA16",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9884,7 +9865,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Shock Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D55",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9904,7 +9885,7 @@
   {
     "attributes": {
       "title": "Recipe - Exploding Shock Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D56",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9924,7 +9905,7 @@
   {
     "attributes": {
       "title": "Recipe - Flame Cloaked Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA11",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9944,7 +9925,7 @@
   {
     "attributes": {
       "title": "Recipe - Flame Cloaked Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA12",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9964,7 +9945,7 @@
   {
     "attributes": {
       "title": "Recipe - Frost Cloaked Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D41",
       "unit_weight": 0,
       "book_type": "letter",
@@ -9984,7 +9965,7 @@
   {
     "attributes": {
       "title": "Recipe - Frost Cloaked Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D42",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10004,7 +9985,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Flame Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA13",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10024,7 +10005,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Flame Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA14",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10044,7 +10025,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Frost Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D43",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10064,7 +10045,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Frost Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D44",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10084,7 +10065,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Poison Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA17",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10104,7 +10085,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Poison Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA18",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10124,7 +10105,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Shock Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D59",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10144,7 +10125,7 @@
   {
     "attributes": {
       "title": "Recipe - Jumping Shock Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D5A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10164,7 +10145,7 @@
   {
     "attributes": {
       "title": "Recipe - Mind Control Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA1C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10184,7 +10165,7 @@
   {
     "attributes": {
       "title": "Recipe - Oil Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027498",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10204,7 +10185,7 @@
   {
     "attributes": {
       "title": "Recipe - Poison Cloaked Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA19",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10224,7 +10205,7 @@
   {
     "attributes": {
       "title": "Recipe - Poison Cloaked Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01DA1A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10244,7 +10225,7 @@
   {
     "attributes": {
       "title": "Recipe - Shock Cloaked Spider",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D57",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10264,7 +10245,7 @@
   {
     "attributes": {
       "title": "Recipe - Shock Cloaked Spider 2x",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026D58",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10284,7 +10265,7 @@
   {
     "attributes": {
       "title": "Red Eagle's Rite",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C2987",
       "unit_weight": 1,
       "book_type": "journal",
@@ -10304,7 +10285,7 @@
   {
     "attributes": {
       "title": "Regarding Your Loss",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6897",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10324,7 +10305,7 @@
   {
     "attributes": {
       "title": "Remanada",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD14",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10344,7 +10325,7 @@
   {
     "attributes": {
       "title": "Repair Supplies",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F798C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10386,7 +10367,7 @@
   {
     "attributes": {
       "title": "Reports of a Disturbance",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A9",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10406,7 +10387,7 @@
   {
     "attributes": {
       "title": "Request for Help!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689C",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10426,7 +10407,7 @@
   {
     "attributes": {
       "title": "Requested Report",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6898",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10445,28 +10426,8 @@
   },
   {
     "attributes": {
-      "title": "Research Journal",
-      "title_variants": null,
-      "item_code": "00034CBC",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Oronel"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
       "title": "Research Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006A80D",
       "unit_weight": 1,
       "book_type": "journal",
@@ -10486,7 +10447,7 @@
   {
     "attributes": {
       "title": "Resist Fire Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC0",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10511,7 +10472,7 @@
   {
     "attributes": {
       "title": "Resist Fire Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CBD",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10536,7 +10497,7 @@
   {
     "attributes": {
       "title": "Resist Frost Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CDF",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10558,7 +10519,7 @@
   {
     "attributes": {
       "title": "Resist Frost Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CBE",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10583,7 +10544,7 @@
   {
     "attributes": {
       "title": "Resist Poison Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC5",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10608,7 +10569,7 @@
   {
     "attributes": {
       "title": "Resist Shock Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC3",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10633,7 +10594,7 @@
   {
     "attributes": {
       "title": "Resist Shock Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CC4",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10658,7 +10619,7 @@
   {
     "attributes": {
       "title": "Response to Bero's Speech",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFED",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -10678,7 +10639,7 @@
   {
     "attributes": {
       "title": "Restore Health Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CAE",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10703,7 +10664,7 @@
   {
     "attributes": {
       "title": "Restore Health Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CAD",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10728,7 +10689,7 @@
   {
     "attributes": {
       "title": "Restore Health Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CAC",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10753,7 +10714,7 @@
   {
     "attributes": {
       "title": "Restore Health Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CAF",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10778,7 +10739,7 @@
   {
     "attributes": {
       "title": "Restore Magicka Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CBC",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10803,7 +10764,7 @@
   {
     "attributes": {
       "title": "Restore Magicka Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CBB",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10828,7 +10789,7 @@
   {
     "attributes": {
       "title": "Restore Magicka Potion Recipe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5CBA",
       "unit_weight": 0,
       "book_type": "recipe",
@@ -10853,7 +10814,7 @@
   {
     "attributes": {
       "title": "Riften Home Decorating Guide",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F11B7",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10873,7 +10834,7 @@
   {
     "attributes": {
       "title": "Rigel's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00037F87",
       "unit_weight": 0,
       "book_type": "letter",
@@ -10893,7 +10854,7 @@
   {
     "attributes": {
       "title": "Rising Threat, Vol. I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED5F4",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10913,7 +10874,7 @@
   {
     "attributes": {
       "title": "Rising Threat, Vol. II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED5F5",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10933,7 +10894,7 @@
   {
     "attributes": {
       "title": "Rising Threat, Vol. III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED5F6",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10953,7 +10914,7 @@
   {
     "attributes": {
       "title": "Rising Threat, Vol. IV",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED5F7",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -10973,7 +10934,7 @@
   {
     "attributes": {
       "title": "Rislav the Righteous",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B004",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -10993,7 +10954,7 @@
   {
     "attributes": {
       "title": "Rogatus's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000931C2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11013,7 +10974,7 @@
   {
     "attributes": {
       "title": "Roras's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00037F8A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11033,7 +10994,7 @@
   {
     "attributes": {
       "title": "Ruined Trailbook",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F0424",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11097,7 +11058,7 @@
   {
     "attributes": {
       "title": "Runil's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000705C3",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11139,7 +11100,7 @@
   {
     "attributes": {
       "title": "Saden's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02649C",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11159,7 +11120,7 @@
   {
     "attributes": {
       "title": "Saint Jiub's Opus",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX003F79",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11172,7 +11133,7 @@
       "rare_item": true,
       "solstheim_only": false,
       "quest_item": false,
-      "quest_reward": false
+      "quest_reward": true
     },
     "canonical_ingredients": []
   },
@@ -11399,7 +11360,7 @@
   {
     "attributes": {
       "title": "Scourge of the Gray Quarter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED03B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11419,7 +11380,7 @@
   {
     "attributes": {
       "title": "Scrap of Paper",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01A436",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11439,7 +11400,7 @@
   {
     "attributes": {
       "title": "Scrawled Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX031CC8",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11458,8 +11419,8 @@
   },
   {
     "attributes": {
-      "title": "Scrawled Page",
-      "title_variants": null,
+      "title": "Scrawled page",
+      "title_variants": [],
       "item_code": "000D3979",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11479,7 +11440,7 @@
   {
     "attributes": {
       "title": "Scribbles of a Madman",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027A21",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11499,7 +11460,7 @@
   {
     "attributes": {
       "title": "Second Letter from EEC",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A2A1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11519,7 +11480,7 @@
   {
     "attributes": {
       "title": "Second Letter from Linwe",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007D67D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11538,8 +11499,8 @@
   },
   {
     "attributes": {
-      "title": "Servos's Journal",
-      "title_variants": null,
+      "title": "Servos' Journal",
+      "title_variants": [],
       "item_code": "XX0280C1",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11559,7 +11520,7 @@
   {
     "attributes": {
       "title": "Shadowmarks",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F84A1",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11579,7 +11540,7 @@
   {
     "attributes": {
       "title": "Shalidor's Insights",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6275",
       "unit_weight": 0,
       "book_type": "quest book",
@@ -11599,7 +11560,7 @@
   {
     "attributes": {
       "title": "Shavari's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006DEB5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11619,7 +11580,7 @@
   {
     "attributes": {
       "title": "Shezarr and the Divines",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AF93",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11639,7 +11600,7 @@
   {
     "attributes": {
       "title": "Shipment's Arrived",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F692B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11659,7 +11620,7 @@
   {
     "attributes": {
       "title": "Shipment's Ready",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00065BDA",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11679,7 +11640,7 @@
   {
     "attributes": {
       "title": "Shopping List",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11699,7 +11660,7 @@
   {
     "attributes": {
       "title": "Sibbi Black-Briar",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68AB",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11719,7 +11680,7 @@
   {
     "attributes": {
       "title": "Sild's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000AD430",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11739,7 +11700,7 @@
   {
     "attributes": {
       "title": "Sinderion's Field Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E4D6F",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11759,7 +11720,7 @@
   {
     "attributes": {
       "title": "Sithis",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFCB",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -11847,8 +11808,8 @@
   },
   {
     "attributes": {
-      "title": "Skorm Snow-Strider",
-      "title_variants": null,
+      "title": "Skorm Snow-Strider's Journal",
+      "title_variants": [],
       "item_code": "0007E5B8",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11868,7 +11829,7 @@
   {
     "attributes": {
       "title": "Skyrim's Rule: An Outsider's View",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED04C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11888,7 +11849,7 @@
   {
     "attributes": {
       "title": "Small Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F5BC0",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11908,7 +11869,7 @@
   {
     "attributes": {
       "title": "Smuggler's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DC3AF",
       "unit_weight": 1,
       "book_type": "journal",
@@ -11927,28 +11888,8 @@
   },
   {
     "attributes": {
-      "title": "Smuggler's Note",
-      "title_variants": null,
-      "item_code": "000DD998",
-      "unit_weight": 0,
-      "book_type": "letter",
-      "authors": [
-        "Anonymous"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
       "title": "Soldier's Request",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008AA45",
       "unit_weight": 0,
       "book_type": "letter",
@@ -11968,7 +11909,7 @@
   {
     "attributes": {
       "title": "Solitude Home Decorating Guide",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F1447",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -11988,7 +11929,7 @@
   {
     "attributes": {
       "title": "Sondas's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00069007",
       "unit_weight": 0,
       "book_type": "letter",
@@ -12030,7 +11971,7 @@
   {
     "attributes": {
       "title": "Song of the Askelde Men",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E7F37",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12050,7 +11991,7 @@
   {
     "attributes": {
       "title": "Songs of Skyrim",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED062",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12070,7 +12011,7 @@
   {
     "attributes": {
       "title": "Songs of Skyrim (Revised Edition)",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F11D5",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12200,7 +12141,7 @@
   {
     "attributes": {
       "title": "Souls, Black and White",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD0C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12220,7 +12161,7 @@
   {
     "attributes": {
       "title": "Sovngarde, a Reexamination",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E2FC6",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12240,7 +12181,7 @@
   {
     "attributes": {
       "title": "Spider Experiment Notes",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX017072",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12280,7 +12221,7 @@
   {
     "attributes": {
       "title": "Spirit of the Daedra",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD15",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12300,7 +12241,7 @@
   {
     "attributes": {
       "title": "Staubin's Diary",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008E8FC",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12320,7 +12261,7 @@
   {
     "attributes": {
       "title": "Stormcloak Missive",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083B04",
       "unit_weight": 0,
       "book_type": "letter",
@@ -12340,7 +12281,7 @@
   {
     "attributes": {
       "title": "Stromm's Diary",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00093846",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12360,7 +12301,7 @@
   {
     "attributes": {
       "title": "Sudi's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D0969",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12380,7 +12321,7 @@
   {
     "attributes": {
       "title": "Sulla's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0008ACD2",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12400,7 +12341,7 @@
   {
     "attributes": {
       "title": "Surfeit of Thieves",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B01D",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -12420,7 +12361,7 @@
   {
     "attributes": {
       "title": "Suvaris Atheron's Logbook",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001DBFE",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12440,7 +12381,7 @@
   {
     "attributes": {
       "title": "Sven's Fake Letter from Faendal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "005C847",
       "unit_weight": 0,
       "book_type": "letter",
@@ -12460,7 +12401,7 @@
   {
     "attributes": {
       "title": "Tattered Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000B6D60",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12480,7 +12421,7 @@
   {
     "attributes": {
       "title": "Tattered Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00108160",
       "unit_weight": 0,
       "book_type": "letter",
@@ -12500,7 +12441,7 @@
   {
     "attributes": {
       "title": "Thalmor Dossier: Delphine",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6845",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12520,7 +12461,7 @@
   {
     "attributes": {
       "title": "Thalmor Dossier: Esbern",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003AF29",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12540,7 +12481,7 @@
   {
     "attributes": {
       "title": "Thalmor Dossier: Ulfric Stormcloak",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6846",
       "unit_weight": 1,
       "book_type": "journal",
@@ -12560,7 +12501,7 @@
   {
     "attributes": {
       "title": "Thalmor Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00097803",
       "unit_weight": 0,
       "book_type": "letter",
@@ -12602,7 +12543,7 @@
   {
     "attributes": {
       "title": "The Adabal-a",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AF94",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12622,7 +12563,7 @@
   {
     "attributes": {
       "title": "The Aetherium Wars",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX004D5B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12642,7 +12583,7 @@
   {
     "attributes": {
       "title": "The Alduin/Akatosh Dichotomy",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED04B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12662,7 +12603,7 @@
   {
     "attributes": {
       "title": "The Amulet of Kings",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACE1",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12682,7 +12623,7 @@
   {
     "attributes": {
       "title": "The Anticipations",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02826C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12702,7 +12643,7 @@
   {
     "attributes": {
       "title": "The Apprentice's Assistant",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EDA8F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12722,7 +12663,7 @@
   {
     "attributes": {
       "title": "The Arcturian Heresy",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B25E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12835,7 +12776,7 @@
   {
     "attributes": {
       "title": "The Armorer's Challenge",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFCE",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -12855,7 +12796,7 @@
   {
     "attributes": {
       "title": "The Art of War Magic",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFEF",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -12875,7 +12816,7 @@
   {
     "attributes": {
       "title": "The Axe Man",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX02826D",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12939,7 +12880,7 @@
   {
     "attributes": {
       "title": "The Beginner's Guide to Homesteading",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX015D59",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12959,7 +12900,7 @@
   {
     "attributes": {
       "title": "The Betrayed",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01A3E5",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -12971,15 +12912,15 @@
       "unique_item": true,
       "rare_item": true,
       "solstheim_only": false,
-      "quest_item": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": true
     },
     "canonical_ingredients": []
   },
   {
     "attributes": {
       "title": "The Black Arrow, Book I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFC2",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13021,7 +12962,7 @@
   {
     "attributes": {
       "title": "The Black Arts on Trial",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B011",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13041,7 +12982,7 @@
   {
     "attributes": {
       "title": "The Book of Daedra",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACC8",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13061,7 +13002,7 @@
   {
     "attributes": {
       "title": "The Book of Fate",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00105A52",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13081,7 +13022,7 @@
   {
     "attributes": {
       "title": "The Book of Life and Service",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX00FAC2",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13101,7 +13042,7 @@
   {
     "attributes": {
       "title": "The Book of the Dragonborn",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F86FE",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13121,7 +13062,7 @@
   {
     "attributes": {
       "title": "The Brothers of Darkness",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACFF",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13141,7 +13082,7 @@
   {
     "attributes": {
       "title": "The Buying Game",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B00A",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13183,7 +13124,7 @@
   {
     "attributes": {
       "title": "The Cake and the Diamond",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B262",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13203,7 +13144,7 @@
   {
     "attributes": {
       "title": "The Changed Ones",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028263",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13223,7 +13164,7 @@
   {
     "attributes": {
       "title": "The City of Stone: A Sellsword's Guide to Markarth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007EBC2",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13265,7 +13206,7 @@
   {
     "attributes": {
       "title": "The Code of Malacath",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0007EBC9",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13307,7 +13248,7 @@
   {
     "attributes": {
       "title": "The Doors of Oblivion",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE7",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13327,7 +13268,7 @@
   {
     "attributes": {
       "title": "The Doors of the Spirit",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028265",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13391,7 +13332,7 @@
   {
     "attributes": {
       "title": "The Dragon War",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EDDD5",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13411,7 +13352,7 @@
   {
     "attributes": {
       "title": "The Dreamstride",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0009DE3D",
       "unit_weight": 1,
       "book_type": "quest book",
@@ -13431,7 +13372,7 @@
   {
     "attributes": {
       "title": "The Exodus",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B016",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13451,7 +13392,7 @@
   {
     "attributes": {
       "title": "The Falmer: A Study",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E0D68",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13482,7 +13423,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": true,
       "quest_item": false,
@@ -13493,7 +13434,7 @@
   {
     "attributes": {
       "title": "The Firmament",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACD2",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13513,7 +13454,7 @@
   {
     "attributes": {
       "title": "The Firsthold Revolt",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACD3",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13533,7 +13474,7 @@
   {
     "attributes": {
       "title": "The Five Far Stars",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028267",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13553,7 +13494,7 @@
   {
     "attributes": {
       "title": "The Four Totems of Volskygge",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00068B5A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13571,7 +13512,7 @@
   {
     "attributes": {
       "title": "The Gold Ribbon of Merit",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B005",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13613,7 +13554,7 @@
   {
     "attributes": {
       "title": "The Guardian and the Traitor",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03ABCD",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13655,7 +13596,7 @@
   {
     "attributes": {
       "title": "The Hope of the Redoran",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B26A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13697,7 +13638,7 @@
   {
     "attributes": {
       "title": "The House of Troubles",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028268",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13871,7 +13812,7 @@
   {
     "attributes": {
       "title": "The Knights of the Nine",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFFA",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13891,7 +13832,7 @@
   {
     "attributes": {
       "title": "The Last King of the Ayleids",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD09",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13911,7 +13852,7 @@
   {
     "attributes": {
       "title": "The Legend of Red Eagle",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000C1771",
       "unit_weight": 1,
       "book_type": "quest book",
@@ -13931,7 +13872,7 @@
   {
     "attributes": {
       "title": "The Legendary Sancre Tor",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE2",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13951,7 +13892,7 @@
   {
     "attributes": {
       "title": "The Legendary Scourge",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD0A",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -13971,7 +13912,7 @@
   {
     "attributes": {
       "title": "The Locked Room",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B019",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -13991,7 +13932,7 @@
   {
     "attributes": {
       "title": "The Lunar Lorkhan",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFCD",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -14057,7 +13998,7 @@
   {
     "attributes": {
       "title": "The Madness of Pelagius",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACF0",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14077,7 +14018,7 @@
   {
     "attributes": {
       "title": "The Marksmanship Lesson",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B26D",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -14097,7 +14038,7 @@
   {
     "attributes": {
       "title": "The Mirror",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFDE",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -14117,7 +14058,7 @@
   {
     "attributes": {
       "title": "The Monomyth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B26E",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14137,7 +14078,7 @@
   {
     "attributes": {
       "title": "The Night Mother's Truth",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E0D67",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14158,7 +14099,8 @@
     "attributes": {
       "title": "The Nightingales Volume I",
       "title_variants": [
-        "The Nightingales Volume I: Who We Are"
+        "The Nightingales Volume I: Who We Are",
+        "The Nightingales Vol. 1"
       ],
       "item_code": "000F68AC",
       "unit_weight": 1,
@@ -14180,7 +14122,8 @@
     "attributes": {
       "title": "The Nightingales Volume II",
       "title_variants": [
-        "The Nightingales Volume II: What We Were"
+        "The Nightingales Volume II: What We Were",
+        "The Nightingales Vol. 2"
       ],
       "item_code": "000F68AD",
       "unit_weight": 1,
@@ -14200,9 +14143,10 @@
   },
   {
     "attributes": {
-      "title": "The Nirnroot Missive",
+      "title": "The Nirnoot Missive",
       "title_variants": [
-        "The Nirnroot Missive (Revised Edition)"
+        "The Nirnoot Missive (Revised Edition)",
+        "The Nirnroot Missive"
       ],
       "item_code": "0010BEDF",
       "unit_weight": 1,
@@ -14224,7 +14168,7 @@
   {
     "attributes": {
       "title": "The Oblivion Crisis",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00037DEA",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14266,7 +14210,7 @@
   {
     "attributes": {
       "title": "The Pig Children",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD11",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14286,7 +14230,7 @@
   {
     "attributes": {
       "title": "The Posting of the Hunt",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD12",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14438,7 +14382,7 @@
   {
     "attributes": {
       "title": "The Rear Guard",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B000",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14480,7 +14424,7 @@
   {
     "attributes": {
       "title": "The Red Book of Riddles",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD13",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14500,7 +14444,7 @@
   {
     "attributes": {
       "title": "The Red Kitchen Reader",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFD5",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -14588,7 +14532,7 @@
   {
     "attributes": {
       "title": "The Rise and Fall of the Blades",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F4530",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14858,7 +14802,7 @@
   {
     "attributes": {
       "title": "The Tale of Dro'Zira",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F03E3",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14878,7 +14822,7 @@
   {
     "attributes": {
       "title": "The Talos Mistake",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED04D",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14898,7 +14842,7 @@
   {
     "attributes": {
       "title": "The Third Door",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACFB",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14940,7 +14884,7 @@
   {
     "attributes": {
       "title": "The Totems of Hircine",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6840",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14960,7 +14904,7 @@
   {
     "attributes": {
       "title": "The True Nature of Orcs",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD16",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -14980,7 +14924,7 @@
   {
     "attributes": {
       "title": "The True Noble's Code",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028275",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15000,7 +14944,7 @@
   {
     "attributes": {
       "title": "The Ulen Matter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01F31B",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15020,7 +14964,7 @@
   {
     "attributes": {
       "title": "The Warmth of Mara",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00053347",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15062,7 +15006,7 @@
   {
     "attributes": {
       "title": "The Waters of Oblivion",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD17",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15082,7 +15026,7 @@
   {
     "attributes": {
       "title": "The Wild Elves",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AD18",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15102,7 +15046,7 @@
   {
     "attributes": {
       "title": "The Windhelm Letters",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED03C",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15122,7 +15066,7 @@
   {
     "attributes": {
       "title": "The Wispmother",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083B3B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15340,7 +15284,7 @@
   {
     "attributes": {
       "title": "The Wraith's Wedding Dowry",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B273",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15360,7 +15304,7 @@
   {
     "attributes": {
       "title": "There Be Dragons",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED5F8",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15380,7 +15324,7 @@
   {
     "attributes": {
       "title": "Thief",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFBF",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -15400,7 +15344,7 @@
   {
     "attributes": {
       "title": "Thief of Virtue",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACDD",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15420,7 +15364,7 @@
   {
     "attributes": {
       "title": "Thief's Last Words",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F0425",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15440,7 +15384,7 @@
   {
     "attributes": {
       "title": "Things to Do",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15460,7 +15404,7 @@
   {
     "attributes": {
       "title": "Third Letter from EEC",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A2A2",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15480,7 +15424,7 @@
   {
     "attributes": {
       "title": "Thirsk, a Revised History",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03B3A5",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15500,7 +15444,7 @@
   {
     "attributes": {
       "title": "Thonar's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D674A",
       "unit_weight": 1,
       "book_type": "journal",
@@ -15520,7 +15464,7 @@
   {
     "attributes": {
       "title": "Three Thieves",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B276",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -15540,7 +15484,7 @@
   {
     "attributes": {
       "title": "Timely Offer",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6929",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15560,7 +15504,7 @@
   {
     "attributes": {
       "title": "To Be Read Immediately!",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A1",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15580,7 +15524,7 @@
   {
     "attributes": {
       "title": "To Milore from Nilara",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03A4B4",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15600,7 +15544,7 @@
   {
     "attributes": {
       "title": "To a Concerned Citizen",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F68A5",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15620,7 +15564,7 @@
   {
     "attributes": {
       "title": "To the Brotherhood",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6896",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15640,7 +15584,7 @@
   {
     "attributes": {
       "title": "To the Owner",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "FF000B07",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15660,7 +15604,7 @@
   {
     "attributes": {
       "title": "Torkild's Letter to Wulf",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX026562",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15680,7 +15624,7 @@
   {
     "attributes": {
       "title": "Torn Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00074ADF",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15700,7 +15644,7 @@
   {
     "attributes": {
       "title": "Torn Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX03780A",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15720,7 +15664,7 @@
   {
     "attributes": {
       "title": "Touching the Sky",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01A3E8",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15740,7 +15684,7 @@
   {
     "attributes": {
       "title": "Tova's Farewell",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D2B09",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15760,7 +15704,7 @@
   {
     "attributes": {
       "title": "Training Chests",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F6930",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15780,7 +15724,7 @@
   {
     "attributes": {
       "title": "Trap",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX029102",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -15800,7 +15744,7 @@
   {
     "attributes": {
       "title": "Treasure Hunter's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000A17B0",
       "unit_weight": 0,
       "book_type": "letter",
@@ -15820,7 +15764,7 @@
   {
     "attributes": {
       "title": "Treasure Map I",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000EF07A",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15840,7 +15784,7 @@
   {
     "attributes": {
       "title": "Treasure Map II",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33CE",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15860,7 +15804,7 @@
   {
     "attributes": {
       "title": "Treasure Map III",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33CF",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15880,7 +15824,7 @@
   {
     "attributes": {
       "title": "Treasure Map IV",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D1",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15900,7 +15844,7 @@
   {
     "attributes": {
       "title": "Treasure Map IX",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33CD",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15920,7 +15864,7 @@
   {
     "attributes": {
       "title": "Treasure Map V",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D4",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15940,7 +15884,7 @@
   {
     "attributes": {
       "title": "Treasure Map VI",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D0",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15960,7 +15904,7 @@
   {
     "attributes": {
       "title": "Treasure Map VII",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D5",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -15980,7 +15924,7 @@
   {
     "attributes": {
       "title": "Treasure Map VIII",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33D3",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -16000,7 +15944,7 @@
   {
     "attributes": {
       "title": "Treasure Map X",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F33E0",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -16031,7 +15975,7 @@
       ],
       "skill_name": null,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "solstheim_only": true,
       "quest_item": false,
@@ -16042,7 +15986,7 @@
   {
     "attributes": {
       "title": "Trials of St. Alessia",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACE2",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16062,7 +16006,7 @@
   {
     "attributes": {
       "title": "Troll Slaying",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED606",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16082,7 +16026,7 @@
   {
     "attributes": {
       "title": "Twin Secrets",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0002F839",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -16102,7 +16046,7 @@
   {
     "attributes": {
       "title": "Ulfr's Book",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E1640",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16122,7 +16066,7 @@
   {
     "attributes": {
       "title": "Ulyn's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX032CD5",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16142,7 +16086,7 @@
   {
     "attributes": {
       "title": "Umana's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F0417",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16162,7 +16106,7 @@
   {
     "attributes": {
       "title": "Uncommon Taste",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00009F267",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16182,7 +16126,7 @@
   {
     "attributes": {
       "title": "Uncommon Taste - Signed",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0006851B",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16289,28 +16233,8 @@
   },
   {
     "attributes": {
-      "title": "Unsent Afflicted Letter",
-      "title_variants": null,
-      "item_code": "000E7F39",
-      "unit_weight": 1,
-      "book_type": "journal",
-      "authors": [
-        "Afflicted"
-      ],
-      "skill_name": null,
-      "purchasable": false,
-      "unique_item": true,
-      "rare_item": true,
-      "solstheim_only": false,
-      "quest_item": false,
-      "quest_reward": false
-    },
-    "canonical_ingredients": []
-  },
-  {
-    "attributes": {
       "title": "Until Next Time",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F689D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16330,7 +16254,7 @@
   {
     "attributes": {
       "title": "Urag's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0003D29D",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16350,7 +16274,7 @@
   {
     "attributes": {
       "title": "Vald's Debt",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00072B13",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16370,7 +16294,7 @@
   {
     "attributes": {
       "title": "Valerica's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX003C4B",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16390,7 +16314,7 @@
   {
     "attributes": {
       "title": "Valmir's Orders",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00093CF6",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16410,7 +16334,7 @@
   {
     "attributes": {
       "title": "Vampire's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX006E58",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16430,7 +16354,7 @@
   {
     "attributes": {
       "title": "Varieties of Daedra",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001ACFC",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16450,7 +16374,7 @@
   {
     "attributes": {
       "title": "Varieties of Faith in the Empire",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028276",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16470,7 +16394,7 @@
   {
     "attributes": {
       "title": "Velehk Sain's Treasure Map",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000DDEFB",
       "unit_weight": 0,
       "book_type": "treasure map",
@@ -16490,7 +16414,7 @@
   {
     "attributes": {
       "title": "Venarus Vulpin's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0149A2",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16510,7 +16434,7 @@
   {
     "attributes": {
       "title": "Venarus Vulpin's Research",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0149A3",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16530,7 +16454,7 @@
   {
     "attributes": {
       "title": "Vernaccus and Bourlor",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B007",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -16550,7 +16474,7 @@
   {
     "attributes": {
       "title": "Volk's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0135CB",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16570,7 +16494,7 @@
   {
     "attributes": {
       "title": "Wabbajack",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFBA",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16590,7 +16514,7 @@
   {
     "attributes": {
       "title": "Walking the World, Vol. XI: Solitude",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED061",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16632,7 +16556,7 @@
   {
     "attributes": {
       "title": "Warning",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00078561",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16652,7 +16576,7 @@
   {
     "attributes": {
       "title": "Warrior",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFE0",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -16672,7 +16596,7 @@
   {
     "attributes": {
       "title": "Watcher of Stones",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000ED63F",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16692,7 +16616,7 @@
   {
     "attributes": {
       "title": "Watchtower Guard's Letter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "00083AEF",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16712,7 +16636,7 @@
   {
     "attributes": {
       "title": "Weylin's Note",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D670F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16732,7 +16656,7 @@
   {
     "attributes": {
       "title": "Where were you when the Dragon Broke?",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028266",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16752,7 +16676,7 @@
   {
     "attributes": {
       "title": "Whiterun Home Decorating Guide",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F11B6",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16772,7 +16696,7 @@
   {
     "attributes": {
       "title": "Wind and Sand",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX01D8D0",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16792,7 +16716,7 @@
   {
     "attributes": {
       "title": "Windhelm Home Decorating Guide",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F1446",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16812,7 +16736,7 @@
   {
     "attributes": {
       "title": "Windstad Manor Charter",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0157A0",
       "unit_weight": 0,
       "book_type": "document",
@@ -16830,7 +16754,7 @@
   {
     "attributes": {
       "title": "Withershins",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B014",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -16850,7 +16774,7 @@
   {
     "attributes": {
       "title": "Words and Philosophy",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001AFD8",
       "unit_weight": 1,
       "book_type": "skill book",
@@ -16892,7 +16816,7 @@
   {
     "attributes": {
       "title": "Words of the Wind",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX028277",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -16912,7 +16836,7 @@
   {
     "attributes": {
       "title": "Writ of Dawn",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX0034DC",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16932,7 +16856,7 @@
   {
     "attributes": {
       "title": "Writ of Execution",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "XX027E9F",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16952,7 +16876,7 @@
   {
     "attributes": {
       "title": "Writ of Sealing",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000F1C17",
       "unit_weight": 0,
       "book_type": "letter",
@@ -16972,7 +16896,7 @@
   {
     "attributes": {
       "title": "Wyndelius's Journal",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000D9B6B",
       "unit_weight": 1,
       "book_type": "journal",
@@ -16992,7 +16916,7 @@
   {
     "attributes": {
       "title": "Yellow Book of Riddles",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0001B274",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -17012,7 +16936,7 @@
   {
     "attributes": {
       "title": "Yngol and the Sea-Ghosts",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "0002A563",
       "unit_weight": 1,
       "book_type": "lore book",
@@ -17032,7 +16956,7 @@
   {
     "attributes": {
       "title": "Ysolda's Message",
-      "title_variants": null,
+      "title_variants": [],
       "item_code": "000E1A9F",
       "unit_weight": 0,
       "book_type": "letter",
