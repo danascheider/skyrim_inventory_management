@@ -29,16 +29,16 @@
 
 ## Overview
 
-Skyrim Inventory Management makes use of a concept called "aggregate lists". A model that represents a list of other models (e.g., `ShoppingList`, which is a list of `ShoppingListItem` models) can include the `Aggregatable` concern to incorporate aggregate list behaviour. Currently, the only such classes are `ShoppingList` and `InventoryList`. List item models can include the `Listable` concern.
+Skyrim Inventory Management makes use of a concept called "aggregate lists". A model that represents a list of other models (e.g., `WishList`, which is a list of `WishListItem` models) can include the `Aggregatable` concern to incorporate aggregate list behaviour. Currently, the only such classes are `WishList` and `InventoryList`. List item models can include the `Listable` concern.
 
 An aggregate list is a list that tracks and aggregates data from other lists (the child lists). When an item is added, removed, or modified on a child list, the corresponding item is added, removed, or modified on the aggregate list as well.
 
 Above where you include `Aggregatable` in the model code, you will need to define a class method called `self.list_item_class_name` that is the class name, as a string, of the class the list items for this type of list belong to:
 
 ```ruby
-class ShoppingList < ApplicationRecord
+class WishList < ApplicationRecord
   def self.list_item_class_name
-    'ShoppingListItem'
+    'WishListItem'
   end
 
   include Aggregatable
@@ -108,7 +108,7 @@ Best practice for aggregate lists is to never create or destroy an aggregate lis
 When a user creates their first regular list, an aggregate list will be automatically created for them and set as that list's aggregate list. Subsequent lists of the same class belonging to the same user should be created with that as the aggregate list:
 
 ```ruby
-game.aggregate_shopping_list.child_lists.create!(title: 'My Title')
+game.aggregate_wish_list.child_lists.create!(title: 'My Title')
 ```
 
 When a user destroys a regular list, and it is their last regular list of that class, the aggregate list will also be destroyed.
@@ -273,7 +273,7 @@ Arguments:
 
 #### `aggregate_list`
 
-Returns the aggregate list to which the shopping list belongs. Is `nil` for aggregate lists.
+Returns the aggregate list to which the wish list belongs. Is `nil` for aggregate lists.
 
 #### `child_lists`
 
