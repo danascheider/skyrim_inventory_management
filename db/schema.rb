@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_11_205621) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -513,30 +513,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_11_205621) do
     t.index ["recipe_id"], name: "index_recipes_canonical_ingredients_on_recipe_id"
   end
 
-  create_table "shopping_list_items", force: :cascade do |t|
-    t.string "description", null: false
-    t.string "notes"
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "list_id", null: false
-    t.decimal "unit_weight", precision: 5, scale: 1
-    t.index ["description", "list_id"], name: "index_shopping_list_items_on_description_and_list_id", unique: true
-    t.index ["list_id"], name: "index_shopping_list_items_on_list_id"
-  end
-
-  create_table "shopping_lists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "aggregate", default: false
-    t.string "title", null: false
-    t.bigint "game_id", null: false
-    t.bigint "aggregate_list_id"
-    t.index ["aggregate_list_id"], name: "index_shopping_lists_on_aggregate_list_id"
-    t.index ["game_id"], name: "index_shopping_lists_on_game_id"
-    t.index ["title", "game_id"], name: "index_shopping_lists_on_title_and_game_id", unique: true
-  end
-
   create_table "spells", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
@@ -587,6 +563,30 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_11_205621) do
     t.index ["game_id"], name: "index_weapons_on_game_id"
   end
 
+  create_table "wish_list_items", force: :cascade do |t|
+    t.string "description", null: false
+    t.string "notes"
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "list_id", null: false
+    t.decimal "unit_weight", precision: 5, scale: 1
+    t.index ["description", "list_id"], name: "index_wish_list_items_on_description_and_list_id", unique: true
+    t.index ["list_id"], name: "index_wish_list_items_on_list_id"
+  end
+
+  create_table "wish_lists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "aggregate", default: false
+    t.string "title", null: false
+    t.bigint "game_id", null: false
+    t.bigint "aggregate_list_id"
+    t.index ["aggregate_list_id"], name: "index_wish_lists_on_aggregate_list_id"
+    t.index ["game_id"], name: "index_wish_lists_on_game_id"
+    t.index ["title", "game_id"], name: "index_wish_lists_on_title_and_game_id", unique: true
+  end
+
   add_foreign_key "armors", "canonical_armors"
   add_foreign_key "armors", "games"
   add_foreign_key "books", "canonical_books"
@@ -622,11 +622,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_11_205621) do
   add_foreign_key "properties", "canonical_properties"
   add_foreign_key "properties", "games"
   add_foreign_key "recipes_canonical_ingredients", "canonical_ingredients", column: "ingredient_id"
-  add_foreign_key "shopping_list_items", "shopping_lists", column: "list_id"
-  add_foreign_key "shopping_lists", "games"
-  add_foreign_key "shopping_lists", "shopping_lists", column: "aggregate_list_id"
   add_foreign_key "staves", "canonical_staves"
   add_foreign_key "staves", "games"
   add_foreign_key "weapons", "canonical_weapons"
   add_foreign_key "weapons", "games"
+  add_foreign_key "wish_list_items", "wish_lists", column: "list_id"
+  add_foreign_key "wish_lists", "games"
+  add_foreign_key "wish_lists", "wish_lists", column: "aggregate_list_id"
 end
