@@ -119,8 +119,8 @@ Layout/ClassStructure:
   Exclude:
     - app/models/inventory_item.rb
     - app/models/inventory_list.rb
-    - app/models/shopping_list.rb
-    - app/models/shopping_list_item.rb
+    - app/models/wish_list.rb
+    - app/models/wish_list_item.rb
 Layout/ClosingHeredocIndentation:
   Description: 'Checks the indentation of here document closings.'
   Enabled: true
