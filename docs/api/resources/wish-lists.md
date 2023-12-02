@@ -1,10 +1,10 @@
-# Shopping Lists
+# Wish Lists
 
-Shopping lists represent lists of items a user needs in a given game. Users can have different lists corresponding to different property locations within each game. Games with shopping lists also have an aggregate list that includes the combined list items and quantities from all the other lists for that game. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
+Wish lists represent lists of items a user needs in a given game. Users can have different lists corresponding to different property locations within each game. Games with wish lists also have an aggregate list that includes the combined list items and quantities from all the other lists for that game. Aggregate lists are created, updated, and destroyed automatically. They cannot be created, updated, or destroyed through the API (including to change attributes or to add, remove, or update list items).
 
-Each list contains [shopping list items](/docs/api/resources/shopping-list-items.md), which are returned with each response that includes the list.
+Each list contains [wish list items](/docs/api/resources/wish-list-items.md), which are returned with each response that includes the list.
 
-When making requests to update the title of a shopping list, there are some validations and automatic transformations to keep in mind:
+When making requests to update the title of a wish list, there are some validations and automatic transformations to keep in mind:
 
 * Titles must be unique per game - you cannot name two lists the same thing within the same game
 * Only an aggregate list can be called "All Items"
@@ -14,23 +14,23 @@ When making requests to update the title of a shopping list, there are some vali
 * Leading and trailing whitespace will be stripped from titles before they are saved, so " My List 2  " becomes "My List 2"
 * Titles may only contain alphanumeric characters, spaces, hyphens, apostrophes, and commas - any other characters (that aren't leading or trailing whitespace, which will be stripped regardless) cause the API to return a 422 response
 
-Like other resources in SIM, shopping lists are scoped to the authenticated user. There is no way to retrieve or manage shopping lists for any other user through the API.
+Like other resources in SIM, wish lists are scoped to the authenticated user. There is no way to retrieve or manage wish lists for any other user through the API.
 
 ## Endpoints
 
-* [`GET /games/:game_id/shopping_lists`](#get-gamesgame_idshopping_lists)
-* [`POST /games/:game_id/shopping_lists`](#post-gamesgame_idshopping_lists)
-* [`PATCH|PUT /shopping_lists/:id`](#patchput-shopping_listsid)
-* [`DELETE /shopping_lists/:id`](#delete-shopping_listsid)
+* [`GET /games/:game_id/wish_lists`](#get-gamesgame_idwish_lists)
+* [`POST /games/:game_id/wish_lists`](#post-gamesgame_idwish_lists)
+* [`PATCH|PUT /wish_lists/:id`](#patchput-wish_listsid)
+* [`DELETE /wish_lists/:id`](#delete-wish_listsid)
 
-## GET /games/:game_id/shopping_lists
+## GET /games/:game_id/wish_lists
 
-Returns all shopping lists for the game indicated by the `:game_id` param, provided the game exists and is owned by the authenticated user. The aggregate shopping list will be returned first, followed by the game's other shopping lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
+Returns all wish lists for the game indicated by the `:game_id` param, provided the game exists and is owned by the authenticated user. The aggregate wish list will be returned first, followed by the game's other wish lists in reverse chronological order by `updated_at` (i.e., the lists that were edited most recently will be on top).
 
 ### Example Request
 
 ```
-GET /shopping_lists
+GET /wish_lists
 Authorization: Bearer xxxxxxxxxxxxx
 ```
 
@@ -156,11 +156,11 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## POST /games/:game_id/shopping_lists
+## POST /games/:game_id/wish_lists
 
-Creates a new shopping list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all shopping lists that were created. The shopping lists are returned with the aggregate list first, if one was created while handling this request, and the regular list the user requested.
+Creates a new wish list for the specified game if it exists and belongs to the authenticated user. If the game does not already have an aggregate list, an aggregate list will also be created automatically. The response is an array that includes all wish lists that were created. The wish lists are returned with the aggregate list first, if one was created while handling this request, and the regular list the user requested.
 
-The request does not have to include a body. If it does, the body should include a `"shopping_list"` object with an optional `"title"` key, the only attribute that can be set on a shopping list via this or any endpoint. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to one plus the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
+The request does not have to include a body. If it does, the body should include a `"wish_list"` object with an optional `"title"` key, the only attribute that can be set on a wish list via this or any endpoint. If you don't include a title, your list will be titled "My List N", where _N_ is an integer equal to one plus the highest numbered default list title you have. For example, if you have lists titled "My List 1", "My List 3", and "My List 4" and you don't specify a title for your new list, your new list will be titled "My List 5".
 
 There are a few validations and automatic changes made to titles:
 
@@ -174,11 +174,11 @@ There are a few validations and automatic changes made to titles:
 
 Request specifying a title:
 ```
-POST games/1455/shopping_lists
+POST games/1455/wish_lists
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {
+  "wish_list": {
     "title": "Custom Title"
   }
 }
@@ -186,15 +186,15 @@ Content-Type: application/json
 
 Request not specifying a title (list will be given a default title as defined above):
 ```
-POST /games/8928/shopping_lists
+POST /games/8928/wish_lists
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
-{ "shopping_list": {} }
+{ "wish_list": {} }
 ```
 
 Request with no request body (the list will be given a default title as defined above):
 ```
-POST /games/8928/shopping_lists
+POST /games/8928/wish_lists
 Authorization: Bearer xxxxxxxxxx
 ```
 
@@ -272,7 +272,7 @@ If duplicate title is given:
 If request attempts to create an aggregate list:
 ```json
 {
-  "errors": ["Cannot manually create an aggregate shopping list"]
+  "errors": ["Cannot manually create an aggregate wish list"]
 }
 ```
 
@@ -283,24 +283,24 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## PATCH|PUT /shopping_lists/:id
+## PATCH|PUT /wish_lists/:id
 
-If the specified shopping list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the shopping list. Title is the only shopping list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method. There is no  difference in application behaviour whether `PATCH` or `PUT` is used.
+If the specified wish list exists, belongs to the authenticated user, and is not an aggregate list, updates the title and returns the wish list. Title is the only wish list attribute that can be modified using this endpoint. This endpoint also supports the `PUT` method. There is no  difference in application behaviour whether `PATCH` or `PUT` is used.
 
 ### Example Requests
 
-Requests should include a `"shopping_list"` object with a `"title"` key. The `"title"` may be `null`; in this case, a default title will be assigned as described [above](#post-gamesgame_idshopping_lists). If the `"shopping_list"` object is empty or nonexistent, or if no request body is given, the list will not be updated but will be returned as-is. `"title"` is the only attribute that may be set on shopping lists via the SIM API.
+Requests should include a `"wish_list"` object with a `"title"` key. The `"title"` may be `null`; in this case, a default title will be assigned as described [above](#post-gamesgame_idwish_lists). If the `"wish_list"` object is empty or nonexistent, or if no request body is given, the list will not be updated but will be returned as-is. `"title"` is the only attribute that may be set on wish lists via the SIM API.
 
 #### PATCH Requests
 
 Normal usage:
 
 ```
-PATCH /shopping_lists/3
+PATCH /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {
+  "wish_list": {
     "title": "New List Title"
   }
 }
@@ -309,24 +309,24 @@ Content-Type: application/json
 Null title (will result in a default title being assigned):
 
 ```
-PATCH /shopping_lists/3
+PATCH /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {
+  "wish_list": {
     "title": null
   }
 }
 ```
 
-Empty `"shopping_list"` object (shopping list will be returned as-is):
+Empty `"wish_list"` object (wish list will be returned as-is):
 
 ```
-PATCH /shopping_lists/3
+PATCH /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {}
+  "wish_list": {}
 }
 ```
 
@@ -335,11 +335,11 @@ Content-Type: application/json
 Normal usage:
 
 ```
-PUT /shopping_lists/3
+PUT /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {
+  "wish_list": {
     "title": "New List Title"
   }
 }
@@ -348,24 +348,24 @@ Content-Type: application/json
 Null title (will result in a default title being assigned):
 
 ```
-PUT /shopping_lists/3
+PUT /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {
+  "wish_list": {
     "title": null
   }
 }
 ```
 
-Empty `"shopping_list"` object (shopping list will be returned as-is):
+Empty `"wish_list"` object (wish list will be returned as-is):
 
 ```
-PUT /shopping_lists/3
+PUT /wish_lists/3
 Authorization: Bearer xxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list": {}
+  "wish_list": {}
 }
 ```
 
@@ -426,7 +426,7 @@ For a 405 response due to attempting to update an aggregate list or convert a re
 
 ```json
 {
-  "errors": ["Cannot manually update an aggregate shopping list"]
+  "errors": ["Cannot manually update an aggregate wish list"]
 }
 ```
 
@@ -438,14 +438,14 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## DELETE /shopping_lists/:id
+## DELETE /wish_lists/:id
 
-Destroys the given shopping list, and any shopping list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) shopping list, the aggregate list will also be destroyed. The body of a successful response includes an array of deleted list IDs and the updated aggregate list (unless it was also deleted).
+Destroys the given wish list, and any wish list items on it, if it exists and belongs to the authenticated user. If the list to be destroyed is the user's only regular (non-aggregate) wish list, the aggregate list will also be destroyed. The body of a successful response includes an array of deleted list IDs and the updated aggregate list (unless it was also deleted).
 
 ### Example Request
 
 ```
-DELETE /shopping_lists/428
+DELETE /wish_lists/428
 Authorization: Bearer xxxxxxxxxxxx
 ```
 
@@ -457,7 +457,7 @@ Authorization: Bearer xxxxxxxxxxxx
 
 #### Example Bodies
 
-The response body will be a JSON object with a `"deleted"` key pointing to an array of deleted lists. If only the target list was destroyed, this array will include one member. If the target list was the game's last regular shopping list and the aggregate list was therefore also destroyed, the array will include two members. If the aggregate list was not destroyed, it will be returned as well, with its updated list items, under the `"aggregate"` key.
+The response body will be a JSON object with a `"deleted"` key pointing to an array of deleted lists. If only the target list was destroyed, this array will include one member. If the target list was the game's last regular wish list and the aggregate list was therefore also destroyed, the array will include two members. If the aggregate list was not destroyed, it will be returned as well, with its updated list items, under the `"aggregate"` key.
 
 Body including an aggregate list that was not destroyed:
 
@@ -514,7 +514,7 @@ For a 405 response:
 
 ```json
 {
-  "errors": ["Cannot manually delete an aggregate shopping list"]
+  "errors": ["Cannot manually delete an aggregate wish list"]
 }
 ```
 

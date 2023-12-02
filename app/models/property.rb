@@ -6,7 +6,7 @@ class Property < ApplicationRecord
   belongs_to :game
   belongs_to :canonical_property, class_name: 'Canonical::Property'
 
-  has_many :shopping_lists, dependent: nil
+  has_many :wish_lists, dependent: nil
   has_many :inventory_lists, dependent: nil
 
   validates :canonical_property,

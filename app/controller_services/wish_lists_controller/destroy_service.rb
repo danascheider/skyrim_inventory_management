@@ -5,7 +5,7 @@ require 'service/not_found_result'
 require 'service/ok_result'
 require 'service/internal_server_error_result'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   class DestroyService
     AGGREGATE_LIST_ERROR = 'Cannot manually delete an aggregate wish list'
 

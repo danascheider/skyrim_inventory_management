@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ShoppingListItems', type: :request do
+RSpec.describe 'WishListItems', type: :request do
   let(:headers) do
     {
       'Content-Type' => 'application/json',
@@ -10,9 +10,9 @@ RSpec.describe 'ShoppingListItems', type: :request do
     }
   end
 
-  describe 'POST /shopping_lists/:shopping_list_id/shopping_list_items' do
+  describe 'POST /wish_lists/:wish_list_id/wish_list_items' do
     subject(:create_item) do
-      post "/shopping_lists/#{wish_list.id}/shopping_list_items", params:, headers:
+      post "/wish_lists/#{wish_list.id}/wish_list_items", params:, headers:
     end
 
     let!(:user) { create(:authenticated_user) }
@@ -26,7 +26,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when all goes well' do
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
+        let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
 
         context 'when there is no existing matching item on the same list' do
           context 'when there is no existing matching item on any list' do
@@ -53,7 +53,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             end
 
             context 'when unit weight is set' do
-              let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
+              let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 5, notes: 'To make locks' } }.to_json }
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
@@ -90,7 +90,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             end
 
             context "when unit weight isn't set" do
-              let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5 } }.to_json }
+              let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 5 } }.to_json }
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
@@ -114,7 +114,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
             end
 
             context 'when unit weight is set' do
-              let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 5, unit_weight: 1 } }.to_json }
+              let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 5, unit_weight: 1 } }.to_json }
 
               it 'creates a new item on the requested list' do
                 expect { create_item }
@@ -193,7 +193,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit weight is updated' do
-            let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 2, unit_weight: 1 } }.to_json }
+            let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 2, unit_weight: 1 } }.to_json }
 
             it "doesn't create a new list item" do
               expect { create_item }
@@ -272,7 +272,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when the params are invalid' do
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: -2 } }.to_json }
+        let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: -2 } }.to_json }
 
         it "doesn't create the item" do
           expect { create_item }
@@ -292,7 +292,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the list is an aggregate list' do
         let(:wish_list) { aggregate_list }
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
+        let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
 
         it "doesn't create an item" do
           expect { create_item }
@@ -312,7 +312,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
       end
 
       context 'when something unexpected goes wrong' do
-        let(:params) { { shopping_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
+        let(:params) { { wish_list_item: { description: 'Corundum ingot', quantity: 4 } }.to_json }
 
         before do
           allow(WishList)
@@ -333,7 +333,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
 
     context 'when unauthenticated' do
-      let(:params) { { shopping_list_item: { description: 'Dwarven Metal Ingot', quantity: 1 } } }
+      let(:params) { { wish_list_item: { description: 'Dwarven Metal Ingot', quantity: 1 } } }
 
       before do
         stub_unsuccessful_login
@@ -356,8 +356,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
   end
 
-  describe 'PATCH /shopping_list_items/:id' do
-    subject(:update_item) { patch "/shopping_list_items/#{list_item.id}", headers:, params: }
+  describe 'PATCH /wish_list_items/:id' do
+    subject(:update_item) { patch "/wish_list_items/#{list_item.id}", headers:, params: }
 
     let!(:user) { create(:authenticated_user) }
     let(:game) { create(:game, user:) }
@@ -373,7 +373,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         context 'when there is no matching item on another list' do
           let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
-          let(:params) { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
+          let(:params) { { wish_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
           before do
             aggregate_list.add_item_from_child_list(list_item)
@@ -436,7 +436,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is not changed' do
-            let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10 } }.to_json }
 
             it 'updates the list item' do
               update_item
@@ -484,7 +484,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is changed' do
-            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: 2 } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10, unit_weight: 2 } }.to_json }
 
             it 'updates the list item', :aggregate_failures do
               update_item
@@ -548,7 +548,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is set to nil' do
-            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: nil } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10, unit_weight: nil } }.to_json }
 
             it 'updates the list item', :aggregate_failures do
               update_item
@@ -650,7 +650,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:wish_list_item, list: aggregate_list) }
-        let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
+        let(:params) { { wish_list_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
           update_item
@@ -668,7 +668,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:other_list) { create(:wish_list, game:) }
         let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
-        let(:params) { { shopping_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
+        let(:params) { { wish_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -722,7 +722,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     context 'when unauthenticated' do
       let!(:list_item) { create(:wish_list_item, list: wish_list) }
-      let(:params) { { shopping_list_item: { quantity: 16 } } }
+      let(:params) { { wish_list_item: { quantity: 16 } } }
 
       before do
         stub_unsuccessful_login
@@ -745,8 +745,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
   end
 
-  describe 'PUT /shopping_list_items/:id' do
-    subject(:update_item) { put "/shopping_list_items/#{list_item.id}", headers:, params: }
+  describe 'PUT /wish_list_items/:id' do
+    subject(:update_item) { put "/wish_list_items/#{list_item.id}", headers:, params: }
 
     let!(:user) { create(:authenticated_user) }
     let(:game) { create(:game, user:) }
@@ -762,7 +762,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         context 'when there is no matching item on another list' do
           let!(:list_item) { create(:wish_list_item, list: wish_list, description: 'Dwarven metal ingot', quantity: 5) }
           let(:aggregate_list_item) { aggregate_list.list_items.first }
-          let(:params) { { shopping_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
+          let(:params) { { wish_list_item: { description: 'Dwarven metal ingot', quantity: 10 } }.to_json }
 
           before do
             aggregate_list.add_item_from_child_list(list_item)
@@ -825,7 +825,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is not changed' do
-            let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10 } }.to_json }
 
             it 'updates the list item' do
               update_item
@@ -873,7 +873,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is changed' do
-            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: 2 } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10, unit_weight: 2 } }.to_json }
 
             it 'updates the list item', :aggregate_failures do
               update_item
@@ -937,7 +937,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
           end
 
           context 'when unit_weight is set to nil' do
-            let(:params) { { shopping_list_item: { quantity: 10, unit_weight: nil } }.to_json }
+            let(:params) { { wish_list_item: { quantity: 10, unit_weight: nil } }.to_json }
 
             it 'updates the list item', :aggregate_failures do
               update_item
@@ -1039,7 +1039,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
       context 'when the list item is on an aggregate list' do
         let!(:list_item) { create(:wish_list_item, list: aggregate_list) }
-        let(:params) { { shopping_list_item: { quantity: 10 } }.to_json }
+        let(:params) { { wish_list_item: { quantity: 10 } }.to_json }
 
         it 'returns status 405' do
           update_item
@@ -1057,7 +1057,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
         let(:other_list) { create(:wish_list, game:) }
         let!(:other_item) { create(:wish_list_item, list: other_list, description: list_item.description, quantity: 1) }
         let(:aggregate_list_item) { aggregate_list.list_items.first }
-        let(:params) { { shopping_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
+        let(:params) { { wish_list_item: { quantity: -4, unit_weight: 2 } }.to_json }
 
         before do
           aggregate_list.add_item_from_child_list(list_item)
@@ -1111,7 +1111,7 @@ RSpec.describe 'ShoppingListItems', type: :request do
 
     context 'when unauthenticated' do
       let!(:list_item) { create(:wish_list_item, list: wish_list) }
-      let(:params) { { shopping_list_item: { quantity: 16 } } }
+      let(:params) { { wish_list_item: { quantity: 16 } } }
 
       before do
         stub_unsuccessful_login
@@ -1134,8 +1134,8 @@ RSpec.describe 'ShoppingListItems', type: :request do
     end
   end
 
-  describe 'DELETE /shopping_list_items/:id' do
-    subject(:destroy_item) { delete "/shopping_list_items/#{list_item.id}", headers: }
+  describe 'DELETE /wish_list_items/:id' do
+    subject(:destroy_item) { delete "/wish_list_items/#{list_item.id}", headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }

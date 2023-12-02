@@ -7,7 +7,7 @@ require 'service/method_not_allowed_result'
 require 'service/internal_server_error_result'
 require 'service/ok_result'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   class CreateService
     AGGREGATE_LIST_ERROR = 'Cannot manually create an aggregate wish list'
 

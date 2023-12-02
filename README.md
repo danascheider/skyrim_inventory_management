@@ -14,7 +14,7 @@ Users are uniquely identified by the UID of the Google account they use to sign 
 
 ### Authenticating Resources
 
-All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `WishList` with ID 24, requesting `/shopping_lists/24` with a valid token belonging to User 2 will simply result in the resource not being found, and not in a 401 response. All requests lacking a valid token will return 401 responses.
+All resources are scoped to the currently authenticated user. Requesting a resource that doesn't belong to the authenticated user will result in a 404, not a 401. So, if User 1 owns the `WishList` with ID 24, requesting `/wish_lists/24` with a valid token belonging to User 2 will simply result in the resource not being found, and not in a 401 response. All requests lacking a valid token will return 401 responses.
 
 ## Resources
 
@@ -66,7 +66,7 @@ If you'd like to run only a specific subset of specs, these options are the way 
 bundle exec rspec spec/models
 
 # runs only one spec file
-bundle exec rspec spec/requests/shopping_lists_spec.rb
+bundle exec rspec spec/requests/wish_lists_spec.rb
 
 # runs a specific spec on line 42 of the specified file
 bundle exec rspec spec/models/wish_list_item_spec.rb:42

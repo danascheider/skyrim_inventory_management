@@ -2,9 +2,9 @@
 
 require 'controller/response'
 
-class ShoppingListItemsController < ApplicationController
+class WishListItemsController < ApplicationController
   def create
-    result = CreateService.new(current_user, params[:shopping_list_id], list_item_params).perform
+    result = CreateService.new(current_user, params[:wish_list_id], list_item_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
@@ -24,7 +24,7 @@ class ShoppingListItemsController < ApplicationController
   private
 
   def list_item_params
-    params.require(:shopping_list_item).permit(
+    params.require(:wish_list_item).permit(
       :description,
       :quantity,
       :notes,

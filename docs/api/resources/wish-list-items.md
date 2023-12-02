@@ -1,14 +1,14 @@
-# Shopping List Items
+# Wish List Items
 
-Shopping list items represent the items on a [shopping list](/docs/api/resources/shopping-lists.md). Shopping list items on regular lists can be created, updated, and destroyed through the API. Shopping list items on aggregate shopping lists are managed automatically as the items on their child lists change. Each shopping list item belongs to a particular list and will be destroyed if the list is destroyed.
+Wish list items represent the items on a [wish list](/docs/api/resources/wish-lists.md). Wish list items on regular lists can be created, updated, and destroyed through the API. Wish list items on aggregate wish lists are managed automatically as the items on their child lists change. Each wish list item belongs to a particular list and will be destroyed if the list is destroyed.
 
-There are no read routes (`GET /shopping_list_items`, `GET /shopping_list/:shopping_list_id/shopping_list_items`, or `GET /shopping_list_items/:id`) for shopping list items since all shopping list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy shopping list items.
+There are no read routes (`GET /wish_list_items`, `GET /wish_list/:wish_list_id/wish_list_items`, or `GET /wish_list_items/:id`) for wish list items since all wish list items are returned with the lists they are on when requests are made to the list routes. There are, however, routes to create, update, and destroy wish list items.
 
-All requests to shopping list item endpoints must be [authenticated](/docs/api/resources/authorization.md).
+All requests to wish list item endpoints must be [authenticated](/docs/api/resources/authorization.md).
 
 ## Automatically Managed Aggregate Lists
 
-Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties or purposes in each game. The aggregate list is created automatically when the client creates a the first regular shopping list for a game, and is destroyed automatically when the client deletes the game's last regular shopping list. When items are added, updated, or destroyed from any of a game's regular lists, aggregate list items are updated as described in this section.
+Skyrim Inventory Management makes use of automatically managed aggregate lists to help users track an aggregate of what items they need for different properties or purposes in each game. The aggregate list is created automatically when the client creates a the first regular wish list for a game, and is destroyed automatically when the client deletes the game's last regular wish list. When items are added, updated, or destroyed from any of a game's regular lists, aggregate list items are updated as described in this section.
 
 (Ensuring automatic management of aggregate lists does require some work on the part of SIM developers. If you are working on lists in SIM and would like information on how to keep them synced, head over to the [`Aggregatable` docs](/docs/aggregate-lists.md).)
 
@@ -37,29 +37,29 @@ When a client updates a list item on a regular list for a given game, one (or mo
 
 ### Destroying a List Item
 
-When a client destroys a list item on a regular shopping list, one of the following things will happen:
+When a client destroys a list item on a regular wish list, one of the following things will happen:
 
-* If the quantity of the item on the aggregate shopping list for the same game is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the aggregate list item's quantity will be decreased by the amount of the quantity of the deleted item.
-* If the quantity on the aggregate shopping list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the aggregate shopping list will be deleted as well.
+* If the quantity of the item on the aggregate wish list for the same game is higher than the quantity of the item deleted (i.e., if there is another matching item on a different list), the aggregate list item's quantity will be decreased by the amount of the quantity of the deleted item.
+* If the quantity on the aggregate wish list is equal to the quantity of the item deleted (i.e., if there is not another matching item on a different list), the item on the aggregate wish list will be deleted as well.
 
 ## Endpoints
 
-The following endpoints are available to manage shopping list items:
+The following endpoints are available to manage wish list items:
 
-* [`POST /shopping_lists/:shopping_list_id/shopping_list_items`](#post-shopping_listsshopping_list_idshopping_list_items)
-* [`PATCH|PUT /shopping_list_items/:id`](#patchput-shopping_list_itemsid)
-* [`DELETE /shopping_list_items/:id`](#delete-shopping_list_itemsid)
+* [`POST /wish_lists/:wish_list_id/wish_list_items`](#post-wish_listswish_list_idwish_list_items)
+* [`PATCH|PUT /wish_list_items/:id`](#patchput-wish_list_itemsid)
+* [`DELETE /wish_list_items/:id`](#delete-wish_list_itemsid)
 
-## POST /shopping_lists/:shopping_list_id/shopping_list_items
+## POST /wish_lists/:wish_list_id/wish_list_items
 
-Creates a shopping list item on the given list if the shopping list with the given ID:
+Creates a wish list item on the given list if the wish list with the given ID:
 
 1. Exists
 2. Belongs to the authenticated user
 3. Is not an aggregate list AND
-4. Does not have an existing shopping list item with the same description
+4. Does not have an existing wish list item with the same description
 
-If the first three conditions are met but the list does have an existing shopping list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `null`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
+If the first three conditions are met but the list does have an existing wish list item with a matching description, `quantity` and `notes` are updated on the existing item to aggregate the values. If the value of `unit_weight` differs from the value on the existing item and is not `null`, the existing item and any other items with the same description belonging to the same game will have their `unit_weight` updated.
 
 In both cases, the aggregate list for the same game is also updated to reflect the new `quantity` and `unit_weight`. Again, aggregate lists do not track `notes`.
 
@@ -70,12 +70,12 @@ Allowed fields are:
 * `notes` (string, optional): Any notes about the item or what it is for
 * `unit_weight` (decimal, optional): The unit weight of the item as given in the game, precise to one decimal place
 
-A successful response will return a JSON array of all changed shopping lists for the game to which the created or updated list item ultimately belongs, including all the list items on each list.
+A successful response will return a JSON array of all changed wish lists for the game to which the created or updated list item ultimately belongs, including all the list items on each list.
 
 ### Example Request
 
 ```
-POST /shopping_lists/72/shopping_list_items
+POST /wish_lists/72/wish_list_items
 Authorization: Bearer xxxxxxxxxxx
 Content-Type: application/json
 {
@@ -94,9 +94,9 @@ Content-Type: application/json
 
 #### Example Body
 
-If there is no item with a matching description on the requested shopping list, a new item will be created and the server will return a 201 response. If there is an item with a matching description, its notes and quantity will be combined with the notes and quantity in the client request and a 200 response will be returned.
+If there is no item with a matching description on the requested wish list, a new item will be created and the server will return a 201 response. If there is an item with a matching description, its notes and quantity will be combined with the notes and quantity in the client request and a 200 response will be returned.
 
-The body for both responses is a JSON array containing all _changed_ shopping lists for the game to which the created or updated list item ultimately belongs, i.e., those that have had items added, updated, or removed. Each shopping list includes its list items.
+The body for both responses is a JSON array containing all _changed_ wish lists for the game to which the created or updated list item ultimately belongs, i.e., those that have had items added, updated, or removed. Each wish list includes its list items.
 
 ```json
 [
@@ -174,12 +174,12 @@ Four error responses are possible.
 
 #### Example Bodies
 
-No body will be returned with a 404 error, which is returned if the specified shopping list doesn't exist or doesn't belong to the authenticated user.
+No body will be returned with a 404 error, which is returned if the specified wish list doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list is an aggregate shopping list, comes with the following body:
+A 405 error, which is returned if the specified wish list is an aggregate wish list, comes with the following body:
 ```json
 {
-  "errors": ["Cannot manually manage items on an aggregate shopping list"]
+  "errors": ["Cannot manually manage items on an aggregate wish list"]
 }
 ```
 
@@ -201,9 +201,9 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## PATCH|PUT /shopping_list_items/:id
+## PATCH|PUT /wish_list_items/:id
 
-Updates a given shopping list item provided the list the item is on:
+Updates a given wish list item provided the list the item is on:
 
 1. Exists
 2. Belongs to the authenticated user AND
@@ -219,13 +219,13 @@ Requests may specify up to three fields to update:
 
 Requests attempting to update `description` will result in a validation error.
 
-When updating `unit_weight`, the `unit_weight` value will be updated for all shopping list items belonging to the same game and matching the description. This is to prevent the aggregate list from getting out of sync with the values on its child list items.
+When updating `unit_weight`, the `unit_weight` value will be updated for all wish list items belonging to the same game and matching the description. This is to prevent the aggregate list from getting out of sync with the values on its child list items.
 
 This route supports both `PATCH` and `PUT` requests. Application behaviour does not differ depending on which method is used.
 
 ### Example Requests
 
-Request bodies must contain a `"shopping_list_item"` key containing attributes to be changed. Request bodies lacking this key may result in an error or unexpected behaviour. If the `"shopping_list_item"` object is empty, the item will not be changed. Attributes that can be changed include:
+Request bodies must contain a `"wish_list_item"` key containing attributes to be changed. Request bodies lacking this key may result in an error or unexpected behaviour. If the `"wish_list_item"` object is empty, the item will not be changed. Attributes that can be changed include:
 
 * `quantity` (integer greater than zero)
 * `notes` (string)
@@ -234,11 +234,11 @@ Request bodies must contain a `"shopping_list_item"` key containing attributes t
 #### PATCH Requests
 
 ```
-PATCH /shopping_list_items/72
+PATCH /wish_list_items/72
 Authorization: Bearer xxxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list_item": {
+  "wish_list_item": {
     "quantity": 7,
     "notes": "To enchant with 'Absorb Health'"
   }
@@ -248,11 +248,11 @@ Content-Type: application/json
 #### PUT Requests
 
 ```
-PUT /shopping_list_items/72
+PUT /wish_list_items/72
 Authorization: Bearer xxxxxxxxxxx
 Content-Type: application/json
 {
-  "shopping_list_item": {
+  "wish_list_item": {
     "quantity": 7,
     "notes": "To enchant with 'Absorb Health'"
   }
@@ -267,7 +267,7 @@ Content-Type: application/json
 
 #### Example Body
 
-The body is a JSON array containing all shopping list items modified in the course of handling the request. Clients should take note of each item's `list_id` value to associate the item to a shopping list. Note that, if an item's unit weight is updated, this weight will be updated on any lists with a corresponding list item, so there may be more than two list items included in the response.
+The body is a JSON array containing all wish list items modified in the course of handling the request. Clients should take note of each item's `list_id` value to associate the item to a wish list. Note that, if an item's unit weight is updated, this weight will be updated on any lists with a corresponding list item, so there may be more than two list items included in the response.
 
 ```json
 [
@@ -306,13 +306,13 @@ Four error responses are possible.
 
 #### Example Bodies
 
-No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
+No body will be returned with a 404 error, which is returned if the specified wish list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
+A 405 error, which is returned if the specified wish list item is on an aggregate wish list, comes with the following body:
 
 ```json
 {
-  "errors": ["Cannot manually update list items on an aggregate shopping list"]
+  "errors": ["Cannot manually update list items on an aggregate wish list"]
 }
 ```
 
@@ -334,9 +334,9 @@ A 500 error response, which is always a result of an unforeseen problem, include
 }
 ```
 
-## DELETE /shopping_list_items/:id
+## DELETE /wish_list_items/:id
 
-Deletes the given shopping list item provided the item exists and the list it is on:
+Deletes the given wish list item provided the item exists and the list it is on:
 
 1. Belongs to the authenticated user AND
 2. Is not an aggregate list
@@ -346,7 +346,7 @@ When this happens, the corresponding list item on the aggregate list is also aut
 ### Example Request
 
 ```
-DELETE /shopping_list_items/5651
+DELETE /wish_list_items/5651
 Authorization: Bearer xxxxxxxxxxx
 ```
 
@@ -358,7 +358,7 @@ Authorization: Bearer xxxxxxxxxxx
 
 #### Example Body
 
-The response body includes the shopping list from which the item was deleted as well as the aggregate list, with the aggregate list first.
+The response body includes the wish list from which the item was deleted as well as the aggregate list, with the aggregate list first.
 
 ```json
 [
@@ -435,13 +435,13 @@ Three error responses are possible.
 
 #### Example Bodies
 
-No body will be returned with a 404 error, which is returned if the specified shopping list item doesn't exist or doesn't belong to the authenticated user.
+No body will be returned with a 404 error, which is returned if the specified wish list item doesn't exist or doesn't belong to the authenticated user.
 
-A 405 error, which is returned if the specified shopping list item is on an aggregate shopping list, comes with the following body:
+A 405 error, which is returned if the specified wish list item is on an aggregate wish list, comes with the following body:
 
 ```json
 {
-  "errors": ["Cannot manually delete an item from an aggregate shopping list"]
+  "errors": ["Cannot manually delete an item from an aggregate wish list"]
 }
 ```
 

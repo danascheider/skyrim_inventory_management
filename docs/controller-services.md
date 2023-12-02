@@ -26,7 +26,7 @@ Existing result classes are:
 An example of their use might be (inside a controller service's `#perform` method):
 ```ruby
 def perform
-  return Service::NotFoundResult.new(errors: ['Could not find shopping list']) unless shopping_list.present?
+  return Service::NotFoundResult.new(errors: ['Could not find wish list']) unless wish_list.present?
 end
 ```
 
@@ -35,16 +35,16 @@ end
 The `Controller::Response` object lives in the `/lib/controller` directory. The response takes a controller and a result object as an argument and makes the response indicated in the result object using the controller passed in. This usually happens in the controller itself:
 
 ```ruby
-# /app/controllers/shopping_lists_controller.rb
+# /app/controllers/wish_lists_controller.rb
 
 require 'controller/response'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   def create
     # The CreateService needs to know who to create a list for and what
     # params to do it with. If successful, it will return a
     # Service::CreatedResponse object.
-    result = CreateService.new(current_user, shopping_list_params).perform
+    result = CreateService.new(current_user, wish_list_params).perform
 
     # Renders the right JSON response and status code
     response = ::Controller::Response.new(self, result).execute

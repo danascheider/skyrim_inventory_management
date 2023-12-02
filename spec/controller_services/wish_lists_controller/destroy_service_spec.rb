@@ -5,7 +5,7 @@ require 'service/method_not_allowed_result'
 require 'service/not_found_result'
 require 'service/ok_result'
 
-RSpec.describe ShoppingListsController::DestroyService do
+RSpec.describe WishListsController::DestroyService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, wish_list.id).perform }
 

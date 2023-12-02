@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'service/ok_result'
 require 'service/not_found_result'
 
-RSpec.describe ShoppingListsController::IndexService do
+RSpec.describe WishListsController::IndexService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, game_id).perform }
 

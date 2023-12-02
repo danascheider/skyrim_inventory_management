@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ShoppingLists', type: :request do
+RSpec.describe 'WishLists', type: :request do
   let(:headers) do
     {
       'Content-Type' => 'application/json',
@@ -10,8 +10,8 @@ RSpec.describe 'ShoppingLists', type: :request do
     }
   end
 
-  describe 'POST games/:game_id/shopping_lists' do
-    subject(:create_wish_list) { post "/games/#{game.id}/shopping_lists", params: { shopping_list: {} }.to_json, headers: }
+  describe 'POST games/:game_id/wish_lists' do
+    subject(:create_wish_list) { post "/games/#{game.id}/wish_lists", params: { wish_list: {} }.to_json, headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -62,7 +62,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when the request does not include a body' do
-          subject(:create_wish_list) { post "/games/#{game.id}/shopping_lists", headers: }
+          subject(:create_wish_list) { post "/games/#{game.id}/wish_lists", headers: }
 
           before do
             # let's not have this request create an aggregate list too
@@ -116,9 +116,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the params are invalid' do
         subject(:create_wish_list) do
-          post "/games/#{game.id}/shopping_lists",
+          post "/games/#{game.id}/wish_lists",
                params: {
-                 shopping_list: { title: existing_list.title },
+                 wish_list: { title: existing_list.title },
                }.to_json,
                headers:
         end
@@ -139,9 +139,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to create an aggregate list' do
         subject(:create_wish_list) do
-          post "/games/#{game.id}/shopping_lists",
+          post "/games/#{game.id}/wish_lists",
                params: {
-                 shopping_list: { aggregate: true },
+                 wish_list: { aggregate: true },
                }.to_json,
                headers:
         end
@@ -189,10 +189,10 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'PUT /shopping_lists/:id' do
-    subject(:update_wish_list) { put "/shopping_lists/#{list_id}", params:, headers: }
+  describe 'PUT /wish_lists/:id' do
+    subject(:update_wish_list) { put "/wish_lists/#{list_id}", params:, headers: }
 
-    let(:params) { { shopping_list: { title: 'Severin Manor' } }.to_json }
+    let(:params) { { wish_list: { title: 'Severin Manor' } }.to_json }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -227,7 +227,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when the params include a null title' do
-          let(:params) { { shopping_list: { title: nil } }.to_json }
+          let(:params) { { wish_list: { title: nil } }.to_json }
 
           it 'sets a default title' do
             update_wish_list
@@ -248,8 +248,8 @@ RSpec.describe 'ShoppingLists', type: :request do
           end
         end
 
-        context 'when the "shopping_list" param is empty"' do
-          let(:params) { { shopping_list: {} }.to_json }
+        context 'when the "wish_list" param is empty"' do
+          let(:params) { { wish_list: {} }.to_json }
 
           it "doesn't change the attributes" do
             expect { update_wish_list }
@@ -295,9 +295,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the params are invalid' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{list_id}",
+          put "/wish_lists/#{list_id}",
               params: {
-                shopping_list: { title: other_list.title },
+                wish_list: { title: other_list.title },
               }.to_json,
               headers:
         end
@@ -354,9 +354,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to update an aggregate list' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{wish_list.id}",
+          put "/wish_lists/#{wish_list.id}",
               params: {
-                shopping_list: { title: 'Foo' },
+                wish_list: { title: 'Foo' },
               }.to_json,
               headers:
         end
@@ -382,9 +382,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to change a regular list to an aggregate list' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{wish_list.id}",
+          put "/wish_lists/#{wish_list.id}",
               params: {
-                shopping_list: { aggregate: true },
+                wish_list: { aggregate: true },
               }.to_json,
               headers:
         end
@@ -410,9 +410,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when something unexpected goes wrong' do
         subject(:update_wish_list) do
-          put "/shopping_lists/#{wish_list.id}",
+          put "/wish_lists/#{wish_list.id}",
               params: {
-                shopping_list: { title: 'Some New Title' },
+                wish_list: { title: 'Some New Title' },
               }.to_json,
               headers:
         end
@@ -463,10 +463,10 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'PATCH /shopping_lists/:id' do
-    subject(:update_wish_list) { patch "/shopping_lists/#{list_id}", params:, headers: }
+  describe 'PATCH /wish_lists/:id' do
+    subject(:update_wish_list) { patch "/wish_lists/#{list_id}", params:, headers: }
 
-    let(:params) { { shopping_list: { title: 'Severin Manor' } }.to_json }
+    let(:params) { { wish_list: { title: 'Severin Manor' } }.to_json }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -501,7 +501,7 @@ RSpec.describe 'ShoppingLists', type: :request do
         end
 
         context 'when the params include a null title' do
-          let(:params) { { shopping_list: { title: nil } }.to_json }
+          let(:params) { { wish_list: { title: nil } }.to_json }
 
           it 'sets a default title' do
             update_wish_list
@@ -522,8 +522,8 @@ RSpec.describe 'ShoppingLists', type: :request do
           end
         end
 
-        context 'when the "shopping_list" param is empty"' do
-          let(:params) { { shopping_list: {} }.to_json }
+        context 'when the "wish_list" param is empty"' do
+          let(:params) { { wish_list: {} }.to_json }
 
           it "doesn't change the attributes" do
             expect { update_wish_list }
@@ -569,9 +569,9 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the params are invalid' do
         subject(:update_wish_list) do
-          patch "/shopping_lists/#{list_id}",
+          patch "/wish_lists/#{list_id}",
                 params: {
-                  shopping_list: { title: other_list.title },
+                  wish_list: { title: other_list.title },
                 }.to_json,
                 headers:
         end
@@ -628,8 +628,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to update an aggregate list' do
         subject(:update_wish_list) do
-          patch "/shopping_lists/#{wish_list.id}",
-                params: { shopping_list: { title: 'Foo' } }.to_json,
+          patch "/wish_lists/#{wish_list.id}",
+                params: { wish_list: { title: 'Foo' } }.to_json,
                 headers:
         end
 
@@ -654,8 +654,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when the client attempts to change a regular list to an aggregate list' do
         subject(:update_wish_list) do
-          patch "/shopping_lists/#{wish_list.id}",
-                params: { shopping_list: { aggregate: true } }.to_json,
+          patch "/wish_lists/#{wish_list.id}",
+                params: { wish_list: { aggregate: true } }.to_json,
                 headers:
         end
 
@@ -680,8 +680,8 @@ RSpec.describe 'ShoppingLists', type: :request do
 
       context 'when something unexpected goes wrong' do
         subject(:update_wish_list) do
-          patch "/shopping_lists/#{wish_list.id}",
-                params: { shopping_list: { title: 'Some New Title' } }.to_json,
+          patch "/wish_lists/#{wish_list.id}",
+                params: { wish_list: { title: 'Some New Title' } }.to_json,
                 headers:
         end
 
@@ -731,8 +731,8 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'GET games/:game_id/shopping_lists' do
-    subject(:get_index) { get "/games/#{game.id}/shopping_lists", headers: }
+  describe 'GET games/:game_id/wish_lists' do
+    subject(:get_index) { get "/games/#{game.id}/wish_lists", headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }
@@ -817,8 +817,8 @@ RSpec.describe 'ShoppingLists', type: :request do
     end
   end
 
-  describe 'DELETE /shopping_lists/:id' do
-    subject(:delete_wish_list) { delete "/shopping_lists/#{wish_list.id}", headers: }
+  describe 'DELETE /wish_lists/:id' do
+    subject(:delete_wish_list) { delete "/wish_lists/#{wish_list.id}", headers: }
 
     context 'when authenticated' do
       let!(:user) { create(:authenticated_user) }

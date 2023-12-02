@@ -7,7 +7,7 @@ require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe ShoppingListsController::UpdateService do
+RSpec.describe WishListsController::UpdateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, wish_list.id, params).perform }
 

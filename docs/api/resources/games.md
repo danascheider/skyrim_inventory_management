@@ -1,6 +1,6 @@
 # Games
 
-Each user in Skyrim Inventory Management can have many games. The game is the base resource that owns other resources a user may create, such as shopping lists and shopping list items. All game routes are scoped to the currently authenticated user. There are no admin routes or any way to access, create, remove, or modify data for a user that is not currently authenticated.
+Each user in Skyrim Inventory Management can have many games. The game is the base resource that owns other resources a user may create, such as wish lists and wish list items. All game routes are scoped to the currently authenticated user. There are no admin routes or any way to access, create, remove, or modify data for a user that is not currently authenticated.
 
 ## Endpoints
 
