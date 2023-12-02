@@ -22,10 +22,10 @@
 #    | game_id           | bigint  | null: false                 |
 #
 # There are a few other assumptions made:
-# - There is a `#list_item_class_name` method defined. For the `ShoppingList` model,
-#   this would be `'ShoppingListItem'`.
+# - There is a `#list_item_class_name` method defined. For the `WishList` model,
+#   this would be `'WishListItem'`.
 # - There is a scope on the child model class called `:index_order` that defines
-#   the order in which the child models should appear. For example, `ShoppingListItem`
+#   the order in which the child models should appear. For example, `WishListItem`
 #   models are in descending `:updated_at` order.
 
 module Aggregatable

@@ -21,9 +21,9 @@ The SIM API makes the following RESTful resources available to the client. Note 
 * [Games](/docs/api/resources/games.md)
 * [Inventory List Items](/docs/api/resources/inventory-list-items.md)
 * [Inventory Lists](/docs/api/resources/inventory-lists.md)
-* [Shopping List Items](/docs/api/resources/shopping-list-items.md)
-* [Shopping Lists](/docs/api/resources/shopping-lists.md)
+* [Wish List Items](/docs/api/resources/wish-list-items.md)
+* [Wish Lists](/docs/api/resources/wish-lists.md)
 
 ### Object Modelling Hierarchy
 
-In SIM, users can have any number of games, which can each have any number of shopping lists, which can each have any number of shopping list items. An authenticated user can create, access, update, and destroy resources belonging to them. There are currently no admin routes or any way to access resources not belonging to the currently authenticated user (except through direct database access).
+In SIM, users can have any number of games, which can each have any number of wish lists, which can each have any number of wish list items. An authenticated user can create, access, update, and destroy resources belonging to them. There are currently no admin routes or any way to access resources not belonging to the currently authenticated user (except through direct database access).

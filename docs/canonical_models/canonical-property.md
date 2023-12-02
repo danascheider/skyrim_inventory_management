@@ -44,6 +44,6 @@ Each homestead also has one outdoor element unique to it:
 Properties are different from other types of "items" in SIM in two ways:
 
 1. Each property is also a location (often with sublocations)
-2. Properties are an organising element in SIM - users will be able to associate inventory and shopping lists with specific properties
+2. Properties are an organising element in SIM - users will be able to associate inventory and wish lists with specific properties
 
 The implications of both of these factors are being uncovered as we continue building out the back end.
