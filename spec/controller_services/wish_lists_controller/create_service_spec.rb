@@ -6,7 +6,7 @@ require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/internal_server_error_result'
 
-RSpec.describe ShoppingListsController::CreateService do
+RSpec.describe WishListsController::CreateService do
   describe '#perform' do
     subject(:perform) { described_class.new(user, game.id, params).perform }
 

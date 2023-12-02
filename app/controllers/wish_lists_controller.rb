@@ -2,7 +2,7 @@
 
 require 'controller/response'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   def index
     result = IndexService.new(current_user, params[:game_id]).perform
 
@@ -10,13 +10,13 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    result = CreateService.new(current_user, params[:game_id], shopping_list_params).perform
+    result = CreateService.new(current_user, params[:game_id], wish_list_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
 
   def update
-    result = UpdateService.new(current_user, params[:id], shopping_list_params).perform
+    result = UpdateService.new(current_user, params[:id], wish_list_params).perform
 
     ::Controller::Response.new(self, result).execute
   end
@@ -29,7 +29,7 @@ class ShoppingListsController < ApplicationController
 
   private
 
-  def shopping_list_params
-    params[:shopping_list].present? ? params.require(:shopping_list).permit(:title, :aggregate) : {}
+  def wish_list_params
+    params[:wish_list].present? ? params.require(:wish_list).permit(:title, :aggregate) : {}
   end
 end

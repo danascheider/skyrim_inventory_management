@@ -12,7 +12,7 @@ RSpec.describe Controller::Response do
     subject(:execute) { described_class.new(controller, result, options).execute }
 
     context 'when the result has no resource and the errors are empty' do
-      let(:controller) { instance_double(ShoppingListsController, head: nil) }
+      let(:controller) { instance_double(WishListsController, head: nil) }
       let(:options) { {} }
       let(:result) { Service::NoContentResult.new(resource: nil, errors: []) }
 
@@ -23,7 +23,7 @@ RSpec.describe Controller::Response do
     end
 
     context 'when the resource is present but empty' do
-      let(:controller) { instance_double(ShoppingListsController, render: nil) }
+      let(:controller) { instance_double(WishListsController, render: nil) }
       let(:options) { {} }
       let(:result) { Service::OKResult.new(resource: []) }
 
@@ -34,7 +34,7 @@ RSpec.describe Controller::Response do
     end
 
     context 'when there is a resource' do
-      let(:controller) { instance_double(ShoppingListsController, render: nil) }
+      let(:controller) { instance_double(WishListsController, render: nil) }
       let(:options) { {} }
       let(:result) { Service::OKResult.new(resource:) }
 
@@ -55,7 +55,7 @@ RSpec.describe Controller::Response do
     end
 
     context 'when there are errors' do
-      let(:controller) { instance_double(ShoppingListsController, render: nil) }
+      let(:controller) { instance_double(WishListsController, render: nil) }
       let(:errors) { ['Cannot manually update an aggregate wish list'] }
       let(:options) { {} }
       let(:result) { Service::MethodNotAllowedResult.new(errors:) }
@@ -68,7 +68,7 @@ RSpec.describe Controller::Response do
 
     describe 'unexpected cases' do
       context 'when there is a resource and errors' do
-        let(:controller) { instance_double(ShoppingListsController, render: nil) }
+        let(:controller) { instance_double(WishListsController, render: nil) }
         let(:options) { {} }
         let(:errors) { ['Title is already taken', 'Cannot manually create or update an aggregate wish list'] }
         let(:result) { Service::UnprocessableEntityResult.new(errors:, resource: { foo: 'bar' }) }

@@ -4,7 +4,7 @@ require 'service/ok_result'
 require 'service/not_found_result'
 require 'service/internal_server_error_result'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   class IndexService
     def initialize(user, game_id)
       @user = user

@@ -6,7 +6,7 @@ require 'service/not_found_result'
 require 'service/unprocessable_entity_result'
 require 'service/internal_server_error_result'
 
-class ShoppingListsController < ApplicationController
+class WishListsController < ApplicationController
   class UpdateService
     AGGREGATE_LIST_ERROR = 'Cannot manually update an aggregate wish list'
     DISALLOWED_UPDATE_ERROR = 'Cannot make a regular wish list an aggregate list'

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'health_checks#index'
 
   resources :games do
-    resources :shopping_lists, shallow: true, except: %i[show] do
-      resources :shopping_list_items, shallow: true, except: %i[index show]
+    resources :wish_lists, shallow: true, except: %i[show] do
+      resources :wish_list_items, shallow: true, except: %i[index show]
     end
 
     resources :inventory_lists, shallow: true, except: %i[show] do
