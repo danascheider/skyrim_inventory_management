@@ -9,8 +9,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
   let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'jewelry_items.json') }
   let!(:json_data) { File.read(json_path) }
 
-  let(:material_codes) { %w[XX002993 XX002994 000800E4] }
-
   before do
     allow(File).to receive(:read).and_return(json_data)
   end
@@ -26,7 +24,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
 
         before do
           create(:enchantment, name: 'Fortify Health')
-          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
         end
 
         it 'instantiates itseslf' do
@@ -47,14 +44,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
           expect(Canonical::JewelryItem.find_by(item_code: '000DA735').enchantments.length).to eq 0
           expect(Canonical::JewelryItem.find_by(item_code: 'XX01AA0B').enchantments.length).to eq 0
         end
-
-        it 'creates the associations to crafting materials where they exist', :aggregate_failures do
-          perform
-          expect(Canonical::JewelryItem.find_by(item_code: '00094E3E').crafting_materials.length).to eq 0
-          expect(Canonical::JewelryItem.find_by(item_code: '000F5A1D').crafting_materials.length).to eq 0
-          expect(Canonical::JewelryItem.find_by(item_code: '000DA735').crafting_materials.length).to eq 0
-          expect(Canonical::JewelryItem.find_by(item_code: 'XX01AA0B').crafting_materials.length).to eq 3
-        end
       end
 
       context 'when there are existing jewelry item records in the database' do
@@ -64,9 +53,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
 
         before do
           create(:enchantment, name: 'Fortify Health')
-          create(:canonical_raw_material, item_code: 'XX002993')
-          create(:canonical_raw_material, item_code: 'XX002994')
-          create(:canonical_raw_material, item_code: '000800E4')
         end
 
         it 'instantiates itself' do
@@ -92,22 +78,13 @@ RSpec.describe Canonical::Sync::JewelryItems do
           expect(Canonical::JewelryItem.find_by(item_code: 'XX01AA0B')).to be_present
         end
 
-        it "removes associations that don't exist in the JSON data" do
-          item_in_json.canonical_craftables_crafting_materials.create!(
-            material: Canonical::RawMaterial.find_by(item_code: 'XX002993'),
-            quantity: 2,
-          )
-          perform
-          expect(item_in_json.crafting_materials.length).to eq 0
-        end
-
-        it 'adds associations if they exist' do
+        it 'adds enchantments if they exist' do
           perform
           expect(item_in_json.enchantments.length).to eq 1
         end
       end
 
-      context 'when there are no enchantments or materials in the database' do
+      context 'when there are no enchantments in the database' do
         before do
           allow(Rails.logger).to receive(:error)
         end
@@ -118,17 +95,16 @@ RSpec.describe Canonical::Sync::JewelryItems do
 
           expect(Rails.logger)
             .to have_received(:error)
-                  .with('Prerequisite(s) not met: sync Enchantment, Canonical::RawMaterial before canonical jewelry items')
+                  .with('Prerequisite(s) not met: sync Enchantment before canonical jewelry items')
           expect(Canonical::JewelryItem.count).to eq 0
         end
       end
 
-      context 'when an enchantment or material is missing' do
+      context 'when an enchantment is missing' do
         before do
           # prevent it from erroring out, which it will do if there are no
-          # enchantments or materials at all
+          # enchantments at all
           create(:enchantment)
-          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
 
           allow(Rails.logger).to receive(:error).twice
         end
@@ -152,9 +128,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
 
       before do
         create(:enchantment, name: 'Fortify Health')
-        material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
-
-        create(:canonical_craftables_crafting_material, craftable: item_in_json, material: create(:canonical_raw_material))
       end
 
       it 'instantiates itself' do
@@ -178,11 +151,6 @@ RSpec.describe Canonical::Sync::JewelryItems do
       it "doesn't destroy models that aren't in the JSON data" do
         perform
         expect(item_not_in_json.reload).to be_present
-      end
-
-      it "doesn't destroy associations" do
-        perform
-        expect(item_in_json.reload.crafting_materials.length).to eq 1
       end
     end
 
