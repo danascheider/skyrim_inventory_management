@@ -21,7 +21,7 @@ gem 'bootsnap', '~> 1.17', require: false
 gem 'rack-cors', '~> 2.0.1'
 
 # Use Faraday to validate Google auth access tokens
-gem 'faraday', '~> 2.7.12'
+gem 'faraday', '~> 2.8.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
