@@ -104,11 +104,10 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faraday (2.8.1)
-      base64
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.2)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -137,6 +136,8 @@ GEM
     minitest (5.22.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.10)
       date
       net-protocol
@@ -270,6 +271,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     webmock (3.19.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -292,7 +294,7 @@ DEPENDENCIES
   database_cleaner-active_record (~> 2.1)
   dotenv (~> 2.8)
   factory_bot_rails (~> 6.4.3)
-  faraday (~> 2.8.1)
+  faraday (~> 2.9.0)
   listen (~> 3.7)
   pg (~> 1.5)
   puma (~> 6.4.2)
