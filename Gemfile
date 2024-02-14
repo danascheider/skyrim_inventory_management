@@ -63,5 +63,5 @@ group :development do
   gem 'spring', '~> 4.1'
 
   # Load environment variables in dev
-  gem 'dotenv', '~> 2.8'
+  gem 'dotenv', '~> 3.0'
 end
