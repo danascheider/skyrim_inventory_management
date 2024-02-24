@@ -96,7 +96,6 @@ GEM
     database_cleaner-core (2.0.1)
     date (3.3.4)
     diff-lcs (1.5.0)
-    dotenv (3.0.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -293,7 +292,6 @@ DEPENDENCIES
   bootsnap (~> 1.18)
   byebug (~> 11.1)
   database_cleaner-active_record (~> 2.1)
-  dotenv (~> 3.0)
   factory_bot_rails (~> 6.4.3)
   faraday (~> 2.9.0)
   listen (~> 3.7)
