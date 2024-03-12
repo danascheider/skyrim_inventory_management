@@ -81,13 +81,13 @@ RSpec.describe Armor, type: :model do
     before do
       3.times do |n|
         canonical_armor.canonical_craftables_crafting_materials.create!(
-          material: create(:canonical_material),
+          material: create(:canonical_raw_material),
           quantity: n + 1,
         )
       end
 
       canonical_armor.canonical_temperables_tempering_materials.create!(
-        material: create(:canonical_material),
+        material: create(:canonical_raw_material),
         quantity: 1,
       )
     end

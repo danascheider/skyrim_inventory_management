@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe Canonical::Material, type: :model do
+RSpec.describe Canonical::RawMaterial, type: :model do
   describe 'validations' do
     it 'is valid with a valid name, item code, and unit weight' do
-      material = build(:canonical_material, item_code: 'foo', unit_weight: 7.0, name: 'bear pelt')
+      material = build(:canonical_raw_material, item_code: 'foo', unit_weight: 7.0, name: 'bear pelt')
 
       expect(material).to be_valid
     end
@@ -28,8 +28,8 @@ RSpec.describe Canonical::Material, type: :model do
       end
 
       it 'is invalid with a duplicate item code' do
-        create(:canonical_material, item_code: 'foo')
-        material = build(:canonical_material, item_code: 'foo')
+        create(:canonical_raw_material, item_code: 'foo')
+        material = build(:canonical_raw_material, item_code: 'foo')
 
         material.validate
         expect(material.errors[:item_code]).to include 'must be unique'
@@ -62,7 +62,7 @@ RSpec.describe Canonical::Material, type: :model do
 
   describe 'default behavior' do
     it 'upcases item codes' do
-      material = create(:canonical_material, item_code: 'abc123')
+      material = create(:canonical_raw_material, item_code: 'abc123')
       expect(material.reload.item_code).to eq 'ABC123'
     end
   end

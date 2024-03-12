@@ -250,7 +250,7 @@ RSpec.describe Canonical::Weapon, type: :model do
 
     describe 'crafting materials' do
       let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_material) }
+      let(:material) { create(:canonical_raw_material) }
 
       before do
         weapon.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
@@ -263,7 +263,7 @@ RSpec.describe Canonical::Weapon, type: :model do
 
     describe 'tempering materials' do
       let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_material) }
+      let(:material) { create(:canonical_raw_material) }
 
       before do
         weapon.canonical_temperables_tempering_materials.create!(material:, quantity: 4)

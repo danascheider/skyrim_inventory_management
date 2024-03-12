@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
-      material = create(:canonical_material)
+      material = create(:canonical_raw_material)
       armor = create(:canonical_armor)
       model = described_class.new(quantity: 3, material:, temperable: armor)
 
@@ -29,7 +29,7 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
     end
 
     describe 'temperable and canonical material' do
-      let(:material) { create(:canonical_material) }
+      let(:material) { create(:canonical_raw_material) }
       let(:weapon) { create(:canonical_weapon) }
 
       it 'must be a unique combination' do
@@ -42,7 +42,7 @@ RSpec.describe Canonical::TemperablesTemperingMaterial, type: :model do
     end
 
     describe 'polymorphic associations' do
-      subject(:temperable_type) { described_class.new(temperable: item, material: create(:canonical_material)).temperable_type }
+      subject(:temperable_type) { described_class.new(temperable: item, material: create(:canonical_raw_material)).temperable_type }
 
       context 'when the association is an armor item' do
         let(:item) { create(:canonical_armor) }

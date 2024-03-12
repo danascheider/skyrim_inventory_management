@@ -27,7 +27,7 @@ RSpec.describe Canonical::Sync::Weapons do
         before do
           create(:enchantment, name: 'Frost Damage')
           create(:power, name: 'Blessing of the Stag Prince')
-          material_codes.each {|code| create(:canonical_material, item_code: code) }
+          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
           allow(described_class).to receive(:new).and_return(syncer)
         end
 
@@ -82,7 +82,7 @@ RSpec.describe Canonical::Sync::Weapons do
         before do
           create(:enchantment, name: 'Frost Damage')
           create(:power, name: 'Blessing of the Stag Prince')
-          material_codes.each {|code| create(:canonical_material, item_code: code) }
+          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
         end
 
         it 'instantiates itself' do
@@ -110,7 +110,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
         it "removes associations that don't exist in the JSON data" do
           item_in_json.canonical_temperables_tempering_materials.create!(
-            material: create(:canonical_material, name: 'Titanium Ingot'),
+            material: create(:canonical_raw_material, name: 'Titanium Ingot'),
             quantity: 2,
           )
           perform
@@ -134,7 +134,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
           expect(Rails.logger)
             .to have_received(:error)
-                  .with('Prerequisite(s) not met: sync Enchantment, Power, Canonical::Material before canonical weapons')
+                  .with('Prerequisite(s) not met: sync Enchantment, Power, Canonical::RawMaterial before canonical weapons')
 
           expect(Canonical::Weapon.count).to eq 0
         end
@@ -145,7 +145,7 @@ RSpec.describe Canonical::Sync::Weapons do
           # prevent it from erroring out, which it will do if there are no
           # enchantments/materials/powers at all
           create(:enchantment)
-          create(:canonical_material)
+          create(:canonical_raw_material)
           create(:power)
           allow(Rails.logger).to receive(:error).twice
         end
@@ -171,12 +171,12 @@ RSpec.describe Canonical::Sync::Weapons do
         create(:enchantment, name: 'Frost Damage')
         create(:power, name: 'Blessing of the Stag Prince')
 
-        material_codes.each {|code| create(:canonical_material, item_code: code) }
+        material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
 
         create(
           :canonical_temperables_tempering_material,
           temperable: item_in_json,
-          material: create(:canonical_material, name: 'Aluminum Ingot'),
+          material: create(:canonical_raw_material, name: 'Aluminum Ingot'),
         )
       end
 
@@ -223,7 +223,7 @@ RSpec.describe Canonical::Sync::Weapons do
 
         before do
           create(:enchantment)
-          create(:canonical_material)
+          create(:canonical_raw_material)
           create(:power)
 
           allow_any_instance_of(Canonical::Weapon)
@@ -246,7 +246,7 @@ RSpec.describe Canonical::Sync::Weapons do
         before do
           create(:enchantment)
           create(:power)
-          create(:canonical_material)
+          create(:canonical_raw_material)
 
           allow(Canonical::Weapon).to receive(:find_or_initialize_by).and_raise(StandardError, 'foobar')
           allow(Rails.logger).to receive(:error)
@@ -266,7 +266,7 @@ RSpec.describe Canonical::Sync::Weapons do
         before do
           create(:enchantment)
           create(:power)
-          create(:canonical_material)
+          create(:canonical_raw_material)
 
           allow(Canonical::Weapon).to receive(:where).and_raise(StandardError, 'foobar')
           allow(Rails.logger).to receive(:error)

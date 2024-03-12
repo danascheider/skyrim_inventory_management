@@ -151,7 +151,7 @@ RSpec.describe Canonical::JewelryItem, type: :model do
 
     describe 'materials' do
       let(:item) { create(:canonical_jewelry_item) }
-      let(:material) { create(:canonical_material) }
+      let(:material) { create(:canonical_raw_material) }
 
       before do
         item.canonical_craftables_crafting_materials.create!(material:, quantity: 2)

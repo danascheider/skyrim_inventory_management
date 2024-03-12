@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :canonical_craftables_crafting_material, class: Canonical::CraftablesCraftingMaterial do
-    association :material, factory: :canonical_material
+    association :material, factory: :canonical_raw_material
     quantity { 2 }
 
     trait :for_armor do
