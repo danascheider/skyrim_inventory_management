@@ -77,12 +77,12 @@ RSpec.describe Canonical::Sync do
       subject(:perform) { described_class.perform(:material, true) }
 
       before do
-        allow(Canonical::Sync::Materials).to receive(:perform)
+        allow(Canonical::Sync::RawMaterials).to receive(:perform)
       end
 
       it 'calls #perform on the correct syncer' do
         perform
-        expect(Canonical::Sync::Materials).to have_received(:perform).with(true)
+        expect(Canonical::Sync::RawMaterials).to have_received(:perform).with(true)
       end
     end
 

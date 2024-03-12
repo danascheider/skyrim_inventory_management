@@ -8,7 +8,7 @@ module Canonical
       # Syncers that are prerequisites for other syncers
       alchemical_property: Canonical::Sync::AlchemicalProperties,
       enchantment: Canonical::Sync::Enchantments,
-      material: Canonical::Sync::Materials,
+      material: Canonical::Sync::RawMaterials,
       power: Canonical::Sync::Powers,
       spell: Canonical::Sync::Spells,
       ingredient: Canonical::Sync::Ingredients,

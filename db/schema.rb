@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,7 +115,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["material_id", "craftable_id", "craftable_type"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
+    t.index ["craftable_id", "craftable_type", "material_id"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
     t.index ["material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
   end
 
@@ -163,17 +163,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
-  end
-
-  create_table "canonical_materials", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "item_code", null: false
-    t.boolean "building_material", default: false
-    t.boolean "smithing_material", default: false
-    t.decimal "unit_weight", precision: 5, scale: 2, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_code"], name: "index_canonical_materials_on_item_code", unique: true
   end
 
   create_table "canonical_misc_items", force: :cascade do |t|
@@ -255,6 +244,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
+  end
+
+  create_table "canonical_raw_materials", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "item_code", null: false
+    t.boolean "building_material", default: false
+    t.boolean "smithing_material", default: false
+    t.decimal "unit_weight", precision: 5, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_code"], name: "index_canonical_raw_materials_on_item_code", unique: true
   end
 
   create_table "canonical_staves", force: :cascade do |t|
@@ -591,7 +591,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
   add_foreign_key "armors", "games"
   add_foreign_key "books", "canonical_books"
   add_foreign_key "books", "games"
-  add_foreign_key "canonical_craftables_crafting_materials", "canonical_materials", column: "material_id"
+  add_foreign_key "canonical_craftables_crafting_materials", "canonical_raw_materials", column: "material_id"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_potions_alchemical_properties", "alchemical_properties"
@@ -599,7 +599,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_050320) do
   add_foreign_key "canonical_powerables_powers", "powers"
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
-  add_foreign_key "canonical_temperables_tempering_materials", "canonical_materials", column: "material_id"
+  add_foreign_key "canonical_temperables_tempering_materials", "canonical_raw_materials", column: "material_id"
   add_foreign_key "clothing_items", "canonical_clothing_items"
   add_foreign_key "clothing_items", "games"
   add_foreign_key "enchantables_enchantments", "enchantments"

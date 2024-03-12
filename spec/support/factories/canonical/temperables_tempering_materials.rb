@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :canonical_temperables_tempering_material, class: Canonical::TemperablesTemperingMaterial do
-    association :material, factory: :canonical_material
+    association :material, factory: :canonical_raw_material
     quantity { 1 }
 
     trait :for_armor do

@@ -6,7 +6,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       armor = create(:canonical_armor)
-      material = create(:canonical_material)
+      material = create(:canonical_raw_material)
       model = described_class.new(quantity: 2, craftable: armor, material:)
 
       expect(model).to be_valid
@@ -15,7 +15,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
     describe 'quantity' do
       it 'must be greater than zero' do
         weapon = create(:canonical_weapon)
-        material = create(:canonical_material)
+        material = create(:canonical_raw_material)
         model = described_class.new(quantity: 0, craftable: weapon, material:)
 
         model.validate
@@ -24,7 +24,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
 
       it 'must be an integer' do
         item = create(:canonical_jewelry_item)
-        material = create(:canonical_material)
+        material = create(:canonical_raw_material)
         model = described_class.new(quantity: 1.3, craftable: item, material:)
 
         model.validate
@@ -33,7 +33,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
     end
 
     describe 'canonical material and craftable item' do
-      let(:material) { create(:canonical_material) }
+      let(:material) { create(:canonical_raw_material) }
       let(:armor) { create(:canonical_armor) }
 
       it 'must form a unique combination' do
@@ -47,7 +47,7 @@ RSpec.describe Canonical::CraftablesCraftingMaterial, type: :model do
   end
 
   describe 'polymorphic associations' do
-    subject(:craftable_type) { described_class.new(craftable: item, material: create(:canonical_material)).craftable_type }
+    subject(:craftable_type) { described_class.new(craftable: item, material: create(:canonical_raw_material)).craftable_type }
 
     context 'when the association is an armor item' do
       let(:item) { create(:canonical_armor) }

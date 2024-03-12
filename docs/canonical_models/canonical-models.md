@@ -7,7 +7,7 @@ The following canonical models exist in the SIM database:
 * [`Canonical::ClothingItem`](/app/models/canonical/clothing_item.rb): actual clothing items available in the game; includes mages' robes as well as plain clothes
 * [`Canonical::Ingredient`](/app/models/canonical/ingredient.rb): actual ingredients available in the game; has many-to-many association to `AlchemicalProperty`, which it can have no more than 4 of without causing a validation error
 * [`Canonical::JewelryItem`](/app/models/canonical/jewelry_item.rb): actual jewelry items available in-game, including both generic and unique pieces
-* [`Canonical::Material`](/app/models/canonical/material.rb): actual building and smithing materials present in the game
+* [`Canonical::RawMaterial`](/app/models/canonical/raw_material.rb): actual building and smithing materials present in the game
 * [`Canonical::MiscItem`](/app/models/canonical/misc_item.rb): miscellaneous items occurring in the game that may be either useful or decorative
 * [`Canonical::Potion`](/app/models/canonical/potion.rb): potions that may be purchased or found in-game (does not include player-created potions, which can be validated using only alchemical properties without needing an additional canonical model)
 * [`Canonical::Property`](/app/models/canonical/property.rb): actual properties (homes) the player character can own in the game
@@ -48,7 +48,7 @@ All canonical models, not including join tables, must have a class method, `::un
 
 ### Instance API
 
-While there are no fields common to every canonical model, there are a few that are worth mentioning as common to most. These fields are present on every canonical model except `Canonical::Property` and `Canonical::Material`. (They are not defined on the pseudo-canonical models `AlchemicalProperty`, `Spell`, `Enchantment`, and `Power`.) Each of these columns is a boolean and is required to have a non-`NULL` value.
+While there are no fields common to every canonical model, there are a few that are worth mentioning as common to most. These fields are present on every canonical model except `Canonical::Property` and `Canonical::RawMaterial`. (They are not defined on the pseudo-canonical models `AlchemicalProperty`, `Spell`, `Enchantment`, and `Power`.) Each of these columns is a boolean and is required to have a non-`NULL` value.
 
 #### `purchasable`
 

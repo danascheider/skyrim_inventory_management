@@ -21,7 +21,7 @@ module Canonical
              class_name: 'Canonical::CraftablesCraftingMaterial',
              as: :craftable
     has_many :crafting_materials,
-             -> { select 'canonical_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
+             -> { select 'canonical_raw_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
              through: :canonical_craftables_crafting_materials,
              source: :material
 

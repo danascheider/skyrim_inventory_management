@@ -2,15 +2,15 @@
 
 module Canonical
   module Sync
-    class Materials < Syncer
+    class RawMaterials < Syncer
       private
 
       def model_class
-        Canonical::Material
+        Canonical::RawMaterial
       end
 
       def json_file_path
-        Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_materials.json')
+        Rails.root.join('lib', 'tasks', 'canonical_models', 'canonical_raw_materials.json')
       end
     end
   end

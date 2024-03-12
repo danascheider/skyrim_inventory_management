@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Canonical
-  class Material < ApplicationRecord
-    self.table_name = 'canonical_materials'
+  class RawMaterial < ApplicationRecord
+    self.table_name = 'canonical_raw_materials'
 
     has_many :canonical_craftables_crafting_materials,
              dependent: :destroy,
