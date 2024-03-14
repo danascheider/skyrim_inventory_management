@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_182801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -163,6 +163,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
+  end
+
+  create_table "canonical_materials", force: :cascade do |t|
+    t.string "source_material_type", null: false
+    t.bigint "source_material_id", null: false
+    t.string "joinable_type", null: false
+    t.bigint "joinable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["joinable_type", "joinable_id"], name: "index_canonical_materials_on_joinable"
+    t.index ["source_material_type", "source_material_id"], name: "index_canonical_materials_on_source_material"
   end
 
   create_table "canonical_misc_items", force: :cascade do |t|
