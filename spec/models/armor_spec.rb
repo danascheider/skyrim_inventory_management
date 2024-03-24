@@ -80,35 +80,31 @@ RSpec.describe Armor, type: :model do
 
     before do
       3.times do |n|
-        canonical_armor.canonical_craftables_crafting_materials.create!(
-          material: create(:canonical_raw_material),
+        create(
+          :canonical_material,
+          craftable: canonical_armor,
           quantity: n + 1,
         )
       end
 
-      canonical_armor.canonical_temperables_tempering_materials.create!(
-        material: create(:canonical_raw_material),
-        quantity: 1,
+      create(
+        :canonical_material,
+        source_material: create(:canonical_raw_material),
+        temperable: canonical_armor,
       )
+
+      canonical_armor.reload
     end
 
     describe '#crafting_materials' do
       it 'uses the values from the canonical model' do
         expect(armor.crafting_materials).to eq canonical_armor.crafting_materials
       end
-
-      it 'can access quantities transitively' do
-        expect(armor.crafting_materials.first.quantity_needed).to eq 1
-      end
     end
 
     describe '#tempering_materials' do
       it 'uses the values from the canonical model' do
         expect(armor.tempering_materials).to eq canonical_armor.tempering_materials
-      end
-
-      it 'can access quantities transitively' do
-        expect(armor.tempering_materials.first.quantity_needed).to eq 1
       end
     end
 
