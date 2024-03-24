@@ -45,8 +45,9 @@ module Canonical
     #          source_type: 'Canonical::RawMaterial'
 
     has_many :canonical_tempering_materials,
-             class_name: 'Canonical::Material',
-             dependent: :destroy
+             dependent: :destroy,
+             as: :temperable,
+             class_name: 'Canonical::Material'
     has_many :tempering_materials,
              through: :canonical_tempering_materials,
              source: :source_material,

@@ -23,9 +23,6 @@ module Canonical
     has_many :crafting_materials,
              through: :canonical_crafting_materials,
              source: :source_material,
-             # Note: Theoretically a crafting material MAY be a Canonical::Weapon
-             #       or Canonical::Ingredient, however, I'm not including that here
-             #       because no jewelry items actually require these to craft.
              source_type: 'Canonical::Material'
 
     has_many :jewelry_items,
@@ -48,7 +45,7 @@ module Canonical
 
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code

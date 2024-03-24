@@ -75,7 +75,11 @@ module Canonical
              class_name: '::Weapon'
 
     validates :name, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
+    validates :item_code,
+              presence: true,
+              uniqueness: {
+                message: 'must be unique',
+              }
     validates :category,
               presence: true,
               inclusion: {
@@ -88,23 +92,60 @@ module Canonical
                 in: VALID_WEAPON_TYPES.values.flatten,
                 message: 'must be a valid type of weapon that occurs in Skyrim',
               }
-    validates :base_damage, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :enchantable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :base_damage,
+              presence: true,
+              numericality: {
+                greater_than_or_equal_to: 0,
+                only_integer: true,
+              }
+    validates :unit_weight,
+              presence: true,
+              numericality: {
+                greater_than_or_equal_to: 0,
+              }
+    validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :unique_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :rare_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :leveled,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :enchantable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
 
     validate :verify_category_type_combination
     validate :verify_all_smithing_perks_valid
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code
+    end
+
+    def crafting_materials
+      crafting_raw_materials + crafting_weapons + crafting_ingredients
     end
 
     private
