@@ -166,6 +166,65 @@ RSpec.describe Canonical::RawMaterial, type: :model do
         expect(jewelry_items).to contain_exactly(craftable1, craftable2)
       end
     end
+
+    describe '#craftable_items' do
+      subject(:craftable_items) { source_material.craftable_items }
+
+      let(:source_material) { create(:canonical_raw_material) }
+
+      let!(:canonical_materials) do
+        [
+          create(
+            :canonical_material,
+            source_material:,
+            craftable: create(:canonical_armor),
+          ),
+          create(
+            :canonical_material,
+            source_material:,
+            craftable: create(:canonical_weapon),
+          ),
+          create(
+            :canonical_material,
+            source_material:,
+            craftable: create(:canonical_jewelry_item),
+          ),
+        ]
+      end
+
+      before do
+        source_material.reload
+      end
+
+      it 'includes all craftable items regardless of class' do
+        craftables = canonical_materials.map(&:craftable)
+
+        expect(craftable_items).to contain_exactly(*craftables)
+      end
+    end
+
+    describe '#temperable_items' do
+      subject(:temperable_items) { source_material.temperable_items }
+
+      let(:source_material) { create(:canonical_raw_material) }
+
+      let!(:canonical_materials) do
+        [
+          create(:canonical_material, source_material:, temperable: create(:canonical_armor)),
+          create(:canonical_material, source_material:, temperable: create(:canonical_weapon)),
+        ]
+      end
+
+      before do
+        source_material.reload
+      end
+
+      it 'includes all temperable items regardless of class' do
+        temperables = canonical_materials.map(&:temperable)
+
+        expect(temperable_items).to contain_exactly(*temperables)
+      end
+    end
   end
 
   describe 'class methods' do

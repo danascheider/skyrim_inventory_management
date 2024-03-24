@@ -53,6 +53,14 @@ module Canonical
       :item_code
     end
 
+    def craftable_items
+      craftable_weapons + craftable_armors + jewelry_items
+    end
+
+    def temperable_items
+      temperable_weapons + temperable_armors
+    end
+
     private
 
     def upcase_item_code
