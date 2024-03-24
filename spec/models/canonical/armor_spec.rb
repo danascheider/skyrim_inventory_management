@@ -191,7 +191,7 @@ RSpec.describe Canonical::Armor, type: :model do
 
     describe 'smithing materials' do
       let(:armor) { create(:canonical_armor) }
-      let(:material) { create(:canonical_raw_material) }
+      let(:material) { create(:canonical_material) }
 
       before do
         armor.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
@@ -204,14 +204,20 @@ RSpec.describe Canonical::Armor, type: :model do
 
     describe 'tempering materials' do
       let(:armor) { create(:canonical_armor) }
-      let(:material) { create(:canonical_raw_material) }
 
       before do
-        armor.canonical_temperables_tempering_materials.create!(material:, quantity: 1)
+        create(
+          :canonical_temperables_tempering_material,
+          temperable: armor,
+          quantity: 1,
+          material_attributes: {
+            source_material: create(:canonical_raw_material),
+          },
+        )
       end
 
       it 'gives the quantity needed' do
-        expect(armor.tempering_materials.first.quantity_needed).to eq 1
+        expect(armor.reload.tempering_materials.first.quantity_needed).to eq 1
       end
     end
   end

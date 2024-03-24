@@ -4,11 +4,30 @@ module Canonical
   class RawMaterial < ApplicationRecord
     self.table_name = 'canonical_raw_materials'
 
-    has_many :canonical_craftables_crafting_materials,
+    has_many :materials,
              dependent: :destroy,
-             class_name: 'Canonical::CraftablesCraftingMaterial',
-             inverse_of: :material
-    has_many :craftables, through: :canonical_craftables_crafting_materials
+             class_name: 'Canonical::Material',
+             as: :source_material
+    has_many :craftable_weapons,
+             through: :materials,
+             source: :craftable,
+             source_type: 'Canonical::Weapon'
+    has_many :temperable_weapons,
+             through: :materials,
+             source: :temperable,
+             source_type: 'Canonical::Weapon'
+    has_many :craftable_armors,
+             through: :materials,
+             source: :craftable,
+             source_type: 'Canonical::Armor'
+    has_many :temperable_armors,
+             through: :materials,
+             source: :temperable,
+             source_type: 'Canonical::Armor'
+    has_many :jewelry_items,
+             through: :materials,
+             source: :craftable,
+             source_type: 'Canonical::JewelryItem'
 
     has_many :canonical_temperables_tempering_materials,
              dependent: :destroy,

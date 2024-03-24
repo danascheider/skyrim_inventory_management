@@ -42,23 +42,31 @@ module Canonical
              as: :powerable
     has_many :powers, through: :canonical_powerables_powers
 
-    has_many :canonical_craftables_crafting_materials,
+    has_many :canonical_crafting_materials,
              dependent: :destroy,
-             class_name: 'Canonical::CraftablesCraftingMaterial',
-             as: :craftable
-    has_many :crafting_materials,
-             -> { select 'canonical_raw_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
-             through: :canonical_craftables_crafting_materials,
-             source: :material
+             as: :craftable,
+             class_name: 'Canonical::Material'
+    has_many :crafting_weapons,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::Weapon'
+    has_many :crafting_ingredients,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
+    has_many :crafting_raw_materials,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
 
-    has_many :canonical_temperables_tempering_materials,
+    has_many :canonical_tempering_materials,
              dependent: :destroy,
-             class_name: 'Canonical::TemperablesTemperingMaterial',
-             as: :temperable
+             as: :temperable,
+             class_name: 'Canonical::Material'
     has_many :tempering_materials,
-             -> { select 'canonical_raw_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
-             through: :canonical_temperables_tempering_materials,
-             source: :material
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
 
     has_many :weapons,
              inverse_of: :canonical_weapon,

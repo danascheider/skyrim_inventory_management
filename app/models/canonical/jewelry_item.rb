@@ -16,14 +16,17 @@ module Canonical
              -> { select 'enchantments.*, enchantables_enchantments.strength as strength' },
              through: :enchantables_enchantments
 
-    has_many :canonical_craftables_crafting_materials,
+    has_many :canonical_crafting_materials,
              dependent: :destroy,
-             class_name: 'Canonical::CraftablesCraftingMaterial',
-             as: :craftable
+             as: :material,
+             class_name: 'Canonical::Material'
     has_many :crafting_materials,
-             -> { select 'canonical_raw_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
-             through: :canonical_craftables_crafting_materials,
-             source: :material
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             # Note: Theoretically a crafting material MAY be a Canonical::Weapon
+             #       or Canonical::Ingredient, however, I'm not including that here
+             #       because no jewelry items actually require these to craft.
+             source_type: 'Canonical::Material'
 
     has_many :jewelry_items,
              inverse_of: :canonical_jewelry_item,

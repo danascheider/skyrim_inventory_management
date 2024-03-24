@@ -67,6 +67,107 @@ RSpec.describe Canonical::RawMaterial, type: :model do
     end
   end
 
+  describe 'associations' do
+    describe '#craftable_weapons' do
+      subject(:craftable_weapons) { raw_material.craftable_weapons }
+
+      let!(:raw_material) { create(:canonical_raw_material) }
+      let!(:craftable1) { create(:canonical_weapon) }
+      let!(:craftable2) { create(:canonical_weapon) }
+
+      before do
+        create(:canonical_material, craftable: craftable1, source_material: raw_material)
+        create(:canonical_material, craftable: craftable2, source_material: raw_material)
+        create(:canonical_material, temperable: create(:canonical_weapon), source_material: raw_material)
+        raw_material.reload
+      end
+
+      it 'returns only associated craftable weapons' do
+        expect(craftable_weapons).to contain_exactly(craftable1, craftable2)
+      end
+    end
+
+    describe '#temperable_weapons' do
+      subject(:temperable_weapons) { raw_material.temperable_weapons }
+
+      let!(:raw_material) { create(:canonical_raw_material) }
+      let!(:temperable1) { create(:canonical_weapon) }
+      let!(:temperable2) { create(:canonical_weapon) }
+
+      before do
+        create(:canonical_material, temperable: temperable1, source_material: raw_material)
+        create(:canonical_material, temperable: temperable2, source_material: raw_material)
+        create(
+          :canonical_material,
+          craftable: create(:canonical_weapon),
+          source_material: raw_material,
+        )
+
+        raw_material.reload
+      end
+
+      it 'returns only associated temperable weapons' do
+        expect(temperable_weapons).to contain_exactly(temperable1, temperable2)
+      end
+    end
+
+    describe '#craftable_armors' do
+      subject(:craftable_armors) { raw_material.craftable_armors }
+
+      let!(:raw_material) { create(:canonical_raw_material) }
+      let!(:craftable1) { create(:canonical_armor) }
+      let!(:craftable2) { create(:canonical_armor) }
+
+      before do
+        create(:canonical_material, craftable: craftable1, source_material: raw_material)
+        create(:canonical_material, craftable: craftable2, source_material: raw_material)
+        create(:canonical_material, temperable: create(:canonical_armor), source_material: raw_material)
+        raw_material.reload
+      end
+
+      it 'returns only associated craftable armors' do
+        expect(craftable_armors).to contain_exactly(craftable1, craftable2)
+      end
+    end
+
+    describe '#temperable_armors' do
+      subject(:temperable_armors) { raw_material.temperable_armors }
+
+      let!(:raw_material) { create(:canonical_raw_material) }
+      let!(:temperable1) { create(:canonical_armor) }
+      let!(:temperable2) { create(:canonical_armor) }
+
+      before do
+        create(:canonical_material, temperable: temperable1, source_material: raw_material)
+        create(:canonical_material, temperable: temperable2, source_material: raw_material)
+        create(:canonical_material, craftable: create(:canonical_armor), source_material: raw_material)
+        raw_material.reload
+      end
+
+      it 'returns only associated temperable armors' do
+        expect(temperable_armors).to contain_exactly(temperable1, temperable2)
+      end
+    end
+
+    describe '#jewelry_items' do
+      subject(:jewelry_items) { raw_material.jewelry_items }
+
+      let!(:raw_material) { create(:canonical_raw_material) }
+      let!(:craftable1) { create(:canonical_jewelry_item) }
+      let!(:craftable2) { create(:canonical_jewelry_item) }
+
+      before do
+        create(:canonical_material, craftable: craftable1, source_material: raw_material)
+        create(:canonical_material, craftable: craftable2, source_material: raw_material)
+        raw_material.reload
+      end
+
+      it 'returns only associated craftable jewelry items' do
+        expect(jewelry_items).to contain_exactly(craftable1, craftable2)
+      end
+    end
+  end
+
   describe 'class methods' do
     describe '::unique_identifier' do
       it 'returns :item_code' do
