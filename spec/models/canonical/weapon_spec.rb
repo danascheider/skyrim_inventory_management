@@ -5,7 +5,8 @@ require 'rails_helper'
 RSpec.describe Canonical::Weapon, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
-      weapon = described_class.new(
+      weapon = build(
+        :canonical_weapon,
         name: 'Ebony Battleaxe',
         item_code: '123xxx',
         category: 'two-handed',
@@ -248,29 +249,55 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'crafting materials' do
+    describe '#crafting_materials' do
+      subject(:crafting_materials) { weapon.crafting_materials }
+
       let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_raw_material) }
+
+      let!(:canonical_materials) do
+        [
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_weapon, name: 'Dwarven Crossbow'),
+            quantity: 2,
+          ),
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_raw_material, name: 'Dwarven Metal Ingot'),
+            quantity: 3,
+          ),
+        ]
+      end
 
       before do
-        weapon.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
+        weapon.reload
       end
 
       it 'gives the quantity needed' do
-        expect(weapon.crafting_materials.first.quantity_needed).to eq 4
+        raw_material1 = canonical_materials[0].source_material
+        raw_material2 = canonical_materials[1].source_material
+
+        expect(crafting_materials).to contain_exactly(raw_material1, raw_material2)
       end
     end
 
-    describe 'tempering materials' do
+    describe '#tempering_materials' do
+      subject(:tempering_materials) { weapon.tempering_materials }
+
       let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_raw_material) }
+      let!(:canonical_materials) { create_list(:canonical_material, 2, temperable: weapon) }
 
       before do
-        weapon.canonical_temperables_tempering_materials.create!(material:, quantity: 4)
+        weapon.reload
       end
 
       it 'gives the quantity needed' do
-        expect(weapon.tempering_materials.first.quantity_needed).to eq 4
+        raw_material1 = canonical_materials[0].source_material
+        raw_material2 = canonical_materials[1].source_material
+
+        expect(tempering_materials).to contain_exactly(raw_material1, raw_material2)
       end
     end
   end
