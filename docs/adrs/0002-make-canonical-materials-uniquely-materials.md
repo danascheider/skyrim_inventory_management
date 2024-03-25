@@ -1,5 +1,7 @@
 # 0002. Make Canonical Materials Uniquely Materials
 
+**Superseded by ADR 0004**
+
 ## Date
 
 2023-12-03
