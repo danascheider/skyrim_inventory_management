@@ -14,7 +14,10 @@ module Canonical
       end
 
       def prerequisites
-        [Enchantment]
+        [
+          Enchantment,
+          Canonical::RawMaterial,
+        ]
       end
     end
   end

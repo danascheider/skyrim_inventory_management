@@ -17,6 +17,7 @@ module Canonical
         [
           Enchantment,
           Power,
+          Canonical::RawMaterial,
         ]
       end
     end
