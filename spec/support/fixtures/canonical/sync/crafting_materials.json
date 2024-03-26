@@ -1,0 +1,167 @@
+[
+  {
+    "craftable": {
+      "item_code": "XX012E8A",
+      "type": "Canonical::Armor"
+    },
+    "metadata": {
+      "name": "Shellbug Helmet"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 2
+        },
+        "metadata": {
+          "item_code": "XX0195AA",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Shellbug Chitin"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 2
+        },
+        "metadata": {
+          "item_code": "0005ACE4",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Iron Ingot"
+        }
+      }
+    ]
+  },
+  {
+    "craftable": {
+      "item_code": "XX026232",
+      "type": "Canonical::Weapon"
+    },
+    "metadata": {
+      "name": "Nordic Bow"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 3
+        },
+        "metadata": {
+          "item_code": "0005ACE5",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Steel Ingot"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005ADA0",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Quicksilver Ingot"
+        }
+      }
+    ]
+  },
+  {
+    "craftable": {
+      "item_code": "000877CA",
+      "type": "Canonical::JewelryItem"
+    },
+    "metadata": {
+      "name": "Gold Emerald Ring"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005AD9E",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Gold Ingot"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "00063B43",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Emerald"
+        }
+      }
+    ]
+  },
+  {
+    "craftable": {
+      "item_code": "XX01CD94",
+      "type": "Canonical::Armor"
+    },
+    "metadata": {
+      "name": "Bonemold Gauntlets"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "XX01CD7C",
+          "material_type": "Canonical::RawMaterial",
+          "name": "Netch Leather"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005ACE4",
+          "material_type": "Canonical::RawMaterial",
+          "name": "Iron Ingot"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 4
+        },
+        "metadata": {
+          "item_code": "00034CDD",
+          "material_type": "Canonical::Ingredient",
+          "name": "Bone Meal"
+        }
+      }
+    ]
+  },
+  {
+    "craftable": {
+      "item_code": "XX00F19E",
+      "type": "Canonical::Weapon"
+    },
+    "metadata": {
+      "name": "Enhanced Crossbow"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "XX000801",
+          "material_type": "Canonical::Weapon",
+          "name": "Crossbow"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 2
+        },
+        "metadata": {
+          "item_code": "0005AD93",
+          "material_type": "Canonical::RawMaterial",
+          "name": "Corundum Ingot"
+        }
+      }
+    ]
+  }
+]
