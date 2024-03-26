@@ -158,7 +158,7 @@ RSpec.describe Canonical::Armor, type: :model do
   end
 
   describe 'associations' do
-    describe 'enchantments' do
+    describe '#enchantments' do
       let(:armor) { create(:canonical_armor) }
       let(:enchantment) { create(:enchantment) }
 
@@ -168,6 +168,58 @@ RSpec.describe Canonical::Armor, type: :model do
 
       it 'gives the enchantment strength' do
         expect(armor.enchantments.first.strength).to eq 40
+      end
+    end
+
+    describe '#crafting_materials' do
+      subject(:crafting_materials) { armor.crafting_materials }
+
+      let(:armor) { create(:canonical_armor) }
+
+      let!(:material1) do
+        create(
+          :canonical_material,
+          craftable: armor,
+        ).source_material
+      end
+
+      let!(:material2) do
+        create(
+          :canonical_material,
+          craftable: armor,
+          source_material: create(:canonical_ingredient),
+        ).source_material
+      end
+
+      it 'returns all crafting materials regardless of class' do
+        expect(crafting_materials)
+          .to contain_exactly(material1, material2)
+      end
+    end
+
+    describe '#tempering_materials' do
+      subject(:tempering_materials) { armor.tempering_materials }
+
+      let(:armor) { create(:canonical_armor) }
+
+      let!(:material1) do
+        create(
+          :canonical_material,
+          temperable: armor,
+        ).source_material
+      end
+
+      let!(:material2) do
+        create(
+          :canonical_material,
+          temperable: armor,
+          source_material: create(:canonical_ingredient),
+        ).source_material
+      end
+
+      it 'returns all crafting materials regardless of class' do
+        expect(tempering_materials)
+          .to contain_exactly(material1, material2)
       end
     end
   end

@@ -226,13 +226,47 @@ RSpec.describe Canonical::Weapon, type: :model do
             craftable: weapon,
             source_material: create(:canonical_weapon, name: 'Dwarven Crossbow'),
             quantity: 2,
-          ),
+          ).source_material,
           create(
             :canonical_material,
             craftable: weapon,
             source_material: create(:canonical_raw_material, name: 'Dwarven Metal Ingot'),
             quantity: 3,
-          ),
+          ).source_material,
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_ingredient, name: 'Deathbell'),
+            quantity: 3,
+          ).source_material,
+        ]
+      end
+
+      before do
+        weapon.reload
+      end
+
+      it 'returns all crafting materials regardless of class' do
+        expect(crafting_materials).to contain_exactly(*canonical_materials)
+      end
+    end
+
+    describe '#tempering_materials' do
+      subject(:tempering_materials) { weapon.tempering_materials }
+
+      let(:weapon) { create(:canonical_weapon) }
+      let!(:materials) do
+        [
+          create(
+            :canonical_material,
+            temperable: weapon,
+            source_material: create(:canonical_raw_material),
+          ).source_material,
+          create(
+            :canonical_material,
+            temperable: weapon,
+            source_material: create(:canonical_ingredient),
+          ).source_material,
         ]
       end
 
@@ -241,24 +275,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
 
       it 'gives the quantity needed' do
-        raw_materials = canonical_materials.map(&:source_material)
-        expect(crafting_materials).to contain_exactly(*raw_materials)
-      end
-    end
-
-    describe '#tempering_materials' do
-      subject(:tempering_materials) { weapon.tempering_materials }
-
-      let(:weapon) { create(:canonical_weapon) }
-      let!(:canonical_materials) { create_list(:canonical_material, 2, temperable: weapon) }
-
-      before do
-        weapon.reload
-      end
-
-      it 'gives the quantity needed' do
-        raw_materials = canonical_materials.map(&:source_material)
-        expect(tempering_materials).to contain_exactly(*raw_materials)
+        expect(tempering_materials).to contain_exactly(*materials)
       end
     end
   end

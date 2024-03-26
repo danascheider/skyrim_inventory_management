@@ -1379,7 +1379,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1400,7 +1400,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1421,7 +1421,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1442,7 +1442,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1463,7 +1463,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1484,7 +1484,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -1505,7 +1505,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -24153,7 +24153,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -24174,7 +24174,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -24195,7 +24195,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -24216,7 +24216,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -24237,7 +24237,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -28437,7 +28437,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -28458,7 +28458,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -28479,7 +28479,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -28500,7 +28500,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -62835,7 +62835,7 @@
         },
         "metadata": {
           "item_code": "0003AD63",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Ectoplasm"
         }
       }

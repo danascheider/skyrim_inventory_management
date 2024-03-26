@@ -50,7 +50,7 @@ module Canonical
 
       def create_or_update_model(attributes)
         model = model_class.find_or_initialize_by(model_identifier => attributes[model_identifier])
-        model.assign_attributes(attributes)
+        model.assign_attributes(attributes.except(model_identifier))
         model.save!
         model
       rescue ActiveRecord::RecordInvalid => e
@@ -62,7 +62,7 @@ module Canonical
       end
 
       def destroy_existing_models
-        identifiers = json_data.pluck(:attributes).pluck(model_identifier)
+        identifiers = json_data.map {|obj| obj.dig(:attributes, model_identifier) }
         model_class.where.not(model_identifier => identifiers).destroy_all
       end
     end
