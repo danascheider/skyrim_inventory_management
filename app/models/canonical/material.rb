@@ -18,6 +18,9 @@ module Canonical
 
     delegate :name, to: :source_material
 
+    scope :with_craftable, -> { where.not(craftable_id: nil) }
+    scope :with_temperable, -> { where.not(temperable_id: nil) }
+
     NON_UNIQUE_CRAFTABLE_MESSAGE = 'must form a unique combination with craftable item'
     NON_UNIQUE_TEMPERABLE_MESSAGE = 'must form a unique combination with temperable item'
 

@@ -86,6 +86,30 @@ RSpec.describe Canonical::Material, type: :model do
     end
   end
 
+  describe 'scopes' do
+    describe '::with_craftable' do
+      subject(:with_craftable) { described_class.with_craftable }
+
+      let!(:included_models) { create_list(:canonical_material, 2, :with_craftable) }
+      let!(:excluded_model) { create(:canonical_material, :with_temperable) }
+
+      it 'includes models with a "craftable" association defined' do
+        expect(with_craftable).to contain_exactly(*included_models)
+      end
+    end
+
+    describe '::with_temperable' do
+      subject(:with_temperable) { described_class.with_temperable }
+
+      let!(:included_models) { create_list(:canonical_material, 2, :with_temperable) }
+      let!(:excluded_model) { create(:canonical_material, :with_craftable) }
+
+      it 'includes models with a "temperable" association defined' do
+        expect(with_temperable).to contain_exactly(*included_models)
+      end
+    end
+  end
+
   describe 'delegated methods' do
     describe '#name' do
       subject(:name) { material.name }
