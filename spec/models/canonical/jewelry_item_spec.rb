@@ -173,10 +173,8 @@ RSpec.describe Canonical::JewelryItem, type: :model do
       end
 
       it 'returns the canonical materials used to craft the item' do
-        raw_material1 = canonical_materials[0].source_material
-        raw_material2 = canonical_materials[1].source_material
-
-        expect(item.crafting_materials).to contain_exactly(raw_material1, raw_material2)
+        raw_materials = canonical_materials.map(&:source_material)
+        expect(item.crafting_materials).to contain_exactly(*raw_materials)
       end
     end
   end

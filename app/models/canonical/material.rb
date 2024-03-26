@@ -34,30 +34,34 @@ module Canonical
 
     def validate_uniqueness_in_proper_scope
       if craftable.present?
-        existing_model = Canonical::Material.find_by(
-          source_material_id:,
-          source_material_type:,
-          craftable_id:,
-          craftable_type:,
-        )
-
-        return if existing_model.nil?
+        return if unique_craftable?
 
         errors.add(:source_material, NON_UNIQUE_CRAFTABLE_MESSAGE)
       elsif temperable.present?
-        existing_model = Canonical::Material.find_by(
-          source_material_id:,
-          source_material_type:,
-          temperable_id:,
-          temperable_type:,
-        )
-
-        return if existing_model.nil?
+        return if unique_temperable?
 
         errors.add(:source_material, NON_UNIQUE_TEMPERABLE_MESSAGE)
       else
         errors.add(:base, 'must have either a craftable or a temperable association')
       end
+    end
+
+    def unique_craftable?
+      Canonical::Material.find_by(
+        source_material:,
+        source_material_type:,
+        craftable_id:,
+        craftable_type:,
+      ).nil?
+    end
+
+    def unique_temperable?
+      Canonical::Material.find_by(
+        source_material:,
+        source_material_type:,
+        temperable_id:,
+        temperable_type:,
+      ).nil?
     end
   end
 end
