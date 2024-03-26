@@ -63,10 +63,14 @@ module Canonical
              dependent: :destroy,
              as: :temperable,
              class_name: 'Canonical::Material'
-    has_many :tempering_materials,
+    has_many :tempering_raw_materials,
              through: :canonical_tempering_materials,
              source: :source_material,
              source_type: 'Canonical::RawMaterial'
+    has_many :tempering_ingredients,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
 
     has_many :weapons,
              inverse_of: :canonical_weapon,
@@ -146,6 +150,10 @@ module Canonical
 
     def crafting_materials
       crafting_raw_materials + crafting_weapons + crafting_ingredients
+    end
+
+    def tempering_materials
+      tempering_raw_materials + tempering_ingredients
     end
 
     private
