@@ -107,7 +107,7 @@
         },
         "metadata": {
           "item_code": "XX01CD7C",
-          "material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::RawMaterial",
           "name": "Netch Leather"
         }
       },
@@ -117,7 +117,7 @@
         },
         "metadata": {
           "item_code": "0005ACE4",
-          "material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::RawMaterial",
           "name": "Iron Ingot"
         }
       },
@@ -127,7 +127,7 @@
         },
         "metadata": {
           "item_code": "00034CDD",
-          "material_type": "Canonical::Ingredient",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Bone Meal"
         }
       }
@@ -148,7 +148,7 @@
         },
         "metadata": {
           "item_code": "XX000801",
-          "material_type": "Canonical::Weapon",
+          "source_material_type": "Canonical::Weapon",
           "name": "Crossbow"
         }
       },
@@ -158,7 +158,7 @@
         },
         "metadata": {
           "item_code": "0005AD93",
-          "material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::RawMaterial",
           "name": "Corundum Ingot"
         }
       }

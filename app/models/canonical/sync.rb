@@ -3,6 +3,7 @@
 module Canonical
   module Sync
     class PrerequisiteNotMetError < StandardError; end
+    class DataIntegrityError < StandardError; end
 
     SYNCERS = {
       # Syncers that are prerequisites for other syncers
