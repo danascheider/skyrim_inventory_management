@@ -16,10 +16,13 @@ The documentation here covers the purpose of canonical models, the canonical mod
 * [Leveled Weapons and Armor](/docs/canonical_models/levelled-weapons-and-armour.md): Notes on levelled weapons and armour items
 * [Syncing Canonical Models](/docs/canonical_models/syncing-canonical-models.md): Using Rake tasks to sync canonical models in the database with authoritative JSON data
 * Specific Models:
+  * [`Canonical::Armor`](/docs/canonical_models/canonical-armor.md): Additional details about the `Canonical::Armor` model
   * [`Canonical::Book`](/docs/canonical_models/canonical-book.md): Additional details about special characteristics of the `Canonical::Book` model
   * [`Canonical::Ingredient`](/docs/canonical_models/canonical-ingredient.md): Additional details about special characteristics of the `Canonical::Ingredient` model
   * [`Canonical::IngredientsAlchemicalProperty`](/docs/canonical_models/canonical-ingredients-alchemical-property.md): Additional details about special characteristics of the `Canonical::IngredientsAlchemicalProperty` model
+  * [`Canonical::Material`](/docs/canonical_models/canonical-material.md): Additional details about the `Canonical::Material` model
   * [`Canonical::MiscItem`](/docs/canonical_models/canonical-misc-item.md): Additional details about special characteristics of the `Canonical::MiscItem` model and associated data
   * [`Canonical::Property`](/docs/canonical_models/canonical-property.md): Additional details about special characteristics of the `Canonical::Property` model
+  * [`Canonical::RawMaterial`](/docs/canonical_models/canonical-raw-material.md): Additional details about the `Canonical::RawMaterial` model
   * [`Canonical::Staff`](/docs/canonical_models/canonical-staff.md): Additional details about the `Canonical::Staff` model
   * [`Canonical::Weapon`](/docs/canonical_models/canonical-weapon.md): Additional details about the `Canonical::Weapon` model
