@@ -1,6 +1,16 @@
 # Canonical Data
 
-Canonical models are synced in the database from JSON data kept in the `/lib/tasks/canonical_models` directory. The models are stored in the database so that the JSON data, which consists of arrays of sometimes thousands of objects, don't have to be held in an in-memory data store. The JSON data in this repository are authoritative: where there is a discrepancy between the database and the JSON data, the JSON data should be considered correct and the database synced to them.
+Canonical models are synced in the database from JSON data kept in the `/lib/tasks/canonical_models` directory. The models are stored in the database so that the JSON data, which consists of arrays of sometimes thousands of objects, don't have to be held in an in-memory data store. The JSON data in this repository are authoritative: where there is a discrepancy between the database and the JSON data, the JSON data should be considered correct and the database synced to them. (Note that there is [planned work](https://trello.com/c/LeDebqLf/214-admin-dashboard) to make the database the source of truth for canonical data. We will be removing JSON files and syncers after there is an adequate web interface for creating and managing canonical models.)
+
+## Table of Contents
+
+  * [Data Sources](#data-sources)
+  * [Data Structure](#data-structure)
+    * [The `Canonical::Material` Model](#the-canonicalmaterial-model)
+    * [Important Note on Item Codes](#important-note-on-item-codes)
+    * [Example](#example)
+  * [Exporting CSVs](#exporting-csvs)
+  * [Generating JSON Data](#generating-json-data)
 
 ## Data Sources
 
@@ -26,6 +36,10 @@ For each object in the array, there should also be an array(s) of any associatio
 The syncer will not create or update associated models in the database. Associated models must be populated first so the syncer can associate them using their unique identifier. If the table for associated models is empty, the syncer will raise an error; however, if the table is populated with any data, even if it is out of sync with JSON data, the syncer will base associations off the data in the database.
 
 Since associated models are not created or updated as part of each sync, it is important to note that any attributes defined in objects in association arrays, other than the unique identifier of the associated model, will be defined on the join model, not on the associated model itself. Any changes to data for associated models must be made in the JSON data for those models themselves.
+
+### The `Canonical::Material` Model
+
+The syncers for the `Canonical::Material` model (there are two, the `CraftingMaterials` syncer and the `TemperingMaterials` syncer) use a different format for their data. This format can be seen in the [data](/lib/tasks/canonical_models/canonical_crafting_materials.json) [files](/lib/tasks/canonical_models/canonical_tempering_materials.json) for these syncers. These syncers do not inherit from the base `Syncer` class.
 
 ### Important Note on Item Codes
 
