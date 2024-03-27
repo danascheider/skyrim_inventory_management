@@ -42,5 +42,8 @@ module SkyrimInventoryManagement
     # Set the CORS client origin to either the `CLIENT_ORIGIN` specified in
     # environment variables (for prod environments) or localhost (for dev).
     config.cors_client_origin = ENV['CLIENT_ORIGIN'].presence || 'http://localhost:5173'
+
+    # Configure backtrace silencers
+    config.backtrace = ENV['BACKTRACE'].presence
   end
 end
