@@ -38,5 +38,9 @@ module SkyrimInventoryManagement
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Set the CORS client origin to either the `CLIENT_ORIGIN` specified in
+    # environment variables (for prod environments) or localhost (for dev).
+    config.cors_client_origin = ENV['CLIENT_ORIGIN'].presence || 'http://localhost:5173'
   end
 end
