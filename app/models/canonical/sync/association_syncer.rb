@@ -4,7 +4,7 @@ module Canonical
   module Sync
     class AssociationSyncer < Syncer
       def perform
-        raise Canonical::Sync::PrerequisiteNotMetError.new(prerequisite_error_message) unless prerequisite_conditions_met?
+        raise PrerequisiteNotMetError.new(prerequisite_error_message) unless prerequisite_conditions_met?
 
         Rails.logger.info "Syncing #{model_name.downcase.pluralize}..."
         Rails.logger.warn "preserve_existing_records mode does not preserve associations for #{model_name.downcase.pluralize}" if preserve_existing_records && !preserve_associations?

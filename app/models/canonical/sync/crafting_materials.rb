@@ -14,6 +14,8 @@ module Canonical
       def perform
         Rails.logger.info 'Syncing canonical crafting materials...'
 
+        raise PrerequisiteNotMetError.new(prerequisite_error_message) unless prerequisite_conditions_met?
+
         ActiveRecord::Base.transaction do
           destroy_existing_models unless preserve_existing_records
 
@@ -42,6 +44,9 @@ module Canonical
             end
           end
         end
+      rescue StandardError => e
+        Rails.logger.error(e.message)
+        raise e
       end
 
       private
@@ -50,6 +55,24 @@ module Canonical
 
       def model_class
         Canonical::Material
+      end
+
+      def prerequisites
+        [
+          Canonical::Weapon,
+          Canonical::Armor,
+          Canonical::JewelryItem,
+          Canonical::Ingredient,
+          Canonical::RawMaterial,
+        ]
+      end
+
+      def prerequisite_conditions_met?
+        prerequisites.all?(&:any?)
+      end
+
+      def prerequisite_error_message
+        "Prerequisite(s) not met: sync #{prerequisites.map(&:to_s).join(', ')} before crafting materials"
       end
 
       def json_file_path

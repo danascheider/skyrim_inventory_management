@@ -29,12 +29,6 @@ module Canonical
              source: :craftable,
              source_type: 'Canonical::JewelryItem'
 
-    has_many :canonical_temperables_tempering_materials,
-             dependent: :destroy,
-             class_name: 'Canonical::TemperablesTemperingMaterial',
-             inverse_of: :material
-    has_many :temperables, through: :canonical_temperables_tempering_materials
-
     validates :name, presence: true
     validates :item_code,
               presence: true,

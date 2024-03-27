@@ -35,10 +35,14 @@ module Canonical
              dependent: :destroy,
              as: :temperable,
              class_name: 'Canonical::Material'
-    has_many :tempering_materials,
+    has_many :tempering_raw_materials,
              through: :canonical_tempering_materials,
              source: :source_material,
              source_type: 'Canonical::RawMaterial'
+    has_many :tempering_ingredients,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
 
     has_many :armors,
              inverse_of: :canonical_armor,
@@ -72,7 +76,7 @@ module Canonical
     validate :verify_all_smithing_perks_valid
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code
@@ -80,6 +84,10 @@ module Canonical
 
     def crafting_materials
       crafting_raw_materials + crafting_ingredients
+    end
+
+    def tempering_materials
+      tempering_raw_materials + tempering_ingredients
     end
 
     private

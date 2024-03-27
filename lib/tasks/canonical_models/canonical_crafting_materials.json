@@ -3137,7 +3137,7 @@
         },
         "metadata": {
           "item_code": "XX01CD72",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Netch Jelly"
         }
       },
@@ -3208,7 +3208,7 @@
         },
         "metadata": {
           "item_code": "XX01CD72",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Netch Jelly"
         }
       },
@@ -3228,7 +3228,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -3279,7 +3279,7 @@
         },
         "metadata": {
           "item_code": "XX01CD72",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Netch Jelly"
         }
       },
@@ -3299,7 +3299,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -3350,7 +3350,7 @@
         },
         "metadata": {
           "item_code": "XX01CD72",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Netch Jelly"
         }
       },
@@ -3370,7 +3370,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -3421,7 +3421,7 @@
         },
         "metadata": {
           "item_code": "XX01CD72",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Netch Jelly"
         }
       },
@@ -3441,7 +3441,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -7887,7 +7887,7 @@
         },
         "metadata": {
           "item_code": "0003AD60",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Ingredient",
           "name": "Void Salts"
         }
       }
@@ -8598,7 +8598,7 @@
         },
         "metadata": {
           "item_code": "0001CB64",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Weapon",
           "name": "Ancient Nord Battle Axe"
         }
       },
@@ -8639,7 +8639,7 @@
         },
         "metadata": {
           "item_code": "000302CA",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Weapon",
           "name": "Ancient Nord Bow"
         }
       },
@@ -8670,7 +8670,7 @@
         },
         "metadata": {
           "item_code": "000236A5",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Weapon",
           "name": "Ancient Nord Greatsword"
         }
       },
@@ -8711,7 +8711,7 @@
         },
         "metadata": {
           "item_code": "0002C66F",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Weapon",
           "name": "Ancient Nord Sword"
         }
       },
@@ -8752,7 +8752,7 @@
         },
         "metadata": {
           "item_code": "0002C672",
-          "source_material_type": "Canonical::RawMaterial",
+          "source_material_type": "Canonical::Weapon",
           "name": "Ancient Nord War Axe"
         }
       },
