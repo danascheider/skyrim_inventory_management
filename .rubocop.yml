@@ -45,7 +45,7 @@ AllCops:
     - 'db/schema.rb'
     - 'vendor/bundle/**/*'
   DisabledByDefault: true
-  TargetRubyVersion: 3.2.2
+  TargetRubyVersion: 3.3.0
 
 ############################
 ### Gemfile requirements ###
