@@ -91,7 +91,11 @@ RSpec.describe Canonical::Material, type: :model do
       subject(:with_craftable) { described_class.with_craftable }
 
       let!(:included_models) { create_list(:canonical_material, 2, :with_craftable) }
-      let!(:excluded_model) { create(:canonical_material, :with_temperable) }
+
+      before do
+        # This should not be included in the scope
+        create(:canonical_material, :with_temperable)
+      end
 
       it 'includes models with a "craftable" association defined' do
         expect(with_craftable).to contain_exactly(*included_models)
@@ -102,7 +106,10 @@ RSpec.describe Canonical::Material, type: :model do
       subject(:with_temperable) { described_class.with_temperable }
 
       let!(:included_models) { create_list(:canonical_material, 2, :with_temperable) }
-      let!(:excluded_model) { create(:canonical_material, :with_craftable) }
+
+      before do
+        create(:canonical_material, :with_craftable)
+      end
 
       it 'includes models with a "temperable" association defined' do
         expect(with_temperable).to contain_exactly(*included_models)
