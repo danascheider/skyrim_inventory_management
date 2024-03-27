@@ -1,0 +1,106 @@
+[
+  {
+    "temperable": {
+      "item_code": "000B509C",
+      "type": "Canonical::Armor"
+    },
+    "metadata": {
+      "name": "Steel Boots of Strength"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005ACE5",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Steel Ingot"
+        }
+      }
+    ]
+  },
+  {
+    "temperable": {
+      "item_code": "000BEEEE",
+      "type": "Canonical::Weapon"
+    },
+    "metadata": {
+      "name": "Glass Dagger of Harvesting"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005ADA1",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Refined Malachite"
+        }
+      }
+    ]
+  },
+  {
+    "temperable": {
+      "item_code": "XX039FB1",
+      "type": "Canonical::Weapon"
+    },
+    "metadata": {
+      "name": "Miraak's Sword"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0005AD9D",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Ebony Ingot"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "0003AD5B",
+          "source_material_type": "Canonical::Ingredient",
+          "name": "Daedra Heart"
+        }
+      }
+    ]
+  },
+  {
+    "temperable": {
+      "item_code": "0010A06A",
+      "type": "Canonical::Armor"
+    },
+    "metadata": {
+      "name": "Gloves of the Pugilist"
+    },
+    "materials": [
+      {
+        "attributes": {
+          "quantity": 2
+        },
+        "metadata": {
+          "item_code": "000800E4",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Leather Strips"
+        }
+      },
+      {
+        "attributes": {
+          "quantity": 1
+        },
+        "metadata": {
+          "item_code": "000DB5D2",
+          "source_material_type": "Canonical::RawMaterial",
+          "name": "Leather"
+        }
+      }
+    ]
+  }
+]

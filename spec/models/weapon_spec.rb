@@ -670,7 +670,13 @@ RSpec.describe Weapon, type: :model do
 
       context 'when there is a canonical weapon assigned' do
         let(:weapon) { create(:weapon, name: 'Foobar', canonical_weapon:) }
-        let(:canonical_weapon) { create(:canonical_weapon, :with_crafting_materials, name: 'Foobar') }
+        let(:canonical_weapon) do
+          create(
+            :canonical_weapon,
+            :with_crafting_materials,
+            name: 'Foobar',
+          )
+        end
 
         it 'returns the crafting materials for the canonical' do
           expect(crafting_materials).to eq canonical_weapon.crafting_materials
@@ -699,7 +705,13 @@ RSpec.describe Weapon, type: :model do
 
       context 'when there is a canonical weapon assigned' do
         let(:weapon) { create(:weapon, name: 'Foobar', canonical_weapon:) }
-        let(:canonical_weapon) { create(:canonical_weapon, :with_tempering_materials, name: 'Foobar') }
+        let(:canonical_weapon) do
+          create(
+            :canonical_weapon,
+            :with_tempering_materials,
+            name: 'Foobar',
+          )
+        end
 
         it 'returns the tempering materials for the canonical' do
           expect(tempering_materials).to eq canonical_weapon.tempering_materials
@@ -717,7 +729,7 @@ RSpec.describe Weapon, type: :model do
           )
         end
 
-        it 'returns an empty array' do
+        it 'returns nil' do
           expect(tempering_materials).to be_nil
         end
       end

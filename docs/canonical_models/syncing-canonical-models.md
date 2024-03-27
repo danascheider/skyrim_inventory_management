@@ -4,6 +4,8 @@ For more information about SIM's canonical models, view the [other docs in this 
 
 In order to easily maintain and correct canonical data in the database, the SIM backend uses several Rake tasks to sync the database with JSON data that lives in files in the `/lib/tasks/canonical_models` directory. These Rake tasks are powered by the [`Canonical::Sync`](/app/models/canonical/sync.rb) module. This module provides syncers that sync each type of canonical model based on the corresponding JSON file.
 
+There are plans to remove this functionality and make the production database the source of truth for canonical models.
+
 ## Table of Contents
 
 * [Rake Tasks](#rake-tasks)
@@ -33,6 +35,8 @@ The following idempotent Rake tasks can be used to sync the database with the ca
 * `rails canonical_models:sync:spells` (syncs canonical spells with JSON data)
 * `rails canonical_models:sync:staves` (sync canonical staves with JSON data)
 * `rails canonical_models:sync:weapons` (sync canonical weapons with JSON data)
+* `rails canonical_models:sync:crafting_materials` (sync canonical crafting materials with JSON data)
+* `rails canonical_models:sync:tempering_materials` (sync canonical tempering materials with JSON data)
 
 These tasks sync the models with the attributes in the JSON files. The tasks are idempotent. If a model already exists in the database with a given name, it will be updated with the attributes given in the JSON data. This is also true of associations: if an association is found in the database then the corresponding model (or join model) will be updated with data from the JSON files. **The Rake tasks will also remove models and associations that exist in the database but are not present in the JSON data.** This behaviour can be disabled by setting the `preserve_existing_records` argument on the Rake tasks to `true` (or any value other than `false`):
 
@@ -59,7 +63,7 @@ heroku run bundle exec rails canonical_models:sync:all
 
 ## Syncers
 
-There are two basic syncer classes, of which all other syncers are subclasses. The main `Canonical::Sync::Syncer` class syncs models that don't have associations to other canonical models, while the `Canonical::Sync::AssociationSyncer` class syncs those that do. The `AssociationSyncer` is itself a subclass of `Syncer`.
+There are two basic syncer classes, of which most other syncers are subclasses. The main `Canonical::Sync::Syncer` class syncs models that don't have associations to other canonical models, while the `Canonical::Sync::AssociationSyncer` class syncs those that do. The `AssociationSyncer` is itself a subclass of `Syncer`. Two syncers do not inherit from these classes: `Canonical::Sync::CraftingMaterials` and `Canonical::Sync::TemperingMaterials`. These sync the `Canonical::Material` models used to create and improve smithable items.
 
 The entry point for the syncers is the `Canonical::Sync::perform` method. This method takes two arguments: `model` - a symbol indicating which model should be synced - and `preserve_existing_records` - a boolean indicating whether models and assocations that are present in the database but not the JSON data should be removed or not. The default of the latter is `false` - in other words, by default, models that are present in the database but not the JSON data will be removed when the syncer runs. Note that the `Canonical::Sync::Ingredients` syncer never preserves associations that are in the database but not the JSON data. This is because every ingredient has four and only four alchemical properties, so any that exist in the database when syncing will cause conflicts with those in the JSON data.
 
@@ -73,16 +77,17 @@ Certain models can't be synced until their associations are already present in t
 
 The following models have prerequisites:
 
-| model                     | prerequisites                                    |
-| ------------------------- | ------------------------------------------------ |
-| `Canonical::Armor`        | `Enchantment`, `Canonical::RawMaterial`          |
-| `Canonical::Book`         | `Canonical::Ingredient`                          |
-| `Canonical::ClothingItem` | `Enchantment`                                    |
-| `Canonical::Ingredient`   | `AlchemicalProperty`                             |
-| `Canonical::JewelryItem`  | `Enchantment`, `Canonical::RawMaterial`          |
-| `Canonical::Potion`       | `AlchemicalProperty`                             |
-| `Canonical::Staff`        | `Spell`, `Power`                                 |
-| `Canonical::Weapon`       | `Enchantment`, `Power`, `Canonical::RawMaterial` |
+| model                     | prerequisites                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `Canonical::Armor`        | `Enchantment`                                                                                                        |
+| `Canonical::Book`         | `Canonical::Ingredient`                                                                                              |
+| `Canonical::ClothingItem` | `Enchantment`                                                                                                        |
+| `Canonical::Ingredient`   | `AlchemicalProperty`                                                                                                 |
+| `Canonical::JewelryItem`  | `Enchantment`                                                                                                        |
+| `Canonical::Potion`       | `AlchemicalProperty`                                                                                                 |
+| `Canonical::Staff`        | `Spell`, `Power`                                                                                                     |
+| `Canonical::Weapon`       | `Enchantment`, `Power`                                                                                               |
+| `Canonical::Material`*    | `Canonical::Armor`, `Canonical::Weapon`, `Canonical::JewelryItem`, `Canonical::Ingredient`, `Canonical::RawMaterial` |
 
 The only model that both has a prerequisite and is itself a prerequisite to another model is `Canonical::Ingredient`.
 

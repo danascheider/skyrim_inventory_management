@@ -4,96 +4,75 @@ require 'rails_helper'
 
 RSpec.describe Canonical::Weapon, type: :model do
   describe 'validations' do
-    it 'is valid with valid attributes' do
-      weapon = described_class.new(
-        name: 'Ebony Battleaxe',
-        item_code: '123xxx',
-        category: 'two-handed',
-        weapon_type: 'battleaxe',
-        smithing_perks: ['Ebony Smithing'],
-        base_damage: 18,
-        unit_weight: 22,
-        purchasable: true,
-        unique_item: false,
-        rare_item: false,
-        quest_item: false,
-        leveled: false,
-        enchantable: true,
-      )
+    subject(:validate) { weapon.validate }
 
+    let(:weapon) { build(:canonical_weapon) }
+
+    it 'is valid with valid attributes' do
       expect(weapon).to be_valid
     end
 
     describe 'name' do
       it "can't be blank" do
-        weapon = build(:canonical_weapon, name: nil)
-
-        weapon.validate
+        weapon.name = nil
+        validate
         expect(weapon.errors[:name]).to include "can't be blank"
       end
     end
 
     describe 'item code' do
       it "can't be blank" do
-        weapon = build(:canonical_weapon, item_code: nil)
-
-        weapon.validate
+        weapon.item_code = nil
+        validate
         expect(weapon.errors[:item_code]).to include "can't be blank"
       end
 
       it 'must be unique' do
-        create(:canonical_weapon, item_code: 'foo')
-        weapon = build(:canonical_weapon, item_code: 'foo')
-
-        weapon.validate
+        create(:canonical_weapon, item_code: weapon.item_code)
+        validate
         expect(weapon.errors[:item_code]).to include 'must be unique'
       end
     end
 
     describe 'category' do
       it "can't be blank" do
-        weapon = build(:canonical_weapon, category: nil)
-
-        weapon.validate
+        weapon.category = nil
+        validate
         expect(weapon.errors[:category]).to include "can't be blank"
       end
 
       it 'must be an allowed value' do
-        weapon = build(:canonical_weapon, category: 'foo')
-
-        weapon.validate
+        weapon.category = 'foo'
+        validate
         expect(weapon.errors[:category]).to include 'must be "one-handed", "two-handed", or "archery"'
       end
     end
 
     describe 'weapon type' do
       it "can't be blank" do
-        weapon = build(:canonical_weapon, weapon_type: nil)
-
-        weapon.validate
+        weapon.weapon_type = nil
+        validate
         expect(weapon.errors[:weapon_type]).to include "can't be blank"
       end
 
       it 'must be an allowed value' do
-        weapon = build(:canonical_weapon, weapon_type: 'foo')
-
-        weapon.validate
+        weapon.weapon_type = 'foo'
+        validate
         expect(weapon.errors[:weapon_type]).to include 'must be a valid type of weapon that occurs in Skyrim'
       end
 
       it 'must be valid for the category' do
-        weapon = build(:canonical_weapon, category: 'one-handed', weapon_type: 'crossbow')
-
-        weapon.validate
+        weapon.category = 'one-handed'
+        weapon.weapon_type = 'crossbow'
+        validate
         expect(weapon.errors[:weapon_type]).to include 'is not included in category "one-handed"'
       end
     end
 
     describe 'smithing perks' do
       it 'must consist of only valid smithing perks', :aggregate_failures do
-        weapon = build(:canonical_weapon, smithing_perks: ['Arcane Blacksmith', 'Silver Smithing', 'Titanium Smithing'])
-
-        weapon.validate
+        weapon.smithing_perks = ['Arcane Blacksmith', 'Silver Smithing', 'Titanium Smithing']
+        validate
         expect(weapon.errors[:smithing_perks]).to include '"Silver Smithing" is not a valid smithing perk'
         expect(weapon.errors[:smithing_perks]).to include '"Titanium Smithing" is not a valid smithing perk'
       end
@@ -101,115 +80,102 @@ RSpec.describe Canonical::Weapon, type: :model do
 
     describe 'base damage' do
       it 'must be present' do
-        weapon = build(:canonical_weapon, base_damage: nil)
-
-        weapon.validate
+        weapon.base_damage = nil
+        validate
         expect(weapon.errors[:base_damage]).to include "can't be blank"
       end
 
       it 'must be a number' do
-        weapon = build(:canonical_weapon, base_damage: 'foobar')
-
-        weapon.validate
+        weapon.base_damage = 'foobar'
+        validate
         expect(weapon.errors[:base_damage]).to include 'is not a number'
       end
 
       it 'must be an integer' do
-        weapon = build(:canonical_weapon, base_damage: 1.2)
-
-        weapon.validate
+        weapon.base_damage = 1.2
+        validate
         expect(weapon.errors[:base_damage]).to include 'must be an integer'
       end
 
       it 'must be at least zero' do
-        weapon = build(:canonical_weapon, base_damage: -2)
-
-        weapon.validate
+        weapon.base_damage = -2
+        validate
         expect(weapon.errors[:base_damage]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe 'unit_weight' do
       it 'must be present' do
-        weapon = build(:canonical_weapon, unit_weight: nil)
-
-        weapon.validate
+        weapon.unit_weight = nil
+        validate
         expect(weapon.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'must be a number' do
-        weapon = build(:canonical_weapon, unit_weight: 'foobar')
-
-        weapon.validate
+        weapon.unit_weight = 'foobar'
+        validate
         expect(weapon.errors[:unit_weight]).to include 'is not a number'
       end
 
       it 'must be at least zero' do
-        weapon = build(:canonical_weapon, unit_weight: -2)
-
-        weapon.validate
+        weapon.unit_weight = -2
+        validate
         expect(weapon.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe 'purchasable' do
-      it "can't be blank" do
-        model = build(:canonical_weapon, purchasable: nil)
-
-        model.validate
-        expect(model.errors[:purchasable]).to include 'must be true or false'
+      it 'must be true or false' do
+        weapon.purchasable = nil
+        validate
+        expect(weapon.errors[:purchasable]).to include 'must be true or false'
       end
     end
 
     describe 'unique_item' do
       it 'must be true or false' do
-        model = build(:canonical_weapon, unique_item: nil)
-
-        model.validate
-        expect(model.errors[:unique_item]).to include 'must be true or false'
+        weapon.unique_item = nil
+        validate
+        expect(weapon.errors[:unique_item]).to include 'must be true or false'
       end
     end
 
     describe 'rare_item' do
       it 'must be true or false' do
-        model = build(:canonical_weapon, rare_item: nil)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true or false'
+        weapon.rare_item = nil
+        validate
+        expect(weapon.errors[:rare_item]).to include 'must be true or false'
       end
 
       it 'must be true if the item is unique' do
-        model = build(:canonical_weapon, unique_item: true, rare_item: false)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+        weapon.unique_item = true
+        weapon.rare_item = false
+        validate
+        expect(weapon.errors[:rare_item]).to include 'must be true if item is unique'
       end
     end
 
     describe 'quest_item' do
       it 'must be true or false' do
-        model = build(:canonical_weapon, quest_item: nil)
-
-        model.validate
-        expect(model.errors[:quest_item]).to include 'must be true or false'
+        weapon.quest_item = nil
+        validate
+        expect(weapon.errors[:quest_item]).to include 'must be true or false'
       end
     end
 
     describe 'leveled' do
       it 'must be true or false' do
-        model = build(:canonical_weapon, leveled: nil)
-
-        model.validate
-        expect(model.errors[:leveled]).to include 'must be true or false'
+        weapon.leveled = nil
+        validate
+        expect(weapon.errors[:leveled]).to include 'must be true or false'
       end
     end
 
     describe 'enchantable' do
       it 'must be true or false' do
-        model = build(:canonical_weapon, enchantable: nil)
-
-        model.validate
-        expect(model.errors[:enchantable]).to include 'must be true or false'
+        weapon.enchantable = nil
+        validate
+        expect(weapon.errors[:enchantable]).to include 'must be true or false'
       end
     end
   end
@@ -248,29 +214,68 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'crafting materials' do
-      let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_raw_material) }
+    describe '#crafting_materials' do
+      subject(:crafting_materials) { weapon.crafting_materials }
 
-      before do
-        weapon.canonical_craftables_crafting_materials.create!(material:, quantity: 4)
+      let(:weapon) { create(:canonical_weapon) }
+
+      let!(:canonical_materials) do
+        [
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_weapon, name: 'Dwarven Crossbow'),
+            quantity: 2,
+          ).source_material,
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_raw_material, name: 'Dwarven Metal Ingot'),
+            quantity: 3,
+          ).source_material,
+          create(
+            :canonical_material,
+            craftable: weapon,
+            source_material: create(:canonical_ingredient, name: 'Deathbell'),
+            quantity: 3,
+          ).source_material,
+        ]
       end
 
-      it 'gives the quantity needed' do
-        expect(weapon.crafting_materials.first.quantity_needed).to eq 4
+      before do
+        weapon.reload
+      end
+
+      it 'returns all crafting materials regardless of class' do
+        expect(crafting_materials).to contain_exactly(*canonical_materials)
       end
     end
 
-    describe 'tempering materials' do
+    describe '#tempering_materials' do
+      subject(:tempering_materials) { weapon.tempering_materials }
+
       let(:weapon) { create(:canonical_weapon) }
-      let(:material) { create(:canonical_raw_material) }
+      let!(:materials) do
+        [
+          create(
+            :canonical_material,
+            temperable: weapon,
+            source_material: create(:canonical_raw_material),
+          ).source_material,
+          create(
+            :canonical_material,
+            temperable: weapon,
+            source_material: create(:canonical_ingredient),
+          ).source_material,
+        ]
+      end
 
       before do
-        weapon.canonical_temperables_tempering_materials.create!(material:, quantity: 4)
+        weapon.reload
       end
 
       it 'gives the quantity needed' do
-        expect(weapon.tempering_materials.first.quantity_needed).to eq 4
+        expect(tempering_materials).to contain_exactly(*materials)
       end
     end
   end

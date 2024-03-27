@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_24_035111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -108,17 +108,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
-  create_table "canonical_craftables_crafting_materials", force: :cascade do |t|
-    t.bigint "material_id", null: false
-    t.bigint "craftable_id", null: false
-    t.string "craftable_type", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["craftable_id", "craftable_type", "material_id"], name: "index_can_craftables_crafting_materials_on_mat_id_and_craftable", unique: true
-    t.index ["material_id"], name: "index_canonical_armors_smithing_mats_on_canonical_mat_id"
-  end
-
   create_table "canonical_ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_code", null: false
@@ -163,6 +152,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
+  end
+
+  create_table "canonical_materials", force: :cascade do |t|
+    t.string "source_material_type", null: false
+    t.bigint "source_material_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", null: false
+    t.string "craftable_type"
+    t.bigint "craftable_id"
+    t.string "temperable_type"
+    t.bigint "temperable_id"
+    t.index ["craftable_type", "craftable_id"], name: "index_canonical_materials_on_craftable"
+    t.index ["source_material_type", "source_material_id"], name: "index_canonical_materials_on_source_material"
+    t.index ["temperable_type", "temperable_id"], name: "index_canonical_materials_on_temperable"
   end
 
   create_table "canonical_misc_items", force: :cascade do |t|
@@ -286,17 +290,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
     t.index ["spell_id", "staff_id"], name: "index_canonical_staves_spells_on_spell_id_and_staff_id", unique: true
     t.index ["spell_id"], name: "index_canonical_staves_spells_on_spell_id"
     t.index ["staff_id"], name: "index_canonical_staves_spells_on_staff_id"
-  end
-
-  create_table "canonical_temperables_tempering_materials", force: :cascade do |t|
-    t.bigint "material_id", null: false
-    t.bigint "temperable_id", null: false
-    t.string "temperable_type", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["material_id", "temperable_id", "temperable_type"], name: "index_temperables_tempering_mats_on_mat_id_and_temperable", unique: true
-    t.index ["material_id"], name: "index_canonical_armors_tempering_mats_on_canonical_material_id"
   end
 
   create_table "canonical_weapons", force: :cascade do |t|
@@ -591,7 +584,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
   add_foreign_key "armors", "games"
   add_foreign_key "books", "canonical_books"
   add_foreign_key "books", "games"
-  add_foreign_key "canonical_craftables_crafting_materials", "canonical_raw_materials", column: "material_id"
   add_foreign_key "canonical_ingredients_alchemical_properties", "alchemical_properties"
   add_foreign_key "canonical_ingredients_alchemical_properties", "canonical_ingredients", column: "ingredient_id"
   add_foreign_key "canonical_potions_alchemical_properties", "alchemical_properties"
@@ -599,7 +591,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_203331) do
   add_foreign_key "canonical_powerables_powers", "powers"
   add_foreign_key "canonical_staves_spells", "canonical_staves", column: "staff_id"
   add_foreign_key "canonical_staves_spells", "spells"
-  add_foreign_key "canonical_temperables_tempering_materials", "canonical_raw_materials", column: "material_id"
   add_foreign_key "clothing_items", "canonical_clothing_items"
   add_foreign_key "clothing_items", "games"
   add_foreign_key "enchantables_enchantments", "enchantments"

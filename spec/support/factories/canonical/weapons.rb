@@ -25,7 +25,7 @@ FactoryBot.define do
     trait :with_tempering_materials do
       after(:create) do |item|
         create_list(
-          :canonical_temperables_tempering_material,
+          :canonical_material,
           2,
           temperable: item,
         )
@@ -35,7 +35,7 @@ FactoryBot.define do
     trait :with_crafting_materials do
       after(:create) do |item|
         create_list(
-          :canonical_craftables_crafting_material,
+          :canonical_material,
           2,
           craftable: item,
         )

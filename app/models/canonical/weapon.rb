@@ -42,23 +42,35 @@ module Canonical
              as: :powerable
     has_many :powers, through: :canonical_powerables_powers
 
-    has_many :canonical_craftables_crafting_materials,
+    has_many :canonical_crafting_materials,
              dependent: :destroy,
-             class_name: 'Canonical::CraftablesCraftingMaterial',
-             as: :craftable
-    has_many :crafting_materials,
-             -> { select 'canonical_raw_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
-             through: :canonical_craftables_crafting_materials,
-             source: :material
+             as: :craftable,
+             class_name: 'Canonical::Material'
+    has_many :crafting_weapons,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::Weapon'
+    has_many :crafting_ingredients,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
+    has_many :crafting_raw_materials,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
 
-    has_many :canonical_temperables_tempering_materials,
+    has_many :canonical_tempering_materials,
              dependent: :destroy,
-             class_name: 'Canonical::TemperablesTemperingMaterial',
-             as: :temperable
-    has_many :tempering_materials,
-             -> { select 'canonical_raw_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
-             through: :canonical_temperables_tempering_materials,
-             source: :material
+             as: :temperable,
+             class_name: 'Canonical::Material'
+    has_many :tempering_raw_materials,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
+    has_many :tempering_ingredients,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
 
     has_many :weapons,
              inverse_of: :canonical_weapon,
@@ -67,7 +79,11 @@ module Canonical
              class_name: '::Weapon'
 
     validates :name, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
+    validates :item_code,
+              presence: true,
+              uniqueness: {
+                message: 'must be unique',
+              }
     validates :category,
               presence: true,
               inclusion: {
@@ -80,23 +96,64 @@ module Canonical
                 in: VALID_WEAPON_TYPES.values.flatten,
                 message: 'must be a valid type of weapon that occurs in Skyrim',
               }
-    validates :base_damage, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :enchantable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :base_damage,
+              presence: true,
+              numericality: {
+                greater_than_or_equal_to: 0,
+                only_integer: true,
+              }
+    validates :unit_weight,
+              presence: true,
+              numericality: {
+                greater_than_or_equal_to: 0,
+              }
+    validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :unique_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :rare_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :leveled,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :enchantable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
 
     validate :verify_category_type_combination
     validate :verify_all_smithing_perks_valid
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code
+    end
+
+    def crafting_materials
+      crafting_raw_materials + crafting_weapons + crafting_ingredients
+    end
+
+    def tempering_materials
+      tempering_raw_materials + tempering_ingredients
     end
 
     private

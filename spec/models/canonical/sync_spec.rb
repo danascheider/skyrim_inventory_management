@@ -73,19 +73,6 @@ RSpec.describe Canonical::Sync do
       end
     end
 
-    context 'when the model is ":material"' do
-      subject(:perform) { described_class.perform(:material, true) }
-
-      before do
-        allow(Canonical::Sync::RawMaterials).to receive(:perform)
-      end
-
-      it 'calls #perform on the correct syncer' do
-        perform
-        expect(Canonical::Sync::RawMaterials).to have_received(:perform).with(true)
-      end
-    end
-
     context 'when the model is ":jewelry"' do
       subject(:perform) { described_class.perform(:jewelry, true) }
 
@@ -213,6 +200,32 @@ RSpec.describe Canonical::Sync do
       it 'calls #perform on the correct syncer' do
         perform
         expect(Canonical::Sync::Potions).to have_received(:perform).with(true)
+      end
+    end
+
+    context 'when the item is ":crafting_material"' do
+      subject(:perform) { described_class.perform(:crafting_material) }
+
+      before do
+        allow(Canonical::Sync::CraftingMaterials).to receive(:perform)
+      end
+
+      it 'calls ::perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::CraftingMaterials).to have_received(:perform)
+      end
+    end
+
+    context 'when the item is ":tempering_material"' do
+      subject(:perform) { described_class.perform(:tempering_material) }
+
+      before do
+        allow(Canonical::Sync::TemperingMaterials).to receive(:perform)
+      end
+
+      it 'calls ::perform on the correct syncer' do
+        perform
+        expect(Canonical::Sync::TemperingMaterials).to have_received(:perform)
       end
     end
   end

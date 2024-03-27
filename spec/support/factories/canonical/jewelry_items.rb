@@ -14,9 +14,10 @@ FactoryBot.define do
     trait :with_crafting_materials do
       after(:create) do |model|
         create_list(
-          :canonical_craftables_crafting_material,
+          :canonical_material,
           2,
           craftable: model,
+          quantity: 1,
         )
       end
     end

@@ -150,15 +150,31 @@ RSpec.describe Canonical::JewelryItem, type: :model do
     end
 
     describe 'materials' do
-      let(:item) { create(:canonical_jewelry_item) }
-      let(:material) { create(:canonical_raw_material) }
+      subject(:crafting_materials) { item.crafting_materials }
 
-      before do
-        item.canonical_craftables_crafting_materials.create!(material:, quantity: 2)
+      let(:item) { create(:canonical_jewelry_item) }
+      let(:canonical_materials) do
+        [
+          create(
+            :canonical_material,
+            craftable: item,
+            quantity: 2,
+          ),
+          create(
+            :canonical_material,
+            craftable: item,
+            quantity: 3,
+          ),
+        ]
       end
 
-      it 'gives the quantity needed' do
-        expect(item.crafting_materials.first.quantity_needed).to eq 2
+      before do
+        item.reload
+      end
+
+      it 'returns the canonical materials used to craft the item' do
+        raw_materials = canonical_materials.map(&:source_material)
+        expect(item.crafting_materials).to contain_exactly(*raw_materials)
       end
     end
   end

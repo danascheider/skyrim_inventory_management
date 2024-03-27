@@ -1,87 +1,6 @@
 [
   {
     "attributes": {
-      "name": "Crossbow",
-      "item_code": "XX000801",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 15
-    }
-  },
-  {
-    "attributes": {
-      "name": "Dwarven Crossbow",
-      "item_code": "XX00B647",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 20
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord Battle Axe",
-      "item_code": "0001CB64",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 22
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord Bow",
-      "item_code": "000302CA",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 12
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord Greatsword",
-      "item_code": "000236A5",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 18
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord Sword",
-      "item_code": "0002C66F",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 12
-    }
-  },
-  {
-    "attributes": {
-      "name": "Ancient Nord War Axe",
-      "item_code": "0002C672",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 11
-    }
-  },
-  {
-    "attributes": {
-      "name": "Dwarven Bolt",
-      "item_code": "XX00D099",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0
-    }
-  },
-  {
-    "attributes": {
-      "name": "Steel Bolt",
-      "item_code": "XX000BB3",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0
-    }
-  },
-  {
-    "attributes": {
       "name": "Clay",
       "item_code": "XX003043",
       "building_material": true,
@@ -163,15 +82,6 @@
   },
   {
     "attributes": {
-      "name": "Small Antlers",
-      "item_code": "0006BC0B",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.1
-    }
-  },
-  {
-    "attributes": {
       "name": "Straw",
       "item_code": "XX005A68",
       "building_material": true,
@@ -186,42 +96,6 @@
       "building_material": true,
       "smithing_material": false,
       "unit_weight": 3.5
-    }
-  },
-  {
-    "attributes": {
-      "name": "Large Antlers",
-      "item_code": "0006BC0A",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.1
-    }
-  },
-  {
-    "attributes": {
-      "name": "Sabre Cat Tooth",
-      "item_code": "0006BC04",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.1
-    }
-  },
-  {
-    "attributes": {
-      "name": "Bone Meal",
-      "item_code": "00034CDD",
-      "building_material": true,
-      "smithing_material": true,
-      "unit_weight": 0.5
-    }
-  },
-  {
-    "attributes": {
-      "name": "Netch Jelly",
-      "item_code": "XX01CD72",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.5
     }
   },
   {
@@ -271,15 +145,6 @@
   },
   {
     "attributes": {
-      "name": "Centurion Dynamo Core",
-      "item_code": "000F4983",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 4
-    }
-  },
-  {
-    "attributes": {
       "name": "Chaurus Chitin",
       "item_code": "0003AD57",
       "building_material": false,
@@ -321,15 +186,6 @@
       "building_material": false,
       "smithing_material": true,
       "unit_weight": 1
-    }
-  },
-  {
-    "attributes": {
-      "name": "Daedra Heart",
-      "item_code": "0003AD5B",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.5
     }
   },
   {
@@ -469,15 +325,6 @@
   },
   {
     "attributes": {
-      "name": "Ectoplasm",
-      "item_code": "0003AD63",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.1
-    }
-  },
-  {
-    "attributes": {
       "name": "Emerald",
       "item_code": "00063B43",
       "building_material": false,
@@ -501,33 +348,6 @@
       "building_material": false,
       "smithing_material": true,
       "unit_weight": 5
-    }
-  },
-  {
-    "attributes": {
-      "name": "Fire Salts",
-      "item_code": "0003AD5E",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.3
-    }
-  },
-  {
-    "attributes": {
-      "name": "Frost Salts",
-      "item_code": "0003AD5F",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.3
-    }
-  },
-  {
-    "attributes": {
-      "name": "Void Salts",
-      "item_code": "0003AD60",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.3
     }
   },
   {
@@ -812,7 +632,7 @@
   {
     "attributes": {
       "name": "Silver Ore",
-      "item_code": "0005acdf",
+      "item_code": "0005ACDF",
       "building_material": false,
       "smithing_material": true,
       "unit_weight": 1
@@ -865,15 +685,6 @@
   },
   {
     "attributes": {
-      "name": "Void Salts",
-      "item_code": "0003AD60",
-      "building_material": false,
-      "smithing_material": true,
-      "unit_weight": 0.2
-    }
-  },
-  {
-    "attributes": {
       "name": "Wolf Pelt",
       "item_code": "0003AD74",
       "building_material": true,
@@ -888,33 +699,6 @@
       "building_material": true,
       "smithing_material": false,
       "unit_weight": 1
-    }
-  },
-  {
-    "attributes": {
-      "name": "Mudcrab Chitin",
-      "item_code": "0006BC00",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.3
-    }
-  },
-  {
-    "attributes": {
-      "name": "Slaughterfish Scales",
-      "item_code": "0003AD70",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.1
-    }
-  },
-  {
-    "attributes": {
-      "name": "Vampire Dust",
-      "item_code": "0003AD76",
-      "building_material": true,
-      "smithing_material": false,
-      "unit_weight": 0.2
     }
   }
 ]

@@ -18,23 +18,31 @@ module Canonical
              through: :enchantables_enchantments,
              source: :enchantment
 
-    has_many :canonical_craftables_crafting_materials,
+    has_many :canonical_crafting_materials,
              dependent: :destroy,
-             class_name: 'Canonical::CraftablesCraftingMaterial',
-             as: :craftable
-    has_many :crafting_materials,
-             -> { select 'canonical_raw_materials.*, canonical_craftables_crafting_materials.quantity as quantity_needed' },
-             through: :canonical_craftables_crafting_materials,
-             source: :material
+             as: :craftable,
+             class_name: 'Canonical::Material'
+    has_many :crafting_ingredients,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
+    has_many :crafting_raw_materials,
+             through: :canonical_crafting_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
 
-    has_many :canonical_temperables_tempering_materials,
+    has_many :canonical_tempering_materials,
              dependent: :destroy,
-             class_name: 'Canonical::TemperablesTemperingMaterial',
-             as: :temperable
-    has_many :tempering_materials,
-             -> { select 'canonical_raw_materials.*, canonical_temperables_tempering_materials.quantity as quantity_needed' },
-             through: :canonical_temperables_tempering_materials,
-             source: :material
+             as: :temperable,
+             class_name: 'Canonical::Material'
+    has_many :tempering_raw_materials,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::RawMaterial'
+    has_many :tempering_ingredients,
+             through: :canonical_tempering_materials,
+             source: :source_material,
+             source_type: 'Canonical::Ingredient'
 
     has_many :armors,
              inverse_of: :canonical_armor,
@@ -63,14 +71,23 @@ module Canonical
     validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
     validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :quest_reward, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
 
     validate :verify_all_smithing_perks_valid
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code
+    end
+
+    def crafting_materials
+      crafting_raw_materials + crafting_ingredients
+    end
+
+    def tempering_materials
+      tempering_raw_materials + tempering_ingredients
     end
 
     private

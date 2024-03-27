@@ -9,8 +9,6 @@ RSpec.describe Canonical::Sync::Armor do
   let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'armor.json') }
   let!(:json_data) { File.read(json_path) }
 
-  let(:material_codes) { %w[0005ACE5 0005AD9F 0005ACE4 000DB5D2 000800E4 0003ADA3 0003ADA4] }
-
   before do
     allow(File).to receive(:read).and_return(json_data)
   end
@@ -26,7 +24,6 @@ RSpec.describe Canonical::Sync::Armor do
 
         before do
           create(:enchantment, name: 'Fortify Block')
-          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
           allow(described_class).to receive(:new).and_return(syncer)
         end
 
@@ -47,22 +44,6 @@ RSpec.describe Canonical::Sync::Armor do
           expect(Canonical::Armor.find_by(item_code: '0001391A').enchantments.length).to eq 0
           expect(Canonical::Armor.find_by(item_code: '00013966').enchantments.length).to eq 0
         end
-
-        it 'creates the associations to crafting materials where they exist', :aggregate_failures do
-          perform
-          expect(Canonical::Armor.find_by(item_code: 'XX01DB97').crafting_materials.length).to eq 0
-          expect(Canonical::Armor.find_by(item_code: '000B50EF').crafting_materials.length).to eq 0
-          expect(Canonical::Armor.find_by(item_code: '0001391A').crafting_materials.length).to eq 4
-          expect(Canonical::Armor.find_by(item_code: '00013966').crafting_materials.length).to eq 3
-        end
-
-        it 'creates the associations to tempering materials where they exist', :aggregate_failures do
-          perform
-          expect(Canonical::Armor.find_by(item_code: 'XX01DB97').tempering_materials.length).to eq 1
-          expect(Canonical::Armor.find_by(item_code: '000B50EF').tempering_materials.length).to eq 1
-          expect(Canonical::Armor.find_by(item_code: '0001391A').tempering_materials.length).to eq 1
-          expect(Canonical::Armor.find_by(item_code: '00013966').tempering_materials.length).to eq 1
-        end
       end
 
       context 'when there are existing armor item records in the database' do
@@ -72,7 +53,6 @@ RSpec.describe Canonical::Sync::Armor do
 
         before do
           create(:enchantment, name: 'Fortify Block')
-          material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
         end
 
         it 'instantiates itself' do
@@ -97,23 +77,9 @@ RSpec.describe Canonical::Sync::Armor do
           expect(Canonical::Armor.find_by(item_code: '0001391A')).to be_present
           expect(Canonical::Armor.find_by(item_code: '00013966')).to be_present
         end
-
-        it "removes associations that don't exist in the JSON data" do
-          item_in_json.canonical_temperables_tempering_materials.create!(
-            material: create(:canonical_raw_material, name: 'Titanium Ingot'),
-            quantity: 2,
-          )
-          perform
-          expect(item_in_json.tempering_materials.find_by(name: 'Titanium Ingot')).to be_nil
-        end
-
-        it 'adds associations if they exist' do
-          perform
-          expect(item_in_json.tempering_materials.find_by(item_code: '0005ACE5')).to be_present
-        end
       end
 
-      context 'when there are no enchantments or materials in the database' do
+      context 'when there are no enchantments in the database' do
         before do
           allow(Rails.logger).to receive(:error)
         end
@@ -124,19 +90,18 @@ RSpec.describe Canonical::Sync::Armor do
 
           expect(Rails.logger)
             .to have_received(:error)
-                  .with('Prerequisite(s) not met: sync Enchantment, Canonical::RawMaterial before canonical armors')
+                  .with('Prerequisite(s) not met: sync Enchantment before canonical armors')
 
           expect(Canonical::JewelryItem.count).to eq 0
         end
       end
 
-      context 'when an enchantment or material is missing' do
+      context 'when an enchantment is missing' do
         before do
           # prevent it from erroring out, which it will do if there are no
-          # enchantments or materials at all
+          # enchantments at all
           create(:enchantment)
-          create(:canonical_raw_material)
-          allow(Rails.logger).to receive(:error).twice
+          allow(Rails.logger).to receive(:error)
         end
 
         it 'logs a validation error', :aggregate_failures do
@@ -145,7 +110,7 @@ RSpec.describe Canonical::Sync::Armor do
 
           expect(Rails.logger)
             .to have_received(:error)
-                  .with('Validation error saving associations for canonical armor "XX01DB97": Validation failed: Material must exist')
+                  .with('Validation error saving associations for canonical armor "000B50EF": Validation failed: Enchantment must exist')
         end
       end
     end
@@ -158,13 +123,6 @@ RSpec.describe Canonical::Sync::Armor do
 
       before do
         create(:enchantment, name: 'Fortify Block')
-        material_codes.each {|code| create(:canonical_raw_material, item_code: code) }
-
-        create(
-          :canonical_temperables_tempering_material,
-          temperable: item_in_json,
-          material: create(:canonical_raw_material, name: 'Onyx Ore'),
-        )
       end
 
       it 'instantiates itself' do
@@ -189,16 +147,6 @@ RSpec.describe Canonical::Sync::Armor do
         perform
         expect(item_not_in_json.reload).to be_present
       end
-
-      it "doesn't destroy associations" do
-        perform
-        expect(item_in_json.reload.tempering_materials.find_by(name: 'Onyx Ore')).to be_present
-      end
-
-      it 'adds associations present in the JSON data' do
-        perform
-        expect(item_in_json.reload.tempering_materials.find_by(item_code: '0005ACE5')).to be_present
-      end
     end
 
     describe 'error logging' do
@@ -215,7 +163,6 @@ RSpec.describe Canonical::Sync::Armor do
 
         before do
           create(:enchantment)
-          create(:canonical_raw_material)
 
           allow_any_instance_of(Canonical::Armor)
             .to receive(:save!)
@@ -236,7 +183,6 @@ RSpec.describe Canonical::Sync::Armor do
       context 'when another error is raised pertaining to a specific model' do
         before do
           create(:enchantment)
-          create(:canonical_raw_material)
 
           allow(Canonical::Armor)
             .to receive(:find_or_initialize_by)
@@ -258,7 +204,6 @@ RSpec.describe Canonical::Sync::Armor do
       context 'when an error is raised not pertaining to a specific model' do
         before do
           create(:enchantment)
-          create(:canonical_raw_material)
 
           allow(Canonical::Armor).to receive(:where).and_raise(StandardError, 'foobar')
           allow(Rails.logger).to receive(:error)

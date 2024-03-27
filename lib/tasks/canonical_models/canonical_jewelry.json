@@ -13,8 +13,7 @@
       "enchantable": false,
       "quest_reward": true
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -30,8 +29,7 @@
       "enchantable": false,
       "quest_reward": true
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -47,8 +45,7 @@
       "enchantable": false,
       "quest_reward": true
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -69,8 +66,7 @@
         "name": "Fortify Magicka Regen",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -91,8 +87,7 @@
         "name": "Fortify Health",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -108,8 +103,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -125,8 +119,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -142,8 +135,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -164,8 +156,7 @@
         "name": "Fortify Magicka",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -186,8 +177,7 @@
         "name": "Fortify Stamina",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -208,8 +198,7 @@
         "name": "Fortify Restoration",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -230,8 +219,7 @@
         "name": "Fortify Block",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -247,8 +235,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -264,8 +251,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -281,8 +267,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -298,8 +283,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -320,8 +304,7 @@
         "name": "Fortify Health",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -337,8 +320,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -354,8 +336,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -371,8 +352,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -388,21 +368,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "XX002993",
-        "quantity": 1
-      },
-      {
-        "item_code": "XX002994",
-        "quantity": 6
-      },
-      {
-        "item_code": "000800E4",
-        "quantity": 2
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -418,8 +384,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -435,8 +400,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -457,8 +421,7 @@
         "name": "Fortify Carry Weight",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -478,8 +441,7 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -500,8 +462,7 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -522,8 +483,7 @@
         "name": "Fortify Archery",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -544,8 +504,7 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -566,8 +525,7 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -588,8 +546,7 @@
         "name": "Fortify Alchemy",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -610,8 +567,7 @@
         "name": "Fortify Alteration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -632,8 +588,7 @@
         "name": "Fortify Archery",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -654,8 +609,7 @@
         "name": "Fortify Conjuration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -676,8 +630,7 @@
         "name": "Fortify Destruction",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -698,8 +651,7 @@
         "name": "Fortify Illusion",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -720,8 +672,7 @@
         "name": "Fortify Restoration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -742,8 +693,7 @@
         "name": "Fortify Alchemy",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -764,8 +714,7 @@
         "name": "Fortify Archery",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -786,8 +735,7 @@
         "name": "Fortify Conjuration",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -808,8 +756,7 @@
         "name": "Fortify Destruction",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -830,8 +777,7 @@
         "name": "Fortify Illusion",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -852,8 +798,7 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -874,8 +819,7 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -896,8 +840,7 @@
         "name": "Fortify Restoration",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -918,8 +861,7 @@
         "name": "Fortify Illusion",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -940,8 +882,7 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -962,8 +903,7 @@
         "name": "Fortify Alchemy",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -984,8 +924,7 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1006,8 +945,7 @@
         "name": "Fortify Archery",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1028,8 +966,7 @@
         "name": "Fortify Conjuration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1050,8 +987,7 @@
         "name": "Fortify Destruction",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1072,8 +1008,7 @@
         "name": "Fortify Illusion",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1094,8 +1029,7 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1116,8 +1050,7 @@
         "name": "Fortify Restoration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1138,8 +1071,7 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1160,8 +1092,7 @@
         "name": "Fortify Alteration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1182,8 +1113,7 @@
         "name": "Fortify Archery",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1204,8 +1134,7 @@
         "name": "Fortify Conjuration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1226,8 +1155,7 @@
         "name": "Fortify Destruction",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1248,8 +1176,7 @@
         "name": "Fortify Illusion",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1270,8 +1197,7 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1292,8 +1218,7 @@
         "name": "Fortify Restoration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1314,8 +1239,7 @@
         "name": "Fortify Alchemy",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1336,8 +1260,7 @@
         "name": "Fortify Alteration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1358,8 +1281,7 @@
         "name": "Fortify Archery",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1380,8 +1302,7 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1402,8 +1323,7 @@
         "name": "Fortify Destruction",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1424,8 +1344,7 @@
         "name": "Fortify Illusion",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1446,8 +1365,7 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1468,8 +1386,7 @@
         "name": "Fortify Restoration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1490,8 +1407,7 @@
         "name": "Fortify Restoration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1512,8 +1428,7 @@
         "name": "Waterbreathing",
         "strength": null
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1529,8 +1444,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1546,8 +1460,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1563,8 +1476,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1580,8 +1492,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1597,8 +1508,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1619,8 +1529,7 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1636,8 +1545,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1653,8 +1561,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1675,8 +1582,7 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1697,8 +1603,7 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1719,8 +1624,7 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -1736,17 +1640,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "0006851F",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1762,17 +1656,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B47",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1788,17 +1672,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B43",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1814,17 +1688,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "0006851E",
-        "quantity": 2
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1840,13 +1704,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1862,13 +1720,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1884,17 +1736,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "00068522",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1910,17 +1752,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005AD9E",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B44",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1936,8 +1768,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1953,8 +1784,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1970,8 +1800,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -1987,8 +1816,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2004,8 +1832,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2021,8 +1848,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2038,8 +1864,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2055,8 +1880,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2072,8 +1896,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2094,8 +1917,7 @@
         "name": "Fortify Archery",
         "strength": 5
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2120,8 +1942,7 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2137,8 +1958,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2154,8 +1974,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2171,8 +1990,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -2193,8 +2011,7 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2215,8 +2032,7 @@
         "name": "Fortify Alchemy",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2237,8 +2053,7 @@
         "name": "Fortify Block",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2259,8 +2074,7 @@
         "name": "Fortify Pickpocket",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2281,8 +2095,7 @@
         "name": "Resist Disease",
         "strength": 100
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2303,8 +2116,7 @@
         "name": "Resist Disease",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2325,8 +2137,7 @@
         "name": "Resist Fire",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2347,8 +2158,7 @@
         "name": "Resist Frost",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2369,8 +2179,7 @@
         "name": "Resist Magic",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2391,8 +2200,7 @@
         "name": "Resist Shock",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2413,8 +2221,7 @@
         "name": "Fortify Alchemy",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2435,8 +2242,7 @@
         "name": "Fortify Block",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2457,8 +2263,7 @@
         "name": "Fortify Pickpocket",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2479,8 +2284,7 @@
         "name": "Fortify Barter",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2501,8 +2305,7 @@
         "name": "Fortify Health",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2523,8 +2326,7 @@
         "name": "Fortify Lockpicking",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2545,8 +2347,7 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2567,8 +2368,7 @@
         "name": "Fortify Smithing",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2589,8 +2389,7 @@
         "name": "Fortify Sneak",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2611,8 +2410,7 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2633,8 +2431,7 @@
         "name": "Fortify Two-Handed",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2655,8 +2452,7 @@
         "name": "Fortify One-Handed",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2677,8 +2473,7 @@
         "name": "Fortify Alchemy",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2699,8 +2494,7 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2721,8 +2515,7 @@
         "name": "Fortify Pickpocket",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2743,8 +2536,7 @@
         "name": "Fortify Barter",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2765,8 +2557,7 @@
         "name": "Fortify Health",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2787,8 +2578,7 @@
         "name": "Fortify Lockpicking",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2809,8 +2599,7 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2831,8 +2620,7 @@
         "name": "Fortify Smithing",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2853,8 +2641,7 @@
         "name": "Fortify Sneak",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2875,8 +2662,7 @@
         "name": "Fortify Stamina",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2897,8 +2683,7 @@
         "name": "Fortify Two-Handed",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2919,8 +2704,7 @@
         "name": "Fortify One-Handed",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2941,8 +2725,7 @@
         "name": "Resist Fire",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2963,8 +2746,7 @@
         "name": "Resist Fire",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -2985,8 +2767,7 @@
         "name": "Resist Frost",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3007,8 +2788,7 @@
         "name": "Resist Frost",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3029,8 +2809,7 @@
         "name": "Resist Shock",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3051,8 +2830,7 @@
         "name": "Fortify Barter",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3073,8 +2851,7 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3095,8 +2872,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3117,8 +2893,7 @@
         "name": "Fortify Lockpicking",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3139,8 +2914,7 @@
         "name": "Resist Magic",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3161,8 +2935,7 @@
         "name": "Resist Magic",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3183,8 +2956,7 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3205,8 +2977,7 @@
         "name": "Fortify Alchemy",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3227,8 +2998,7 @@
         "name": "Fortify Block",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3249,8 +3019,7 @@
         "name": "Fortify Pickpocket",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3271,8 +3040,7 @@
         "name": "Fortify Barter",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3293,8 +3061,7 @@
         "name": "Fortify Health",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3315,8 +3082,7 @@
         "name": "Fortify Lockpicking",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3337,8 +3103,7 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3359,8 +3124,7 @@
         "name": "Fortify Smithing",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3381,8 +3145,7 @@
         "name": "Fortify Sneak",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3403,8 +3166,7 @@
         "name": "Fortify Stamina",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3425,8 +3187,7 @@
         "name": "Fortify Two-Handed",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3447,8 +3208,7 @@
         "name": "Fortify One-Handed",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3469,8 +3229,7 @@
         "name": "Fortify Healing Rate",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3491,8 +3250,7 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3513,8 +3271,7 @@
         "name": "Fortify Block",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3535,8 +3292,7 @@
         "name": "Fortify Pickpocket",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3557,8 +3313,7 @@
         "name": "Fortify Barter",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3579,8 +3334,7 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3601,8 +3355,7 @@
         "name": "Fortify Lockpicking",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3623,8 +3376,7 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3645,8 +3397,7 @@
         "name": "Fortify Smithing",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3667,8 +3418,7 @@
         "name": "Fortify Sneak",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3689,8 +3439,7 @@
         "name": "Fortify Stamina",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3711,8 +3460,7 @@
         "name": "Fortify Two-Handed",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3733,8 +3481,7 @@
         "name": "Fortify One-Handed",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3755,8 +3502,7 @@
         "name": "Resist Magic",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3777,8 +3523,7 @@
         "name": "Fortify Alchemy",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3799,8 +3544,7 @@
         "name": "Fortify Block",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3821,8 +3565,7 @@
         "name": "Fortify Pickpocket",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3843,8 +3586,7 @@
         "name": "Fortify Barter",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3865,8 +3607,7 @@
         "name": "Fortify Health",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3887,8 +3628,7 @@
         "name": "Fortify Lockpicking",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3909,8 +3649,7 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3931,8 +3670,7 @@
         "name": "Fortify Smithing",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3953,8 +3691,7 @@
         "name": "Fortify Sneak",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3975,8 +3712,7 @@
         "name": "Fortify Stamina",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -3997,8 +3733,7 @@
         "name": "Fortify Two-Handed",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4019,8 +3754,7 @@
         "name": "Fortify One-Handed",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4041,8 +3775,7 @@
         "name": "Resist Poison",
         "strength": 100
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4063,8 +3796,7 @@
         "name": "Resist Poison",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4085,8 +3817,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4107,8 +3838,7 @@
         "name": "Fortify Healing Rate",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4129,8 +3859,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4151,8 +3880,7 @@
         "name": "Fortify Healing Rate",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4173,8 +3901,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4195,8 +3922,7 @@
         "name": "Resist Fire",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4217,8 +3943,7 @@
         "name": "Resist Frost",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4239,8 +3964,7 @@
         "name": "Resist Magic",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4261,8 +3985,7 @@
         "name": "Resist Shock",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4283,8 +4006,7 @@
         "name": "Fortify Healing Rate",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4305,8 +4027,7 @@
         "name": "Resist Shock",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4327,8 +4048,7 @@
         "name": "Resist Shock",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4349,8 +4069,7 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4371,8 +4090,7 @@
         "name": "Fortify Sneak",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4393,8 +4111,7 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4415,8 +4132,7 @@
         "name": "Fortify Two-Handed",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4437,8 +4153,7 @@
         "name": "Resist Fire",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4459,8 +4174,7 @@
         "name": "Resist Frost",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4481,8 +4195,7 @@
         "name": "Resist Magic",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4503,8 +4216,7 @@
         "name": "Resist Shock",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4525,8 +4237,7 @@
         "name": "Resist Frost",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4547,8 +4258,7 @@
         "name": "Waterbreathing",
         "strength": null
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4569,8 +4279,7 @@
         "name": "Fortify One-Handed",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4591,8 +4300,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4613,8 +4321,7 @@
         "name": "Fortify Light Armor",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4635,8 +4342,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4657,8 +4363,7 @@
         "name": "Fortify Light Armor",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4679,8 +4384,7 @@
         "name": "Resist Fire",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4701,8 +4405,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4723,8 +4426,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4745,8 +4447,7 @@
         "name": "Fortify Light Armor",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4767,8 +4468,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4789,8 +4489,7 @@
         "name": "Fortify Light Armor",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4811,8 +4510,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4833,8 +4531,7 @@
         "name": "Fortify Light Armor",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4855,8 +4552,7 @@
         "name": "Fortify Light Armor",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4881,8 +4577,7 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4898,8 +4593,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -4924,8 +4618,7 @@
         "name": "Fortify Destruction",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -4941,8 +4634,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -4958,8 +4650,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -4975,8 +4666,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -4997,8 +4687,7 @@
         "name": "Fortify Alteration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5019,8 +4708,7 @@
         "name": "Fortify Archery",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5041,8 +4729,7 @@
         "name": "Fortify Block",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5058,8 +4745,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -5080,8 +4766,7 @@
         "name": "Fortify Conjuration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5102,8 +4787,7 @@
         "name": "Fortify Pickpocket",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5124,8 +4808,7 @@
         "name": "Fortify Destruction",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5146,8 +4829,7 @@
         "name": "Resist Magic",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5168,8 +4850,7 @@
         "name": "Fortify Alteration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5190,8 +4871,7 @@
         "name": "Fortify Archery",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5212,8 +4892,7 @@
         "name": "Fortify Block",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5234,8 +4913,7 @@
         "name": "Fortify Conjuration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5256,8 +4934,7 @@
         "name": "Fortify Pickpocket",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5278,8 +4955,7 @@
         "name": "Fortify Destruction",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5300,8 +4976,7 @@
         "name": "Fortify Health",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5322,8 +4997,7 @@
         "name": "Fortify Illusion",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5344,8 +5018,7 @@
         "name": "Fortify Lockpicking",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5366,8 +5039,7 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5388,8 +5060,7 @@
         "name": "Fortify Restoration",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5410,8 +5081,7 @@
         "name": "Fortify Smithing",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5432,8 +5102,7 @@
         "name": "Fortify Sneak",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5454,8 +5123,7 @@
         "name": "Fortify Stamina",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5476,8 +5144,7 @@
         "name": "Fortify Two-Handed",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5498,8 +5165,7 @@
         "name": "Fortify One-Handed",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5520,8 +5186,7 @@
         "name": "Fortify Alteration",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5542,8 +5207,7 @@
         "name": "Fortify Archery",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5564,8 +5228,7 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5586,8 +5249,7 @@
         "name": "Fortify Conjuration",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5608,8 +5270,7 @@
         "name": "Fortify Pickpocket",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5630,8 +5291,7 @@
         "name": "Fortify Destruction",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5652,8 +5312,7 @@
         "name": "Fortify Health",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5674,8 +5333,7 @@
         "name": "Fortify Illusion",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5696,8 +5354,7 @@
         "name": "Fortify Lockpicking",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5718,8 +5375,7 @@
         "name": "Fortify Magicka",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5740,8 +5396,7 @@
         "name": "Fortify Restoration",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5762,8 +5417,7 @@
         "name": "Fortify Smithing",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5784,8 +5438,7 @@
         "name": "Fortify Sneak",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5806,8 +5459,7 @@
         "name": "Fortify Stamina",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5828,8 +5480,7 @@
         "name": "Fortify Two-Handed",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5850,8 +5501,7 @@
         "name": "Fortify One-Handed",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5872,8 +5522,7 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5894,8 +5543,7 @@
         "name": "Fortify Illusion",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5911,8 +5559,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -5933,8 +5580,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5955,8 +5601,7 @@
         "name": "Fortify Lockpicking",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5977,8 +5622,7 @@
         "name": "Resist Magic",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -5999,8 +5643,7 @@
         "name": "Resist Magic",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6021,8 +5664,7 @@
         "name": "Fortify Magicka",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6043,8 +5685,7 @@
         "name": "Fortify Alteration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6065,8 +5706,7 @@
         "name": "Fortify Archery",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6087,8 +5727,7 @@
         "name": "Fortify Block",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6109,8 +5748,7 @@
         "name": "Fortify Conjuration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6131,8 +5769,7 @@
         "name": "Fortify Pickpocket",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6153,8 +5790,7 @@
         "name": "Fortify Destruction",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6175,8 +5811,7 @@
         "name": "Fortify Health",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6197,8 +5832,7 @@
         "name": "Fortify Illusion",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6219,8 +5853,7 @@
         "name": "Fortify Lockpicking",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6241,8 +5874,7 @@
         "name": "Fortify Magicka",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6263,8 +5895,7 @@
         "name": "Fortify Restoration",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6285,8 +5916,7 @@
         "name": "Fortify Smithing",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6307,8 +5937,7 @@
         "name": "Fortify Sneak",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6329,8 +5958,7 @@
         "name": "Fortify Stamina",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6351,8 +5979,7 @@
         "name": "Fortify Two-Handed",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6373,8 +6000,7 @@
         "name": "Fortify One-Handed",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6395,8 +6021,7 @@
         "name": "Fortify Healing Rate",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6417,8 +6042,7 @@
         "name": "Fortify Alteration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6439,8 +6063,7 @@
         "name": "Fortify Archery",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6461,8 +6084,7 @@
         "name": "Fortify Block",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6483,8 +6105,7 @@
         "name": "Fortify Conjuration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6505,8 +6126,7 @@
         "name": "Fortify Pickpocket",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6527,8 +6147,7 @@
         "name": "Fortify Destruction",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6549,8 +6168,7 @@
         "name": "Fortify Health",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6571,8 +6189,7 @@
         "name": "Fortify Illusion",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6593,8 +6210,7 @@
         "name": "Fortify Lockpicking",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6615,8 +6231,7 @@
         "name": "Fortify Magicka",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6637,8 +6252,7 @@
         "name": "Fortify Restoration",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6659,8 +6273,7 @@
         "name": "Fortify Smithing",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6681,8 +6294,7 @@
         "name": "Fortify Sneak",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6703,8 +6315,7 @@
         "name": "Fortify Stamina",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6725,8 +6336,7 @@
         "name": "Fortify Two-Handed",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6747,8 +6357,7 @@
         "name": "Fortify One-Handed",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6764,8 +6373,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -6786,8 +6394,7 @@
         "name": "Resist Magic",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6808,8 +6415,7 @@
         "name": "Fortify Destruction",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6830,8 +6436,7 @@
         "name": "Fortify Alteration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6852,8 +6457,7 @@
         "name": "Fortify Archery",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6874,8 +6478,7 @@
         "name": "Fortify Block",
         "strength": 35
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6896,8 +6499,7 @@
         "name": "Fortify Conjuration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6918,8 +6520,7 @@
         "name": "Fortify Pickpocket",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6940,8 +6541,7 @@
         "name": "Fortify Health",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6962,8 +6562,7 @@
         "name": "Fortify Illusion",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -6984,8 +6583,7 @@
         "name": "Fortify Lockpicking",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7006,8 +6604,7 @@
         "name": "Fortify Magicka",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7028,8 +6625,7 @@
         "name": "Fortify Restoration",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7050,8 +6646,7 @@
         "name": "Fortify Smithing",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7072,8 +6667,7 @@
         "name": "Fortify Sneak",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7094,8 +6688,7 @@
         "name": "Fortify Stamina",
         "strength": 70
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7116,8 +6709,7 @@
         "name": "Fortify Two-Handed",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7138,8 +6730,7 @@
         "name": "Fortify One-Handed",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7160,8 +6751,7 @@
         "name": "Fortify Alchemy",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7182,8 +6772,7 @@
         "name": "Fortify Magicka Regen",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7204,8 +6793,7 @@
         "name": "Fortify Magicka Regen",
         "strength": 100
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7226,8 +6814,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7248,8 +6835,7 @@
         "name": "Fortify Healing Rate",
         "strength": 40
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7270,8 +6856,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7292,8 +6877,7 @@
         "name": "Fortify Healing Rate",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7314,8 +6898,7 @@
         "name": "Fortify Stamina Regen",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7336,8 +6919,7 @@
         "name": "Fortify Magicka Regen",
         "strength": 60
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7358,8 +6940,7 @@
         "name": "Resist Magic",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7380,8 +6961,7 @@
         "name": "Fortify Restoration",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7402,8 +6982,7 @@
         "name": "Fortify Magicka Regen",
         "strength": 80
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7424,8 +7003,7 @@
         "name": "Fortify Healing Rate",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7446,8 +7024,7 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7468,8 +7045,7 @@
         "name": "Fortify Sneak",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7490,8 +7066,7 @@
         "name": "Fortify Stamina",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7512,8 +7087,7 @@
         "name": "Fortify Two-Handed",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7534,8 +7108,7 @@
         "name": "Resist Magic",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7556,8 +7129,7 @@
         "name": "Fortify One-Handed",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7573,8 +7145,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -7595,8 +7166,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7617,8 +7187,7 @@
         "name": "Fortify Light Armor",
         "strength": 20
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7639,8 +7208,7 @@
         "name": "Fortify Magicka",
         "strength": 100
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7661,8 +7229,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7683,8 +7250,7 @@
         "name": "Fortify Light Armor",
         "strength": 22
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7700,8 +7266,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -7722,8 +7287,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7744,8 +7308,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7766,8 +7329,7 @@
         "name": "Fortify Light Armor",
         "strength": 17
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7788,8 +7350,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7810,8 +7371,7 @@
         "name": "Fortify Light Armor",
         "strength": 12
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7827,8 +7387,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -7849,8 +7408,7 @@
         "name": "Fortify Heavy Armor",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7871,8 +7429,7 @@
         "name": "Fortify Light Armor",
         "strength": 25
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7893,8 +7450,7 @@
         "name": "Fortify Light Armor",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7931,8 +7487,7 @@
         "name": "Fortify Restoration",
         "strength": 3
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7953,8 +7508,7 @@
         "name": "Fortify Magicka",
         "strength": 50
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -7970,8 +7524,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -7987,17 +7540,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B46",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8013,17 +7556,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00068520",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8039,17 +7572,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B45",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8065,17 +7588,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00068521",
-        "quantity": 2
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8091,13 +7604,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8113,13 +7620,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8135,17 +7636,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00063B42",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8161,17 +7652,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": [
-      {
-        "item_code": "0005ACE3",
-        "quantity": 1
-      },
-      {
-        "item_code": "00068523",
-        "quantity": 1
-      }
-    ]
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8187,8 +7668,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8204,8 +7684,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8226,8 +7705,7 @@
         "name": "Fortify Smithing",
         "strength": 15
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -8243,8 +7721,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8265,8 +7742,7 @@
         "name": "Fortify Restoration",
         "strength": 10
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -8295,8 +7771,7 @@
         "name": "Fortify Health",
         "strength": 30
       }
-    ],
-    "crafting_materials": []
+    ]
   },
   {
     "attributes": {
@@ -8312,8 +7787,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8329,8 +7803,7 @@
       "enchantable": false,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8346,8 +7819,7 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   },
   {
     "attributes": {
@@ -8363,7 +7835,6 @@
       "enchantable": true,
       "quest_reward": false
     },
-    "enchantments": [],
-    "crafting_materials": []
+    "enchantments": []
   }
 ]
