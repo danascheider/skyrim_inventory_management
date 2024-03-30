@@ -4,8 +4,6 @@ module Canonical
   class JewelryItem < ApplicationRecord
     self.table_name = 'canonical_jewelry_items'
 
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
     JEWELRY_TYPES = %w[ring circlet amulet].freeze
     JEWELRY_TYPE_VALIDATION_MESSAGE = 'must be "ring", "circlet", or "amulet"'
 

@@ -6,9 +6,6 @@ module Canonical
   class Staff < ApplicationRecord
     self.table_name = 'canonical_staves'
 
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
-
     has_many :canonical_powerables_powers,
              dependent: :destroy,
              class_name: 'Canonical::PowerablesPower',
@@ -28,21 +25,54 @@ module Canonical
              class_name: '::Staff'
 
     validates :name, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :item_code,
+              presence: true,
+              uniqueness: { message: 'must be unique' }
+    validates :unit_weight,
+              presence: true,
+              numericality: { greater_than_or_equal_to: 0 }
     validates :base_damage,
               presence: true,
               numericality: {
                 greater_than_or_equal_to: 0,
                 only_integer: true,
               }
-    validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
-    validates :daedric, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :leveled, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :school,
+              inclusion: {
+                in: Skyrim::MAGIC_SCHOOLS,
+                message: 'must be a valid school of magic',
+                allow_blank: true,
+              }
+    validates :daedric,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :unique_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :rare_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :leveled,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
 
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 

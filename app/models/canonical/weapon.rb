@@ -6,8 +6,6 @@ module Canonical
   class Weapon < ApplicationRecord
     self.table_name = 'canonical_weapons'
 
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
     VALID_WEAPON_TYPES = {
       'one-handed' => [
         'dagger',
