@@ -5,10 +5,12 @@ FactoryBot.define do
     name { 'Potion of Fortify Destruction' }
     sequence(:item_code) {|n| "xx123x#{n}" }
     unit_weight { 0.5 }
+    add_on { 'base' }
     purchasable { true }
     unique_item { false }
     rare_item { false }
     quest_item { false }
+    collectible { true }
 
     trait :with_associations do
       after(:create) do |potion|
