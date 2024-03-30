@@ -134,6 +134,8 @@ RSpec.describe Property, type: :model do
       end
 
       context 'when an arcane enchanter is available at the given property' do
+        let(:property) { create(:property, name: 'Lakeview Manor') }
+
         it 'can have an arcane enchanter' do
           property.has_arcane_enchanter = true
           validate
