@@ -49,7 +49,7 @@ module Canonical
     validate :validate_purchase_requires_perk
     validate :validate_unique_item_also_rare, if: -> { unique_item == true }
 
-    before_validation :upcase_item_code, if: -> { item_code_changed? }
+    before_validation :upcase_item_code, if: :item_code_changed?
 
     def self.unique_identifier
       :item_code
