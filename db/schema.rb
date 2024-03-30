@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_24_035111) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_30_213057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -197,6 +197,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_24_035111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
+    t.string "add_on"
+    t.boolean "collectible"
+    t.integer "max_quantity"
     t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
   end
 
