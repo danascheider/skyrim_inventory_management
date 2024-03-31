@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_30_213057) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_31_011604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -248,6 +248,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_213057) do
     t.boolean "fish_hatchery_available", default: false
     t.boolean "cellar_available", default: false
     t.boolean "main_hall_available"
+    t.string "add_on"
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
