@@ -41,17 +41,40 @@ module Canonical
 
     validates :name,
               presence: true,
-              inclusion: { in: VALID_NAMES, message: "must be an ownable property in Skyrim, or the Arch-Mage's Quarters" },
-              uniqueness: { message: 'must be unique' }
+              inclusion: {
+                in: VALID_NAMES,
+                message: "must be an ownable property in Skyrim, or the Arch-Mage's Quarters",
+              },
+              uniqueness: {
+                message: 'must be unique',
+              }
 
     validates :hold,
               presence: true,
-              inclusion: { in: Skyrim::HOLDS, message: 'must be one of the nine Skyrim holds, or Solstheim' },
-              uniqueness: { message: 'must be unique' }
+              inclusion: {
+                in: Skyrim::HOLDS,
+                message: 'must be one of the nine Skyrim holds, or Solstheim',
+              },
+              uniqueness: {
+                message: 'must be unique',
+              }
 
     validates :city,
-              inclusion: { in: VALID_CITIES, message: 'must be a Skyrim city in which an ownable property is located', allow_blank: true },
-              uniqueness: { message: 'must be unique if present', allow_blank: true }
+              inclusion: {
+                in: VALID_CITIES,
+                message: 'must be a Skyrim city in which an ownable property is located',
+                allow_blank: true,
+              },
+              uniqueness: {
+                message: 'must be unique if present',
+                allow_blank: true,
+              }
+
+    validates :add_on,
+              inclusion: {
+                in: SUPPORTED_ADD_ONS,
+                message: UNSUPPORTED_ADD_ON_MESSAGE,
+              }
 
     def self.unique_identifier
       :name
