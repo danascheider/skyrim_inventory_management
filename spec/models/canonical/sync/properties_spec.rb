@@ -37,8 +37,27 @@ RSpec.describe Canonical::Sync::Properties do
       end
 
       context 'when there are existing records in the database' do
-        let!(:property_in_json) { create(:canonical_property, name: 'Hjerim', city: 'Windhelm', hold: 'Eastmarch', alchemy_lab_available: false) }
-        let!(:property_not_in_json) { create(:canonical_property, name: 'Breezehome', city: 'Whiterun', hold: 'Whiterun') }
+        let!(:property_in_json) do
+          create(
+            :canonical_property,
+            name: 'Hjerim',
+            city: 'Windhelm',
+            hold: 'Eastmarch',
+            add_on: 'base',
+            alchemy_lab_available: false,
+          )
+        end
+
+        let!(:property_not_in_json) do
+          create(
+            :canonical_property,
+            name: 'Breezehome',
+            city: 'Whiterun',
+            hold: 'Whiterun',
+            add_on: 'base',
+          )
+        end
+
         let(:syncer) { described_class.new(preserve_existing_records) }
 
         it 'instantiates itself' do
@@ -69,8 +88,27 @@ RSpec.describe Canonical::Sync::Properties do
     context 'when preserve_existing_records is true' do
       let(:preserve_existing_records) { true }
       let(:syncer) { described_class.new(preserve_existing_records) }
-      let!(:property_in_json) { create(:canonical_property, name: 'Hjerim', city: 'Windhelm', hold: 'Eastmarch', forge_available: true) }
-      let!(:property_not_in_json) { create(:canonical_property, name: 'Breezehome', city: 'Whiterun', hold: 'Whiterun') }
+
+      let!(:property_in_json) do
+        create(
+          :canonical_property,
+          name: 'Hjerim',
+          city: 'Windhelm',
+          hold: 'Eastmarch',
+          add_on: 'base',
+          forge_available: true,
+        )
+      end
+
+      let!(:property_not_in_json) do
+        create(
+          :canonical_property,
+          name: 'Breezehome',
+          city: 'Whiterun',
+          hold: 'Whiterun',
+          add_on: 'base',
+        )
+      end
 
       before do
         allow(described_class).to receive(:new).and_return(syncer)

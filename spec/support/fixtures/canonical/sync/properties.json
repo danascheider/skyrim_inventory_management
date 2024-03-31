@@ -4,6 +4,7 @@
       "name": "Hjerim",
       "hold": "Eastmarch",
       "city": "Windhelm",
+      "add_on": "base",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
       "forge_available": false
@@ -14,6 +15,7 @@
       "name": "Honeyside",
       "hold": "The Rift",
       "city": "Riften",
+      "add_on": "base",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
       "forge_available": false
@@ -24,6 +26,7 @@
       "name": "Lakeview Manor",
       "hold": "Falkreath",
       "city": null,
+      "add_on": "hearthfire",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
       "forge_available": true
@@ -34,6 +37,7 @@
       "name": "Proudspire Manor",
       "hold": "Haafingar",
       "city": "Solitude",
+      "add_on": "base",
       "alchemy_lab_available": true,
       "arcane_enchanter_available": true,
       "forge_available": false

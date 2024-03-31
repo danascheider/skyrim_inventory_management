@@ -21,7 +21,7 @@ One of the common characteristics of most properties in Skyrim (other than Sever
 
 ## Homesteads
 
-The three homesteads (Lakeview Manor, Heljarchen Hall and Windstad Manor) are set apart by the fact that the player starts with them as land and must build the houses on them. Each homestead has a small house, main hall and cellar that can be built. Additionally, the homesteads each have three wings. Each wing has three possible rooms that can be built there, as shown in the table below (the three rooms for each wing are mutually exclusive, but this logic is handled in the non-canonical model).
+The three homesteads (Lakeview Manor, Heljarchen Hall and Windstad Manor) are set apart by the fact that the player starts with them as land and must build the houses on them. Each homestead has a small house, main hall and cellar that can be built. Additionally, the homesteads each have three wings. Each wing has three possible rooms that can be built there, as shown in the table below (the three rooms for each wing are mutually exclusive, but this logic is handled in the non-canonical model). The homesteads are provided by the [Hearthfire](https://elderscrolls.fandom.com/wiki/The_Elder_Scrolls_V:_Hearthfire) DLC.
 
 | **Location**   | **Tower**           | **Room with Outdoor Patio** | **Downstairs Room** |
 | -------------- | ------------------- | --------------------------- | ------------------- |
