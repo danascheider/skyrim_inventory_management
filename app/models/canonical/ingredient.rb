@@ -6,8 +6,6 @@ module Canonical
 
     VALID_TYPES = %w[common uncommon rare Solstheim].freeze
     TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "Solstheim"'
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
 
     has_many :canonical_ingredients_alchemical_properties,
              dependent: :destroy,
@@ -30,19 +28,44 @@ module Canonical
              inverse_of: :canonical_ingredient
 
     validates :name, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
-    validates :ingredient_type, inclusion: { in: VALID_TYPES, message: TYPE_VALIDATION_MESSAGE, allow_blank: true }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :item_code,
+              presence: true,
+              uniqueness: { message: 'must be unique' }
+    validates :ingredient_type,
+              inclusion: {
+                in: VALID_TYPES,
+                message: TYPE_VALIDATION_MESSAGE,
+                allow_blank: true,
+              }
+    validates :unit_weight,
+              presence: true,
+              numericality: { greater_than_or_equal_to: 0 }
+    validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
     validates :purchase_requires_perk,
               inclusion: {
                 in: BOOLEAN_VALUES,
                 message: "#{BOOLEAN_VALIDATION_MESSAGE} if purchasable is true",
               },
               if: -> { purchasable == true }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :unique_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :rare_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
 
     validate :validate_ingredient_type_not_set, if: -> { purchasable == false }
     validate :validate_ingredient_type_set, if: -> { purchasable == true }

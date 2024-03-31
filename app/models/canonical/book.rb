@@ -6,9 +6,6 @@ module Canonical
   class Book < ApplicationRecord
     self.table_name = 'canonical_books'
 
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
-
     BOOK_TYPES = [
       'Black Book',
       'document',
@@ -35,15 +32,48 @@ module Canonical
              foreign_key: 'canonical_book_id'
 
     validates :title, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
-    validates :book_type, inclusion: { in: BOOK_TYPES, message: 'must be a book type that exists in Skyrim' }
-    validates :skill_name, inclusion: { in: Skyrim::SKILLS, message: 'must be a skill that exists in Skyrim', allow_blank: true }
-    validates :purchasable, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :unique_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :rare_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :solstheim_only, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
-    validates :quest_item, inclusion: { in: BOOLEAN_VALUES, message: BOOLEAN_VALIDATION_MESSAGE }
+    validates :item_code,
+              presence: true,
+              uniqueness: { message: 'must be unique' }
+    validates :unit_weight,
+              presence: true,
+              numericality: { greater_than_or_equal_to: 0 }
+    validates :book_type,
+              inclusion: {
+                in: BOOK_TYPES,
+                message: 'must be a book type that exists in Skyrim',
+              }
+    validates :skill_name,
+              inclusion: {
+                in: Skyrim::SKILLS,
+                message: 'must be a skill that exists in Skyrim',
+                allow_blank: true,
+              }
+    validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :unique_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :rare_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :solstheim_only,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
 
     validate :validate_skill_name_presence
     validate :verify_unique_item_rare, if: -> { unique_item == true }

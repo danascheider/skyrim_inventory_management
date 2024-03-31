@@ -4,38 +4,37 @@ require 'rails_helper'
 
 RSpec.describe Canonical::Potion, type: :model do
   describe 'validations' do
+    subject(:validate) { potion.validate }
+
+    let(:potion) { build(:canonical_potion) }
+
     describe 'name' do
       it "can't be blank" do
-        model = build(:canonical_potion, name: nil)
-
-        model.validate
-        expect(model.errors[:name]).to include "can't be blank"
+        potion.name = nil
+        validate
+        expect(potion.errors[:name]).to include "can't be blank"
       end
     end
 
     describe 'item_code' do
       it "can't be blank" do
-        model = build(:canonical_potion, item_code: nil)
-
-        model.validate
-        expect(model.errors[:item_code]).to include "can't be blank"
+        potion.item_code = nil
+        validate
+        expect(potion.errors[:item_code]).to include "can't be blank"
       end
 
       it 'must be unique' do
-        create(:canonical_potion, item_code: 'foobar')
-        model = build(:canonical_potion, item_code: 'foobar')
-
-        model.validate
-        expect(model.errors[:item_code]).to include 'must be unique'
+        create(:canonical_potion, item_code: potion.item_code)
+        validate
+        expect(potion.errors[:item_code]).to include 'must be unique'
       end
     end
 
     describe 'unit_weight' do
       it "can't be blank" do
-        model = build(:canonical_potion, unit_weight: nil)
-
-        model.validate
-        expect(model.errors[:unit_weight]).to include "can't be blank"
+        potion.unit_weight = nil
+        validate
+        expect(potion.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'must be a number' do
@@ -55,44 +54,75 @@ RSpec.describe Canonical::Potion, type: :model do
 
     describe 'purchasable' do
       it "can't be blank" do
-        model = build(:canonical_potion, purchasable: nil)
-
-        model.validate
-        expect(model.errors[:purchasable]).to include 'must be true or false'
+        potion.purchasable = nil
+        validate
+        expect(potion.errors[:purchasable]).to include 'must be true or false'
       end
     end
 
     describe 'unique_item' do
       it "can't be blank" do
-        model = build(:canonical_potion, unique_item: nil)
-
-        model.validate
-        expect(model.errors[:unique_item]).to include 'must be true or false'
+        potion.unique_item = nil
+        validate
+        expect(potion.errors[:unique_item]).to include 'must be true or false'
       end
     end
 
     describe 'rare_item' do
       it "can't be blank" do
-        model = build(:canonical_potion, rare_item: nil)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true or false'
+        potion.rare_item = nil
+        validate
+        expect(potion.errors[:rare_item]).to include 'must be true or false'
       end
 
       it 'must be true if item is unique' do
-        model = build(:canonical_potion, unique_item: true, rare_item: false)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+        potion.unique_item = true
+        potion.rare_item = false
+        validate
+        expect(potion.errors[:rare_item]).to include 'must be true if item is unique'
       end
     end
 
     describe 'quest_item' do
       it "can't be blank" do
-        model = build(:canonical_potion, quest_item: nil)
+        potion.quest_item = nil
+        validate
+        expect(potion.errors[:quest_item]).to include 'must be true or false'
+      end
+    end
 
-        model.validate
-        expect(model.errors[:quest_item]).to include 'must be true or false'
+    describe 'add_on' do
+      it 'is invalid with an unsupported addon' do
+        potion.add_on = 'fishing'
+        validate
+        expect(potion.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+    end
+
+    describe 'collectible' do
+      it 'is invalid with a non-boolean value' do
+        potion.collectible = nil
+        validate
+        expect(potion.errors[:collectible]).to include 'must be true or false'
+      end
+    end
+
+    describe 'max_quantity' do
+      it 'is invalid if not an integer' do
+        potion.max_quantity = 4.2
+        validate
+        expect(potion.errors[:max_quantity]).to include 'must be an integer'
+      end
+
+      it 'is invalid if less than 1' do
+        potion.max_quantity = 0
+        validate
+        expect(potion.errors[:max_quantity]).to include 'must be greater than 0'
+      end
+
+      it 'can be NULL' do
+        potion.max_quantity = nil
+        expect(potion).to be_valid
       end
     end
   end

@@ -4,9 +4,7 @@ module Canonical
   class MiscItem < ApplicationRecord
     self.table_name = 'canonical_misc_items'
 
-    BOOLEAN_VALUES = [true, false].freeze
-    BOOLEAN_VALIDATION_MESSAGE = 'must be true or false'
-
+    include Canonical
     VALID_ITEM_TYPES = [
       'animal part',
       'book',
@@ -29,8 +27,12 @@ module Canonical
              class_name: '::MiscItem'
 
     validates :name, presence: true
-    validates :item_code, presence: true, uniqueness: { message: 'must be unique' }
-    validates :unit_weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates :item_code,
+              presence: true,
+              uniqueness: { message: 'must be unique' }
+    validates :unit_weight,
+              presence: true,
+              numericality: { greater_than_or_equal_to: 0 }
     validates :item_types, presence: true
 
     validate :validate_item_types
@@ -51,10 +53,10 @@ module Canonical
     end
 
     def validate_boolean_values
-      errors.add(:purchasable, BOOLEAN_VALIDATION_MESSAGE) unless BOOLEAN_VALUES.include?(purchasable)
-      errors.add(:unique_item, BOOLEAN_VALIDATION_MESSAGE) unless BOOLEAN_VALUES.include?(unique_item)
-      errors.add(:rare_item, BOOLEAN_VALIDATION_MESSAGE) unless BOOLEAN_VALUES.include?(rare_item)
-      errors.add(:quest_item, BOOLEAN_VALIDATION_MESSAGE) unless BOOLEAN_VALUES.include?(quest_item)
+      errors.add(:purchasable, BOOLEAN_VALIDATION_MESSAGE) unless boolean?(purchasable)
+      errors.add(:unique_item, BOOLEAN_VALIDATION_MESSAGE) unless boolean?(unique_item)
+      errors.add(:rare_item, BOOLEAN_VALIDATION_MESSAGE) unless boolean?(rare_item)
+      errors.add(:quest_item, BOOLEAN_VALIDATION_MESSAGE) unless boolean?(quest_item)
     end
 
     def verify_unique_item_also_rare
