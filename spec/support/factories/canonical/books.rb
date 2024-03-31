@@ -6,7 +6,9 @@ FactoryBot.define do
     sequence(:item_code) {|n| "123xxx#{n}" }
     unit_weight { 1.0 }
     book_type { 'lore book' }
+    add_on { 'base' }
     purchasable { true }
+    collectible { true }
     unique_item { false }
     rare_item { false }
     solstheim_only { false }
