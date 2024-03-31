@@ -49,9 +49,26 @@ All canonical models, not including join tables, must have a class method, `::un
 
 While there are no fields common to every canonical model, there are a few that are worth mentioning as common to most. These fields are present on every canonical model except `Canonical::Property` and `Canonical::RawMaterial`. (They are not defined on the pseudo-canonical models `AlchemicalProperty`, `Spell`, `Enchantment`, and `Power`.) Each of these columns is a boolean and is required to have a non-`NULL` value.
 
+#### `add_on`
+
+The `add_on` field indicates whether the item is part of the base game or an add-on/DLC. If the value is `"base"`, the item is included with the base game. Currently-supported add-on values are:
+
+* `base`
+* `dragonborn`
+* `dawnguard`
+* `hearthfire`
+
+#### `max_quantity`
+
+The `max_quantity` integer field represents the maximum quantity of a given item obtainable in the game. A `NULL` value indicates that there is no maximum. This is the most common value since most items are either potentially purchasable, dropped as random loot, or respawn in one or more locations. Note that the `Canonical::Property` model does not include this field.
+
 #### `purchasable`
 
 The `purchasable` field indicates whether an item can be purchased from a merchant or other NPC. Having a `purchasable` value of `true` does not mean that an item will be consistently or frequently available from merchants - it only means that it's worth checking with merchants if you're looking for it.
+
+#### `collectible`
+
+The `collectible` field (boolean) indicates that an item is both obtainable (like all items included in SIM) and can be retained after any associated quest concludes. This value is set to `false` if an item must be used up or relinquished in the course of a quest (unless it is obtainable after, such as by killing the NPC it was given to and looting the body). Note that the `Canonical::Property` model does not include this field.
 
 #### `unique_item`
 
