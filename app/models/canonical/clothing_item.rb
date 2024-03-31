@@ -62,8 +62,6 @@ module Canonical
 
     before_validation :upcase_item_code, if: :item_code_changed?
 
-    # include Canonical
-
     def self.unique_identifier
       :item_code
     end
