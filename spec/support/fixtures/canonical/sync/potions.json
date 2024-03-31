@@ -5,10 +5,14 @@
       "item_code": "0003EB2E",
       "unit_weight": 0.5,
       "magical_effects": null,
+      "add_on": "base",
+      "max_quantity": null,
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false,
+      "collectible": true
     },
     "alchemical_properties": [
       {
@@ -24,10 +28,14 @@
       "item_code": "00065C39",
       "unit_weight": 0.5,
       "magical_effects": null,
+      "add_on": "base",
+      "max_quantity": null,
       "purchasable": true,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false,
+      "collectible": true
     },
     "alchemical_properties": [
       {
@@ -43,10 +51,14 @@
       "item_code": "000E6DF5",
       "unit_weight": 0.5,
       "magical_effects": "Grants Dragon Infusion perk.",
+      "add_on": "base",
+      "max_quantity": 1,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": false,
+      "quest_reward": true,
+      "collectible": false
     },
     "alchemical_properties": []
   },
@@ -56,10 +68,14 @@
       "item_code": "000F84AB",
       "unit_weight": 0.5,
       "magical_effects": null,
+      "add_on": "dragonborn",
+      "max_quantity": null,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false,
+      "collectible": true
     },
     "alchemical_properties": [
       {
