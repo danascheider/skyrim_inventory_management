@@ -46,7 +46,7 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 2.27', require: false
 
   # Use Rubocop to enforce performance standards
-  gem 'rubocop-performance', '~> 1.20', require: false
+  gem 'rubocop-performance', '~> 1.21', require: false
 
   # Use Rubocop to lint factories
   gem 'rubocop-factory_bot', '~> 2.25', require: false
