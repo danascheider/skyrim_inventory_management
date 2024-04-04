@@ -43,7 +43,7 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.24', require: false
 
   # Use Rubocop to enforce RSpec styles
-  gem 'rubocop-rspec', '~> 2.27', require: false
+  gem 'rubocop-rspec', '~> 2.29', require: false
 
   # Use Rubocop to enforce performance standards
   gem 'rubocop-performance', '~> 1.20', require: false
