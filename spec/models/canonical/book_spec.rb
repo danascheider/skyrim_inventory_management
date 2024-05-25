@@ -4,146 +4,176 @@ require 'rails_helper'
 
 RSpec.describe Canonical::Book, type: :model do
   describe 'validations' do
+    subject(:validate) { book.validate }
+
+    let(:book) { build(:canonical_book) }
+
     describe 'title' do
       it "can't be blank" do
-        model = build(:canonical_book, title: nil)
-
-        model.validate
-        expect(model.errors[:title]).to include "can't be blank"
+        book.title = nil
+        validate
+        expect(book.errors[:title]).to include "can't be blank"
       end
     end
 
     describe 'item code' do
       it "can't be blank" do
-        model = build(:canonical_book, item_code: nil)
-
-        model.validate
-        expect(model.errors[:item_code]).to include "can't be blank"
+        book.item_code = nil
+        validate
+        expect(book.errors[:item_code]).to include "can't be blank"
       end
 
       it 'must be unique' do
-        create(:canonical_book, item_code: 'foobar')
-        model = build(:canonical_book, item_code: 'foobar')
-
-        model.validate
-        expect(model.errors[:item_code]).to include 'must be unique'
+        create(:canonical_book, item_code: book.item_code)
+        validate
+        expect(book.errors[:item_code]).to include 'must be unique'
       end
     end
 
     describe 'unit weight' do
       it "can't be blank" do
-        model = build(:canonical_book, unit_weight: nil)
-
-        model.validate
-        expect(model.errors[:unit_weight]).to include "can't be blank"
+        book.unit_weight = nil
+        validate
+        expect(book.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'must be a number' do
-        model = build(:canonical_book, unit_weight: 'foo')
-
-        model.validate
-        expect(model.errors[:unit_weight]).to include 'is not a number'
+        book.unit_weight = 'foo'
+        validate
+        expect(book.errors[:unit_weight]).to include 'is not a number'
       end
 
       it 'must be at least zero' do
-        model = build(:canonical_book, unit_weight: -4.2)
-
-        model.validate
-        expect(model.errors[:unit_weight]).to include 'must be greater than or equal to 0'
+        book.unit_weight = -3.14159
+        validate
+        expect(book.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe 'book type' do
       it 'must be one of the allowed types' do
-        model = build(:canonical_book, book_type: 'self-help')
+        book.book_type = 'self-help'
+        validate
+        expect(book.errors[:book_type]).to include 'must be a book type that exists in Skyrim'
+      end
+    end
 
-        model.validate
-        expect(model.errors[:book_type]).to include 'must be a book type that exists in Skyrim'
+    describe 'add_on' do
+      it "can't be blank" do
+        book.add_on = nil
+        validate
+        expect(book.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        book.add_on = 'fishing'
+        validate
+        expect(book.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+    end
+
+    describe 'max_quantity' do
+      it 'must be greater than zero' do
+        book.max_quantity = 0
+        validate
+        expect(book.errors[:max_quantity]).to include 'must be greater than 0'
+      end
+
+      it 'must be an integer' do
+        book.max_quantity = 7.64
+        validate
+        expect(book.errors[:max_quantity]).to include 'must be an integer'
+      end
+
+      it 'can be NULL' do
+        book.max_quantity = nil
+        expect(book).to be_valid
       end
     end
 
     describe 'skill name' do
       context 'when the book is a skill book' do
         it "can't be blank" do
-          model = build(:canonical_book, book_type: 'skill book', skill_name: nil)
-
-          model.validate
-          expect(model.errors[:skill_name]).to include "can't be blank for skill books"
+          book.book_type = 'skill book'
+          validate
+          expect(book.errors[:skill_name]).to include "can't be blank for skill books"
         end
 
         it 'must be a valid skill' do
-          model = build(:canonical_book, book_type: 'skill book', skill_name: 'Kung-Fu Fighting')
-
-          model.validate
-          expect(model.errors[:skill_name]).to include 'must be a skill that exists in Skyrim'
+          book.skill_name = 'kung-fu fighting'
+          validate
+          expect(book.errors[:skill_name]).to include 'must be a skill that exists in Skyrim'
         end
       end
 
       context 'when the book is not a skill book' do
         it 'cannot be defined' do
-          model = build(:canonical_book, book_type: 'lore book', skill_name: 'One-Handed')
-
-          model.validate
-          expect(model.errors[:skill_name]).to include 'can only be defined for skill books'
+          book.book_type = 'lore book'
+          book.skill_name = 'One-Handed'
+          validate
+          expect(book.errors[:skill_name]).to include 'can only be defined for skill books'
         end
 
         it 'can be blank' do
-          model = build(:canonical_book, book_type: 'recipe', skill_name: nil)
-
-          expect(model).to be_valid
+          book.book_type = 'recipe'
+          book.skill_name = nil
+          expect(book).to be_valid
         end
       end
     end
 
     describe 'purchasable' do
       it 'is required' do
-        model = build(:canonical_book, purchasable: nil)
+        book.purchasable = nil
+        validate
+        expect(book.errors[:purchasable]).to include 'must be true or false'
+      end
+    end
 
-        model.validate
-        expect(model.errors[:purchasable]).to include 'must be true or false'
+    describe 'collectible' do
+      it 'is required' do
+        book.collectible = nil
+        validate
+        expect(book.errors[:collectible]).to include 'must be true or false'
       end
     end
 
     describe 'unique_item' do
       it 'is required' do
-        model = build(:canonical_book, unique_item: nil)
-
-        model.validate
-        expect(model.errors[:unique_item]).to include 'must be true or false'
+        book.unique_item = nil
+        validate
+        expect(book.errors[:unique_item]).to include 'must be true or false'
       end
     end
 
     describe 'rare_item' do
       it 'is required' do
-        model = build(:canonical_book, rare_item: nil)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true or false'
+        book.rare_item = nil
+        validate
+        expect(book.errors[:rare_item]).to include 'must be true or false'
       end
 
       it 'must be true if the item is unique' do
-        model = build(:canonical_book, unique_item: true, rare_item: false)
-
-        model.validate
-        expect(model.errors[:rare_item]).to include 'must be true if item is unique'
+        book.unique_item = true
+        book.rare_item = false
+        validate
+        expect(book.errors[:rare_item]).to include 'must be true if item is unique'
       end
     end
 
     describe 'solstheim_only' do
       it 'is required' do
-        model = build(:canonical_book, solstheim_only: nil)
-
-        model.validate
-        expect(model.errors[:solstheim_only]).to include 'must be true or false'
+        book.solstheim_only = nil
+        validate
+        expect(book.errors[:solstheim_only]).to include 'must be true or false'
       end
     end
 
     describe 'quest_item' do
       it 'is required' do
-        model = build(:canonical_book, quest_item: nil)
-
-        model.validate
-        expect(model.errors[:quest_item]).to include 'must be true or false'
+        book.quest_item = nil
+        validate
+        expect(book.errors[:quest_item]).to include 'must be true or false'
       end
     end
   end

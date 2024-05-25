@@ -49,7 +49,24 @@ module Canonical
                 message: 'must be a skill that exists in Skyrim',
                 allow_blank: true,
               }
+    validates :add_on,
+              presence: true,
+              inclusion: {
+                in: SUPPORTED_ADD_ONS,
+                message: UNSUPPORTED_ADD_ON_MESSAGE,
+              }
+    validates :max_quantity,
+              numericality: {
+                only_integer: true,
+                greater_than: 0,
+                allow_nil: true,
+              }
     validates :purchasable,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :collectible,
               inclusion: {
                 in: BOOLEAN_VALUES,
                 message: BOOLEAN_VALIDATION_MESSAGE,
