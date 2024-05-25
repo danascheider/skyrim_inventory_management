@@ -76,7 +76,7 @@ The `unique_item` field is set to `true` on items that only occur at one locatio
 
 #### `rare_item`
 
-The `rare_item` field indicates whether an item is rare. Unique items are also rare, and there is a validation ensuring that they are. The definition of a rare item varies slightly by the model in question (and, also, whether the item is consumable - this includes canonical ingredients and arrows). In general, with these exceptions, rare items are defined as:
+The `rare_item` field indicates whether an item is rare. Unique items are also rare, and there is a validation ensuring that they are. The definition of a rare item varies slightly by the model in question (and, also, whether the item is consumable - this includes canonical ingredients, potions, arrows, and bolts). In general, with these exceptions, rare items are defined as:
 
 * Items that are not purchasable and are available in fewer than 10 fixed locations in the game
 * Items that are purchasable and are available in fewer than 3 other fixed locations in the game
