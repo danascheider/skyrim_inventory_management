@@ -58,8 +58,9 @@ module Canonical
     validates :max_quantity,
               numericality: {
                 only_integer: true,
-                greater_than: 0,
+                greater_than_or_equal_to: 1,
                 allow_nil: true,
+                message: 'must be an integer of at least 1',
               }
     validates :purchasable,
               inclusion: {

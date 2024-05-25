@@ -8,6 +8,8 @@ FactoryBot.define do
     body_slot { 'body' }
     unit_weight { 1.0 }
     smithing_perks { ['Steel Smithing'] }
+    add_on { 'base' }
+    collectible { true }
     purchasable { true }
     unique_item { false }
     rare_item { false }
