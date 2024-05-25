@@ -6354,9 +6354,9 @@
       "authors": [
         "Lyrin Telleno"
       ],
-      "skill_name": 10,
+      "skill_name": null,
       "add_on": "dragonborn",
-      "max_quantity": null,
+      "max_quantity": 10,
       "purchasable": false,
       "collectible": true,
       "unique_item": false,
