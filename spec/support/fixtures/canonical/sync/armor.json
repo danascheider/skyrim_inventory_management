@@ -11,7 +11,10 @@
         "Arcane Blacksmith",
         "Daedric Smithing"
       ],
+      "add_on": "dragonborn",
+      "max_quantity": 1,
       "dragon_priest_mask": false,
+      "collectible": true,
       "purchasable": false,
       "quest_item": true,
       "unique_item": true,
@@ -32,7 +35,10 @@
         "Arcane Blacksmith",
         "Steel Smithing"
       ],
+      "add_on": "base",
+      "max_quantity": null,
       "dragon_priest_mask": false,
+      "collectible": true,
       "purchasable": true,
       "quest_item": false,
       "unique_item": false,
@@ -57,7 +63,10 @@
       "smithing_perks": [
         "Elven Smithing"
       ],
+      "add_on": "base",
+      "max_quantity": null,
       "dragon_priest_mask": false,
+      "collectible": true,
       "purchasable": true,
       "quest_item": false,
       "unique_item": false,
@@ -77,7 +86,10 @@
       "smithing_perks": [
         "Dragon Armor"
       ],
+      "add_on": "base",
+      "max_quantity": null,
       "dragon_priest_mask": false,
+      "collectible": true,
       "purchasable": true,
       "quest_item": false,
       "unique_item": false,
