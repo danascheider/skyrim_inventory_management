@@ -6,6 +6,8 @@ FactoryBot.define do
     sequence(:item_code) {|n| "123xxx#{n}" }
     unit_weight { 9.9 }
     body_slot { 'body' }
+    add_on { 'base' }
+    collectible { true }
     purchasable { true }
     unique_item { false }
     rare_item { false }
