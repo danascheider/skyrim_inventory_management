@@ -6,12 +6,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -27,12 +30,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -48,12 +54,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -73,12 +82,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -98,12 +110,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -123,12 +138,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -148,12 +166,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -173,12 +194,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -189,12 +213,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -209,13 +236,16 @@
       "item_code": "0010D67D",
       "magical_effects": null,
       "body_slot": "body",
-      "purchasable": true,
       "unit_weight": 1,
-      "quest_item": false,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
+      "purchasable": true,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -231,12 +261,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -256,12 +289,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -281,12 +317,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -306,12 +345,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -331,12 +373,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -356,12 +401,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -377,12 +425,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -393,12 +444,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -414,12 +468,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -430,12 +487,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -446,12 +506,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -467,12 +530,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -483,12 +549,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -499,12 +568,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -515,12 +587,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -531,12 +606,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -547,12 +625,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -563,12 +644,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -579,12 +663,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -595,12 +682,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -611,12 +701,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -632,12 +725,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -657,12 +753,15 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -673,12 +772,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -694,12 +796,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -710,12 +815,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 2,
+      "add_on": "base",
+      "max_quantity": 3,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -726,12 +834,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -742,12 +853,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -758,12 +872,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -774,12 +891,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -795,12 +915,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -816,12 +939,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -832,12 +958,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 3,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -848,12 +977,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -869,12 +1001,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -894,12 +1029,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -919,12 +1057,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -944,12 +1085,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -969,12 +1113,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -994,12 +1141,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1010,12 +1160,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1026,12 +1179,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1042,12 +1198,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1058,12 +1217,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 3,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1074,12 +1236,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1090,12 +1255,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1106,12 +1274,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1122,12 +1293,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1138,12 +1312,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1154,12 +1331,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1170,12 +1350,15 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1186,12 +1369,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1202,12 +1388,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1218,12 +1407,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1234,12 +1426,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1255,12 +1450,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1271,12 +1469,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1287,12 +1488,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1303,12 +1507,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1324,12 +1531,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1345,12 +1555,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1366,12 +1579,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1391,12 +1607,15 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1407,12 +1626,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1428,12 +1650,15 @@
       "magical_effects": "When worn, rainstorms occur while fishing at temperate lakes and streams.",
       "body_slot": "head",
       "unit_weight": "0.5",
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1444,12 +1669,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1460,12 +1688,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1476,12 +1707,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1497,12 +1731,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1522,45 +1759,19 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Conjuration",
-        "strength": 22
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 150
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Master Robes of Conjuration & Illusion",
-      "item_code": "FEXXX839",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "purchasable": true,
-      "quest_item": false,
-      "unique_item": false,
-      "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 22
-      },
-      {
-        "name": "Fortify Illusion",
         "strength": 22
       },
       {
@@ -1576,12 +1787,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1601,12 +1815,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1626,12 +1843,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1651,12 +1871,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1667,12 +1890,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1683,12 +1909,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1699,12 +1928,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1715,12 +1947,15 @@
       "magical_effects": "Adds a hidden bonus to your Magicka Regen",
       "body_slot": "hands",
       "unit_weight": 0.25,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -1731,12 +1966,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1747,12 +1985,15 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1763,12 +2004,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1784,12 +2028,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 3,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -1800,12 +2047,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1821,12 +2071,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1842,12 +2095,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1867,45 +2123,19 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
         "name": "Fortify Conjuration",
-        "strength": 12
-      },
-      {
-        "name": "Fortify Magicka Regen",
-        "strength": 50
-      }
-    ]
-  },
-  {
-    "attributes": {
-      "name": "Novice Robes of Conjuration & Illusion",
-      "item_code": "FEXXX835",
-      "magical_effects": null,
-      "body_slot": "body",
-      "unit_weight": 1,
-      "purchasable": true,
-      "quest_item": false,
-      "unique_item": false,
-      "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
-    },
-    "enchantments": [
-      {
-        "name": "Fortify Conjuration",
-        "strength": 12
-      },
-      {
-        "name": "Fortify Illusion",
         "strength": 12
       },
       {
@@ -1921,12 +2151,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1946,12 +2179,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1971,12 +2207,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -1996,12 +2235,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2012,12 +2254,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2028,12 +2273,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2044,12 +2292,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2060,12 +2311,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2076,12 +2330,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2092,12 +2349,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2108,12 +2368,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2124,12 +2387,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2140,12 +2406,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2156,12 +2425,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2172,12 +2444,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -2188,12 +2463,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2213,12 +2491,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2238,12 +2519,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2263,12 +2547,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2288,12 +2575,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2313,12 +2603,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2338,12 +2631,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2363,12 +2659,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2388,12 +2687,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2412,13 +2714,16 @@
       "item_code": "00101741",
       "magical_effects": null,
       "body_slot": "body",
-      "purchasable": false,
       "unit_weight": 1,
-      "quest_item": false,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
+      "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2438,12 +2743,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2463,12 +2771,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2488,12 +2799,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2513,12 +2827,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2538,12 +2855,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2563,12 +2883,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2588,12 +2911,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2613,12 +2939,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2638,12 +2967,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2663,12 +2995,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2688,12 +3023,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2713,12 +3051,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2738,12 +3079,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2763,12 +3107,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2788,12 +3135,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2813,12 +3163,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2838,12 +3191,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2863,12 +3219,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2888,12 +3247,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2913,12 +3275,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2934,12 +3299,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2955,12 +3323,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -2976,12 +3347,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3001,12 +3375,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3022,12 +3399,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3038,12 +3418,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3054,12 +3437,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3070,12 +3456,15 @@
       "magical_effects": "Backstab - double sneak attack damage with one-handed weapons",
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -3086,12 +3475,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3107,12 +3499,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3128,12 +3523,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 0.5,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": true,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3149,12 +3547,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3174,12 +3575,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3190,12 +3594,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3206,12 +3613,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 2,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3222,12 +3632,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 2,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3243,12 +3656,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3259,12 +3675,15 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3275,12 +3694,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 4,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": false,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": [
       {
@@ -3296,28 +3718,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
-    },
-    "enchantments": []
-  },
-  {
-    "attributes": {
-      "name": "Ulfric's Bracers",
-      "item_code": "0006230B",
-      "magical_effects": null,
-      "body_slot": "hands",
-      "unit_weight": 0.5,
-      "purchasable": false,
       "quest_item": false,
-      "unique_item": true,
-      "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3328,12 +3737,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": true,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3344,12 +3756,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 5,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3360,12 +3775,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3376,12 +3794,15 @@
       "magical_effects": null,
       "body_slot": "hands",
       "unit_weight": 0.5,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3392,12 +3813,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 0.5,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3408,12 +3832,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": false,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": false
     },
     "enchantments": []
   },
@@ -3424,12 +3851,15 @@
       "magical_effects": null,
       "body_slot": "body",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3440,12 +3870,15 @@
       "magical_effects": null,
       "body_slot": "feet",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": true,
       "unique_item": true,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": true,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   },
@@ -3456,12 +3889,15 @@
       "magical_effects": null,
       "body_slot": "head",
       "unit_weight": 1,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
-      "quest_item": false,
       "unique_item": false,
       "rare_item": true,
-      "enchantable": true,
-      "quest_reward": false
+      "quest_item": false,
+      "quest_reward": false,
+      "enchantable": true
     },
     "enchantments": []
   }

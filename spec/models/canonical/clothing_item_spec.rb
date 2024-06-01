@@ -4,12 +4,18 @@ require 'rails_helper'
 
 RSpec.describe Canonical::ClothingItem, type: :model do
   describe 'validations' do
+    subject(:validate) { model.validate }
+
+    let(:model) { build(:canonical_clothing_item) }
+
     it 'is valid with valid attributes' do
       model = described_class.new(
         name: 'Clothes',
         item_code: 'foo',
         unit_weight: 1,
         body_slot: 'body',
+        add_on: 'base',
+        collectible: true,
         purchasable: true,
         unique_item: false,
         rare_item: false,
@@ -20,117 +26,164 @@ RSpec.describe Canonical::ClothingItem, type: :model do
 
     describe 'name' do
       it "can't be blank" do
-        model = build(:canonical_clothing_item, name: nil)
+        model.name = nil
+        validate
 
-        model.validate
         expect(model.errors[:name]).to include "can't be blank"
       end
     end
 
     describe 'item_code' do
       it "can't be blank" do
-        model = build(:canonical_clothing_item, item_code: nil)
+        model.item_code = nil
+        validate
 
-        model.validate
         expect(model.errors[:item_code]).to include "can't be blank"
       end
 
       it 'must be unique' do
         create(:canonical_clothing_item, item_code: 'xxx')
-        model = build(:canonical_clothing_item, item_code: 'xxx')
+        model.item_code = 'xxx'
 
-        model.validate
+        validate
         expect(model.errors[:item_code]).to include 'must be unique'
       end
     end
 
     describe 'unit_weight' do
       it "can't be blank" do
-        model = build(:canonical_clothing_item, unit_weight: nil)
+        model.unit_weight = nil
+        validate
 
-        model.validate
         expect(model.errors[:unit_weight]).to include "can't be blank"
       end
 
       it 'must be a number' do
-        model = build(:canonical_clothing_item, unit_weight: 'bar')
+        model.unit_weight = 'bar'
+        validate
 
-        model.validate
         expect(model.errors[:unit_weight]).to include 'is not a number'
       end
 
       it 'must be at least zero' do
-        model = build(:canonical_clothing_item, unit_weight: -34)
+        model.unit_weight = -34
+        validate
 
-        model.validate
         expect(model.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
 
     describe 'body_slot' do
       it "can't be blank" do
-        model = build(:canonical_clothing_item, body_slot: nil)
+        model.body_slot = nil
+        validate
 
-        model.validate
         expect(model.errors[:body_slot]).to include "can't be blank"
       end
 
       it 'must have one of the valid values' do
-        model = build(:canonical_clothing_item, body_slot: 'bar')
+        model.body_slot = 'bar'
+        validate
 
-        model.validate
         expect(model.errors[:body_slot]).to include 'must be "head", "hands", "body", or "feet"'
+      end
+    end
+
+    describe 'add_on' do
+      it "can't be blank" do
+        model.add_on = nil
+        validate
+
+        expect(model.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add on' do
+        model.add_on = 'fishing'
+        validate
+
+        expect(model.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+    end
+
+    describe 'max_quantity' do
+      it 'may be nil' do
+        model.max_quantity = nil
+        expect(model).to be_valid
+      end
+
+      it 'must be greater than zero' do
+        model.max_quantity = 0
+        validate
+
+        expect(model.errors[:max_quantity]).to include 'must be an integer of at least 1'
+      end
+
+      it 'must be an integer' do
+        model.max_quantity = 1.2
+        validate
+
+        expect(model.errors[:max_quantity]).to include 'must be an integer of at least 1'
+      end
+    end
+
+    describe 'collectible' do
+      it 'must be true or false' do
+        model.collectible = nil
+        validate
+
+        expect(model.errors[:collectible]).to include 'must be true or false'
       end
     end
 
     describe 'purchasable' do
       it 'must be true or false' do
-        model = build(:canonical_clothing_item, purchasable: nil)
+        model.purchasable = nil
+        validate
 
-        model.validate
         expect(model.errors[:purchasable]).to include 'must be true or false'
       end
     end
 
     describe 'unique_item' do
       it 'must be true or false' do
-        model = build(:canonical_clothing_item, unique_item: nil)
+        model.unique_item = nil
+        validate
 
-        model.validate
         expect(model.errors[:unique_item]).to include 'must be true or false'
       end
     end
 
     describe 'rare_item' do
       it 'must be true or false' do
-        model = build(:canonical_clothing_item, rare_item: nil)
+        model.rare_item = nil
+        validate
 
-        model.validate
         expect(model.errors[:rare_item]).to include 'must be true or false'
       end
 
       it 'must be true if item is unique' do
-        model = build(:canonical_clothing_item, unique_item: true, rare_item: false)
+        model.unique_item = true
+        model.rare_item = false
+        validate
 
-        model.validate
         expect(model.errors[:rare_item]).to include 'must be true if item is unique'
       end
     end
 
     describe 'quest_item' do
       it 'must be true or false' do
-        model = build(:canonical_clothing_item, quest_item: nil)
+        model.quest_item = nil
+        validate
 
-        model.validate
         expect(model.errors[:quest_item]).to include 'must be true or false'
       end
     end
 
     describe 'enchantable' do
       it 'must be true or false' do
-        model = build(:canonical_clothing_item, enchantable: nil)
+        model.enchantable = nil
+        validate
 
-        model.validate
         expect(model.errors[:enchantable]).to include 'must be true or false'
       end
     end
