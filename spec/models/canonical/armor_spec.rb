@@ -86,6 +86,47 @@ RSpec.describe Canonical::Armor, type: :model do
       end
     end
 
+    describe 'add_on' do
+      it 'must be a supported add-on' do
+        armor.add_on = 'fishing'
+        validate
+        expect(armor.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+
+      it 'must be present' do
+        armor.add_on = nil
+        validate
+        expect(armor.errors[:add_on]).to include "can't be blank"
+      end
+    end
+
+    describe 'max_quantity' do
+      it 'can be null' do
+        armor.max_quantity = nil
+        expect(armor).to be_valid
+      end
+
+      it 'must be at least 1' do
+        armor.max_quantity = 0
+        validate
+        expect(armor.errors[:max_quantity]).to include 'must be an integer of at least 1'
+      end
+
+      it 'must be an integer' do
+        armor.max_quantity = 1.27
+        validate
+        expect(armor.errors[:max_quantity]).to include 'must be an integer of at least 1'
+      end
+    end
+
+    describe 'collectible' do
+      it 'must be true or false' do
+        armor.collectible = nil
+        validate
+        expect(armor.errors[:collectible]).to include 'must be true or false'
+      end
+    end
+
     describe 'leveled' do
       it 'must be true or false' do
         armor.leveled = nil

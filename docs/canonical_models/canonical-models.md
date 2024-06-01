@@ -60,7 +60,7 @@ The `add_on` field indicates whether the item is part of the base game or an add
 
 #### `max_quantity`
 
-The `max_quantity` integer field represents the maximum quantity of a given item obtainable in the game. A `NULL` value indicates that there is no maximum. This is the most common value since most items are either potentially purchasable, dropped as random loot, or respawn in one or more locations. Note that the `Canonical::Property` model does not include this field.
+The `max_quantity` integer field represents the maximum quantity of a given item obtainable in the game. A `NULL` value indicates that there is no maximum. This is the most common value since most items are either potentially purchasable, dropped as random loot, or respawn in one or more locations. Note that the `Canonical::Property` model does not include this field as every property is unique.
 
 #### `purchasable`
 

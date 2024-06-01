@@ -43,7 +43,7 @@ Books can also be designated as `rare_item`s. The logic determining whether a bo
 
 ## Solstheim Only
 
-Books that are only found in Solstheim, whether rare or not, have the `solstheim_only` attribute set to `true`. This column is a little extraneous since all books will ultimately be associated with locations where they are found, but I had already collected this data so I opted to include it and drop the column later if it turns out not to be needed.
+Books that are only found in Solstheim, whether rare or not, have the `solstheim_only` attribute set to `true`. This column is a little extraneous since all books will ultimately be associated with locations where they are found, and additionally, `solstheim_only` books are nearly all a part of the Dragonborn DLC, which will now be called out in the `add_on` column. However, I had already collected this data before the `add_on` field was added, so I opted to include it and drop the column later.
 
 ## Quest Items
 

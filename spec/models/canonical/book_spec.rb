@@ -76,13 +76,13 @@ RSpec.describe Canonical::Book, type: :model do
       it 'must be greater than zero' do
         book.max_quantity = 0
         validate
-        expect(book.errors[:max_quantity]).to include 'must be greater than 0'
+        expect(book.errors[:max_quantity]).to include 'must be an integer of at least 1'
       end
 
       it 'must be an integer' do
         book.max_quantity = 7.64
         validate
-        expect(book.errors[:max_quantity]).to include 'must be an integer'
+        expect(book.errors[:max_quantity]).to include 'must be an integer of at least 1'
       end
 
       it 'can be NULL' do
