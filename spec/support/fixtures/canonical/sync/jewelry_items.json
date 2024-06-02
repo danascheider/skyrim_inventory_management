@@ -6,10 +6,14 @@
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "magical_effects": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
       "quest_item": true,
+      "quest_reward": false,
       "enchantable": false
     },
     "enchantments": [
@@ -26,10 +30,14 @@
       "jewelry_type": "ring",
       "unit_weight": 0.25,
       "magical_effects": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
       "quest_item": true,
+      "quest_reward": false,
       "enchantable": false
     },
     "enchantments": []
@@ -41,10 +49,14 @@
       "jewelry_type": "ring",
       "unit_weight": 3,
       "magical_effects": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
       "quest_item": true,
+      "quest_reward": false,
       "enchantable": false
     },
     "enchantments": []
@@ -56,10 +68,14 @@
       "jewelry_type": "amulet",
       "unit_weight": 1,
       "magical_effects": null,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
       "quest_item": false,
+      "quest_reward": false,
       "enchantable": true
     },
     "enchantments": []
