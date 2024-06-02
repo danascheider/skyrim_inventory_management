@@ -6,6 +6,8 @@ FactoryBot.define do
     sequence(:item_code) {|n| "xxx123#{n}" }
     jewelry_type { 'ring' }
     unit_weight { 37.0 }
+    add_on { 'base' }
+    collectible { true }
     purchasable { true }
     unique_item { false }
     rare_item { false }
