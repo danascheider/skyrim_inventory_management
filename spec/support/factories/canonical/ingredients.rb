@@ -6,6 +6,8 @@ FactoryBot.define do
     sequence(:item_code) {|n| "xx123xx#{n}" }
     ingredient_type { 'common' }
     unit_weight { 0.5 }
+    add_on { 'base' }
+    collectible { true }
     purchasable { true }
     purchase_requires_perk { false }
     unique_item { false }

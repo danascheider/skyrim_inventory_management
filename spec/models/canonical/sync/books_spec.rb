@@ -90,7 +90,15 @@ RSpec.describe Canonical::Sync::Books do
         it "removes canonical ingredient associations that don't exist in the JSON data" do
           book_in_json
             .canonical_ingredients
-            .create!(item_code: '12345678', name: 'Venus Fly Trap', unit_weight: 1, purchasable: false, rare_item: true)
+            .create!(
+              item_code: '12345678',
+              name: 'Venus Fly Trap',
+              unit_weight: 1,
+              add_on: 'base',
+              collectible: true,
+              purchasable: false,
+              rare_item: true,
+            )
 
           perform
 

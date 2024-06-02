@@ -4,8 +4,8 @@ module Canonical
   class Ingredient < ApplicationRecord
     self.table_name = 'canonical_ingredients'
 
-    VALID_TYPES = %w[common uncommon rare Solstheim].freeze
-    TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "Solstheim"'
+    VALID_TYPES = %w[common uncommon rare add_on].freeze
+    TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "add_on"'
 
     has_many :canonical_ingredients_alchemical_properties,
              dependent: :destroy,
@@ -40,6 +40,24 @@ module Canonical
     validates :unit_weight,
               presence: true,
               numericality: { greater_than_or_equal_to: 0 }
+    validates :add_on,
+              presence: true,
+              inclusion: {
+                in: SUPPORTED_ADD_ONS,
+                message: UNSUPPORTED_ADD_ON_MESSAGE,
+              }
+    validates :max_quantity,
+              numericality: {
+                greater_than_or_equal_to: 1,
+                only_integer: true,
+                message: 'must be an integer of at least 1',
+                allow_nil: true,
+              }
+    validates :collectible,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
     validates :purchasable,
               inclusion: {
                 in: BOOLEAN_VALUES,
