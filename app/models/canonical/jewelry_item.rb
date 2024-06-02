@@ -42,6 +42,24 @@ module Canonical
     validates :unit_weight,
               presence: true,
               numericality: { greater_than_or_equal_to: 0 }
+    validates :add_on,
+              presence: true,
+              inclusion: {
+                in: SUPPORTED_ADD_ONS,
+                message: UNSUPPORTED_ADD_ON_MESSAGE,
+              }
+    validates :max_quantity,
+              numericality: {
+                greater_than_or_equal_to: 1,
+                only_integer: true,
+                message: 'must be an integer of at least 1',
+                allow_nil: true,
+              }
+    validates :collectible,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
     validates :purchasable,
               inclusion: {
                 in: BOOLEAN_VALUES,
@@ -58,6 +76,11 @@ module Canonical
                 message: BOOLEAN_VALIDATION_MESSAGE,
               }
     validates :quest_item,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
+    validates :quest_reward,
               inclusion: {
                 in: BOOLEAN_VALUES,
                 message: BOOLEAN_VALIDATION_MESSAGE,

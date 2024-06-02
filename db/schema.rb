@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_01_040850) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_02_003206) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -163,6 +163,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_040850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
+    t.string "add_on"
+    t.integer "max_quantity"
+    t.boolean "collectible"
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
