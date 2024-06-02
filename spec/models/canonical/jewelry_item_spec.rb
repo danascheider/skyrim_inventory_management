@@ -170,6 +170,15 @@ RSpec.describe Canonical::JewelryItem, type: :model do
       end
     end
 
+    describe 'quest_reward' do
+      it 'must be true or false' do
+        model.quest_reward = nil
+        validate
+
+        expect(model.errors[:quest_reward]).to include 'must be true or false'
+      end
+    end
+
     describe 'enchantable' do
       it 'must be true or false' do
         model.enchantable = nil

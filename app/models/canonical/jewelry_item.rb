@@ -80,6 +80,11 @@ module Canonical
                 in: BOOLEAN_VALUES,
                 message: BOOLEAN_VALIDATION_MESSAGE,
               }
+    validates :quest_reward,
+              inclusion: {
+                in: BOOLEAN_VALUES,
+                message: BOOLEAN_VALIDATION_MESSAGE,
+              }
     validates :enchantable,
               inclusion: {
                 in: BOOLEAN_VALUES,

@@ -12,6 +12,7 @@ FactoryBot.define do
     unique_item { false }
     rare_item { false }
     quest_item { false }
+    quest_reward { false }
 
     trait :with_crafting_materials do
       after(:create) do |model|
