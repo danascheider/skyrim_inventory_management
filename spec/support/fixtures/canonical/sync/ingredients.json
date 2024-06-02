@@ -45,7 +45,7 @@
     "attributes": {
       "name": "Ash Hopper Jelly",
       "item_code": "XX01CD71",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.25,
       "add_on": "dragonborn",
       "max_quantity": null,

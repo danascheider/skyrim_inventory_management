@@ -4,8 +4,8 @@ module Canonical
   class Ingredient < ApplicationRecord
     self.table_name = 'canonical_ingredients'
 
-    VALID_TYPES = %w[common uncommon rare Solstheim].freeze
-    TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "Solstheim"'
+    VALID_TYPES = %w[common uncommon rare add_on].freeze
+    TYPE_VALIDATION_MESSAGE = 'must be "common", "uncommon", "rare", or "add_on"'
 
     has_many :canonical_ingredients_alchemical_properties,
              dependent: :destroy,

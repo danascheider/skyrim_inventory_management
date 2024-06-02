@@ -4,7 +4,7 @@ The `Canonical::Ingredient` model has a couple of special characteristics that s
 
 ## Treatment of Rare Ingredients
 
-Ingredients differ from other objects in Skyrim (other than soul gems and crafting/tempering/building materials) in that they are consumable. For this reason, an ingredient can be considered a `rare_item` in situations where a non-consumable item would not be. The challenge presented by this is augmented by the fact that it's impossible to find detailed information online about acquisition of different ingredients, especially Solstheim ingredients (designated by `ingredient_type: 'Solstheim'`). For this reason, we've shot from the hip in determining which ingredients qualify as `rare_item`s, taking into account the subjective experience of how hard it is to find something in the game.
+Ingredients differ from other objects in Skyrim (other than soul gems and crafting/tempering/building materials) in that they are consumable. For this reason, an ingredient can be considered a `rare_item` in situations where a non-consumable item would not be. The challenge presented by this is augmented by the fact that it's impossible to find detailed information online about acquisition of different ingredients, especially ingredients from the Dragonborn DLC (designated by `add_on: 'dragonborn'`). For this reason, we've shot from the hip in determining which ingredients qualify as `rare_item`s, taking into account the subjective experience of how hard it is to find something in the game.
 
 The factors considered in determining whether an ingredient is rare include:
 
@@ -19,7 +19,7 @@ Unlike other canonical models, an ingredient can still be rare if a guaranteed s
 
 ### Merchant Availability
 
-No merchant is guaranteed to carry a particular ingredient at a particular time. Merchant availability is indicated by the `ingredient_type` field. There are four possible values to this field: `"common"`, `"uncommon"`, `"rare"`, and `"Solstheim"`. A `NULL` value in this field means the ingredient cannot be purchased from merchants. **The `ingredient_type` field is not an indicator of how common or easy to find an ingredient actually is** - the value of this field has a specific meaning that pertains only to the likelihood of the ingredient being carried by a particular merchant at a particular time.
+No merchant is guaranteed to carry a particular ingredient at a particular time. Merchant availability is indicated by the `ingredient_type` field. There are four possible values to this field: `"common"`, `"uncommon"`, `"rare"`, and `"add_on"`. A `NULL` value in this field means the ingredient cannot be purchased from merchants. **The `ingredient_type` field is not an indicator of how common or easy to find an ingredient actually is** - the value of this field has a specific meaning that pertains only to the likelihood of the ingredient being carried by a particular merchant at a particular time.
 
 Merchants carry the following:
 
@@ -28,15 +28,15 @@ Merchants carry the following:
 | common          | 15                     | 36%                                  |
 | uncommon        | 10                     | 15%                                  |
 | rare            | 5                      | 21%                                  |
-| Solstheim*      | 6                      | ~60%                                 |
+| add_on*         | 6                      | ~60%                                 |
 
 The observant reader will notice that there is a higher probability of a given merchant carrying a given rare ingredient than a given uncommon ingredient. This is a result of the fact that there are considerably more uncommon ingredients than rare ones, and all of these are potentially represented in the 10 (uncommon) or 5 (rare) ingredients a merchant offers at a given time. Consequently, there are numerous ingredients with a `"rare"` ingredient type that have `rare_item` set to `false`.
 
-#### Solstheim Ingredients
+#### Dragonborn Ingredients
 
-Solstheim ingredients may only be harvested, found, and purchased in Solstheim. No information is available online about the relative prevalence of each ingredient, so Solstheim ingredients are given their own ingredient type in SIM and presumed to be equally common, even though this is not necessarily the case. For this reason, the probability of 60% given in the table above is not necessarily uniformly distributed across all Solstheim ingredients.
+Ingredients from the [Dragonborn DLC](https://elderscrolls.fandom.com/wiki/The_Elder_Scrolls_V:_Dragonborn) may only be harvested, found, and purchased in Solstheim. No information is available online about the relative prevalence of each ingredient, so Solstheim ingredients are given the `add_on` ingredient type in SIM and presumed to be equally common, even though this is not necessarily the case. For this reason, the probability of 60% given in the table above is not necessarily uniformly distributed across all Dragonborn ingredients.
 
-Solstheim ingredients can only be purchased through [Milore Ienth](https://en.uesp.net/wiki/Skyrim:Milore_Ienth) or, sometimes, the [Tel Mithryn Apothecary](https://en.uesp.net/wiki/Skyrim:Tel_Mithryn_Apothecary), as these are the only apothecary merchants in Solstheim.
+Dragonborn ingredients can only be purchased through [Milore Ienth](https://en.uesp.net/wiki/Skyrim:Milore_Ienth) or, sometimes, the [Tel Mithryn Apothecary](https://en.uesp.net/wiki/Skyrim:Tel_Mithryn_Apothecary), as these are the only apothecary merchants in Solstheim.
 
 ### Purchasability
 

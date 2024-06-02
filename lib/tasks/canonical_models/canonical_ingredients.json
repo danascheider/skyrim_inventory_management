@@ -87,7 +87,7 @@
     "attributes": {
       "name": "Ash Creep Cluster",
       "item_code": "XX01CD74",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.25,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -129,7 +129,7 @@
     "attributes": {
       "name": "Ash Hopper Jelly",
       "item_code": "XX01CD71",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.25,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -171,7 +171,7 @@
     "attributes": {
       "name": "Ashen Grass Pod",
       "item_code": "XX016E26",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.1,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -675,7 +675,7 @@
     "attributes": {
       "name": "Burnt Spriggan Wood",
       "item_code": "XX01CD6E",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.5,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -1347,7 +1347,7 @@
     "attributes": {
       "name": "Emperor Parasol Moss",
       "item_code": "XX01FF75",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.25,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -1473,7 +1473,7 @@
     "attributes": {
       "name": "Felsaad Tern Feathers",
       "item_code": "XX03CD8E",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.1,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -2859,7 +2859,7 @@
     "attributes": {
       "name": "Netch Jelly",
       "item_code": "XX01CD72",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.5,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -3573,7 +3573,7 @@
     "attributes": {
       "name": "Scathecraw",
       "item_code": "XX017E97",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.1,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -3909,7 +3909,7 @@
     "attributes": {
       "name": "Spawn Ash",
       "item_code": "XX01CD6D",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.1,
       "add_on": "dragonborn",
       "max_quantity": null,
@@ -4203,7 +4203,7 @@
     "attributes": {
       "name": "Trama Root",
       "item_code": "XX017008",
-      "ingredient_type": "Solstheim",
+      "ingredient_type": "add_on",
       "unit_weight": 0.2,
       "add_on": "dragonborn",
       "max_quantity": null,

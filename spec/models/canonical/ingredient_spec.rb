@@ -56,7 +56,7 @@ RSpec.describe Canonical::Ingredient, type: :model do
         model.ingredient_type = 'unique'
         validate
 
-        expect(model.errors[:ingredient_type]).to include 'must be "common", "uncommon", "rare", or "Solstheim"'
+        expect(model.errors[:ingredient_type]).to include 'must be "common", "uncommon", "rare", or "add_on"'
       end
 
       it 'can be blank if purchasable is false' do
