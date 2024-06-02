@@ -37,6 +37,7 @@
 require:
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
   - rubocop-performance
   - rubocop-factory_bot
 AllCops:
