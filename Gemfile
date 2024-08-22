@@ -34,7 +34,7 @@ group :development, :test do
   gem 'timecop', '~> 0.9.10'
 
   # Use DatabaseCleaner to clear the database between specs
-  gem 'database_cleaner-active_record', '~> 2.1'
+  gem 'database_cleaner-active_record', '~> 2.2'
 
   # Use FactoryBot to create models for tests
   gem 'factory_bot_rails', '~> 6.4.3'
