@@ -37,7 +37,7 @@ module Canonical
               }
 
     validate :validate_boolean_values
-    validate :validate_unique_item_also_rare, if: -> { unique_item == true }
+    validate :validate_uniqueness, if: -> { unique_item == true || max_quantity == 1 }
 
     before_validation :upcase_item_code, if: :item_code_changed?
 
@@ -57,7 +57,8 @@ module Canonical
       errors.add(:collectible, BOOLEAN_VALIDATION_MESSAGE) unless boolean?(collectible)
     end
 
-    def validate_unique_item_also_rare
+    def validate_uniqueness
+      errors.add(:unique_item, 'must be true if max quantity is 1') if max_quantity == 1 && !unique_item
       errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
 
