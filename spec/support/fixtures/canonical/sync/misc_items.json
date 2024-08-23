@@ -28,7 +28,7 @@
       ],
       "description": null,
       "add_on": "base",
-      "max_quantity": null,
+      "max_quantity": 1,
       "collectible": true,
       "purchasable": false,
       "unique_item": true,

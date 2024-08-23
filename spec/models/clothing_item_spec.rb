@@ -43,6 +43,7 @@ RSpec.describe ClothingItem, type: :model do
         let(:canonical_clothing_item) do
           create(
             :canonical_clothing_item,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )

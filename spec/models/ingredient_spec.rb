@@ -82,6 +82,7 @@ RSpec.describe Ingredient, type: :model do
         let(:canonical_ingredient) do
           create(
             :canonical_ingredient,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )
