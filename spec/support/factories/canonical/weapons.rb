@@ -9,6 +9,8 @@ FactoryBot.define do
     base_damage { 12 }
     smithing_perks { ['Dwarven Smithing'] }
     unit_weight { 14 }
+    add_on { 'base' }
+    collectible { true }
     purchasable { true }
     unique_item { false }
     rare_item { false }
