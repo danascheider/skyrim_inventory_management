@@ -15,7 +15,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "level"
+      "strength_unit": "level",
+      "add_on": "base"
     }
   },
   {
@@ -34,7 +35,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -53,7 +55,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   },
   {
@@ -72,7 +75,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   }
 ]

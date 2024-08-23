@@ -15,7 +15,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -34,7 +35,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -53,7 +55,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -72,7 +75,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "level"
+      "strength_unit": "level",
+      "add_on": "base"
     }
   },
   {
@@ -91,7 +95,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -110,7 +115,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   },
   {
@@ -129,7 +135,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   },
   {
@@ -148,7 +155,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -162,7 +170,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -176,7 +185,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -186,7 +196,8 @@
       "enchantable_items": [
         "chest"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -200,7 +211,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -210,7 +222,8 @@
       "enchantable_items": [
         "amulet"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -223,7 +236,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -236,7 +250,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -250,7 +265,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -260,7 +276,8 @@
       "enchantable_items": [
         "chest"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -274,7 +291,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -284,7 +302,8 @@
       "enchantable_items": [
         "chest"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -296,7 +315,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -309,7 +329,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -322,7 +343,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -336,7 +358,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -346,7 +369,8 @@
       "enchantable_items": [
         "chest"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -359,7 +383,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -372,7 +397,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -386,7 +412,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -398,7 +425,8 @@
         "chest",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -412,7 +440,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -425,7 +454,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -439,7 +469,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -449,7 +480,8 @@
       "enchantable_items": [
         "chest"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -462,7 +494,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -475,7 +508,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -489,7 +523,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -501,7 +536,8 @@
         "feet",
         "amulet"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -515,7 +551,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -526,7 +563,8 @@
         "hands",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -545,7 +583,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -564,7 +603,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -583,7 +623,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -593,7 +634,8 @@
       "enchantable_items": [
         "feet"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -612,7 +654,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   },
   {
@@ -625,7 +668,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -639,7 +683,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -653,7 +698,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -666,7 +712,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -679,7 +726,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -693,7 +741,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": "percentage"
+      "strength_unit": "percentage",
+      "add_on": "base"
     }
   },
   {
@@ -712,7 +761,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -731,7 +781,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -750,7 +801,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "second"
+      "strength_unit": "second",
+      "add_on": "base"
     }
   },
   {
@@ -769,7 +821,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "point"
+      "strength_unit": "point",
+      "add_on": "base"
     }
   },
   {
@@ -788,7 +841,8 @@
         "crossbow",
         "other"
       ],
-      "strength_unit": "level"
+      "strength_unit": "level",
+      "add_on": "base"
     }
   },
   {
@@ -801,7 +855,8 @@
         "amulet",
         "ring"
       ],
-      "strength_unit": null
+      "strength_unit": null,
+      "add_on": "base"
     }
   }
 ]
