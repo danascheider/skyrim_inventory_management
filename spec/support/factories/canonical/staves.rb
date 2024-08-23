@@ -6,6 +6,8 @@ FactoryBot.define do
     name { 'Staff of Chain Lightning' }
     unit_weight { 8 }
     base_damage { 0 }
+    add_on { 'base' }
+    collectible { true }
     daedric { false }
     purchasable { true }
     unique_item { false }
