@@ -42,7 +42,14 @@ RSpec.describe Armor, type: :model do
       end
 
       context 'when the canonical armor is a unique item' do
-        let(:canonical_armor) { create(:canonical_armor, unique_item: true, rare_item: true) }
+        let(:canonical_armor) do
+          create(
+            :canonical_armor,
+            max_quantity: 1,
+            unique_item: true,
+            rare_item: true,
+          )
+        end
 
         context 'when there are duplicate associations in the same game' do
           let(:game) { create(:game) }
