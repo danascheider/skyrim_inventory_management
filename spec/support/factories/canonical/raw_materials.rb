@@ -5,5 +5,6 @@ FactoryBot.define do
     name { 'iron ingot' }
     sequence(:item_code) {|n| "xxx000#{n}" }
     unit_weight { 2.4 }
+    add_on { 'base' }
   end
 end
