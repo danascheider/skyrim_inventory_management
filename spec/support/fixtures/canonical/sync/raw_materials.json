@@ -5,7 +5,8 @@
       "item_code": "XX00300F",
       "building_material": true,
       "smithing_material": false,
-      "unit_weight": 0.1
+      "unit_weight": 0.1,
+      "add_on": "hearthfire"
     }
   },
   {
@@ -14,7 +15,8 @@
       "item_code": "XX00306C",
       "building_material": true,
       "smithing_material": false,
-      "unit_weight": 1
+      "unit_weight": 1,
+      "add_on": "hearthfire"
     }
   },
   {
@@ -23,7 +25,8 @@
       "item_code": "XX00300E",
       "building_material": true,
       "smithing_material": false,
-      "unit_weight": 0
+      "unit_weight": 0,
+      "add_on": "hearthfire"
     }
   },
   {
@@ -32,7 +35,8 @@
       "item_code": "XX005A68",
       "building_material": true,
       "smithing_material": false,
-      "unit_weight": 1
+      "unit_weight": 1,
+      "add_on": "base"
     }
   }
 ]

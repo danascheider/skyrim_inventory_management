@@ -49,6 +49,20 @@ RSpec.describe Canonical::RawMaterial, type: :model do
         expect(material.errors[:unit_weight]).to include 'must be greater than or equal to 0'
       end
     end
+
+    describe 'add_on' do
+      it "can't be blank" do
+        material.add_on = nil
+        validate
+        expect(material.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        material.add_on = 'fishing'
+        validate
+        expect(material.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+    end
   end
 
   describe 'default behavior' do

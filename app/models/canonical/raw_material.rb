@@ -40,6 +40,12 @@ module Canonical
               numericality: {
                 greater_than_or_equal_to: 0,
               }
+    validates :add_on,
+              presence: true,
+              inclusion: {
+                in: SUPPORTED_ADD_ONS,
+                message: UNSUPPORTED_ADD_ON_MESSAGE,
+              }
 
     before_validation :upcase_item_code, if: :item_code_changed?
 
