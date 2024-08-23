@@ -55,6 +55,7 @@ RSpec.describe Staff, type: :model do
         let(:canonical_staff) do
           create(
             :canonical_staff,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )
