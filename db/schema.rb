@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_23_014425) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_23_021009) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -301,6 +301,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_23_014425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
+    t.integer "max_quantity"
+    t.string "add_on"
+    t.boolean "collectible"
     t.index ["item_code"], name: "index_canonical_staves_on_item_code", unique: true
   end
 
