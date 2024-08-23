@@ -13,7 +13,7 @@
       "collectible": true,
       "daedric": false,
       "purchasable": false,
-      "unique_item": true,
+      "unique_item": false,
       "rare_item": true,
       "quest_item": true,
       "leveled": false
