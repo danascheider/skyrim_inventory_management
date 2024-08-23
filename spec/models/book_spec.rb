@@ -47,6 +47,7 @@ RSpec.describe Book, type: :model do
         let(:canonical_book) do
           create(
             :canonical_book,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )

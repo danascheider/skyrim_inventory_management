@@ -94,7 +94,7 @@ module Canonical
               }
 
     validate :validate_skill_name_presence
-    validate :verify_unique_item_rare, if: -> { unique_item == true }
+    validate :validate_uniqueness, if: -> { unique_item == true || max_quantity == 1 }
 
     before_validation :upcase_item_code, if: :item_code_changed?
 
@@ -116,7 +116,9 @@ module Canonical
       end
     end
 
-    def verify_unique_item_rare
+    def validate_uniqueness
+      errors.add(:unique_item, 'must be true if max quantity is 1') if max_quantity == 1 && !unique_item
+      errors.add(:unique_item, 'must correspond to a max quantity of 1') if unique_item == true && max_quantity != 1
       errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
 

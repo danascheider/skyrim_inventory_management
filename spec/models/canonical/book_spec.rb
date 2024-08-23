@@ -144,6 +144,24 @@ RSpec.describe Canonical::Book, type: :model do
         validate
         expect(book.errors[:unique_item]).to include 'must be true or false'
       end
+
+      it 'must be true if max quantity is 1' do
+        book.max_quantity = 1
+        book.unique_item = false
+
+        validate
+
+        expect(book.errors[:unique_item]).to include 'must be true if max quantity is 1'
+      end
+
+      it 'must be false if max quantity is not 1' do
+        book.max_quantity = nil
+        book.unique_item = true
+
+        validate
+
+        expect(book.errors[:unique_item]).to include 'must correspond to a max quantity of 1'
+      end
     end
 
     describe 'rare_item' do

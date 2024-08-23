@@ -8,10 +8,14 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "unique_item": false,
+      "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": true
     }
   },
   {
@@ -23,10 +27,14 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": false
+      "quest_item": false,
+      "quest_reward": false
     }
   },
   {
@@ -38,10 +46,14 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": true
     }
   },
   {
@@ -53,10 +65,14 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
-      "quest_item": true
+      "quest_item": true,
+      "quest_reward": false
     }
   }
 ]

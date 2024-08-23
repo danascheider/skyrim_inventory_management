@@ -8,6 +8,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -24,6 +27,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -40,6 +46,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -56,6 +65,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -72,6 +84,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -88,6 +103,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -104,6 +122,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -120,6 +141,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -136,8 +160,11 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
-      "unique_item": false,
+      "unique_item": true,
       "rare_item": true,
       "quest_item": true,
       "quest_reward": false
@@ -152,6 +179,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -168,6 +198,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -184,6 +217,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -200,6 +236,9 @@
         "daedric artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -216,6 +255,9 @@
         "miscellaneous"
       ],
       "description": "Live bee in a jar",
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -232,6 +274,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -248,6 +293,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -264,6 +312,9 @@
         "daedric artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -280,6 +331,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -296,6 +350,9 @@
         "miscellaneous"
       ],
       "description": "Live monarch butterfly in a jar",
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -312,6 +369,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -328,6 +388,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -337,29 +400,16 @@
   },
   {
     "attributes": {
-      "name": "Charcoal (Chunk)",
-      "item_code": "000BFB09",
-      "unit_weight": 0.5,
-      "item_types": [
-        "miscellaneous"
-      ],
-      "description": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": true,
-      "quest_item": false,
-      "quest_reward": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Charcoal (Stick)",
+      "name": "Charcoal",
       "item_code": "00033760",
       "unit_weight": 0.5,
       "item_types": [
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
@@ -376,6 +426,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "hearthfire",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
@@ -392,6 +445,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": true,
@@ -408,6 +464,9 @@
         "larceny trophy"
       ],
       "description": "Crown of Barenziah (no stones)",
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -424,6 +483,9 @@
         "larceny trophy"
       ],
       "description": "Crown of Barenziah (with stones)",
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -440,6 +502,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -456,6 +521,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -472,6 +540,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -488,6 +559,9 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -504,25 +578,12 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
-      "quest_item": false,
-      "quest_reward": false
-    }
-  },
-  {
-    "attributes": {
-      "name": "Do Not Delete",
-      "item_code": "C7316",
-      "unit_weight": 0.5,
-      "item_types": [
-        "miscellaneous"
-      ],
-      "description": null,
-      "purchasable": false,
-      "unique_item": false,
-      "rare_item": false,
       "quest_item": false,
       "quest_reward": false
     }
@@ -536,6 +597,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -552,6 +616,9 @@
         "miscellaneous"
       ],
       "description": "Live orange dartwing in a jar",
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -568,6 +635,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -584,6 +654,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -600,6 +673,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -616,6 +692,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -632,6 +711,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -648,6 +730,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -664,6 +749,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -681,6 +769,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -698,6 +789,9 @@
         "map"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -714,6 +808,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -730,6 +827,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -740,12 +840,15 @@
   {
     "attributes": {
       "name": "Emerald Dragon Claw",
-      "item_code": "000ed417",
+      "item_code": "000ED417",
       "unit_weight": 0.5,
       "item_types": [
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -762,6 +865,9 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -778,6 +884,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
@@ -794,6 +903,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -810,6 +922,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -826,6 +941,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -842,6 +960,9 @@
         "gemstone"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -858,6 +979,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -874,6 +998,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -890,6 +1017,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -906,6 +1036,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -922,6 +1055,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -938,6 +1074,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -954,6 +1093,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -970,6 +1112,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -986,6 +1131,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1002,6 +1150,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
@@ -1018,6 +1169,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1034,6 +1188,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1050,6 +1207,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": 2,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1066,6 +1226,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1082,6 +1245,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1098,6 +1264,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1114,6 +1283,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1130,6 +1302,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1146,6 +1321,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1162,6 +1340,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 5,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": true,
@@ -1178,6 +1359,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1194,6 +1378,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1210,6 +1397,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
@@ -1226,6 +1416,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
@@ -1242,6 +1435,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1258,6 +1454,9 @@
         "book"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1274,6 +1473,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1290,6 +1492,9 @@
         "daedric artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1306,6 +1511,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1322,6 +1530,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1338,6 +1549,9 @@
         "miscellaneous"
       ],
       "description": "Live luna moth in a jar",
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1354,6 +1568,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1370,6 +1587,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1386,6 +1606,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1402,6 +1625,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1418,6 +1644,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1434,6 +1663,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1450,6 +1682,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1466,6 +1701,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1482,6 +1720,9 @@
         "larceny trophy"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1498,6 +1739,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1514,6 +1758,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1530,6 +1777,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1546,6 +1796,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1562,6 +1815,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1578,6 +1834,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1594,6 +1853,9 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1610,6 +1872,9 @@
         "book"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
@@ -1626,6 +1891,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1642,6 +1910,9 @@
         "key"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1658,6 +1929,9 @@
         "dragon claw"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1674,6 +1948,9 @@
         "paragon"
       ],
       "description": null,
+      "add_on": "dawnguard",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1690,6 +1967,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1706,6 +1986,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1722,6 +2005,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1738,6 +2024,9 @@
         "book"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1754,6 +2043,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1770,6 +2062,9 @@
         "animal part"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": true,
       "unique_item": false,
       "rare_item": false,
@@ -1786,6 +2081,9 @@
         "animal part"
       ],
       "description": "Skull covered in carvings",
+      "add_on": "dragonborn",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1802,6 +2100,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "dragonborn",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1818,6 +2119,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1834,6 +2138,9 @@
         "gemstone"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 24,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1850,6 +2157,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1866,11 +2176,14 @@
         "daedric artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
       "quest_item": true,
-      "quest_reward": false
+      "quest_reward": true
     }
   },
   {
@@ -1882,6 +2195,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1898,6 +2214,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": false,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1914,6 +2233,9 @@
         "key"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1930,6 +2252,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": false,
@@ -1946,6 +2271,9 @@
         "miscellaneous"
       ],
       "description": "Live torchbug in a jar",
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -1962,6 +2290,9 @@
         "key"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1978,6 +2309,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -1994,6 +2328,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2010,6 +2347,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": false,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2026,6 +2366,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2042,6 +2385,9 @@
         "pelt"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2058,6 +2404,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 3,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,
@@ -2074,6 +2423,9 @@
         "miscellaneous"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2090,6 +2442,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": 1,
+      "collectible": true,
       "purchasable": false,
       "unique_item": true,
       "rare_item": true,
@@ -2106,6 +2461,9 @@
         "Dwemer artifact"
       ],
       "description": null,
+      "add_on": "base",
+      "max_quantity": null,
+      "collectible": true,
       "purchasable": false,
       "unique_item": false,
       "rare_item": true,

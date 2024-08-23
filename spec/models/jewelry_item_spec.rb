@@ -55,6 +55,7 @@ RSpec.describe JewelryItem, type: :model do
         let(:canonical_jewelry_item) do
           create(
             :canonical_jewelry_item,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )

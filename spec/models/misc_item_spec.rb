@@ -55,6 +55,7 @@ RSpec.describe MiscItem, type: :model do
         let(:canonical_misc_item) do
           create(
             :canonical_misc_item,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )

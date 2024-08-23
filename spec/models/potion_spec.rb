@@ -59,6 +59,7 @@ RSpec.describe Potion, type: :model do
         let(:canonical_potion) do
           create(
             :canonical_potion,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )
