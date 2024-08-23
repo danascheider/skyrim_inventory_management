@@ -20,7 +20,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'item code' do
+    describe 'item_code' do
       it "can't be blank" do
         weapon.item_code = nil
         validate
@@ -48,7 +48,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'weapon type' do
+    describe 'weapon_type' do
       it "can't be blank" do
         weapon.weapon_type = nil
         validate
@@ -69,7 +69,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'smithing perks' do
+    describe 'smithing_perks' do
       it 'must consist of only valid smithing perks', :aggregate_failures do
         weapon.smithing_perks = ['Arcane Blacksmith', 'Silver Smithing', 'Titanium Smithing']
         validate
@@ -78,7 +78,7 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
-    describe 'base damage' do
+    describe 'base_damage' do
       it 'must be present' do
         weapon.base_damage = nil
         validate
@@ -104,6 +104,39 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
+    describe 'add_on' do
+      it "can't be blank" do
+        weapon.add_on = nil
+        validate
+        expect(weapon.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        weapon.add_on = 'fishing'
+        validate
+        expect(weapon.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
+      end
+    end
+
+    describe 'max_quantity' do
+      it 'can be blank' do
+        weapon.max_quantity = nil
+        expect(weapon).to be_valid
+      end
+
+      it 'must be an integer' do
+        weapon.max_quantity = 1.733
+        validate
+        expect(weapon.errors[:max_quantity]).to include 'must be an integer'
+      end
+
+      it 'must be greater than 0' do
+        weapon.max_quantity = 0
+        validate
+        expect(weapon.errors[:max_quantity]).to include 'must be greater than 0'
+      end
+    end
+
     describe 'unit_weight' do
       it 'must be present' do
         weapon.unit_weight = nil
@@ -124,6 +157,14 @@ RSpec.describe Canonical::Weapon, type: :model do
       end
     end
 
+    describe 'collectible' do
+      it 'must be true or false' do
+        weapon.collectible = nil
+        validate
+        expect(weapon.errors[:collectible]).to include 'must be true or false'
+      end
+    end
+
     describe 'purchasable' do
       it 'must be true or false' do
         weapon.purchasable = nil
@@ -137,6 +178,24 @@ RSpec.describe Canonical::Weapon, type: :model do
         weapon.unique_item = nil
         validate
         expect(weapon.errors[:unique_item]).to include 'must be true or false'
+      end
+
+      it 'must be true if max_quantity is 1' do
+        weapon.max_quantity = 1
+        weapon.unique_item = false
+
+        validate
+
+        expect(weapon.errors[:unique_item]).to include 'must be true if max quantity is 1'
+      end
+
+      it 'must be false if max_quantity is not 1' do
+        weapon.max_quantity = nil
+        weapon.unique_item = true
+
+        validate
+
+        expect(weapon.errors[:unique_item]).to include 'must correspond to a max quantity of 1'
       end
     end
 

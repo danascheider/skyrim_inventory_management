@@ -57,6 +57,7 @@ RSpec.describe Weapon, type: :model do
         let(:canonical_weapon) do
           create(
             :canonical_weapon,
+            max_quantity: 1,
             unique_item: true,
             rare_item: true,
           )

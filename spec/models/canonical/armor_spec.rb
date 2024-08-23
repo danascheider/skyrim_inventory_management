@@ -149,6 +149,24 @@ RSpec.describe Canonical::Armor, type: :model do
         validate
         expect(armor.errors[:unique_item]).to include 'must be true or false'
       end
+
+      it 'must be true if max quantity is 1' do
+        armor.max_quantity = 1
+        armor.unique_item = false
+
+        validate
+
+        expect(armor.errors[:unique_item]).to include 'must be true if max quantity is 1'
+      end
+
+      it 'must be false if max quantity is not 1' do
+        armor.max_quantity = 4
+        armor.unique_item = true
+
+        validate
+
+        expect(armor.errors[:unique_item]).to include 'must correspond to a max quantity of 1'
+      end
     end
 
     describe 'rare_item' do
