@@ -122,6 +122,7 @@ RSpec.describe Staff, type: :model do
             canonical_staff = create(
               :canonical_staff,
               name: 'My Staff',
+              max_quantity: 1,
               unique_item: true,
               rare_item: true,
             )
