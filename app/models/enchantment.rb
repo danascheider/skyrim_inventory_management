@@ -42,7 +42,19 @@ class Enchantment < ApplicationRecord
               message: 'must be "point", "percentage", "second", or the "level" of affected targets',
               allow_blank: true,
             }
-  validates :school, inclusion: { in: Skyrim::MAGIC_SCHOOLS, message: 'must be a valid school of magic', allow_blank: true }
+  validates :school,
+            presence: false,
+            inclusion: {
+              in: Skyrim::MAGIC_SCHOOLS,
+              message: 'must be a valid school of magic',
+              allow_blank: true,
+            }
+  validates :add_on,
+            presence: true,
+            inclusion: {
+              in: Canonical::SUPPORTED_ADD_ONS,
+              message: Canonical::UNSUPPORTED_ADD_ON_MESSAGE,
+            }
   validate :validate_enchantable_items
 
   def self.unique_identifier

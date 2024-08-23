@@ -4,56 +4,67 @@ require 'rails_helper'
 
 RSpec.describe Enchantment, type: :model do
   describe 'validations' do
-    describe 'name' do
-      it 'is invalid without a name' do
-        enchantment = described_class.new(strength_unit: 'percentage', enchantable_items: %w[sword mace])
+    subject(:validate) { enchantment.validate }
 
-        enchantment.validate
+    let(:enchantment) { build(:enchantment) }
+
+    describe 'name' do
+      it "can't be blank" do
+        enchantment.name = nil
+        validate
         expect(enchantment.errors[:name]).to include "can't be blank"
       end
 
-      it 'requires a unique name' do
-        described_class.create!(name: 'Absorb Health', strength_unit: 'point', enchantable_items: %w[battleaxe warhammer])
+      it 'must be unique' do
+        create(:enchantment, name: 'My Enchantment')
+        enchantment.name = 'My Enchantment'
 
-        enchantment = described_class.new(name: 'Absorb Health', strength_unit: 'percentage', enchantable_items: %w[sword mace greatsword])
+        validate
 
-        enchantment.validate
         expect(enchantment.errors[:name]).to include 'must be unique'
       end
     end
 
     describe 'school' do
       it 'has to be a valid school of magic' do
-        enchantment = described_class.new(school: 'Foo')
-
-        enchantment.validate
+        enchantment.school = 'Foo'
+        validate
         expect(enchantment.errors[:school]).to include 'must be a valid school of magic'
       end
     end
 
     describe 'strength_unit' do
       it 'must be "point", "percentage", "second", or "level"' do
-        enchantment = described_class.new(strength_unit: 'foobar')
-
-        enchantment.validate
+        enchantment.strength_unit = 'foobar'
+        validate
         expect(enchantment.errors[:strength_unit]).to include 'must be "point", "percentage", "second", or the "level" of affected targets'
       end
 
       it 'can be blank' do
-        enchantment = described_class.new
-
-        enchantment.validate
-        expect(enchantment.errors[:strength_unit]).to be_blank
+        enchantment.strength_unit = nil
+        expect(enchantment).to be_valid
       end
     end
 
     describe 'enchantable_items' do
       it 'needs to be one of the valid enchantable items' do
-        enchantment = described_class.new(name: 'Fortify Archery', strength_unit: 'percentage', enchantable_items: %w[ring necklace foo])
-
-        enchantment.validate
-
+        enchantment.enchantable_items = %w[ring necklace foo]
+        validate
         expect(enchantment.errors[:enchantable_items]).to include 'must consist of valid enchantable item types'
+      end
+    end
+
+    describe 'add_on' do
+      it "can't be blank" do
+        enchantment.add_on = nil
+        validate
+        expect(enchantment.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        enchantment.add_on = 'fishing'
+        validate
+        expect(enchantment.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
       end
     end
   end

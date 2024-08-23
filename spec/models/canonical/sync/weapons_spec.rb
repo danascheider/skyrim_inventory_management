@@ -6,7 +6,17 @@ RSpec.describe Canonical::Sync::Weapons do
   # Use let! because if we wait to evaluate these until we've run the
   # examples, the stub in the before block will prevent `File.read` from
   # running.
-  let(:json_path) { Rails.root.join('spec', 'support', 'fixtures', 'canonical', 'sync', 'weapons.json') }
+  let(:json_path) do
+    Rails.root.join(
+      'spec',
+      'support',
+      'fixtures',
+      'canonical',
+      'sync',
+      'weapons.json',
+    )
+  end
+
   let!(:json_data) { File.read(json_path) }
 
   before do
@@ -91,6 +101,7 @@ RSpec.describe Canonical::Sync::Weapons do
         it "removes associations that don't exist in the JSON data" do
           item_in_json.enchantments.create!(
             name: 'Raise Hell',
+            add_on: 'dawnguard',
             enchantable_items: Enchantment::ENCHANTABLE_WEAPONS,
           )
           perform
