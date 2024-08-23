@@ -75,6 +75,15 @@ RSpec.describe Canonical::Potion, type: :model do
 
         expect(potion.errors[:unique_item]).to include 'must be true if max quantity is 1'
       end
+
+      it 'cannot be true if max quantity is not 1' do
+        potion.max_quantity = nil
+        potion.unique_item = true
+
+        validate
+
+        expect(potion.errors[:unique_item]).to include 'must correspond to max quantity of 1'
+      end
     end
 
     describe 'rare_item' do

@@ -50,7 +50,7 @@ module Canonical
 
     validate :validate_item_types
     validate :validate_boolean_values
-    validate :validate_uniqueness
+    validate :validate_uniqueness, if: -> { unique_item == true || max_quantity == 1 }
 
     before_validation :upcase_item_code, if: -> { item_code_changed? }
 
@@ -75,10 +75,9 @@ module Canonical
     end
 
     def validate_uniqueness
-      return if unique_item == false && (max_quantity.nil? || max_quantity > 1)
-
       errors.add(:unique_item, 'must be true if max quantity is 1') if unique_item == false && max_quantity == 1
-      errors.add(:rare_item, 'must be true if item is unique') if unique_item == true && !rare_item
+      errors.add(:unique_item, 'must correspond to a max quantity of 1') if unique_item == true && max_quantity != 1
+      errors.add(:rare_item, 'must be true if item is unique') unless rare_item == true
     end
 
     def upcase_item_code

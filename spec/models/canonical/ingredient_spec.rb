@@ -209,6 +209,15 @@ RSpec.describe Canonical::Ingredient, type: :model do
 
         expect(model.errors[:unique_item]).to include 'must be true if max quantity is 1'
       end
+
+      it 'must be false if max quantity is not 1' do
+        model.max_quantity = 3
+        model.unique_item = true
+
+        validate
+
+        expect(model.errors[:unique_item]).to include 'must correspond to a max quantity of 1'
+      end
     end
 
     describe 'rare_item' do
