@@ -29,6 +29,12 @@ class Spell < ApplicationRecord
               allow_blank: true,
             }
   validates :description, presence: true
+  validates :add_on,
+            presence: true,
+            inclusion: {
+              in: Canonical::SUPPORTED_ADD_ONS,
+              message: Canonical::UNSUPPORTED_ADD_ON_MESSAGE,
+            }
   validate :strength_and_strength_unit_both_or_neither_present
 
   def self.unique_identifier

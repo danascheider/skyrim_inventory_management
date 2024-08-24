@@ -7,5 +7,6 @@ FactoryBot.define do
     level { 'Adept' }
     description { 'Destroys enemies on sight' }
     base_duration { 5 }
+    add_on { 'base' }
   end
 end
