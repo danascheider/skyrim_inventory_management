@@ -6475,7 +6475,7 @@
       "max_quantity": 1,
       "purchasable": false,
       "collectible": true,
-      "unique_item": false,
+      "unique_item": true,
       "rare_item": true,
       "quest_item": false,
       "quest_reward": false
