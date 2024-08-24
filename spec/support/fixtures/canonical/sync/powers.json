@@ -4,7 +4,8 @@
       "name": "Ahzidal's Genius",
       "power_type": "ability",
       "source": "Other",
-      "description": "Increases your Enchanting skill by 10 points."
+      "description": "Increases your Enchanting skill by 10 points.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -12,7 +13,8 @@
       "name": "Ancestor's Wrath",
       "power_type": "greater",
       "source": "Race: Dunmer",
-      "description": "Opponents that get too close take 8 points per second of fire damage for 60 seconds."
+      "description": "Opponents that get too close take 8 points per second of fire damage for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -20,7 +22,8 @@
       "name": "Bardic Knowledge",
       "power_type": "lesser",
       "source": "Black Book: Untold Legends",
-      "description": "Summons a spectral drum that plays for 300 seconds, improving Stamina Regen for you and nearby allies."
+      "description": "Summons a spectral drum that plays for 300 seconds, improving Stamina Regen for you and nearby allies.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -28,7 +31,8 @@
       "name": "Bats",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Allows the Dragonborn to turn into a cloud of bats then flies forward several feet before reforming as a Vampire Lord. It can be activated twice in quick succession, but then requires a 20-second cooldown."
+      "description": "Allows the Dragonborn to turn into a cloud of bats then flies forward several feet before reforming as a Vampire Lord. It can be activated twice in quick succession, but then requires a 20-second cooldown.",
+      "add_on": "dawnguard"
     }
   }
 ]
