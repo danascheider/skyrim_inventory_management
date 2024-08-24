@@ -4,7 +4,8 @@
       "name": "Adrenaline Rush",
       "power_type": "greater",
       "source": "Race: Redguard",
-      "description": "Stamina regenerates 10 times faster for 60 seconds."
+      "description": "Stamina regenerates 10 times faster for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -12,7 +13,8 @@
       "name": "Ahzidal's Genius",
       "power_type": "ability",
       "source": "Other",
-      "description": "Increases your Enchanting skill by 10 points."
+      "description": "Increases your Enchanting skill by 10 points.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -20,7 +22,8 @@
       "name": "Ancestor's Wrath",
       "power_type": "greater",
       "source": "Race: Dunmer",
-      "description": "Opponents that get too close take 8 points per second of fire damage for 60 seconds."
+      "description": "Opponents that get too close take 8 points per second of fire damage for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -28,7 +31,8 @@
       "name": "Bardic Knowledge",
       "power_type": "lesser",
       "source": "Black Book: Untold Legends",
-      "description": "Summons a spectral drum that plays for 300 seconds, improving Stamina Regen for you and nearby allies."
+      "description": "Summons a spectral drum that plays for 300 seconds, improving Stamina Regen for you and nearby allies.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -36,7 +40,8 @@
       "name": "Bats",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Allows the Dragonborn to turn into a cloud of bats then flies forward several feet before reforming as a Vampire Lord. It can be activated twice in quick succession, but then requires a 20-second cooldown."
+      "description": "Allows the Dragonborn to turn into a cloud of bats then flies forward several feet before reforming as a Vampire Lord. It can be activated twice in quick succession, but then requires a 20-second cooldown.",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -44,7 +49,8 @@
       "name": "Battle Cry",
       "power_type": "greater",
       "source": "Race: Nord",
-      "description": "Nearby enemies are Afraid for 30 seconds."
+      "description": "Nearby enemies are Afraid for 30 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -52,7 +58,8 @@
       "name": "Beast Form",
       "power_type": "greater",
       "source": "Race: Werewolf",
-      "description": "Take on the Form of the Wolf."
+      "description": "Take on the Form of the Wolf.",
+      "add_on": "base"
     }
   },
   {
@@ -60,7 +67,8 @@
       "name": "Berserker Rage",
       "power_type": "greater",
       "source": "Race: Orsimer",
-      "description": "Take half damage and deal double damage for 60 seconds."
+      "description": "Take half damage and deal double damage for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -68,7 +76,8 @@
       "name": "Black Market",
       "power_type": "lesser",
       "source": "Black Book: Untold Legends",
-      "description": "Summons a Dremora merchant for 15 seconds."
+      "description": "Summons a Dremora merchant for 15 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -76,7 +85,8 @@
       "name": "Blessing of Azura",
       "power_type": "ability",
       "source": "Raven Rock Temple",
-      "description": "Resist 10% of magic."
+      "description": "Resist 10% of magic.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -84,7 +94,8 @@
       "name": "Blessing of Boethiah",
       "power_type": "ability",
       "source": "Raven Rock Temple",
-      "description": "One-handed weapons do 10% more damage."
+      "description": "One-handed weapons do 10% more damage.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -92,7 +103,8 @@
       "name": "Blessing of Mephala",
       "power_type": "ability",
       "source": "Raven Rock Temple",
-      "description": "Prices are 10% better."
+      "description": "Prices are 10% better.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -100,7 +112,8 @@
       "name": "Blessing of the Stag Prince",
       "power_type": "ability",
       "source": "Other",
-      "description": "5 Health and Stamina while Bow of the Stag Prince is equipped; however, the benefits increase as more animals are killed using the bow."
+      "description": "5 Health and Stamina while Bow of the Stag Prince is equipped; however, the benefits increase as more animals are killed using the bow.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -108,7 +121,8 @@
       "name": "Bones of the Earth",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "Caster ignores 80% of all physical damage for 30 seconds."
+      "description": "Caster ignores 80% of all physical damage for 30 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -116,7 +130,8 @@
       "name": "Breath of Nchuak",
       "power_type": "lesser",
       "source": "Other",
-      "description": "Draws upon stamina to release a scorching blast of steam that deals 15 points of damage per second."
+      "description": "Draws upon stamina to release a scorching blast of steam that deals 15 points of damage per second.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -124,7 +139,8 @@
       "name": "Command Animal",
       "power_type": "greater",
       "source": "Race: Bosmer",
-      "description": "Make an animal an ally for 60 seconds."
+      "description": "Make an animal an ally for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -132,7 +148,8 @@
       "name": "Companion's Insight",
       "power_type": "ability",
       "source": "Black Book: The Winds of Change",
-      "description": "Your attacks, shouts, and destruction spells do no damage to your followers."
+      "description": "Your attacks, shouts, and destruction spells do no damage to your followers.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -140,7 +157,8 @@
       "name": "Conjure Werebear",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "Summons a Werebear for 60 seconds wherever the caster is pointing."
+      "description": "Summons a Werebear for 60 seconds wherever the caster is pointing.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -148,7 +166,8 @@
       "name": "Detect All Creatures",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Similar to the Aura Whisper shout and a combination of Detect Life and Detect Dead spells. Sends out a sonar-like pulse that reveals all forms of living and undead undead creatures in a white aura for a few seconds. It also reveals the location of corpses. Cooldown takes 3 seconds."
+      "description": "Similar to the Aura Whisper shout and a combination of Detect Life and Detect Dead spells. Sends out a sonar-like pulse that reveals all forms of living and undead undead creatures in a white aura for a few seconds. It also reveals the location of corpses. Cooldown takes 3 seconds.",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -156,7 +175,8 @@
       "name": "Detect Ash Source",
       "power_type": "ability",
       "source": "Other",
-      "description": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn."
+      "description": "When close enough, identifies the source of the ash spawn attacks on Tel Mithryn.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -164,7 +184,8 @@
       "name": "Dragonborn Flame",
       "power_type": "ability",
       "source": "Black Book: Epistolary Acumen",
-      "description": "When your Fire Breath Shout kills an enemy, a fire wyrm emerges from the corpse to fight for you for 60 seconds."
+      "description": "When your Fire Breath Shout kills an enemy, a fire wyrm emerges from the corpse to fight for you for 60 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -172,7 +193,8 @@
       "name": "Dragonborn Force",
       "power_type": "ability",
       "source": "Black Book: Epistolary Acumen",
-      "description": "Your Unrelenting Force Shout does more damage and may disintegrate enemies."
+      "description": "Your Unrelenting Force Shout does more damage and may disintegrate enemies.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -180,7 +202,8 @@
       "name": "Dragonborn Frost",
       "power_type": "ability",
       "source": "Black Book: Epistolary Acumen",
-      "description": "Your Frost Breath Shout encases foes in ice."
+      "description": "Your Frost Breath Shout encases foes in ice.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -188,7 +211,8 @@
       "name": "Dragonskin",
       "power_type": "greater",
       "source": "Race: Breton",
-      "description": "Absorb 50% of Magicka from hostile spells for 60 seconds."
+      "description": "Absorb 50% of Magicka from hostile spells for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -196,7 +220,8 @@
       "name": "Embrace of Shadows",
       "power_type": "greater",
       "source": "Race: Vampire",
-      "description": "Vampire is invisible and has improved night vision for 180 seconds."
+      "description": "Vampire is invisible and has improved night vision for 180 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -204,7 +229,8 @@
       "name": "Frostmoon Bloodlust",
       "power_type": "ability",
       "source": "Werewolf Ring",
-      "description": "While in Beast Form, your attacks do 50% more damage, but you also take 50% more damage."
+      "description": "While in Beast Form, your attacks do 50% more damage, but you also take 50% more damage.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -212,7 +238,8 @@
       "name": "Frostmoon Howl",
       "power_type": "ability",
       "source": "Werewolf Ring",
-      "description": "Increases the duration of your Howls by 25%."
+      "description": "Increases the duration of your Howls by 25%.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -220,7 +247,8 @@
       "name": "Frostmoon Instinct",
       "power_type": "ability",
       "source": "Werewolf Ring",
-      "description": "When you enter Beast Form, the world around you seems to slow for 20 seconds."
+      "description": "When you enter Beast Form, the world around you seems to slow for 20 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -228,7 +256,8 @@
       "name": "Frostmoon Predator",
       "power_type": "ability",
       "source": "Werewolf Ring",
-      "description": "While in Beast Form, your health regenerates."
+      "description": "While in Beast Form, your health regenerates.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -236,7 +265,8 @@
       "name": "Highborn",
       "power_type": "greater",
       "source": "Race: Altmer",
-      "description": "Regenerate 25% of your magicka each second for 60 seconds."
+      "description": "Regenerate 25% of your magicka each second for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -244,7 +274,8 @@
       "name": "Histskin",
       "power_type": "greater",
       "source": "Race: Argonian",
-      "description": "Invoke the power of the Hist to recover health 10 times faster for 60 seconds."
+      "description": "Invoke the power of the Hist to recover health 10 times faster for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -252,7 +283,8 @@
       "name": "Lover's Insight",
       "power_type": "ability",
       "source": "Black Book: The Winds of Change",
-      "description": "Do 10% more damage and get 10% better prices from people of the opposite sex."
+      "description": "Do 10% more damage and get 10% better prices from people of the opposite sex.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -260,7 +292,8 @@
       "name": "Mist Form",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Transforms the Dragonborn into an invulnerable cloud of mist for 23 seconds. During this time, health, magicka, and stamina regenerate. The invulnerability effect is similar to the Become Ethereal shout in that even fall damage is negated. Cooldown takes 33 seconds."
+      "description": "Transforms the Dragonborn into an invulnerable cloud of mist for 23 seconds. During this time, health, magicka, and stamina regenerate. The invulnerability effect is similar to the Become Ethereal shout in that even fall damage is negated. Cooldown takes 33 seconds.",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -268,7 +301,8 @@
       "name": "Mora's Agony",
       "power_type": "greater",
       "source": "Black Book: The Hidden Twilight",
-      "description": "Summons a field of writhing tentacles that poisons foes."
+      "description": "Summons a field of writhing tentacles that poisons foes.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -276,7 +310,8 @@
       "name": "Mora's Boon",
       "power_type": "greater",
       "source": "Black Book: The Hidden Twilight",
-      "description": "Fully restores your Health, Magicka and Stamina."
+      "description": "Fully restores your Health, Magicka and Stamina.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -284,7 +319,8 @@
       "name": "Mora's Grasp",
       "power_type": "greater",
       "source": "Black Book: The Hidden Twilight",
-      "description": "Freezes the target between Oblivion and Tamriel for 30 seconds, making them immune to all damage."
+      "description": "Freezes the target between Oblivion and Tamriel for 30 seconds, making them immune to all damage.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -292,7 +328,8 @@
       "name": "Neloth's Health Boost",
       "power_type": "ability",
       "source": "Other",
-      "description": "Neloth's 25 point health boost; health is permanently lowered 25 points after swimming or being in the rain."
+      "description": "Neloth's 25 point health boost; health is permanently lowered 25 points after swimming or being in the rain.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -300,7 +337,8 @@
       "name": "Neloth's Memory Spell",
       "power_type": "ability",
       "source": "Other",
-      "description": "Records memories of your experiences for Neloth."
+      "description": "Records memories of your experiences for Neloth.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -308,7 +346,8 @@
       "name": "Night Eye",
       "power_type": "lesser",
       "source": "Race: Khajiit",
-      "description": "Improved night vision for 60 seconds."
+      "description": "Improved night vision for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -316,7 +355,8 @@
       "name": "Nightingale Strife",
       "power_type": "greater",
       "source": "The Nightingales",
-      "description": "Instantly absorb 100 points of Health from the target."
+      "description": "Instantly absorb 100 points of Health from the target.",
+      "add_on": "base"
     }
   },
   {
@@ -324,7 +364,8 @@
       "name": "Nightingale Subterfuge",
       "power_type": "greater",
       "source": "The Nightingales",
-      "description": "People and creatures in the spell's area of effect will attack anyone nearby for 30 seconds."
+      "description": "People and creatures in the spell's area of effect will attack anyone nearby for 30 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -332,7 +373,8 @@
       "name": "North Wind",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "Targets take 20 points of frost damage for 10 seconds, plus Stamina damage."
+      "description": "Targets take 20 points of frost damage for 10 seconds, plus Stamina damage.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -340,7 +382,8 @@
       "name": "Revert Form",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Used to turn the Dragonborn from the form of Vampire Lord back to the form of their default race."
+      "description": "Used to turn the Dragonborn from the form of Vampire Lord back to the form of their default race.",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -348,7 +391,8 @@
       "name": "Ring of Hircine",
       "power_type": "ability",
       "source": "Ring of Hircine",
-      "description": "Allows for unlimited Werewolf transformations per day"
+      "description": "Allows for unlimited Werewolf transformations per day",
+      "add_on": "base"
     }
   },
   {
@@ -356,7 +400,8 @@
       "name": "Root of Power",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "All spells cost 75% less to cast for 60 seconds."
+      "description": "All spells cost 75% less to cast for 60 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -364,7 +409,8 @@
       "name": "Scholar's Insight",
       "power_type": "ability",
       "source": "Black Book: The Winds of Change",
-      "description": "Reading Skill Books gives you an extra Skill Point."
+      "description": "Reading Skill Books gives you an extra Skill Point.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -372,7 +418,8 @@
       "name": "Secret Servant",
       "power_type": "lesser",
       "source": "Black Book: Untold Legends",
-      "description": "Summons a Dremora butler for 15 seconds to carry your excess items."
+      "description": "Summons a Dremora butler for 15 seconds to carry your excess items.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -380,7 +427,8 @@
       "name": "Secret of Arcana",
       "power_type": "greater",
       "source": "Black Book: Filament and Filigree",
-      "description": "Spells cost no Magicka for 30 seconds."
+      "description": "Spells cost no Magicka for 30 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -388,7 +436,8 @@
       "name": "Secret of Protection",
       "power_type": "greater",
       "source": "Black Book: Filament and Filigree",
-      "description": "You take half damage for 30 seconds."
+      "description": "You take half damage for 30 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -396,7 +445,8 @@
       "name": "Secret of Strength",
       "power_type": "greater",
       "source": "Black Book: Filament and Filigree",
-      "description": "Power attacks cost no Stamina for 30 seconds."
+      "description": "Power attacks cost no Stamina for 30 seconds.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -404,7 +454,8 @@
       "name": "Seeker of Might",
       "power_type": "ability",
       "source": "Black Book: The Sallow Regent",
-      "description": "Combat skills are 10% more effective."
+      "description": "Combat skills are 10% more effective.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -412,7 +463,8 @@
       "name": "Seeker of Shadows",
       "power_type": "ability",
       "source": "Black Book: The Sallow Regent",
-      "description": "Stealth skills are all 10% more effective."
+      "description": "Stealth skills are all 10% more effective.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -420,7 +472,8 @@
       "name": "Seeker of Sorcery",
       "power_type": "ability",
       "source": "Black Book: The Sallow Regent",
-      "description": "All spells cost 10% less magicka. Enchantments are 10% more powerful."
+      "description": "All spells cost 10% less magicka. Enchantments are 10% more powerful.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -428,7 +481,8 @@
       "name": "Shadowcloak of Nocturnal",
       "power_type": "greater",
       "source": "The Nightingales",
-      "description": "For 120 seconds you automatically become invisible while sneaking."
+      "description": "For 120 seconds you automatically become invisible while sneaking.",
+      "add_on": "base"
     }
   },
   {
@@ -436,7 +490,8 @@
       "name": "Summon Arniel's Shade",
       "power_type": "greater",
       "source": "College of Winterhold",
-      "description": "Summons the Shade of Arniel Gane for 60 seconds wherever the caster is pointing."
+      "description": "Summons the Shade of Arniel Gane for 60 seconds wherever the caster is pointing.",
+      "add_on": "base"
     }
   },
   {
@@ -444,7 +499,8 @@
       "name": "Summon Karstaag",
       "power_type": "lesser",
       "source": "Other",
-      "description": "Summon Karstaag to fight for you for 120 seconds. You may only use this ability 3 times, and only while outdoors."
+      "description": "Summon Karstaag to fight for you for 120 seconds. You may only use this ability 3 times, and only while outdoors.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -452,7 +508,8 @@
       "name": "Summon Spectral Assassin",
       "power_type": "greater",
       "source": "Dark Brotherhood",
-      "description": "Summons the ghost of the legendary assassin Lucien Lachance to fight by your side, until he's defeated."
+      "description": "Summons the ghost of the legendary assassin Lucien Lachance to fight by your side, until he's defeated.",
+      "add_on": "base"
     }
   },
   {
@@ -460,7 +517,8 @@
       "name": "Sun Flare",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "A 100 point fiery explosion centered on the caster. Does more damage to closer targets."
+      "description": "A 100 point fiery explosion centered on the caster. Does more damage to closer targets.",
+      "add_on": "dragonborn"
     }
   },
   {
@@ -468,7 +526,8 @@
       "name": "Supernatural Reflexes",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "When activated, time grinds to a near halt for 23 seconds, but the Dragonborn won't be affected as much by the disparity. Cooldown takes 45 seconds. Works similar to the Slow Time shout."
+      "description": "When activated, time grinds to a near halt for 23 seconds, but the Dragonborn won't be affected as much by the disparity. Cooldown takes 45 seconds. Works similar to the Slow Time shout.",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -476,7 +535,8 @@
       "name": "The Ritual Stone",
       "power_type": "greater",
       "source": "Ritual Stone",
-      "description": "Raise all nearby dead enemies to fight for you."
+      "description": "Raise all nearby dead enemies to fight for you.",
+      "add_on": "base"
     }
   },
   {
@@ -484,7 +544,8 @@
       "name": "The Serpent Stone",
       "power_type": "greater",
       "source": "Serpent Stone",
-      "description": "Paralyze target for 5 seconds. +25 points damage"
+      "description": "Paralyze target for 5 seconds. +25 points damage",
+      "add_on": "base"
     }
   },
   {
@@ -492,7 +553,8 @@
       "name": "The Shadow Stone",
       "power_type": "greater",
       "source": "Shadow Stone",
-      "description": "Become invisible for 60 seconds."
+      "description": "Become invisible for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -500,7 +562,8 @@
       "name": "The Tower Stone",
       "power_type": "greater",
       "source": "Tower Stone",
-      "description": "Unlock any Expert or lower-level lock."
+      "description": "Unlock any Expert or lower-level lock.",
+      "add_on": "base"
     }
   },
   {
@@ -508,7 +571,8 @@
       "name": "Totem of Brotherhood",
       "power_type": "lesser",
       "source": "Race: Werewolf",
-      "description": "Summons two wolf spirits to aid in battle."
+      "description": "Summons two wolf spirits to aid in battle.",
+      "add_on": "base"
     }
   },
   {
@@ -516,7 +580,8 @@
       "name": "Totem of Fear",
       "power_type": "lesser",
       "source": "Race: Werewolf",
-      "description": "Casts Fear against nearby enemies."
+      "description": "Casts Fear against nearby enemies.",
+      "add_on": "base"
     }
   },
   {
@@ -524,7 +589,8 @@
       "name": "Totem of the Hunt",
       "power_type": "lesser",
       "source": "Race: Werewolf",
-      "description": "Casts a Detect Life spell."
+      "description": "Casts a Detect Life spell.",
+      "add_on": "base"
     }
   },
   {
@@ -532,7 +598,8 @@
       "name": "Vampire Lord",
       "power_type": "greater",
       "source": "Race: Vampire Lord",
-      "description": "Take on the form of a Vampire Lord"
+      "description": "Take on the form of a Vampire Lord",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -540,7 +607,8 @@
       "name": "Vampire Sight",
       "power_type": "lesser",
       "source": "Race: Vampire Lord",
-      "description": "Grants Night Vision for 60 seconds. Identical to Vampire's Sight but used in the form of a Vampire Lord"
+      "description": "Grants Night Vision for 60 seconds. Identical to Vampire's Sight but used in the form of a Vampire Lord",
+      "add_on": "dawnguard"
     }
   },
   {
@@ -548,7 +616,8 @@
       "name": "Vampire's Seduction",
       "power_type": "greater",
       "source": "Race: Vampire",
-      "description": "Creatures and people up to level 10 won't fight for 30 seconds. Granted after one day of not feeding."
+      "description": "Creatures and people up to level 10 won't fight for 30 seconds. Granted after one day of not feeding.",
+      "add_on": "base"
     }
   },
   {
@@ -556,7 +625,8 @@
       "name": "Vampire's Servant",
       "power_type": "greater",
       "source": "Race: Vampire",
-      "description": "Reanimate a dead body to fight for you for 60 seconds. The strength of the body increases each day the Vampire goes without feeding, progressing from \"weak,\" to \"more powerful,\" to \"powerful,\" and finally to \"very powerful\" after three full days of not feeding."
+      "description": "Reanimate a dead body to fight for you for 60 seconds. The strength of the body increases each day the Vampire goes without feeding, progressing from \"weak,\" to \"more powerful,\" to \"powerful,\" and finally to \"very powerful\" after three full days of not feeding.",
+      "add_on": "base"
     }
   },
   {
@@ -564,7 +634,8 @@
       "name": "Vampire's Sight",
       "power_type": "lesser",
       "source": "Race: Vampire",
-      "description": "Improved night vision for 60 seconds."
+      "description": "Improved night vision for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -572,7 +643,8 @@
       "name": "Voice of the Emperor",
       "power_type": "greater",
       "source": "Race: Imperial",
-      "description": "Nearby people are Calmed for 60 seconds."
+      "description": "Nearby people are Calmed for 60 seconds.",
+      "add_on": "base"
     }
   },
   {
@@ -580,7 +652,8 @@
       "name": "Waters of Life",
       "power_type": "greater",
       "source": "All-Maker Stone",
-      "description": "Heals everyone close to the caster 200 points."
+      "description": "Heals everyone close to the caster 200 points.",
+      "add_on": "dragonborn"
     }
   }
 ]
