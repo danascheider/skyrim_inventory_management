@@ -6,5 +6,6 @@ FactoryBot.define do
     power_type { 'lesser' }
     source { 'Black Book: Epistolary Acumen' }
     description { 'Something cool' }
+    add_on { 'base' }
   end
 end

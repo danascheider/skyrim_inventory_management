@@ -15,6 +15,12 @@ class Power < ApplicationRecord
             }
   validates :source, presence: true
   validates :description, presence: true
+  validates :add_on,
+            presence: true,
+            inclusion: {
+              in: Canonical::SUPPORTED_ADD_ONS,
+              message: Canonical::UNSUPPORTED_ADD_ON_MESSAGE,
+            }
 
   def self.unique_identifier
     :name

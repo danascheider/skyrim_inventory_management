@@ -4,54 +4,68 @@ require 'rails_helper'
 
 RSpec.describe Power, type: :model do
   describe 'validations' do
+    subject(:validate) { power.validate }
+
+    let(:power) { build(:power) }
+
     describe 'name' do
       it "can't be blank" do
-        model = described_class.new(power_type: 'ability', source: 'Other', description: 'My Power')
-
-        model.validate
-        expect(model.errors[:name]).to include "can't be blank"
+        power.name = nil
+        validate
+        expect(power.errors[:name]).to include "can't be blank"
       end
 
       it 'must be unique' do
         create(:power, name: 'foo')
-        model = build(:power, name: 'foo')
+        power.name = 'foo'
 
-        model.validate
-        expect(model.errors[:name]).to include 'must be unique'
+        validate
+
+        expect(power.errors[:name]).to include 'must be unique'
       end
     end
 
     describe 'power_type' do
       it "can't be blank" do
-        model = described_class.new(name: 'Foo', source: 'Black Book: Epistolary Acumen', description: 'My Power')
-
-        model.validate
-        expect(model.errors[:power_type]).to include "can't be blank"
+        power.power_type = nil
+        validate
+        expect(power.errors[:power_type]).to include "can't be blank"
       end
 
       it 'must be a valid value' do
-        model = build(:power, power_type: 'elemental')
-
-        model.validate
-        expect(model.errors[:power_type]).to include 'must be "greater", "lesser", or "ability"'
+        power.power_type = 'elemental'
+        validate
+        expect(power.errors[:power_type]).to include 'must be "greater", "lesser", or "ability"'
       end
     end
 
     describe 'source' do
       it "can't be blank" do
-        model = described_class.new(name: 'Foo', power_type: 'lesser', description: 'My Power')
-
-        model.validate
-        expect(model.errors[:source]).to include "can't be blank"
+        power.source = nil
+        validate
+        expect(power.errors[:source]).to include "can't be blank"
       end
     end
 
     describe 'description' do
       it "can't be blank" do
-        model = described_class.new(name: 'Foo', power_type: 'lesser', source: 'Somewhere idk')
+        power.description = nil
+        validate
+        expect(power.errors[:description]).to include "can't be blank"
+      end
+    end
 
-        model.validate
-        expect(model.errors[:description]).to include "can't be blank"
+    describe 'add_on' do
+      it "can't be blank" do
+        power.add_on = nil
+        validate
+        expect(power.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        power.add_on = 'fishing'
+        validate
+        expect(power.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
       end
     end
   end
