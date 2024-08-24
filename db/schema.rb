@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_24_055012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "updated_at", null: false
     t.string "description", null: false
     t.string "effect_type", null: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["name"], name: "index_alchemical_properties_on_name", unique: true
   end
 
@@ -70,9 +70,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "updated_at", null: false
     t.string "smithing_perks", default: [], array: true
     t.boolean "quest_reward", default: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_armors_on_item_code", unique: true
   end
 
@@ -92,9 +92,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_books_on_item_code", unique: true
   end
 
@@ -112,9 +112,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_clothing_items_on_item_code", unique: true
   end
 
@@ -130,9 +130,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "updated_at", null: false
     t.string "ingredient_type"
     t.boolean "purchase_requires_perk"
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_ingredients_on_item_code", unique: true
   end
 
@@ -164,9 +164,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_jewelry_items_on_item_code", unique: true
   end
 
@@ -198,9 +198,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.integer "max_quantity"
-    t.boolean "collectible"
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_misc_items_on_item_code", unique: true
   end
 
@@ -216,8 +216,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
-    t.string "add_on"
-    t.boolean "collectible"
+    t.string "add_on", null: false
+    t.boolean "collectible", null: false
     t.integer "max_quantity"
     t.index ["item_code"], name: "index_canonical_potions_on_item_code", unique: true
   end
@@ -267,7 +267,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.boolean "fish_hatchery_available", default: false
     t.boolean "cellar_available", default: false
     t.boolean "main_hall_available"
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["city"], name: "index_canonical_properties_on_city", unique: true
     t.index ["hold"], name: "index_canonical_properties_on_hold", unique: true
     t.index ["name"], name: "index_canonical_properties_on_name", unique: true
@@ -281,7 +281,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.decimal "unit_weight", precision: 5, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["item_code"], name: "index_canonical_raw_materials_on_item_code", unique: true
   end
 
@@ -303,8 +303,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
     t.integer "max_quantity"
-    t.string "add_on"
-    t.boolean "collectible"
+    t.string "add_on", null: false
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_staves_on_item_code", unique: true
   end
 
@@ -338,8 +338,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "updated_at", null: false
     t.boolean "quest_reward", default: false
     t.integer "max_quantity"
-    t.string "add_on"
-    t.boolean "collectible"
+    t.string "add_on", null: false
+    t.boolean "collectible", null: false
     t.index ["item_code"], name: "index_canonical_weapons_on_item_code", unique: true
   end
 
@@ -374,7 +374,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "school"
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["name"], name: "index_enchantments_on_name", unique: true
   end
 
@@ -490,7 +490,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["name"], name: "index_powers_on_name", unique: true
   end
 
@@ -549,7 +549,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_24_053020) do
     t.string "school", null: false
     t.string "level", null: false
     t.string "strength_unit"
-    t.string "add_on"
+    t.string "add_on", null: false
     t.index ["name"], name: "index_spells_on_name", unique: true
   end
 
