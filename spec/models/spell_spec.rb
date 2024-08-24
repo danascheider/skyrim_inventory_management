@@ -17,9 +17,9 @@ RSpec.describe Spell, type: :model do
 
       it 'must be unique' do
         create(:spell, name: 'Clairvoyance')
-        spell = described_class.new(name: 'Clairvoyance')
+        spell.name = 'Clairvoyance'
 
-        spell.validate
+        validate
         expect(spell.errors[:name]).to include 'must be unique'
       end
     end
@@ -89,7 +89,7 @@ RSpec.describe Spell, type: :model do
 
       it 'requires a valid strength_unit value' do
         spell.strength_unit = 'foo'
-        spell.validate
+        validate
         expect(spell.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
       end
     end
