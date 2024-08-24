@@ -40,6 +40,12 @@ class AlchemicalProperty < ApplicationRecord
               in: VALID_EFFECT_TYPES,
               message: 'must be "potion" or "poison"',
             }
+  validates :add_on,
+            presence: true,
+            inclusion: {
+              in: Canonical::SUPPORTED_ADD_ONS,
+              message: Canonical::UNSUPPORTED_ADD_ON_MESSAGE,
+            }
 
   def self.unique_identifier
     :name

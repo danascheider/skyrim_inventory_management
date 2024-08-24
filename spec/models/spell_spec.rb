@@ -4,100 +4,107 @@ require 'rails_helper'
 
 RSpec.describe Spell, type: :model do
   describe 'validations' do
-    describe 'name' do
-      it 'must be present' do
-        spell = described_class.new
+    subject(:validate) { spell.validate }
 
-        spell.validate
+    let(:spell) { build(:spell) }
+
+    describe 'name' do
+      it "can't be blank" do
+        spell.name = nil
+        validate
         expect(spell.errors[:name]).to include "can't be blank"
       end
 
       it 'must be unique' do
-        described_class.create!(name: 'Clairvoyance', school: 'Illusion', level: 'Novice', description: 'Something')
-        spell = described_class.new(name: 'Clairvoyance')
+        create(:spell, name: 'Clairvoyance')
+        spell.name = 'Clairvoyance'
 
-        spell.validate
+        validate
         expect(spell.errors[:name]).to include 'must be unique'
       end
     end
 
     describe 'school' do
-      it 'must be present' do
-        spell = described_class.new
-
-        spell.validate
+      it "can't be blank" do
+        spell.school = nil
+        validate
         expect(spell.errors[:school]).to include "can't be blank"
       end
 
       it 'must be a valid school of magic' do
-        spell = described_class.new(name: 'Alternation')
-
-        spell.validate
+        spell.school = 'Alternation'
+        validate
         expect(spell.errors[:school]).to include 'must be a valid school of magic'
       end
     end
 
     describe 'level' do
-      it 'must be present' do
-        spell = described_class.new
-
-        spell.validate
+      it "can't be blank" do
+        spell.level = nil
+        validate
         expect(spell.errors[:level]).to include "can't be blank"
       end
 
       it 'must be a valid level' do
-        spell = described_class.new
-
-        spell.validate
+        spell.level = 'Legendary'
+        validate
         expect(spell.errors[:level]).to include 'must be "Novice", "Apprentice", "Adept", "Expert", or "Master"'
       end
     end
 
     describe 'description' do
-      it 'must be present' do
-        spell = described_class.new
-
-        spell.validate
+      it "can't be blank" do
+        spell.description = nil
+        validate
         expect(spell.errors[:description]).to include "can't be blank"
       end
     end
 
     describe 'strength and strength_unit' do
       it 'is valid with both a strength and a strength_unit' do
-        spell = described_class.new(
-          strength: 50,
-          strength_unit: 'point',
-          name: 'Fire Rune',
-          level: 'Adept',
-          school: 'Destruction',
-          description: 'Hello world',
-        )
+        spell.strength = 50
+        spell.strength_unit = 'point'
 
         expect(spell).to be_valid
       end
 
       it 'is valid with neither a strength nor a strength_unit' do
-        spell = described_class.new(name: 'Clairvoyance', level: 'Novice', school: 'Illusion', description: 'Hello world')
+        spell.strength = nil
+        spell.strength_unit = nil
 
         expect(spell).to be_valid
       end
 
       it 'is invalid with a strength but no strength_unit' do
-        spell = described_class.new(strength: 50)
-        spell.validate
+        spell.strength = 50
+        validate
         expect(spell.errors[:strength_unit]).to include 'must be present if strength is given'
       end
 
       it 'is invalid with a strength_unit but no strength' do
-        spell = described_class.new(strength_unit: 'percentage')
-        spell.validate
+        spell.strength_unit = 'percentage'
+        validate
         expect(spell.errors[:strength]).to include 'must be present if strength unit is given'
       end
 
       it 'requires a valid strength_unit value' do
-        spell = described_class.new(strength: 50, strength_unit: 'foo')
-        spell.validate
+        spell.strength_unit = 'foo'
+        validate
         expect(spell.errors[:strength_unit]).to include 'must be "point", "percentage", or the "level" of affected targets'
+      end
+    end
+
+    describe 'add_on' do
+      it "can't be blank" do
+        spell.add_on = nil
+        validate
+        expect(spell.errors[:add_on]).to include "can't be blank"
+      end
+
+      it 'must be a supported add-on' do
+        spell.add_on = 'fishing'
+        validate
+        expect(spell.errors[:add_on]).to include 'must be a SIM-supported add-on or DLC'
       end
     end
   end

@@ -5,7 +5,8 @@
       "description": "Cures all diseases.",
       "strength_unit": null,
       "effects_cumulative": false,
-      "effect_type": "potion"
+      "effect_type": "potion",
+      "add_on": "base"
     }
   },
   {
@@ -14,7 +15,8 @@
       "description": "Causes <strength> points of poison damage.",
       "strength_unit": "point",
       "effects_cumulative": false,
-      "effect_type": "poison"
+      "effect_type": "poison",
+      "add_on": "base"
     }
   },
   {
@@ -23,7 +25,8 @@
       "description": "Drains the target's Magicka by <strength> points.",
       "strength_unit": "point",
       "effects_cumulative": false,
-      "effect_type": "poison"
+      "effect_type": "poison",
+      "add_on": "base"
     }
   },
   {
@@ -32,7 +35,8 @@
       "description": "Decreases the target's Magicka regeneration by <strength>% for <duration> seconds.",
       "strength_unit": "percentage",
       "effects_cumulative": false,
-      "effect_type": "poison"
+      "effect_type": "poison",
+      "add_on": "base"
     }
   }
 ]

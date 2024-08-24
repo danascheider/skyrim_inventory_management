@@ -5,5 +5,6 @@ FactoryBot.define do
     sequence(:name) {|n| "Alchemical Property #{n}" }
     description { 'Something magical' }
     effect_type { 'potion' }
+    add_on { 'base' }
   end
 end
