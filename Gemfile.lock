@@ -99,9 +99,10 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
+    faraday (2.11.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      logger
+    faraday-net_http (3.3.0)
       net-http
     ffi (1.16.3)
     globalid (1.2.1)
@@ -295,7 +296,7 @@ DEPENDENCIES
   byebug (~> 11.1)
   database_cleaner-active_record (~> 2.2)
   factory_bot_rails (~> 6.4.3)
-  faraday (~> 2.9.0)
+  faraday (~> 2.11.0)
   listen (~> 3.9)
   pg (~> 1.5)
   puma (~> 6.4.2)
