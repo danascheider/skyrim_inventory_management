@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.21', require: false
 
   # Use Rubocop to lint factories
-  gem 'rubocop-factory_bot', '~> 2.25', require: false
+  gem 'rubocop-factory_bot', '~> 2.26', require: false
 
   # Use WebMock to mock HTTP requests, mainly for auth purposes
   gem 'webmock', '~> 3.23'
