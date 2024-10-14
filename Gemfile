@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rubocop-factory_bot', '~> 2.26', require: false
 
   # Use WebMock to mock HTTP requests, mainly for auth purposes
-  gem 'webmock', '~> 3.23'
+  gem 'webmock', '~> 3.24'
 end
 
 group :development do

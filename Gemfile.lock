@@ -71,8 +71,8 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -108,7 +108,7 @@ GEM
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -158,7 +158,7 @@ GEM
     pg (1.5.8)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.5)
+    public_suffix (6.0.1)
     puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -272,7 +272,7 @@ GEM
     unicode-display_width (2.6.0)
     uri (0.13.1)
     useragent (0.16.10)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -307,7 +307,7 @@ DEPENDENCIES
   rubocop-rspec (~> 2.29)
   spring (~> 4.2)
   timecop (~> 0.9.10)
-  webmock (~> 3.23)
+  webmock (~> 3.24)
 
 RUBY VERSION
    ruby 3.3.4p94
