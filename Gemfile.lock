@@ -99,8 +99,9 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faraday (2.11.0)
+    faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
+      json
       logger
     faraday-net_http (3.3.0)
       net-http
@@ -269,7 +270,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
-    uri (0.13.0)
+    uri (0.13.1)
     useragent (0.16.10)
     webmock (3.23.1)
       addressable (>= 2.8.0)
@@ -293,7 +294,7 @@ DEPENDENCIES
   byebug (~> 11.1)
   database_cleaner-active_record (~> 2.2)
   factory_bot_rails (~> 6.4.3)
-  faraday (~> 2.11.0)
+  faraday (~> 2.12.0)
   listen (~> 3.9)
   pg (~> 1.5)
   puma (~> 6.4.3)
