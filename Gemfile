@@ -37,7 +37,7 @@ group :development, :test do
   gem 'database_cleaner-active_record', '~> 2.2'
 
   # Use FactoryBot to create models for tests
-  gem 'factory_bot_rails', '~> 6.4.3'
+  gem 'factory_bot_rails', '~> 6.4.4'
 
   # Use Rubocop to enforce style guide
   gem 'rubocop-rails', '~> 2.26', require: false
