@@ -40,7 +40,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.4.4'
 
   # Use Rubocop to enforce style guide
-  gem 'rubocop-rails', '~> 2.26', require: false
+  gem 'rubocop-rails', '~> 2.27', require: false
 
   # Use Rubocop to enforce RSpec styles
   gem 'rubocop-rspec', '~> 2.29', require: false
